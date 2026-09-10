@@ -24,3 +24,7 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 imaging_metadata_converter = ["data/*.json"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

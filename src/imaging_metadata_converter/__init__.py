@@ -7,7 +7,7 @@ Dict in, dict out:
     common = convert_metadata({'Make': 'Acme', 'Model': 'Widget-1000'})
 """
 
-from .mapper import (
+from .AcquisitionMetadataMapper import (
     DEFAULT_MAPPINGS_FILE,
     DEFAULT_SCHEMA_FILE,
     AcquisitionMetadataMapper,
