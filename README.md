@@ -97,6 +97,28 @@ Each field's dotted source path is resolved in two steps:
 Fields matching neither step are kept at their original path, so no data is
 lost.
 
+### Vendor tag wrappers
+
+A reader that takes its metadata straight from a file's tags commonly keys
+each vendor's blob by the tag it came from, so a Phenom file arrives as
+`{'FEI_TITAN': {...}}` and a Zeiss one as `{'FibicsXML': {...}}`. That extra
+level is not part of any rule, and it would stop every rule below it from
+matching, so a top-level key is dropped when both hold:
+
+- **no rule and no model field names it**, so it is not a namespace this
+  model has an opinion about. A key that *is* part of the mapped paths
+  (`Beam` in `Beam.WD`), or a vendor namespace a rule names (TALOS
+  `CustomProperties`), is never stripped - however well its fields would
+  resolve without it.
+- **dropping it lets strictly more of the subtree resolve**, so an
+  unrecognised key whose contents gain nothing stays where it is.
+
+Both tests are answered by the rules themselves rather than by a list of
+vendor tag names here, so a vendor this file has never seen is unwrapped
+too. Several vendor tags in one file are each unwrapped in turn, and a plain
+tag value beside them (`Make`, `Model`, `Software`) is kept as it is. A field
+already present at the top level wins over one lifted out of a wrapper.
+
 ### Mapping rules
 
 A `mappings.json` entry is `"source path": "target path"`. There are four
@@ -167,6 +189,32 @@ item. `Image:0` and `Image:1` become two items rather than colliding.
 - A path containing `.metadata.` also retries the part after it against the
   exact rules, so a Talos-style operation that embeds a second copy of the
   acquisition metadata below a generated UUID reuses the normal mappings.
+
+## Flattening
+
+`flatten_dict` reduces a nested metadata dict to one entry per leaf, keyed
+by dotted path, which is the form the resolution steps above work in:
+
+```python
+from imaging_metadata_converter import flatten_dict
+
+flatten_dict({'Scan': {'Resolution': {'X': 1024}}})
+# {'Scan.Resolution.X': 1024}
+
+flatten_dict({'Detectors': [{'Name': 'QBSD'}, {'Name': 'SED'}]})
+# {'Detectors.0.Name': 'QBSD', 'Detectors.1.Name': 'SED'}
+```
+
+List and tuple items are keyed by their index. Keys are joined with dots and
+are otherwise left exactly as they are - a source key that itself contains
+colons stays a single path segment, since the OME
+`Annotation:CustomAttributes:SVI:Image:0` annotations are real keys of that
+shape rather than paths:
+
+```python
+flatten_dict({'Annotation:CustomAttributes:SVI:Image:0': {'RefrIndexMedium': 1.515}})
+# {'Annotation:CustomAttributes:SVI:Image:0.RefrIndexMedium': 1.515}
+```
 
 ## The model format
 

@@ -36,6 +36,8 @@ class AcquisitionMetadataMapper:
         self.schema = self._load_json(schema_file)
         self.mappings = self._load_json(mappings_file)
         self._schema_index = self._build_schema_index(self.schema)
+        self._known_keys, self._known_key_patterns = self._build_known_key_index(
+            self.mappings, self.schema)
 
     @staticmethod
     def _load_json(file_path):
@@ -77,6 +79,33 @@ class AcquisitionMetadataMapper:
         for suffix in ambiguous:
             del index[suffix]
         return index
+
+    @classmethod
+    def _build_known_key_index(cls, mappings, schema):
+        """Index the top-level key names the rules and the model do know.
+
+        Returns the literal first path segment of every mapping rule plus
+        every schema field name, and separately those first segments that
+        contain a wildcard (the OME annotation rules), which have to be
+        matched rather than looked up.
+        """
+        known = set()
+        patterns = set()
+        for pattern in mappings:
+            first_segment = pattern.split('.')[0]
+            if '*' in first_segment:
+                patterns.add(first_segment)
+            else:
+                known.add(first_segment)
+        for leaf_path in cls._schema_leaf_paths(schema):
+            known.update(leaf_path.split('.'))
+        return known, patterns
+
+    def _is_known_key(self, key):
+        """Report whether any rule or the model itself names `key`."""
+        if key in self._known_keys:
+            return True
+        return any(fnmatchcase(key, pattern) for pattern in self._known_key_patterns)
 
     def _resolve_schema_path(self, source_path):
         """Resolve a dotted source path via the schema fallback, or None."""
@@ -312,6 +341,53 @@ class AcquisitionMetadataMapper:
                 set_nested_value(result, target_path or source_path, value)
         return result
 
+    def _resolvable_leaf_count(self, metadata, prefix=''):
+        """Count the leaves of `metadata` that resolve onto the model."""
+        return sum(
+            1 for source_path in flatten_dict(metadata, prefix)
+            if self._resolve_target_path(source_path) is not None
+        )
+
+    def _is_vendor_wrapper(self, key, value):
+        """Report whether `key` only wraps `value`, contributing no meaning.
+
+        A source that reads its metadata straight from a file's tags
+        commonly keys each vendor's blob by the tag it came from
+        ("FEI_TITAN", "FibicsXML", ...), a level the mapping rules know
+        nothing about and which stops every rule below it from matching.
+        Rather than keep a list of vendor tag names here, take a key to be
+        a wrapper only when both hold:
+
+        - no rule and no model field names it, so it is not a namespace
+          this model has an opinion about. A key that *is* part of the
+          mapped paths ("Beam" in "Beam.WD", or a vendor namespace such as
+          "CustomProperties") is named by a rule and so is never stripped,
+          however well its fields would resolve without it.
+        - dropping it lets strictly more of the subtree resolve, so an
+          unrecognised key whose contents gain nothing stays put.
+        """
+        if self._is_known_key(str(key)):
+            return False
+        return (self._resolvable_leaf_count(value)
+                > self._resolvable_leaf_count(value, str(key)))
+
+    def _strip_vendor_wrappers(self, metadata):
+        """Lift the fields of any top-level vendor wrapper up one level.
+
+        Only the top level is considered, since that is where a per-tag
+        wrapper appears. A field already present at the top level wins
+        over one lifted out of a wrapper, so nothing that was addressable
+        before is displaced.
+        """
+        stripped = {}
+        for key, value in metadata.items():
+            if isinstance(value, dict) and self._is_vendor_wrapper(key, value):
+                for inner_key, inner_value in value.items():
+                    stripped.setdefault(inner_key, inner_value)
+            else:
+                stripped.setdefault(key, value)
+        return stripped
+
     def convert_metadata(self, metadata):
         """Map a single in-memory metadata dict onto the consolidated schema.
 
@@ -320,7 +396,30 @@ class AcquisitionMetadataMapper:
         if not isinstance(metadata, dict):
             raise TypeError('metadata must be a dict')
 
-        return self._apply_mappings(metadata)
+        return self._apply_mappings(self._strip_vendor_wrappers(metadata))
+
+
+def flatten_dict(dct, prefix=''):
+    """Return `dct` flattened to one entry per leaf, keyed by dotted path.
+
+    List and tuple items are keyed by their index, so a leaf below the
+    second item of "Channels" becomes "Channels.1.Name". Keys are joined
+    with dots and are otherwise left exactly as they are: a source key
+    that itself contains colons (the OME
+    "Annotation:CustomAttributes:SVI:Image:0" annotations are real keys of
+    that shape) stays one single path segment.
+    """
+    flat_dct = {}
+    for key, value in dct.items():
+        full_key = f'{prefix}.{key}' if prefix else str(key)
+        if isinstance(value, dict):
+            flat_dct.update(flatten_dict(value, full_key))
+        elif isinstance(value, (list, tuple)):
+            for index, item in enumerate(value):
+                flat_dct.update(flatten_dict({str(index): item}, full_key))
+        else:
+            flat_dct[full_key] = value
+    return flat_dct
 
 
 def resolve_exact_path(source_path, mappings):

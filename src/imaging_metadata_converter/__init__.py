@@ -11,6 +11,7 @@ from .AcquisitionMetadataMapper import (
     DEFAULT_MAPPINGS_FILE,
     DEFAULT_SCHEMA_FILE,
     AcquisitionMetadataMapper,
+    flatten_dict,
 )
 
 __all__ = [
@@ -18,6 +19,7 @@ __all__ = [
     'DEFAULT_MAPPINGS_FILE',
     'DEFAULT_SCHEMA_FILE',
     'convert_metadata',
+    'flatten_dict',
 ]
 
 __version__ = '0.1.0'
