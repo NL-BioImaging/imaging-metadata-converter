@@ -69,15 +69,12 @@
   list-style: none;
 }
 
+/* Open/closed state is set inline by model-tree.js, not here, so the theme's
+   list styling cannot override it. These rules are indentation only. */
 .md-typeset .mt-children {
-  display: none;
   margin-left: .75rem;
   padding-left: .45rem;
   border-left: 1px solid var(--md-default-fg-color--lightest);
-}
-
-.md-typeset .mt-item.mt-open > .mt-children {
-  display: block;
 }
 
 .md-typeset .mt-item {

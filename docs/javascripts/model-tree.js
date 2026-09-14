@@ -87,6 +87,7 @@
 
     if (!leaf) {
       var children = el('ul', 'mt-children');
+      children.style.display = 'none';   /* every group starts collapsed */
       Object.keys(value).forEach(function (childKey) {
         children.appendChild(buildNode(
           childKey, value[childKey], path + '.' + childKey,
@@ -105,8 +106,14 @@
     return null;
   }
 
+  /* Expansion is driven by an inline style rather than a stylesheet rule, so
+   * it cannot be out-specified by the theme's own list styling - and the tree
+   * still opens and closes if model-tree.css fails to load at all. */
   function setOpen(item, open) {
+    var children = childList(item);
+    if (!children) return;
     item.classList.toggle('mt-open', open);
+    children.style.display = open ? 'block' : 'none';
     var toggle = item.querySelector('.mt-row > .mt-toggle');
     if (toggle && toggle.parentElement.parentElement === item) {
       toggle.setAttribute('aria-expanded', String(open));
@@ -158,7 +165,7 @@
       if (children && onlyExtended) self = false;
 
       var visible = self || kidMatched;
-      item.hidden = !visible;
+      item.style.display = visible ? '' : 'none';
       item.classList.toggle('mt-match', self && filtering);
       if (filtering && kidMatched) setOpen(item, true);
       if (self && !children) shown += 1;
@@ -187,8 +194,11 @@
     })).then(function (loaded) {
       render(container, status, loaded[0], loaded[1], loaded[2]);
     }).catch(function (error) {
-      status.textContent = 'Could not load the model files: ' + error.message;
+      /* Say so on the page: a silent half-built tree is the hard thing to
+       * diagnose, since the controls are there but nothing responds. */
+      status.textContent = 'Model browser failed: ' + error.message;
       status.classList.add('mt-error');
+      if (window.console) window.console.error(error);
     });
   }
 
