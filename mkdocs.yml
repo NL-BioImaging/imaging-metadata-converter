@@ -1,0 +1,61 @@
+site_name: imaging-metadata-converter
+site_url: https://nl-bioimaging.github.io/imaging-metadata-converter/
+site_description: Convert custom imaging acquisition metadata to common metadata
+
+repo_name: imaging-metadata-converter
+repo_url: https://github.com/NL-BioImaging/imaging-metadata-converter
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [src]
+          options:
+            show_submodules: true
+            show_if_no_docstring: true
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+# The model browser on model.md is plain JS reading docs/data/*.json, mirrored
+# from the packaged data files by scripts/sync_docs_data.py.
+extra_css:
+  - stylesheets/model-tree.css
+
+extra_javascript:
+  - javascripts/model-tree.js
+
+nav:
+  - Home: index.md
+  - The model: model.md
+  - API reference: reference.md
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.top
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode

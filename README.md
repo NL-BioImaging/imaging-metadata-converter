@@ -274,7 +274,7 @@ mapping entry fills, one item per matched source instance.
 ## Data files
 
 - `src/imaging_metadata_converter/data/schema.extended.json` - the model used
-  for conversion: the base model plus the extensions (2003 fields, adding the
+  for conversion: the base model plus the extensions (2006 fields, adding the
   electron-microscopy sections `ElectronSource`, `ElectronBeam`,
   `ElectronOptics`, `Scan`, `Acquisition`, `Operations`, `Features` and
   `CustomProperties`).

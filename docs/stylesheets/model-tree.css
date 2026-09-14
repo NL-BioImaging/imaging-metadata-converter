@@ -1,0 +1,202 @@
+/* Styling for the interactive model browser (docs/javascripts/model-tree.js).
+   Colours come from the Material theme variables so light and dark both work. */
+
+.mt-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  align-items: center;
+  margin: .8rem 0 .4rem;
+}
+
+.mt-search {
+  flex: 1 1 16rem;
+  min-width: 0;
+  padding: .35rem .6rem;
+  font-size: .75rem;
+  color: var(--md-default-fg-color);
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .2rem;
+}
+
+.mt-select,
+.mt-button {
+  padding: .35rem .6rem;
+  font-size: .7rem;
+  color: var(--md-default-fg-color);
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .2rem;
+  cursor: pointer;
+}
+
+.mt-button:hover,
+.mt-select:hover {
+  border-color: var(--md-accent-fg-color);
+}
+
+.mt-check {
+  display: inline-flex;
+  gap: .3rem;
+  align-items: center;
+  font-size: .7rem;
+  color: var(--md-default-fg-color--light);
+  cursor: pointer;
+  user-select: none;
+}
+
+.mt-check input:disabled + span {
+  opacity: .45;
+}
+
+.mt-status {
+  margin: 0 0 .4rem;
+  font-size: .68rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.mt-status.mt-error {
+  color: var(--md-typeset-del-color, #c62828);
+}
+
+/* Tree ------------------------------------------------------------------ */
+
+.md-typeset .mt-tree,
+.md-typeset .mt-children {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset .mt-children {
+  display: none;
+  margin-left: .75rem;
+  padding-left: .45rem;
+  border-left: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .mt-item.mt-open > .mt-children {
+  display: block;
+}
+
+.md-typeset .mt-item {
+  margin: 0;
+}
+
+.mt-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  align-items: center;
+  padding: .1rem .25rem;
+  border-radius: .15rem;
+  line-height: 1.5;
+}
+
+.mt-row:hover {
+  background: var(--md-default-fg-color--lightest);
+}
+
+.mt-toggle {
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  color: var(--md-default-fg-color--light);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.mt-toggle::before {
+  content: "▸";
+  display: inline-block;
+  font-size: .7rem;
+  transition: transform .12s ease;
+}
+
+.mt-item.mt-open > .mt-row > .mt-toggle::before {
+  transform: rotate(90deg);
+}
+
+.mt-bullet {
+  width: 1rem;
+  text-align: center;
+  color: var(--md-default-fg-color--lighter);
+}
+
+.mt-name {
+  font-family: var(--md-code-font-family, monospace);
+  font-size: .72rem;
+  color: var(--md-default-fg-color);
+  cursor: pointer;
+}
+
+.mt-name:hover {
+  color: var(--md-accent-fg-color);
+}
+
+.mt-name.mt-copied::after {
+  content: " copied";
+  font-size: .6rem;
+  color: var(--md-accent-fg-color);
+}
+
+.mt-count {
+  font-size: .6rem;
+  color: var(--md-default-fg-color--lighter);
+}
+
+/* Badges ---------------------------------------------------------------- */
+
+.mt-type,
+.mt-flag {
+  padding: 0 .3rem;
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  border-radius: .6rem;
+  white-space: nowrap;
+}
+
+.mt-type {
+  color: var(--md-default-bg-color);
+  background: var(--md-default-fg-color--light);
+}
+
+.mt-type-string { background: #4a7fb5; }
+.mt-type-number { background: #2f8f6b; }
+.mt-type-integer { background: #3f8f8a; }
+.mt-type-boolean { background: #9a6ab8; }
+.mt-type-array { background: #c07a2c; }
+.mt-type-object { background: #a05a5a; }
+
+.mt-flag {
+  color: var(--md-default-fg-color--light);
+  background: transparent;
+  border: 1px solid var(--md-default-fg-color--lighter);
+}
+
+.mt-flag-ext {
+  color: #c07a2c;
+  border-color: #c07a2c;
+}
+
+.mt-flag-mapped {
+  color: #2f8f6b;
+  border-color: #2f8f6b;
+  cursor: help;
+}
+
+/* Filter and deep-link states ------------------------------------------- */
+
+.mt-item.mt-match > .mt-row > .mt-name {
+  color: var(--md-accent-fg-color);
+  font-weight: 700;
+}
+
+.mt-item.mt-target > .mt-row {
+  background: var(--md-accent-fg-color--transparent, rgba(255, 145, 0, .15));
+  outline: 1px solid var(--md-accent-fg-color);
+}
