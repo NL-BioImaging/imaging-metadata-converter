@@ -1,0 +1,61 @@
+name: docs
+
+on:
+  push:
+    branches: [main]
+  # Catches a broken docs build in review; the deploy job below is skipped.
+  pull_request:
+    branches: [main]
+  # Lets a failed or superseded publish be re-run from the Actions tab.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install
+        run: pip install -e ".[docs]" pytest
+
+      # docs/data holds copies of the packaged model files that model.md
+      # fetches at runtime; this fails the build rather than publishing a
+      # model browser that shows a stale model.
+      - name: Check docs data is in sync
+        run: python scripts/sync_docs_data.py --check
+
+      - name: Test
+        run: python -m pytest tests -q
+
+      - name: Build
+        run: python -m mkdocs build --strict
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
