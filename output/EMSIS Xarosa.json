@@ -1,0 +1,36 @@
+{
+  "Instrument": {
+    "Manufacturer": "EMSIS",
+    "Model": "Xarosa"
+  },
+  "Image": {
+    "Plane": {
+      "ExposureTime": [
+        41,
+        5000
+      ]
+    },
+    "AcquisitionDate": "2025-05-28T10:54:00",
+    "Pixels": {
+      "SizeX": 5120,
+      "SizeY": 3840,
+      "PhysicalSizeX": 1.652845302290227e-09,
+      "PhysicalSizeY": 1.652845302290227e-09
+    },
+    "Name": "",
+    "Type": ""
+  },
+  "ExifVersion": "0210",
+  "MeteringMode": 1,
+  "FlashpixVersion": "0100",
+  "ColorSpace": 1,
+  "ExposureMode": 1,
+  "Magnification": {
+    "Objective": {
+      "CalibratedMagnification": 6000.0
+    }
+  },
+  "Detector": {
+    "Name": ""
+  }
+}

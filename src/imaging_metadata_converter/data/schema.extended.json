@@ -10,6 +10,7 @@
 			"BufferVacuum": "number",
 			"GunVacuum": "number",
 			"SampleVacuum": "number",
+			"SystemVacuum": "number",
 			"VacuumMode": "string"
 		},
 		"Description": "string"
@@ -1317,6 +1318,10 @@
 					"Unit": "string"
 				},
 				"Z": {
+					"Value": "number",
+					"Unit": "string"
+				},
+				"M": {
 					"Value": "number",
 					"Unit": "string"
 				}

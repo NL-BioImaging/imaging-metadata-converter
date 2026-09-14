@@ -1,0 +1,11 @@
+{
+  "Instrument": {
+    "Manufacturer": "Delmic B.V.",
+    "Model": "Fast EM"
+  },
+  "Software": {
+    "AcquisitionSoftware": {
+      "Name": "asm_service 1.2.3"
+    }
+  }
+}
