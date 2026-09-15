@@ -40,6 +40,7 @@ extra_javascript:
 nav:
   - Home: index.md
   - The model: model.md
+  - Model map: model-map.md
   - API reference: reference.md
 
 theme:
