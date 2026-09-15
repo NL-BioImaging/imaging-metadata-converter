@@ -1,7 +1,68 @@
 /* Styling for the generated model map (docs/model-map.md).
 
-   The map itself is a Mermaid diagram that carries its own colours in
-   classDef, so all that is needed here is the legend swatch. */
+   The diagram carries baseline colours in its own classDef, which is what
+   renders anywhere the Markdown goes - GitHub included. These rules
+   sharpen them for the two Material schemes, where one compromise colour
+   cannot serve both: a tint that reads on white is nearly invisible on
+   slate, and the reverse. Mermaid writes classDef colours as inline
+   styles, so overriding them needs !important.
+
+   Class names come from the generator: g/f for group or field, base/ext
+   for which model the path belongs to. */
+
+/* Light ------------------------------------------------------------- */
+
+[data-md-color-scheme="default"] .mermaid g.gext > rect {
+  fill: #b7d0e8 !important;
+  stroke: #2f6fa8 !important;
+}
+
+[data-md-color-scheme="default"] .mermaid g.fext > rect {
+  fill: #e2edf7 !important;
+  stroke: #4a7fb5 !important;
+}
+
+[data-md-color-scheme="default"] .mermaid g.gbase > rect {
+  fill: #e8e8e8 !important;
+  stroke: #5f6368 !important;
+}
+
+[data-md-color-scheme="default"] .mermaid g.fbase > rect {
+  fill: #fff !important;
+  stroke: #80868b !important;
+}
+
+/* Dark -------------------------------------------------------------- */
+
+[data-md-color-scheme="slate"] .mermaid g.gext > rect {
+  fill: #2d5f8a !important;
+  stroke: #8fc0e8 !important;
+}
+
+[data-md-color-scheme="slate"] .mermaid g.fext > rect {
+  fill: #1e3f5c !important;
+  stroke: #6fa5d2 !important;
+}
+
+[data-md-color-scheme="slate"] .mermaid g.gbase > rect {
+  fill: #3a3f45 !important;
+  stroke: #b0b6bd !important;
+}
+
+[data-md-color-scheme="slate"] .mermaid g.fbase > rect {
+  fill: #26292e !important;
+  stroke: #8a9199 !important;
+}
+
+/* Labels sit on those fills, so they follow the scheme rather than
+   Mermaid's own label colour. */
+[data-md-color-scheme="default"] .mermaid .nodeLabel {
+  color: #1a1c1e !important;
+}
+
+[data-md-color-scheme="slate"] .mermaid .nodeLabel {
+  color: #eceff1 !important;
+}
 
 .map-key {
   padding: 0 .35rem;

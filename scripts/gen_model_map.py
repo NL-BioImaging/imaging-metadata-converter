@@ -38,10 +38,17 @@ BEGIN = '<!-- begin generated map: scripts/gen_model_map.py -->'
 END = '<!-- end generated map -->'
 
 BLUE = '#4a7fb5'
-# Stroke and fill only, never the label colour, so a base name keeps
-# whatever the Material palette uses and both schemes stay readable.
-BASE_STYLE = 'fill:none,stroke:#8a8a8a,stroke-width:1px'
-EXT_STYLE = f'fill:{BLUE}22,stroke:{BLUE},stroke-width:2px'
+# Four styles, so both distinctions carry colour as well as shape: base
+# against extension, and a group against a field inside it. Stroke and
+# fill only, never the label colour, so a name keeps whatever the
+# Material palette uses and both schemes stay readable. These are the
+# baseline; docs/stylesheets/model-map.css sharpens them per scheme.
+STYLES = {
+    'gbase': 'fill:#8a8a8a26,stroke:#5f6368,stroke-width:2px',
+    'fbase': 'fill:none,stroke:#8a8a8a,stroke-width:1.5px',
+    'gext': f'fill:{BLUE}88,stroke:#2f6fa8,stroke-width:2.5px',
+    'fext': f'fill:{BLUE}3a,stroke:{BLUE},stroke-width:2px',
+}
 
 # Rough rendered size of a node, used only to pick how many section blocks
 # go in a row. Being a little off shifts the shape, never the content.
@@ -183,15 +190,11 @@ def diagram(sections):
     sizes = [block_size(section) for section in sections]
     rows, width, height = best_packing(sizes)
 
-    lines = [
-        '```mermaid',
-        'flowchart LR',
-        f'classDef base {BASE_STYLE}',
-        f'classDef ext {EXT_STYLE}',
-    ]
+    lines = ['```mermaid', 'flowchart LR']
+    lines.extend(f'classDef {name} {style}' for name, style in STYLES.items())
 
     ids = {}
-    classed = {'base': [], 'ext': []}
+    classed = {name: [] for name in STYLES}
     counter = 0
     for index, section in enumerate(sections):
         lines.append(f'subgraph s{index} [" "]')
@@ -199,7 +202,9 @@ def diagram(sections):
         for node in section.walk():
             ids[node.path] = f'n{counter}'
             counter += 1
-            classed['ext' if node.new else 'base'].append(ids[node.path])
+            group = 'g' if node.children else 'f'
+            kind = group + ('ext' if node.new else 'base')
+            classed[kind].append(ids[node.path])
             shape = f'["{node.name}"]' if node.children else f'("{node.name}")'
             lines.append(f'{ids[node.path]}{shape}')
         for node in section.walk():

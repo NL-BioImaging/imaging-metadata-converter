@@ -10,8 +10,10 @@ comes from the electron-microscopy extensions rather than from `schema.json`.
 
 ```mermaid
 flowchart LR
-classDef base fill:none,stroke:#8a8a8a,stroke-width:1px
-classDef ext fill:#4a7fb522,stroke:#4a7fb5,stroke-width:2px
+classDef gbase fill:#8a8a8a26,stroke:#5f6368,stroke-width:2px
+classDef fbase fill:none,stroke:#8a8a8a,stroke-width:1.5px
+classDef gext fill:#4a7fb588,stroke:#2f6fa8,stroke-width:2.5px
+classDef fext fill:#4a7fb53a,stroke:#4a7fb5,stroke-width:2px
 subgraph s0 [" "]
 direction LR
 n0["Instrument"]
@@ -415,8 +417,10 @@ end
 s0~~~s1~~~s2~~~s3~~~s4~~~s5
 s6~~~s7~~~s8~~~s9~~~s10~~~s11
 s12~~~s13~~~s14~~~s15
-class n0,n1,n4,n8,n9,n10,n11,n14,n15,n16,n69,n73,n74,n75,n76,n77,n78,n79,n80,n81,n82,n83,n84,n85,n86,n99,n101,n102,n156,n157,n158,n159,n160,n161,n162,n172,n173,n174,n175,n176,n177,n178,n179,n180 base
-class n2,n3,n5,n6,n7,n12,n13,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30,n31,n32,n33,n34,n35,n36,n37,n38,n39,n40,n41,n42,n43,n44,n45,n46,n47,n48,n49,n50,n51,n52,n53,n54,n55,n56,n57,n58,n59,n60,n61,n62,n63,n64,n65,n66,n67,n68,n70,n71,n72,n87,n88,n89,n90,n91,n92,n93,n94,n95,n96,n97,n98,n100,n103,n104,n105,n106,n107,n108,n109,n110,n111,n112,n113,n114,n115,n116,n117,n118,n119,n120,n121,n122,n123,n124,n125,n126,n127,n128,n129,n130,n131,n132,n133,n134,n135,n136,n137,n138,n139,n140,n141,n142,n143,n144,n145,n146,n147,n148,n149,n150,n151,n152,n153,n154,n155,n163,n164,n165,n166,n167,n168,n169,n170,n171,n181,n182,n183 ext
+class n0,n8,n9,n14,n69,n73,n74,n77,n101,n102,n156,n157,n172,n173,n177,n179 gbase
+class n1,n4,n10,n11,n15,n16,n75,n76,n78,n79,n80,n81,n82,n83,n84,n85,n86,n99,n158,n159,n160,n161,n162,n174,n175,n176,n178,n180 fbase
+class n6,n17,n18,n21,n22,n28,n30,n33,n37,n40,n43,n47,n49,n52,n53,n54,n57,n60,n62,n65,n88,n94,n103,n104,n107,n110,n113,n116,n119,n121,n123,n126,n127,n130,n133,n136,n139,n142,n145,n149,n150,n153,n163,n165,n166 gext
+class n2,n3,n5,n7,n12,n13,n19,n20,n23,n24,n25,n26,n27,n29,n31,n32,n34,n35,n36,n38,n39,n41,n42,n44,n45,n46,n48,n50,n51,n55,n56,n58,n59,n61,n63,n64,n66,n67,n68,n70,n71,n72,n87,n89,n90,n91,n92,n93,n95,n96,n97,n98,n100,n105,n106,n108,n109,n111,n112,n114,n115,n117,n118,n120,n122,n124,n125,n128,n129,n131,n132,n134,n135,n137,n138,n140,n141,n143,n144,n146,n147,n148,n151,n152,n154,n155,n164,n167,n168,n169,n170,n171,n181,n182,n183 fext
 ```
 
 The **137 fields** some rule in `mappings.json` targets — what the converter can actually fill in — with the groups above them, 184 boxes over 16 sections. Rounded boxes are the targeted fields themselves; square boxes are the groups holding them. <span class="map-key">Blue</span> is a path `schema.json` does not have: 102 of the 137 targets come from the electron-microscopy extensions.
