@@ -34,11 +34,13 @@ How to use it:
 An unbadged field is one no mapping rule targets yet. That is not a gap in the
 model — it is a field awaiting a source that provides it.
 
-## Where each element comes from
+## What the converter produces
 
-The [model map](model-map.md) shows every leaf of the extended model on one
-page, coloured by origin: the base model in black and what the extended model
-adds in blue.
+The [model map](model-map.md) is the other side of that: one picture of the
+fields some rule *does* target, drawn under the groups that hold them, with a
+block per section. Paths the base model does not have are blue there, so the
+map also shows how much of the converter's output comes from the
+electron-microscopy extensions rather than from `schema.json`.
 
 ## How the two models relate
 
