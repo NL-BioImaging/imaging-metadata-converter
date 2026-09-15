@@ -1,35 +1,434 @@
 # Model map
 
-Every leaf of the extended model on one page, grouped by its parent path and
-coloured by where it comes from: the base model in the theme's own text
-colour, and what the extended model adds in blue. Unlike the
-[model browser](model.md), nothing here is collapsed or filtered — it is the
-whole model at once, for reading the shape of it rather than looking a single
-field up.
+One picture of what the converter actually produces: every field a mapping
+rule targets, shown under the groups that hold it, with each top-level section
+as its own block. <span class="map-key">Blue</span> marks a path the base
+model does not have, so the map also shows how much of the converter's output
+comes from the electron-microscopy extensions rather than from `schema.json`.
 
 <!-- begin generated map: scripts/gen_model_map.py -->
 
 ```mermaid
 flowchart LR
-  classDef base fill:none,stroke:#6b6b6b,stroke-width:1px
-  classDef ext fill:#4a7fb522,stroke:#4a7fb5,stroke-width:2px
-
-  g_Instrument["<b>Instrument</b><br/>Name<br/>ID<br/><span style="color:#4a7fb5">Manufacturer</span><br/><span style="color:#4a7fb5">Model</span><br/><span style="color:#4a7fb5">Type</span><br/><span style="color:#4a7fb5">ComputerName</span><br/>Description"]:::base ~~~ g_Instrument_Vacuum["<b>Instrument.Vacuum</b><br/><span style="color:#4a7fb5">BufferVacuum</span><br/><span style="color:#4a7fb5">GunVacuum</span><br/><span style="color:#4a7fb5">SampleVacuum</span><br/><span style="color:#4a7fb5">SystemVacuum</span><br/><span style="color:#4a7fb5">VacuumMode</span>"]:::ext ~~~ g_Image["<b>Image</b><br/>Name<br/>ID<br/>AcquisitionDate<br/>InstrumentName<br/>InstrumentID<br/>StageInsert<br/>FocusStabilizationDevice<br/>AcquisitionSoftware<br/>Description<br/><span style="color:#4a7fb5">Type</span><br/><span style="color:#4a7fb5">BinaryResult</span>"]:::base ~~~ g_Image_CropHint["<b>Image.CropHint</b><br/><span style="color:#4a7fb5">Left</span><br/><span style="color:#4a7fb5">Right</span><br/><span style="color:#4a7fb5">Top</span><br/><span style="color:#4a7fb5">Bottom</span>"]:::ext ~~~ g_Image_Corrections["<b>Image.Corrections</b><br/><span style="color:#4a7fb5">Contrast</span><br/><span style="color:#4a7fb5">Brightness</span><br/><span style="color:#4a7fb5">Gamma</span><br/><span style="color:#4a7fb5">BlackLevel</span><br/><span style="color:#4a7fb5">WhiteLevel</span>"]:::ext ~~~ g_Image_Pixels["<b>Image.Pixels</b><br/>ID<br/>DimensionOrder<br/>SizeX<br/>SizeY<br/>SizeZ<br/>SizeC<br/>SizeT<br/>PhysicalSizeX<br/>PhysicalSizeXUnit<br/>PhysicalSizeY<br/>PhysicalSizeYUnit<br/>PhysicalSizeZ<br/>PhysicalSizeZUnit<br/>TimeIncrement<br/>TimeIncrementUnit<br/>PixelType<br/>Interleaved<br/>SignificantBits<br/>BigEndian"]:::base ~~~ g_Image_Plane["<b>Image.Plane</b><br/>ID<br/>TheZ<br/>TheT<br/>TheC<br/>Timestamp<br/>TimestampUnit<br/>ExposureTime<br/>ExposureTimeUnit<br/>PixelDwellTime<br/>PixelDwellTimeUnit<br/>PositionX<br/>PositionXUnit<br/>PositionY<br/>PositionYUnit<br/>PositionZ<br/>PositionZUnit<br/>PlaneXOffset<br/>PlaneYOffset<br/>PlaneZOffset<br/>Description"]:::base ~~~ g_Image_Channel["<b>Image.Channel</b><br/>Name<br/>ID<br/>IlluminationType<br/>IlluminationTypeTermAcession<br/>ContrastMethod<br/>Color<br/>SamplesPerPixel<br/>Description"]:::base ~~~ g_Settings_CameraSettings["<b>Settings.CameraSettings</b><br/>Binning<br/>PixelReadOutRate<br/>PixelReadOutRateUnit<br/>SensorExposureMode<br/>Integration<br/>FrameRate<br/>FrameRateUnit<br/>OperatingTemperature<br/>OperatingTemperatureUnit<br/>ID<br/>EffectiveBitDepth<br/>AnalogGain<br/>AmplificationGain<br/>Offset<br/>OffsetMode"]:::base ~~~ g_Settings_MicroscopeTableSettings["<b>Settings.MicroscopeTableSettings</b><br/>ID<br/>Floating"]:::base ~~~ g_Settings_PrismSettings["<b>Settings.PrismSettings</b><br/>ID<br/>PositionSetting<br/>TransmissionWavelengthRangeSettings<br/>ReflectionWavelengthRangeSettings"]:::base ~~~ g_Settings_MicroscopeStandSettings["<b>Settings.MicroscopeStandSettings</b><br/>ID<br/>TotalEffectiveMagnification<br/>FieldOfView<br/>FieldOfViewUnit"]:::base ~~~ g_Settings_LightSourceSettings["<b>Settings.LightSourceSettings</b><br/>ID<br/>IlluminationPowerSettings<br/>lluminationPowerSettingsUnit<br/>Attenuation<br/>AttenuationMethod<br/>UsedAcoustoOpticalDevice"]:::base ~~~ g_Settings_ShutterSettings["<b>Settings.ShutterSettings</b><br/>ID<br/>OpenDuringZMovement<br/>ApertureDiameter<br/>ApertureDiameterUnit<br/>Mode"]:::base ~~~ g_Settings_GenericDetectorSettings["<b>Settings.GenericDetectorSettings</b><br/>ID<br/>EffectiveBitDepth<br/>AnalogGain<br/>AmplificationGain<br/>Offset<br/>OffsetMode"]:::base ~~~ g_Settings_GenericOpticalApertureSettings["<b>Settings.GenericOpticalApertureSettings</b><br/>ID<br/>TransmissionWavelengthRangeSettings<br/>ReflectionWavelengthRangeSettings"]:::base ~~~ g_Settings_SamplePositioningSettings["<b>Settings.SamplePositioningSettings</b><br/>ID<br/>XYVelocitySetting<br/>XYVelocitySettingUnit<br/>ZVelocitySetting<br/>ZVelocitySettingUnit<br/>XYReproducibilitySettings<br/>XYReproducibilitySettingsUnit<br/>ZReproducibilitySettings<br/>ZReproducibilitySettingsUnit"]:::base ~~~ g_Settings_MirroringDeviceSettings["<b>Settings.MirroringDeviceSettings</b><br/>ID<br/>ActualMountedAngle"]:::base ~~~ g_Settings_LensSettings["<b>Settings.LensSettings</b><br/>ID<br/>Function"]:::base ~~~ g_Settings_ObjectiveSettings["<b>Settings.ObjectiveSettings</b><br/>ID<br/>CorrectionCollarPosition<br/>NumericalApertureSetting<br/><span style="color:#4a7fb5">Medium</span><br/><span style="color:#4a7fb5">RefractiveIndex</span><br/>MeasuredRefractiveIndex<br/>Temperature<br/>TemperatureUnit<br/>IrisAperture"]:::base ~~~ g_Settings_StageLabel["<b>Settings.StageLabel</b><br/>Name<br/>X<br/>XUnits<br/>Y<br/>YUnits<br/>Z<br/>ZUnits"]:::base ~~~ g_Settings_PointDetectorSettings["<b>Settings.PointDetectorSettings</b><br/>Voltage<br/>VoltageUnit<br/>PhotonCounting<br/>ID<br/>EffectiveBitDepth<br/>AnalogGain<br/>AmplificationGain<br/>Offset<br/>OffsetMode"]:::base ~~~ g_OpticsHolder_EmissionFilterWheel["<b>OpticsHolder.EmissionFilterWheel</b><br/>Name<br/>ID<br/>Motorized<br/>ResponseTime<br/>ResponseTimeUnit<br/>NrOfSlots<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>EmissionFilter"]:::base ~~~ g_OpticsHolder_FilterCubeTurret["<b>OpticsHolder.FilterCubeTurret</b><br/>Name<br/>ID<br/>Motorized<br/>ResponseTime<br/>ResponseTimeUnit<br/>NrOfSlots<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>FilterCube"]:::base ~~~ g_OpticsHolder_OpticsTurret["<b>OpticsHolder.OpticsTurret</b><br/>Name<br/>ID<br/>Motorized<br/>ResponseTime<br/>ResponseTimeUnit<br/>NrOfSlots<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>Lens<br/>MirroringDevice<br/>Aperture<br/>Filter<br/>Prism<br/>PolarizationOptics"]:::base ~~~ g_OpticsHolder_ExcitationFilterSlider["<b>OpticsHolder.ExcitationFilterSlider</b><br/>Name<br/>ID<br/>Motorized<br/>ResponseTime<br/>ResponseTimeUnit<br/>NrOfSlots<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>ExcitationFilter"]:::base ~~~ g_OpticsHolder_ExcitationFilterWheel["<b>OpticsHolder.ExcitationFilterWheel</b><br/>Name<br/>ID<br/>Motorized<br/>ResponseTime<br/>ResponseTimeUnit<br/>NrOfSlots<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>ExcitationFilter"]:::base ~~~ g_OpticsHolder_DichroicFilterSlider["<b>OpticsHolder.DichroicFilterSlider</b><br/>Name<br/>ID<br/>Motorized<br/>ResponseTime<br/>ResponseTimeUnit<br/>NrOfSlots<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>StandardDichroic"]:::base ~~~ g_OpticsHolder_EmissionFilterSlider["<b>OpticsHolder.EmissionFilterSlider</b><br/>Name<br/>ID<br/>Motorized<br/>ResponseTime<br/>ResponseTimeUnit<br/>NrOfSlots<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>EmissionFilter"]:::base ~~~ g_OpticsHolder_DichroicFilterWheel["<b>OpticsHolder.DichroicFilterWheel</b><br/>Name<br/>ID<br/>Motorized<br/>ResponseTime<br/>ResponseTimeUnit<br/>NrOfSlots<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>StandardDichroic"]:::base
-  g_ChildElement_LEDModule["<b>ChildElement.LEDModule</b><br/>ProjectionAngle<br/>ProjectionAngleUnit<br/>IlluminationPower<br/>IlluminationPowerUnit<br/>PeakWavelength<br/>PeakWavelengthUnit<br/>CutOn<br/>CutOnUnit<br/>CutOff<br/>CutOffUnit"]:::base ~~~ g_ChildElement_IlluminationWavelengthRange["<b>ChildElement.IlluminationWavelengthRange</b><br/>IlluminationPower<br/>IlluminationPowerUnit<br/>PeakWavelength<br/>PeakWavelengthUnit<br/>CutOn<br/>CutOnUnit<br/>CutOff<br/>CutOffUnit"]:::base ~~~ g_ChildElement_ReflectanceProfileFile["<b>ChildElement.ReflectanceProfileFile</b><br/>ID<br/>Namespace<br/>Annotator<br/>Description"]:::base ~~~ g_ChildElement_ReflectionWavelengthRangeSettings["<b>ChildElement.ReflectionWavelengthRangeSettings</b><br/>Reflectance<br/>CutOn<br/>CutOff<br/>WavelengthUnit"]:::base ~~~ g_ChildElement_WavelengthRange["<b>ChildElement.WavelengthRange</b><br/>PeakWavelength<br/>PeakWavelengthUnit<br/>CutOn<br/>CutOnUnit<br/>CutOff<br/>CutOffUnit"]:::base ~~~ g_ChildElement_TransmittanceProfileFile["<b>ChildElement.TransmittanceProfileFile</b><br/>ID<br/>Namespace<br/>Annotator<br/>Description"]:::base ~~~ g_ChildElement_TransmittanceRange["<b>ChildElement.TransmittanceRange</b><br/>Wavelength<br/>FWHMBandwidth<br/>WavelengthUnit<br/>Transmittance"]:::base ~~~ g_ChildElement_TransmissionWavelengthRangeSettings["<b>ChildElement.TransmissionWavelengthRangeSettings</b><br/>Transmittance<br/>CutOn<br/>CutOff<br/>WavelengthUnit"]:::base ~~~ g_ChildElement_Pump["<b>ChildElement.Pump</b><br/>ID"]:::base ~~~ g_ChildElement_WavelengthProfileFile["<b>ChildElement.WavelengthProfileFile</b><br/>ID<br/>Namespace<br/>Annotator<br/>Description"]:::base ~~~ g_ChildElement_ReflectanceRange["<b>ChildElement.ReflectanceRange</b><br/>Wavelength<br/>FWHMBandwidth<br/>WavelengthUnit<br/>Reflectance"]:::base ~~~ g_MicroscopeStand_UprightMicroscopeStand["<b>MicroscopeStand.UprightMicroscopeStand</b><br/>Name<br/>ID<br/>Type<br/>Origin<br/>EyePieceFieldNumber<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_MicroscopeStand_InvertedMicroscopeStand["<b>MicroscopeStand.InvertedMicroscopeStand</b><br/>Name<br/>ID<br/>Type<br/>Origin<br/>EyePieceFieldNumber<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Transmitted_LightSource_Filament["<b>Transmitted_LightSource.Filament</b><br/>Type<br/>Name<br/>ID<br/>PurchaseDate<br/>IlluminationPowerReportingStatistic<br/>IlluminationPowerReportingPosition<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>IlluminationWavelengthRange"]:::base ~~~ g_Transmitted_LightSource_LightEmittingDiode["<b>Transmitted_LightSource.LightEmittingDiode</b><br/>Type<br/>Name<br/>ID<br/>PurchaseDate<br/>IlluminationPowerReportingStatistic<br/>IlluminationPowerReportingPosition<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>LEDModule"]:::base ~~~ g_Transmitted_LightSource_GenericExcitationSource["<b>Transmitted_LightSource.GenericExcitationSource</b><br/>Name<br/>ID<br/>PurchaseDate<br/>IlluminationPowerReportingStatistic<br/>IlluminationPowerReportingPosition<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>IlluminationWavelengthRange"]:::base ~~~ g_Fluorescence_LightSource_Filament["<b>Fluorescence_LightSource.Filament</b><br/>Type<br/>Name<br/>ID<br/>PurchaseDate<br/>IlluminationPowerReportingStatistic<br/>IlluminationPowerReportingPosition<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>IlluminationWavelengthRange"]:::base ~~~ g_Fluorescence_LightSource_Arc["<b>Fluorescence_LightSource.Arc</b><br/>Type<br/>Name<br/>ID<br/>PurchaseDate<br/>IlluminationPowerReportingStatistic<br/>IlluminationPowerReportingPosition<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>IlluminationWavelengthRange"]:::base ~~~ g_Fluorescence_LightSource_MultiLaserEngine["<b>Fluorescence_LightSource.MultiLaserEngine</b><br/>SingleMode<br/>NumberOfLasers<br/>OutputPortNumber<br/>MultiportSwitchTime<br/>MultiportSwitchTimeUnit<br/>Name<br/>ID<br/>PurchaseDate<br/>IlluminationPowerReportingStatistic<br/>IlluminationPowerReportingPosition<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>Laser"]:::base ~~~ g_Fluorescence_LightSource_Laser["<b>Fluorescence_LightSource.Laser</b><br/>Type<br/>Tuneable<br/>ModulationMechanism<br/>Pulse<br/>LaserClass<br/>LaserMedium<br/>IsPumped<br/>IsPump<br/>Position<br/>RepetitionRate<br/>RepetitionRateUnit<br/>PulseDuration<br/>PulseDurationUnit<br/>FrequencyMultiplication<br/>UsedAcoustoOpticalDevice<br/>Name<br/>ID<br/>PurchaseDate<br/>IlluminationPowerReportingStatistic<br/>IlluminationPowerReportingPosition<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>IlluminationWavelengthRange<br/>Pump"]:::base ~~~ g_Fluorescence_LightSource_LightEmittingDiode["<b>Fluorescence_LightSource.LightEmittingDiode</b><br/>Type<br/>Name<br/>ID<br/>PurchaseDate<br/>IlluminationPowerReportingStatistic<br/>IlluminationPowerReportingPosition<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>LEDModule"]:::base ~~~ g_Fluorescence_LightSource_GenericExcitationSource["<b>Fluorescence_LightSource.GenericExcitationSource</b><br/>Name<br/>ID<br/>PurchaseDate<br/>IlluminationPowerReportingStatistic<br/>IlluminationPowerReportingPosition<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>IlluminationWavelengthRange"]:::base ~~~ g_OpticalAssembly_BeamCollimator["<b>OpticalAssembly.BeamCollimator</b><br/>Name<br/>ID<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Filter<br/>Lens<br/>MirroringDevice<br/>Aperture<br/>PolarizationOptics<br/>Prism<br/>Description"]:::base ~~~ g_OpticalAssembly_BeamExpander["<b>OpticalAssembly.BeamExpander</b><br/>Configuration<br/>Name<br/>ID<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Filter<br/>Lens<br/>MirroringDevice<br/>Aperture<br/>PolarizationOptics<br/>Prism<br/>Description"]:::base
-  g_OpticalAssembly_MicroscopeTube["<b>OpticalAssembly.MicroscopeTube</b><br/>Type<br/>MechanicalLength<br/>MechanicalLengthUnit<br/>OpticalLength<br/>OpticalLengthUnit<br/>Factor<br/>Name<br/>ID<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Filter<br/>Lens<br/>MirroringDevice<br/>Aperture<br/>PolarizationOptics<br/>Prism<br/>Description"]:::base ~~~ g_OpticalAssembly_Condenser["<b>OpticalAssembly.Condenser</b><br/>Correction<br/>Type<br/>Name<br/>ID<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Filter<br/>Lens<br/>MirroringDevice<br/>Aperture<br/>PolarizationOptics<br/>Prism<br/>Description"]:::base ~~~ g_Software["<b>Software</b><br/><span style="color:#4a7fb5">ApplicationID</span><br/><span style="color:#4a7fb5">Version</span>"]:::ext ~~~ g_Software_AcquisitionSoftware["<b>Software.AcquisitionSoftware</b><br/>Name<br/>ID<br/>Version<br/>Developer<br/>WebsiteURL<br/>PrimaryPublicationID<br/>OpenSource<br/>Macro<br/>Build<br/>Patch<br/>ReleaseDate<br/>Language<br/>SoftwareModule<br/>Description"]:::base ~~~ g_Software_SoftwareModule["<b>Software.SoftwareModule</b><br/>Name<br/>ID<br/>Version<br/>Developer<br/>WebsiteURL<br/>PrimaryPublicationID<br/>OpenSource<br/>Macro<br/>Build<br/>Patch<br/>ReleaseDate<br/>Language<br/>SoftwareModule<br/>Description"]:::base ~~~ g_SamplePreparation_Sample["<b>SamplePreparation.Sample</b><br/>Name<br/>ID<br/>BiologicalOrigin<br/>SampleType<br/>LiveSample<br/>Organism<br/>OrganismTermAccession<br/>OrganismPart<br/>OrganismPartTermAccession<br/>SamplePreparationMethod<br/>SamplePreparationMethodTermAccession<br/>MetrologySample<br/>FacingTheObjective<br/>Description"]:::base ~~~ g_SamplePreparation_Fluorophore["<b>SamplePreparation.Fluorophore</b><br/>Name<br/>ID<br/>Type<br/>ExcitationWavelength<br/>ExcitationWavelengthUnit<br/>EmissionWavelength<br/>EmissionWavelengthUnit<br/>Concentration<br/>ConcentrationUnit<br/>FBBaseID<br/>PrimaryPublicationID<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile"]:::base ~~~ g_SamplePreparation_MountingMedium["<b>SamplePreparation.MountingMedium</b><br/>ID<br/>Type<br/>RefractiveIndex<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile"]:::base ~~~ g_SamplePreparation_ImmersionLiquid["<b>SamplePreparation.ImmersionLiquid</b><br/>ID<br/>Type<br/>RefractiveIndex<br/>Viscosity<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile"]:::base ~~~ g_SamplePreparation_Experiment["<b>SamplePreparation.Experiment</b><br/>Name<br/>ID<br/>Purpose<br/>LabellingMethod<br/>LabellingMethodTermAccession<br/>Tag<br/>TagTermAccession<br/>HystochemistryType<br/>Experimenter<br/>Description"]:::base ~~~ g_SamplePreparation_CoverGlass["<b>SamplePreparation.CoverGlass</b><br/>ID<br/>Coating<br/>CoverGlassNo<br/>Thickness<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile"]:::base ~~~ g_SamplePreparation_SampleHolder["<b>SamplePreparation.SampleHolder</b><br/>ID<br/>Type<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile"]:::base ~~~ g_MicroscopyAccessories_EnvironmentalControlDevice["<b>MicroscopyAccessories.EnvironmentalControlDevice</b><br/>Name<br/>ID<br/>TemperatureControl<br/>HumidityControl<br/>CO2Control<br/>O2Control<br/>VibrationControl<br/>StandCompatibility<br/>Perfusion<br/>LidMaterial<br/>MaxTemperature<br/>MaxTemperatureUnit<br/>MinTemberature<br/>MinTemperatureUnit<br/>TemperatureAccuracy<br/>TemperatureAccuracyUnit<br/>TTL<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_MicroscopyAccessories_MicroscopeTable["<b>MicroscopyAccessories.MicroscopeTable</b><br/>Name<br/>ID<br/>MultipleMicroscopes<br/>Type<br/>TableWidth<br/>TableWidthUnit<br/>TableDepth<br/>TableDepthUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Magnification_Objective["<b>Magnification.Objective</b><br/>Name<br/>ID<br/>Magnification<br/>LensNA<br/>Correction<br/>ImmersionType<br/>InfinityCorrected<br/>ContrastModulation<br/>DIC<br/>LightType<br/>DippingMedium<br/>WorkingDistance<br/>WorkingDistanceUnit<br/>CorrectionCollar<br/>CorrectionCollarType<br/>PhaseContrastDesignation<br/>CalibratedMagnification<br/>Iris<br/>ObjectiveViewField<br/>ImageDistance<br/>ImageDistanceUnit<br/>FrontFocalLength<br/>FrontFocalLengthUnit<br/>BackFocalLength<br/>BackFocalLengthUnit<br/>ParfocalizingDistance<br/>ParfocalizingDistanceUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Aperture_HoffmanPlate["<b>Aperture.HoffmanPlate</b><br/>Design<br/>Name<br/>ID<br/>OpticsHolderPosition<br/>OuterDiameter<br/>OuterDiameterUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Aperture_VarelRing["<b>Aperture.VarelRing</b><br/>Name<br/>ID<br/>OpticsHolderPosition<br/>OuterDiameter<br/>OuterDiameterUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Aperture_IrisDiaphragm["<b>Aperture.IrisDiaphragm</b><br/>MaxApertureDiameter<br/>MaxApertureDiameterUnit<br/>Shape<br/>Name<br/>ID<br/>OpticsHolderPosition<br/>OuterDiameter<br/>OuterDiameterUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Aperture_DarkFieldStop["<b>Aperture.DarkFieldStop</b><br/>CenterStopDiameter<br/>CenterStopDiameterUnit<br/>Name<br/>ID<br/>OpticsHolderPosition<br/>OuterDiameter<br/>OuterDiameterUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Aperture_PhaseRing["<b>Aperture.PhaseRing</b><br/>PhaseNumber<br/>CenterStopDiameter<br/>CenterStopDiameterUnit<br/>SlitWidth<br/>SlitWidthUnit<br/>Name<br/>ID<br/>OpticsHolderPosition<br/>OuterDiameter<br/>OuterDiameterUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Aperture_Shutter["<b>Aperture.Shutter</b><br/>ResponseTime<br/>ResponseTimeUnit<br/>Function<br/>OperatingFrequency<br/>OperatingFrequencyUnit<br/>Motorized<br/>MaxApertureDiameter<br/>MaxApertureDiameterUnit<br/>Multimode<br/>Name<br/>ID<br/>OpticsHolderPosition<br/>OuterDiameter<br/>OuterDiameterUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Detector["<b>Detector</b><br/><span style="color:#4a7fb5">Name</span><br/><span style="color:#4a7fb5">Type</span><br/><span style="color:#4a7fb5">Gain</span><br/><span style="color:#4a7fb5">Offset</span><br/><span style="color:#4a7fb5">Brightness</span><br/><span style="color:#4a7fb5">Contrast</span><br/><span style="color:#4a7fb5">Channel</span><br/><span style="color:#4a7fb5">Configuration</span><br/><span style="color:#4a7fb5">ActiveConfiguration</span>"]:::ext ~~~ g_Detector_PointDetector_HybridPhotoDetector["<b>Detector.PointDetector.HybridPhotoDetector</b><br/>Coating<br/>SignalProcessing<br/>ResponseTime<br/>ResponseTimeUnit<br/>DeadTime<br/>DeadTimeUnit<br/>RadiantSensitivity<br/>RadiantSensitivityUnit<br/>Name<br/>ID<br/>Mount<br/>MaxBitDepth<br/>QuantumEfficiency<br/>ElectronicConversionFactor<br/>ReadOutNoise<br/>ReadNoiseUnit<br/>DetectorNoiseModel<br/>DarkCurrentRate<br/>DarkCurrentRateUnit<br/>DynamicRange<br/>DynamicRangeUnit<br/>AmbientOperatingTemperature<br/>AmbientOperatingTemperatureUnit<br/>AmbientOperatingHumidity<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>RelayLens<br/>Description<br/>WavelengthRange"]:::base ~~~ g_Detector_PointDetector_PhotoDiode["<b>Detector.PointDetector.PhotoDiode</b><br/>Avalanche<br/>PINJunction<br/>Coating<br/>SignalProcessing<br/>ResponseTime<br/>ResponseTimeUnit<br/>DeadTime<br/>DeadTimeUnit<br/>RadiantSensitivity<br/>RadiantSensitivityUnit<br/>Name<br/>ID<br/>Mount<br/>MaxBitDepth<br/>QuantumEfficiency<br/>ElectronicConversionFactor<br/>ReadOutNoise<br/>ReadNoiseUnit<br/>DetectorNoiseModel<br/>DarkCurrentRate<br/>DarkCurrentRateUnit<br/>DynamicRange<br/>DynamicRangeUnit<br/>AmbientOperatingTemperature<br/>AmbientOperatingTemperatureUnit<br/>AmbientOperatingHumidity<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>RelayLens<br/>Description<br/>WavelengthRange"]:::base ~~~ g_Detector_PointDetector_PhotoMultiplierTube["<b>Detector.PointDetector.PhotoMultiplierTube</b><br/>CollectionEfficiency<br/>Multianode<br/>MultianodeChannelNr<br/>MultianodeArrangement<br/>HeadOn<br/>Coating<br/>SignalProcessing<br/>ResponseTime<br/>ResponseTimeUnit<br/>DeadTime<br/>DeadTimeUnit<br/>RadiantSensitivity<br/>RadiantSensitivityUnit<br/>Name<br/>ID<br/>Mount<br/>MaxBitDepth<br/>QuantumEfficiency<br/>ElectronicConversionFactor<br/>ReadOutNoise<br/>ReadNoiseUnit<br/>DetectorNoiseModel<br/>DarkCurrentRate<br/>DarkCurrentRateUnit<br/>DynamicRange<br/>DynamicRangeUnit<br/>AmbientOperatingTemperature<br/>AmbientOperatingTemperatureUnit<br/>AmbientOperatingHumidity<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>RelayLens<br/>Description<br/>WavelengthRange"]:::base ~~~ g_Detector_Camera_CMOS["<b>Detector.Camera.CMOS</b><br/>Type<br/>ArrayWidth<br/>ArrayHeight<br/>PixelWidth<br/>PixelWidthUnit<br/>PixelHeight<br/>PixelHeightUnit<br/>Illumination<br/>ManufacturerOffet<br/>Color<br/>PixelWellCapacity<br/>PixelWellCapacityUnit<br/>MaximumFrameRate<br/>MaximumFrameRateUnit<br/>MaximumReadoutRate<br/>MaximumReadoutRateUnit<br/>VerticalClockSpeed<br/>VerticalClockSpeedUnit<br/>Name<br/>ID<br/>Mount<br/>MaxBitDepth<br/>QuantumEfficiency<br/>ElectronicConversionFactor<br/>ReadOutNoise<br/>ReadNoiseUnit<br/>DetectorNoiseModel<br/>DarkCurrentRate<br/>DarkCurrentRateUnit<br/>DynamicRange<br/>DynamicRangeUnit<br/>AmbientOperatingTemperature<br/>AmbientOperatingTemperatureUnit<br/>AmbientOperatingHumidity<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>RelayLens<br/>Description<br/>WavelengthRange"]:::base ~~~ g_Detector_Camera_CCD["<b>Detector.Camera.CCD</b><br/>Type<br/>CCDArchitecture<br/>RegisterWellCapacity<br/>RegisterWellCapacityUnit<br/>ArrayWidth<br/>ArrayHeight<br/>PixelWidth<br/>PixelWidthUnit<br/>PixelHeight<br/>PixelHeightUnit<br/>Illumination<br/>ManufacturerOffet<br/>Color<br/>PixelWellCapacity<br/>PixelWellCapacityUnit<br/>MaximumFrameRate<br/>MaximumFrameRateUnit<br/>MaximumReadoutRate<br/>MaximumReadoutRateUnit<br/>VerticalClockSpeed<br/>VerticalClockSpeedUnit<br/>Name<br/>ID<br/>Mount<br/>MaxBitDepth<br/>QuantumEfficiency<br/>ElectronicConversionFactor<br/>ReadOutNoise<br/>ReadNoiseUnit<br/>DetectorNoiseModel<br/>DarkCurrentRate<br/>DarkCurrentRateUnit<br/>DynamicRange<br/>DynamicRangeUnit<br/>AmbientOperatingTemperature<br/>AmbientOperatingTemperatureUnit<br/>AmbientOperatingHumidity<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>RelayLens<br/>Description<br/>WavelengthRange"]:::base ~~~ g_Detector_Camera_IntensifiedCamera["<b>Detector.Camera.IntensifiedCamera</b><br/>SensorType<br/>IntensifierType<br/>RegisterWellCapacity<br/>RegisterWellCapacityUnit<br/>ArrayWidth<br/>ArrayHeight<br/>PixelWidth<br/>PixelWidthUnit<br/>PixelHeight<br/>PixelHeightUnit<br/>Illumination<br/>ManufacturerOffet<br/>Color<br/>PixelWellCapacity<br/>PixelWellCapacityUnit<br/>MaximumFrameRate<br/>MaximumFrameRateUnit<br/>MaximumReadoutRate<br/>MaximumReadoutRateUnit<br/>VerticalClockSpeed<br/>VerticalClockSpeedUnit<br/>Name<br/>ID<br/>Mount<br/>MaxBitDepth<br/>QuantumEfficiency<br/>ElectronicConversionFactor<br/>ReadOutNoise<br/>ReadNoiseUnit<br/>DetectorNoiseModel<br/>DarkCurrentRate<br/>DarkCurrentRateUnit<br/>DynamicRange<br/>DynamicRangeUnit<br/>AmbientOperatingTemperature<br/>AmbientOperatingTemperatureUnit<br/>AmbientOperatingHumidity<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>RelayLens<br/>Description<br/>WavelengthRange"]:::base ~~~ g_Detector_Camera_AnalogVideo["<b>Detector.Camera.AnalogVideo</b><br/>ArrayWidth<br/>ArrayHeight<br/>PixelWidth<br/>PixelWidthUnit<br/>PixelHeight<br/>PixelHeightUnit<br/>Illumination<br/>ManufacturerOffet<br/>Color<br/>PixelWellCapacity<br/>PixelWellCapacityUnit<br/>MaximumFrameRate<br/>MaximumFrameRateUnit<br/>MaximumReadoutRate<br/>MaximumReadoutRateUnit<br/>VerticalClockSpeed<br/>VerticalClockSpeedUnit<br/>Name<br/>ID<br/>Mount<br/>MaxBitDepth<br/>QuantumEfficiency<br/>ElectronicConversionFactor<br/>ReadOutNoise<br/>ReadNoiseUnit<br/>DetectorNoiseModel<br/>DarkCurrentRate<br/>DarkCurrentRateUnit<br/>DynamicRange<br/>DynamicRangeUnit<br/>AmbientOperatingTemperature<br/>AmbientOperatingTemperatureUnit<br/>AmbientOperatingHumidity<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>RelayLens<br/>Description<br/>WavelengthRange"]:::base
-  g_Detector_GenericDetector["<b>Detector.GenericDetector</b><br/>Name<br/>ID<br/>Mount<br/>MaxBitDepth<br/>QuantumEfficiency<br/>ElectronicConversionFactor<br/>ReadOutNoise<br/>ReadNoiseUnit<br/>DetectorNoiseModel<br/>DarkCurrentRate<br/>DarkCurrentRateUnit<br/>DynamicRange<br/>DynamicRangeUnit<br/>AmbientOperatingTemperature<br/>AmbientOperatingTemperatureUnit<br/>AmbientOperatingHumidity<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>RelayLens<br/>Description<br/>WavelengthRange"]:::base ~~~ g_SamplePositioning_Stage_Position_X["<b>SamplePositioning.Stage.Position.X</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_SamplePositioning_Stage_Position_Y["<b>SamplePositioning.Stage.Position.Y</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_SamplePositioning_Stage_Position_Z["<b>SamplePositioning.Stage.Position.Z</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_SamplePositioning_Stage_Position_M["<b>SamplePositioning.Stage.Position.M</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_SamplePositioning_Stage_Tilt["<b>SamplePositioning.Stage.Tilt</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_SamplePositioning_Stage_Tilt_Alpha["<b>SamplePositioning.Stage.Tilt.Alpha</b><br/><span style="color:#4a7fb5">Value</span>"]:::ext ~~~ g_SamplePositioning_Stage_Tilt_Beta["<b>SamplePositioning.Stage.Tilt.Beta</b><br/><span style="color:#4a7fb5">Value</span>"]:::ext ~~~ g_SamplePositioning_Stage_Rotation["<b>SamplePositioning.Stage.Rotation</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_SamplePositioning_Stage_Bias["<b>SamplePositioning.Stage.Bias</b><br/><span style="color:#4a7fb5">BiasType</span><br/><span style="color:#4a7fb5">Mode</span><br/><span style="color:#4a7fb5">Volts</span>"]:::ext ~~~ g_SamplePositioning_Stage_RawPosition_X["<b>SamplePositioning.Stage.RawPosition.X</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_SamplePositioning_Stage_RawPosition_Y["<b>SamplePositioning.Stage.RawPosition.Y</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_SamplePositioning_Stage_RawPosition_Z["<b>SamplePositioning.Stage.RawPosition.Z</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_SamplePositioning_Stage_RawPosition_Tilt["<b>SamplePositioning.Stage.RawPosition.Tilt</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_SamplePositioning_Stage_RawPosition_Rot["<b>SamplePositioning.Stage.RawPosition.Rot</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_SamplePositioning_Stage_RawPosition_M["<b>SamplePositioning.Stage.RawPosition.M</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_SamplePositioning_Stage_MultiStage_SampleHeight["<b>SamplePositioning.Stage.MultiStage.SampleHeight</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_SamplePositioning_Stage_MultiStage_SampleRadius["<b>SamplePositioning.Stage.MultiStage.SampleRadius</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_SamplePositioning_Stage_StageInsert["<b>SamplePositioning.Stage.StageInsert</b><br/>Name<br/>ID<br/>SampleHolderType<br/>TemperatureControlled<br/>NumberOfSlots<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_SamplePositioning_Stage_MechanicalStage["<b>SamplePositioning.Stage.MechanicalStage</b><br/>XYMaxVelocity<br/>XYMaxVelocityUnit<br/>XYRepeatability<br/>XYRepeatabilityUnit<br/>XTravelRange<br/>XTravelRangeUnit<br/>YTravelRange<br/>YTravelRangeUnit<br/>XYReproducibility<br/>XYReproducibilityUnit<br/>XYSettlingTime<br/>XYSettlingTimeUnit<br/>XYResolution<br/>XYZResolutionUnit<br/>XYPositionLinearityError<br/>Name<br/>ID<br/>Encoded<br/>Motorized<br/>ZMaxVelocity<br/>ZMaxVelocityUnit<br/>ZRepeatability<br/>ZRepeatabilityUnit<br/>ZTravelRange<br/>ZTravelRangeUnit<br/>MovementAxes<br/>BuiltIn<br/>ZReproducibility<br/>ZReproducibilityUnit<br/>ZSettlingTime<br/>ZSettlingTimeUnit<br/>ZResolution<br/>ZResolutionUnit<br/>ZPositionLinearityError<br/>Type<br/>RotationAngle<br/>RotationAngleUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_SamplePositioning_Stage_PiezoElectricStage["<b>SamplePositioning.Stage.PiezoElectricStage</b><br/>XYMaxVelocity<br/>XYMaxVelocityUnit<br/>XYRepeatability<br/>XYRepeatabilityUnit<br/>XTravelRange<br/>XTravelRangeUnit<br/>YTravelRange<br/>YTravelRangeUnit<br/>XYReproducibility<br/>XYReproducibilityUnit<br/>XYSettlingTime<br/>XYSettlingTimeUnit<br/>XYResolution<br/>XYZResolutionUnit<br/>XYPositionLinearityError<br/>Name<br/>ID<br/>Encoded<br/>Motorized<br/>ZMaxVelocity<br/>ZMaxVelocityUnit<br/>ZRepeatability<br/>ZRepeatabilityUnit<br/>ZTravelRange<br/>ZTravelRangeUnit<br/>MovementAxes<br/>BuiltIn<br/>ZReproducibility<br/>ZReproducibilityUnit<br/>ZSettlingTime<br/>ZSettlingTimeUnit<br/>ZResolution<br/>ZResolutionUnit<br/>ZPositionLinearityError<br/>Type<br/>RotationAngle<br/>RotationAngleUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_SamplePositioning_Focusing_Z_Drive["<b>SamplePositioning.Focusing.Z-Drive</b><br/>Name<br/>ID<br/>Encoded<br/>Motorized<br/>ZMaxVelocity<br/>ZMaxVelocityUnit<br/>ZRepeatability<br/>ZRepeatabilityUnit<br/>ZTravelRange<br/>ZTravelRangeUnit<br/>MovementAxes<br/>BuiltIn<br/>ZReproducibility<br/>ZReproducibilityUnit<br/>ZSettlingTime<br/>ZSettlingTimeUnit<br/>ZResolution<br/>ZResolutionUnit<br/>ZPositionLinearityError<br/>Type<br/>RotationAngle<br/>RotationAngleUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_SamplePositioning_Focusing_TurretObjectiveFocusing["<b>SamplePositioning.Focusing.TurretObjectiveFocusing</b><br/>Name<br/>ID<br/>Encoded<br/>Motorized<br/>ZMaxVelocity<br/>ZMaxVelocityUnit<br/>ZRepeatability<br/>ZRepeatabilityUnit<br/>ZTravelRange<br/>ZTravelRangeUnit<br/>MovementAxes<br/>BuiltIn<br/>ZReproducibility<br/>ZReproducibilityUnit<br/>ZSettlingTime<br/>ZSettlingTimeUnit<br/>ZResolution<br/>ZResolutionUnit<br/>ZPositionLinearityError<br/>Type<br/>RotationAngle<br/>RotationAngleUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base
-  g_SamplePositioning_Focusing_FocusStabilizationDevice["<b>SamplePositioning.Focusing.FocusStabilizationDevice</b><br/>Name<br/>ID<br/>Mechanism<br/>Algorithm<br/>TwoStep<br/>Wavelength<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_SamplePositioning_Focusing_IndividualObjectiveFocusing["<b>SamplePositioning.Focusing.IndividualObjectiveFocusing</b><br/>PiezoElectric<br/>Name<br/>ID<br/>Encoded<br/>Motorized<br/>ZMaxVelocity<br/>ZMaxVelocityUnit<br/>ZRepeatability<br/>ZRepeatabilityUnit<br/>ZTravelRange<br/>ZTravelRangeUnit<br/>MovementAxes<br/>BuiltIn<br/>ZReproducibility<br/>ZReproducibilityUnit<br/>ZSettlingTime<br/>ZSettlingTimeUnit<br/>ZResolution<br/>ZResolutionUnit<br/>ZPositionLinearityError<br/>Type<br/>RotationAngle<br/>RotationAngleUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Lens_GenericLens["<b>Lens.GenericLens</b><br/>Name<br/>ID<br/>Magnification<br/>LensNA<br/>Infinity<br/>Composite<br/>Shape<br/>Geometry<br/>Diameter<br/>DiameterUnit<br/>Coating<br/>AttenuationCoefficient<br/>WorkingDistance<br/>WorkingDistanceUnit<br/>ImageDistance<br/>ImageDistanceUnits<br/>FrontFocalLength<br/>FrontFocalLengthUnit<br/>BackFocalLength<br/>BackFocalLengthUnit<br/>RadiusOfCurvature<br/>RadiusOfCurvatureUnit<br/>MaterialName<br/>GlassCode<br/>RefractiveIndex<br/>AbbeNumber<br/>Density<br/>DensityUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Lens_BeamCollimatorLens["<b>Lens.BeamCollimatorLens</b><br/>Name<br/>ID<br/>Magnification<br/>LensNA<br/>Infinity<br/>Composite<br/>Shape<br/>Geometry<br/>Diameter<br/>DiameterUnit<br/>Coating<br/>AttenuationCoefficient<br/>WorkingDistance<br/>WorkingDistanceUnit<br/>ImageDistance<br/>ImageDistanceUnits<br/>FrontFocalLength<br/>FrontFocalLengthUnit<br/>BackFocalLength<br/>BackFocalLengthUnit<br/>RadiusOfCurvature<br/>RadiusOfCurvatureUnit<br/>MaterialName<br/>GlassCode<br/>RefractiveIndex<br/>AbbeNumber<br/>Density<br/>DensityUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Lens_MagnificationChanger["<b>Lens.MagnificationChanger</b><br/>Name<br/>ID<br/>Magnification<br/>LensNA<br/>Infinity<br/>Composite<br/>Shape<br/>Geometry<br/>Diameter<br/>DiameterUnit<br/>Coating<br/>AttenuationCoefficient<br/>WorkingDistance<br/>WorkingDistanceUnit<br/>ImageDistance<br/>ImageDistanceUnits<br/>FrontFocalLength<br/>FrontFocalLengthUnit<br/>BackFocalLength<br/>BackFocalLengthUnit<br/>RadiusOfCurvature<br/>RadiusOfCurvatureUnit<br/>MaterialName<br/>GlassCode<br/>RefractiveIndex<br/>AbbeNumber<br/>Density<br/>DensityUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Lens_CouplingLens["<b>Lens.CouplingLens</b><br/>Name<br/>ID<br/>Magnification<br/>LensNA<br/>Infinity<br/>Composite<br/>Shape<br/>Geometry<br/>Diameter<br/>DiameterUnit<br/>Coating<br/>AttenuationCoefficient<br/>WorkingDistance<br/>WorkingDistanceUnit<br/>ImageDistance<br/>ImageDistanceUnits<br/>FrontFocalLength<br/>FrontFocalLengthUnit<br/>BackFocalLength<br/>BackFocalLengthUnit<br/>RadiusOfCurvature<br/>RadiusOfCurvatureUnit<br/>MaterialName<br/>GlassCode<br/>RefractiveIndex<br/>AbbeNumber<br/>Density<br/>DensityUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Lens_BeamExpanderLens["<b>Lens.BeamExpanderLens</b><br/>Name<br/>ID<br/>Magnification<br/>LensNA<br/>Infinity<br/>Composite<br/>Shape<br/>Geometry<br/>Diameter<br/>DiameterUnit<br/>Coating<br/>AttenuationCoefficient<br/>WorkingDistance<br/>WorkingDistanceUnit<br/>ImageDistance<br/>ImageDistanceUnits<br/>FrontFocalLength<br/>FrontFocalLengthUnit<br/>BackFocalLength<br/>BackFocalLengthUnit<br/>RadiusOfCurvature<br/>RadiusOfCurvatureUnit<br/>MaterialName<br/>GlassCode<br/>RefractiveIndex<br/>AbbeNumber<br/>Density<br/>DensityUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Lens_CondenserLens["<b>Lens.CondenserLens</b><br/>Name<br/>ID<br/>Magnification<br/>LensNA<br/>Infinity<br/>Composite<br/>Shape<br/>Geometry<br/>Diameter<br/>DiameterUnit<br/>Coating<br/>AttenuationCoefficient<br/>WorkingDistance<br/>WorkingDistanceUnit<br/>ImageDistance<br/>ImageDistanceUnits<br/>FrontFocalLength<br/>FrontFocalLengthUnit<br/>BackFocalLength<br/>BackFocalLengthUnit<br/>RadiusOfCurvature<br/>RadiusOfCurvatureUnit<br/>MaterialName<br/>GlassCode<br/>RefractiveIndex<br/>AbbeNumber<br/>Density<br/>DensityUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Lens_RelayLens["<b>Lens.RelayLens</b><br/>Name<br/>ID<br/>Magnification<br/>LensNA<br/>Infinity<br/>Composite<br/>Shape<br/>Geometry<br/>Diameter<br/>DiameterUnit<br/>Coating<br/>AttenuationCoefficient<br/>WorkingDistance<br/>WorkingDistanceUnit<br/>ImageDistance<br/>ImageDistanceUnits<br/>FrontFocalLength<br/>FrontFocalLengthUnit<br/>BackFocalLength<br/>BackFocalLengthUnit<br/>RadiusOfCurvature<br/>RadiusOfCurvatureUnit<br/>MaterialName<br/>GlassCode<br/>RefractiveIndex<br/>AbbeNumber<br/>Density<br/>DensityUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Lens_TubeLens["<b>Lens.TubeLens</b><br/>Name<br/>ID<br/>Magnification<br/>LensNA<br/>Infinity<br/>Composite<br/>Shape<br/>Geometry<br/>Diameter<br/>DiameterUnit<br/>Coating<br/>AttenuationCoefficient<br/>WorkingDistance<br/>WorkingDistanceUnit<br/>ImageDistance<br/>ImageDistanceUnits<br/>FrontFocalLength<br/>FrontFocalLengthUnit<br/>BackFocalLength<br/>BackFocalLengthUnit<br/>RadiusOfCurvature<br/>RadiusOfCurvatureUnit<br/>MaterialName<br/>GlassCode<br/>RefractiveIndex<br/>AbbeNumber<br/>Density<br/>DensityUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_AdditionalOptics_PolarizationOptics["<b>AdditionalOptics.PolarizationOptics</b><br/>Name<br/>ID<br/>Function<br/>CrossPolarizer<br/>DIC<br/>BeamSplitter<br/>FaradayIsolator<br/>Construction<br/>Retardation<br/>Fabrication<br/>MaterialName<br/>GlassCode<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>WavelengthRange<br/>Description"]:::base ~~~ g_AdditionalOptics_Prism["<b>AdditionalOptics.Prism</b><br/>Name<br/>ID<br/>DIC<br/>Function<br/>Condenser<br/>OilObjective<br/>Compound<br/>RefractiveIndex<br/>Reflectance<br/>AngleOfIncidence<br/>AngleOfIncidenceUnit<br/>DeviationAngle<br/>DevianceAngleUnit<br/>PrismAngle<br/>PrismAngleUnit<br/>Design<br/>AbbeNumber<br/>MaterialName<br/>GlassCode<br/>Density<br/>DensityUnit<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>WavelengthRange<br/>Description"]:::base ~~~ g_LightSourceCoupling_LightGuide["<b>LightSourceCoupling.LightGuide</b><br/>Type<br/>RefractiveIndex<br/>NumericalAperture<br/>AcceptanceAngle<br/>AcceptanceAngleUnit<br/>Geometry<br/>MaterialName<br/>SingleMode<br/>WaveguideMode<br/>Diameter<br/>DiameterUnit<br/>Name<br/>ID<br/>Attenuation<br/>Transmittance<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>CouplingLens<br/>Description<br/>WavelengthRange"]:::base ~~~ g_LightSourceCoupling_FreeBeam["<b>LightSourceCoupling.FreeBeam</b><br/>DirectMount<br/>MountType<br/>Name<br/>ID<br/>Attenuation<br/>Transmittance<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>CouplingLens<br/>Description"]:::base ~~~ g_FluorescenceLightPath_FilterCube["<b>FluorescenceLightPath.FilterCube</b><br/>OpticsHolderPosition<br/>Name<br/>ID<br/>Motorized<br/>ResponseTime<br/>ResponseTimeUnit<br/>NrOfSlots<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>ExcitationFilter<br/>StandardDichroic<br/>EmissionFilter"]:::base ~~~ g_FluorescenceLightPath_StandardDichroic["<b>FluorescenceLightPath.StandardDichroic</b><br/>Type<br/>CoatingMethod<br/>LightPathLocation<br/>Technology<br/>AttenuationMethod<br/>AttenuationCoefficient<br/>Thickness<br/>ThicknessUnit<br/>Polarization<br/>Name<br/>ID<br/>OpticsHolderPosition<br/>MirrorType<br/>Geometry<br/>Diameter<br/>DiameterUnit<br/>RadiusOfCurvature<br/>RadiusOfCurvatureUnit<br/>AngleOfIncidence<br/>AngleOfIncidenceUnit<br/>SubstrateType<br/>SubstrateMaterial<br/>GlassCode<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>TransmittanceRange<br/>ReflectanceRange"]:::base ~~~ g_FluorescenceLightPath_ExcitationFilter["<b>FluorescenceLightPath.ExcitationFilter</b><br/>Name<br/>ID<br/>Type<br/>CoatingMethod<br/>LightPathLocation<br/>FilterHolderPosition<br/>Technology<br/>AttenuationMethod<br/>AttenuationCoefficient<br/>Diameter<br/>DiameterUnit<br/>Thickness<br/>ThicknessUnit<br/>AngleOfIncidence<br/>AngleOfIncidenceUnit<br/>Polarization<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>TransmittanceRange<br/>Description"]:::base ~~~ g_FluorescenceLightPath_EmissionFilter["<b>FluorescenceLightPath.EmissionFilter</b><br/>Name<br/>ID<br/>Type<br/>CoatingMethod<br/>LightPathLocation<br/>FilterHolderPosition<br/>Technology<br/>AttenuationMethod<br/>AttenuationCoefficient<br/>Diameter<br/>DiameterUnit<br/>Thickness<br/>ThicknessUnit<br/>AngleOfIncidence<br/>AngleOfIncidenceUnit<br/>Polarization<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>TransmittanceRange<br/>Description"]:::base ~~~ g_SampleConditions_ImagingEnvironment["<b>SampleConditions.ImagingEnvironment</b><br/>ID<br/>Temperature<br/>TemperatureUnit<br/>CO2Percent<br/>Humidity<br/>AirPressure<br/>AirPressureUnit<br/>O2Percent"]:::base ~~~ g_MirroringDevice_GenericDichroic["<b>MirroringDevice.GenericDichroic</b><br/>Type<br/>CoatingMethod<br/>LightPathLocation<br/>Technology<br/>AttenuationMethod<br/>AttenuationCoefficient<br/>Thickness<br/>ThicknessUnit<br/>Polarization<br/>Name<br/>ID<br/>OpticsHolderPosition<br/>MirrorType<br/>Geometry<br/>Diameter<br/>DiameterUnit<br/>RadiusOfCurvature<br/>RadiusOfCurvatureUnit<br/>AngleOfIncidence<br/>AngleOfIncidenceUnit<br/>SubstrateType<br/>SubstrateMaterial<br/>GlassCode<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description<br/>TransmittanceRange<br/>ReflectanceRange"]:::base ~~~ g_MirroringDevice_BeamSplitter["<b>MirroringDevice.BeamSplitter</b><br/>Transmittance<br/>TransmittanceProfileFile<br/>TransmissionAngle<br/>TransmissionAngleUnit<br/>Reflectance<br/>Name<br/>ID<br/>OpticsHolderPosition<br/>MirrorType<br/>Geometry<br/>Diameter<br/>DiameterUnit<br/>RadiusOfCurvature<br/>RadiusOfCurvatureUnit<br/>AngleOfIncidence<br/>AngleOfIncidenceUnit<br/>SubstrateType<br/>SubstrateMaterial<br/>GlassCode<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_MirroringDevice_ReflectingMirror["<b>MirroringDevice.ReflectingMirror</b><br/>Reflectance<br/>Name<br/>ID<br/>OpticsHolderPosition<br/>MirrorType<br/>Geometry<br/>Diameter<br/>DiameterUnit<br/>RadiusOfCurvature<br/>RadiusOfCurvatureUnit<br/>AngleOfIncidence<br/>AngleOfIncidenceUnit<br/>SubstrateType<br/>SubstrateMaterial<br/>GlassCode<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>Description"]:::base ~~~ g_Filter_GenericFilter["<b>Filter.GenericFilter</b><br/>Name<br/>ID<br/>Type<br/>CoatingMethod<br/>LightPathLocation<br/>FilterHolderPosition<br/>Technology<br/>AttenuationMethod<br/>AttenuationCoefficient<br/>Diameter<br/>DiameterUnit<br/>Thickness<br/>ThicknessUnit<br/>AngleOfIncidence<br/>AngleOfIncidenceUnit<br/>Polarization<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>TransmittanceRange<br/>Description"]:::base ~~~ g_Filter_NeutralDensityFilter["<b>Filter.NeutralDensityFilter</b><br/>NDType<br/>OpticalDensity<br/>Name<br/>ID<br/>Type<br/>CoatingMethod<br/>LightPathLocation<br/>FilterHolderPosition<br/>Technology<br/>AttenuationMethod<br/>AttenuationCoefficient<br/>Diameter<br/>DiameterUnit<br/>Thickness<br/>ThicknessUnit<br/>AngleOfIncidence<br/>AngleOfIncidenceUnit<br/>Polarization<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>TransmittanceRange<br/>Description"]:::base ~~~ g_LightPath["<b>LightPath</b><br/>Name<br/>ID<br/>Description"]:::base ~~~ g_LightPath_FilterSet["<b>LightPath.FilterSet</b><br/>Name<br/>ID<br/>ExcitationFilter<br/>StandardDichroic<br/>EmissionFilter<br/>Description"]:::base ~~~ g_CalibrationTools_IntensityCalibrationTool["<b>CalibrationTools.IntensityCalibrationTool</b><br/>Name<br/>ID<br/>Type<br/>CalibrationType<br/>LastCalibrationDate<br/>Manufacturer<br/>Model<br/>CatalogNumber<br/>LotNumber<br/>SpecsFile<br/>LightSensor<br/>Description"]:::base ~~~ g_ElectronSource["<b>ElectronSource</b><br/><span style="color:#4a7fb5">Type</span>"]:::ext ~~~ g_ElectronBeam["<b>ElectronBeam</b><br/><span style="color:#4a7fb5">Type</span><br/><span style="color:#4a7fb5">Mode</span><br/><span style="color:#4a7fb5">Focus</span><br/><span style="color:#4a7fb5">SpotSize</span><br/><span style="color:#4a7fb5">SpotIndex</span>"]:::ext
-  g_ElectronBeam_WorkingDistance["<b>ElectronBeam.WorkingDistance</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_ElectronBeam_AccelerationVoltage["<b>ElectronBeam.AccelerationVoltage</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_ElectronBeam_Current["<b>ElectronBeam.Current</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_ElectronBeam_EmissionCurrent["<b>ElectronBeam.EmissionCurrent</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_ElectronBeam_ConvergenceAngle["<b>ElectronBeam.ConvergenceAngle</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_ElectronBeam_Defocus["<b>ElectronBeam.Defocus</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_ElectronBeam_Shift["<b>ElectronBeam.Shift</b><br/><span style="color:#4a7fb5">X</span><br/><span style="color:#4a7fb5">Y</span>"]:::ext ~~~ g_ElectronBeam_SourceTilt["<b>ElectronBeam.SourceTilt</b><br/><span style="color:#4a7fb5">X</span><br/><span style="color:#4a7fb5">Y</span>"]:::ext ~~~ g_ElectronBeam_Stigmator["<b>ElectronBeam.Stigmator</b><br/><span style="color:#4a7fb5">X</span><br/><span style="color:#4a7fb5">Y</span>"]:::ext ~~~ g_ElectronBeam_HighVoltage["<b>ElectronBeam.HighVoltage</b><br/><span style="color:#4a7fb5">BV</span><br/><span style="color:#4a7fb5">Bia</span><br/><span style="color:#4a7fb5">CV</span><br/><span style="color:#4a7fb5">ExtCurrent</span><br/><span style="color:#4a7fb5">ExtVoltage</span><br/><span style="color:#4a7fb5">FV</span><br/><span style="color:#4a7fb5">FcCurrent</span><br/><span style="color:#4a7fb5">FcVoltage</span><br/><span style="color:#4a7fb5">HighEmissionMode</span><br/><span style="color:#4a7fb5">HvCurrent</span><br/><span style="color:#4a7fb5">HvMode</span><br/><span style="color:#4a7fb5">HvVoltage</span><br/><span style="color:#4a7fb5">Mid10kvVoltage</span><br/><span style="color:#4a7fb5">SV</span><br/><span style="color:#4a7fb5">SchCurrent</span><br/><span style="color:#4a7fb5">SchVoltage</span>"]:::ext ~~~ g_ElectronOptics_CameraLength["<b>ElectronOptics.CameraLength</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_ElectronOptics["<b>ElectronOptics</b><br/><span style="color:#4a7fb5">OperatingMode</span><br/><span style="color:#4a7fb5">OperatingSubMode</span><br/><span style="color:#4a7fb5">ProjectorMode</span><br/><span style="color:#4a7fb5">GunLensSetting</span><br/><span style="color:#4a7fb5">Apertures</span>"]:::ext ~~~ g_Scan_FieldOfView_X["<b>Scan.FieldOfView.X</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_Scan_FieldOfView_Y["<b>Scan.FieldOfView.Y</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_Scan_Rotation["<b>Scan.Rotation</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_Scan_FrameTime["<b>Scan.FrameTime</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_Scan_LineTime["<b>Scan.LineTime</b><br/><span style="color:#4a7fb5">Value</span><br/><span style="color:#4a7fb5">Unit</span>"]:::ext ~~~ g_Scan["<b>Scan</b><br/><span style="color:#4a7fb5">LineIntegrationCount</span><br/><span style="color:#4a7fb5">Detector</span>"]:::ext ~~~ g_Acquisition_Operator["<b>Acquisition.Operator</b><br/><span style="color:#4a7fb5">Name</span>"]:::ext ~~~ g_Acquisition["<b>Acquisition</b><br/><span style="color:#4a7fb5">StartDate</span>"]:::ext ~~~ g_CustomProperties["<b>CustomProperties</b><br/><span style="color:#4a7fb5">CustomProperties</span>"]:::ext ~~~ g_Operations["<b>Operations</b><br/><span style="color:#4a7fb5">Operations</span>"]:::ext ~~~ g_Features["<b>Features</b><br/><span style="color:#4a7fb5">Features</span>"]:::ext
+classDef base fill:none,stroke:#8a8a8a,stroke-width:1px
+classDef ext fill:#4a7fb522,stroke:#4a7fb5,stroke-width:2px
+subgraph s0 [" "]
+direction LR
+n0["Instrument"]
+n1("Name")
+n2("Manufacturer")
+n3("Model")
+n4("ID")
+n5("Type")
+n6["Vacuum"]
+n7("SystemVacuum")
+n0-->n1
+n0-->n2
+n0-->n3
+n0-->n4
+n0-->n5
+n0-->n6
+n6-->n7
+end
+subgraph s1 [" "]
+direction LR
+n8["Software"]
+n9["AcquisitionSoftware"]
+n10("Version")
+n11("Name")
+n12("ApplicationID")
+n13("Version")
+n14["SoftwareModule"]
+n15("Version")
+n16("Name")
+n8-->n9
+n8-->n12
+n8-->n13
+n8-->n14
+n9-->n10
+n9-->n11
+n14-->n15
+n14-->n16
+end
+subgraph s2 [" "]
+direction LR
+n17["Acquisition"]
+n18["Operator"]
+n19("Name")
+n20("StartDate")
+n17-->n18
+n17-->n20
+n18-->n19
+end
+subgraph s3 [" "]
+direction LR
+n21["ElectronBeam"]
+n22["WorkingDistance"]
+n23("Value")
+n24("Unit")
+n25("Focus")
+n26("Type")
+n27("Mode")
+n28["Current"]
+n29("Value")
+n30["Stigmator"]
+n31("X")
+n32("Y")
+n33["Shift"]
+n34("X")
+n35("Y")
+n36("SpotSize")
+n37["SourceTilt"]
+n38("X")
+n39("Y")
+n40["AccelerationVoltage"]
+n41("Value")
+n42("Unit")
+n43["EmissionCurrent"]
+n44("Value")
+n45("Unit")
+n46("SpotIndex")
+n47["ConvergenceAngle"]
+n48("Value")
+n49["Defocus"]
+n50("Value")
+n51("HighVoltage")
+n21-->n22
+n21-->n25
+n21-->n26
+n21-->n27
+n21-->n28
+n21-->n30
+n21-->n33
+n21-->n36
+n21-->n37
+n21-->n40
+n21-->n43
+n21-->n46
+n21-->n47
+n21-->n49
+n21-->n51
+n22-->n23
+n22-->n24
+n28-->n29
+n30-->n31
+n30-->n32
+n33-->n34
+n33-->n35
+n37-->n38
+n37-->n39
+n40-->n41
+n40-->n42
+n43-->n44
+n43-->n45
+n47-->n48
+n49-->n50
+end
+subgraph s4 [" "]
+direction LR
+n52["Scan"]
+n53["FieldOfView"]
+n54["X"]
+n55("Value")
+n56("Unit")
+n57["Y"]
+n58("Value")
+n59("Unit")
+n60["FrameTime"]
+n61("Value")
+n62["Rotation"]
+n63("Value")
+n64("Unit")
+n65["LineTime"]
+n66("Value")
+n67("LineIntegrationCount")
+n68("Detector")
+n52-->n53
+n52-->n60
+n52-->n62
+n52-->n65
+n52-->n67
+n52-->n68
+n53-->n54
+n53-->n57
+n54-->n55
+n54-->n56
+n57-->n58
+n57-->n59
+n60-->n61
+n62-->n63
+n62-->n64
+n65-->n66
+end
+subgraph s5 [" "]
+direction LR
+n69["Detector"]
+n70("Name")
+n71("Configuration")
+n72("ActiveConfiguration")
+n69-->n70
+n69-->n71
+n69-->n72
+end
+subgraph s6 [" "]
+direction LR
+n73["Image"]
+n74["Plane"]
+n75("PixelDwellTime")
+n76("PixelDwellTimeUnit")
+n77["Pixels"]
+n78("SizeX")
+n79("SizeY")
+n80("PhysicalSizeX")
+n81("PhysicalSizeY")
+n82("PhysicalSizeXUnit")
+n83("PhysicalSizeYUnit")
+n84("PixelType")
+n85("AcquisitionDate")
+n86("Name")
+n87("Type")
+n88["Corrections"]
+n89("Contrast")
+n90("Brightness")
+n91("Gamma")
+n92("BlackLevel")
+n93("WhiteLevel")
+n94["CropHint"]
+n95("Left")
+n96("Right")
+n97("Top")
+n98("Bottom")
+n99("Channel")
+n100("BinaryResult")
+n73-->n74
+n73-->n77
+n73-->n85
+n73-->n86
+n73-->n87
+n73-->n88
+n73-->n94
+n73-->n99
+n73-->n100
+n74-->n75
+n74-->n76
+n77-->n78
+n77-->n79
+n77-->n80
+n77-->n81
+n77-->n82
+n77-->n83
+n77-->n84
+n88-->n89
+n88-->n90
+n88-->n91
+n88-->n92
+n88-->n93
+n94-->n95
+n94-->n96
+n94-->n97
+n94-->n98
+end
+subgraph s7 [" "]
+direction LR
+n101["SamplePositioning"]
+n102["Stage"]
+n103["Position"]
+n104["X"]
+n105("Value")
+n106("Unit")
+n107["Y"]
+n108("Value")
+n109("Unit")
+n110["Z"]
+n111("Value")
+n112("Unit")
+n113["M"]
+n114("Unit")
+n115("Value")
+n116["Rotation"]
+n117("Value")
+n118("Unit")
+n119["Tilt"]
+n120("Value")
+n121["Alpha"]
+n122("Value")
+n123["Beta"]
+n124("Value")
+n125("Unit")
+n126["RawPosition"]
+n127["M"]
+n128("Unit")
+n129("Value")
+n130["Rot"]
+n131("Unit")
+n132("Value")
+n133["Tilt"]
+n134("Unit")
+n135("Value")
+n136["X"]
+n137("Unit")
+n138("Value")
+n139["Y"]
+n140("Unit")
+n141("Value")
+n142["Z"]
+n143("Unit")
+n144("Value")
+n145["Bias"]
+n146("BiasType")
+n147("Mode")
+n148("Volts")
+n149["MultiStage"]
+n150["SampleHeight"]
+n151("Unit")
+n152("Value")
+n153["SampleRadius"]
+n154("Unit")
+n155("Value")
+n101-->n102
+n102-->n103
+n102-->n116
+n102-->n119
+n102-->n126
+n102-->n145
+n102-->n149
+n103-->n104
+n103-->n107
+n103-->n110
+n103-->n113
+n104-->n105
+n104-->n106
+n107-->n108
+n107-->n109
+n110-->n111
+n110-->n112
+n113-->n114
+n113-->n115
+n116-->n117
+n116-->n118
+n119-->n120
+n119-->n121
+n119-->n123
+n119-->n125
+n121-->n122
+n123-->n124
+n126-->n127
+n126-->n130
+n126-->n133
+n126-->n136
+n126-->n139
+n126-->n142
+n127-->n128
+n127-->n129
+n130-->n131
+n130-->n132
+n133-->n134
+n133-->n135
+n136-->n137
+n136-->n138
+n139-->n140
+n139-->n141
+n142-->n143
+n142-->n144
+n145-->n146
+n145-->n147
+n145-->n148
+n149-->n150
+n149-->n153
+n150-->n151
+n150-->n152
+n153-->n154
+n153-->n155
+end
+subgraph s8 [" "]
+direction LR
+n156["Magnification"]
+n157["Objective"]
+n158("CalibratedMagnification")
+n159("ID")
+n160("ImmersionType")
+n161("LensNA")
+n162("Magnification")
+n156-->n157
+n157-->n158
+n157-->n159
+n157-->n160
+n157-->n161
+n157-->n162
+end
+subgraph s9 [" "]
+direction LR
+n163["ElectronSource"]
+n164("Type")
+n163-->n164
+end
+subgraph s10 [" "]
+direction LR
+n165["ElectronOptics"]
+n166["CameraLength"]
+n167("Value")
+n168("OperatingMode")
+n169("OperatingSubMode")
+n170("ProjectorMode")
+n171("Apertures")
+n165-->n166
+n165-->n168
+n165-->n169
+n165-->n170
+n165-->n171
+n166-->n167
+end
+subgraph s11 [" "]
+direction LR
+n172["SamplePreparation"]
+n173["SampleHolder"]
+n174("Type")
+n175("ID")
+n176("Sample")
+n177["MountingMedium"]
+n178("RefractiveIndex")
+n172-->n173
+n172-->n176
+n172-->n177
+n173-->n174
+n173-->n175
+n177-->n178
+end
+subgraph s12 [" "]
+direction LR
+n179["Settings"]
+n180("ObjectiveSettings")
+n179-->n180
+end
+subgraph s13 [" "]
+direction LR
+n181("CustomProperties")
+end
+subgraph s14 [" "]
+direction LR
+n182("Operations")
+end
+subgraph s15 [" "]
+direction LR
+n183("Features")
+end
+s0~~~s1~~~s2~~~s3~~~s4~~~s5
+s6~~~s7~~~s8~~~s9~~~s10~~~s11
+s12~~~s13~~~s14~~~s15
+class n0,n1,n4,n8,n9,n10,n11,n14,n15,n16,n69,n73,n74,n75,n76,n77,n78,n79,n80,n81,n82,n83,n84,n85,n86,n99,n101,n102,n156,n157,n158,n159,n160,n161,n162,n172,n173,n174,n175,n176,n177,n178,n179,n180 base
+class n2,n3,n5,n6,n7,n12,n13,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30,n31,n32,n33,n34,n35,n36,n37,n38,n39,n40,n41,n42,n43,n44,n45,n46,n47,n48,n49,n50,n51,n52,n53,n54,n55,n56,n57,n58,n59,n60,n61,n62,n63,n64,n65,n66,n67,n68,n70,n71,n72,n87,n88,n89,n90,n91,n92,n93,n94,n95,n96,n97,n98,n100,n103,n104,n105,n106,n107,n108,n109,n110,n111,n112,n113,n114,n115,n116,n117,n118,n119,n120,n121,n122,n123,n124,n125,n126,n127,n128,n129,n130,n131,n132,n133,n134,n135,n136,n137,n138,n139,n140,n141,n142,n143,n144,n145,n146,n147,n148,n149,n150,n151,n152,n153,n154,n155,n163,n164,n165,n166,n167,n168,n169,n170,n171,n181,n182,n183 ext
 ```
 
-All 2006 leaves of the extended model, in 158 groups. **Unstyled names** come from `schema.json`; <span style="color:#4a7fb5"><strong>blue names</strong></span> are the 130 that `schema.extended.json` adds, and a fully blue box is a group the base model does not have at all. (Estimated shape 1.79:1 against 1.78:1 for 16:9 - Mermaid lays the boxes out itself, so the ratio is approached, not set.)
+The **137 fields** some rule in `mappings.json` targets — what the converter can actually fill in — with the groups above them, 184 boxes over 16 sections. Rounded boxes are the targeted fields themselves; square boxes are the groups holding them. <span class="map-key">Blue</span> is a path `schema.json` does not have: 102 of the 137 targets come from the electron-microscopy extensions.
+
+The other fields of the model are not drawn — all 2006 cannot be named in one static picture, and a field no rule targets is not something the converter can produce yet. Use the [model browser](model.md) to see the model in full.
 
 <!-- end generated map -->
 
 ## Keeping this page in sync
 
-The map is generated from the packaged model files, so it cannot disagree with
-them. After editing a model:
+The map is generated from the packaged mappings and model files, so it cannot
+disagree with them. After editing `mappings.json` or a model:
 
 ```bash
 python scripts/gen_model_map.py

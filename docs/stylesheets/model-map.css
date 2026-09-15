@@ -1,0 +1,13 @@
+/* Styling for the generated model map (docs/model-map.md).
+
+   The map itself is a Mermaid diagram that carries its own colours in
+   classDef, so all that is needed here is the legend swatch. */
+
+.map-key {
+  padding: 0 .35rem;
+  color: #fff;
+  background: #4a7fb5;
+  border-radius: .6rem;
+  font-size: .68rem;
+  font-weight: 700;
+}

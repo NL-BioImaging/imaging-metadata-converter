@@ -33,6 +33,7 @@ markdown_extensions:
 # from the packaged data files by scripts/sync_docs_data.py.
 extra_css:
   - stylesheets/model-tree.css
+  - stylesheets/model-map.css
 
 extra_javascript:
   - javascripts/model-tree.js
