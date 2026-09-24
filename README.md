@@ -76,6 +76,7 @@ by `tests/test_examples.py` and handy as input while extending the mappings:
 | Example | Source |
 | --- | --- |
 | `Cikteq SEM4000x Automap.json` | Cikteq SEM4000x (Automap) |
+| `Cikteq SEM4000x Normal.json` | Cikteq SEM4000x (Normal) |
 | `Delmic FAST-EM.json` | Delmic FAST-EM |
 | `EMSIS Xarosa.json` | EMSIS Xarosa |
 | `TFS Phenom Pharos.json` | Thermo Fisher Phenom Pharos |
