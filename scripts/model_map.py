@@ -1,4 +1,4 @@
-"""Generate the static model map embedded in docs/model-map.md.
+"""The model map on docs/model-map.md, drawn when the site is built.
 
 The map draws the part of the imaging model the converter actually
 produces: the paths some rule in mappings.json targets, with the groups
@@ -17,31 +17,19 @@ packed into rows joined by invisible links so the map stays roughly
 landscape; Mermaid has no aspect-ratio control, so the shape is
 approached rather than set.
 
-Run after editing the mappings or the model:
-
-    python scripts/gen_model_map.py
-
-Use --check to fail instead of writing, which is what
-tests/test_model_map.py does so a stale map cannot be committed
-unnoticed.
+The MkDocs hook scripts/docs_data.py puts render() in place of the page's
+{{ model.map }}, so the map is never stored and cannot go stale.
 """
 
-import argparse
-import json
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PAGE = ROOT / 'docs' / 'model-map.md'
 sys.path.insert(0, str(ROOT / 'src'))
 sys.path.insert(0, str(ROOT / 'scripts'))
 
-from imaging_metadata_converter import DEFAULT_MAPPINGS_FILE, ModelPaths  # noqa: E402
 from imaging_metadata_converter.AcquisitionMetadataMapper import rule_targets  # noqa: E402
-from docs_data import added_paths, all_paths  # noqa: E402
-
-BEGIN = '<!-- begin generated map: scripts/gen_model_map.py -->'
-END = '<!-- end generated map -->'
+from docs_data import all_paths, leaf_paths  # noqa: E402
 
 ORANGE = '#e8710a'
 # Four styles, so both distinctions carry colour as well as shape: base
@@ -216,20 +204,16 @@ def diagram(sections):
     return '\n'.join(lines), width / height
 
 
-def rendered_block():
-    """The full generated block, markers included, that the page should hold."""
-    model = ModelPaths()
-    tree = model.tree()
-    added = set(added_paths(model, tree))
-    mappings = json.loads(Path(DEFAULT_MAPPINGS_FILE).read_text(encoding='utf-8'))
-
-    paths = targets(mappings, tree)
+def render(data):
+    """The map and its legend, as Markdown, for a docs_data.ModelData."""
+    added = set(data.added)
+    paths = targets(data.mappings, data.tree)
     sections = build(paths, added)
 
-    body, ratio = diagram(sections)
+    body, _ratio = diagram(sections)
     boxes = sum(1 for s in sections for _ in s.walk())
     new = sum(1 for p in paths if p in added)
-    fields = sum(1 for path in all_paths(tree) if not isinstance(_node(tree, path), dict))
+    fields = sum(1 for _ in leaf_paths(data.tree))
     legend = (
         f'The **{len(paths)} fields** some rule in `mappings.json` targets —'
         ' what the converter can actually fill in — with the groups above'
@@ -242,39 +226,4 @@ def rendered_block():
         ' named in one static picture, and a field no rule targets is not'
         ' something the converter can produce yet. Use the'
         ' [model browser](model.md) to see the model in full.')
-    return f'{BEGIN}\n\n{body}\n\n{legend}\n\n{END}'
-
-
-def _node(tree, path):
-    node = tree
-    for part in path.split('.'):
-        node = node[part]
-    return node
-
-
-def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--check', action='store_true',
-                        help='report a stale map without writing')
-    args = parser.parse_args(argv)
-
-    text = PAGE.read_text(encoding='utf-8')
-    if BEGIN not in text or END not in text:
-        print(f'{PAGE.name} has no generated-map markers', file=sys.stderr)
-        return 1
-
-    start, end = text.index(BEGIN), text.index(END) + len(END)
-    updated = text[:start] + rendered_block() + text[end:]
-    if updated == text:
-        return 0
-    if args.check:
-        print(f'out of date: {PAGE.name}', file=sys.stderr)
-        print('run: python scripts/gen_model_map.py', file=sys.stderr)
-        return 1
-    PAGE.write_text(updated, encoding='utf-8')
-    print(f'updated: {PAGE.name}')
-    return 0
-
-
-if __name__ == '__main__':
-    raise SystemExit(main())
+    return f'{body}\n\n{legend}'

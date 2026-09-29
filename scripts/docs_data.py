@@ -11,10 +11,11 @@ the browser always shows the model the package ships.
   (mostly electron microscopy) and provenance classes and slots
 - data/mappings.json - the packaged mapping rules
 
-It also fills in the model's counts on model.md, written there as
-{{ model.<name> }}, so no number on that page is typed by hand.
+It also fills in the pages' {{ model.<name> }} placeholders: the model's
+counts on model.md, so no number there is typed by hand, and the model map
+(scripts/model_map.py) on model-map.md, so the map is never stored.
 
-mkdocs.yml loads it under `hooks:`; gen_model_map.py uses its path helpers.
+mkdocs.yml loads it under `hooks:`.
 """
 
 import json
@@ -25,6 +26,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'src'))
+sys.path.insert(0, str(ROOT / 'scripts'))
 
 from imaging_metadata_converter import DEFAULT_MAPPINGS_FILE, ModelPaths  # noqa: E402
 
@@ -144,6 +146,16 @@ def fill(markdown, counts):
     return PLACEHOLDER.sub(replace, markdown)
 
 
+def _load_model_map():
+    # MkDocs loads this hook by file path, and its plugins may reset
+    # sys.path, so load the sibling module by its path too
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('model_map', ROOT / 'scripts' / 'model_map.py')
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 # MkDocs hooks ------------------------------------------------------------
 
 def on_startup(command, dirty):
@@ -167,4 +179,7 @@ def on_files(files, config):
 def on_page_markdown(markdown, page, config, files):
     if page.file.src_uri == 'model.md':
         return fill(markdown, _model_data().counts())
+    if page.file.src_uri == 'model-map.md':
+        model_map = _load_model_map()
+        return fill(markdown, {'map': model_map.render(_model_data())})
     return markdown
