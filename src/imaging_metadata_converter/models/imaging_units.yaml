@@ -1,0 +1,1781 @@
+id: https://github.com/NL-BioImaging/imaging-metadata-consolidator/models/imaging/units
+name: imaging_units
+title: Imaging metadata units
+description: The units enumerations of the imaging metadata model, from models/LiMi_XMLSchema.xsd. Each unit lists the other
+  spellings it is known by as aliases (its names, and an ASCII form such as "um" for "µm"), so a vendor spelling can be read
+  as the unit.
+version: 1.0.0
+prefixes:
+  linkml: https://w3id.org/linkml/
+  imaging: https://github.com/NL-BioImaging/imaging-metadata-consolidator/models/imaging/
+default_prefix: imaging
+enums:
+  UnitsAngle:
+    description: The units used to represent an angle.
+    permissible_values:
+      deg:
+        description: degree unit.
+        aliases:
+        - degree
+        - degrees
+        annotations:
+          xsdfu_name: degree
+          xsdfu_plural: degrees
+          xsdfu_unitsystem: SI.RADIAN
+          xsdfu_enum: DEGREE
+      µrad:
+        aliases:
+        - urad
+      mrad: {}
+      rad:
+        description: radian unit.
+        aliases:
+        - radian
+        - radians
+        annotations:
+          xsdfu_name: radian
+          xsdfu_plural: radians
+          xsdfu_unitsystem: SI.RADIAN
+          xsdfu_enum: RADIAN
+      gon:
+        description: gradian unit.
+        aliases:
+        - gradian
+        - gradians
+        annotations:
+          xsdfu_name: gradian
+          xsdfu_plural: gradians
+          xsdfu_unitsystem: SI.RADIAN
+          xsdfu_enum: GRADIAN
+  UnitsElectricPotential:
+    description: The units used to represent an electric potential
+    permissible_values:
+      YV:
+        description: yottavolt unit.
+        aliases:
+        - yottavolt
+        - yottavolts
+        annotations:
+          xsdfu_name: yottavolt
+          xsdfu_plural: yottavolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: YOTTAVOLT
+      ZV:
+        description: zettavolt unit.
+        aliases:
+        - zettavolt
+        - zettavolts
+        annotations:
+          xsdfu_name: zettavolt
+          xsdfu_plural: zettavolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: ZETTAVOLT
+      EV:
+        description: exavolt unit.
+        aliases:
+        - exavolt
+        - exavolts
+        annotations:
+          xsdfu_name: exavolt
+          xsdfu_plural: exavolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: EXAVOLT
+      PV:
+        description: petavolt unit.
+        aliases:
+        - petavolt
+        - petavolts
+        annotations:
+          xsdfu_name: petavolt
+          xsdfu_plural: petavolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: PETAVOLT
+      TV:
+        description: teravolt unit.
+        aliases:
+        - teravolt
+        - teravolts
+        annotations:
+          xsdfu_name: teravolt
+          xsdfu_plural: teravolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: TERAVOLT
+      GV:
+        description: gigavolt unit.
+        aliases:
+        - gigavolt
+        - gigavolts
+        annotations:
+          xsdfu_name: gigavolt
+          xsdfu_plural: gigavolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: GIGAVOLT
+      MV:
+        description: megavolt unit.
+        aliases:
+        - megavolt
+        - megavolts
+        annotations:
+          xsdfu_name: megavolt
+          xsdfu_plural: megavolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: MEGAVOLT
+      kV:
+        description: kilovolt unit.
+        aliases:
+        - kilovolt
+        - kilovolts
+        annotations:
+          xsdfu_name: kilovolt
+          xsdfu_plural: kilovolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: KILOVOLT
+      hV:
+        description: hectovolt unit.
+        aliases:
+        - hectovolt
+        - hectovolts
+        annotations:
+          xsdfu_name: hectovolt
+          xsdfu_plural: hectovolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: HECTOVOLT
+      daV:
+        description: decavolt unit.
+        aliases:
+        - decavolt
+        - decavolts
+        annotations:
+          xsdfu_name: decavolt
+          xsdfu_plural: decavolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: DECAVOLT
+      V:
+        description: volt unit.
+        aliases:
+        - volt
+        - volts
+        annotations:
+          xsdfu_name: volt
+          xsdfu_plural: volts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: VOLT
+      dV:
+        description: decivolt unit.
+        aliases:
+        - decivolt
+        - decivolts
+        annotations:
+          xsdfu_name: decivolt
+          xsdfu_plural: decivolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: DECIVOLT
+      cV:
+        description: centivolt unit.
+        aliases:
+        - centivolt
+        - centivolts
+        annotations:
+          xsdfu_name: centivolt
+          xsdfu_plural: centivolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: CENTIVOLT
+      mV:
+        description: millivolt unit.
+        aliases:
+        - millivolt
+        - millivolts
+        annotations:
+          xsdfu_name: millivolt
+          xsdfu_plural: millivolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: MILLIVOLT
+      µV:
+        description: microvolt unit.
+        aliases:
+        - microvolt
+        - microvolts
+        - uV
+        annotations:
+          xsdfu_name: microvolt
+          xsdfu_plural: microvolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: MICROVOLT
+      nV:
+        description: nanovolt unit.
+        aliases:
+        - nanovolt
+        - nanovolts
+        annotations:
+          xsdfu_name: nanovolt
+          xsdfu_plural: nanovolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: NANOVOLT
+      pV:
+        description: picovolt unit.
+        aliases:
+        - picovolt
+        - picovolts
+        annotations:
+          xsdfu_name: picovolt
+          xsdfu_plural: picovolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: PICOVOLT
+      fV:
+        description: femtovolt unit.
+        aliases:
+        - femtovolt
+        - femtovolts
+        annotations:
+          xsdfu_name: femtovolt
+          xsdfu_plural: femtovolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: FEMTOVOLT
+      aV:
+        description: attovolt unit.
+        aliases:
+        - attovolt
+        - attovolts
+        annotations:
+          xsdfu_name: attovolt
+          xsdfu_plural: attovolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: ATTOVOLT
+      zV:
+        description: zeptovolt unit.
+        aliases:
+        - zeptovolt
+        - zeptovolts
+        annotations:
+          xsdfu_name: zeptovolt
+          xsdfu_plural: zeptovolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: ZEPTOVOLT
+      yV:
+        description: yoctovolt unit.
+        aliases:
+        - yoctovolt
+        - yoctovolts
+        annotations:
+          xsdfu_name: yoctovolt
+          xsdfu_plural: yoctovolts
+          xsdfu_unitsystem: SI.VOLT
+          xsdfu_enum: YOCTOVOLT
+  UnitsFrequency:
+    description: The units used to represent frequency
+    permissible_values:
+      YHz:
+        description: yottahertz unit.
+        aliases:
+        - yottahertz
+        annotations:
+          xsdfu_name: yottahertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: YOTTAHERTZ
+      ZHz:
+        description: zettahertz unit.
+        aliases:
+        - zettahertz
+        annotations:
+          xsdfu_name: zettahertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: ZETTAHERTZ
+      EHz:
+        description: exahertz unit.
+        aliases:
+        - exahertz
+        annotations:
+          xsdfu_name: exahertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: EXAHERTZ
+      PHz:
+        description: petahertz unit.
+        aliases:
+        - petahertz
+        annotations:
+          xsdfu_name: petahertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: PETAHERTZ
+      THz:
+        description: terahertz unit.
+        aliases:
+        - terahertz
+        annotations:
+          xsdfu_name: terahertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: TERAHERTZ
+      GHz:
+        description: gigahertz unit.
+        aliases:
+        - gigahertz
+        annotations:
+          xsdfu_name: gigahertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: GIGAHERTZ
+      MHz:
+        description: megahertz unit.
+        aliases:
+        - megahertz
+        annotations:
+          xsdfu_name: megahertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: MEGAHERTZ
+      kHz:
+        description: kilohertz unit.
+        aliases:
+        - kilohertz
+        annotations:
+          xsdfu_name: kilohertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: KILOHERTZ
+      hHz:
+        description: hectohertz unit.
+        aliases:
+        - hectohertz
+        annotations:
+          xsdfu_name: hectohertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: HECTOHERTZ
+      daHz:
+        description: decahertz unit.
+        aliases:
+        - decahertz
+        annotations:
+          xsdfu_name: decahertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: DECAHERTZ
+      Hz:
+        description: hertz unit.
+        aliases:
+        - hertz
+        annotations:
+          xsdfu_name: hertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: HERTZ
+      dHz:
+        description: decihertz unit.
+        aliases:
+        - decihertz
+        annotations:
+          xsdfu_name: decihertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: DECIHERTZ
+      cHz:
+        description: centihertz unit.
+        aliases:
+        - centihertz
+        annotations:
+          xsdfu_name: centihertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: CENTIHERTZ
+      mHz:
+        description: millihertz unit.
+        aliases:
+        - millihertz
+        annotations:
+          xsdfu_name: millihertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: MILLIHERTZ
+      µHz:
+        description: microhertz unit.
+        aliases:
+        - microhertz
+        - uHz
+        annotations:
+          xsdfu_name: microhertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: MICROHERTZ
+      nHz:
+        description: nanohertz unit.
+        aliases:
+        - nanohertz
+        annotations:
+          xsdfu_name: nanohertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: NANOHERTZ
+      pHz:
+        description: picohertz unit.
+        aliases:
+        - picohertz
+        annotations:
+          xsdfu_name: picohertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: PICOHERTZ
+      fHz:
+        description: femtohertz unit.
+        aliases:
+        - femtohertz
+        annotations:
+          xsdfu_name: femtohertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: FEMTOHERTZ
+      aHz:
+        description: attohertz unit.
+        aliases:
+        - attohertz
+        annotations:
+          xsdfu_name: attohertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: ATTOHERTZ
+      zHz:
+        description: zeptohertz unit.
+        aliases:
+        - zeptohertz
+        annotations:
+          xsdfu_name: zeptohertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: ZEPTOHERTZ
+      yHz:
+        description: yoctohertz unit.
+        aliases:
+        - yoctohertz
+        annotations:
+          xsdfu_name: yoctohertz
+          xsdfu_unitsystem: SI.HERTZ
+          xsdfu_enum: YOCTOHERTZ
+      fps: {}
+      Pixel per second: {}
+  UnitsLength:
+    description: The units used to represent a length
+    permissible_values:
+      Ym:
+        description: yottameter SI unit.
+        aliases:
+        - yottameter
+        - yottametre
+        - yottametres
+        annotations:
+          xsdfu_name: yottameter
+          xsdfu_plural: yottameter
+          xsdfu_altname: yottametre
+          xsdfu_altplural: yottametres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: YOTTAMETER
+      Zm:
+        description: zettameter SI unit.
+        aliases:
+        - zettameter
+        - zettametre
+        - zettametres
+        annotations:
+          xsdfu_name: zettameter
+          xsdfu_plural: zettameter
+          xsdfu_altname: zettametre
+          xsdfu_altplural: zettametres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: ZETTAMETER
+      Em:
+        description: exameter SI unit.
+        aliases:
+        - exameter
+        - exametre
+        - exametres
+        annotations:
+          xsdfu_name: exameter
+          xsdfu_plural: exameter
+          xsdfu_altname: exametre
+          xsdfu_altplural: exametres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: EXAMETER
+      Pm:
+        description: petameter SI unit.
+        aliases:
+        - petameter
+        - petametre
+        - petametres
+        annotations:
+          xsdfu_name: petameter
+          xsdfu_plural: petameter
+          xsdfu_altname: petametre
+          xsdfu_altplural: petametres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: PETAMETER
+      Tm:
+        description: terameter SI unit.
+        aliases:
+        - terameter
+        - terametre
+        - terametres
+        annotations:
+          xsdfu_name: terameter
+          xsdfu_plural: terameter
+          xsdfu_altname: terametre
+          xsdfu_altplural: terametres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: TERAMETER
+      Gm:
+        description: gigameter SI unit.
+        aliases:
+        - gigameter
+        - gigametre
+        - gigametres
+        annotations:
+          xsdfu_name: gigameter
+          xsdfu_plural: gigameter
+          xsdfu_altname: gigametre
+          xsdfu_altplural: gigametres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: GIGAMETER
+      Mm:
+        description: megameter SI unit.
+        aliases:
+        - megameter
+        - megametre
+        - megametres
+        annotations:
+          xsdfu_name: megameter
+          xsdfu_plural: megameter
+          xsdfu_altname: megametre
+          xsdfu_altplural: megametres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: MEGAMETER
+      km:
+        description: kilometer SI unit.
+        aliases:
+        - kilometer
+        - kilometre
+        - kilometres
+        annotations:
+          xsdfu_name: kilometer
+          xsdfu_plural: kilometer
+          xsdfu_altname: kilometre
+          xsdfu_altplural: kilometres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: KILOMETER
+      hm:
+        description: hectometer SI unit.
+        aliases:
+        - hectometer
+        - hectometre
+        - hectometres
+        annotations:
+          xsdfu_name: hectometer
+          xsdfu_plural: hectometer
+          xsdfu_altname: hectometre
+          xsdfu_altplural: hectometres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: HECTOMETER
+      dam:
+        description: decameter SI unit.
+        aliases:
+        - decameter
+        - decametre
+        - decametres
+        annotations:
+          xsdfu_name: decameter
+          xsdfu_plural: decameter
+          xsdfu_altname: decametre
+          xsdfu_altplural: decametres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: DECAMETER
+      m:
+        description: meter SI unit.
+        aliases:
+        - meter
+        - metre
+        - metres
+        annotations:
+          xsdfu_name: meter
+          xsdfu_plural: meter
+          xsdfu_altname: metre
+          xsdfu_altplural: metres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: METER
+      dm:
+        description: decimeter SI unit.
+        aliases:
+        - decimeter
+        - decimetre
+        - decimetres
+        annotations:
+          xsdfu_name: decimeter
+          xsdfu_plural: decimeter
+          xsdfu_altname: decimetre
+          xsdfu_altplural: decimetres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: DECIMETER
+      cm:
+        description: centimeter SI unit.
+        aliases:
+        - centimeter
+        - centimetre
+        - centimetres
+        annotations:
+          xsdfu_name: centimeter
+          xsdfu_plural: centimeter
+          xsdfu_altname: centimetre
+          xsdfu_altplural: centimetres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: CENTIMETER
+      mm:
+        description: millimeter SI unit.
+        aliases:
+        - millimeter
+        - millimetre
+        - millimetres
+        annotations:
+          xsdfu_name: millimeter
+          xsdfu_plural: millimeter
+          xsdfu_altname: millimetre
+          xsdfu_altplural: millimetres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: MILLIMETER
+      µm:
+        description: micrometer SI unit.
+        aliases:
+        - micrometer
+        - micrometre
+        - micrometres
+        - um
+        annotations:
+          xsdfu_name: micrometer
+          xsdfu_plural: micrometer
+          xsdfu_altname: micrometre
+          xsdfu_altplural: micrometres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: MICROMETER
+      nm:
+        description: nanometer SI unit.
+        aliases:
+        - nanometer
+        - nanometre
+        - nanometres
+        annotations:
+          xsdfu_name: nanometer
+          xsdfu_plural: nanometer
+          xsdfu_altname: nanometre
+          xsdfu_altplural: nanometres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: NANOMETER
+      pm:
+        description: picometer SI unit.
+        aliases:
+        - picometer
+        - picometre
+        - picometres
+        annotations:
+          xsdfu_name: picometer
+          xsdfu_plural: picometer
+          xsdfu_altname: picometre
+          xsdfu_altplural: picometres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: PICOMETER
+      fm:
+        description: femtometer SI unit.
+        aliases:
+        - femtometer
+        - femtometre
+        - femtometres
+        annotations:
+          xsdfu_name: femtometer
+          xsdfu_plural: femtometer
+          xsdfu_altname: femtometre
+          xsdfu_altplural: femtometres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: FEMTOMETER
+      am:
+        description: attometer SI unit.
+        aliases:
+        - attometer
+        - attometre
+        - attometres
+        annotations:
+          xsdfu_name: attometer
+          xsdfu_plural: attometer
+          xsdfu_altname: attometre
+          xsdfu_altplural: attometres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: ATTOMETER
+      zm:
+        description: zeptometer SI unit.
+        aliases:
+        - zeptometer
+        - zeptometre
+        - zeptometres
+        annotations:
+          xsdfu_name: zeptometer
+          xsdfu_plural: zeptometer
+          xsdfu_altname: zeptometre
+          xsdfu_altplural: zeptometres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: ZEPTOMETER
+      ym:
+        description: yoctometer SI unit.
+        aliases:
+        - yoctometer
+        - yoctometre
+        - yoctometres
+        annotations:
+          xsdfu_name: yoctometer
+          xsdfu_plural: yoctometer
+          xsdfu_altname: yoctometre
+          xsdfu_altplural: yoctometres
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: YOCTOMETER
+      Å:
+        description: ångström SI-derived unit.
+        aliases:
+        - ångström
+        - ångströms
+        annotations:
+          xsdfu_name: ångström
+          xsdfu_plural: ångströms
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: ANGSTROM
+      thou:
+        description: thou Imperial unit (or mil, 1/1000 inch).
+        aliases:
+        - thous
+        annotations:
+          xsdfu_name: thou
+          xsdfu_plural: thous
+          xsdfu_unitsystem: Imperial
+          xsdfu_enum: THOU
+      li:
+        description: line Imperial unit (1/12 inch).
+        aliases:
+        - line
+        - lines
+        annotations:
+          xsdfu_name: line
+          xsdfu_plural: lines
+          xsdfu_unitsystem: Imperial
+          xsdfu_enum: LINE
+      in:
+        description: inch Imperial unit.
+        aliases:
+        - inch
+        - inches
+        annotations:
+          xsdfu_name: inch
+          xsdfu_plural: inches
+          xsdfu_unitsystem: Imperial
+          xsdfu_enum: INCH
+      ft:
+        description: foot Imperial unit.
+        aliases:
+        - feet
+        - foot
+        annotations:
+          xsdfu_name: foot
+          xsdfu_plural: feet
+          xsdfu_unitsystem: Imperial
+          xsdfu_enum: FOOT
+      yd:
+        description: yard Imperial unit.
+        aliases:
+        - yard
+        - yards
+        annotations:
+          xsdfu_name: yard
+          xsdfu_plural: yards
+          xsdfu_unitsystem: Imperial
+          xsdfu_enum: YARD
+      mi:
+        description: terrestrial mile Imperial unit.
+        aliases:
+        - mile
+        - miles
+        annotations:
+          xsdfu_name: mile
+          xsdfu_plural: miles
+          xsdfu_unitsystem: Imperial
+          xsdfu_enum: MILE
+      ua:
+        description: astronomical unit SI-derived unit. The official term is ua as the SI standard assigned AU to absorbance
+          unit.
+        aliases:
+        - astronomical unit
+        - astronomical units
+        annotations:
+          xsdfu_name: astronomical unit
+          xsdfu_plural: astronomical units
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: ASTRONOMICALUNIT
+      ly:
+        description: light year.
+        aliases:
+        - light year
+        - light years
+        annotations:
+          xsdfu_name: light year
+          xsdfu_plural: light years
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: LIGHTYEAR
+      pc:
+        description: parsec.
+        aliases:
+        - parsec
+        - parsecs
+        annotations:
+          xsdfu_name: parsec
+          xsdfu_plural: parsecs
+          xsdfu_unitsystem: SI.METER
+          xsdfu_enum: PARSEC
+      pt:
+        description: typography point Imperial-derived unit (1/72 inch). Use of this unit should be limited to font sizes.
+        aliases:
+        - point
+        - points
+        annotations:
+          xsdfu_name: point
+          xsdfu_plural: points
+          xsdfu_unitsystem: Imperial
+          xsdfu_enum: POINT
+      Pixel:
+        description: Pixel abstract unit. This is not convertible to any other length unit without a calibrated scaling factor.
+          Its use should should be limited to ROI objects, and converted to an appropriate length units using the PhysicalSize
+          units of the Image the ROI is attached to.
+        aliases:
+        - pixels
+        annotations:
+          xsdfu_name: Pixel
+          xsdfu_plural: pixels
+          xsdfu_unitsystem: Pixel
+          xsdfu_enum: PIXEL
+      reference frame:
+        description: reference frame abstract unit. This is not convertible to any other length unit without a scaling factor.
+          Its use should be limited to uncalibrated stage positions, and converted to an appropriate length unit using a calibrated
+          scaling factor.
+        annotations:
+          xsdfu_name: reference frame
+          xsdfu_unitsystem: ReferenceFrame
+          xsdfu_enum: REFERENCEFRAME
+  UnitsPower:
+    description: The units used to represent power
+    permissible_values:
+      YW:
+        description: yottawatt unit.
+        aliases:
+        - yottawatt
+        - yottawatts
+        annotations:
+          xsdfu_name: yottawatt
+          xsdfu_plural: yottawatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: YOTTAWATT
+      ZW:
+        description: zettawatt unit.
+        aliases:
+        - zettawatt
+        - zettawatts
+        annotations:
+          xsdfu_name: zettawatt
+          xsdfu_plural: zettawatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: ZETTAWATT
+      EW:
+        description: exawatt unit.
+        aliases:
+        - exawatt
+        - exawatts
+        annotations:
+          xsdfu_name: exawatt
+          xsdfu_plural: exawatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: EXAWATT
+      PW:
+        description: petawatt unit.
+        aliases:
+        - petawatt
+        - petawatts
+        annotations:
+          xsdfu_name: petawatt
+          xsdfu_plural: petawatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: PETAWATT
+      TW:
+        description: terawatt unit.
+        aliases:
+        - terawatt
+        - terawatts
+        annotations:
+          xsdfu_name: terawatt
+          xsdfu_plural: terawatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: TERAWATT
+      GW:
+        description: gigawatt unit.
+        aliases:
+        - gigawatt
+        - gigawatts
+        annotations:
+          xsdfu_name: gigawatt
+          xsdfu_plural: gigawatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: GIGAWATT
+      MW:
+        description: megawatt unit.
+        aliases:
+        - megawatt
+        - megawatts
+        annotations:
+          xsdfu_name: megawatt
+          xsdfu_plural: megawatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: MEGAWATT
+      kW:
+        description: kilowatt unit.
+        aliases:
+        - kilowatt
+        - kilowatts
+        annotations:
+          xsdfu_name: kilowatt
+          xsdfu_plural: kilowatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: KILOWATT
+      hW:
+        description: hectowatt unit.
+        aliases:
+        - hectowatt
+        - hectowatts
+        annotations:
+          xsdfu_name: hectowatt
+          xsdfu_plural: hectowatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: HECTOWATT
+      daW:
+        description: decawatt unit.
+        aliases:
+        - decawatt
+        - decawatts
+        annotations:
+          xsdfu_name: decawatt
+          xsdfu_plural: decawatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: DECAWATT
+      W:
+        description: watt unit.
+        aliases:
+        - watt
+        - watts
+        annotations:
+          xsdfu_name: watt
+          xsdfu_plural: watts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: WATT
+      dW:
+        description: deciwatt unit.
+        aliases:
+        - deciwatt
+        - deciwatts
+        annotations:
+          xsdfu_name: deciwatt
+          xsdfu_plural: deciwatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: DECIWATT
+      cW:
+        description: centiwatt unit.
+        aliases:
+        - centiwatt
+        - centiwatts
+        annotations:
+          xsdfu_name: centiwatt
+          xsdfu_plural: centiwatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: CENTIWATT
+      mW:
+        description: milliwatt unit.
+        aliases:
+        - milliwatt
+        - milliwatts
+        annotations:
+          xsdfu_name: milliwatt
+          xsdfu_plural: milliwatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: MILLIWATT
+      µW:
+        description: microwatt unit.
+        aliases:
+        - microwatt
+        - microwatts
+        - uW
+        annotations:
+          xsdfu_name: microwatt
+          xsdfu_plural: microwatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: MICROWATT
+      nW:
+        description: nanowatt unit.
+        aliases:
+        - nanowatt
+        - nanowatts
+        annotations:
+          xsdfu_name: nanowatt
+          xsdfu_plural: nanowatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: NANOWATT
+      pW:
+        description: picowatt unit.
+        aliases:
+        - picowatt
+        - picowatts
+        annotations:
+          xsdfu_name: picowatt
+          xsdfu_plural: picowatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: PICOWATT
+      fW:
+        description: femtowatt unit.
+        aliases:
+        - femtowatt
+        - femtowatts
+        annotations:
+          xsdfu_name: femtowatt
+          xsdfu_plural: femtowatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: FEMTOWATT
+      aW:
+        description: attowatt unit.
+        aliases:
+        - attowatt
+        - attowatts
+        annotations:
+          xsdfu_name: attowatt
+          xsdfu_plural: attowatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: ATTOWATT
+      zW:
+        description: zeptowatt unit.
+        aliases:
+        - zeptowatt
+        - zeptowatts
+        annotations:
+          xsdfu_name: zeptowatt
+          xsdfu_plural: zeptowatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: ZEPTOWATT
+      yW:
+        description: yoctowatt unit.
+        aliases:
+        - yoctowatt
+        - yoctowatts
+        annotations:
+          xsdfu_name: yoctowatt
+          xsdfu_plural: yoctowatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: YOCTOWATT
+      '%': {}
+  UnitsIrradiance:
+    description: The units used to represent irradiance (power per unit area)
+    permissible_values:
+      W/m2:
+        description: yottawatt unit.
+        aliases:
+        - yottawatt
+        - yottawatts
+        annotations:
+          xsdfu_name: yottawatt
+          xsdfu_plural: yottawatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: YOTTAWATT
+      mW/µm2:
+        description: zettawatt unit.
+        aliases:
+        - mW/um2
+        - zettawatt
+        - zettawatts
+        annotations:
+          xsdfu_name: zettawatt
+          xsdfu_plural: zettawatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: ZETTAWATT
+      mW/nm2:
+        description: exawatt unit.
+        aliases:
+        - exawatt
+        - exawatts
+        annotations:
+          xsdfu_name: exawatt
+          xsdfu_plural: exawatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: EXAWATT
+      µW/µm2:
+        description: petawatt unit.
+        aliases:
+        - petawatt
+        - petawatts
+        - uW/um2
+        annotations:
+          xsdfu_name: petawatt
+          xsdfu_plural: petawatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: PETAWATT
+      µW/nm2:
+        description: terawatt unit.
+        aliases:
+        - terawatt
+        - terawatts
+        - uW/nm2
+        annotations:
+          xsdfu_name: terawatt
+          xsdfu_plural: terawatts
+          xsdfu_unitsystem: SI.WATT
+          xsdfu_enum: TERAWATT
+  UnitsPressure:
+    description: The units used to represent a pressure
+    permissible_values:
+      YPa:
+        description: yottapascal SI unit.
+        aliases:
+        - yottapascal
+        - yottapascals
+        annotations:
+          xsdfu_name: yottapascal
+          xsdfu_plural: yottapascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: YOTTAPASCAL
+      ZPa:
+        description: zettapascal SI unit.
+        aliases:
+        - zettapascal
+        - zettapascals
+        annotations:
+          xsdfu_name: zettapascal
+          xsdfu_plural: zettapascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: ZETTAPASCAL
+      EPa:
+        description: exapascal SI unit.
+        aliases:
+        - exapascal
+        - exapascals
+        annotations:
+          xsdfu_name: exapascal
+          xsdfu_plural: exapascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: EXAPASCAL
+      PPa:
+        description: petapascal SI unit.
+        aliases:
+        - petapascal
+        - petapascals
+        annotations:
+          xsdfu_name: petapascal
+          xsdfu_plural: petapascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: PETAPASCAL
+      TPa:
+        description: terapascal SI unit.
+        aliases:
+        - terapascal
+        - terapascals
+        annotations:
+          xsdfu_name: terapascal
+          xsdfu_plural: terapascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: TERAPASCAL
+      GPa:
+        description: gigapascal SI unit.
+        aliases:
+        - gigapascal
+        - gigapascals
+        annotations:
+          xsdfu_name: gigapascal
+          xsdfu_plural: gigapascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: GIGAPASCAL
+      MPa:
+        description: megapascal SI unit.
+        aliases:
+        - megapascal
+        - megapascals
+        annotations:
+          xsdfu_name: megapascal
+          xsdfu_plural: megapascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: MEGAPASCAL
+      kPa:
+        description: kilopascal SI unit.
+        aliases:
+        - kilopascal
+        - kilopascals
+        annotations:
+          xsdfu_name: kilopascal
+          xsdfu_plural: kilopascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: KILOPASCAL
+      hPa:
+        description: hectopascal SI unit.
+        aliases:
+        - hectopascal
+        - hectopascals
+        annotations:
+          xsdfu_name: hectopascal
+          xsdfu_plural: hectopascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: HECTOPASCAL
+      daPa:
+        description: decapascal SI unit.
+        aliases:
+        - decapascal
+        - decapascals
+        annotations:
+          xsdfu_name: decapascal
+          xsdfu_plural: decapascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: DECAPASCAL
+      Pa:
+        description: pascal SI unit. Note the C++ enum is mixed case due to PASCAL being a macro used by the Microsoft C and
+          C++ compiler.
+        aliases:
+        - pascal
+        - pascals
+        annotations:
+          xsdfu_name: pascal
+          xsdfu_plural: pascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: PASCAL
+          xsdfu_cppenum: Pascal
+      dPa:
+        description: decipascal SI unit.
+        aliases:
+        - decipascal
+        - decipascals
+        annotations:
+          xsdfu_name: decipascal
+          xsdfu_plural: decipascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: DECIPASCAL
+      cPa:
+        description: centipascal SI unit.
+        aliases:
+        - centipascal
+        - centipascals
+        annotations:
+          xsdfu_name: centipascal
+          xsdfu_plural: centipascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: CENTIPASCAL
+      mPa:
+        description: millipascal SI unit.
+        aliases:
+        - millipascal
+        - millipascals
+        annotations:
+          xsdfu_name: millipascal
+          xsdfu_plural: millipascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: MILLIPASCAL
+      µPa:
+        description: micropascal SI unit.
+        aliases:
+        - micropascal
+        - micropascals
+        - uPa
+        annotations:
+          xsdfu_name: micropascal
+          xsdfu_plural: micropascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: MICROPASCAL
+      nPa:
+        description: nanopascal SI unit.
+        aliases:
+        - nanopascal
+        - nanopascals
+        annotations:
+          xsdfu_name: nanopascal
+          xsdfu_plural: nanopascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: NANOPASCAL
+      pPa:
+        description: picopascal SI unit.
+        aliases:
+        - picopascal
+        - picopascals
+        annotations:
+          xsdfu_name: picopascal
+          xsdfu_plural: picopascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: PICOPASCAL
+      fPa:
+        description: femtopascal SI unit.
+        aliases:
+        - femtopascal
+        - femtopascals
+        annotations:
+          xsdfu_name: femtopascal
+          xsdfu_plural: femtopascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: FEMTOPASCAL
+      aPa:
+        description: attopascal SI unit.
+        aliases:
+        - attopascal
+        - attopascals
+        annotations:
+          xsdfu_name: attopascal
+          xsdfu_plural: attopascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: ATTOPASCAL
+      zPa:
+        description: zeptopascal SI unit.
+        aliases:
+        - zeptopascal
+        - zeptopascals
+        annotations:
+          xsdfu_name: zeptopascal
+          xsdfu_plural: zeptopascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: ZEPTOPASCAL
+      yPa:
+        description: yoctopascal SI unit.
+        aliases:
+        - yoctopascal
+        - yoctopascals
+        annotations:
+          xsdfu_name: yoctopascal
+          xsdfu_plural: yoctopascals
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: YOCTOPASCAL
+      bar:
+        description: bar SI-derived unit.
+        aliases:
+        - bars
+        annotations:
+          xsdfu_name: bar
+          xsdfu_plural: bars
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: BAR
+      Mbar:
+        description: megabar SI-derived unit.
+        aliases:
+        - megabar
+        - megabars
+        annotations:
+          xsdfu_name: megabar
+          xsdfu_plural: megabars
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: MEGABAR
+      kbar:
+        description: kilobar SI-derived unit.
+        aliases:
+        - kilobar
+        - kilobars
+        annotations:
+          xsdfu_name: kilobar
+          xsdfu_plural: kilobars
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: KILOBAR
+      dbar:
+        description: decibar SI-derived unit.
+        aliases:
+        - decibar
+        - decibars
+        annotations:
+          xsdfu_name: decibar
+          xsdfu_plural: decibars
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: DECIBAR
+      cbar:
+        description: centibar SI-derived unit.
+        aliases:
+        - centibar
+        - centibars
+        annotations:
+          xsdfu_name: centibar
+          xsdfu_plural: centibars
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: CENTIBAR
+      mbar:
+        description: millibar SI-derived unit.
+        aliases:
+        - millibar
+        - millibars
+        annotations:
+          xsdfu_name: millibar
+          xsdfu_plural: millibars
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: MILLIBAR
+      atm:
+        description: standard atmosphere SI-derived unit.
+        aliases:
+        - atmosphere
+        - atmospheres
+        annotations:
+          xsdfu_name: atmosphere
+          xsdfu_plural: atmospheres
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: ATMOSPHERE
+      psi:
+        description: pound-force per square inch Imperial unit.
+        annotations:
+          xsdfu_name: psi
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: PSI
+      Torr:
+        description: torr SI-derived unit.
+        aliases:
+        - torr
+        - torrs
+        annotations:
+          xsdfu_name: torr
+          xsdfu_plural: torrs
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: TORR
+      mTorr:
+        description: millitorr SI-derived unit.
+        aliases:
+        - millitorr
+        - millitorrs
+        annotations:
+          xsdfu_name: millitorr
+          xsdfu_plural: millitorrs
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: MILLITORR
+      mm Hg:
+        description: millimetre of mercury SI-derived unit
+        aliases:
+        - mmhg
+        annotations:
+          xsdfu_name: mmhg
+          xsdfu_unitsystem: SI.PASCAL
+          xsdfu_enum: MMHG
+  UnitsTemperature:
+    description: The units used to represent a temperature
+    permissible_values:
+      °C:
+        description: degree Celsius unit.
+        aliases:
+        - C
+        - celsius
+        annotations:
+          xsdfu_name: celsius
+          xsdfu_unitsystem: SI.KELVIN
+          xsdfu_enum: CELSIUS
+      °F:
+        description: degree Fahrenheit unit.
+        aliases:
+        - F
+        - fahrenheit
+        annotations:
+          xsdfu_name: fahrenheit
+          xsdfu_unitsystem: SI.KELVIN
+          xsdfu_enum: FAHRENHEIT
+      K:
+        description: Kelvin unit.
+        aliases:
+        - kelvin
+        - kelvins
+        annotations:
+          xsdfu_name: kelvin
+          xsdfu_plural: kelvins
+          xsdfu_unitsystem: SI.KELVIN
+          xsdfu_enum: KELVIN
+      °R:
+        description: degree Rankine unit.
+        aliases:
+        - R
+        - rankine
+        annotations:
+          xsdfu_name: rankine
+          xsdfu_unitsystem: SI.KELVIN
+          xsdfu_enum: RANKINE
+  UnitsTime:
+    description: The units used to represent a time interval
+    permissible_values:
+      Ys:
+        description: yottasecond SI unit.
+        aliases:
+        - yottasecond
+        - yottaseconds
+        annotations:
+          xsdfu_name: yottasecond
+          xsdfu_plural: yottaseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: YOTTASECOND
+      Zs:
+        description: zettasecond SI unit.
+        aliases:
+        - zettasecond
+        - zettaseconds
+        annotations:
+          xsdfu_name: zettasecond
+          xsdfu_plural: zettaseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: ZETTASECOND
+      Es:
+        description: exasecond SI unit.
+        aliases:
+        - exasecond
+        - exaseconds
+        annotations:
+          xsdfu_name: exasecond
+          xsdfu_plural: exaseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: EXASECOND
+      Ps:
+        description: petasecond SI unit.
+        aliases:
+        - petasecond
+        - petaseconds
+        annotations:
+          xsdfu_name: petasecond
+          xsdfu_plural: petaseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: PETASECOND
+      Ts:
+        description: terasecond SI unit.
+        aliases:
+        - terasecond
+        - teraseconds
+        annotations:
+          xsdfu_name: terasecond
+          xsdfu_plural: teraseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: TERASECOND
+      Gs:
+        description: gigasecond SI unit.
+        aliases:
+        - gigasecond
+        - gigaseconds
+        annotations:
+          xsdfu_name: gigasecond
+          xsdfu_plural: gigaseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: GIGASECOND
+      Ms:
+        description: megasecond SI unit.
+        aliases:
+        - megasecond
+        - megaseconds
+        annotations:
+          xsdfu_name: megasecond
+          xsdfu_plural: megaseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: MEGASECOND
+      ks:
+        description: kilosecond SI unit.
+        aliases:
+        - kilosecond
+        - kiloseconds
+        annotations:
+          xsdfu_name: kilosecond
+          xsdfu_plural: kiloseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: KILOSECOND
+      hs:
+        description: hectosecond SI unit.
+        aliases:
+        - hectosecond
+        - hectoseconds
+        annotations:
+          xsdfu_name: hectosecond
+          xsdfu_plural: hectoseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: HECTOSECOND
+      das:
+        description: decasecond SI unit.
+        aliases:
+        - decasecond
+        - decaseconds
+        annotations:
+          xsdfu_name: decasecond
+          xsdfu_plural: decaseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: DECASECOND
+      s:
+        description: second SI unit.
+        aliases:
+        - second
+        - seconds
+        annotations:
+          xsdfu_name: second
+          xsdfu_plural: seconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: SECOND
+      ds:
+        description: decisecond SI unit.
+        aliases:
+        - decisecond
+        - deciseconds
+        annotations:
+          xsdfu_name: decisecond
+          xsdfu_plural: deciseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: DECISECOND
+      cs:
+        description: centisecond SI unit.
+        aliases:
+        - centisecond
+        - centiseconds
+        annotations:
+          xsdfu_name: centisecond
+          xsdfu_plural: centiseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: CENTISECOND
+      ms:
+        description: millisecond SI unit.
+        aliases:
+        - millisecond
+        - milliseconds
+        annotations:
+          xsdfu_name: millisecond
+          xsdfu_plural: milliseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: MILLISECOND
+      µs:
+        description: microsecond SI unit.
+        aliases:
+        - microsecond
+        - microseconds
+        - us
+        annotations:
+          xsdfu_name: microsecond
+          xsdfu_plural: microseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: MICROSECOND
+      ns:
+        description: nanosecond SI unit.
+        aliases:
+        - nanosecond
+        - nanoseconds
+        annotations:
+          xsdfu_name: nanosecond
+          xsdfu_plural: nanoseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: NANOSECOND
+      ps:
+        description: picosecond SI unit.
+        aliases:
+        - picosecond
+        - picoseconds
+        annotations:
+          xsdfu_name: picosecond
+          xsdfu_plural: picoseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: PICOSECOND
+      fs:
+        description: femtosecond SI unit.
+        aliases:
+        - femtosecond
+        - femtoseconds
+        annotations:
+          xsdfu_name: femtosecond
+          xsdfu_plural: femtoseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: FEMTOSECOND
+      as:
+        description: attosecond SI unit.
+        aliases:
+        - attosecond
+        - attoseconds
+        annotations:
+          xsdfu_name: attosecond
+          xsdfu_plural: attoseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: ATTOSECOND
+      zs:
+        description: zeptosecond SI unit.
+        aliases:
+        - zeptosecond
+        - zeptoseconds
+        annotations:
+          xsdfu_name: zeptosecond
+          xsdfu_plural: zeptoseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: ZEPTOSECOND
+      ys:
+        description: yoctosecond SI unit.
+        aliases:
+        - yoctosecond
+        - yoctoseconds
+        annotations:
+          xsdfu_name: yoctosecond
+          xsdfu_plural: yoctoseconds
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: YOCTOSECOND
+      min:
+        description: minute SI-derived unit.
+        aliases:
+        - minute
+        - minutes
+        annotations:
+          xsdfu_name: minute
+          xsdfu_plural: minutes
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: MINUTE
+      h:
+        description: hour SI-derived unit.
+        aliases:
+        - hour
+        - hours
+        annotations:
+          xsdfu_name: hour
+          xsdfu_plural: hours
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: HOUR
+      d:
+        description: day SI-derived unit.
+        aliases:
+        - day
+        - days
+        annotations:
+          xsdfu_name: day
+          xsdfu_plural: days
+          xsdfu_unitsystem: SI.SECOND
+          xsdfu_enum: DAY
+  UnitsConcentration:
+    description: The units used to represent concentration
+    permissible_values:
+      ng/µl:
+        aliases:
+        - ng/ul
+      µg/µl:
+        aliases:
+        - ug/ul
+      mg/ml: {}
+      '%(W/V)': {}
+      '%(V/V)': {}
+      Units/ml: {}
+      Other: {}
+  UnitsDensity:
+    description: The units used to represent density.
+    permissible_values:
+      kg/m3: {}
+      g/ml: {}
+      mg/µg:
+        aliases:
+        - mg/ug
+      µg/ng:
+        aliases:
+        - ug/ng
+  UnitsElectricCharge:
+    description: The units used to represent an electric charge
+    permissible_values:
+      e-: {}
+      Coulomb: {}
+      Other: {}
+  UnitsElectricCurrent:
+    description: The units used to represent an electric current
+    permissible_values:
+      A: {}
+      e-/Pixel/sec: {}
+      e- rms: {}
+  UnitsRatio:
+    description: The units represent the relative loudness of sounds or the ratio between two physical quantities, usually
+      amounts of acoustic or electric power, or for measuring.
+    permissible_values:
+      bel: {}
+      decibel (dB): {}
+  UnitsVelocity:
+    description: The units used to represent a velocity
+    permissible_values:
+      m/s:
+        description: m/s SI unit.
+      mm/s: {}
+      µm/s:
+        aliases:
+        - um/s
+      nm/s: {}
+      Other: {}
+  UnitsVolume:
+    description: The units used to represent volume
+    permissible_values:
+      liter: {}
+      ml: {}
+      µl:
+        aliases:
+        - ul
+      cm3: {}
+      Other: {}

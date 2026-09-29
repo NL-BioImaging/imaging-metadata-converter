@@ -14,7 +14,9 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Topic :: Scientific/Engineering :: Bio-Informatics",
 ]
-dependencies = []
+dependencies = [
+    "linkml-runtime>=1.9",
+]
 
 [project.optional-dependencies]
 docs = [
@@ -30,7 +32,7 @@ Homepage = "https://github.com/NL-BioImaging/imaging-metadata-converter"
 where = ["src"]
 
 [tool.setuptools.package-data]
-imaging_metadata_converter = ["data/*.json"]
+imaging_metadata_converter = ["models/*.yaml", "mappings/*.json"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

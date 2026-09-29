@@ -8,18 +8,23 @@ Dict in, dict out:
 """
 
 from .AcquisitionMetadataMapper import (
+    DEFAULT_COMBINATIONS_FILE,
     DEFAULT_MAPPINGS_FILE,
     DEFAULT_SCHEMA_FILE,
+    SOURCE_MAP_KEY,
     AcquisitionMetadataMapper,
-    flatten_dict,
 )
+from .ModelPaths import DEFAULT_MODEL_FILE, ModelPaths
 
 __all__ = [
     'AcquisitionMetadataMapper',
+    'DEFAULT_COMBINATIONS_FILE',
     'DEFAULT_MAPPINGS_FILE',
+    'DEFAULT_MODEL_FILE',
     'DEFAULT_SCHEMA_FILE',
+    'ModelPaths',
+    'SOURCE_MAP_KEY',
     'convert_metadata',
-    'flatten_dict',
 ]
 
 __version__ = '0.1.0'
@@ -28,7 +33,7 @@ _default_mapper = None
 
 
 def _get_default_mapper():
-    """Return the shared mapper using the packaged schema and mappings."""
+    """Return the shared mapper using the packaged model and mappings."""
     global _default_mapper
     if _default_mapper is None:
         _default_mapper = AcquisitionMetadataMapper()
@@ -36,5 +41,5 @@ def _get_default_mapper():
 
 
 def convert_metadata(metadata):
-    """Map a custom metadata dict onto the common schema and return the result."""
+    """Map a custom metadata dict onto the common model and return the result."""
     return _get_default_mapper().convert_metadata(metadata)

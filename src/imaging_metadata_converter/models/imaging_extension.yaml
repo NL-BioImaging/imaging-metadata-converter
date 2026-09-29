@@ -1,0 +1,392 @@
+id: https://github.com/NL-BioImaging/imaging-metadata-consolidator/models/imaging/extension
+name: imaging_extension
+title: Imaging metadata extension
+description: Metadata beyond LiMi that the source files hold, mostly electron microscopy, formerly
+  mappings/schema.extended.json. Fields for existing model classes are mixins (InstrumentExtension, ...) that
+  the imaging model's classes use; each field's schema_extended_path annotation is its path in
+  schema.extended.json. Values of type object in schema.extended.json are strings here (annotation
+  source_type), arrays multivalued strings.
+version: 1.0.0
+prefixes:
+  linkml: https://w3id.org/linkml/
+  imaging: https://github.com/NL-BioImaging/imaging-metadata-consolidator/models/imaging/
+  ome: https://schemas.incenp.org/ome/v1/core/
+default_prefix: imaging
+default_range: string
+imports:
+- linkml:types
+classes:
+  Quantity:
+    description: A value with the unit its source states, as free text.
+    attributes:
+      Value:
+        range: float
+      Unit:
+        description: The unit as the source writes it, e.g. "um" or "mm".
+  Vector2D:
+    description: A pair of values along X and Y.
+    attributes:
+      X:
+        range: float
+      Y:
+        range: float
+
+  OMEExtension:
+    mixin: true
+    attributes:
+      Operations:
+        annotations: {schema_extended_path: Operations, source_type: object}
+      Features:
+        annotations: {schema_extended_path: Features, source_type: object}
+      Annotation:
+        multivalued: true
+        annotations: {schema_extended_path: Annotation, source_type: array}
+
+  InstrumentExtension:
+    mixin: true
+    attributes:
+      Manufacturer:
+        annotations: {schema_extended_path: Instrument.Manufacturer}
+      Model:
+        annotations: {schema_extended_path: Instrument.Model}
+      Type:
+        annotations: {schema_extended_path: Instrument.Type}
+      ComputerName:
+        annotations: {schema_extended_path: Instrument.ComputerName}
+      Vacuum:
+        range: Vacuum
+        inlined: true
+      ElectronSource:
+        description: The electron sources of this microscope.
+        range: ElectronSource
+        multivalued: true
+        inlined_as_list: true
+  Vacuum:
+    description: The vacuum of an electron microscope.
+    attributes:
+      BufferVacuum:
+        range: float
+        annotations: {schema_extended_path: Instrument.Vacuum.BufferVacuum}
+      GunVacuum:
+        range: float
+        annotations: {schema_extended_path: Instrument.Vacuum.GunVacuum}
+      SampleVacuum:
+        range: float
+        annotations: {schema_extended_path: Instrument.Vacuum.SampleVacuum}
+      SystemVacuum:
+        range: float
+        annotations: {schema_extended_path: Instrument.Vacuum.SystemVacuum}
+      VacuumMode:
+        annotations: {schema_extended_path: Instrument.Vacuum.VacuumMode}
+
+  ImageExtension:
+    mixin: true
+    attributes:
+      Type:
+        annotations: {schema_extended_path: Image.Type}
+      CropHint:
+        range: CropHint
+        inlined: true
+      Corrections:
+        range: Corrections
+        inlined: true
+      ElectronBeamSettings:
+        range: ElectronBeamSettings
+        inlined: true
+      ElectronOpticsSettings:
+        range: ElectronOpticsSettings
+        inlined: true
+      ScanSettings:
+        range: ScanSettings
+        inlined: true
+      BinaryResult:
+        annotations: {schema_extended_path: Image.BinaryResult, source_type: object}
+  CropHint:
+    description: The part of the image to show, in pixels from each edge.
+    attributes:
+      Left:
+        range: integer
+        annotations: {schema_extended_path: Image.CropHint.Left}
+      Right:
+        range: integer
+        annotations: {schema_extended_path: Image.CropHint.Right}
+      Top:
+        range: integer
+        annotations: {schema_extended_path: Image.CropHint.Top}
+      Bottom:
+        range: integer
+        annotations: {schema_extended_path: Image.CropHint.Bottom}
+  Corrections:
+    description: Display corrections applied to the image.
+    attributes:
+      Contrast:
+        range: float
+        annotations: {schema_extended_path: Image.Corrections.Contrast}
+      Brightness:
+        range: float
+        annotations: {schema_extended_path: Image.Corrections.Brightness}
+      Gamma:
+        range: float
+        annotations: {schema_extended_path: Image.Corrections.Gamma}
+      BlackLevel:
+        range: float
+        annotations: {schema_extended_path: Image.Corrections.BlackLevel}
+      WhiteLevel:
+        range: float
+        annotations: {schema_extended_path: Image.Corrections.WhiteLevel}
+
+  SoftwareExtension:
+    mixin: true
+    attributes:
+      ApplicationID:
+        annotations: {schema_extended_path: Software.ApplicationID}
+
+  DetectorExtension:
+    mixin: true
+    attributes:
+      Type:
+        description: The type of detector as the source names it; CCD, CMOS and WaveFrontSensor have their own.
+        close_mappings: ['ome:type']
+        annotations: {schema_extended_path: Detector.Type}
+      Gain:
+        range: float
+        close_mappings: ['ome:gain']
+        annotations: {schema_extended_path: Detector.Gain}
+      Offset:
+        range: float
+        close_mappings: ['ome:offset']
+        annotations: {schema_extended_path: Detector.Offset}
+      Brightness:
+        range: float
+        annotations: {schema_extended_path: Detector.Brightness}
+      Contrast:
+        range: float
+        annotations: {schema_extended_path: Detector.Contrast}
+      Channel:
+        range: integer
+        annotations: {schema_extended_path: Detector.Channel}
+      Configuration:
+        multivalued: true
+        annotations: {schema_extended_path: Detector.Configuration, source_type: array}
+      ActiveConfiguration:
+        annotations: {schema_extended_path: Detector.ActiveConfiguration, source_type: object}
+
+  StageExtension:
+    mixin: true
+    attributes:
+      Position:
+        range: StagePosition
+        inlined: true
+        annotations: {schema_extended_path: SamplePositioning.Stage.Position}
+      Tilt:
+        range: StageTilt
+        inlined: true
+        annotations: {schema_extended_path: SamplePositioning.Stage.Tilt}
+      Rotation:
+        range: Quantity
+        inlined: true
+        annotations: {schema_extended_path: SamplePositioning.Stage.Rotation}
+      Bias:
+        range: StageBias
+        inlined: true
+        annotations: {schema_extended_path: SamplePositioning.Stage.Bias}
+      RawPosition:
+        range: StagePosition
+        inlined: true
+        annotations: {schema_extended_path: SamplePositioning.Stage.RawPosition}
+      MultiStage:
+        range: MultiStage
+        inlined: true
+        annotations: {schema_extended_path: SamplePositioning.Stage.MultiStage}
+  StagePosition:
+    description: The stage position along each axis; RawPosition also has Tilt and Rot.
+    attributes:
+      X:
+        range: Quantity
+        inlined: true
+      Y:
+        range: Quantity
+        inlined: true
+      Z:
+        range: Quantity
+        inlined: true
+      M:
+        range: Quantity
+        inlined: true
+      Tilt:
+        range: Quantity
+        inlined: true
+      Rot:
+        range: Quantity
+        inlined: true
+  StageTilt:
+    description: The stage tilt, and its alpha and beta angles.
+    is_a: Quantity
+    attributes:
+      Alpha:
+        range: Quantity
+        inlined: true
+      Beta:
+        range: Quantity
+        inlined: true
+  StageBias:
+    description: The bias applied to the stage.
+    attributes:
+      BiasType:
+        annotations: {schema_extended_path: SamplePositioning.Stage.Bias.BiasType}
+      Mode:
+        annotations: {schema_extended_path: SamplePositioning.Stage.Bias.Mode}
+      Volts:
+        range: float
+        annotations: {schema_extended_path: SamplePositioning.Stage.Bias.Volts}
+  MultiStage:
+    description: The sample on a multi-sample stage.
+    attributes:
+      SampleHeight:
+        range: Quantity
+        inlined: true
+      SampleRadius:
+        range: Quantity
+        inlined: true
+
+  ElectronSource:
+    description: An electron source of an electron microscope (hardware; how it was set for an image is the
+      image's ElectronBeamSettings).
+    attributes:
+      ID:
+        description: A unique identifier for this electron source.
+        identifier: true
+      Type:
+        annotations: {schema_extended_path: ElectronSource.Type}
+  ElectronBeamSettings:
+    description: The electron beam as set for the acquisition of this image, in LiMi's hardware/settings split.
+    attributes:
+      ElectronSource:
+        description: The electron source these settings apply to.
+        range: ElectronSource
+        inlined: false
+      Type:
+        annotations: {schema_extended_path: ElectronBeam.Type}
+      Mode:
+        annotations: {schema_extended_path: ElectronBeam.Mode}
+      Focus:
+        range: float
+        annotations: {schema_extended_path: ElectronBeam.Focus}
+      SpotSize:
+        range: float
+        annotations: {schema_extended_path: ElectronBeam.SpotSize}
+      SpotIndex:
+        range: integer
+        annotations: {schema_extended_path: ElectronBeam.SpotIndex}
+      WorkingDistance:
+        range: Quantity
+        inlined: true
+      AccelerationVoltage:
+        range: Quantity
+        inlined: true
+      Current:
+        range: Quantity
+        inlined: true
+      EmissionCurrent:
+        range: Quantity
+        inlined: true
+      ConvergenceAngle:
+        range: Quantity
+        inlined: true
+      Defocus:
+        range: Quantity
+        inlined: true
+      Shift:
+        range: Vector2D
+        inlined: true
+      SourceTilt:
+        range: Vector2D
+        inlined: true
+      Stigmator:
+        range: Vector2D
+        inlined: true
+      HighVoltage:
+        range: HighVoltage
+        inlined: true
+  HighVoltage:
+    description: High-voltage readings of the electron gun, as the source names them.
+    attributes:
+      BV:
+        range: float
+      Bia:
+        range: float
+      CV:
+        range: float
+      ExtCurrent:
+        range: float
+      ExtVoltage:
+        range: float
+      FV:
+        range: float
+      FcCurrent:
+        range: float
+      FcVoltage:
+        range: float
+      HighEmissionMode:
+        range: boolean
+      HvCurrent:
+        range: float
+      HvMode:
+        range: integer
+      HvVoltage:
+        range: float
+      Mid10kvVoltage:
+        range: float
+      SV:
+        range: float
+      SchCurrent:
+        range: float
+      SchVoltage:
+        range: float
+  ElectronOpticsSettings:
+    description: The electron optics as set for the acquisition of this image.
+    attributes:
+      CameraLength:
+        range: Quantity
+        inlined: true
+      OperatingMode:
+        annotations: {schema_extended_path: ElectronOptics.OperatingMode}
+      OperatingSubMode:
+        annotations: {schema_extended_path: ElectronOptics.OperatingSubMode}
+      ProjectorMode:
+        annotations: {schema_extended_path: ElectronOptics.ProjectorMode}
+      GunLensSetting:
+        annotations: {schema_extended_path: ElectronOptics.GunLensSetting}
+      Apertures:
+        multivalued: true
+        annotations: {schema_extended_path: ElectronOptics.Apertures, source_type: array}
+  ScanSettings:
+    description: The scan of a scanning microscope, as set for the acquisition of this image.
+    attributes:
+      FieldOfView:
+        range: FieldOfView
+        inlined: true
+      Rotation:
+        range: Quantity
+        inlined: true
+      FrameTime:
+        range: Quantity
+        inlined: true
+      LineTime:
+        range: Quantity
+        inlined: true
+      LineIntegrationCount:
+        range: integer
+        annotations: {schema_extended_path: Scan.LineIntegrationCount}
+      Detector:
+        description: The name of the detector used for the scan.
+        annotations: {schema_extended_path: Scan.Detector}
+  FieldOfView:
+    description: The size of the field of view along X and Y.
+    attributes:
+      X:
+        range: Quantity
+        inlined: true
+      Y:
+        range: Quantity
+        inlined: true

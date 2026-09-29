@@ -1,9 +1,10 @@
 """Map per-source acquisition metadata onto the consolidated schema.
 
-Uses the field mappings in data/mappings.json to translate vendor-specific
-metadata trees into the consolidated model defined by
-data/schema.extended.json. This module works purely with in-memory dicts:
-custom metadata dict in, common metadata dict out.
+Uses the field mappings in mappings/mappings.json to translate vendor-
+specific metadata trees into the imaging model (models/imaging.yaml, see
+ModelPaths for the paths it uses). This module works purely with in-memory
+dicts; see convert.py for the reusable API that converts a single source
+file with this module, and main.py for the CLI entry point.
 
 Fields with no entry in mappings.json are matched against the schema itself
 as a fallback, since some sources (e.g. OME-derived metadata) already use
@@ -11,19 +12,24 @@ field names that match the schema, just without a vendor-specific prefix.
 """
 
 import json
+import os.path
+import re
+from datetime import datetime, timezone
 from fnmatch import fnmatchcase
-from importlib.resources import files
+
+from .ModelPaths import DEFAULT_MODEL_FILE, ModelPaths
 
 
-DEFAULT_SCHEMA_FILE = files(__package__).joinpath('data/schema.extended.json')
-DEFAULT_MAPPINGS_FILE = files(__package__).joinpath('data/mappings.json')
+DEFAULT_SCHEMA_FILE = DEFAULT_MODEL_FILE
+DEFAULT_MAPPINGS_FILE = os.path.join(os.path.dirname(__file__), 'mappings', 'mappings.json')
+DEFAULT_COMBINATIONS_FILE = os.path.join(os.path.dirname(__file__), 'mappings', 'combinations.json')
+SOURCE_MAP_KEY = 'SourceMap'
 
 
 class AcquisitionMetadataMapper:
     """Maps vendor-specific acquisition metadata onto the consolidated schema.
 
-    Loads the packaged schema.extended.json and mappings.json once (or the
-    files given as `schema_file`/`mappings_file`), then converts one or
+    Loads the model's paths and mappings.json once, then converts one or
     more metadata dicts using `convert_metadata`. Resolution for each field
     happens in two steps: first the explicit mappings.json rules (exact or
     "Prefix.*" wildcard), then, for anything left unmapped, a fallback match
@@ -32,18 +38,22 @@ class AcquisitionMetadataMapper:
     match neither step are kept at their original path so no data is lost.
     """
 
-    def __init__(self, schema_file=DEFAULT_SCHEMA_FILE, mappings_file=DEFAULT_MAPPINGS_FILE):
-        self.schema = self._load_json(schema_file)
+    def __init__(self, schema_file=DEFAULT_SCHEMA_FILE, mappings_file=DEFAULT_MAPPINGS_FILE,
+                 combinations_file=DEFAULT_COMBINATIONS_FILE):
+        # a LinkML model, or (for tests) a JSON tree of the same {name: subtree or type} shape
+        model = ModelPaths(schema_file) if schema_file.endswith(('.yaml', '.yml')) else None
+        self.schema = model.tree() if model else self._load_json(schema_file)
+        self._root = model.root if model else None
         self.mappings = self._load_json(mappings_file)
+        self.combinations = self._load_json(combinations_file) if os.path.exists(combinations_file) else []
         self._schema_index = self._build_schema_index(self.schema)
-        self._known_keys, self._known_key_patterns = self._build_known_key_index(
-            self.mappings, self.schema)
+        # "Detector.Name" in a source still names a field, of the model's default detector (GenericDetector)
+        for alias, path in (model.aliases() if model else {}).items():
+            self._schema_index.setdefault(tuple(part.lower() for part in alias.split('.')), path)
+        self._known_keys, self._known_key_patterns = self._build_known_key_index(self.mappings, self.schema)
 
     @staticmethod
     def _load_json(file_path):
-        """Load JSON from a path, or from a packaged resource (Traversable)."""
-        if hasattr(file_path, 'read_text'):
-            return json.loads(file_path.read_text(encoding='utf-8'))
         with open(file_path, 'r', encoding='utf-8') as file:
             return json.load(file)
 
@@ -82,13 +92,8 @@ class AcquisitionMetadataMapper:
 
     @classmethod
     def _build_known_key_index(cls, mappings, schema):
-        """Index the top-level key names the rules and the model do know.
-
-        Returns the literal first path segment of every mapping rule plus
-        every schema field name, and separately those first segments that
-        contain a wildcard (the OME annotation rules), which have to be
-        matched rather than looked up.
-        """
+        """The literal first path segment of every mapping rule plus every schema field name, and separately
+        the first segments that contain a wildcard (the OME annotation rules), which must be matched."""
         known = set()
         patterns = set()
         for pattern in mappings:
@@ -102,10 +107,44 @@ class AcquisitionMetadataMapper:
         return known, patterns
 
     def _is_known_key(self, key):
-        """Report whether any rule or the model itself names `key`."""
-        if key in self._known_keys:
-            return True
-        return any(fnmatchcase(key, pattern) for pattern in self._known_key_patterns)
+        """Whether any rule or the model itself names `key`."""
+        return key in self._known_keys or any(fnmatchcase(key, pattern) for pattern in self._known_key_patterns)
+
+    def _resolvable_leaf_count(self, metadata, prefix=''):
+        """Count the leaves of `metadata` whose path (list items unindexed, as rules see them) resolves."""
+        count = 0
+        for key, value in metadata.items():
+            path = f'{prefix}.{key}' if prefix else str(key)
+            items = value if isinstance(value, list) and any(isinstance(item, dict) for item in value) else [value]
+            for item in items:
+                if isinstance(item, dict) and item:
+                    count += self._resolvable_leaf_count(item, path)
+                elif self._resolve_rule_path(path) is not None or self._resolve_schema_path(path) is not None:
+                    count += 1
+        return count
+
+    def _vendor_wrapper(self, key, value):
+        """(wrapper path, wrapped contents) when top-level `key` only wraps `value`, else None.
+
+        A source that reads its metadata straight from a file's tags keys
+        each vendor's blob by the tag it came from ("FEI_TITAN",
+        "FibicsXML", ...), sometimes two levels deep ("FEI_TITAN.FeiImage",
+        "FibicsXML.Fibics"): levels the rules know nothing about, which stop
+        every rule below them from matching. A document of the model itself
+        is wrapped in its root ("OME"). A level counts as wrapping when no
+        rule and no model field names it (the model's root excepted), and
+        the deepest one is taken below which strictly more leaves resolve.
+        """
+        if not isinstance(value, dict) or (self._is_known_key(str(key)) and key != self._root):
+            return None
+        levels = [(str(key), value)]
+        while len(levels[-1][1]) == 1:
+            inner_key, inner = next(iter(levels[-1][1].items()))
+            if not isinstance(inner, dict) or self._is_known_key(str(inner_key)):
+                break
+            levels.append((f'{levels[-1][0]}.{inner_key}', inner))
+        return next(((prefix, contents) for prefix, contents in reversed(levels)
+                     if self._resolvable_leaf_count(contents) > self._resolvable_leaf_count(contents, prefix)), None)
 
     def _resolve_schema_path(self, source_path):
         """Resolve a dotted source path via the schema fallback, or None."""
@@ -125,8 +164,9 @@ class AcquisitionMetadataMapper:
         variable path segment such as "Annotation:...:Image:*") is treated
         as a whole-path match instead: on a match the target is the bare
         namespace with no remainder appended, since the varying segment
-        (an index, a generated ID, ...) carries no information worth
-        preserving in the consolidated schema. A "Target[]" namespace is
+        (an index, a generated ID, ...) has no place in the consolidated
+        schema; the full source path stays in the SourceMap (see
+        `convert_metadata`). A "Target[]" namespace is
         never valid here - it only has meaning for a dict, never a plain
         leaf value (see `_resolve_whole_segment_wildcard_path`).
 
@@ -147,13 +187,14 @@ class AcquisitionMetadataMapper:
             is_remainder_style = has_wildcard and pattern.endswith('.*')
             if (
                 is_remainder_style
-                and not namespace.endswith('[]')
+                and not (isinstance(namespace, str) and namespace.endswith('[]'))
                 and len(pattern_segments) >= min_rule_segments
                 and fnmatchcase(source_path, pattern)
             ):
                 prefix = pattern[:-2]
                 remainder = source_path[len(prefix) + 1:]
-                return f'{namespace}.{remainder}' if remainder else namespace
+                targets = [f'{target}.{remainder}' if remainder else target for target in rule_targets(namespace)]
+                return targets if isinstance(namespace, list) else targets[0]
             if (
                 has_wildcard
                 and not is_remainder_style
@@ -211,7 +252,7 @@ class AcquisitionMetadataMapper:
             has_wildcard = '*' in pattern
             pattern_segments = pattern.split('.') if has_wildcard else None
             is_child_collapse_style = (
-                has_wildcard and pattern.endswith('.*') and namespace.endswith('[]')
+                has_wildcard and pattern.endswith('.*') and isinstance(namespace, str) and namespace.endswith('[]')
             )
             is_whole_path_style = has_wildcard and not pattern.endswith('.*')
             if (
@@ -223,26 +264,20 @@ class AcquisitionMetadataMapper:
                 return namespace, is_child_collapse_style
         return None, False
 
-    def _resolve_target_path(self, source_path, min_rule_segments=0):
-        """Resolve a dotted source path to a dotted target path, or None.
+    def _resolve_rule_path(self, source_path, min_rule_segments=0):
+        """Resolve a dotted source path via a mappings.json rule, or None.
 
-        Tries mappings.json first: exact entries rename a single field, and
-        wildcard entries remap a whole subtree or a single variable path
-        segment (see `_resolve_wildcard_path`). Only when no mappings.json
-        rule applies does this fall back to matching the path directly
-        against the schema.
+        Exact entries rename a single field, and wildcard entries remap a
+        whole subtree or a single variable path segment (see
+        `_resolve_wildcard_path`).
         """
         target = resolve_exact_path(source_path, self.mappings)
         if target is not None:
             return target
+        return self._resolve_wildcard_path(source_path, min_rule_segments)
 
-        target = self._resolve_wildcard_path(source_path, min_rule_segments)
-        if target is not None:
-            return target
-
-        return self._resolve_schema_path(source_path)
-
-    def _apply_mappings(self, metadata, result=None, path='', rule_path=None, min_rule_segments=0):
+    def _apply_mappings(self, metadata, result=None, path='', rule_path=None, min_rule_segments=0,
+                        provenance=None, origin=None, root=None):
         """Map metadata onto the consolidated schema.
 
         Recurses into nested dictionaries, extending the dotted path as it
@@ -259,7 +294,8 @@ class AcquisitionMetadataMapper:
         rules - and the *mapped* result is appended to a plain list at
         "Target". Use this for a source key whose own name embeds an
         instance index (e.g. "Image:0", "Image:1"): the index becomes list
-        position rather than part of an output key, and a second sibling
+        position rather than part of an output key (the key itself is kept
+        as an "id" or "SourceKey" label on the item), and a second sibling
         instance appends a second list item rather than silently clobbering
         the first (which a plain "Target" collapse - no trailing "[]" -
         would do, since it always overwrites).
@@ -292,134 +328,259 @@ class AcquisitionMetadataMapper:
 
         Fields with no matching rule are kept at their original path so no
         data is silently dropped.
+
+        `provenance` collects {output path: source path} for every leaf
+        written into `result` (output paths relative to `result`, list items
+        as "[i]"), and `origin` is the true source path of `metadata` itself,
+        list indices included - unlike `rule_path`, which leaves them out so
+        rules match every item alike. A collapsed key kept as an "id" label
+        maps to the source path of the dict it named.
+
+        mappings.json targets are schema paths from the document root, so
+        inside a list item (where `result` is the item's own dict) a
+        rule-resolved field is written into `root`, the (result,
+        provenance) pair of the whole document, falling back to its place
+        in the item only if that would overwrite something. Unmapped item
+        fields and schema-fallback matches stay in the item.
         """
         if result is None:
             result = {}
         if rule_path is None:
             rule_path = path
+        if provenance is None:
+            provenance = {}
+        if origin is None:
+            origin = rule_path
+        if root is None:
+            root = (result, provenance)
+        root_result, root_provenance = root
         for key, value in metadata.items():
             source_path = f'{path}.{key}' if path else str(key)
             rule_source_path = f'{rule_path}.{key}' if rule_path else str(key)
-            if isinstance(value, dict):
+            origin_path = f'{origin}.{key}' if origin else str(key)
+            if isinstance(value, dict) and value:
                 target_path = resolve_exact_path(rule_source_path, self.mappings)
                 is_child_collapse = False
                 if target_path is None:
                     target_path, is_child_collapse = self._resolve_whole_segment_wildcard_path(
                         rule_source_path, min_rule_segments)
+                single_target(target_path, rule_source_path)
                 if target_path is not None and target_path.endswith('[]'):
                     item_min_segments = max(min_rule_segments, len(rule_source_path.split('.')))
+                    item_provenance = {}
                     mapped_item = self._apply_mappings(
-                        value, rule_path=rule_source_path, min_rule_segments=item_min_segments)
-                    if is_child_collapse and not str(key).isdigit():
-                        label_key = 'id' if 'id' not in mapped_item and 'ID' not in mapped_item else None
-                        if label_key is not None:
-                            mapped_item[label_key] = key
-                    append_nested_list_value(result, target_path[:-2], mapped_item)
+                        value, rule_path=rule_source_path, min_rule_segments=item_min_segments,
+                        provenance=item_provenance, origin=origin_path, root=root)
+                    label_keys = ('id', 'ID', 'SourceKey') if is_child_collapse else ('SourceKey',)
+                    label_key = next((label for label in label_keys if label not in mapped_item), None)
+                    if label_key is None:
+                        raise ValueError(f'No free key to keep the source key of {origin_path}')
+                    mapped_item[label_key] = key
+                    item_provenance[label_key] = origin_path
+                    list_path = target_path[:-2]
+                    if can_append(root_result, list_path):
+                        index = append_nested_list_value(root_result, list_path, mapped_item)
+                        for item_path, item_origin in item_provenance.items():
+                            root_provenance[f'{list_path}[{index}].{item_path}'] = item_origin
+                    else:
+                        placed_at, _ = self._place(mapped_item, None, (result, source_path, None))
+                        for item_path, item_origin in item_provenance.items():
+                            provenance[f'{placed_at}.{item_path}'] = item_origin
                 elif target_path is not None:
-                    set_nested_value(result, target_path, value)
+                    self._place(value, origin_path, (root_result, target_path, root_provenance),
+                                (result, source_path, provenance))
                 else:
-                    self._apply_mappings(value, result, source_path, rule_source_path, min_rule_segments)
+                    self._apply_mappings(value, result, source_path, rule_source_path, min_rule_segments,
+                                         provenance, origin_path, root)
             elif isinstance(value, list) and any(isinstance(item, dict) for item in value):
                 target_path = resolve_exact_path(rule_source_path, self.mappings)
                 if target_path is None:
                     target_path, _ = self._resolve_whole_segment_wildcard_path(
                         rule_source_path, min_rule_segments)
+                single_target(target_path, rule_source_path)
                 if target_path is not None:
-                    set_nested_value(result, target_path, value)
+                    self._place(value, origin_path, (root_result, target_path, root_provenance),
+                                (result, source_path, provenance))
                 else:
                     item_min_segments = max(min_rule_segments, len(rule_source_path.split('.')))
-                    mapped_items = [
-                        self._apply_mappings(
-                            item, rule_path=rule_source_path, min_rule_segments=item_min_segments)
-                        if isinstance(item, dict) else item
-                        for item in value
-                    ]
-                    leaf_target = self._resolve_target_path(rule_source_path, min_rule_segments)
-                    set_nested_value(result, leaf_target or source_path, mapped_items)
+                    mapped_items = []
+                    items_provenance = {}
+                    for index, item in enumerate(value):
+                        item_origin = f'{origin_path}[{index}]'
+                        if isinstance(item, dict) and item:
+                            item_provenance = {}
+                            mapped_items.append(self._apply_mappings(
+                                item, rule_path=rule_source_path, min_rule_segments=item_min_segments,
+                                provenance=item_provenance, origin=item_origin, root=root))
+                            for item_path, item_source in item_provenance.items():
+                                items_provenance[f'[{index}].{item_path}'] = item_source
+                        else:
+                            mapped_items.append(item)
+                            for suffix in leaf_suffixes(item):
+                                items_provenance[f'[{index}]{suffix}'] = f'{item_origin}{suffix}'
+                    single_target(self._resolve_rule_path(rule_source_path, min_rule_segments), rule_source_path)
+                    candidates, _ = self._candidates(rule_source_path, source_path, min_rule_segments, result,
+                                                     provenance, root, origin_path)
+                    placed_at, placed_provenance = self._place(mapped_items, None, *candidates)
+                    for item_path, item_source in items_provenance.items():
+                        placed_provenance[f'{placed_at}{item_path}'] = item_source
             else:
-                target_path = self._resolve_target_path(rule_source_path, min_rule_segments)
-                set_nested_value(result, target_path or source_path, value)
+                candidates, copies = self._candidates(rule_source_path, source_path, min_rule_segments, result,
+                                                      provenance, root, origin_path)
+                self._place(value, origin_path, *candidates)
+                for copy_target in copies:
+                    if is_free_path(root_result, copy_target):
+                        self._place(value, origin_path, (root_result, copy_target, root_provenance))
         return result
 
-    def _resolvable_leaf_count(self, metadata, prefix=''):
-        """Count the leaves of `metadata` that resolve onto the model."""
-        return sum(
-            1 for source_path in flatten_dict(metadata, prefix)
-            if self._resolve_target_path(source_path) is not None
-        )
+    def _candidates(self, rule_source_path, source_path, min_rule_segments, result, provenance, root, origin=''):
+        """Where a value may go, in order - a rule's target from the root, else a schema match or its own
+        path - and the further targets of a rule naming several, which get a copy where free.
 
-    def _is_vendor_wrapper(self, key, value):
-        """Report whether `key` only wraps `value`, contributing no meaning.
-
-        A source that reads its metadata straight from a file's tags
-        commonly keys each vendor's blob by the tag it came from
-        ("FEI_TITAN", "FibicsXML", ...), a level the mapping rules know
-        nothing about and which stops every rule below it from matching.
-        Rather than keep a list of vendor tag names here, take a key to be
-        a wrapper only when both hold:
-
-        - no rule and no model field names it, so it is not a namespace
-          this model has an opinion about. A key that *is* part of the
-          mapped paths ("Beam" in "Beam.WD", or a vendor namespace such as
-          "CustomProperties") is named by a rule and so is never stripped,
-          however well its fields would resolve without it.
-        - dropping it lets strictly more of the subtree resolve, so an
-          unrecognised key whose contents gain nothing stays put.
+        A target's "[*]" is the index of the list item the value comes from (its last index in `origin`),
+        so a per-channel value goes to its own channel: ChannelData[1].LambdaEx -> Channel[1]....
         """
-        if self._is_known_key(str(key)):
-            return False
-        return (self._resolvable_leaf_count(value)
-                > self._resolvable_leaf_count(value, str(key)))
+        rule_target = self._resolve_rule_path(rule_source_path, min_rule_segments)
+        if rule_target is not None:
+            indices = re.findall(r'\[(\d+)\]', origin)
+            if any('[*]' in target for target in rule_targets(rule_target)) and not indices:
+                raise ValueError(f'{rule_source_path} targets a list item ([*]) but is in no list')
+            first, *copies = [target.replace('[*]', f'[{indices[-1]}]') if indices else target
+                              for target in rule_targets(rule_target)]
+            return ((root[0], first, root[1]), (result, source_path, provenance)), copies
+        schema_target = self._resolve_schema_path(rule_source_path)
+        return ((result, schema_target or source_path, provenance), (result, source_path, provenance)), []
 
-    def _strip_vendor_wrappers(self, metadata):
-        """Lift the fields of any top-level vendor wrapper up one level.
+    @staticmethod
+    def _place(value, origin, *candidates):
+        """Write `value` at the first (target dict, path, provenance) candidate that overwrites nothing.
 
-        Only the top level is considered, since that is where a per-tag
-        wrapper appears. A field already present at the top level wins
-        over one lifted out of a wrapper, so nothing that was addressable
-        before is displaced.
+        Returns the (path, provenance) used. With `origin`, records every
+        leaf of `value` against its source path in that provenance.
         """
-        stripped = {}
-        for key, value in metadata.items():
-            if isinstance(value, dict) and self._is_vendor_wrapper(key, value):
-                for inner_key, inner_value in value.items():
-                    stripped.setdefault(inner_key, inner_value)
-            else:
-                stripped.setdefault(key, value)
-        return stripped
+        for target, path, provenance in candidates:
+            if is_free_path(target, path):
+                set_nested_value(target, path, value)
+                if origin is not None:
+                    for suffix in leaf_suffixes(value):
+                        provenance[f'{path}{suffix}'] = f'{origin}{suffix}'
+                return path, provenance
+        paths = ', '.join(path for _, path, _ in candidates)
+        raise ValueError(f'{paths} are all taken; refusing to overwrite')
 
     def convert_metadata(self, metadata):
         """Map a single in-memory metadata dict onto the consolidated schema.
 
-        Returns the converted dict.
+        Returns the converted dict, with a top-level SOURCE_MAP_KEY section
+        mapping every output leaf path to the source path it came from, so
+        renamed and collapsed keys stay recoverable from the output alone.
+        A top-level vendor tag wrapper (see `_vendor_wrapper`) is left out
+        of the paths rules are matched against, but nothing else about it
+        is: its unmapped fields stay under it, and every source path keeps it.
         """
         if not isinstance(metadata, dict):
             raise TypeError('metadata must be a dict')
 
-        return self._apply_mappings(self._strip_vendor_wrappers(metadata))
+        provenance = {}
+        result = {}
+        for key, value in metadata.items():
+            wrapper = self._vendor_wrapper(key, value)
+            if wrapper is not None:
+                # Rules see the wrapper's contents as top-level fields, while unmapped ones stay under the
+                # wrapper and the SourceMap keeps the full source path.
+                prefix, contents = wrapper
+                self._apply_mappings(contents, result, path=prefix, rule_path='', provenance=provenance,
+                                     origin=prefix)
+            else:
+                self._apply_mappings({key: value}, result, provenance=provenance)
+        self._apply_combinations(metadata, result, provenance)
+        if SOURCE_MAP_KEY in result:
+            raise ValueError(f'Source metadata already has a top-level {SOURCE_MAP_KEY}')
+        result[SOURCE_MAP_KEY] = provenance
+        return result
+
+    def _apply_combinations(self, metadata, result, provenance):
+        """Add each combinations.json value whose parts the source holds, e.g. Date + Time + Time Zone.
+
+        The parts, looked up by source path, are joined with spaces, parsed
+        with the entry's strptime format (or "unix", seconds since 1970) and written as ISO 8601 at its
+        target - only where that is free, and only when every part is there
+        and parses. The parts themselves stay where the mapping put them;
+        the combined value's SourceMap entry is the list of its parts.
+        """
+        for combination in self.combinations:
+            parts = [value_at_path(metadata, path) for path in combination['sources']]
+            has_all_parts = all(part is not None for part in parts)
+            combined = parse_combination(' '.join(map(str, parts)), combination['format']) if has_all_parts else None
+            if combined is not None and is_free_path(result, combination['target']):
+                set_nested_value(result, combination['target'], combined)
+                provenance[combination['target']] = list(combination['sources'])
+
+    def unmatched_fields(self, metadata):
+        """List the output paths of leaf fields not represented in the model.
+
+        Converts `metadata`, then walks the *full* output and flags every
+        leaf whose complete path is not itself a leaf declared in the
+        schema. This deliberately looks past mappings.json's whole-segment
+        wildcard rules (see `_resolve_whole_segment_wildcard_path`): a rule
+        collapsing a vendor-specific subtree into a generic object-typed
+        container (e.g. CustomProperties) makes conversion succeed, but the
+        individual fields inside that subtree are still not modelled by the
+        schema, so they must still count as unmatched here.
+        """
+        converted = self.convert_metadata(metadata)
+        schema_leaf_paths = set(self._schema_leaf_paths(self.schema))
+
+        unmatched = []
+
+        def walk(node, path=''):
+            for key, value in node.items():
+                current = f'{path}.{key}' if path else str(key)
+                if isinstance(value, dict):
+                    walk(value, current)
+                elif isinstance(value, list) and any(isinstance(item, dict) for item in value):
+                    for item in value:
+                        if isinstance(item, dict):
+                            walk(item, current)
+                elif current not in schema_leaf_paths:
+                    unmatched.append(current)
+
+        walk({key: value for key, value in converted.items() if key != SOURCE_MAP_KEY})
+        return unmatched
 
 
-def flatten_dict(dct, prefix=''):
-    """Return `dct` flattened to one entry per leaf, keyed by dotted path.
+def rule_targets(target):
+    """A rule's target paths: mappings.json names one, or a list of several for a single value."""
+    return target if isinstance(target, list) else [target]
 
-    List and tuple items are keyed by their index, so a leaf below the
-    second item of "Channels" becomes "Channels.1.Name". Keys are joined
-    with dots and are otherwise left exactly as they are: a source key
-    that itself contains colons (the OME
-    "Annotation:CustomAttributes:SVI:Image:0" annotations are real keys of
-    that shape) stays one single path segment.
-    """
-    flat_dct = {}
-    for key, value in dct.items():
-        full_key = f'{prefix}.{key}' if prefix else str(key)
-        if isinstance(value, dict):
-            flat_dct.update(flatten_dict(value, full_key))
-        elif isinstance(value, (list, tuple)):
-            for index, item in enumerate(value):
-                flat_dct.update(flatten_dict({str(index): item}, full_key))
-        else:
-            flat_dct[full_key] = value
-    return flat_dct
+
+def single_target(target, source_path):
+    if isinstance(target, list):
+        raise ValueError(f'{source_path}: a list of targets is only supported for a single value, '
+                         f'not for a group or list moved as a whole')
+
+
+def value_at_path(metadata, dotted_path):
+    """The value at a dotted source path of `metadata`, or None."""
+    node = metadata
+    for key in dotted_path.split('.'):
+        if not isinstance(node, dict) or key not in node:
+            return None
+        node = node[key]
+    return node
+
+
+def parse_combination(text, date_format):
+    """`text` parsed with the strptime `date_format`, as ISO 8601, or None if it does not parse. The format
+    "unix" reads seconds since 1970 (UTC); 0 is taken as unset (TALOS writes "0" for a time it lacks), not
+    as 1970-01-01."""
+    if date_format == 'unix':
+        seconds = int(text) if text.strip().isdigit() else 0
+        return datetime.fromtimestamp(seconds, tz=timezone.utc).isoformat() if seconds > 0 else None
+    try:
+        return datetime.strptime(text, date_format).isoformat()
+    except ValueError:
+        return None
 
 
 def resolve_exact_path(source_path, mappings):
@@ -438,14 +599,31 @@ def resolve_exact_path(source_path, mappings):
     return None
 
 
+def _list_segment(key):
+    """('Channel', 1) for a path segment 'Channel[1]', else None."""
+    match = re.fullmatch(r'(.+)\[(\d+)\]', key)
+    return (match.group(1), int(match.group(2))) if match else None
+
+
 def set_nested_value(target, dotted_path, value):
     keys = dotted_path.split('.')
     node = target
     for key in keys[:-1]:
-        child = node.get(key)
-        if not isinstance(child, dict):
-            child = {}
-            node[key] = child
+        segment = _list_segment(key)
+        if segment is not None:
+            name, index = segment
+            items = node.get(name)
+            if not isinstance(items, list):
+                items = []
+                node[name] = items
+            while len(items) <= index:
+                items.append({})
+            child = items[index]
+        else:
+            child = node.get(key)
+            if not isinstance(child, dict):
+                child = {}
+                node[key] = child
         node = child
     node[keys[-1]] = value
 
@@ -457,7 +635,8 @@ def append_nested_list_value(target, dotted_path, value):
     instance index (e.g. "Image:0", "Detector-3") collapses into a plain
     list at "Target" instead of baking that index into an output key, so a
     second instance (e.g. "Image:1") appends a second list item rather than
-    colliding with (and silently overwriting) the first.
+    colliding with (and silently overwriting) the first. Returns the new
+    item's index.
     """
     keys = dotted_path.split('.')
     node = target
@@ -472,3 +651,51 @@ def append_nested_list_value(target, dotted_path, value):
         existing = []
         node[keys[-1]] = existing
     existing.append(value)
+    return len(existing) - 1
+
+
+def can_append(target, dotted_path):
+    """Whether `dotted_path` in `target` is free or already a list, so appending there overwrites nothing."""
+    node = target
+    keys = dotted_path.split('.')
+    for key in keys[:-1]:
+        if key not in node:
+            return True
+        node = node[key]
+        if not isinstance(node, dict):
+            return False
+    return keys[-1] not in node or isinstance(node[keys[-1]], list)
+
+
+def is_free_path(target, dotted_path):
+    """Whether writing at `dotted_path` would leave every existing value in `target` intact."""
+    node = target
+    for key in dotted_path.split('.'):
+        segment = _list_segment(key)
+        name, index = segment if segment is not None else (key, None)
+        if not isinstance(node, dict):
+            return False
+        if name not in node:
+            return True
+        node = node[name]
+        if index is not None and not isinstance(node, list):
+            return False
+        if index is not None and len(node) <= index:
+            return True
+        if index is not None:
+            node = node[index]
+    return False
+
+
+def leaf_suffixes(value):
+    """Yield the path suffix of every leaf in `value` ('' for a scalar); empty dicts and lists count as leaves."""
+    if isinstance(value, dict) and value:
+        for key, child in value.items():
+            for suffix in leaf_suffixes(child):
+                yield f'.{key}{suffix}'
+    elif isinstance(value, list) and value:
+        for index, child in enumerate(value):
+            for suffix in leaf_suffixes(child):
+                yield f'[{index}]{suffix}'
+    else:
+        yield ''

@@ -1,0 +1,76 @@
+id: https://github.com/NL-BioImaging/imaging-metadata-consolidator/models/imaging/provenance
+name: imaging_provenance
+title: Imaging metadata provenance
+description: Where consolidated metadata came from, and the source values the model does not (yet) model, so no
+  metadata is lost. Used by the imaging model's OME, Image and Instrument classes.
+version: 1.0.0
+prefixes:
+  linkml: https://w3id.org/linkml/
+  imaging: https://github.com/NL-BioImaging/imaging-metadata-consolidator/models/imaging/
+default_prefix: imaging
+default_range: string
+imports:
+- linkml:types
+classes:
+  Property:
+    description: A source metadata value the model does not model, kept so no metadata is lost.
+    attributes:
+      ID:
+        description: A unique identifier for this property.
+        identifier: true
+        required: true
+      Name:
+        description: The full path of this value in its source file, e.g. "Beam.SpotIndex".
+        required: true
+      Value:
+        description: The value, JSON-encoded so its type is kept (e.g. 1, "1", true, null).
+        required: true
+      SchemaPath:
+        description: Where the value was mapped in the consolidated schema, e.g. "ElectronBeam.WorkingDistance.Value".
+      Unit:
+        description: The unit of the value, where the source states one.
+      Source:
+        description: The ID of the SourceFile this value came from.
+      DerivedFrom:
+        description: For a value combined from several source values (e.g. a date and a time), their source paths.
+        multivalued: true
+  SourceFile:
+    description: A file this metadata was read from, identified by its checksum.
+    attributes:
+      ID:
+        description: A unique identifier for this source file.
+        identifier: true
+        required: true
+      Name:
+        description: The file name.
+        required: true
+      Checksum:
+        description: The SHA-256 checksum of the file, as lowercase hex.
+        required: true
+        pattern: ^[0-9a-f]{64}$
+      Format:
+        description: The file format, e.g. json or ome-tiff.
+      Mapping:
+        description: Where each value from this file that fits a model field was placed.
+        range: SourceMapping
+        multivalued: true
+        inlined_as_list: true
+  SourceMapping:
+    description: The source key of a value placed in a model field, so key names are never lost.
+    attributes:
+      ID:
+        description: A unique identifier for this mapping.
+        identifier: true
+        required: true
+      Field:
+        description: The path of the value in this dataset, e.g. "Image[0].Pixels.PhysicalSizeX".
+        required: true
+      Source:
+        description: The full path of the value in its source file.
+        required: true
+      SourceValue:
+        description: The value as the source wrote it, JSON-encoded, where the field holds it in the model's own
+          spelling (a unit "um" stored as "µm").
+      DerivedFrom:
+        description: For a value combined from several source values (e.g. a date and a time), their source paths.
+        multivalued: true

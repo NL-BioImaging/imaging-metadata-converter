@@ -1,69 +1,71 @@
 {
-  "ElectronBeam": {
-    "Stigmator": {
-      "X": 0.01,
-      "Y": 0.03
-    },
-    "BeamDownX": 0,
-    "BeamDownY": 0,
-    "Mode": "1-20um",
-    "Type": 1,
-    "BeamUpX": 0,
-    "BeamUpY": 0,
-    "Condenser": 1456,
-    "Condenser2": 839,
-    "ElectricMoveX": -0.57,
-    "ElectricMoveY": 0.08,
-    "ElectricRotate": -135.0,
-    "Focus": 109436.0,
-    "ImagingMode": 0,
-    "Current": {
-      "Value": -64.38
-    },
-    "Shift": {
-      "X": 0.0,
-      "Y": 0.0
-    },
-    "TiltX": 0.0,
-    "TiltY": 0.0,
-    "VisibleMultiple": 6067,
-    "WorkingDistance": {
-      "Value": 5.38
-    },
-    "HighVoltage": {
-      "BV": 0.04,
-      "Bia": 0.0,
-      "CV": 0.0,
-      "ExtCurrent": 139.6,
-      "ExtVoltage": 3600.6,
-      "FV": 0.0,
-      "FcCurrent": 2.28,
-      "FcVoltage": 1.49,
-      "HighEmissionMode": false,
-      "HvCurrent": 2.28,
-      "HvMode": 0,
-      "HvVoltage": 30000.0,
-      "Mid10kvVoltage": 0.0,
-      "SV": 10001.2,
-      "SchCurrent": 3.52,
-      "SchVoltage": 300.68
-    }
-  },
-  "Scan": {
-    "FieldOfView": {
-      "X": {
-        "Value": "21.12µm"
+  "Image": {
+    "ElectronBeamSettings": {
+      "Stigmator": {
+        "X": 0.01,
+        "Y": 0.03
+      },
+      "BeamDownX": 0,
+      "BeamDownY": 0,
+      "Mode": "1-20um",
+      "Type": 1,
+      "BeamUpX": 0,
+      "BeamUpY": 0,
+      "Condenser": 1456,
+      "Condenser2": 839,
+      "ElectricMoveX": -0.57,
+      "ElectricMoveY": 0.08,
+      "ElectricRotate": -135.0,
+      "Focus": 109436.0,
+      "ImagingMode": 0,
+      "Current": {
+        "Value": -64.38
+      },
+      "Shift": {
+        "X": 0.0,
+        "Y": 0.0
+      },
+      "TiltX": 0.0,
+      "TiltY": 0.0,
+      "VisibleMultiple": 6067,
+      "WorkingDistance": {
+        "Value": 5.38
+      },
+      "HighVoltage": {
+        "BV": 0.04,
+        "Bia": 0.0,
+        "CV": 0.0,
+        "ExtCurrent": 139.6,
+        "ExtVoltage": 3600.6,
+        "FV": 0.0,
+        "FcCurrent": 2.28,
+        "FcVoltage": 1.49,
+        "HighEmissionMode": false,
+        "HvCurrent": 2.28,
+        "HvMode": 0,
+        "HvVoltage": 30000.0,
+        "Mid10kvVoltage": 0.0,
+        "SV": 10001.2,
+        "SchCurrent": 3.52,
+        "SchVoltage": 300.68
       }
     },
-    "Drift": false,
-    "FramAdd": 1,
-    "FrameTime": {
-      "Value": "2min52s"
-    },
-    "Interlaced": "0/1",
-    "LineAdd": 1
+    "ScanSettings": {
+      "FieldOfView": {
+        "X": {
+          "Value": "21.12µm"
+        }
+      },
+      "Drift": false,
+      "FramAdd": 1,
+      "FrameTime": {
+        "Value": "2min52s"
+      },
+      "Interlaced": "0/1",
+      "LineAdd": 1
+    }
   },
-  "Detector": {
+  "GenericDetector": {
     "Brightness": 50.0,
     "Channel": 1,
     "ConsumerBrightness": 50.0,
@@ -76,37 +78,33 @@
   "Other": {
     "BottomInfoVacuum": "1.2e-07Pa"
   },
-  "Image": {
-    "Plane": {
-      "PixelDwellTime": 3.0
-    },
-    "Pixels": {
-      "SizeX": 8448,
-      "SizeY": 5632
-    }
+  "Plane": {
+    "PixelDwellTime": 3.0
   },
-  "SamplePositioning": {
-    "Stage": {
-      "NavCoordinate": 1,
-      "Rotation": {
-        "Value": -30.0
+  "Pixels": {
+    "SizeX": 8448,
+    "SizeY": 5632
+  },
+  "MechanicalStage": {
+    "NavCoordinate": 1,
+    "Rotation": {
+      "Value": -30.0
+    },
+    "Tilt": {
+      "Value": 0.0
+    },
+    "Position": {
+      "X": {
+        "Value": 18.9417
       },
-      "Tilt": {
-        "Value": 0.0
+      "Y": {
+        "Value": 11.1248
       },
-      "Position": {
-        "X": {
-          "Value": 18.9417
-        },
-        "Y": {
-          "Value": 11.1248
-        },
-        "Z": {
-          "Value": 55.0
-        }
-      },
-      "StageType": "TMCM-GYLZ-4000X-FIVE-110x110x69"
-    }
+      "Z": {
+        "Value": 55.0
+      }
+    },
+    "StageType": "TMCM-GYLZ-4000X-FIVE-110x110x69"
   },
   "Instrument": {
     "Name": "SEM4000X",
@@ -117,10 +115,8 @@
       "SampleVacuum": 0.000362
     }
   },
-  "Software": {
-    "AcquisitionSoftware": {
-      "Version": "3.2.3.300"
-    }
+  "AcquisitionSoftware": {
+    "Version": "3.2.3.300"
   },
   "TiltCorrect": {
     "CorrectAngle": 0.0,
@@ -129,15 +125,96 @@
     "PreTiltAngle": 0.0,
     "TiltCompensateMode": 0
   },
-  "Acquisition": {
-    "Operator": {
-      "BottomInfoShowEnable": 2038,
-      "DateTimeFmt": "yyyy/MM/dd HH:mm:ss",
-      "MagType": 1,
-      "RulerText": "SEM4000X",
-      "TimeStamp": 1784735089,
-      "Name": "\u0001",
-      "VacuumType": 0
-    }
+  "Experimenter": {
+    "BottomInfoShowEnable": 2038,
+    "DateTimeFmt": "yyyy/MM/dd HH:mm:ss",
+    "MagType": 1,
+    "RulerText": "SEM4000X",
+    "TimeStamp": 1784735089,
+    "UserName": "\u0001",
+    "VacuumType": 0
+  },
+  "SourceMap": {
+    "Image.ElectronBeamSettings.Stigmator.X": "Beam.AstigX",
+    "Image.ElectronBeamSettings.Stigmator.Y": "Beam.AstigY",
+    "Image.ElectronBeamSettings.BeamDownX": "Beam.BeamDownX",
+    "Image.ElectronBeamSettings.BeamDownY": "Beam.BeamDownY",
+    "Image.ElectronBeamSettings.Mode": "Beam.BeamMode",
+    "Image.ElectronBeamSettings.Type": "Beam.BeamType",
+    "Image.ElectronBeamSettings.BeamUpX": "Beam.BeamUpX",
+    "Image.ElectronBeamSettings.BeamUpY": "Beam.BeamUpY",
+    "Image.ElectronBeamSettings.Condenser": "Beam.Condenser",
+    "Image.ElectronBeamSettings.Condenser2": "Beam.Condenser2",
+    "Image.ElectronBeamSettings.ElectricMoveX": "Beam.ElectricMoveX",
+    "Image.ElectronBeamSettings.ElectricMoveY": "Beam.ElectricMoveY",
+    "Image.ElectronBeamSettings.ElectricRotate": "Beam.ElectricRotate",
+    "Image.ElectronBeamSettings.Focus": "Beam.Focus",
+    "Image.ScanSettings.FieldOfView.X.Value": "Beam.HFW",
+    "Image.ElectronBeamSettings.ImagingMode": "Beam.ImagingMode",
+    "Image.ElectronBeamSettings.Current.Value": "Beam.RealAbsCurrent",
+    "Image.ElectronBeamSettings.Shift.X": "Beam.ShiftX",
+    "Image.ElectronBeamSettings.Shift.Y": "Beam.ShiftY",
+    "Image.ElectronBeamSettings.TiltX": "Beam.TiltX",
+    "Image.ElectronBeamSettings.TiltY": "Beam.TiltY",
+    "Image.ElectronBeamSettings.VisibleMultiple": "Beam.VisibleMultiple",
+    "Image.ElectronBeamSettings.WorkingDistance.Value": "Beam.WD",
+    "GenericDetector.Brightness": "Detector.Brightness",
+    "GenericDetector.Channel": "Detector.Channel",
+    "GenericDetector.ConsumerBrightness": "Detector.ConsumerBrightness",
+    "GenericDetector.ConsumerContrast": "Detector.ConsumerContrast",
+    "GenericDetector.Contrast": "Detector.Contrast",
+    "GenericDetector.Name": "Detector.DetectorName",
+    "GenericDetector.Gain": "Detector.Gain",
+    "GenericDetector.PMT": "Detector.PMT",
+    "Image.ElectronBeamSettings.HighVoltage.BV": "HV.BV",
+    "Image.ElectronBeamSettings.HighVoltage.Bia": "HV.Bia",
+    "Image.ElectronBeamSettings.HighVoltage.CV": "HV.CV",
+    "Image.ElectronBeamSettings.HighVoltage.ExtCurrent": "HV.ExtCurrent",
+    "Image.ElectronBeamSettings.HighVoltage.ExtVoltage": "HV.ExtVoltage",
+    "Image.ElectronBeamSettings.HighVoltage.FV": "HV.FV",
+    "Image.ElectronBeamSettings.HighVoltage.FcCurrent": "HV.FcCurrent",
+    "Image.ElectronBeamSettings.HighVoltage.FcVoltage": "HV.FcVoltage",
+    "Image.ElectronBeamSettings.HighVoltage.HighEmissionMode": "HV.HighEmissionMode",
+    "Image.ElectronBeamSettings.HighVoltage.HvCurrent": "HV.HvCurrent",
+    "Image.ElectronBeamSettings.HighVoltage.HvMode": "HV.HvMode",
+    "Image.ElectronBeamSettings.HighVoltage.HvVoltage": "HV.HvVoltage",
+    "Image.ElectronBeamSettings.HighVoltage.Mid10kvVoltage": "HV.Mid10kvVoltage",
+    "Image.ElectronBeamSettings.HighVoltage.SV": "HV.SV",
+    "Image.ElectronBeamSettings.HighVoltage.SchCurrent": "HV.SchCurrent",
+    "Image.ElectronBeamSettings.HighVoltage.SchVoltage": "HV.SchVoltage",
+    "Other.BottomInfoVacuum": "Other.BottomInfoVacuum",
+    "Image.ScanSettings.Drift": "Scan.Drift",
+    "Image.ScanSettings.FramAdd": "Scan.FramAdd",
+    "Image.ScanSettings.FrameTime.Value": "Scan.FrameTime",
+    "Image.ScanSettings.Interlaced": "Scan.Interlaced",
+    "Image.ScanSettings.LineAdd": "Scan.LineAdd",
+    "Plane.PixelDwellTime": "Scan.PointTime",
+    "Pixels.SizeX": "Scan.ResolutionX",
+    "Pixels.SizeY": "Scan.ResolutionY",
+    "MechanicalStage.NavCoordinate": "Stage.NavCoordinate",
+    "MechanicalStage.Rotation.Value": "Stage.StagePosR",
+    "MechanicalStage.Tilt.Value": "Stage.StagePosT",
+    "MechanicalStage.Position.X.Value": "Stage.StagePosX",
+    "MechanicalStage.Position.Y.Value": "Stage.StagePosY",
+    "MechanicalStage.Position.Z.Value": "Stage.StagePosZ",
+    "MechanicalStage.StageType": "Stage.StageType",
+    "Instrument.Name": "System.ProductName",
+    "AcquisitionSoftware.Version": "System.SoftwareVersion",
+    "Instrument.Version": "System.Version",
+    "TiltCorrect.CorrectAngle": "TiltCorrect.CorrectAngle",
+    "TiltCorrect.IonWorkTilt": "TiltCorrect.IonWorkTilt",
+    "TiltCorrect.IsTiltCorrent": "TiltCorrect.IsTiltCorrent",
+    "TiltCorrect.PreTiltAngle": "TiltCorrect.PreTiltAngle",
+    "TiltCorrect.TiltCompensateMode": "TiltCorrect.TiltCompensateMode",
+    "Experimenter.BottomInfoShowEnable": "User.BottomInfoShowEnable",
+    "Experimenter.DateTimeFmt": "User.DateTimeFmt",
+    "Experimenter.MagType": "User.MagType",
+    "Experimenter.RulerText": "User.RulerText",
+    "Experimenter.TimeStamp": "User.TimeStamp",
+    "Experimenter.UserName": "User.UserName",
+    "Experimenter.VacuumType": "User.VacuumType",
+    "Instrument.Vacuum.BufferVacuum": "Vacuum.BufferVacuum",
+    "Instrument.Vacuum.GunVacuum": "Vacuum.GunVacuum",
+    "Instrument.Vacuum.SampleVacuum": "Vacuum.SampleVacuum"
   }
 }

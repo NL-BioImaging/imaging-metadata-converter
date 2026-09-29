@@ -1,0 +1,25 @@
+[
+    {
+        "target": "Image.AcquisitionDate",
+        "sources": [
+            "Date",
+            "Time",
+            "Time Zone"
+        ],
+        "format": "%m/%d/%y %H:%M:%S GMT%z"
+    },
+    {
+        "target": "Image.AcquisitionDate",
+        "sources": [
+            "Acquisition.AcquisitionDatetime.DateTime"
+        ],
+        "format": "unix"
+    },
+    {
+        "target": "Image.AcquisitionDate",
+        "sources": [
+            "Acquisition.AcquisitionStartDatetime.DateTime"
+        ],
+        "format": "unix"
+    }
+]
