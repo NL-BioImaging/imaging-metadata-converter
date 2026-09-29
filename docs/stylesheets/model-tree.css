@@ -20,7 +20,6 @@
   border-radius: .2rem;
 }
 
-.mt-select,
 .mt-button {
   padding: .35rem .6rem;
   font-size: .7rem;
@@ -31,8 +30,7 @@
   cursor: pointer;
 }
 
-.mt-button:hover,
-.mt-select:hover {
+.mt-button:hover {
   border-color: var(--md-accent-fg-color);
 }
 

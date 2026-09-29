@@ -2,7 +2,12 @@
 
 Convert custom (vendor-specific) imaging acquisition metadata to common metadata.
 
-Dict in, dict out - no file I/O, no CLI, no third-party dependencies.
+Dict in, dict out - no file I/O, no CLI. The target is the imaging model, a
+LinkML model built from LiMi and extended with electron-microscopy and other
+imaging metadata; the one dependency is `linkml-runtime`, for reading it.
+
+The mapper, the model and the mapping rules are those of
+[imaging-metadata-consolidator](https://github.com/NL-BioImaging/imaging-metadata-consolidator).
 
 ## Installation
 
@@ -32,8 +37,13 @@ custom = {
 
 common = convert_metadata(custom)
 # {'Instrument': {'Manufacturer': 'Acme', 'Model': 'Widget-1000'},
-#  'Image': {'Pixels': {'SizeX': 1024, 'SizeY': 768}}}
+#  'Pixels': {'SizeX': 1024, 'SizeY': 768},
+#  'SourceMap': {'Instrument.Manufacturer': 'Make', 'Instrument.Model': 'Model',
+#                'Pixels.SizeX': 'Scan.ResolutionX', 'Pixels.SizeY': 'Scan.ResolutionY'}}
 ```
+
+`SourceMap` records the source path of every output field, so renamed and
+collapsed keys stay recoverable from the output alone.
 
 The input is whatever metadata dict you already extracted from your file or
 acquisition software; the output is the same information placed on the common
@@ -63,10 +73,12 @@ for path in Path('examples').glob('*.json'):
 
 ```python
 mapper = AcquisitionMetadataMapper(
-    schema_file='my_schema.json', mappings_file='my_mappings.json')
+    schema_file='my_model.yaml', mappings_file='my_mappings.json',
+    combinations_file='my_combinations.json')
 ```
 
-Both arguments accept a file path; omitting them uses the packaged files.
+Each argument accepts a file path; omitting one uses the packaged file. The
+model is a LinkML model like `models/imaging.yaml`.
 
 ## Examples
 
@@ -83,52 +95,72 @@ by `tests/test_examples.py` and handy as input while extending the mappings:
 | `TFS TALOSF.json`, `TFS TALOSF 2.json` | Thermo Fisher Talos F |
 | `Zeiss Supra55 Fibics ATLAS.json` | Zeiss Supra55 (Fibics ATLAS) |
 | `ome-tiff.json` | OME-TIFF derived metadata |
+| `dicom.json` | DICOM (dummy patient data) |
+| `lif_metadata.json`, `lif_tilescan_metadata.json` | Leica LIF |
+| `platy_tomography.json` | BigDataViewer (SpimData) tomography |
+| `svs_metadata.json` | Aperio SVS |
+
+`output/` holds what the converter makes of each, written by
+`scripts/convert_examples.py`.
 
 ## How mapping works
 
 Each field's dotted source path is resolved in two steps:
 
-1. **`data/mappings.json`** - explicit rules (see below).
-2. **`data/schema.extended.json`** - the model itself, matched by path suffix
-   as a fallback, since OME-derived sources already use model field names
-   (`Pixels.SizeX` resolves to `Image.Pixels.SizeX`). A suffix that would be
-   ambiguous - shared by several model leaves, like the many `Name`/`ID`
-   fields - is never guessed at.
+1. **`mappings/mappings.json`** - explicit rules (see below).
+2. **the model itself** (`models/imaging.yaml`), matched by path suffix as a
+   fallback, since OME-derived sources already use model field names
+   (`Pixels.SizeX`). A suffix that would be ambiguous - shared by several
+   model leaves, like the many `Name`/`ID` fields - is never guessed at.
 
-Fields matching neither step are kept at their original path, so no data is
-lost.
+A model path starts at a class with an identifier (`OME`, `Image`, `Pixels`,
+`Laser`, ...) and continues through the components nested in it:
+`Image.ElectronBeamSettings.WorkingDistance.Value`, `Pixels.PhysicalSizeX`,
+`MechanicalStage.Position.X.Value`. Every value in the model has one such
+path.
+
+Fields matching neither step are kept at their original path, and a value is
+never written over another: when its target is taken, it stays at its source
+path instead. The output's `SourceMap` records the source path of every output
+field, so no data is lost and every value's origin can be traced.
 
 ### Vendor tag wrappers
 
 A reader that takes its metadata straight from a file's tags commonly keys
 each vendor's blob by the tag it came from, so a Phenom file arrives as
-`{'FEI_TITAN': {...}}` and a Zeiss one as `{'FibicsXML': {...}}`. That extra
-level is not part of any rule, and it would stop every rule below it from
-matching, so a top-level key is dropped when both hold:
+`{'FEI_TITAN': {'FeiImage': {...}}}` and a Zeiss one as
+`{'FibicsXML': {'Fibics': {...}}}`. Those levels are not part of any rule,
+and they would stop every rule below them from matching, so the rules see
+the contents of a top-level key, one level or more deep, when both hold:
 
 - **no rule and no model field names it**, so it is not a namespace this
   model has an opinion about. A key that *is* part of the mapped paths
   (`Beam` in `Beam.WD`), or a vendor namespace a rule names (TALOS
-  `CustomProperties`), is never stripped - however well its fields would
-  resolve without it.
-- **dropping it lets strictly more of the subtree resolve**, so an
-  unrecognised key whose contents gain nothing stays where it is.
+  `CustomProperties`), is never treated as a wrapper. The model's root
+  (`OME`, wrapping a whole OME document) is the exception.
+- **strictly more of the subtree resolves below it**, so an unrecognised key
+  whose contents gain nothing is taken as it is.
 
 Both tests are answered by the rules themselves rather than by a list of
-vendor tag names here, so a vendor this file has never seen is unwrapped
-too. Several vendor tags in one file are each unwrapped in turn, and a plain
-tag value beside them (`Make`, `Model`, `Software`) is kept as it is. A field
-already present at the top level wins over one lifted out of a wrapper.
+vendor tag names, so a vendor never seen before is unwrapped too. Only the
+rules skip the wrapper: its unmapped fields stay under it, and every source
+path in the `SourceMap` keeps it.
 
 ### Mapping rules
 
-A `mappings.json` entry is `"source path": "target path"`. There are four
+A `mappings.json` entry is `"source path": "target path"`. There are six
 forms.
 
 **Exact** - rename one field:
 
 ```json
-"Beam.WD": "ElectronBeam.WorkingDistance.Value"
+"Beam.WD": "Image.ElectronBeamSettings.WorkingDistance.Value"
+```
+
+**Several targets** - copy one value to each, where free:
+
+```json
+"MPP": ["Pixels.PhysicalSizeX", "Pixels.PhysicalSizeY"]
 ```
 
 **`Prefix.*` -> `Target`** - rename a whole subtree, keeping the remainder of
@@ -147,29 +179,60 @@ for a child still gets its chance to apply.
 into its own item of a list at `Target`:
 
 ```json
-"Detectors.*": "Detector.Configuration[]",
-"Optics.Apertures.*": "ElectronOptics.Apertures[]"
+"Detectors.*": "GenericDetector.Configuration[]",
+"Optics.Apertures.*": "Image.ElectronOpticsSettings.Apertures[]"
 ```
 
 Use this where the vendor names instances by key (`Detectors.QBSD`,
 `Detectors.SED`) instead of using a JSON array. Each child dict is mapped in
 full and appended, so the key naming stays out of the output - but because
 that key is often meaningful, it is preserved as an `id` on the item
-(`Detector.Configuration[0].id = "QBSD"`). A purely numeric key carries no
-information and is dropped instead, and an item that already has an `id` or
-`ID` of its own is left alone.
+(`GenericDetector.Configuration[0].id = "QBSD"`). A purely numeric key carries
+no information and is dropped instead, and an item that already has an `id`
+or `ID` of its own is left alone.
 
 **A `*` that is not a trailing `.*`** - match the whole path and discard the
 part the `*` covered:
 
 ```json
-"Annotation:CustomAttributes:SVI:Image:*": "Annotation[]"
+"Annotation:CustomAttributes:SVI:Image:*": "OME.Annotation[]"
 ```
 
 This is for a variable stretch *within* one path segment - an instance index
 or a generated UUID. Nothing of it is worth keeping, so the match is placed at
 the target as one unit, or, with a `[]` target as here, appended as one list
 item. `Image:0` and `Image:1` become two items rather than colliding.
+
+**`[*]` in a target** - send a value from a list item to the same item of a
+model list:
+
+```json
+"StructuredAnnotations.XMLAnnotation.Value.ChannelData.LambdaEx": "Pixels.Channel[*].Fluorophore.ExcitationWavelength"
+```
+
+`[*]` stands for the index of the list item the value comes from, so each
+channel's value goes to its own channel.
+
+### Combinations
+
+`mappings/combinations.json` adds a value built from others, as an ISO 8601
+datetime: the parts, looked up by source path, are joined with spaces and
+parsed with a `strptime` format, or with the format `unix` for seconds since
+1970 (UTC):
+
+```json
+{"target": "Image.AcquisitionDate", "sources": ["Date", "Time", "Time Zone"],
+ "format": "%m/%d/%y %H:%M:%S GMT%z"},
+{"target": "Image.AcquisitionDate", "sources": ["Acquisition.AcquisitionStartDatetime.DateTime"],
+ "format": "unix"}
+```
+
+The SVS `Date`, `Time` and `Time Zone` become `2015-10-19T17:18:12-05:00`,
+and the TALOS start time `1683922216` becomes `2023-05-12T20:10:16+00:00`. A
+combined value is written only where its target is free and every part is
+there and parses; a Unix time of 0 counts as unset, not as 1970-01-01 (TALOS
+writes `"0"` for a time it lacks). The parts stay where the mapping put them,
+and the combined value's `SourceMap` entry is the list of its parts.
 
 ### Matching details
 
@@ -191,96 +254,33 @@ item. `Image:0` and `Image:1` become two items rather than colliding.
   exact rules, so a Talos-style operation that embeds a second copy of the
   acquisition metadata below a generated UUID reuses the normal mappings.
 
-## Flattening
+## The model
 
-`flatten_dict` reduces a nested metadata dict to one entry per leaf, keyed
-by dotted path, which is the form the resolution steps above work in:
-
-```python
-from imaging_metadata_converter import flatten_dict
-
-flatten_dict({'Scan': {'Resolution': {'X': 1024}}})
-# {'Scan.Resolution.X': 1024}
-
-flatten_dict({'Detectors': [{'Name': 'QBSD'}, {'Name': 'SED'}]})
-# {'Detectors.0.Name': 'QBSD', 'Detectors.1.Name': 'SED'}
-```
-
-List and tuple items are keyed by their index. Keys are joined with dots and
-are otherwise left exactly as they are - a source key that itself contains
-colons stays a single path segment, since the OME
-`Annotation:CustomAttributes:SVI:Image:0` annotations are real keys of that
-shape rather than paths:
+`models/imaging.yaml` is LiMi as a LinkML model, importing
+`imaging_extension.yaml` (metadata beyond LiMi, mostly electron microscopy),
+`imaging_provenance.yaml` (`Property`, `SourceFile`, `SourceMapping`) and
+`imaging_units.yaml` (the unit enumerations). `ModelPaths` reads it into the
+dotted paths the mapper uses:
 
 ```python
-flatten_dict({'Annotation:CustomAttributes:SVI:Image:0': {'RefrIndexMedium': 1.515}})
-# {'Annotation:CustomAttributes:SVI:Image:0.RefrIndexMedium': 1.515}
+from imaging_metadata_converter import ModelPaths
+
+tree = ModelPaths().tree()
+tree['Pixels']['PhysicalSizeX']
+# 'PositiveFloat'
 ```
 
-## The model format
-
-The model files are plain nested JSON. Every leaf is a `"FieldName": "type"`
-pair, and the nesting is the model structure itself - there is no wrapper,
-no `properties` level, no `$schema`:
-
-```json
-{
-  "Instrument": {
-    "Manufacturer": "string",
-    "Model": "string",
-    "Vacuum": {
-      "GunVacuum": "number",
-      "VacuumMode": "string"
-    }
-  },
-  "Image": {
-    "Pixels": {
-      "SizeX": "integer",
-      "PhysicalSizeX": "number",
-      "PhysicalSizeXUnit": "string",
-      "BigEndian": "boolean"
-    },
-    "BinaryResult": "object"
-  }
-}
-```
-
-A leaf's dotted path is its field name in the converted output, so the model
-above defines `Instrument.Manufacturer`, `Instrument.Vacuum.GunVacuum`,
-`Image.Pixels.SizeX` and so on. These are exactly the paths `mappings.json`
-targets on the right-hand side, and the paths the schema fallback matches
-against by suffix.
-
-The type is one of the six JSON type names:
-
-| Type | Meaning |
-| --- | --- |
-| `string` | text |
-| `number` | any numeric value |
-| `integer` | whole number |
-| `boolean` | true / false |
-| `array` | a list of records, e.g. `OpticsHolder.OpticsTurret.Lens` |
-| `object` | a nested structure the model does not break down further, e.g. `Image.BinaryResult` |
-
-The types are **descriptive, not enforced**. The mapper matches on paths only
-- it never validates a value against its declared type and never coerces one,
-so whatever the source held is written through unchanged. Use the types to
-decide what a field is meant to hold when writing a mapping, not as a
-guarantee about what a converted dict contains.
-
-`array` and `object` leaves mark the places where the model expects a whole
-substructure rather than a single value. An `array` leaf is what a `"Target[]"`
-mapping entry fills, one item per matched source instance.
+Every leaf's value is its range: a type (`string`, `float`, `datetime`, ...),
+an enumeration (`UnitsLength`, ...) or, for a reference, the class it refers
+to. The ranges are **descriptive, not enforced**: the mapper matches on paths
+only, never validates a value against its range and never coerces one, so
+whatever the source held is written through unchanged (combinations aside).
 
 ## Data files
 
-- `src/imaging_metadata_converter/data/schema.extended.json` - the model used
-  for conversion: the base model plus the extensions (2006 fields, adding the
-  electron-microscopy sections `ElectronSource`, `ElectronBeam`,
-  `ElectronOptics`, `Scan`, `Acquisition`, `Operations`, `Features` and
-  `CustomProperties`).
-- `src/imaging_metadata_converter/data/schema.json` - the base model on its
-  own (1876 fields, 25 top-level sections from `Instrument` to
-  `CalibrationTools`).
-- `src/imaging_metadata_converter/data/mappings.json` - source field to model
-  field mappings.
+- `src/imaging_metadata_converter/models/imaging.yaml` and its imports - the
+  imaging model (see The model).
+- `src/imaging_metadata_converter/mappings/mappings.json` - source field to
+  model field mappings.
+- `src/imaging_metadata_converter/mappings/combinations.json` - values built
+  from others (see Combinations).

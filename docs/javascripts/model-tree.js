@@ -1,8 +1,8 @@
 /* Interactive browser for the metadata model (docs/model.md).
  *
- * Reads the same schema JSON the package ships, so the page never lists
- * fields by hand. The model format is plain nested JSON where every leaf is
- * "FieldName": "type" - see "The model format" in the README.
+ * Reads the imaging model's paths as scripts/sync_docs_data.py writes them
+ * from the packaged model, so the page never lists fields by hand: plain
+ * nested JSON where every leaf is "FieldName": "range".
  */
 (function () {
   'use strict';
@@ -37,7 +37,7 @@
   }
 
   /* One <li> per model entry; groups nest another <ul> below their header. */
-  function buildNode(key, value, path, baseLeaves, targets) {
+  function buildNode(key, value, path, added, targets) {
     var item = el('li', 'mt-item');
     item.dataset.path = path;
 
@@ -70,7 +70,7 @@
       row.appendChild(el('span', 'mt-count', countFields(value) + ' fields'));
     }
 
-    if (baseLeaves && leaf && !(path in baseLeaves)) {
+    if (leaf && added[path]) {
       row.appendChild(el('span', 'mt-flag mt-flag-ext', 'extension'));
       item.dataset.extended = 'true';
     }
@@ -91,7 +91,7 @@
       Object.keys(value).forEach(function (childKey) {
         children.appendChild(buildNode(
           childKey, value[childKey], path + '.' + childKey,
-          baseLeaves, targets));
+          added, targets));
       });
       item.appendChild(children);
     }
@@ -131,13 +131,25 @@
   }
 
   /* Map each model target path to the source paths mappings.json sends to it,
-   * so the tree shows which fields a conversion can actually populate. */
-  function mappingTargets(mappings) {
+   * so the tree shows which fields a conversion can actually populate. A rule
+   * can name several targets. A per-item target (Pixels.Channel[*].Fluorophore
+   * .EmissionWavelength) runs through classes with their own place in the
+   * tree, the top-level keys, so it is shown from the last one it passes. */
+  function mappingTargets(mappings, model) {
     var targets = {};
     Object.keys(mappings || {}).forEach(function (source) {
-      var target = String(mappings[source]).replace(/\[\]$/, '');
-      if (!targets[target]) targets[target] = [];
-      targets[target].push(source);
+      [].concat(mappings[source]).forEach(function (rule) {
+        var parts = String(rule).replace(/\[\]$/, '').replace(/\[\*\]/g, '').split('.');
+        var start = 0;
+        if (String(rule).indexOf('[*]') >= 0) {
+          parts.forEach(function (part, index) {
+            if (index > 0 && model.hasOwnProperty(part)) start = index;
+          });
+        }
+        var target = parts.slice(start).join('.');
+        if (!targets[target]) targets[target] = [];
+        targets[target].push(source);
+      });
     });
     return targets;
   }
@@ -181,8 +193,8 @@
     container.appendChild(status);
 
     var wanted = [
-      container.dataset.base,
-      container.dataset.extended,
+      container.dataset.model,
+      container.dataset.added,
       container.dataset.mappings
     ];
 
@@ -202,24 +214,12 @@
     });
   }
 
-  function render(container, status, base, extended, mappings) {
-    var baseLeaves = leaves(base, '');
-    var targets = mappingTargets(mappings);
-    var models = {
-      extended: { data: extended, compare: baseLeaves },
-      base: { data: base, compare: null }
-    };
+  function render(container, status, model, addedPaths, mappings) {
+    var added = {};
+    addedPaths.forEach(function (path) { added[path] = true; });
+    var targets = mappingTargets(mappings, model);
 
     var controls = el('div', 'mt-controls');
-
-    var which = el('select', 'mt-select');
-    which.setAttribute('aria-label', 'Model');
-    [['extended', 'Extended model'], ['base', 'Base model']]
-      .forEach(function (option) {
-        var node = el('option', null, option[1]);
-        node.value = option[0];
-        which.appendChild(node);
-      });
 
     var search = el('input', 'mt-search');
     search.type = 'search';
@@ -243,7 +243,7 @@
     var collapse = el('button', 'mt-button', 'Collapse all');
     collapse.type = 'button';
 
-    [which, search, extendedOnly, mappedOnly, expand, collapse]
+    [search, extendedOnly, mappedOnly, expand, collapse]
       .forEach(function (node) { controls.appendChild(node); });
 
     var tree = el('ul', 'mt-tree');
@@ -253,7 +253,7 @@
     function refresh() {
       var shown = applyFilter(
         tree, search.value, extendedBox.checked, mappedBox.checked);
-      var total = countFields(models[which.value].data);
+      var total = countFields(model);
       status.textContent = shown === total
         ? total + ' fields'
         : shown + ' of ' + total + ' fields';
@@ -280,14 +280,10 @@
     }
 
     function draw() {
-      var model = models[which.value];
       tree.textContent = '';
-      Object.keys(model.data).forEach(function (key) {
-        tree.appendChild(buildNode(
-          key, model.data[key], key, model.compare, targets));
+      Object.keys(model).forEach(function (key) {
+        tree.appendChild(buildNode(key, model[key], key, added, targets));
       });
-      extendedBox.disabled = which.value !== 'extended';
-      if (extendedBox.disabled) extendedBox.checked = false;
       refresh();
       openFromHash();
     }
@@ -297,7 +293,6 @@
       clearTimeout(typing);
       typing = setTimeout(refresh, 120);
     });
-    which.addEventListener('change', draw);
     [extendedBox, mappedBox].forEach(function (node) {
       node.addEventListener('change', refresh);
     });

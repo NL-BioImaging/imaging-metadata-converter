@@ -1,12 +1,13 @@
 """Generate the static model map embedded in docs/model-map.md.
 
-The map draws the part of the model the converter actually produces: the
-137 paths some rule in mappings.json targets, with the groups above them,
-as one Mermaid flowchart. A path the base model does not have is blue, so
-the map also shows how much of what the converter fills in comes from the
-electron-microscopy extensions rather than from the base model.
+The map draws the part of the imaging model the converter actually
+produces: the paths some rule in mappings.json targets, with the groups
+above them, as one Mermaid flowchart. A path LiMi does not have - one of the
+model's extension (mostly electron-microscopy) or provenance classes and
+slots - is blue, so the map also shows how much of what the converter fills
+in comes from the extensions rather than from LiMi.
 
-It is deliberately not the whole model. All 2006 fields cannot carry a
+It is deliberately not the whole model. All its fields cannot carry a
 legible name in one static picture - that is what the interactive browser
 on model.md is for - and a field no rule targets is not something the
 converter can currently produce.
@@ -16,7 +17,7 @@ packed into rows joined by invisible links so the map stays roughly
 landscape; Mermaid has no aspect-ratio control, so the shape is
 approached rather than set.
 
-Run after editing the mappings or either model:
+Run after editing the mappings or the model:
 
     python scripts/gen_model_map.py
 
@@ -31,8 +32,13 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DATA = ROOT / 'src' / 'imaging_metadata_converter' / 'data'
 PAGE = ROOT / 'docs' / 'model-map.md'
+sys.path.insert(0, str(ROOT / 'src'))
+sys.path.insert(0, str(ROOT / 'scripts'))
+
+from imaging_metadata_converter import DEFAULT_MAPPINGS_FILE, ModelPaths  # noqa: E402
+from imaging_metadata_converter.AcquisitionMetadataMapper import rule_targets  # noqa: E402
+from sync_docs_data import added_paths, all_paths  # noqa: E402
 
 BEGIN = '<!-- begin generated map: scripts/gen_model_map.py -->'
 END = '<!-- end generated map -->'
@@ -59,40 +65,24 @@ BLOCK_GAP = 30.0
 TARGET_RATIO = 16 / 9
 
 
-def load(name):
-    """Return one packaged data file as a dict."""
-    return json.loads((DATA / name).read_text(encoding='utf-8'))
-
-
-def is_leaf(node):
-    """A model leaf is a ``"FieldName": "type"`` pair, so a string value."""
-    return isinstance(node, str)
-
-
-def all_paths(model):
-    """Every path in `model`, groups as well as leaves."""
-    found = set()
-    stack = list(model.items())
-    while stack:
-        path, node = stack.pop()
-        found.add(path)
-        if not is_leaf(node):
-            stack.extend((f'{path}.{name}', child)
-                         for name, child in node.items())
-    return found
-
-
-def targets(mappings, model_paths):
+def targets(mappings, tree):
     """The model paths the rules target, in the order the rules name them.
 
-    A rule's target may be omitted, in which case the source path is also
-    the target, and a "Target[]" rule fills a list at that path.
+    A rule can name several targets, and a "Target[]" rule fills a list at
+    that path. A per-item target (Pixels.Channel[*].Fluorophore.Emission
+    Wavelength) runs through classes with their own place in the tree, the
+    top-level keys, so it is drawn from the last one it passes.
     """
+    model_paths = set(all_paths(tree))
     found = []
-    for source, target in mappings.items():
-        path = (target or source).rstrip('[]')
-        if path in model_paths and path not in found:
-            found.append(path)
+    for rule in mappings.values():
+        for target in rule_targets(rule):
+            parts = target.removesuffix('[]').replace('[*]', '').split('.')
+            starts = [index for index, part in enumerate(parts) if index > 0 and part in tree]
+            start = starts[-1] if '[*]' in target and starts else 0
+            path = '.'.join(parts[start:])
+            if path in model_paths and path not in found:
+                found.append(path)
     return found
 
 
@@ -122,20 +112,20 @@ class Node:
         return 1 + max(child.depth() for child in self.children)
 
 
-def build(paths, base_paths):
+def build(paths, added):
     """Build one tree per top-level section covering every path in `paths`."""
     sections = {}
     for path in paths:
         parts = path.split('.')
         node = sections.get(parts[0])
         if node is None:
-            node = Node(parts[0], parts[0], parts[0] not in base_paths)
+            node = Node(parts[0], parts[0], parts[0] in added)
             sections[parts[0]] = node
         for index in range(1, len(parts)):
             prefix = '.'.join(parts[:index + 1])
             child = next((c for c in node.children if c.path == prefix), None)
             if child is None:
-                child = Node(parts[index], prefix, prefix not in base_paths)
+                child = Node(parts[index], prefix, prefix in added)
                 node.children.append(child)
             node = child
         node.targeted = True
@@ -225,30 +215,38 @@ def diagram(sections):
 
 def rendered_block():
     """The full generated block, markers included, that the page should hold."""
-    base = load('schema.json')
-    ext = load('schema.extended.json')
-    mappings = load('mappings.json')
+    model = ModelPaths()
+    tree = model.tree()
+    added = set(added_paths(model, tree))
+    mappings = json.loads(Path(DEFAULT_MAPPINGS_FILE).read_text(encoding='utf-8'))
 
-    base_paths = all_paths(base)
-    paths = targets(mappings, all_paths(ext))
-    sections = build(paths, base_paths)
+    paths = targets(mappings, tree)
+    sections = build(paths, added)
 
     body, ratio = diagram(sections)
     boxes = sum(1 for s in sections for _ in s.walk())
-    new = sum(1 for p in paths if p not in base_paths)
+    new = sum(1 for p in paths if p in added)
+    fields = sum(1 for path in all_paths(tree) if not isinstance(_node(tree, path), dict))
     legend = (
         f'The **{len(paths)} fields** some rule in `mappings.json` targets —'
         ' what the converter can actually fill in — with the groups above'
         f' them, {boxes} boxes over {len(sections)} sections. Rounded boxes'
         ' are the targeted fields themselves; square boxes are the groups'
         f' holding them. <span class="map-key">Blue</span> is a path'
-        f' `schema.json` does not have: {new} of the {len(paths)} targets'
-        ' come from the electron-microscopy extensions.\n\n'
-        'The other fields of the model are not drawn — all 2006 cannot be'
+        f' LiMi does not have: {new} of the {len(paths)} targets come from'
+        ' the extensions, mostly electron microscopy.\n\n'
+        f'The other fields of the model are not drawn — all {fields} cannot be'
         ' named in one static picture, and a field no rule targets is not'
         ' something the converter can produce yet. Use the'
         ' [model browser](model.md) to see the model in full.')
     return f'{BEGIN}\n\n{body}\n\n{legend}\n\n{END}'
+
+
+def _node(tree, path):
+    node = tree
+    for part in path.split('.'):
+        node = node[part]
+    return node
 
 
 def main(argv=None):
