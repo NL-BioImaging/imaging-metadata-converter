@@ -9,6 +9,9 @@ imaging metadata; the one dependency is `linkml-runtime`, for reading it.
 The mapper, the model and the mapping rules are those of
 [imaging-metadata-consolidator](https://github.com/NL-BioImaging/imaging-metadata-consolidator).
 
+Documentation, with a browser for the whole model and a map of what the
+converter produces: <https://nl-bioimaging.github.io/imaging-metadata-converter/>
+
 ## Installation
 
 ```bash
@@ -276,6 +279,12 @@ to. The ranges are **descriptive, not enforced**: the mapper matches on paths
 only, never validates a value against its range and never coerces one, so
 whatever the source held is written through unchanged (combinations aside).
 
+The [model page](https://nl-bioimaging.github.io/imaging-metadata-converter/model/)
+of the documentation browses every path, flags the ones the extensions add
+and the ones a mapping rule targets, and describes where the model comes from;
+the [model map](https://nl-bioimaging.github.io/imaging-metadata-converter/model-map/)
+draws the fields the converter can fill in.
+
 ## Data files
 
 - `src/imaging_metadata_converter/models/imaging.yaml` and its imports - the
@@ -284,3 +293,21 @@ whatever the source held is written through unchanged (combinations aside).
   model field mappings.
 - `src/imaging_metadata_converter/mappings/combinations.json` - values built
   from others (see Combinations).
+
+## Documentation
+
+The documentation site is built with MkDocs from `docs/` and published to
+GitHub Pages on every push to `main`. To build it locally:
+
+```bash
+pip install -e ".[docs]"
+mkdocs serve
+```
+
+Nothing on the model pages is stored in the repository. The MkDocs hook
+`scripts/docs_data.py` reads the packaged model and mappings as the site is
+built: it writes the JSON the model browser fetches (`data/model.json`,
+`added.json`, `mappings.json`) into the site, fills in the model's counts on
+`model.md`, and draws the model map on `model-map.md` (with
+`scripts/model_map.py`). A new version of the model files or an edited
+`mappings.json` shows up on the next build, with nothing to regenerate.
