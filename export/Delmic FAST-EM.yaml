@@ -1,0 +1,17 @@
+ID: OME:0
+Image:
+- SourceFile:
+  - ID: SourceFile:0
+    Name: Delmic FAST-EM.json
+    Checksum: 0c2137e0a0a05e0918549f7ecf7207fcadb7850a1302927e6c51f50638f0a15c
+    Format: json
+    Mapping:
+    - ID: SourceMapping:0
+      Field: Instrument[0].Manufacturer
+      Source: Make
+    - ID: SourceMapping:1
+      Field: Instrument[0].Model
+      Source: Model
+Instrument:
+- Manufacturer: Delmic B.V.
+  Model: Fast EM

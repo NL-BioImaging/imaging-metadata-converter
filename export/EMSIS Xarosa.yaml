@@ -1,0 +1,40 @@
+ID: OME:0
+Image:
+- SourceFile:
+  - ID: SourceFile:0
+    Name: EMSIS Xarosa.json
+    Checksum: 180b0cadff3ccb6a9a1ecd45982fdd40a3c9dd3ec57378182a10999b637c0e5c
+    Format: json
+    Mapping:
+    - ID: SourceMapping:0
+      Field: Image[0].Name
+      Source: name
+    - ID: SourceMapping:1
+      Field: Image[0].AcquisitionDate
+      Source: datetime
+    - ID: SourceMapping:2
+      Field: Image[0].Type
+      Source: picturetype
+    - ID: SourceMapping:3
+      Field: Image[0].Pixels.PhysicalSizeX
+      Source: pixelsizex
+    - ID: SourceMapping:4
+      Field: Image[0].Pixels.PhysicalSizeY
+      Source: pixelsizey
+    - ID: SourceMapping:5
+      Field: Instrument[0].Objective[0].CalibratedMagnification
+      Source: magnification
+    - ID: SourceMapping:6
+      Field: Instrument[0].GenericDetector[0].Name
+      Source: cameraname
+  Name: ''
+  AcquisitionDate: '2025-05-28 10:54:00'
+  Type: ''
+  Pixels:
+    PhysicalSizeX: 1.652845302290227e-09
+    PhysicalSizeY: 1.652845302290227e-09
+Instrument:
+- Objective:
+  - CalibratedMagnification: 6000.0
+  GenericDetector:
+  - Name: ''

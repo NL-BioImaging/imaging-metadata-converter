@@ -1,0 +1,391 @@
+ID: OME:0
+Image:
+- SourceFile:
+  - ID: SourceFile:0
+    Name: Cikteq SEM4000x Automap.json
+    Checksum: 07be3b317606b86b323fd1c95ee12a70ac470e3ea167e0d5cbd67f46392728c6
+    Format: json
+    Mapping:
+    - ID: SourceMapping:0
+      Field: Image[0].ElectronBeamSettings.Stigmator.X
+      Source: Beam.AstigX
+    - ID: SourceMapping:1
+      Field: Image[0].ElectronBeamSettings.Stigmator.Y
+      Source: Beam.AstigY
+    - ID: SourceMapping:2
+      Field: Image[0].ElectronBeamSettings.Mode
+      Source: Beam.BeamMode
+    - ID: SourceMapping:3
+      Field: Image[0].ElectronBeamSettings.Focus
+      Source: Beam.Focus
+    - ID: SourceMapping:4
+      Field: Image[0].ElectronBeamSettings.Current.Value
+      Source: Beam.RealAbsCurrent
+    - ID: SourceMapping:5
+      Field: Image[0].ElectronBeamSettings.Shift.X
+      Source: Beam.ShiftX
+    - ID: SourceMapping:6
+      Field: Image[0].ElectronBeamSettings.Shift.Y
+      Source: Beam.ShiftY
+    - ID: SourceMapping:7
+      Field: Image[0].ElectronBeamSettings.WorkingDistance.Value
+      Source: Beam.WD
+    - ID: SourceMapping:8
+      Field: Image[0].ElectronBeamSettings.HighVoltage.BV
+      Source: HV.BV
+    - ID: SourceMapping:9
+      Field: Image[0].ElectronBeamSettings.HighVoltage.Bia
+      Source: HV.Bia
+    - ID: SourceMapping:10
+      Field: Image[0].ElectronBeamSettings.HighVoltage.CV
+      Source: HV.CV
+    - ID: SourceMapping:11
+      Field: Image[0].ElectronBeamSettings.HighVoltage.ExtCurrent
+      Source: HV.ExtCurrent
+    - ID: SourceMapping:12
+      Field: Image[0].ElectronBeamSettings.HighVoltage.ExtVoltage
+      Source: HV.ExtVoltage
+    - ID: SourceMapping:13
+      Field: Image[0].ElectronBeamSettings.HighVoltage.FV
+      Source: HV.FV
+    - ID: SourceMapping:14
+      Field: Image[0].ElectronBeamSettings.HighVoltage.FcCurrent
+      Source: HV.FcCurrent
+    - ID: SourceMapping:15
+      Field: Image[0].ElectronBeamSettings.HighVoltage.FcVoltage
+      Source: HV.FcVoltage
+    - ID: SourceMapping:16
+      Field: Image[0].ElectronBeamSettings.HighVoltage.HighEmissionMode
+      Source: HV.HighEmissionMode
+    - ID: SourceMapping:17
+      Field: Image[0].ElectronBeamSettings.HighVoltage.HvCurrent
+      Source: HV.HvCurrent
+    - ID: SourceMapping:18
+      Field: Image[0].ElectronBeamSettings.HighVoltage.HvMode
+      Source: HV.HvMode
+    - ID: SourceMapping:19
+      Field: Image[0].ElectronBeamSettings.HighVoltage.HvVoltage
+      Source: HV.HvVoltage
+    - ID: SourceMapping:20
+      Field: Image[0].ElectronBeamSettings.HighVoltage.Mid10kvVoltage
+      Source: HV.Mid10kvVoltage
+    - ID: SourceMapping:21
+      Field: Image[0].ElectronBeamSettings.HighVoltage.SV
+      Source: HV.SV
+    - ID: SourceMapping:22
+      Field: Image[0].ElectronBeamSettings.HighVoltage.SchCurrent
+      Source: HV.SchCurrent
+    - ID: SourceMapping:23
+      Field: Image[0].ElectronBeamSettings.HighVoltage.SchVoltage
+      Source: HV.SchVoltage
+    - ID: SourceMapping:24
+      Field: Instrument[0].GenericDetector[0].Brightness
+      Source: Detector.Brightness
+    - ID: SourceMapping:25
+      Field: Instrument[0].GenericDetector[0].Channel
+      Source: Detector.Channel
+    - ID: SourceMapping:26
+      Field: Instrument[0].GenericDetector[0].Contrast
+      Source: Detector.Contrast
+    - ID: SourceMapping:27
+      Field: Instrument[0].GenericDetector[0].Name
+      Source: Detector.DetectorName
+    - ID: SourceMapping:28
+      Field: Instrument[0].GenericDetector[0].Gain
+      Source: Detector.Gain
+    - ID: SourceMapping:29
+      Field: Image[0].Pixels.Plane[0].PixelDwellTime
+      Source: Scan.PointTime
+    - ID: SourceMapping:30
+      Field: Image[0].Pixels.SizeX
+      Source: Scan.ResolutionX
+    - ID: SourceMapping:31
+      Field: Image[0].Pixels.SizeY
+      Source: Scan.ResolutionY
+    - ID: SourceMapping:32
+      Field: Instrument[0].MechanicalStage[0].Rotation.Value
+      Source: Stage.StagePosR
+    - ID: SourceMapping:33
+      Field: Instrument[0].MechanicalStage[0].Tilt.Value
+      Source: Stage.StagePosT
+    - ID: SourceMapping:34
+      Field: Instrument[0].MechanicalStage[0].Position.X.Value
+      Source: Stage.StagePosX
+    - ID: SourceMapping:35
+      Field: Instrument[0].MechanicalStage[0].Position.Y.Value
+      Source: Stage.StagePosY
+    - ID: SourceMapping:36
+      Field: Instrument[0].MechanicalStage[0].Position.Z.Value
+      Source: Stage.StagePosZ
+    - ID: SourceMapping:37
+      Field: Instrument[0].Name
+      Source: System.ProductName
+    - ID: SourceMapping:38
+      Field: Instrument[0].Vacuum.BufferVacuum
+      Source: Vacuum.BufferVacuum
+    - ID: SourceMapping:39
+      Field: Instrument[0].Vacuum.GunVacuum
+      Source: Vacuum.GunVacuum
+    - ID: SourceMapping:40
+      Field: Instrument[0].Vacuum.SampleVacuum
+      Source: Vacuum.SampleVacuum
+    - ID: SourceMapping:41
+      Field: Instrument[0].AcquisitionSoftware[0].Version
+      Source: System.SoftwareVersion
+    - ID: SourceMapping:42
+      Field: Experimenter[0].UserName
+      Source: User.UserName
+  ElectronBeamSettings:
+    Stigmator:
+      X: 0.01
+      Y: 0.03
+    Mode: 1-20um
+    Focus: 109436.0
+    Current:
+      Value: -64.38
+    Shift:
+      X: 0.0
+      Y: 0.0
+    WorkingDistance:
+      Value: 5.38
+    HighVoltage:
+      BV: 0.04
+      Bia: 0.0
+      CV: 0.0
+      ExtCurrent: 139.6
+      ExtVoltage: 3600.6
+      FV: 0.0
+      FcCurrent: 2.28
+      FcVoltage: 1.49
+      HighEmissionMode: false
+      HvCurrent: 2.28
+      HvMode: 0
+      HvVoltage: 30000.0
+      Mid10kvVoltage: 0.0
+      SV: 10001.2
+      SchCurrent: 3.52
+      SchVoltage: 300.68
+  CustomProperties:
+  - ID: Property:0
+    Name: Beam.BeamDownX
+    Value: '0'
+    SchemaPath: Image.ElectronBeamSettings.BeamDownX
+    Source: SourceFile:0
+  - ID: Property:1
+    Name: Beam.BeamDownY
+    Value: '0'
+    SchemaPath: Image.ElectronBeamSettings.BeamDownY
+    Source: SourceFile:0
+  - ID: Property:2
+    Name: Beam.BeamType
+    Value: '1'
+    SchemaPath: Image.ElectronBeamSettings.Type
+    Source: SourceFile:0
+  - ID: Property:3
+    Name: Beam.BeamUpX
+    Value: '0'
+    SchemaPath: Image.ElectronBeamSettings.BeamUpX
+    Source: SourceFile:0
+  - ID: Property:4
+    Name: Beam.BeamUpY
+    Value: '0'
+    SchemaPath: Image.ElectronBeamSettings.BeamUpY
+    Source: SourceFile:0
+  - ID: Property:5
+    Name: Beam.Condenser
+    Value: '1456'
+    SchemaPath: Image.ElectronBeamSettings.Condenser
+    Source: SourceFile:0
+  - ID: Property:6
+    Name: Beam.Condenser2
+    Value: '839'
+    SchemaPath: Image.ElectronBeamSettings.Condenser2
+    Source: SourceFile:0
+  - ID: Property:7
+    Name: Beam.ElectricMoveX
+    Value: '-0.57'
+    SchemaPath: Image.ElectronBeamSettings.ElectricMoveX
+    Source: SourceFile:0
+  - ID: Property:8
+    Name: Beam.ElectricMoveY
+    Value: '0.08'
+    SchemaPath: Image.ElectronBeamSettings.ElectricMoveY
+    Source: SourceFile:0
+  - ID: Property:9
+    Name: Beam.ElectricRotate
+    Value: '-135.0'
+    SchemaPath: Image.ElectronBeamSettings.ElectricRotate
+    Source: SourceFile:0
+  - ID: Property:10
+    Name: Beam.ImagingMode
+    Value: '0'
+    SchemaPath: Image.ElectronBeamSettings.ImagingMode
+    Source: SourceFile:0
+  - ID: Property:11
+    Name: Beam.TiltX
+    Value: '0.0'
+    SchemaPath: Image.ElectronBeamSettings.TiltX
+    Source: SourceFile:0
+  - ID: Property:12
+    Name: Beam.TiltY
+    Value: '0.0'
+    SchemaPath: Image.ElectronBeamSettings.TiltY
+    Source: SourceFile:0
+  - ID: Property:13
+    Name: Beam.VisibleMultiple
+    Value: '6067'
+    SchemaPath: Image.ElectronBeamSettings.VisibleMultiple
+    Source: SourceFile:0
+  - ID: Property:14
+    Name: Beam.HFW
+    Value: '"21.12µm"'
+    SchemaPath: Image.ScanSettings.FieldOfView.X.Value
+    Source: SourceFile:0
+  - ID: Property:15
+    Name: Scan.Drift
+    Value: 'false'
+    SchemaPath: Image.ScanSettings.Drift
+    Source: SourceFile:0
+  - ID: Property:16
+    Name: Scan.FramAdd
+    Value: '1'
+    SchemaPath: Image.ScanSettings.FramAdd
+    Source: SourceFile:0
+  - ID: Property:17
+    Name: Scan.FrameTime
+    Value: '"2min52s"'
+    SchemaPath: Image.ScanSettings.FrameTime.Value
+    Source: SourceFile:0
+  - ID: Property:18
+    Name: Scan.Interlaced
+    Value: '"0/1"'
+    SchemaPath: Image.ScanSettings.Interlaced
+    Source: SourceFile:0
+  - ID: Property:19
+    Name: Scan.LineAdd
+    Value: '1'
+    SchemaPath: Image.ScanSettings.LineAdd
+    Source: SourceFile:0
+  ScanSettings:
+    FieldOfView:
+      X: {}
+    FrameTime: {}
+  Pixels:
+    Plane:
+    - PixelDwellTime: 3.0
+    SizeX: 8448
+    SizeY: 5632
+Instrument:
+- GenericDetector:
+  - Brightness: 50.0
+    Channel: 1
+    Contrast: 0.0
+    Name: STEM-USER
+    Gain: 1
+  CustomProperties:
+  - ID: Property:20
+    Name: Detector.ConsumerBrightness
+    Value: '50.0'
+    SchemaPath: GenericDetector.ConsumerBrightness
+    Source: SourceFile:0
+  - ID: Property:21
+    Name: Detector.ConsumerContrast
+    Value: '50.0'
+    SchemaPath: GenericDetector.ConsumerContrast
+    Source: SourceFile:0
+  - ID: Property:22
+    Name: Detector.PMT
+    Value: '0.33'
+    SchemaPath: GenericDetector.PMT
+    Source: SourceFile:0
+  - ID: Property:24
+    Name: Stage.NavCoordinate
+    Value: '1'
+    SchemaPath: MechanicalStage.NavCoordinate
+    Source: SourceFile:0
+  - ID: Property:25
+    Name: Stage.StageType
+    Value: '"TMCM-GYLZ-4000X-FIVE-110x110x69"'
+    SchemaPath: MechanicalStage.StageType
+    Source: SourceFile:0
+  - ID: Property:26
+    Name: System.Version
+    Value: '2.6'
+    SchemaPath: Instrument.Version
+    Source: SourceFile:0
+  MechanicalStage:
+  - Rotation:
+      Value: -30.0
+    Tilt:
+      Value: 0.0
+    Position:
+      X:
+        Value: 18.9417
+      Y:
+        Value: 11.1248
+      Z:
+        Value: 55.0
+  Name: SEM4000X
+  Vacuum:
+    BufferVacuum: 130.0
+    GunVacuum: 1.2e-07
+    SampleVacuum: 0.000362
+  AcquisitionSoftware:
+  - Version: 3.2.3.300
+CustomProperties:
+- ID: Property:23
+  Name: Other.BottomInfoVacuum
+  Value: '"1.2e-07Pa"'
+  Source: SourceFile:0
+- ID: Property:27
+  Name: TiltCorrect.CorrectAngle
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:28
+  Name: TiltCorrect.IonWorkTilt
+  Value: '54.0'
+  Source: SourceFile:0
+- ID: Property:29
+  Name: TiltCorrect.IsTiltCorrent
+  Value: 'false'
+  Source: SourceFile:0
+- ID: Property:30
+  Name: TiltCorrect.PreTiltAngle
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:31
+  Name: TiltCorrect.TiltCompensateMode
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:32
+  Name: User.BottomInfoShowEnable
+  Value: '2038'
+  SchemaPath: Experimenter.BottomInfoShowEnable
+  Source: SourceFile:0
+- ID: Property:33
+  Name: User.DateTimeFmt
+  Value: '"yyyy/MM/dd HH:mm:ss"'
+  SchemaPath: Experimenter.DateTimeFmt
+  Source: SourceFile:0
+- ID: Property:34
+  Name: User.MagType
+  Value: '1'
+  SchemaPath: Experimenter.MagType
+  Source: SourceFile:0
+- ID: Property:35
+  Name: User.RulerText
+  Value: '"SEM4000X"'
+  SchemaPath: Experimenter.RulerText
+  Source: SourceFile:0
+- ID: Property:36
+  Name: User.TimeStamp
+  Value: '1784735089'
+  SchemaPath: Experimenter.TimeStamp
+  Source: SourceFile:0
+- ID: Property:37
+  Name: User.VacuumType
+  Value: '0'
+  SchemaPath: Experimenter.VacuumType
+  Source: SourceFile:0
+Experimenter:
+- UserName: "\x01"

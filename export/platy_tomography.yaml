@@ -1,0 +1,109 @@
+ID: OME:0
+Image:
+- SourceFile:
+  - ID: SourceFile:0
+    Name: platy_tomography.json
+    Checksum: d9173f8b534fb77b8ace792a6335246fc5670ae36b4593ab6a923f1d9c54b944
+    Format: json
+  Pixels:
+    Channel:
+    - {}
+  CustomProperties:
+  - ID: Property:12
+    Name: SpimData.SequenceDescription.ViewSetups.Attributes.Channel.id
+    Value: '1'
+    Source: SourceFile:0
+  - ID: Property:13
+    Name: SpimData.SequenceDescription.ViewSetups.Attributes.Channel.name
+    Value: '1'
+    Source: SourceFile:0
+CustomProperties:
+- ID: Property:0
+  Name: SpimData.BasePath.type
+  Value: '"relative"'
+  Source: SourceFile:0
+- ID: Property:1
+  Name: SpimData.BasePath.value
+  Value: '"."'
+  Source: SourceFile:0
+- ID: Property:2
+  Name: SpimData.SequenceDescription.ImageLoader.n5.type
+  Value: '"relative"'
+  Source: SourceFile:0
+- ID: Property:3
+  Name: SpimData.SequenceDescription.ImageLoader.n5.value
+  Value: '"Platy-89_02_tomo.n5"'
+  Source: SourceFile:0
+- ID: Property:4
+  Name: SpimData.SequenceDescription.ImageLoader.format
+  Value: '"bdv.n5"'
+  Source: SourceFile:0
+- ID: Property:5
+  Name: SpimData.SequenceDescription.ImageLoader.version
+  Value: '1.0'
+  Source: SourceFile:0
+- ID: Property:6
+  Name: SpimData.SequenceDescription.ViewSetups.ViewSetup.id
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:7
+  Name: SpimData.SequenceDescription.ViewSetups.ViewSetup.name
+  Value: '"channel 1"'
+  Source: SourceFile:0
+- ID: Property:8
+  Name: SpimData.SequenceDescription.ViewSetups.ViewSetup.size
+  Value: '"1100 1100 1150"'
+  Source: SourceFile:0
+- ID: Property:9
+  Name: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit
+  Value: '"micron"'
+  Source: SourceFile:0
+- ID: Property:10
+  Name: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
+  Value: '"0.325 0.325 0.325"'
+  Source: SourceFile:0
+- ID: Property:11
+  Name: SpimData.SequenceDescription.ViewSetups.ViewSetup.attributes.channel
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:14
+  Name: SpimData.SequenceDescription.ViewSetups.Attributes.name
+  Value: '"channel"'
+  Source: SourceFile:0
+- ID: Property:15
+  Name: SpimData.SequenceDescription.Timepoints.first
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:16
+  Name: SpimData.SequenceDescription.Timepoints.last
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:17
+  Name: SpimData.SequenceDescription.Timepoints.type
+  Value: '"range"'
+  Source: SourceFile:0
+- ID: Property:18
+  Name: SpimData.ViewRegistrations.ViewRegistration.ViewTransform.affine
+  Value: '"0.325 0.0 0.0 0.0 0.0 0.325 0.0 0.0 0.0 0.0 0.325 0.0"'
+  Source: SourceFile:0
+- ID: Property:19
+  Name: SpimData.ViewRegistrations.ViewRegistration.ViewTransform.type
+  Value: '"affine"'
+  Source: SourceFile:0
+- ID: Property:20
+  Name: SpimData.ViewRegistrations.ViewRegistration.timepoint
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:21
+  Name: SpimData.ViewRegistrations.ViewRegistration.setup
+  Value: '0'
+  Source: SourceFile:0
+Instrument:
+- AcquisitionSoftware:
+  - {}
+  CustomProperties:
+  - ID: Property:22
+    Name: SpimData.version
+    Value: '0.2'
+    SchemaPath: AcquisitionSoftware.Version
+    Source: SourceFile:0

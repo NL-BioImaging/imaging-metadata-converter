@@ -46,6 +46,7 @@ nav:
   - Home: index.md
   - The model: model.md
   - Model map: model-map.md
+  - Maintaining the model: maintaining.md
   - API reference: reference.md
 
 theme:

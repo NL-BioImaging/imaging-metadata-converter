@@ -1,10 +1,9 @@
-"""Map per-source acquisition metadata onto the consolidated schema.
+"""Map per-source acquisition metadata onto the imaging model.
 
 Uses the field mappings in mappings/mappings.json to translate vendor-
 specific metadata trees into the imaging model (models/imaging.yaml, see
 ModelPaths for the paths it uses). This module works purely with in-memory
-dicts; see convert.py for the reusable API that converts a single source
-file with this module, and main.py for the CLI entry point.
+dicts.
 
 Fields with no entry in mappings.json are matched against the schema itself
 as a fallback, since some sources (e.g. OME-derived metadata) already use
@@ -27,7 +26,7 @@ SOURCE_MAP_KEY = 'SourceMap'
 
 
 class AcquisitionMetadataMapper:
-    """Maps vendor-specific acquisition metadata onto the consolidated schema.
+    """Maps vendor-specific acquisition metadata onto the imaging model.
 
     Loads the model's paths and mappings.json once, then converts one or
     more metadata dicts using `convert_metadata`. Resolution for each field
@@ -164,8 +163,8 @@ class AcquisitionMetadataMapper:
         variable path segment such as "Annotation:...:Image:*") is treated
         as a whole-path match instead: on a match the target is the bare
         namespace with no remainder appended, since the varying segment
-        (an index, a generated ID, ...) has no place in the consolidated
-        schema; the full source path stays in the SourceMap (see
+        (an index, a generated ID, ...) has no place in the imaging
+        model; the full source path stays in the SourceMap (see
         `convert_metadata`). A "Target[]" namespace is
         never valid here - it only has meaning for a dict, never a plain
         leaf value (see `_resolve_whole_segment_wildcard_path`).
@@ -278,7 +277,7 @@ class AcquisitionMetadataMapper:
 
     def _apply_mappings(self, metadata, result=None, path='', rule_path=None, min_rule_segments=0,
                         provenance=None, origin=None, root=None):
-        """Map metadata onto the consolidated schema.
+        """Map metadata onto the imaging model.
 
         Recurses into nested dictionaries, extending the dotted path as it
         goes, and writes every resolved field directly into the shared
@@ -469,7 +468,7 @@ class AcquisitionMetadataMapper:
         raise ValueError(f'{paths} are all taken; refusing to overwrite')
 
     def convert_metadata(self, metadata):
-        """Map a single in-memory metadata dict onto the consolidated schema.
+        """Map a single in-memory metadata dict onto the imaging model.
 
         Returns the converted dict, with a top-level SOURCE_MAP_KEY section
         mapping every output leaf path to the source path it came from, so

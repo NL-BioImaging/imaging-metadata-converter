@@ -1,0 +1,757 @@
+ID: OME:0
+Image:
+- SourceFile:
+  - ID: SourceFile:0
+    Name: ome-tiff.json
+    Checksum: 113212ab716abda01c9c908fcab624c0a2169e6360117461dce7639a16001e0b
+    Format: json
+    Mapping:
+    - ID: SourceMapping:0
+      Field: Instrument[0].Objective[0].ID
+      Source: OME.Instrument.Objective.ID
+    - ID: SourceMapping:1
+      Field: Instrument[0].Objective[0].LensNA
+      Source: OME.Instrument.Objective.LensNA
+    - ID: SourceMapping:2
+      Field: Instrument[0].Objective[0].Magnification
+      Source: OME.Instrument.Objective.NominalMagnification
+    - ID: SourceMapping:3
+      Field: Instrument[0].ID
+      Source: OME.Instrument.ID
+    - ID: SourceMapping:4
+      Field: Image[0].ObjectiveSettings.ID
+      Source: OME.Image.ObjectiveSettings.ID
+    - ID: SourceMapping:5
+      Field: Image[0].Pixels.Channel[0].ID
+      Source: OME.Image.Pixels.Channel[0].ID
+    - ID: SourceMapping:6
+      Field: Image[0].Pixels.Channel[0].SamplesPerPixel
+      Source: OME.Image.Pixels.Channel[0].SamplesPerPixel
+    - ID: SourceMapping:7
+      Field: Image[0].Pixels.Channel[1].ID
+      Source: OME.Image.Pixels.Channel[1].ID
+    - ID: SourceMapping:8
+      Field: Image[0].Pixels.Channel[1].SamplesPerPixel
+      Source: OME.Image.Pixels.Channel[1].SamplesPerPixel
+    - ID: SourceMapping:9
+      Field: Image[0].Pixels.TiffData[0].FirstC
+      Source: OME.Image.Pixels.TiffData.FirstC
+    - ID: SourceMapping:10
+      Field: Image[0].Pixels.TiffData[0].FirstT
+      Source: OME.Image.Pixels.TiffData.FirstT
+    - ID: SourceMapping:11
+      Field: Image[0].Pixels.TiffData[0].FirstZ
+      Source: OME.Image.Pixels.TiffData.FirstZ
+    - ID: SourceMapping:12
+      Field: Image[0].Pixels.TiffData[0].IFD
+      Source: OME.Image.Pixels.TiffData.IFD
+    - ID: SourceMapping:13
+      Field: Image[0].Pixels.TiffData[0].PlaneCount
+      Source: OME.Image.Pixels.TiffData.PlaneCount
+    - ID: SourceMapping:14
+      Field: Image[0].Pixels.ID
+      Source: OME.Image.Pixels.ID
+    - ID: SourceMapping:15
+      Field: Image[0].Pixels.DimensionOrder
+      Source: OME.Image.Pixels.DimensionOrder
+    - ID: SourceMapping:16
+      Field: Image[0].Pixels.BigEndian
+      Source: OME.Image.Pixels.BigEndian
+    - ID: SourceMapping:17
+      Field: Image[0].Pixels.SizeX
+      Source: OME.Image.Pixels.SizeX
+    - ID: SourceMapping:18
+      Field: Image[0].Pixels.SizeY
+      Source: OME.Image.Pixels.SizeY
+    - ID: SourceMapping:19
+      Field: Image[0].Pixels.SizeZ
+      Source: OME.Image.Pixels.SizeZ
+    - ID: SourceMapping:20
+      Field: Image[0].Pixels.SizeC
+      Source: OME.Image.Pixels.SizeC
+    - ID: SourceMapping:21
+      Field: Image[0].Pixels.SizeT
+      Source: OME.Image.Pixels.SizeT
+    - ID: SourceMapping:22
+      Field: Image[0].Pixels.PhysicalSizeX
+      Source: OME.Image.Pixels.PhysicalSizeX
+    - ID: SourceMapping:23
+      Field: Image[0].Pixels.PhysicalSizeXUnit
+      Source: OME.Image.Pixels.PhysicalSizeXUnit
+    - ID: SourceMapping:24
+      Field: Image[0].Pixels.PhysicalSizeY
+      Source: OME.Image.Pixels.PhysicalSizeY
+    - ID: SourceMapping:25
+      Field: Image[0].Pixels.PhysicalSizeYUnit
+      Source: OME.Image.Pixels.PhysicalSizeYUnit
+    - ID: SourceMapping:26
+      Field: Image[0].Pixels.PhysicalSizeZ
+      Source: OME.Image.Pixels.PhysicalSizeZ
+    - ID: SourceMapping:27
+      Field: Image[0].Pixels.PhysicalSizeZUnit
+      Source: OME.Image.Pixels.PhysicalSizeZUnit
+    - ID: SourceMapping:28
+      Field: Image[0].Pixels.TimeIncrement
+      Source: OME.Image.Pixels.TimeIncrement
+    - ID: SourceMapping:29
+      Field: Image[0].Pixels.TimeIncrementUnit
+      Source: OME.Image.Pixels.TimeIncrementUnit
+    - ID: SourceMapping:30
+      Field: Image[0].ID
+      Source: OME.Image.ID
+    - ID: SourceMapping:31
+      Field: Image[0].ObjectiveSettings.ImmersionLiquid.RefractiveIndex
+      Source: OME.Image.ObjectiveSettings.RefractiveIndex
+    - ID: SourceMapping:32
+      Field: Image[0].Pixels.Channel[0].Fluorophore[0].ExcitationWavelength
+      Source: OME.Image.Pixels.Channel[0].ExcitationWavelength
+    - ID: SourceMapping:33
+      Field: Image[0].Pixels.Channel[0].Fluorophore[0].ExcitationWavelengthUnit
+      Source: OME.Image.Pixels.Channel[0].ExcitationWavelengthUnit
+    - ID: SourceMapping:34
+      Field: Image[0].Pixels.Channel[0].Fluorophore[0].EmissionWavelength
+      Source: OME.Image.Pixels.Channel[0].EmissionWavelength
+    - ID: SourceMapping:35
+      Field: Image[0].Pixels.Channel[0].Fluorophore[0].EmissionWavelengthUnit
+      Source: OME.Image.Pixels.Channel[0].EmissionWavelengthUnit
+    - ID: SourceMapping:36
+      Field: Image[0].Pixels.Channel[1].Fluorophore[0].ExcitationWavelength
+      Source: OME.Image.Pixels.Channel[1].ExcitationWavelength
+    - ID: SourceMapping:37
+      Field: Image[0].Pixels.Channel[1].Fluorophore[0].ExcitationWavelengthUnit
+      Source: OME.Image.Pixels.Channel[1].ExcitationWavelengthUnit
+    - ID: SourceMapping:38
+      Field: Image[0].Pixels.Channel[1].Fluorophore[0].EmissionWavelength
+      Source: OME.Image.Pixels.Channel[1].EmissionWavelength
+    - ID: SourceMapping:39
+      Field: Image[0].Pixels.Channel[1].Fluorophore[0].EmissionWavelengthUnit
+      Source: OME.Image.Pixels.Channel[1].EmissionWavelengthUnit
+    - ID: SourceMapping:40
+      Field: Image[0].Pixels.PixelType
+      Source: OME.Image.Pixels.Type
+    - ID: SourceMapping:41
+      Field: StructuredAnnotations.XMLAnnotation[0].ID
+      Source: OME.StructuredAnnotations.XMLAnnotation.ID
+    - ID: SourceMapping:42
+      Field: Creator
+      Source: OME.Creator
+    - ID: SourceMapping:43
+      Field: UUID
+      Source: OME.UUID
+    - ID: SourceMapping:44
+      Field: Experiment[0].Sample[0].MountingMedium[0].RefractiveIndex
+      Source: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].RefrIndexMedium
+    - ID: SourceMapping:45
+      Field: Instrument[0].SoftwareModule[0].Version
+      Source: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.HuygensVersion
+    - ID: SourceMapping:46
+      Field: Instrument[0].AcquisitionSoftware[0].Version
+      Source: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.OmeWriterVersion
+  ObjectiveSettings:
+    ID: Objective:0
+    ImmersionLiquid:
+      RefractiveIndex: 1.518
+  Pixels:
+    Channel:
+    - ID: Channel:0
+      SamplesPerPixel: 1
+      Fluorophore:
+      - ExcitationWavelength: 424
+        ExcitationWavelengthUnit: nm
+        EmissionWavelength: 461
+        EmissionWavelengthUnit: nm
+    - ID: Channel:1
+      SamplesPerPixel: 1
+      Fluorophore:
+      - ExcitationWavelength: 488
+        ExcitationWavelengthUnit: nm
+        EmissionWavelength: 610
+        EmissionWavelengthUnit: nm
+    TiffData:
+    - FirstC: 0
+      FirstT: 0
+      FirstZ: 0
+      IFD: 0
+      PlaneCount: 88
+    ID: Pixels:0
+    DimensionOrder: XYZTC
+    BigEndian: false
+    SizeX: 167
+    SizeY: 172
+    SizeZ: 44
+    SizeC: 2
+    SizeT: 1
+    PhysicalSizeX: 0.064967
+    PhysicalSizeXUnit: µm
+    PhysicalSizeY: 0.064967
+    PhysicalSizeYUnit: µm
+    PhysicalSizeZ: 0.2128
+    PhysicalSizeZUnit: µm
+    TimeIncrement: 1.0
+    TimeIncrementUnit: s
+    PixelType: uint16
+  CustomProperties:
+  - ID: Property:1
+    Name: OME.Image.Pixels.Channel[0].AcquisitionMode
+    Value: '"WideField"'
+    SchemaPath: Image.Pixels.Channel[0].AcquisitionMode
+    Source: SourceFile:0
+  - ID: Property:2
+    Name: OME.Image.Pixels.Channel[0].PinholeSize
+    Value: '56.0'
+    SchemaPath: Image.Pixels.Channel[0].PinholeSize
+    Source: SourceFile:0
+  - ID: Property:3
+    Name: OME.Image.Pixels.Channel[0].PinholeSizeUnit
+    Value: '"µm"'
+    SchemaPath: Image.Pixels.Channel[0].PinholeSizeUnit
+    Source: SourceFile:0
+  - ID: Property:4
+    Name: OME.Image.Pixels.Channel[1].AcquisitionMode
+    Value: '"WideField"'
+    SchemaPath: Image.Pixels.Channel[1].AcquisitionMode
+    Source: SourceFile:0
+  - ID: Property:5
+    Name: OME.Image.Pixels.Channel[1].PinholeSize
+    Value: '56.0'
+    SchemaPath: Image.Pixels.Channel[1].PinholeSize
+    Source: SourceFile:0
+  - ID: Property:6
+    Name: OME.Image.Pixels.Channel[1].PinholeSizeUnit
+    Value: '"µm"'
+    SchemaPath: Image.Pixels.Channel[1].PinholeSizeUnit
+    Source: SourceFile:0
+  - ID: Property:7
+    Name: OME.Image.AnnotationRef.ID
+    Value: '"Annotation:CustomAttributes:SVI:Image:0"'
+    SchemaPath: Image.AnnotationRef.ID
+    Source: SourceFile:0
+  - ID: Property:8
+    Name: OME.Image.ObjectiveSettings.Medium
+    Value: '"Oil"'
+    SchemaPath: ImmersionLiquid.Type
+    Source: SourceFile:0
+  - ID: Property:9
+    Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaX
+    Value: '0.064967'
+    SchemaPath: Pixels.PhysicalSizeX
+    Source: SourceFile:0
+  - ID: Property:10
+    Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaY
+    Value: '0.064967'
+    SchemaPath: Pixels.PhysicalSizeY
+    Source: SourceFile:0
+  - ID: Property:11
+    Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaZ
+    Value: '0.2128'
+    SchemaPath: Pixels.PhysicalSizeZ
+    Source: SourceFile:0
+  - ID: Property:12
+    Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaT
+    Value: '1.0'
+    SchemaPath: Pixels.TimeIncrement
+    Source: SourceFile:0
+  ID: Image:0
+Instrument:
+- Objective:
+  - ID: Objective:0
+    LensNA: 1.4
+    Magnification: 100.0
+  CustomProperties:
+  - ID: Property:0
+    Name: OME.Instrument.Objective.Immersion
+    Value: '"Oil"'
+    SchemaPath: Objective.ImmersionType
+    Source: SourceFile:0
+  ID: Instrument:0
+  SoftwareModule:
+  - Version: 24.10.0p6
+  AcquisitionSoftware:
+  - Version: 1.3p0
+StructuredAnnotations:
+  XMLAnnotation:
+  - Value: {}
+    ID: Annotation:CustomAttributes:SVI:Image:0
+CustomProperties:
+- ID: Property:13
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaXState
+  Value: '"Reported"'
+  Source: SourceFile:0
+- ID: Property:14
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaYState
+  Value: '"Reported"'
+  Source: SourceFile:0
+- ID: Property:15
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaZState
+  Value: '"Reported"'
+  Source: SourceFile:0
+- ID: Property:16
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaTState
+  Value: '"Reported"'
+  Source: SourceFile:0
+- ID: Property:17
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetX
+  Value: '61.523749'
+  Source: SourceFile:0
+- ID: Property:18
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetXState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:19
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetY
+  Value: '50.609293'
+  Source: SourceFile:0
+- ID: Property:20
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetYState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:21
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetZ
+  Value: '6.384'
+  Source: SourceFile:0
+- ID: Property:22
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetZState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:23
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetT
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:24
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetTState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:25
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Interface.InterFacePrimary
+  Value: '-12.7684'
+  Source: SourceFile:0
+- ID: Property:26
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Interface.InterFacePrimaryState
+  Value: '"Estimated"'
+  Source: SourceFile:0
+- ID: Property:27
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Interface.InterFaceSecondary
+  Value: '999993.616'
+  Source: SourceFile:0
+- ID: Property:28
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Interface.InterFaceSecondaryState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:29
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.Mode
+  Value: '"fluorescence"'
+  Source: SourceFile:0
+- ID: Property:30
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.ModeState
+  Value: '"Estimated"'
+  Source: SourceFile:0
+- ID: Property:31
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.ImagingDirection
+  Value: '"upward"'
+  Source: SourceFile:0
+- ID: Property:32
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.ImagingDirectionState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:33
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.NumAperture
+  Value: '1.4'
+  Source: SourceFile:0
+- ID: Property:34
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.NumApertureState
+  Value: '"Reported"'
+  Source: SourceFile:0
+- ID: Property:35
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.PinholeRadius
+  Value: '280.0'
+  Source: SourceFile:0
+- ID: Property:36
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.PinholeRadiusState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:37
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.IllPinholeRadius
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:38
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.IllPinholeRadiusState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:39
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.DetectorMagnif
+  Value: '100.0'
+  Source: SourceFile:0
+- ID: Property:40
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.DetectorMagnifState
+  Value: '"Estimated"'
+  Source: SourceFile:0
+- ID: Property:41
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.PPU
+  Value: '1.0'
+  Source: SourceFile:0
+- ID: Property:42
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.PPUState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:43
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.Baseline
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:44
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.BaselineState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:45
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.LineAvgCnt
+  Value: '1.0'
+  Source: SourceFile:0
+- ID: Property:46
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.LineAvgCntState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:47
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.NoiseGain
+  Value: '1.0'
+  Source: SourceFile:0
+- ID: Property:48
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.NoiseGainState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:49
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.Model
+  Value: '"none"'
+  Source: SourceFile:0
+- ID: Property:50
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.ModelState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:51
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.FreePath
+  Value: '1000.0'
+  Source: SourceFile:0
+- ID: Property:52
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.FreePathState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:53
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.RelContrib
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:54
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.RelContribState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:55
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.Blurring
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:56
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.BlurringState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:57
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ChannelID
+  Value: '"Channel:0"'
+  Source: SourceFile:0
+- ID: Property:58
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicroscopeSpec
+  Value: '"Widefield"'
+  Source: SourceFile:0
+- ID: Property:59
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicroscopeSpecState
+  Value: '"Reported"'
+  Source: SourceFile:0
+- ID: Property:60
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ExPhotonCnt
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:61
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ExPhotonCntState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:62
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].RefrIndexMediumState
+  Value: '"Estimated"'
+  Source: SourceFile:0
+- ID: Property:63
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].RefrIndexLensMedium
+  Value: '1.518'
+  Source: SourceFile:0
+- ID: Property:64
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].RefrIndexLensMediumState
+  Value: '"Reported"'
+  Source: SourceFile:0
+- ID: Property:65
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].PinholeSpacing
+  Value: '2.53'
+  Source: SourceFile:0
+- ID: Property:66
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].PinholeSpacingState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:67
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ObjectiveQuality
+  Value: '80'
+  Source: SourceFile:0
+- ID: Property:68
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ObjectiveQualityState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:69
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ExcitationBeamFill
+  Value: '2.0'
+  Source: SourceFile:0
+- ID: Property:70
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ExcitationBeamFillState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:71
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].LambdaEm
+  Value: '461.0'
+  Source: SourceFile:0
+- ID: Property:72
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].LambdaEmState
+  Value: '"Estimated"'
+  Source: SourceFile:0
+- ID: Property:73
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].LambdaEx
+  Value: '424.119995'
+  Source: SourceFile:0
+- ID: Property:74
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].LambdaExState
+  Value: '"Estimated"'
+  Source: SourceFile:0
+- ID: Property:75
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScalingFactor
+  Value: '1.0'
+  Source: SourceFile:0
+- ID: Property:76
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.Mode
+  Value: '"fluorescence"'
+  Source: SourceFile:0
+- ID: Property:77
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.ModeState
+  Value: '"Estimated"'
+  Source: SourceFile:0
+- ID: Property:78
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.ImagingDirection
+  Value: '"upward"'
+  Source: SourceFile:0
+- ID: Property:79
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.ImagingDirectionState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:80
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.NumAperture
+  Value: '1.4'
+  Source: SourceFile:0
+- ID: Property:81
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.NumApertureState
+  Value: '"Reported"'
+  Source: SourceFile:0
+- ID: Property:82
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.PinholeRadius
+  Value: '280.0'
+  Source: SourceFile:0
+- ID: Property:83
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.PinholeRadiusState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:84
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.IllPinholeRadius
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:85
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.IllPinholeRadiusState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:86
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.DetectorMagnif
+  Value: '100.0'
+  Source: SourceFile:0
+- ID: Property:87
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.DetectorMagnifState
+  Value: '"Estimated"'
+  Source: SourceFile:0
+- ID: Property:88
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.PPU
+  Value: '1.0'
+  Source: SourceFile:0
+- ID: Property:89
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.PPUState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:90
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.Baseline
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:91
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.BaselineState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:92
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.LineAvgCnt
+  Value: '1.0'
+  Source: SourceFile:0
+- ID: Property:93
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.LineAvgCntState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:94
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.NoiseGain
+  Value: '1.0'
+  Source: SourceFile:0
+- ID: Property:95
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.NoiseGainState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:96
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.Model
+  Value: '"none"'
+  Source: SourceFile:0
+- ID: Property:97
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.ModelState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:98
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.FreePath
+  Value: '1000.0'
+  Source: SourceFile:0
+- ID: Property:99
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.FreePathState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:100
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.RelContrib
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:101
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.RelContribState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:102
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.Blurring
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:103
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.BlurringState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:104
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ChannelID
+  Value: '"Channel:1"'
+  Source: SourceFile:0
+- ID: Property:105
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicroscopeSpec
+  Value: '"Widefield"'
+  Source: SourceFile:0
+- ID: Property:106
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicroscopeSpecState
+  Value: '"Reported"'
+  Source: SourceFile:0
+- ID: Property:107
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ExPhotonCnt
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:108
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ExPhotonCntState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:109
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].RefrIndexMedium
+  Value: '1.458'
+  Source: SourceFile:0
+- ID: Property:110
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].RefrIndexMediumState
+  Value: '"Estimated"'
+  Source: SourceFile:0
+- ID: Property:111
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].RefrIndexLensMedium
+  Value: '1.518'
+  Source: SourceFile:0
+- ID: Property:112
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].RefrIndexLensMediumState
+  Value: '"Reported"'
+  Source: SourceFile:0
+- ID: Property:113
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].PinholeSpacing
+  Value: '2.53'
+  Source: SourceFile:0
+- ID: Property:114
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].PinholeSpacingState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:115
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ObjectiveQuality
+  Value: '80'
+  Source: SourceFile:0
+- ID: Property:116
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ObjectiveQualityState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:117
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ExcitationBeamFill
+  Value: '2.0'
+  Source: SourceFile:0
+- ID: Property:118
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ExcitationBeamFillState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:119
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].LambdaEm
+  Value: '610.0'
+  Source: SourceFile:0
+- ID: Property:120
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].LambdaEmState
+  Value: '"Estimated"'
+  Source: SourceFile:0
+- ID: Property:121
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].LambdaEx
+  Value: '488.0'
+  Source: SourceFile:0
+- ID: Property:122
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].LambdaExState
+  Value: '"Default"'
+  Source: SourceFile:0
+- ID: Property:123
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScalingFactor
+  Value: '1.0'
+  Source: SourceFile:0
+- ID: Property:124
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.PDimConfig.Type
+  Value: '"generic"'
+  Source: SourceFile:0
+- ID: Property:125
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.PDimConfig.Size
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:126
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureDescription[0].String
+  Value: '"none;"'
+  Source: SourceFile:0
+- ID: Property:127
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureDescription[1].String
+  Value: '"base;"'
+  Source: SourceFile:0
+- ID: Property:128
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureDescription[2].String
+  Value: '"Parameter states and STED, SPIM and pdim parameters;"'
+  Source: SourceFile:0
+- ID: Property:129
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureDescription[3].String
+  Value: '"Scaling factors;"'
+  Source: SourceFile:0
+- ID: Property:130
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureDescription[4].String
+  Value: '"Array detector STED;"'
+  Source: SourceFile:0
+- ID: Property:131
+  Name: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureCnt
+  Value: '5'
+  Source: SourceFile:0
+Creator: Scientific Volume Imaging B.V., The Huygens System, V24.10.0p6
+UUID: urn:uuid:69658110-5216-4e10-95c3-b1bdca2a1e52
+Experiment:
+- Sample:
+  - MountingMedium:
+    - RefractiveIndex: 1.458

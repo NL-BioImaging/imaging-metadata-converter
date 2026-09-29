@@ -1,0 +1,324 @@
+ID: OME:0
+Image:
+- SourceFile:
+  - ID: SourceFile:0
+    Name: Zeiss Supra55 Fibics ATLAS.json
+    Checksum: d8f89e6c284f83de46b67185d14ba9ab07e98c1572571691239cb03197a6ef10
+    Format: json
+    Mapping:
+    - ID: SourceMapping:0
+      Field: Instrument[0].AcquisitionSoftware[0].Name
+      Source: Software
+    - ID: SourceMapping:1
+      Field: Instrument[0].AcquisitionSoftware[0].Version
+      Source: FibicsXML.Fibics.Application.Version
+    - ID: SourceMapping:2
+      Field: Image[0].Pixels.SizeX
+      Source: FibicsXML.Fibics.Image.Width
+    - ID: SourceMapping:3
+      Field: Image[0].Pixels.SizeY
+      Source: FibicsXML.Fibics.Image.Height
+    - ID: SourceMapping:4
+      Field: Image[0].CropHint.Left
+      Source: FibicsXML.Fibics.Image.BoundingBox.Left
+    - ID: SourceMapping:5
+      Field: Image[0].CropHint.Right
+      Source: FibicsXML.Fibics.Image.BoundingBox.Right
+    - ID: SourceMapping:6
+      Field: Image[0].CropHint.Top
+      Source: FibicsXML.Fibics.Image.BoundingBox.Top
+    - ID: SourceMapping:7
+      Field: Image[0].CropHint.Bottom
+      Source: FibicsXML.Fibics.Image.BoundingBox.Bottom
+    - ID: SourceMapping:8
+      Field: Image[0].ScanSettings.FieldOfView.X.Unit
+      Source: FibicsXML.Fibics.Scan.FOV_X.units
+    - ID: SourceMapping:9
+      Field: Image[0].ScanSettings.FieldOfView.X.Value
+      Source: FibicsXML.Fibics.Scan.FOV_X.value
+    - ID: SourceMapping:10
+      Field: Image[0].ScanSettings.FieldOfView.Y.Unit
+      Source: FibicsXML.Fibics.Scan.FOV_Y.units
+    - ID: SourceMapping:11
+      Field: Image[0].ScanSettings.FieldOfView.Y.Value
+      Source: FibicsXML.Fibics.Scan.FOV_Y.value
+    - ID: SourceMapping:12
+      Field: Image[0].ScanSettings.Rotation.Unit
+      Source: FibicsXML.Fibics.Scan.ScanRot.units
+    - ID: SourceMapping:13
+      Field: Image[0].ScanSettings.Rotation.Value
+      Source: FibicsXML.Fibics.Scan.ScanRot.value
+    - ID: SourceMapping:14
+      Field: Image[0].ElectronBeamSettings.Focus
+      Source: FibicsXML.Fibics.Scan.Focus
+    - ID: SourceMapping:15
+      Field: Image[0].ElectronBeamSettings.Stigmator.X
+      Source: FibicsXML.Fibics.Scan.StigX
+    - ID: SourceMapping:16
+      Field: Image[0].ElectronBeamSettings.Stigmator.Y
+      Source: FibicsXML.Fibics.Scan.StigY
+    - ID: SourceMapping:17
+      Field: Image[0].Corrections.Brightness
+      Source: FibicsXML.Fibics.ImageCorrections.Brightness
+    - ID: SourceMapping:18
+      Field: Image[0].Corrections.Contrast
+      Source: FibicsXML.Fibics.ImageCorrections.Contrast
+    - ID: SourceMapping:19
+      Field: Instrument[0].MechanicalStage[0].Bias.Volts
+      Source: FibicsXML.Fibics.StageBias.Volts
+    - ID: SourceMapping:20
+      Field: Instrument[0].MechanicalStage[0].Position.X.Unit
+      Source: FibicsXML.Fibics.Stage.X.units
+    - ID: SourceMapping:21
+      Field: Instrument[0].MechanicalStage[0].Position.X.Value
+      Source: FibicsXML.Fibics.Stage.X.value
+    - ID: SourceMapping:22
+      Field: Instrument[0].MechanicalStage[0].Position.Y.Unit
+      Source: FibicsXML.Fibics.Stage.Y.units
+    - ID: SourceMapping:23
+      Field: Instrument[0].MechanicalStage[0].Position.Y.Value
+      Source: FibicsXML.Fibics.Stage.Y.value
+    - ID: SourceMapping:24
+      Field: Instrument[0].MechanicalStage[0].Position.Z.Unit
+      Source: FibicsXML.Fibics.Stage.Z.units
+    - ID: SourceMapping:25
+      Field: Instrument[0].MechanicalStage[0].Position.Z.Value
+      Source: FibicsXML.Fibics.Stage.Z.value
+    - ID: SourceMapping:26
+      Field: Instrument[0].MechanicalStage[0].Position.M.Unit
+      Source: FibicsXML.Fibics.Stage.M.units
+    - ID: SourceMapping:27
+      Field: Instrument[0].MechanicalStage[0].Position.M.Value
+      Source: FibicsXML.Fibics.Stage.M.value
+    - ID: SourceMapping:28
+      Field: Instrument[0].MechanicalStage[0].Tilt.Unit
+      Source: FibicsXML.Fibics.Stage.Tilt.units
+    - ID: SourceMapping:29
+      Field: Instrument[0].MechanicalStage[0].Tilt.Value
+      Source: FibicsXML.Fibics.Stage.Tilt.value
+    - ID: SourceMapping:30
+      Field: Instrument[0].MechanicalStage[0].Rotation.Unit
+      Source: FibicsXML.Fibics.Stage.Rot.units
+    - ID: SourceMapping:31
+      Field: Instrument[0].MechanicalStage[0].Rotation.Value
+      Source: FibicsXML.Fibics.Stage.Rot.value
+    - ID: SourceMapping:32
+      Field: Instrument[0].MechanicalStage[0].RawPosition.X.Unit
+      Source: FibicsXML.Fibics.RawStage.X.units
+    - ID: SourceMapping:33
+      Field: Instrument[0].MechanicalStage[0].RawPosition.X.Value
+      Source: FibicsXML.Fibics.RawStage.X.value
+    - ID: SourceMapping:34
+      Field: Instrument[0].MechanicalStage[0].RawPosition.Y.Unit
+      Source: FibicsXML.Fibics.RawStage.Y.units
+    - ID: SourceMapping:35
+      Field: Instrument[0].MechanicalStage[0].RawPosition.Y.Value
+      Source: FibicsXML.Fibics.RawStage.Y.value
+    - ID: SourceMapping:36
+      Field: Instrument[0].MechanicalStage[0].RawPosition.Z.Unit
+      Source: FibicsXML.Fibics.RawStage.Z.units
+    - ID: SourceMapping:37
+      Field: Instrument[0].MechanicalStage[0].RawPosition.Z.Value
+      Source: FibicsXML.Fibics.RawStage.Z.value
+    - ID: SourceMapping:38
+      Field: Instrument[0].MechanicalStage[0].RawPosition.Tilt.Unit
+      Source: FibicsXML.Fibics.RawStage.Tilt.units
+    - ID: SourceMapping:39
+      Field: Instrument[0].MechanicalStage[0].RawPosition.Tilt.Value
+      Source: FibicsXML.Fibics.RawStage.Tilt.value
+    - ID: SourceMapping:40
+      Field: Instrument[0].MechanicalStage[0].RawPosition.Rot.Unit
+      Source: FibicsXML.Fibics.RawStage.Rot.units
+    - ID: SourceMapping:41
+      Field: Instrument[0].MechanicalStage[0].RawPosition.Rot.Value
+      Source: FibicsXML.Fibics.RawStage.Rot.value
+    - ID: SourceMapping:42
+      Field: Instrument[0].MechanicalStage[0].RawPosition.M.Unit
+      Source: FibicsXML.Fibics.RawStage.M.units
+    - ID: SourceMapping:43
+      Field: Instrument[0].MechanicalStage[0].RawPosition.M.Value
+      Source: FibicsXML.Fibics.RawStage.M.value
+    - ID: SourceMapping:44
+      Field: Instrument[0].Vacuum.SystemVacuum
+      Source: FibicsXML.Fibics.Microscope.SystemVacuum
+  Pixels:
+    SizeX: 50595
+    SizeY: 49533
+  CropHint:
+    Left: 0
+    Right: 50595
+    Top: 0
+    Bottom: 49533
+  CustomProperties:
+  - ID: Property:3
+    Name: FibicsXML.Fibics.Image.Contrast
+    Value: '0'
+    SchemaPath: Image.Contrast
+    Source: SourceFile:0
+  - ID: Property:4
+    Name: FibicsXML.Fibics.Image.Brightness
+    Value: '0'
+    SchemaPath: Image.Brightness
+    Source: SourceFile:0
+  - ID: Property:5
+    Name: FibicsXML.Fibics.Image.InvertedSignal
+    Value: 'false'
+    SchemaPath: Image.InvertedSignal
+    Source: SourceFile:0
+  - ID: Property:6
+    Name: FibicsXML.Fibics.Scan.LineAvg
+    Value: '1'
+    SchemaPath: Image.ScanSettings.LineAvg
+    Source: SourceFile:0
+  - ID: Property:7
+    Name: FibicsXML.Fibics.Scan.Ux
+    Value: '0.00255054620872196'
+    SchemaPath: Image.ScanSettings.Ux
+    Source: SourceFile:0
+  - ID: Property:8
+    Name: FibicsXML.Fibics.Scan.Uy
+    Value: '0'
+    SchemaPath: Image.ScanSettings.Uy
+    Source: SourceFile:0
+  - ID: Property:9
+    Name: FibicsXML.Fibics.Scan.Vx
+    Value: '0'
+    SchemaPath: Image.ScanSettings.Vx
+    Source: SourceFile:0
+  - ID: Property:10
+    Name: FibicsXML.Fibics.Scan.Vy
+    Value: '-0.00255054620872196'
+    SchemaPath: Image.ScanSettings.Vy
+    Source: SourceFile:0
+  - ID: Property:11
+    Name: FibicsXML.Fibics.Scan.AppliedScaleCorrection
+    Value: '1'
+    SchemaPath: Image.ScanSettings.AppliedScaleCorrection
+    Source: SourceFile:0
+  - ID: Property:12
+    Name: FibicsXML.Fibics.Scan.ShiftX
+    Value: '0'
+    SchemaPath: Image.ScanSettings.ShiftX
+    Source: SourceFile:0
+  - ID: Property:13
+    Name: FibicsXML.Fibics.Scan.ShiftY
+    Value: '0'
+    SchemaPath: Image.ScanSettings.ShiftY
+    Source: SourceFile:0
+  - ID: Property:14
+    Name: FibicsXML.Fibics.ImageCorrections.Invert
+    Value: 'false'
+    SchemaPath: Image.Corrections.Invert
+    Source: SourceFile:0
+  - ID: Property:15
+    Name: FibicsXML.Fibics.ImageCorrections.XBrightSlope
+    Value: '0'
+    SchemaPath: Image.Corrections.XBrightSlope
+    Source: SourceFile:0
+  - ID: Property:16
+    Name: FibicsXML.Fibics.ImageCorrections.YBrightSlope
+    Value: '0'
+    SchemaPath: Image.Corrections.YBrightSlope
+    Source: SourceFile:0
+  - ID: Property:17
+    Name: FibicsXML.Fibics.ImageCorrections.RBrightSlope
+    Value: '0'
+    SchemaPath: Image.Corrections.RBrightSlope
+    Source: SourceFile:0
+  ScanSettings:
+    FieldOfView:
+      X:
+        Unit: um
+        Value: 129.044885430288
+      Y:
+        Unit: um
+        Value: 126.336205356625
+    Rotation:
+      Unit: deg
+      Value: 0
+  ElectronBeamSettings:
+    Focus: 0
+    Stigmator:
+      X: 0
+      Y: 0
+  Corrections:
+    Brightness: 0
+    Contrast: 1
+Instrument:
+- AcquisitionSoftware:
+  - Name: Fibics ATLAS Export
+    Version: ZEISS Atlas 5 Client v5.3.2
+  CustomProperties:
+  - ID: Property:0
+    Name: FibicsXML.Fibics.Application.Date
+    Value: '"1899-12-30T00:00:00.000+01:00"'
+    SchemaPath: AcquisitionSoftware.Date
+    Source: SourceFile:0
+  - ID: Property:1
+    Name: FibicsXML.Fibics.Application.SupportsTransparency
+    Value: 'true'
+    SchemaPath: AcquisitionSoftware.SupportsTransparency
+    Source: SourceFile:0
+  - ID: Property:2
+    Name: FibicsXML.Fibics.Application.TransparentPixelValue
+    Value: '0'
+    SchemaPath: AcquisitionSoftware.TransparentPixelValue
+    Source: SourceFile:0
+  - ID: Property:18
+    Name: FibicsXML.Fibics.StageBias.BiasType
+    Value: 'null'
+    SchemaPath: MechanicalStage.Bias.BiasType
+    Source: SourceFile:0
+  - ID: Property:19
+    Name: FibicsXML.Fibics.StageBias.Mode
+    Value: 'null'
+    SchemaPath: MechanicalStage.Bias.Mode
+    Source: SourceFile:0
+  MechanicalStage:
+  - Bias:
+      Volts: 0
+    Position:
+      X:
+        Unit: um
+        Value: 0
+      Y:
+        Unit: um
+        Value: 0
+      Z:
+        Unit: um
+        Value: 0
+      M:
+        Unit: mm
+        Value: 0
+    Tilt:
+      Unit: deg
+      Value: 0
+    Rotation:
+      Unit: deg
+      Value: 0
+    RawPosition:
+      X:
+        Unit: um
+        Value: 0
+      Y:
+        Unit: um
+        Value: 0
+      Z:
+        Unit: um
+        Value: 0
+      Tilt:
+        Unit: deg
+        Value: 0
+      Rot:
+        Unit: deg
+        Value: 0
+      M:
+        Unit: mm
+        Value: 0
+  Vacuum:
+    SystemVacuum: 0
+CustomProperties:
+- ID: Property:20
+  Name: FibicsXML.Fibics.version
+  Value: '1.2'
+  Source: SourceFile:0

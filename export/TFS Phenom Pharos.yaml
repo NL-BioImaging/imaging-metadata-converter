@@ -1,0 +1,480 @@
+ID: OME:0
+Image:
+- SourceFile:
+  - ID: SourceFile:0
+    Name: TFS Phenom Pharos.json
+    Checksum: f8b9f3cce9c82ed0f62f8e2084c3587bc8c64a28a83f9af2e000b76ee701da2d
+    Format: json
+    Mapping:
+    - ID: SourceMapping:0
+      Field: Image[0].Pixels.PhysicalSizeXUnit
+      Source: FEI_TITAN.FeiImage.pixelWidth.unit
+      SourceValue: '"um"'
+    - ID: SourceMapping:1
+      Field: Image[0].Pixels.PhysicalSizeX
+      Source: FEI_TITAN.FeiImage.pixelWidth.value
+    - ID: SourceMapping:2
+      Field: Image[0].Pixels.PhysicalSizeYUnit
+      Source: FEI_TITAN.FeiImage.pixelHeight.unit
+      SourceValue: '"um"'
+    - ID: SourceMapping:3
+      Field: Image[0].Pixels.PhysicalSizeY
+      Source: FEI_TITAN.FeiImage.pixelHeight.value
+    - ID: SourceMapping:4
+      Field: Image[0].AcquisitionDate
+      Source: FEI_TITAN.FeiImage.time
+    - ID: SourceMapping:5
+      Field: Image[0].ScanSettings.LineIntegrationCount
+      Source: FEI_TITAN.FeiImage.integrations
+    - ID: SourceMapping:6
+      Field: Image[0].ScanSettings.Rotation.Value
+      Source: FEI_TITAN.FeiImage.acquisition.scan.rotation
+    - ID: SourceMapping:7
+      Field: Image[0].ScanSettings.Detector
+      Source: FEI_TITAN.FeiImage.acquisition.scan.detector
+    - ID: SourceMapping:8
+      Field: Image[0].CropHint.Left
+      Source: FEI_TITAN.FeiImage.cropHint.left
+    - ID: SourceMapping:9
+      Field: Image[0].CropHint.Top
+      Source: FEI_TITAN.FeiImage.cropHint.top
+    - ID: SourceMapping:10
+      Field: Image[0].CropHint.Right
+      Source: FEI_TITAN.FeiImage.cropHint.right
+    - ID: SourceMapping:11
+      Field: Image[0].CropHint.Bottom
+      Source: FEI_TITAN.FeiImage.cropHint.bottom
+    - ID: SourceMapping:12
+      Field: Image[0].Corrections.Contrast
+      Source: FEI_TITAN.FeiImage.appliedContrast
+    - ID: SourceMapping:13
+      Field: Image[0].Corrections.Brightness
+      Source: FEI_TITAN.FeiImage.appliedBrightness
+    - ID: SourceMapping:14
+      Field: Image[0].Corrections.Gamma
+      Source: FEI_TITAN.FeiImage.appliedGamma
+    - ID: SourceMapping:15
+      Field: Image[0].Corrections.BlackLevel
+      Source: FEI_TITAN.FeiImage.displayBlackLevel
+    - ID: SourceMapping:16
+      Field: Image[0].Corrections.WhiteLevel
+      Source: FEI_TITAN.FeiImage.displayWhiteLevel
+    - ID: SourceMapping:17
+      Field: Image[0].ElectronBeamSettings.SpotSize
+      Source: FEI_TITAN.FeiImage.acquisition.scan.spotSize
+    - ID: SourceMapping:18
+      Field: Image[0].ElectronBeamSettings.Shift.X
+      Source: FEI_TITAN.FeiImage.acquisition.scan.beamShift.x
+    - ID: SourceMapping:19
+      Field: Image[0].ElectronBeamSettings.Shift.Y
+      Source: FEI_TITAN.FeiImage.acquisition.scan.beamShift.y
+    - ID: SourceMapping:20
+      Field: Image[0].ElectronBeamSettings.SourceTilt.X
+      Source: FEI_TITAN.FeiImage.acquisition.scan.sourceTilt.x
+    - ID: SourceMapping:21
+      Field: Image[0].ElectronBeamSettings.SourceTilt.Y
+      Source: FEI_TITAN.FeiImage.acquisition.scan.sourceTilt.y
+    - ID: SourceMapping:22
+      Field: Image[0].ElectronBeamSettings.Stigmator.X
+      Source: FEI_TITAN.FeiImage.acquisition.scan.stigmator.x
+    - ID: SourceMapping:23
+      Field: Image[0].ElectronBeamSettings.Stigmator.Y
+      Source: FEI_TITAN.FeiImage.acquisition.scan.stigmator.y
+    - ID: SourceMapping:24
+      Field: Image[0].ElectronBeamSettings.AccelerationVoltage.Unit
+      Source: FEI_TITAN.FeiImage.acquisition.scan.highVoltage.unit
+    - ID: SourceMapping:25
+      Field: Image[0].ElectronBeamSettings.AccelerationVoltage.Value
+      Source: FEI_TITAN.FeiImage.acquisition.scan.highVoltage.value
+    - ID: SourceMapping:26
+      Field: Image[0].ElectronBeamSettings.EmissionCurrent.Unit
+      Source: FEI_TITAN.FeiImage.acquisition.scan.emissionCurrent.unit
+    - ID: SourceMapping:27
+      Field: Image[0].ElectronBeamSettings.EmissionCurrent.Value
+      Source: FEI_TITAN.FeiImage.acquisition.scan.emissionCurrent.value
+    - ID: SourceMapping:28
+      Field: Image[0].ElectronBeamSettings.WorkingDistance.Unit
+      Source: FEI_TITAN.FeiImage.workingDistance.unit
+    - ID: SourceMapping:29
+      Field: Image[0].ElectronBeamSettings.WorkingDistance.Value
+      Source: FEI_TITAN.FeiImage.workingDistance.value
+    - ID: SourceMapping:30
+      Field: Instrument[0].MechanicalStage[0].Position.X.Value
+      Source: FEI_TITAN.FeiImage.samplePosition.x
+    - ID: SourceMapping:31
+      Field: Instrument[0].MechanicalStage[0].Position.Y.Value
+      Source: FEI_TITAN.FeiImage.samplePosition.y
+    - ID: SourceMapping:32
+      Field: Instrument[0].MechanicalStage[0].MultiStage.SampleRadius.Unit
+      Source: FEI_TITAN.FeiImage.multiStage.sampleRadius.unit
+    - ID: SourceMapping:33
+      Field: Instrument[0].MechanicalStage[0].MultiStage.SampleRadius.Value
+      Source: FEI_TITAN.FeiImage.multiStage.sampleRadius.value
+    - ID: SourceMapping:34
+      Field: Instrument[0].MechanicalStage[0].MultiStage.SampleHeight.Unit
+      Source: FEI_TITAN.FeiImage.multiStage.sampleHeight.unit
+    - ID: SourceMapping:35
+      Field: Instrument[0].MechanicalStage[0].MultiStage.SampleHeight.Value
+      Source: FEI_TITAN.FeiImage.multiStage.sampleHeight.value
+    - ID: SourceMapping:36
+      Field: Instrument[0].Type
+      Source: FEI_TITAN.FeiImage.instrument.type
+    - ID: SourceMapping:37
+      Field: Instrument[0].ID
+      Source: FEI_TITAN.FeiImage.instrument.uniqueID
+    - ID: SourceMapping:38
+      Field: Instrument[0].Model
+      Source: FEI_TITAN.FeiImage.instrument.edition
+    - ID: SourceMapping:39
+      Field: Image[0].Pixels.Plane[0].PixelDwellTimeUnit
+      Source: FEI_TITAN.FeiImage.acquisition.scan.dwellTime.unit
+    - ID: SourceMapping:40
+      Field: Image[0].Pixels.Plane[0].PixelDwellTime
+      Source: FEI_TITAN.FeiImage.acquisition.scan.dwellTime.value
+    - ID: SourceMapping:41
+      Field: Instrument[0].AcquisitionSoftware[0].Version
+      Source: FEI_TITAN.FeiImage.instrument.softwareVersion
+    - ID: SourceMapping:42
+      Field: Experiment[0].Sample[0].SampleHolder[0].ID
+      Source: FEI_TITAN.FeiImage.instrument.sampleHolder.id
+  Pixels:
+    PhysicalSizeXUnit: µm
+    PhysicalSizeX: 1.143158459049694
+    PhysicalSizeYUnit: µm
+    PhysicalSizeY: 1.143158459049694
+    Plane:
+    - PixelDwellTimeUnit: ns
+      PixelDwellTime: 499.9999999999999
+  AcquisitionDate: '2024-02-06T13:21:05'
+  ScanSettings:
+    LineIntegrationCount: 1
+    Rotation:
+      Value: 0
+    Detector: bsd-all
+  CustomProperties:
+  - ID: Property:4
+    Name: FEI_TITAN.FeiImage.acquisition.scan.scanHW
+    Value: '"ZYNQ"'
+    SchemaPath: Image.ScanSettings.scanHW
+    Source: SourceFile:0
+  - ID: Property:5
+    Name: FEI_TITAN.FeiImage.acquisition.scan.acqHW
+    Value: '"ZYNQ"'
+    SchemaPath: Image.ScanSettings.acqHW
+    Source: SourceFile:0
+  - ID: Property:6
+    Name: FEI_TITAN.FeiImage.acquisition.scan.spotPresetName
+    Value: '"Image"'
+    SchemaPath: Image.ScanSettings.spotPresetName
+    Source: SourceFile:0
+  - ID: Property:7
+    Name: FEI_TITAN.FeiImage.acquisition.scan.interlace
+    Value: '1'
+    SchemaPath: Image.ScanSettings.interlace
+    Source: SourceFile:0
+  - ID: Property:8
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.bsdA
+    Value: '0'
+    SchemaPath: Image.ScanSettings.detectorMixFactors.bsdA
+    Source: SourceFile:0
+  - ID: Property:9
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.bsdB
+    Value: '0'
+    SchemaPath: Image.ScanSettings.detectorMixFactors.bsdB
+    Source: SourceFile:0
+  - ID: Property:10
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.bsdC
+    Value: '0'
+    SchemaPath: Image.ScanSettings.detectorMixFactors.bsdC
+    Source: SourceFile:0
+  - ID: Property:11
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.bsdD
+    Value: '0'
+    SchemaPath: Image.ScanSettings.detectorMixFactors.bsdD
+    Source: SourceFile:0
+  - ID: Property:12
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.sed
+    Value: '0'
+    SchemaPath: Image.ScanSettings.detectorMixFactors.sed
+    Source: SourceFile:0
+  - ID: Property:13
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.stem
+    Value: '0'
+    SchemaPath: Image.ScanSettings.detectorMixFactors.stem
+    Source: SourceFile:0
+  - ID: Property:14
+    Name: FEI_TITAN.FeiImage.acquisition.scan.sourceTime.unit
+    Value: '"h"'
+    SchemaPath: Image.ScanSettings.sourceTime.unit
+    Source: SourceFile:0
+  - ID: Property:15
+    Name: FEI_TITAN.FeiImage.acquisition.scan.sourceTime.value
+    Value: '7634'
+    SchemaPath: Image.ScanSettings.sourceTime.value
+    Source: SourceFile:0
+  - ID: Property:16
+    Name: FEI_TITAN.FeiImage.acquisition.scan.sourceId
+    Value: '25'
+    SchemaPath: Image.ScanSettings.sourceId
+    Source: SourceFile:0
+  - ID: Property:17
+    Name: FEI_TITAN.FeiImage.acquisition.scan.emissionCurrentPresetName
+    Value: 'null'
+    SchemaPath: Image.ScanSettings.emissionCurrentPresetName
+    Source: SourceFile:0
+  - ID: Property:18
+    Name: FEI_TITAN.FeiImage.acquisition.scan.filamentPower.unit
+    Value: '"W"'
+    SchemaPath: Image.ScanSettings.filamentPower.unit
+    Source: SourceFile:0
+  - ID: Property:19
+    Name: FEI_TITAN.FeiImage.acquisition.scan.filamentPower.value
+    Value: '0'
+    SchemaPath: Image.ScanSettings.filamentPower.value
+    Source: SourceFile:0
+  - ID: Property:20
+    Name: FEI_TITAN.FeiImage.acquisition.scan.scanCenter.x
+    Value: '0'
+    SchemaPath: Image.ScanSettings.scanCenter.x
+    Source: SourceFile:0
+  - ID: Property:21
+    Name: FEI_TITAN.FeiImage.acquisition.scan.scanCenter.y
+    Value: '0'
+    SchemaPath: Image.ScanSettings.scanCenter.y
+    Source: SourceFile:0
+  - ID: Property:22
+    Name: FEI_TITAN.FeiImage.acquisition.scan.scanScale
+    Value: '1'
+    SchemaPath: Image.ScanSettings.scanScale
+    Source: SourceFile:0
+  CropHint:
+    Left: 0
+    Top: 0
+    Right: 1920
+    Bottom: 1200
+  Corrections:
+    Contrast: 5.337209302325581
+    Brightness: 0.4808117799649042
+    Gamma: 1
+    BlackLevel: 0
+    WhiteLevel: 1
+  ElectronBeamSettings:
+    SpotSize: 1.3
+    Shift:
+      X: 0
+      Y: 0
+    SourceTilt:
+      X: -0.01264028954658525
+      Y: 0.04815130014055247
+    Stigmator:
+      X: -0.002342132828530364
+      Y: -0.00855233682146137
+    AccelerationVoltage:
+      Unit: kV
+      Value: -5
+    EmissionCurrent:
+      Unit: uA
+      Value: 135.9021671305527
+    WorkingDistance:
+      Unit: mm
+      Value: 3.334999999999997
+CustomProperties:
+- ID: Property:0
+  Name: FEI_TITAN.FeiImage.databarHeight
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:1
+  Name: FEI_TITAN.FeiImage.databarFields
+  Value: '699'
+  Source: SourceFile:0
+- ID: Property:2
+  Name: FEI_TITAN.FeiImage.databarLabel
+  Value: 'null'
+  Source: SourceFile:0
+- ID: Property:3
+  Name: FEI_TITAN.FeiImage.displayWidth
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:23
+  Name: FEI_TITAN.FeiImage.currentUser
+  Value: 'null'
+  SchemaPath: Experimenter.UserName
+  Source: SourceFile:0
+- ID: Property:53
+  Name: FEI_TITAN.FeiImage.instrument.sampleHolder.type
+  Value: '1'
+  SchemaPath: SampleHolder.Type
+  Source: SourceFile:0
+Experimenter:
+- {}
+Instrument:
+- MechanicalStage:
+  - Position:
+      X:
+        Value: 0
+      Y:
+        Value: 0
+    MultiStage:
+      SampleRadius:
+        Unit: m
+        Value: 0
+      SampleHeight:
+        Unit: m
+        Value: 0
+  CustomProperties:
+  - ID: Property:24
+    Name: FEI_TITAN.FeiImage.samplePressureEstimate
+    Value: '21.03543261569751'
+    SchemaPath: Instrument.Vacuum
+    Source: SourceFile:0
+  - ID: Property:25
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain
+    Value: '45'
+    SchemaPath: GenericDetector.Configuration[0].gain
+    Source: SourceFile:0
+  - ID: Property:26
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.offset
+    Value: '-1.444569852509731'
+    SchemaPath: GenericDetector.Configuration[0].offset
+    Source: SourceFile:0
+  - ID: Property:27
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.mixFactor
+    Value: '1'
+    SchemaPath: GenericDetector.Configuration[0].mixFactor
+    Source: SourceFile:0
+  - ID: Property:28
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.A
+    Value: '"+"'
+    SchemaPath: GenericDetector.Configuration[0].A
+    Source: SourceFile:0
+  - ID: Property:29
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.B
+    Value: '"+"'
+    SchemaPath: GenericDetector.Configuration[0].B
+    Source: SourceFile:0
+  - ID: Property:30
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.C
+    Value: '"+"'
+    SchemaPath: GenericDetector.Configuration[0].C
+    Source: SourceFile:0
+  - ID: Property:31
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.D
+    Value: '"+"'
+    SchemaPath: GenericDetector.Configuration[0].D
+    Source: SourceFile:0
+  - ID: Property:32
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD
+    Value: '"QBSD"'
+    SchemaPath: GenericDetector.Configuration[0].id
+    Source: SourceFile:0
+  - ID: Property:33
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.gain
+    Value: '0'
+    SchemaPath: GenericDetector.Configuration[1].gain
+    Source: SourceFile:0
+  - ID: Property:34
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.offset
+    Value: '0'
+    SchemaPath: GenericDetector.Configuration[1].offset
+    Source: SourceFile:0
+  - ID: Property:35
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.scintillatorVoltage
+    Value: '0'
+    SchemaPath: GenericDetector.Configuration[1].scintillatorVoltage
+    Source: SourceFile:0
+  - ID: Property:36
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.mixFactor
+    Value: '0'
+    SchemaPath: GenericDetector.Configuration[1].mixFactor
+    Source: SourceFile:0
+  - ID: Property:37
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED
+    Value: '"SED"'
+    SchemaPath: GenericDetector.Configuration[1].id
+    Source: SourceFile:0
+  - ID: Property:38
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.mixFactor
+    Value: '0'
+    SchemaPath: GenericDetector.Configuration[2].mixFactor
+    Source: SourceFile:0
+  - ID: Property:39
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.bf1
+    Value: 'true'
+    SchemaPath: GenericDetector.Configuration[2].segmentSelection.bf1
+    Source: SourceFile:0
+  - ID: Property:40
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.bf2
+    Value: 'true'
+    SchemaPath: GenericDetector.Configuration[2].segmentSelection.bf2
+    Source: SourceFile:0
+  - ID: Property:41
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.bf3
+    Value: 'true'
+    SchemaPath: GenericDetector.Configuration[2].segmentSelection.bf3
+    Source: SourceFile:0
+  - ID: Property:42
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.bf4
+    Value: 'true'
+    SchemaPath: GenericDetector.Configuration[2].segmentSelection.bf4
+    Source: SourceFile:0
+  - ID: Property:43
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.df1
+    Value: 'true'
+    SchemaPath: GenericDetector.Configuration[2].segmentSelection.df1
+    Source: SourceFile:0
+  - ID: Property:44
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.ha1
+    Value: 'true'
+    SchemaPath: GenericDetector.Configuration[2].segmentSelection.ha1
+    Source: SourceFile:0
+  - ID: Property:45
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.ha2
+    Value: 'true'
+    SchemaPath: GenericDetector.Configuration[2].segmentSelection.ha2
+    Source: SourceFile:0
+  - ID: Property:46
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.ha3
+    Value: 'true'
+    SchemaPath: GenericDetector.Configuration[2].segmentSelection.ha3
+    Source: SourceFile:0
+  - ID: Property:47
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.ha4
+    Value: 'true'
+    SchemaPath: GenericDetector.Configuration[2].segmentSelection.ha4
+    Source: SourceFile:0
+  - ID: Property:48
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.ha5
+    Value: 'true'
+    SchemaPath: GenericDetector.Configuration[2].segmentSelection.ha5
+    Source: SourceFile:0
+  - ID: Property:49
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.ha6
+    Value: 'true'
+    SchemaPath: GenericDetector.Configuration[2].segmentSelection.ha6
+    Source: SourceFile:0
+  - ID: Property:50
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM
+    Value: '"STEM"'
+    SchemaPath: GenericDetector.Configuration[2].id
+    Source: SourceFile:0
+  - ID: Property:51
+    Name: FEI_TITAN.FeiImage.applicationID
+    Value: 'null'
+    SchemaPath: AcquisitionSoftware.ApplicationID
+    Source: SourceFile:0
+  - ID: Property:52
+    Name: FEI_TITAN.FeiImage.PPI.version
+    Value: '"2.1.0_release"'
+    SchemaPath: AcquisitionSoftware.version
+    Source: SourceFile:0
+  Type: Phenom
+  ID: MVE084613-20046-F
+  Model: Phenom Pharos G2
+  GenericDetector:
+  - {}
+  AcquisitionSoftware:
+  - Version: 6.6.0.rel.d7a92301af.27465
+Experiment:
+- Sample:
+  - SampleHolder:
+    - ID: 0147e8ac1a0000b2

@@ -6,8 +6,10 @@ Dict in, dict out - no file I/O, no CLI. The target is the imaging model, a
 LinkML model built from LiMi and extended with electron-microscopy and other
 imaging metadata; the one dependency is `linkml-runtime`, for reading it.
 
-The mapper, the model and the mapping rules are those of
-[imaging-metadata-consolidator](https://github.com/NL-BioImaging/imaging-metadata-consolidator).
+The model, and the metaseed profile made from it, are maintained here (see
+Maintaining the model); they were developed in
+[imaging-metadata-consolidator](https://github.com/NL-BioImaging/imaging-metadata-consolidator),
+which this repository replaces.
 
 Documentation, with a browser for the whole model and a map of what the
 converter produces: <https://nl-bioimaging.github.io/imaging-metadata-converter/>
@@ -293,6 +295,26 @@ draws the fields the converter can fill in.
   model field mappings.
 - `src/imaging_metadata_converter/mappings/combinations.json` - values built
   from others (see Combinations).
+
+## Maintaining the model
+
+Outside the package, `scripts/` holds the tools the model is maintained with;
+[Maintaining the model](https://nl-bioimaging.github.io/imaging-metadata-converter/maintaining/)
+in the documentation describes them in full.
+
+- `scripts/linkml_converter.py` - converted the LiMi XSD (`reference/`) into
+  the model, once; the model is edited by hand since, so it refuses to
+  overwrite it without `--force`. Kept for comparing a future LiMi XSD.
+- `scripts/metaseed_generator.py` - generates the metaseed profile
+  `profile/imaging.metaseed.yaml` (published on the metaseed Hub as `imaging`
+  1.0) from the model; rerun it after a change to the model.
+- `scripts/dataset_exporter.py` - exports each example as a metaseed dataset
+  of the profile into `export/`, with every value the model has no field for
+  kept as a `Property` record.
+
+The tests check that `profile/` and `export/` are up to date and lose no
+data; the tests of the XSD conversion need `linkml` and those validating
+`export/` with metaseed need `metaseed`, and are skipped without them.
 
 ## Documentation
 

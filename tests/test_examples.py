@@ -2,13 +2,19 @@
 
 import json
 import os
+import sys
 import unittest
 
 from imaging_metadata_converter import AcquisitionMetadataMapper
 
 
-EXAMPLES_DIR = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'examples')
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+EXAMPLES_DIR = os.path.join(REPO_ROOT, 'examples')
+SCRIPTS_DIR = os.path.join(REPO_ROOT, 'scripts')
+if SCRIPTS_DIR not in sys.path:
+    sys.path.insert(0, SCRIPTS_DIR)
+
+import convert_examples
 
 
 def example_files():
@@ -39,6 +45,9 @@ class ExampleConversionTest(unittest.TestCase):
 
                 self.assertIsInstance(converted, dict)
                 self.assertTrue(converted)
+
+    def test_output_is_up_to_date(self):
+        self.assertEqual(convert_examples.main(['--check']), 0, 'rerun: python scripts/convert_examples.py')
 
 
 if __name__ == '__main__':

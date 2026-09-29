@@ -1,0 +1,131 @@
+ID: OME:0
+Image:
+- SourceFile:
+  - ID: SourceFile:0
+    Name: svs_metadata.json
+    Checksum: 7a4804a50b72af228721e3393737f0aa7430bdf6256bbc51158eba55c5764bb1
+    Format: json
+    Mapping:
+    - ID: SourceMapping:0
+      Field: Instrument[0].Objective[0].Magnification
+      Source: AppMag
+    - ID: SourceMapping:1
+      Field: Instrument[0].ID
+      Source: ScanScope ID
+    - ID: SourceMapping:2
+      Field: Image[0].Pixels.PhysicalSizeX
+      Source: MPP
+    - ID: SourceMapping:3
+      Field: Image[0].Pixels.PhysicalSizeY
+      Source: MPP
+    - ID: SourceMapping:4
+      Field: Image[0].Pixels.SizeX
+      Source: OriginalWidth
+    - ID: SourceMapping:5
+      Field: Image[0].Pixels.SizeY
+      Source: OriginalHeight
+    - ID: SourceMapping:6
+      Field: Image[0].Pixels.Plane[0].PositionX
+      Source: Left
+    - ID: SourceMapping:7
+      Field: Image[0].Pixels.Plane[0].PositionY
+      Source: Top
+    - ID: SourceMapping:8
+      Field: Image[0].AcquisitionDate
+      Source: Date + Time + Time Zone
+      DerivedFrom:
+      - Date
+      - Time
+      - Time Zone
+  Pixels:
+    PhysicalSizeX: 0.4936
+    PhysicalSizeY: 0.4936
+    SizeX: 28448
+    SizeY: 21839
+    Plane:
+    - PositionX: 29.282969
+      PositionY: 13.628824
+  CustomProperties:
+  - ID: Property:14
+    Name: ImageID
+    Value: '18489'
+    SchemaPath: Image.ID
+    Source: SourceFile:0
+  AcquisitionDate: '2015-10-19T17:18:12-05:00'
+CustomProperties:
+- ID: Property:0
+  Name: Aperio Image Library v12.0.11
+  Value: 'null'
+  Source: SourceFile:0
+- ID: Property:1
+  Name: ''
+  Value: 'null'
+  Source: SourceFile:0
+- ID: Property:2
+  Name: 28448x21839 [0,100 27888x21739] (240x240) J2K/KDU Q
+  Value: '70'
+  Source: SourceFile:0
+- ID: Property:3
+  Name: StripeWidth
+  Value: '2032'
+  Source: SourceFile:0
+- ID: Property:4
+  Name: Filename
+  Value: '18489'
+  Source: SourceFile:0
+- ID: Property:5
+  Name: Date
+  Value: '"10/19/15"'
+  Source: SourceFile:0
+- ID: Property:6
+  Name: Time
+  Value: '"17:18:12"'
+  Source: SourceFile:0
+- ID: Property:7
+  Name: Time Zone
+  Value: '"GMT-05:00"'
+  Source: SourceFile:0
+- ID: Property:8
+  Name: User
+  Value: '"08e1f1aa-01fa-41e5-aa13-9af07029387e"'
+  Source: SourceFile:0
+- ID: Property:9
+  Name: LineCameraSkew
+  Value: '0.001055'
+  Source: SourceFile:0
+- ID: Property:10
+  Name: LineAreaXOffset
+  Value: '0.01646'
+  Source: SourceFile:0
+- ID: Property:11
+  Name: LineAreaYOffset
+  Value: '-0.009263'
+  Source: SourceFile:0
+- ID: Property:12
+  Name: Focus Offset
+  Value: '-0.0005'
+  Source: SourceFile:0
+- ID: Property:13
+  Name: DSR ID
+  Value: '"129.112.7.45"'
+  Source: SourceFile:0
+- ID: Property:15
+  Name: Exposure Time
+  Value: '109'
+  Source: SourceFile:0
+- ID: Property:16
+  Name: Exposure Scale
+  Value: 1e-06
+  Source: SourceFile:0
+- ID: Property:17
+  Name: DisplayColor
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:18
+  Name: ICC Profile
+  Value: '"ScanScope v1"'
+  Source: SourceFile:0
+Instrument:
+- Objective:
+  - Magnification: 20
+  ID: SS1735

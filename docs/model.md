@@ -6,9 +6,8 @@ The model is the target of every conversion: the **imaging model** (version
 4DN-BINA-OME light-microscopy model, itself an extension of the OME 2016-06
 data model — converted from LiMi's XSD (version 02.00), and extended with the
 metadata real source files hold beyond it, mostly electron microscopy, and with
-provenance, so that no source value is lost. It is maintained in
-[imaging-metadata-consolidator](https://github.com/NL-BioImaging/imaging-metadata-consolidator),
-and this package ships an unchanged copy.
+provenance, so that no source value is lost. How it was made, and the metaseed
+profile made from it, are on [Maintaining the model](maintaining.md).
 
 Each leaf of the model is one field of the output dict, named by its dotted
 path (`Pixels.PhysicalSizeX`, `Instrument.Vacuum.GunVacuum`). A path starts at
