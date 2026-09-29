@@ -8,6 +8,7 @@ Dict in, dict out:
 """
 
 from .AcquisitionMetadataMapper import (
+    DEFAULT_CONVERSIONS_FILE,
     DEFAULT_MAPPINGS_FILE,
     DEFAULT_SCHEMA_FILE,
     AcquisitionMetadataMapper,
@@ -16,6 +17,7 @@ from .AcquisitionMetadataMapper import (
 
 __all__ = [
     'AcquisitionMetadataMapper',
+    'DEFAULT_CONVERSIONS_FILE',
     'DEFAULT_MAPPINGS_FILE',
     'DEFAULT_SCHEMA_FILE',
     'convert_metadata',

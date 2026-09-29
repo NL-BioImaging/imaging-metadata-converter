@@ -31,6 +31,24 @@ class AcquisitionMetadataMapperTest(unittest.TestCase):
 
         self.assertEqual(converted, {'Instrument': {'Manufacturer': 'Acme'}})
 
+    def test_unix_timestamp_becomes_an_iso_datetime_and_zero_is_unset(self):
+        sample = {'Acquisition': {
+            'AcquisitionStartDatetime': {'DateTime': '1683922216'},
+            'AcquisitionDatetime': {'DateTime': '0'},
+        }}
+
+        converted = self.mapper.convert_metadata(sample)
+
+        self.assertEqual(converted, {'Acquisition': {
+            'StartDate': '2023-05-12T20:10:16+00:00',
+            'AcquisitionDatetime': {'DateTime': '0'},
+        }})
+
+    def test_null_value_without_a_conversion_is_still_mapped(self):
+        converted = self.mapper.convert_metadata({'Make': None})
+
+        self.assertEqual(converted, {'Instrument': {'Manufacturer': None}})
+
 
 if __name__ == '__main__':
     unittest.main()

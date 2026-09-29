@@ -11,12 +11,14 @@ field names that match the schema, just without a vendor-specific prefix.
 """
 
 import json
+from datetime import datetime, timezone
 from fnmatch import fnmatchcase
 from importlib.resources import files
 
 
 DEFAULT_SCHEMA_FILE = files(__package__).joinpath('data/schema.extended.json')
 DEFAULT_MAPPINGS_FILE = files(__package__).joinpath('data/mappings.json')
+DEFAULT_CONVERSIONS_FILE = files(__package__).joinpath('data/conversions.json')
 
 
 class AcquisitionMetadataMapper:
@@ -30,11 +32,18 @@ class AcquisitionMetadataMapper:
     against the schema's own field names (e.g. standard OME metadata, which
     the schema is based on, already lines up with it directly). Fields that
     match neither step are kept at their original path so no data is lost.
+
+    A value whose source path is listed in conversions.json is converted as
+    it is placed (Talos Unix times become ISO 8601 datetimes). A value that
+    does not convert - Talos writes "0" for a time it lacks - stays at its
+    original path instead.
     """
 
-    def __init__(self, schema_file=DEFAULT_SCHEMA_FILE, mappings_file=DEFAULT_MAPPINGS_FILE):
+    def __init__(self, schema_file=DEFAULT_SCHEMA_FILE, mappings_file=DEFAULT_MAPPINGS_FILE,
+                 conversions_file=DEFAULT_CONVERSIONS_FILE):
         self.schema = self._load_json(schema_file)
         self.mappings = self._load_json(mappings_file)
+        self.conversions = self._load_json(conversions_file)
         self._schema_index = self._build_schema_index(self.schema)
         self._known_keys, self._known_key_patterns = self._build_known_key_index(
             self.mappings, self.schema)
@@ -338,7 +347,14 @@ class AcquisitionMetadataMapper:
                     set_nested_value(result, leaf_target or source_path, mapped_items)
             else:
                 target_path = self._resolve_target_path(rule_source_path, min_rule_segments)
-                set_nested_value(result, target_path or source_path, value)
+                value_format = resolve_exact_path(rule_source_path, self.conversions)
+                converted = convert_value(value, value_format) if value_format else None
+                if value_format and converted is None:
+                    set_nested_value(result, source_path, value)
+                elif value_format:
+                    set_nested_value(result, target_path or source_path, converted)
+                else:
+                    set_nested_value(result, target_path or source_path, value)
         return result
 
     def _resolvable_leaf_count(self, metadata, prefix=''):
@@ -420,6 +436,19 @@ def flatten_dict(dct, prefix=''):
         else:
             flat_dct[full_key] = value
     return flat_dct
+
+
+def convert_value(value, value_format):
+    """`value` read in `value_format`, as ISO 8601, or None if it does not read.
+
+    The format "unix" reads seconds since 1970 (UTC). 0 is taken as unset
+    (Talos writes "0" for a time it lacks), not as 1970-01-01.
+    """
+    if value_format == 'unix':
+        text = str(value).strip()
+        seconds = int(text) if text.isdigit() else 0
+        return datetime.fromtimestamp(seconds, tz=timezone.utc).isoformat() if seconds > 0 else None
+    raise ValueError(f'unknown conversion format: {value_format}')
 
 
 def resolve_exact_path(source_path, mappings):

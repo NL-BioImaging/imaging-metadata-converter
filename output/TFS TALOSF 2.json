@@ -18,30 +18,9 @@
     }
   },
   "Acquisition": {
-    "StartDate": "1646847822"
-  },
-  "Image": {
-    "AcquisitionDate": "0",
-    "Pixels": {
-      "SizeX": "2048",
-      "SizeY": "2048",
-      "PhysicalSizeX": "2.4999999999999992e-09",
-      "PhysicalSizeY": "2.4999999999999992e-09",
-      "PhysicalSizeXUnit": "m",
-      "PhysicalSizeYUnit": "m"
-    },
-    "Plane": {
-      "PixelDwellTime": "0.0001"
-    },
-    "BinaryResult": {
-      "AcquisitionUnit": "",
-      "CompositionType": "",
-      "Detector": "DualX",
-      "Offset": {
-        "x": "-2.5599999999999992e-06",
-        "y": "-2.5599999999999992e-06"
-      },
-      "Encoding": ""
+    "StartDate": "2022-03-09T17:43:42+00:00",
+    "AcquisitionDatetime": {
+      "DateTime": "0"
     }
   },
   "ElectronBeam": {
@@ -196,6 +175,29 @@
       "Type": "FEI Double Tilt"
     },
     "Sample": ""
+  },
+  "Image": {
+    "Pixels": {
+      "SizeX": "2048",
+      "SizeY": "2048",
+      "PhysicalSizeX": "2.4999999999999992e-09",
+      "PhysicalSizeY": "2.4999999999999992e-09",
+      "PhysicalSizeXUnit": "m",
+      "PhysicalSizeYUnit": "m"
+    },
+    "Plane": {
+      "PixelDwellTime": "0.0001"
+    },
+    "BinaryResult": {
+      "AcquisitionUnit": "",
+      "CompositionType": "",
+      "Detector": "DualX",
+      "Offset": {
+        "x": "-2.5599999999999992e-06",
+        "y": "-2.5599999999999992e-06"
+      },
+      "Encoding": ""
+    }
   },
   "Detector": {
     "Configuration": [

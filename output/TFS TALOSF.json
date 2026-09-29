@@ -18,31 +18,9 @@
     }
   },
   "Acquisition": {
-    "StartDate": "1683922216"
-  },
-  "Image": {
-    "AcquisitionDate": "0",
-    "Pixels": {
-      "SizeX": "2048",
-      "SizeY": "2048",
-      "PhysicalSizeX": "4.0000000000000011e-09",
-      "PhysicalSizeY": "4.0000000000000011e-09",
-      "PhysicalSizeXUnit": "m",
-      "PhysicalSizeYUnit": "m"
-    },
-    "Plane": {
-      "PixelDwellTime": "0.0001"
-    },
-    "BinaryResult": {
-      "AcquisitionUnit": "",
-      "CompositionType": "",
-      "DetectorIndex": "4",
-      "Detector": "HAADF",
-      "Offset": {
-        "x": "0",
-        "y": "0"
-      },
-      "Encoding": ""
+    "StartDate": "2023-05-12T20:10:16+00:00",
+    "AcquisitionDatetime": {
+      "DateTime": "0"
     }
   },
   "ElectronBeam": {
@@ -198,6 +176,30 @@
     },
     "Sample": {
       "SampleId": "6232"
+    }
+  },
+  "Image": {
+    "Pixels": {
+      "SizeX": "2048",
+      "SizeY": "2048",
+      "PhysicalSizeX": "4.0000000000000011e-09",
+      "PhysicalSizeY": "4.0000000000000011e-09",
+      "PhysicalSizeXUnit": "m",
+      "PhysicalSizeYUnit": "m"
+    },
+    "Plane": {
+      "PixelDwellTime": "0.0001"
+    },
+    "BinaryResult": {
+      "AcquisitionUnit": "",
+      "CompositionType": "",
+      "DetectorIndex": "4",
+      "Detector": "HAADF",
+      "Offset": {
+        "x": "0",
+        "y": "0"
+      },
+      "Encoding": ""
     }
   },
   "Detector": {

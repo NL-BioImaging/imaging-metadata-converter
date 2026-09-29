@@ -63,10 +63,11 @@ for path in Path('examples').glob('*.json'):
 
 ```python
 mapper = AcquisitionMetadataMapper(
-    schema_file='my_schema.json', mappings_file='my_mappings.json')
+    schema_file='my_schema.json', mappings_file='my_mappings.json',
+    conversions_file='my_conversions.json')
 ```
 
-Both arguments accept a file path; omitting them uses the packaged files.
+Each argument accepts a file path; omitting one uses the packaged file.
 
 ## Examples
 
@@ -191,6 +192,17 @@ item. `Image:0` and `Image:1` become two items rather than colliding.
   exact rules, so a Talos-style operation that embeds a second copy of the
   acquisition metadata below a generated UUID reuses the normal mappings.
 
+### Value conversions
+
+`data/conversions.json` names the source paths whose value is converted as
+it is placed, as `"source path": "format"`. The one format is `unix`, seconds
+since 1970, which becomes an ISO 8601 datetime in UTC: the Talos
+`Acquisition.AcquisitionStartDatetime.DateTime` of `"1683922216"` lands at
+`Acquisition.StartDate` as `"2023-05-12T20:10:16+00:00"`. A value that does
+not convert stays at its original path rather than filling the target - Talos
+writes `"0"` for a time it lacks, which is unset, not 1970-01-01. The source
+path is resolved like an exact rule, `.metadata.` retry included.
+
 ## Flattening
 
 `flatten_dict` reduces a nested metadata dict to one entry per leaf, keyed
@@ -284,3 +296,5 @@ mapping entry fills, one item per matched source instance.
   `CalibrationTools`).
 - `src/imaging_metadata_converter/data/mappings.json` - source field to model
   field mappings.
+- `src/imaging_metadata_converter/data/conversions.json` - source fields
+  whose value is converted on the way (see Value conversions).
