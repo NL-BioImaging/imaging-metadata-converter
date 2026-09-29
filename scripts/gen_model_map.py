@@ -38,7 +38,7 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 
 from imaging_metadata_converter import DEFAULT_MAPPINGS_FILE, ModelPaths  # noqa: E402
 from imaging_metadata_converter.AcquisitionMetadataMapper import rule_targets  # noqa: E402
-from sync_docs_data import added_paths, all_paths  # noqa: E402
+from docs_data import added_paths, all_paths  # noqa: E402
 
 BEGIN = '<!-- begin generated map: scripts/gen_model_map.py -->'
 END = '<!-- end generated map -->'

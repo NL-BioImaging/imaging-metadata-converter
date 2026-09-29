@@ -29,8 +29,12 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 
-# The model browser on model.md is plain JS reading docs/data/*.json, mirrored
-# from the packaged data files by scripts/sync_docs_data.py.
+# The model browser on model.md is plain JS reading data/*.json, which this
+# hook builds into the site from the packaged model and mappings; it also
+# fills in the model's counts on model.md.
+hooks:
+  - scripts/docs_data.py
+
 extra_css:
   - stylesheets/model-tree.css
   - stylesheets/model-map.css

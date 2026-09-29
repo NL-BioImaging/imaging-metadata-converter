@@ -1,6 +1,6 @@
 /* Interactive browser for the metadata model (docs/model.md).
  *
- * Reads the imaging model's paths as scripts/sync_docs_data.py writes them
+ * Reads the imaging model's paths as scripts/docs_data.py builds them
  * from the packaged model, so the page never lists fields by hand: plain
  * nested JSON where every leaf is "FieldName": "range".
  */

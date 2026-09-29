@@ -30,12 +30,6 @@ jobs:
       - name: Install
         run: pip install -e ".[docs]" pytest
 
-      # docs/data holds copies of the packaged model files that model.md
-      # fetches at runtime; this fails the build rather than publishing a
-      # model browser that shows a stale model.
-      - name: Check docs data is in sync
-        run: python scripts/sync_docs_data.py --check
-
       - name: Test
         run: python -m pytest tests -q
 

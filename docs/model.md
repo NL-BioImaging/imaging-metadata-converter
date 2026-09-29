@@ -1,7 +1,7 @@
 # The metadata model
 
 The model is the target of every conversion: the **imaging model** (version
-1.0.0), a [LinkML](https://linkml.io) schema shipped as
+{{ model.version }}), a [LinkML](https://linkml.io) schema shipped as
 `src/imaging_metadata_converter/models/imaging.yaml`. It is LiMi — the
 4DN-BINA-OME light-microscopy model, itself an extension of the OME 2016-06
 data model — converted from LiMi's XSD (version 02.00), and extended with the
@@ -56,13 +56,13 @@ from the extensions.
 
 | File | Contents |
 | --- | --- |
-| `models/imaging.yaml` | LiMi as a LinkML model: 248 classes (37 abstract), 136 enumerations, 71 types; imports the three below |
-| `models/imaging_extension.yaml` | metadata beyond LiMi, mostly electron microscopy: 21 classes, the ones for existing classes as mixins |
+| `models/imaging.yaml` | LiMi as a LinkML model: {{ model.classes }} classes ({{ model.abstract_classes }} abstract), {{ model.enums }} enumerations, {{ model.types }} types; imports the three below |
+| `models/imaging_extension.yaml` | metadata beyond LiMi, mostly electron microscopy: {{ model.extension_classes }} classes, the ones for existing classes as mixins |
 | `models/imaging_provenance.yaml` | `Property`, `SourceFile` and `SourceMapping`: where values came from, and the ones the model does not model |
-| `models/imaging_units.yaml` | the 16 unit enumerations, each unit with the other spellings it is known by |
+| `models/imaging_units.yaml` | the {{ model.unit_enums }} unit enumerations, each unit with the other spellings it is known by |
 
-Together they give 4039 paths, 3713 of them fields; 252 of those fields are
-added by the extension and provenance schemas.
+Together they give {{ model.paths }} paths, {{ model.fields }} of them fields; {{ model.added_fields }} of those
+fields are added by the extension and provenance schemas.
 
 `AcquisitionMetadataMapper` reads `imaging.yaml` unless you pass
 `schema_file`, and uses its paths twice: as the set of valid mapping targets,
@@ -161,15 +161,9 @@ and never validates or coerces a value against its range.
 
 ## Keeping this page in sync
 
-The browser fetches `docs/data/model.json`, `added.json` and `mappings.json`,
-which `scripts/sync_docs_data.py` writes from the packaged model and mappings.
-After editing the model or the mappings:
-
-```bash
-python scripts/sync_docs_data.py
-```
-
-`tests/test_docs_data.py` fails when those copies are stale, so the docs cannot
-drift from the packaged files unnoticed. The counts on this page are written by
-hand; update them when a new version of the model comes over from the
-consolidator.
+Nothing on this page is copied from the model by hand. When the site is
+built, the MkDocs hook `scripts/docs_data.py` reads the packaged model and
+mappings and writes the three files the browser fetches — `data/model.json`,
+`data/added.json` and `data/mappings.json` — into the site, and fills in the
+counts above. A new version of the model files, or an edited `mappings.json`,
+shows up on the next build with nothing to regenerate.
