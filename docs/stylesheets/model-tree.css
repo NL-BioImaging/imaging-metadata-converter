@@ -195,3 +195,101 @@
   background: var(--md-accent-fg-color--transparent, rgba(255, 145, 0, .15));
   outline: 1px solid var(--md-accent-fg-color);
 }
+
+/* Constraints and details --------------------------------------------- */
+
+.mt-select {
+  padding: .3rem .4rem;
+  font-size: .7rem;
+  color: var(--md-default-fg-color);
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .2rem;
+}
+
+.md-typeset a.mt-type-class {
+  color: var(--md-default-bg-color);
+  background: #6b7a8f;
+  text-decoration: none;
+}
+
+.md-typeset a.mt-type-class:hover {
+  background: var(--md-accent-fg-color);
+}
+
+.mt-flag-tier { cursor: help; }
+.mt-tier-1 { color: #c0392b; border-color: #c0392b; }
+.mt-tier-2 { color: #b7791f; border-color: #b7791f; }
+
+.mt-flag-required {
+  color: #c0392b;
+  border-color: #c0392b;
+}
+
+.mt-flag-list,
+.mt-flag-ref,
+.mt-flag-id {
+  color: #4a7fb5;
+  border-color: #4a7fb5;
+  cursor: help;
+}
+
+.mt-copy {
+  margin-left: auto;
+  padding: 0 .3rem;
+  font-size: .58rem;
+  color: var(--md-default-fg-color--lighter);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.mt-row:hover .mt-copy,
+.mt-copy:focus-visible {
+  opacity: 1;
+}
+
+.mt-copy.mt-copied::after {
+  content: " ✓";
+  color: var(--md-accent-fg-color);
+}
+
+.mt-details {
+  margin: .15rem 0 .4rem 1.4rem;
+  padding: .4rem .6rem;
+  font-size: .68rem;
+  border-left: 2px solid var(--md-accent-fg-color);
+  background: var(--md-code-bg-color);
+  border-radius: 0 .2rem .2rem 0;
+}
+
+.md-typeset .mt-details p {
+  margin: 0 0 .35rem;
+}
+
+.md-typeset .mt-details .mt-source {
+  font-size: .6rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .mt-facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: .1rem .6rem;
+  margin: 0;
+}
+
+.md-typeset .mt-facts dt {
+  font-weight: 700;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .mt-facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.mt-item.mt-details-open > .mt-row > .mt-name {
+  text-decoration: underline;
+}

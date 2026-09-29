@@ -21,22 +21,29 @@ what the installed version actually maps to.
 <div data-model-tree
      data-model="../data/model.json"
      data-added="../data/added.json"
-     data-mappings="../data/mappings.json">
+     data-mappings="../data/mappings.json"
+     data-details="../data/details.json">
 </div>
 
 How to use it:
 
 - **Filter** matches anywhere in the dotted path, so `Pixels.Size` finds the
-  size fields and `Unit` finds every unit field in the model.
+  size fields and `Unit` finds every unit field in the model. With **Search
+  descriptions** it also matches the fields' descriptions, so `wavelength`
+  finds the fields that describe one whatever they are called.
+- **Tier** narrows the model to LiMi's tiers: *Tier 1* keeps the fields LiMi
+  requires, *Tiers 1-2* adds the recommended ones.
 - **Extensions only** narrows the model to the fields it adds to LiMi — the
   electron-microscopy classes, the extra fields scattered through the shared
   ones, and the provenance classes (`Property`, `SourceFile`,
   `SourceMapping`). These carry an orange *extension* flag.
 - **Mapped only** shows the fields some rule in `mappings.json` targets.
   Hover the badge to see which source paths reach that field.
-- Clicking a field name copies its dotted path, ready to paste as the
-  right-hand side of a mapping rule.
-- A path in the URL fragment opens and highlights that field, so
+- Clicking a field or group name opens what the model says of it (see
+  [Reading a field](#reading-a-field)); its *copy* button copies its dotted
+  path, ready to paste as the right-hand side of a mapping rule.
+- A class badge links to that class's own place in the tree.
+- A path in the URL fragment opens, highlights and describes that field, so
   [`#Pixels.PhysicalSizeX`](#Pixels.PhysicalSizeX) is a shareable link to one
   field.
 
@@ -145,24 +152,56 @@ from LiMi. Each unit lists the other spellings it is known by as aliases —
 `µm` is also `um`, `micrometer` and `micrometre` — so a vendor's spelling can
 be recognised as the model's unit.
 
-## Reading a leaf
+## Reading a field
 
-Every leaf is shown with its range as a badge:
+Every field is shown with its range as a badge:
 
 | Badge | Meaning |
 | --- | --- |
 | a type (`string`, `float`, `integer`, `boolean`, `datetime`, ...) | a plain value |
 | an enumeration (`UnitsLength`, `UnitsTime`, ...) | one of a fixed set of values, such as a unit |
-| a class (`Annotation`, `FileAnnotation`, ...) | a reference to an object with its own place at the top of the tree |
+| a class (`Annotation`, `Channel`, ...) | an object with its own place at the top of the tree: nested in this one, or referred to by its `ID` if the field is marked *ref* |
 
-The ranges are descriptive, not enforced: the mapper matches on paths only,
-and never validates or coerces a value against its range.
+and with what the model constrains it to, from its LinkML slot:
+
+| Badge | LinkML | Meaning |
+| --- | --- | --- |
+| *list* | `multivalued` | the field holds a list of values |
+| *ref* | a class `range` that is not `inlined` | the value is the `ID` of an object held elsewhere, as LiMi's `*Ref` elements are |
+| *ID* | `identifier` | the field identifies its object, and references name it |
+| *T1* ... *T4* | the `Tier` annotation | LiMi's tier: 1 required, 2 recommended, 3 and 4 optional |
+| *required* | `required` | the field is required in the model |
+
+A field's tier is the larger number of its own tier and its class's, as the
+metaseed profile gives it, so a field of a tier-2 class is tier 2 or beyond.
+In the profile a field is required only if it is `required` here *and* of
+tier 1: `Image.StageLabel.Name`, for one, is `required` but tier 2, so the
+profile does not require it.
+
+Clicking a name opens the rest:
+
+| Line | LinkML | |
+| --- | --- | --- |
+| the text | `description` | the field's or class's description, from LiMi's XSD; the ones LiMi leaves out come from the OME 2016-06 schema, and say so (`description_source`) |
+| *Class*, *Range*, *Refers to* | `range` | the class of a group, or the range of a field, linked to its place in the tree |
+| *Is a* | `is_a` | for a class, the class it extends |
+| *Declared by* | the class owning the slot | for an inherited field, the class it is declared on: `Laser.Manufacturer` is `ManufacturerSpec`'s, shared by every piece of hardware; an extension field names its mixin (`InstrumentExtension`) |
+| *Category*, *Domain* | LiMi's annotations | where LiMi files the field or class, such as `LightSource` in `MicroscopeHardwareSpecifications` |
+| *Same as* / *Close to in OME* | `exact_mappings`, `close_mappings` | the matching term of the [OME LinkML schema](https://github.com/gouttegd/yamf-playground/blob/main/linkml/ome/ome.yaml) |
+| *Mapped from* | `mappings.json` | the source paths a rule sends to the field |
+
+The ranges and constraints describe the model; the converter does not
+enforce them: the mapper matches on paths only, and never validates or
+coerces a value against its range. Validating a converted dataset against
+them is what the metaseed profile is for (see
+[Maintaining the model](maintaining.md)).
 
 ## Keeping this page in sync
 
 Nothing on this page is copied from the model by hand. When the site is
 built, the MkDocs hook `scripts/docs_data.py` reads the packaged model and
-mappings and writes the three files the browser fetches — `data/model.json`,
-`data/added.json` and `data/mappings.json` — into the site, and fills in the
+mappings and writes the four files the browser fetches — `data/model.json`,
+`data/added.json`, `data/mappings.json` and `data/details.json`, the last
+holding each path's description, constraints and mappings — into the site, and fills in the
 counts above. A new version of the model files, or an edited `mappings.json`,
 shows up on the next build with nothing to regenerate.

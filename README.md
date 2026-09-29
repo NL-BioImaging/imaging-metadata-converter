@@ -329,7 +329,7 @@ mkdocs serve
 Nothing on the model pages is stored in the repository. The MkDocs hook
 `scripts/docs_data.py` reads the packaged model and mappings as the site is
 built: it writes the JSON the model browser fetches (`data/model.json`,
-`added.json`, `mappings.json`) into the site, fills in the model's counts on
+`added.json`, `mappings.json`, `details.json`) into the site, fills in the model's counts on
 `model.md`, and draws the model map on `model-map.md` (with
 `scripts/model_map.py`). A new version of the model files or an edited
 `mappings.json` shows up on the next build, with nothing to regenerate.

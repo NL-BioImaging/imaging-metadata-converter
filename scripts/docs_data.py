@@ -10,6 +10,10 @@ the browser always shows the model the package ships.
 - data/added.json - the paths the imaging model adds to LiMi: its extension
   (mostly electron microscopy) and provenance classes and slots
 - data/mappings.json - the packaged mapping rules
+- data/details.json - what the model says of each path beyond its range:
+  description, LiMi tier, required, multivalued, identifier, reference,
+  the class declaring it, Category and Domain, and mappings to OME;
+  descriptions are listed once, in "texts", and named by index
 
 It also fills in the pages' {{ model.<name> }} placeholders: the model's
 counts on model.md, so no number there is typed by hand, and the model map
@@ -44,17 +48,21 @@ def all_paths(tree, path=''):
             yield from all_paths(value, current)
 
 
+def declarers(model, class_name, slot_name):
+    """The classes `class_name` has `slot_name` from, itself first: a slot name is declared by many classes."""
+    return [ancestor for ancestor in model.view.class_ancestors(class_name, mixins=True)
+            if slot_name in (model.view.get_class(ancestor).attributes or {})
+            or slot_name in (model.view.get_class(ancestor).slots or [])]
+
+
 def added_paths(model, tree):
     """The paths of `tree` that run through a class or slot LiMi does not have."""
     added_classes = {name for name, cls in model.classes.items()
                      if not cls.from_schema.endswith(LIMI_SCHEMA_SUFFIX)}
 
     def declared_only_by_added(class_name, slot_name):
-        # a slot name is declared by many classes, so ask the ones this class inherits it from
-        declarers = [ancestor for ancestor in model.view.class_ancestors(class_name, mixins=True)
-                     if slot_name in (model.view.get_class(ancestor).attributes or {})
-                     or slot_name in (model.view.get_class(ancestor).slots or [])]
-        return bool(declarers) and all(declarer in added_classes for declarer in declarers)
+        declared = declarers(model, class_name, slot_name)
+        return bool(declared) and all(declarer in added_classes for declarer in declared)
 
     def is_added(path):
         first, *rest = path.split('.')
@@ -79,6 +87,70 @@ def leaf_paths(tree, path=''):
             yield current
 
 
+def _annotation(element, name):
+    annotations = element.annotations
+    return str(annotations[name].value) if annotations is not None and name in annotations else None
+
+
+def _tier(*elements):
+    """The higher LiMi tier of `elements`, as the metaseed profile gives a field that of its class too."""
+    tiers = [int(tier) for tier in (_annotation(element, 'Tier') for element in elements)
+             if tier in ('1', '2', '3', '4')]
+    return max(tiers) if tiers else None
+
+
+def path_details(model, tree):
+    """{path: its details} for every path of `tree`, and the descriptions they name by index."""
+    texts = {}
+    details = {}
+
+    def text(value):
+        return texts.setdefault(value, len(texts))
+
+    def describe(element, entry):
+        if element.description:
+            entry['description'] = text(element.description)
+        source = _annotation(element, 'description_source')
+        if source:
+            entry['description_source'] = text(source)
+        # LiMi's XSD spells Domain "Domanin" on two classes
+        for key, value in (('category', _annotation(element, 'Category')),
+                           ('domain', _annotation(element, 'Domain') or _annotation(element, 'Domanin')),
+                           ('exact_mappings', list(element.exact_mappings or [])),
+                           ('close_mappings', list(element.close_mappings or []))):
+            if value:
+                entry[key] = value
+        return entry
+
+    def visit(class_name, node, path):
+        slots = model.slots(class_name)
+        for name, value in node.items():
+            slot = slots[name]
+            current = f'{path}.{name}'
+            entry = describe(slot, {})
+            tier = _tier(slot, model.classes[class_name])
+            declared = declarers(model, class_name, name)
+            flags = (('tier', tier),
+                     ('required', bool(slot.required)),
+                     ('multivalued', bool(slot.multivalued)),
+                     ('identifier', bool(slot.identifier)),
+                     ('reference', slot.range in model.classes and not (slot.inlined or slot.inlined_as_list)),
+                     ('declared_by', declared[-1] if declared and declared[-1] != class_name else None))
+            entry.update({key: flag for key, flag in flags if flag})
+            if isinstance(value, dict):
+                entry['class'] = slot.range
+                visit(slot.range, value, current)
+            details[current] = entry
+
+    for class_name, node in tree.items():
+        cls = model.classes[class_name]
+        entry = describe(cls, {'class': class_name})
+        entry.update({key: value for key, value in (('tier', _tier(cls)), ('is_a', cls.is_a)) if value})
+        details[class_name] = entry
+        visit(class_name, node, class_name)
+    return {'texts': list(texts), 'paths': details}
+
+
 def _schema(element):
     """The model file an element is declared in: imaging, extension, provenance or units."""
     return element.from_schema.rsplit('/', 1)[-1]
@@ -99,6 +171,7 @@ class ModelData:
             ('model.json', self.tree),
             ('added.json', self.added),
             ('mappings.json', self.mappings),
+            ('details.json', path_details(self.model, self.tree)),
         )}
 
     def counts(self):
