@@ -4,7 +4,7 @@ The map draws the part of the imaging model the converter actually
 produces: the paths some rule in mappings.json targets, with the groups
 above them, as one Mermaid flowchart. A path LiMi does not have - one of the
 model's extension (mostly electron-microscopy) or provenance classes and
-slots - is blue, so the map also shows how much of what the converter fills
+slots - is orange, so the map also shows how much of what the converter fills
 in comes from the extensions rather than from LiMi.
 
 It is deliberately not the whole model. All its fields cannot carry a
@@ -43,17 +43,20 @@ from sync_docs_data import added_paths, all_paths  # noqa: E402
 BEGIN = '<!-- begin generated map: scripts/gen_model_map.py -->'
 END = '<!-- end generated map -->'
 
-BLUE = '#4a7fb5'
+ORANGE = '#e8710a'
 # Four styles, so both distinctions carry colour as well as shape: base
-# against extension, and a group against a field inside it. Stroke and
-# fill only, never the label colour, so a name keeps whatever the
-# Material palette uses and both schemes stay readable. These are the
-# baseline; docs/stylesheets/model-map.css sharpens them per scheme.
+# against extension, and a group against a field inside it. The extensions
+# are a saturated orange - the colour the model browser flags them with -
+# against a recessive grey for LiMi, so what the imaging model adds stands
+# out at a glance. Stroke and fill only, never the label colour, so a name
+# keeps whatever the Material palette uses and both schemes stay readable.
+# These are the baseline; docs/stylesheets/model-map.css sharpens them per
+# scheme.
 STYLES = {
-    'gbase': 'fill:#8a8a8a26,stroke:#5f6368,stroke-width:2px',
-    'fbase': 'fill:none,stroke:#8a8a8a,stroke-width:1.5px',
-    'gext': f'fill:{BLUE}88,stroke:#2f6fa8,stroke-width:2.5px',
-    'fext': f'fill:{BLUE}3a,stroke:{BLUE},stroke-width:2px',
+    'gbase': 'fill:#8a8a8a1f,stroke:#80868b,stroke-width:1.5px',
+    'fbase': 'fill:none,stroke:#9aa0a6,stroke-width:1px',
+    'gext': f'fill:{ORANGE},stroke:#a04a00,stroke-width:3px',
+    'fext': f'fill:{ORANGE}40,stroke:{ORANGE},stroke-width:2.5px',
 }
 
 # Rough rendered size of a node, used only to pick how many section blocks
@@ -232,7 +235,7 @@ def rendered_block():
         ' what the converter can actually fill in — with the groups above'
         f' them, {boxes} boxes over {len(sections)} sections. Rounded boxes'
         ' are the targeted fields themselves; square boxes are the groups'
-        f' holding them. <span class="map-key">Blue</span> is a path'
+        f' holding them. <span class="map-key">Orange</span> is a path'
         f' LiMi does not have: {new} of the {len(paths)} targets come from'
         ' the extensions, mostly electron microscopy.\n\n'
         f'The other fields of the model are not drawn — all {fields} cannot be'

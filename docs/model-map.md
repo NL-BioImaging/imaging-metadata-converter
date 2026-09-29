@@ -2,19 +2,31 @@
 
 One picture of what the converter actually produces: every field a mapping
 rule targets, shown under the groups that hold it, with each top-level section
-as its own block. <span class="map-key">Blue</span> marks a path LiMi does
-not have, so the map also shows how much of the converter's output comes from
-the imaging model's extensions, mostly electron microscopy, rather than from
-LiMi.
+as its own block. <span class="map-key">Orange</span> marks a path LiMi does
+not have — one the imaging model adds in `imaging_extension.yaml` or
+`imaging_provenance.yaml` — so the map also shows how much of the converter's
+output comes from those extensions, mostly electron microscopy, rather than
+from LiMi. LiMi's own paths stay a quiet grey.
+
+<div class="map-legend" markdown>
+<span><i class="gext"></i> extension group</span>
+<span><i class="fext"></i> extension field</span>
+<span><i class="gbase"></i> LiMi group</span>
+<span><i class="fbase"></i> LiMi field</span>
+</div>
+
+A path counts as an extension as soon as it runs through an added class or
+slot, so every field under `Image.ElectronBeamSettings` is orange, and so is
+`Instrument.Manufacturer`, which LiMi's `Instrument` does not have.
 
 <!-- begin generated map: scripts/gen_model_map.py -->
 
 ```mermaid
 flowchart LR
-classDef gbase fill:#8a8a8a26,stroke:#5f6368,stroke-width:2px
-classDef fbase fill:none,stroke:#8a8a8a,stroke-width:1.5px
-classDef gext fill:#4a7fb588,stroke:#2f6fa8,stroke-width:2.5px
-classDef fext fill:#4a7fb53a,stroke:#4a7fb5,stroke-width:2px
+classDef gbase fill:#8a8a8a1f,stroke:#80868b,stroke-width:1.5px
+classDef fbase fill:none,stroke:#9aa0a6,stroke-width:1px
+classDef gext fill:#e8710a,stroke:#a04a00,stroke-width:3px
+classDef fext fill:#e8710a40,stroke:#e8710a,stroke-width:2.5px
 subgraph s0 [" "]
 direction LR
 n0["Instrument"]
@@ -437,7 +449,7 @@ class n6,n15,n16,n22,n24,n27,n31,n34,n37,n41,n43,n46,n47,n48,n51,n54,n56,n59,n66
 class n2,n3,n5,n7,n11,n17,n18,n19,n20,n21,n23,n25,n26,n28,n29,n30,n32,n33,n35,n36,n38,n39,n40,n42,n44,n45,n49,n50,n52,n53,n55,n57,n58,n60,n61,n62,n65,n68,n69,n70,n71,n72,n74,n75,n76,n77,n78,n80,n81,n82,n83,n85,n89,n90,n109,n110,n112,n113,n115,n116,n118,n119,n121,n122,n124,n126,n128,n129,n132,n133,n135,n136,n138,n139,n141,n142,n144,n145,n147,n148,n150,n151,n152,n155,n156,n158,n159,n167,n176,n179,n180 fext
 ```
 
-The **146 fields** some rule in `mappings.json` targets — what the converter can actually fill in — with the groups above them, 190 boxes over 17 sections. Rounded boxes are the targeted fields themselves; square boxes are the groups holding them. <span class="map-key">Blue</span> is a path LiMi does not have: 97 of the 146 targets come from the extensions, mostly electron microscopy.
+The **146 fields** some rule in `mappings.json` targets — what the converter can actually fill in — with the groups above them, 190 boxes over 17 sections. Rounded boxes are the targeted fields themselves; square boxes are the groups holding them. <span class="map-key">Orange</span> is a path LiMi does not have: 97 of the 146 targets come from the extensions, mostly electron microscopy.
 
 The other fields of the model are not drawn — all 3713 cannot be named in one static picture, and a field no rule targets is not something the converter can produce yet. Use the [model browser](model.md) to see the model in full.
 
