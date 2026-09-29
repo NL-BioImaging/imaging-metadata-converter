@@ -217,3 +217,4 @@ What follows from a new example or new metadata:
 - [ ] Light-source role, when a source holds light sources (none does yet, so rules setting it would have
       nothing to act on or be tested with; user, 2026-09-28): rules for Transmitted/Fluorescence light
       sources should set `LightSource.Role`.
+- [ ] Model analytics/metrics (user, 2026-09-29): scope still to be settled.
