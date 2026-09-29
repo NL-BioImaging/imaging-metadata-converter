@@ -3,7 +3,7 @@ Image:
 - SourceFile:
   - ID: SourceFile:0
     Name: lif_tilescan_metadata.json
-    Checksum: f9d9a9ae18bd72b3840ac51ec23a8c5f3ca4ae048a2f9f5508ff0947b23d9293
+    Checksum: bd1e50f57bac823e81ed557fee47fe2c112df651e23ed1f0aec221ac0aa95351
     Format: json
     Mapping:
     - ID: SourceMapping:0

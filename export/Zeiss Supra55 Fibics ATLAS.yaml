@@ -3,7 +3,7 @@ Image:
 - SourceFile:
   - ID: SourceFile:0
     Name: Zeiss Supra55 Fibics ATLAS.json
-    Checksum: d8f89e6c284f83de46b67185d14ba9ab07e98c1572571691239cb03197a6ef10
+    Checksum: 68b0dea73766de0e1be796746118e8b7f4c9299bb332a67e0557bef7117c3c47
     Format: json
     Mapping:
     - ID: SourceMapping:0

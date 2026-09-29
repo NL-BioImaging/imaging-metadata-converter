@@ -119,6 +119,10 @@ every test. chardet kept at 5.2.0 there (linkml's ShEx generator pyshexc wants >
 requests warns on 7.x). The metaseed CLI writes to `%LOCALAPPDATA%/metaseed`, whatever `HOME` is set to:
 point `LOCALAPPDATA` and `APPDATA` at a scratch folder when trying profiles locally.
 
+`.gitattributes` keeps `examples/*.json` byte for byte (`-text`): export/ records each file's SHA-256, and
+with `core.autocrlf` Windows checked six of them out with CRLF, so the committed checksums differed from CI's
+(Linux, LF) and the export freshness test failed there (2026-09-29).
+
 ## In progress
 
 Nothing (2026-09-29).

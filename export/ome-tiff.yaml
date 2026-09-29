@@ -3,7 +3,7 @@ Image:
 - SourceFile:
   - ID: SourceFile:0
     Name: ome-tiff.json
-    Checksum: 113212ab716abda01c9c908fcab624c0a2169e6360117461dce7639a16001e0b
+    Checksum: 9e096cbaa9a518eac9ba98e8dc2c773aab9a895d576dca564b241ff5c7ce3731
     Format: json
     Mapping:
     - ID: SourceMapping:0

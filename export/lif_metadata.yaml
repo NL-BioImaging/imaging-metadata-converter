@@ -3,7 +3,7 @@ Image:
 - SourceFile:
   - ID: SourceFile:0
     Name: lif_metadata.json
-    Checksum: b69af648855e1307cc6bb6b0e051e8d9a9ed114489404f4f1a659b66672f08a3
+    Checksum: 2e0b85737901d925f87ac5c543946f5dbce5d41a0bf287ba1d260a17e5d4602c
     Format: json
     Mapping:
     - ID: SourceMapping:0
