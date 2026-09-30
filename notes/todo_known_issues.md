@@ -6,21 +6,23 @@ Carried over from imaging-metadata-consolidator (2026-09-29), which this reposit
 
 ### Hub state
 
-Published on the Hub (account j.j.m.defolter@amsterdamumc.nl): profile `imaging` 0.1, 0.2 and 1.0 (1.0 =
-`profile/imaging.metaseed.yaml`, model 1.0.0, 2026-09-28; valid, no problems, no warnings); the account holds
-no datasets. After a change to the model: regenerate (`python scripts/metaseed_generator.py`), run
+Published on the Hub (account j.j.m.defolter@amsterdamumc.nl): profile `imaging` 0.1, 0.2, 1.0 (model
+1.0.0, 2026-09-28) and 1.1 (= `profile/imaging.metaseed.yaml`, model 1.1.0, published by the user
+2026-09-30); the account holds no datasets. After a change to the model: regenerate (`python scripts/metaseed_generator.py`), run
 metaseed's compatibility check against the last published version (see "Profile versions"), bump the
 version, and push and publish again.
 
-Generated, not yet published (2026-09-30): profile `imaging` 1.1 = `profile/imaging.metaseed.yaml`, model
-1.1.0. It adds, compatibly with 1.0: `Instrument.CatalogNumber`, the detector extension fields
+1.1 adds, compatibly with 1.0: `Instrument.CatalogNumber`, the detector extension fields
 (DetectorExtension: Inserted, Enabled, ExposureTime, Binning, angles, CollectionAngleRange, EDS times,
 rates and energies), ElectronOpticsSettings.Aperture (class ElectronAperture), Condenser1/2,
 ScanSettings.LineInterlacing, the class QuantityRange, and "Oil" in the immersion enumeration. The
 model's `id` and `imaging:` prefix moved with it from the consolidator's URL to this repository's
 (https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging), as planned (user,
-2026-09-29); in the profile that is only its description. To publish: import the profile on the Hub
-(`metaseed spec import`), validate, save and publish it as 1.1.
+2026-09-29); in the profile that is only its description.
+
+imaging-metadata-consolidator stays archived, read-only and public (user, 2026-09-30): profile 1.0 and
+model 1.0.0 name its URL, and the retired pieces (schema.json, schema.extended.json, ProfileConverter)
+live in its history.
 
 ### Profile versions
 

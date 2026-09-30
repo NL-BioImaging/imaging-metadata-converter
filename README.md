@@ -374,8 +374,8 @@ in the documentation describes them in full.
   the model, once; the model is edited by hand since, so it refuses to
   overwrite it without `--force`. Kept for comparing a future LiMi XSD.
 - `scripts/metaseed_generator.py` - generates the metaseed profile
-  `profile/imaging.metaseed.yaml` (`imaging` 1.1; 1.0 is published on the
-  metaseed Hub) from the model; rerun it after a change to the model.
+  `profile/imaging.metaseed.yaml` (published on the metaseed Hub as `imaging`
+  1.1) from the model; rerun it after a change to the model.
 - `scripts/dataset_exporter.py` - exports each example as a metaseed dataset
   of the profile into `export/`, with every value the model has no field for
   kept as a `Property` record.
