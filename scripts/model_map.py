@@ -68,7 +68,8 @@ def targets(mappings, tree):
     found = []
     for rule in mappings.values():
         for target in rule_targets(rule):
-            parts = target.removesuffix('[]').replace('[*]', '').split('.')
+            # "GenericDetector[].Name" names a field of each item a "Target[]" rule collapses
+            parts = target.removesuffix('[]').replace('[].', '.').replace('[*]', '').split('.')
             starts = [index for index, part in enumerate(parts) if index > 0 and part in tree]
             start = starts[-1] if '[*]' in target and starts else 0
             path = '.'.join(parts[start:])

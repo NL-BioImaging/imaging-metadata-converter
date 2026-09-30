@@ -47,6 +47,12 @@ class AcquisitionMetadataMapper:
         # a rule may state the unit its source implies but never writes: {"target": ..., "unit": "mm"}
         self.mappings = {source: rule['target'] if isinstance(rule, dict) else rule for source, rule in rules.items()}
         self.implied_units = {source: rule['unit'] for source, rule in rules.items() if isinstance(rule, dict)}
+        # a rule naming a field of each item a "Prefix.*": "Target[]" rule collapses ("Detectors.*.DetectorName":
+        # "GenericDetector[].Name") renames inside those items only, so it takes no part in resolving other paths
+        self.item_fields = {source: target for source, target in self.mappings.items()
+                            if isinstance(target, str) and '[].' in target}
+        for source in self.item_fields:
+            del self.mappings[source]
         self.combinations = self._load_json(combinations_file) if os.path.exists(combinations_file) else []
         self._schema_index = self._build_schema_index(self.schema)
         # "Detector.Name" in a source still names a field, of the model's default detector (GenericDetector)
@@ -380,6 +386,8 @@ class AcquisitionMetadataMapper:
                         raise ValueError(f'No free key to keep the source key of {origin_path}')
                     mapped_item[label_key] = key
                     item_provenance[label_key] = origin_path
+                    # after the label, so a rule can name the label's field too ("Prefix.*.id")
+                    self._name_item_fields(mapped_item, item_provenance, rule_source_path, target_path)
                     list_path = target_path[:-2]
                     if can_append(root_result, list_path):
                         index = append_nested_list_value(root_result, list_path, mapped_item)
@@ -441,6 +449,28 @@ class AcquisitionMetadataMapper:
                     if is_free_path(root_result, copy_target):
                         self._place(value, origin_path, (root_result, copy_target, root_provenance))
         return result
+
+    def _name_item_fields(self, item, item_provenance, rule_source_path, target_path):
+        """Move the fields of `item`, which the "Target[]" `target_path` collapsed from `rule_source_path`, to the
+        names the rules for "Prefix.*.field" give them in "Target[].Field", where that is free."""
+        parent = rule_source_path.rsplit('.', 1)[0]
+        for item_path in list(item_provenance):
+            rule = f'{parent}.*.{item_path}'
+            target = self.item_fields.get(rule)
+            field = target[len(target_path) + 1:] if target and target.startswith(f'{target_path}.') else None
+            # out of the way first, as "ExposureTime" may move to "ExposureTime.Value"
+            value = pop_nested_value(item, item_path) if field is not None else None
+            if field is not None and is_free_path(item, field):
+                set_nested_value(item, field, value)
+                origin = item_provenance.pop(item_path)
+                item_provenance[field] = origin
+                # the whole item is mapped by now, so a unit it states is in place already
+                unit = self.implied_units.get(rule)
+                if unit is not None and is_free_path(item, unit_field(field)):
+                    set_nested_value(item, unit_field(field), unit)
+                    item_provenance[unit_field(field)] = [origin]
+            elif field is not None:
+                set_nested_value(item, item_path, value)
 
     def _place_items(self, items, rule_source_path, source_path, origin_path, min_rule_segments, result, provenance,
                      root):
@@ -608,14 +638,25 @@ def rule_targets(target):
 
 def unit_field(target):
     """The field holding the unit of the value at `target`: PhysicalSizeX's is PhysicalSizeXUnit, and a Quantity's
-    Value has its Unit beside it."""
-    return f'{target[:-len(".Value")]}.Unit' if target.endswith('.Value') else f'{target}Unit'
+    Value, or a QuantityRange's Begin or End, has its Unit beside it."""
+    group, _, name = target.rpartition('.')
+    return f'{group}.Unit' if name in ('Value', 'Begin', 'End') else f'{target}Unit'
 
 
 def single_target(target, source_path):
     if isinstance(target, list):
         raise ValueError(f'{source_path}: a list of targets is only supported for a single value, '
                          f'not for a group or list moved as a whole')
+
+
+def pop_nested_value(target, dotted_path):
+    """Remove the value at `dotted_path` from `target` and return it, dropping the dicts it leaves empty."""
+    parent, _, key = dotted_path.rpartition('.')
+    node = value_at_path(target, parent) if parent else target
+    value = node.pop(key)
+    if parent and not node:
+        pop_nested_value(target, parent)
+    return value
 
 
 def value_at_path(metadata, dotted_path):

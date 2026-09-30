@@ -3,7 +3,8 @@
 Takes AcquisitionMetadataMapper output (model paths, see ModelPaths, plus
 its SourceMap) and builds one OME document for the profile generated from
 the model (profile/imaging.metaseed.yaml). A value goes into a typed field
-only if it fits exactly; anything else becomes a Property record holding its
+only if it fits, as it is or as the model spells it (a unit alias, a number
+written as text); anything else becomes a Property record holding its
 source path and JSON-encoded value, so no metadata is lost. Every value
 placed in a typed field gets a SourceMapping record on the SourceFile, so its
 source key is kept too.
@@ -14,6 +15,7 @@ import collections
 import datetime
 import hashlib
 import json
+import math
 import os.path
 import re
 from pathlib import Path
@@ -64,13 +66,17 @@ class DatasetExporter:
                         if any(spec.aliases for spec in enum.permissible_values.values())}
 
     def fitting(self, value, field):
-        """(True, what `field` stores for `value`) when it fits as is, or as a value its unit enumeration
-        spells differently ("um" as "µm"), else (False, None)."""
+        """(True, what `field` stores for `value`) when it fits as is, as a value its unit enumeration spells
+        differently ("um" as "µm"), as the number or boolean a source writes as text ("80000" in a float
+        field, "true" in a boolean one), or as the text of a number (11506432 in a string field); else
+        (False, None). The value's SourceMapping then
+        keeps the source's own in SourceValue."""
         if fits(value, field):
             return True, value
         allowed = field.get('constraints', {}).get('enum')
         spelled = self.aliases.get(frozenset(allowed or ()), {}).get(value) if isinstance(value, str) else None
-        return (True, spelled) if spelled is not None and fits(spelled, field) else (False, None)
+        return next(((True, stored) for stored in (spelled, _as_number(value), _as_boolean(value), _as_text(value))
+                     if stored is not None and fits(stored, field)), (False, None))
 
     def _nested_entity(self, field):
         if field['type'] in ('entity', 'list') and field.get('items') in self.entities:
@@ -237,6 +243,29 @@ def fits(value, field):
     fits_pattern = ('pattern' not in constraints
                     or (isinstance(value, str) and re.fullmatch(constraints['pattern'], value) is not None))
     return fits_type and fits_enum and fits_pattern
+
+
+def _as_number(value):
+    """The number text `value` writes (TALOS writes every number as a string), else None."""
+    if not isinstance(value, str):
+        return None
+    for parse in (int, float):
+        try:
+            number = parse(value)
+            return number if math.isfinite(number) else None
+        except ValueError:
+            pass
+    return None
+
+
+def _as_boolean(value):
+    """The boolean text `value` writes ("true", "False"), else None."""
+    return {'true': True, 'false': False}.get(value.lower()) if isinstance(value, str) else None
+
+
+def _as_text(value):
+    """The text of a number `value`, else None."""
+    return str(value) if isinstance(value, (int, float)) and not isinstance(value, bool) else None
 
 
 def _parses(parse, text):

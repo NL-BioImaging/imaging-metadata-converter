@@ -201,8 +201,8 @@
     "multiStage.sampleHeight.value": "MechanicalStage.MultiStage.SampleHeight.Value",
     "multiStage.sampleRadius.unit": "MechanicalStage.MultiStage.SampleRadius.Unit",
     "multiStage.sampleRadius.value": "MechanicalStage.MultiStage.SampleRadius.Value",
-    "acquisition.scan.detectors.*": "GenericDetector.Configuration[]",
-    "Detectors.*": "GenericDetector.Configuration[]",
+    "acquisition.scan.detectors.*": "GenericDetector[]",
+    "Detectors.*": "GenericDetector[]",
     "DetectorMetadata": "GenericDetector.ActiveConfiguration",
     "Optics.Apertures.*": "Image.ElectronOpticsSettings.Apertures[]",
     "CustomProperties": "OME.CustomProperties",
@@ -337,5 +337,64 @@
         "Pixels.PhysicalSizeZUnit"
     ],
     "SpimData.SequenceDescription.ViewSetups.ViewSetup.name": "Channel.Name",
-    "SpimData.SequenceDescription.ImageLoader.n5.value": "Image.Name"
+    "SpimData.SequenceDescription.ImageLoader.n5.value": "Image.Name",
+    "Detectors.*.DetectorName": "GenericDetector[].Name",
+    "Detectors.*.DetectorType": "GenericDetector[].Type",
+    "Detectors.*.ExposureTime": {
+        "target": "GenericDetector[].ExposureTime.Value",
+        "unit": "s"
+    },
+    "Detectors.*.Binning.width": "GenericDetector[].Binning.X",
+    "Detectors.*.Binning.height": "GenericDetector[].Binning.Y",
+    "Detectors.*.CollectionAngle": {
+        "target": "GenericDetector[].CollectionAngle.Value",
+        "unit": "rad"
+    },
+    "Detectors.*.ElevationAngle": {
+        "target": "GenericDetector[].ElevationAngle.Value",
+        "unit": "rad"
+    },
+    "Detectors.*.AzimuthAngle": {
+        "target": "GenericDetector[].AzimuthAngle.Value",
+        "unit": "rad"
+    },
+    "Detectors.*.CollectionAngleRange.begin": {
+        "target": "GenericDetector[].CollectionAngleRange.Begin",
+        "unit": "rad"
+    },
+    "Detectors.*.CollectionAngleRange.end": {
+        "target": "GenericDetector[].CollectionAngleRange.End",
+        "unit": "rad"
+    },
+    "Detectors.*.LiveTime": {
+        "target": "GenericDetector[].LiveTime.Value",
+        "unit": "s"
+    },
+    "Detectors.*.RealTime": {
+        "target": "GenericDetector[].RealTime.Value",
+        "unit": "s"
+    },
+    "Detectors.*.PulseProcessTime": {
+        "target": "GenericDetector[].PulseProcessTime.Value",
+        "unit": "s"
+    },
+    "Detectors.*.Dispersion": {
+        "target": "GenericDetector[].Dispersion.Value",
+        "unit": "eV"
+    },
+    "Detectors.*.OffsetEnergy": {
+        "target": "GenericDetector[].OffsetEnergy.Value",
+        "unit": "eV"
+    },
+    "Detectors.*.BeginEnergy": {
+        "target": "GenericDetector[].BeginEnergy.Value",
+        "unit": "eV"
+    },
+    "Detectors.*.ElectronicsNoise": {
+        "target": "GenericDetector[].ElectronicsNoise.Value",
+        "unit": "eV"
+    },
+    "acquisition.scan.detectors.*.id": "GenericDetector[].Name",
+    "acquisition.scan.detectors.*.gain": "GenericDetector[].Gain",
+    "acquisition.scan.detectors.*.offset": "GenericDetector[].Offset"
 }

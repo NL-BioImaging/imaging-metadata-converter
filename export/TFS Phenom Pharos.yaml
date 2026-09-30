@@ -132,9 +132,34 @@ Image:
       Field: Image[0].Pixels.Plane[0].PixelDwellTime
       Source: FEI_TITAN.FeiImage.acquisition.scan.dwellTime.value
     - ID: SourceMapping:41
+      Field: Instrument[0].GenericDetector[0].Gain
+      Source: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain
+    - ID: SourceMapping:42
+      Field: Instrument[0].GenericDetector[0].Offset
+      Source: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.offset
+    - ID: SourceMapping:43
+      Field: Instrument[0].GenericDetector[0].Name
+      Source: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD
+    - ID: SourceMapping:44
+      Field: Instrument[0].GenericDetector[1].Gain
+      Source: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.gain
+    - ID: SourceMapping:45
+      Field: Instrument[0].GenericDetector[1].Offset
+      Source: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.offset
+    - ID: SourceMapping:46
+      Field: Instrument[0].GenericDetector[1].Name
+      Source: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED
+    - ID: SourceMapping:47
+      Field: Instrument[0].GenericDetector[2].Name
+      Source: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM
+    - ID: SourceMapping:48
       Field: Instrument[0].AcquisitionSoftware[0].Version
       Source: FEI_TITAN.FeiImage.instrument.softwareVersion
-    - ID: SourceMapping:42
+    - ID: SourceMapping:49
+      Field: Experiment[0].Sample[0].SampleHolder[0].Type
+      Source: FEI_TITAN.FeiImage.instrument.sampleHolder.type
+      SourceValue: '1'
+    - ID: SourceMapping:50
       Field: Experiment[0].Sample[0].SampleHolder[0].ID
       Source: FEI_TITAN.FeiImage.instrument.sampleHolder.id
   Pixels:
@@ -300,11 +325,6 @@ CustomProperties:
   Value: 'null'
   SchemaPath: Experimenter.UserName
   Source: SourceFile:0
-- ID: Property:53
-  Name: FEI_TITAN.FeiImage.instrument.sampleHolder.type
-  Value: '1'
-  SchemaPath: SampleHolder.Type
-  Source: SourceFile:0
 Experimenter:
 - {}
 Instrument:
@@ -328,141 +348,106 @@ Instrument:
     SchemaPath: Instrument.Vacuum
     Source: SourceFile:0
   - ID: Property:25
-    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain
-    Value: '45'
-    SchemaPath: GenericDetector.Configuration[0].gain
-    Source: SourceFile:0
-  - ID: Property:26
-    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.offset
-    Value: '-1.444569852509731'
-    SchemaPath: GenericDetector.Configuration[0].offset
-    Source: SourceFile:0
-  - ID: Property:27
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.mixFactor
     Value: '1'
-    SchemaPath: GenericDetector.Configuration[0].mixFactor
+    SchemaPath: GenericDetector[0].mixFactor
     Source: SourceFile:0
-  - ID: Property:28
+  - ID: Property:26
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.A
     Value: '"+"'
-    SchemaPath: GenericDetector.Configuration[0].A
+    SchemaPath: GenericDetector[0].A
     Source: SourceFile:0
-  - ID: Property:29
+  - ID: Property:27
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.B
     Value: '"+"'
-    SchemaPath: GenericDetector.Configuration[0].B
+    SchemaPath: GenericDetector[0].B
     Source: SourceFile:0
-  - ID: Property:30
+  - ID: Property:28
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.C
     Value: '"+"'
-    SchemaPath: GenericDetector.Configuration[0].C
+    SchemaPath: GenericDetector[0].C
     Source: SourceFile:0
-  - ID: Property:31
+  - ID: Property:29
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.D
     Value: '"+"'
-    SchemaPath: GenericDetector.Configuration[0].D
+    SchemaPath: GenericDetector[0].D
     Source: SourceFile:0
-  - ID: Property:32
-    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD
-    Value: '"QBSD"'
-    SchemaPath: GenericDetector.Configuration[0].id
-    Source: SourceFile:0
-  - ID: Property:33
-    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.gain
-    Value: '0'
-    SchemaPath: GenericDetector.Configuration[1].gain
-    Source: SourceFile:0
-  - ID: Property:34
-    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.offset
-    Value: '0'
-    SchemaPath: GenericDetector.Configuration[1].offset
-    Source: SourceFile:0
-  - ID: Property:35
+  - ID: Property:30
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.scintillatorVoltage
     Value: '0'
-    SchemaPath: GenericDetector.Configuration[1].scintillatorVoltage
+    SchemaPath: GenericDetector[1].scintillatorVoltage
     Source: SourceFile:0
-  - ID: Property:36
+  - ID: Property:31
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.mixFactor
     Value: '0'
-    SchemaPath: GenericDetector.Configuration[1].mixFactor
+    SchemaPath: GenericDetector[1].mixFactor
     Source: SourceFile:0
-  - ID: Property:37
-    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED
-    Value: '"SED"'
-    SchemaPath: GenericDetector.Configuration[1].id
-    Source: SourceFile:0
-  - ID: Property:38
+  - ID: Property:32
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.mixFactor
     Value: '0'
-    SchemaPath: GenericDetector.Configuration[2].mixFactor
+    SchemaPath: GenericDetector[2].mixFactor
     Source: SourceFile:0
-  - ID: Property:39
+  - ID: Property:33
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.bf1
     Value: 'true'
-    SchemaPath: GenericDetector.Configuration[2].segmentSelection.bf1
+    SchemaPath: GenericDetector[2].segmentSelection.bf1
     Source: SourceFile:0
-  - ID: Property:40
+  - ID: Property:34
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.bf2
     Value: 'true'
-    SchemaPath: GenericDetector.Configuration[2].segmentSelection.bf2
+    SchemaPath: GenericDetector[2].segmentSelection.bf2
     Source: SourceFile:0
-  - ID: Property:41
+  - ID: Property:35
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.bf3
     Value: 'true'
-    SchemaPath: GenericDetector.Configuration[2].segmentSelection.bf3
+    SchemaPath: GenericDetector[2].segmentSelection.bf3
     Source: SourceFile:0
-  - ID: Property:42
+  - ID: Property:36
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.bf4
     Value: 'true'
-    SchemaPath: GenericDetector.Configuration[2].segmentSelection.bf4
+    SchemaPath: GenericDetector[2].segmentSelection.bf4
     Source: SourceFile:0
-  - ID: Property:43
+  - ID: Property:37
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.df1
     Value: 'true'
-    SchemaPath: GenericDetector.Configuration[2].segmentSelection.df1
+    SchemaPath: GenericDetector[2].segmentSelection.df1
     Source: SourceFile:0
-  - ID: Property:44
+  - ID: Property:38
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.ha1
     Value: 'true'
-    SchemaPath: GenericDetector.Configuration[2].segmentSelection.ha1
+    SchemaPath: GenericDetector[2].segmentSelection.ha1
     Source: SourceFile:0
-  - ID: Property:45
+  - ID: Property:39
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.ha2
     Value: 'true'
-    SchemaPath: GenericDetector.Configuration[2].segmentSelection.ha2
+    SchemaPath: GenericDetector[2].segmentSelection.ha2
     Source: SourceFile:0
-  - ID: Property:46
+  - ID: Property:40
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.ha3
     Value: 'true'
-    SchemaPath: GenericDetector.Configuration[2].segmentSelection.ha3
+    SchemaPath: GenericDetector[2].segmentSelection.ha3
     Source: SourceFile:0
-  - ID: Property:47
+  - ID: Property:41
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.ha4
     Value: 'true'
-    SchemaPath: GenericDetector.Configuration[2].segmentSelection.ha4
+    SchemaPath: GenericDetector[2].segmentSelection.ha4
     Source: SourceFile:0
-  - ID: Property:48
+  - ID: Property:42
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.ha5
     Value: 'true'
-    SchemaPath: GenericDetector.Configuration[2].segmentSelection.ha5
+    SchemaPath: GenericDetector[2].segmentSelection.ha5
     Source: SourceFile:0
-  - ID: Property:49
+  - ID: Property:43
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.ha6
     Value: 'true'
-    SchemaPath: GenericDetector.Configuration[2].segmentSelection.ha6
+    SchemaPath: GenericDetector[2].segmentSelection.ha6
     Source: SourceFile:0
-  - ID: Property:50
-    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM
-    Value: '"STEM"'
-    SchemaPath: GenericDetector.Configuration[2].id
-    Source: SourceFile:0
-  - ID: Property:51
+  - ID: Property:44
     Name: FEI_TITAN.FeiImage.applicationID
     Value: 'null'
     SchemaPath: AcquisitionSoftware.ApplicationID
     Source: SourceFile:0
-  - ID: Property:52
+  - ID: Property:45
     Name: FEI_TITAN.FeiImage.PPI.version
     Value: '"2.1.0_release"'
     SchemaPath: AcquisitionSoftware.version
@@ -471,10 +456,17 @@ Instrument:
   ID: MVE084613-20046-F
   Model: Phenom Pharos G2
   GenericDetector:
-  - {}
+  - Gain: 45
+    Offset: -1.444569852509731
+    Name: QBSD
+  - Gain: 0
+    Offset: 0
+    Name: SED
+  - Name: STEM
   AcquisitionSoftware:
   - Version: 6.6.0.rel.d7a92301af.27465
 Experiment:
 - Sample:
   - SampleHolder:
-    - ID: 0147e8ac1a0000b2
+    - Type: '1'
+      ID: 0147e8ac1a0000b2

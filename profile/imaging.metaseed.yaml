@@ -18891,6 +18891,117 @@ entities:
       type: string
       required: false
       tier: required
+    - name: Inserted
+      type: boolean
+      required: false
+      description: Whether the detector is inserted into the beam path.
+      tier: required
+    - name: Enabled
+      type: boolean
+      required: false
+      description: Whether the detector is enabled for this acquisition.
+      tier: required
+    - name: ExposureTime
+      type: entity
+      required: false
+      description: The exposure time of a camera, for this acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: Binning
+      type: entity
+      required: false
+      description: The number of sensor pixels binned into one along X and Y.
+      tier: required
+      items: Vector2D
+      owns: true
+    - name: CollectionAngle
+      type: entity
+      required: false
+      description: The solid angle an analytical (X-ray) detector collects over.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElevationAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector above the specimen plane.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: AzimuthAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector around the beam axis.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: CollectionAngleRange
+      type: entity
+      required: false
+      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
+      tier: required
+      items: QuantityRange
+      owns: true
+    - name: LiveTime
+      type: entity
+      required: false
+      description: The time an analytical detector's pulse processor was open for counts.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: RealTime
+      type: entity
+      required: false
+      description: The elapsed time of an analytical acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: PulseProcessTime
+      type: entity
+      required: false
+      description: The pulse processing (shaping) time of an analytical detector.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: InputCountRate
+      type: float
+      required: false
+      description: The rate of counts arriving at an analytical detector, per second.
+      tier: required
+    - name: OutputCountRate
+      type: float
+      required: false
+      description: The rate of counts an analytical detector processed, per second.
+      tier: required
+    - name: Dispersion
+      type: entity
+      required: false
+      description: The energy width of one channel of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: OffsetEnergy
+      type: entity
+      required: false
+      description: The energy offset of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: BeginEnergy
+      type: entity
+      required: false
+      description: The energy an analytical detector's spectrum begins at.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElectronicsNoise
+      type: entity
+      required: false
+      description: The electronic noise of an analytical detector, as an energy.
+      tier: required
+      items: Quantity
+      owns: true
     - name: MapAnnotation
       type: list
       required: false
@@ -19317,6 +19428,117 @@ entities:
       type: string
       required: false
       tier: required
+    - name: Inserted
+      type: boolean
+      required: false
+      description: Whether the detector is inserted into the beam path.
+      tier: required
+    - name: Enabled
+      type: boolean
+      required: false
+      description: Whether the detector is enabled for this acquisition.
+      tier: required
+    - name: ExposureTime
+      type: entity
+      required: false
+      description: The exposure time of a camera, for this acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: Binning
+      type: entity
+      required: false
+      description: The number of sensor pixels binned into one along X and Y.
+      tier: required
+      items: Vector2D
+      owns: true
+    - name: CollectionAngle
+      type: entity
+      required: false
+      description: The solid angle an analytical (X-ray) detector collects over.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElevationAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector above the specimen plane.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: AzimuthAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector around the beam axis.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: CollectionAngleRange
+      type: entity
+      required: false
+      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
+      tier: required
+      items: QuantityRange
+      owns: true
+    - name: LiveTime
+      type: entity
+      required: false
+      description: The time an analytical detector's pulse processor was open for counts.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: RealTime
+      type: entity
+      required: false
+      description: The elapsed time of an analytical acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: PulseProcessTime
+      type: entity
+      required: false
+      description: The pulse processing (shaping) time of an analytical detector.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: InputCountRate
+      type: float
+      required: false
+      description: The rate of counts arriving at an analytical detector, per second.
+      tier: required
+    - name: OutputCountRate
+      type: float
+      required: false
+      description: The rate of counts an analytical detector processed, per second.
+      tier: required
+    - name: Dispersion
+      type: entity
+      required: false
+      description: The energy width of one channel of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: OffsetEnergy
+      type: entity
+      required: false
+      description: The energy offset of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: BeginEnergy
+      type: entity
+      required: false
+      description: The energy an analytical detector's spectrum begins at.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElectronicsNoise
+      type: entity
+      required: false
+      description: The electronic noise of an analytical detector, as an energy.
+      tier: required
+      items: Quantity
+      owns: true
     - name: MapAnnotation
       type: list
       required: false
@@ -19710,6 +19932,117 @@ entities:
       type: string
       required: false
       tier: required
+    - name: Inserted
+      type: boolean
+      required: false
+      description: Whether the detector is inserted into the beam path.
+      tier: required
+    - name: Enabled
+      type: boolean
+      required: false
+      description: Whether the detector is enabled for this acquisition.
+      tier: required
+    - name: ExposureTime
+      type: entity
+      required: false
+      description: The exposure time of a camera, for this acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: Binning
+      type: entity
+      required: false
+      description: The number of sensor pixels binned into one along X and Y.
+      tier: required
+      items: Vector2D
+      owns: true
+    - name: CollectionAngle
+      type: entity
+      required: false
+      description: The solid angle an analytical (X-ray) detector collects over.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElevationAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector above the specimen plane.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: AzimuthAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector around the beam axis.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: CollectionAngleRange
+      type: entity
+      required: false
+      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
+      tier: required
+      items: QuantityRange
+      owns: true
+    - name: LiveTime
+      type: entity
+      required: false
+      description: The time an analytical detector's pulse processor was open for counts.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: RealTime
+      type: entity
+      required: false
+      description: The elapsed time of an analytical acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: PulseProcessTime
+      type: entity
+      required: false
+      description: The pulse processing (shaping) time of an analytical detector.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: InputCountRate
+      type: float
+      required: false
+      description: The rate of counts arriving at an analytical detector, per second.
+      tier: required
+    - name: OutputCountRate
+      type: float
+      required: false
+      description: The rate of counts an analytical detector processed, per second.
+      tier: required
+    - name: Dispersion
+      type: entity
+      required: false
+      description: The energy width of one channel of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: OffsetEnergy
+      type: entity
+      required: false
+      description: The energy offset of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: BeginEnergy
+      type: entity
+      required: false
+      description: The energy an analytical detector's spectrum begins at.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElectronicsNoise
+      type: entity
+      required: false
+      description: The electronic noise of an analytical detector, as an energy.
+      tier: required
+      items: Quantity
+      owns: true
     - name: MapAnnotation
       type: list
       required: false
@@ -20091,6 +20424,117 @@ entities:
       type: string
       required: false
       tier: required
+    - name: Inserted
+      type: boolean
+      required: false
+      description: Whether the detector is inserted into the beam path.
+      tier: required
+    - name: Enabled
+      type: boolean
+      required: false
+      description: Whether the detector is enabled for this acquisition.
+      tier: required
+    - name: ExposureTime
+      type: entity
+      required: false
+      description: The exposure time of a camera, for this acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: Binning
+      type: entity
+      required: false
+      description: The number of sensor pixels binned into one along X and Y.
+      tier: required
+      items: Vector2D
+      owns: true
+    - name: CollectionAngle
+      type: entity
+      required: false
+      description: The solid angle an analytical (X-ray) detector collects over.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElevationAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector above the specimen plane.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: AzimuthAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector around the beam axis.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: CollectionAngleRange
+      type: entity
+      required: false
+      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
+      tier: required
+      items: QuantityRange
+      owns: true
+    - name: LiveTime
+      type: entity
+      required: false
+      description: The time an analytical detector's pulse processor was open for counts.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: RealTime
+      type: entity
+      required: false
+      description: The elapsed time of an analytical acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: PulseProcessTime
+      type: entity
+      required: false
+      description: The pulse processing (shaping) time of an analytical detector.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: InputCountRate
+      type: float
+      required: false
+      description: The rate of counts arriving at an analytical detector, per second.
+      tier: required
+    - name: OutputCountRate
+      type: float
+      required: false
+      description: The rate of counts an analytical detector processed, per second.
+      tier: required
+    - name: Dispersion
+      type: entity
+      required: false
+      description: The energy width of one channel of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: OffsetEnergy
+      type: entity
+      required: false
+      description: The energy offset of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: BeginEnergy
+      type: entity
+      required: false
+      description: The energy an analytical detector's spectrum begins at.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElectronicsNoise
+      type: entity
+      required: false
+      description: The electronic noise of an analytical detector, as an energy.
+      tier: required
+      items: Quantity
+      owns: true
     - name: MapAnnotation
       type: list
       required: false
@@ -20629,6 +21073,117 @@ entities:
       type: string
       required: false
       tier: required
+    - name: Inserted
+      type: boolean
+      required: false
+      description: Whether the detector is inserted into the beam path.
+      tier: required
+    - name: Enabled
+      type: boolean
+      required: false
+      description: Whether the detector is enabled for this acquisition.
+      tier: required
+    - name: ExposureTime
+      type: entity
+      required: false
+      description: The exposure time of a camera, for this acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: Binning
+      type: entity
+      required: false
+      description: The number of sensor pixels binned into one along X and Y.
+      tier: required
+      items: Vector2D
+      owns: true
+    - name: CollectionAngle
+      type: entity
+      required: false
+      description: The solid angle an analytical (X-ray) detector collects over.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElevationAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector above the specimen plane.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: AzimuthAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector around the beam axis.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: CollectionAngleRange
+      type: entity
+      required: false
+      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
+      tier: required
+      items: QuantityRange
+      owns: true
+    - name: LiveTime
+      type: entity
+      required: false
+      description: The time an analytical detector's pulse processor was open for counts.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: RealTime
+      type: entity
+      required: false
+      description: The elapsed time of an analytical acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: PulseProcessTime
+      type: entity
+      required: false
+      description: The pulse processing (shaping) time of an analytical detector.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: InputCountRate
+      type: float
+      required: false
+      description: The rate of counts arriving at an analytical detector, per second.
+      tier: required
+    - name: OutputCountRate
+      type: float
+      required: false
+      description: The rate of counts an analytical detector processed, per second.
+      tier: required
+    - name: Dispersion
+      type: entity
+      required: false
+      description: The energy width of one channel of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: OffsetEnergy
+      type: entity
+      required: false
+      description: The energy offset of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: BeginEnergy
+      type: entity
+      required: false
+      description: The energy an analytical detector's spectrum begins at.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElectronicsNoise
+      type: entity
+      required: false
+      description: The electronic noise of an analytical detector, as an energy.
+      tier: required
+      items: Quantity
+      owns: true
     - name: MapAnnotation
       type: list
       required: false
@@ -21134,6 +21689,117 @@ entities:
       type: string
       required: false
       tier: required
+    - name: Inserted
+      type: boolean
+      required: false
+      description: Whether the detector is inserted into the beam path.
+      tier: required
+    - name: Enabled
+      type: boolean
+      required: false
+      description: Whether the detector is enabled for this acquisition.
+      tier: required
+    - name: ExposureTime
+      type: entity
+      required: false
+      description: The exposure time of a camera, for this acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: Binning
+      type: entity
+      required: false
+      description: The number of sensor pixels binned into one along X and Y.
+      tier: required
+      items: Vector2D
+      owns: true
+    - name: CollectionAngle
+      type: entity
+      required: false
+      description: The solid angle an analytical (X-ray) detector collects over.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElevationAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector above the specimen plane.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: AzimuthAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector around the beam axis.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: CollectionAngleRange
+      type: entity
+      required: false
+      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
+      tier: required
+      items: QuantityRange
+      owns: true
+    - name: LiveTime
+      type: entity
+      required: false
+      description: The time an analytical detector's pulse processor was open for counts.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: RealTime
+      type: entity
+      required: false
+      description: The elapsed time of an analytical acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: PulseProcessTime
+      type: entity
+      required: false
+      description: The pulse processing (shaping) time of an analytical detector.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: InputCountRate
+      type: float
+      required: false
+      description: The rate of counts arriving at an analytical detector, per second.
+      tier: required
+    - name: OutputCountRate
+      type: float
+      required: false
+      description: The rate of counts an analytical detector processed, per second.
+      tier: required
+    - name: Dispersion
+      type: entity
+      required: false
+      description: The energy width of one channel of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: OffsetEnergy
+      type: entity
+      required: false
+      description: The energy offset of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: BeginEnergy
+      type: entity
+      required: false
+      description: The energy an analytical detector's spectrum begins at.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElectronicsNoise
+      type: entity
+      required: false
+      description: The electronic noise of an analytical detector, as an energy.
+      tier: required
+      items: Quantity
+      owns: true
     - name: MapAnnotation
       type: list
       required: false
@@ -21644,6 +22310,117 @@ entities:
       type: string
       required: false
       tier: required
+    - name: Inserted
+      type: boolean
+      required: false
+      description: Whether the detector is inserted into the beam path.
+      tier: required
+    - name: Enabled
+      type: boolean
+      required: false
+      description: Whether the detector is enabled for this acquisition.
+      tier: required
+    - name: ExposureTime
+      type: entity
+      required: false
+      description: The exposure time of a camera, for this acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: Binning
+      type: entity
+      required: false
+      description: The number of sensor pixels binned into one along X and Y.
+      tier: required
+      items: Vector2D
+      owns: true
+    - name: CollectionAngle
+      type: entity
+      required: false
+      description: The solid angle an analytical (X-ray) detector collects over.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElevationAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector above the specimen plane.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: AzimuthAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector around the beam axis.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: CollectionAngleRange
+      type: entity
+      required: false
+      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
+      tier: required
+      items: QuantityRange
+      owns: true
+    - name: LiveTime
+      type: entity
+      required: false
+      description: The time an analytical detector's pulse processor was open for counts.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: RealTime
+      type: entity
+      required: false
+      description: The elapsed time of an analytical acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: PulseProcessTime
+      type: entity
+      required: false
+      description: The pulse processing (shaping) time of an analytical detector.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: InputCountRate
+      type: float
+      required: false
+      description: The rate of counts arriving at an analytical detector, per second.
+      tier: required
+    - name: OutputCountRate
+      type: float
+      required: false
+      description: The rate of counts an analytical detector processed, per second.
+      tier: required
+    - name: Dispersion
+      type: entity
+      required: false
+      description: The energy width of one channel of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: OffsetEnergy
+      type: entity
+      required: false
+      description: The energy offset of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: BeginEnergy
+      type: entity
+      required: false
+      description: The energy an analytical detector's spectrum begins at.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElectronicsNoise
+      type: entity
+      required: false
+      description: The electronic noise of an analytical detector, as an energy.
+      tier: required
+      items: Quantity
+      owns: true
     - name: MapAnnotation
       type: list
       required: false
@@ -22187,6 +22964,117 @@ entities:
       type: string
       required: false
       tier: required
+    - name: Inserted
+      type: boolean
+      required: false
+      description: Whether the detector is inserted into the beam path.
+      tier: required
+    - name: Enabled
+      type: boolean
+      required: false
+      description: Whether the detector is enabled for this acquisition.
+      tier: required
+    - name: ExposureTime
+      type: entity
+      required: false
+      description: The exposure time of a camera, for this acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: Binning
+      type: entity
+      required: false
+      description: The number of sensor pixels binned into one along X and Y.
+      tier: required
+      items: Vector2D
+      owns: true
+    - name: CollectionAngle
+      type: entity
+      required: false
+      description: The solid angle an analytical (X-ray) detector collects over.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElevationAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector above the specimen plane.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: AzimuthAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector around the beam axis.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: CollectionAngleRange
+      type: entity
+      required: false
+      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
+      tier: required
+      items: QuantityRange
+      owns: true
+    - name: LiveTime
+      type: entity
+      required: false
+      description: The time an analytical detector's pulse processor was open for counts.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: RealTime
+      type: entity
+      required: false
+      description: The elapsed time of an analytical acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: PulseProcessTime
+      type: entity
+      required: false
+      description: The pulse processing (shaping) time of an analytical detector.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: InputCountRate
+      type: float
+      required: false
+      description: The rate of counts arriving at an analytical detector, per second.
+      tier: required
+    - name: OutputCountRate
+      type: float
+      required: false
+      description: The rate of counts an analytical detector processed, per second.
+      tier: required
+    - name: Dispersion
+      type: entity
+      required: false
+      description: The energy width of one channel of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: OffsetEnergy
+      type: entity
+      required: false
+      description: The energy offset of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: BeginEnergy
+      type: entity
+      required: false
+      description: The energy an analytical detector's spectrum begins at.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElectronicsNoise
+      type: entity
+      required: false
+      description: The electronic noise of an analytical detector, as an energy.
+      tier: required
+      items: Quantity
+      owns: true
     - name: MapAnnotation
       type: list
       required: false
@@ -22715,6 +23603,117 @@ entities:
       type: string
       required: false
       tier: recommended
+    - name: Inserted
+      type: boolean
+      required: false
+      description: Whether the detector is inserted into the beam path.
+      tier: recommended
+    - name: Enabled
+      type: boolean
+      required: false
+      description: Whether the detector is enabled for this acquisition.
+      tier: recommended
+    - name: ExposureTime
+      type: entity
+      required: false
+      description: The exposure time of a camera, for this acquisition.
+      tier: recommended
+      items: Quantity
+      owns: true
+    - name: Binning
+      type: entity
+      required: false
+      description: The number of sensor pixels binned into one along X and Y.
+      tier: recommended
+      items: Vector2D
+      owns: true
+    - name: CollectionAngle
+      type: entity
+      required: false
+      description: The solid angle an analytical (X-ray) detector collects over.
+      tier: recommended
+      items: Quantity
+      owns: true
+    - name: ElevationAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector above the specimen plane.
+      tier: recommended
+      items: Quantity
+      owns: true
+    - name: AzimuthAngle
+      type: entity
+      required: false
+      description: The angle of an analytical detector around the beam axis.
+      tier: recommended
+      items: Quantity
+      owns: true
+    - name: CollectionAngleRange
+      type: entity
+      required: false
+      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
+      tier: recommended
+      items: QuantityRange
+      owns: true
+    - name: LiveTime
+      type: entity
+      required: false
+      description: The time an analytical detector's pulse processor was open for counts.
+      tier: recommended
+      items: Quantity
+      owns: true
+    - name: RealTime
+      type: entity
+      required: false
+      description: The elapsed time of an analytical acquisition.
+      tier: recommended
+      items: Quantity
+      owns: true
+    - name: PulseProcessTime
+      type: entity
+      required: false
+      description: The pulse processing (shaping) time of an analytical detector.
+      tier: recommended
+      items: Quantity
+      owns: true
+    - name: InputCountRate
+      type: float
+      required: false
+      description: The rate of counts arriving at an analytical detector, per second.
+      tier: recommended
+    - name: OutputCountRate
+      type: float
+      required: false
+      description: The rate of counts an analytical detector processed, per second.
+      tier: recommended
+    - name: Dispersion
+      type: entity
+      required: false
+      description: The energy width of one channel of an analytical detector's spectrum.
+      tier: recommended
+      items: Quantity
+      owns: true
+    - name: OffsetEnergy
+      type: entity
+      required: false
+      description: The energy offset of an analytical detector's spectrum.
+      tier: recommended
+      items: Quantity
+      owns: true
+    - name: BeginEnergy
+      type: entity
+      required: false
+      description: The energy an analytical detector's spectrum begins at.
+      tier: recommended
+      items: Quantity
+      owns: true
+    - name: ElectronicsNoise
+      type: entity
+      required: false
+      description: The electronic noise of an analytical detector, as an energy.
+      tier: recommended
+      items: Quantity
+      owns: true
     - name: MapAnnotation
       type: list
       required: false
@@ -29757,6 +30756,28 @@ entities:
       required: false
       description: The location of a file containing the Wavelength profile of this hardware component.
       tier: optional
+  Vector2D:
+    description: A pair of values along X and Y.
+    fields:
+    - name: X
+      type: float
+      required: false
+    - name: Y
+      type: float
+      required: false
+  QuantityRange:
+    description: A range of values, from Begin to End, with the unit its source states, as free text.
+    fields:
+    - name: Begin
+      type: float
+      required: false
+    - name: End
+      type: float
+      required: false
+    - name: Unit
+      type: string
+      required: false
+      description: The unit as the source writes it, e.g. "rad".
   PockelsCell:
     description: Pockels cells are the basic components of electro-optic modulators. A Pockels cell is a device consisting
       of an electro-optic crystal (with some electrodes attached to it) through which a light beam can propagate. The phase
@@ -31533,15 +32554,6 @@ entities:
       items: string
       required: false
       description: For a value combined from several source values (e.g. a date and a time), their source paths.
-  Vector2D:
-    description: A pair of values along X and Y.
-    fields:
-    - name: X
-      type: float
-      required: false
-    - name: Y
-      type: float
-      required: false
   HighVoltage:
     description: High-voltage readings of the electron gun, as the source names them.
     fields:

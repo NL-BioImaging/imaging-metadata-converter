@@ -115,7 +115,7 @@ the tree next to LiMi's fields; new groups are classes of their own.
 | `Image` | `ElectronBeamSettings` (type, mode, focus, spot size, working distance, acceleration voltage, currents, convergence angle, defocus, shift, source tilt, stigmator, high-voltage readings, and the electron source it applies to), `ElectronOpticsSettings` (camera length, operating and projector modes, gun lens, apertures), `ScanSettings` (field of view, rotation, frame and line time, line integration, detector) |
 | `Image` | `Type`, `CropHint`, `Corrections` (contrast, brightness, gamma, black and white level) |
 | `Instrument` | `Manufacturer`, `Model`, `CatalogNumber`, `Type`, `ComputerName`, `Vacuum` (buffer, gun, sample and system vacuum, mode), `ElectronSource` |
-| `Detector` | `Type`, `Gain`, `Offset`, `Brightness`, `Contrast`, `Channel`, configuration |
+| `Detector` | `Type`, `Gain`, `Offset`, `Brightness`, `Contrast`, `Channel`, configuration; `Inserted`, `Enabled`, `ExposureTime`, `Binning`, and for electron-microscopy detectors the collection, elevation and azimuth angles, `CollectionAngleRange`, live, real and pulse-processing times, input and output count rates, and the spectrum's `Dispersion`, `OffsetEnergy`, `BeginEnergy` and `ElectronicsNoise` |
 | `Stage` | `Position`, `RawPosition`, `Tilt`, `Rotation`, `Bias`, `MultiStage` (sample height and radius) |
 | `Software` | `ApplicationID` |
 | `OME` | `Operations`, `Features`, `Annotation`, kept as source text |
@@ -130,7 +130,8 @@ operator is LiMi's `Experimenter.UserName`, the start of acquisition
 
 A value with a unit (`WorkingDistance`, `FieldOfView.X`, ...) is one shared
 class, `Quantity` with `Value` and `Unit`, the unit as the source writes it; a
-pair along X and Y (`Shift`, `Stigmator`) is a `Vector2D`.
+range (`CollectionAngleRange`) is a `QuantityRange` with `Begin`, `End` and
+`Unit`; a pair along X and Y (`Shift`, `Stigmator`, `Binning`) is a `Vector2D`.
 
 ## Provenance
 

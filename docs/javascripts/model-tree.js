@@ -253,7 +253,7 @@
       /* a rule stating the unit its source implies names its target in "target" */
       if (named && named.target) named = named.target;
       [].concat(named).forEach(function (rule) {
-        var parts = String(rule).replace(/\[\]$/, '').replace(/\[\*\]/g, '').split('.');
+        var parts = String(rule).replace(/\[\]$/, '').replace(/\[\]\./g, '.').replace(/\[\*\]/g, '').split('.');
         var start = 0;
         if (String(rule).indexOf('[*]') >= 0) {
           parts.forEach(function (part, index) {

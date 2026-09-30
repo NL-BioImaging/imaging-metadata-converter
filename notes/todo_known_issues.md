@@ -12,8 +12,10 @@ no datasets. After a change to the model: regenerate (`python scripts/metaseed_g
 metaseed's compatibility check against the last published version (see "Profile versions"), bump the
 version, and push and publish again.
 
-Unpublished since 1.0 (2026-09-30): `Instrument.CatalogNumber` (InstrumentExtension), which metaseed's
-check finds compatible (an optional field added): publish as 1.1, with the model's version.
+Unpublished since 1.0 (2026-09-30): `Instrument.CatalogNumber`, the detector extension fields
+(DetectorExtension: Inserted, Enabled, ExposureTime, Binning, angles, CollectionAngleRange, EDS times,
+rates and energies) and the class `QuantityRange`; metaseed's check finds all 155 changes compatible
+(optional fields, one entity): publish as 1.1, with the model's version.
 
 The model's `id` and `imaging:` prefix still name the consolidator's URL
 (https://github.com/NL-BioImaging/imaging-metadata-consolidator/models/imaging), kept for now (user,
@@ -175,8 +177,24 @@ whitespace-separated value, as a number) for ViewSetup.size -> Pixels.SizeX/Y/Z 
 PhysicalSizeX/Y/Z (BDV order x y z); voxelSize.unit -> the three units, "micron"/"microns" as aliases
 of um; ViewSetup.name -> Channel.Name; ImageLoader.n5.value -> Image.Name.
 Done: platy 0 -> 22% of keys (5 of 23; the rest is BDV's loader, time points and registration).
-Status: platy done, not committed. Coverage of the three now: DICOM 21%, LIF widefield 5%, LIF
-confocal 10%, platy 22%.
+Coverage of the three now: DICOM 21%, LIF widefield 5%, LIF confocal 10%, platy 22% (pushed 50ebcb5).
+TALOS (user, 2026-09-30): A - the exporter reads a number written as a string into a numeric field
+(and a number into a string field), SourceValue keeping the source's (TALOS 22 core values; measured: 8
+examples up, none down); B - one GenericDetector per TALOS detector, extension fields for what LiMi
+lacks; C - apertures, optics modes, CustomProperties values, instrument/scan/binary-result keys; all
+proposed per key first. Not D: Operations/Features (Velox processing history) stay Properties.
+A done (numbers as text and back, SourceValue keeping the source's; 128 tests pass), not committed.
+B (user): B1 a rule "Detectors.*.DetectorName": "GenericDetector[].Name" renames a field inside each
+record a Target[] rule collapses (TALOS Detectors.*, Phenom acquisition.scan.detectors.* ->
+GenericDetector[]); B2 DetectorExtension gains Inserted, Enabled, ExposureTime (s), Binning (Vector2D),
+Collection/Elevation/AzimuthAngle (rad), CollectionAngleRange {Begin, End}, Live/Real/PulseProcessTime
+(s), Input/OutputCountRate, Dispersion/OffsetEnergy/BeginEnergy/ElectronicsNoise (eV); B3 "true"/"false"
+read into boolean fields. Configuration stays in the model, unused by these.
+B done: item-field rules (and the label, as "Prefix.*.id"; an implied unit too), the extension fields,
+text booleans. TALOS keys 3 -> 15% (TALOS 2 2 -> 11%), Phenom 44 -> 53%. DetectorMetadata now has
+no location (GenericDetector is a list, so ActiveConfiguration cannot take it): part of C.
+Status: A and B done, not committed; next C (apertures, optics, CustomProperties, DetectorMetadata,
+instrument/scan/binary-result keys), proposed per key.
 
 ## The model and the pipeline
 

@@ -105,7 +105,11 @@ apart into one Property per leaf. Nothing is dropped.
 
 A unit spelled otherwise than the model spells it (`um`, `micrometre`) is
 stored as the model's unit (`µm`) when the units schema lists the spelling as
-an alias; the mapping keeps the source's spelling as `SourceValue`. Record IDs
+an alias; the mapping keeps the source's spelling as `SourceValue`. A number
+the source writes as text (TALOS's `"80000"`) is stored as the number a
+numeric field takes, and a number as the text a text field takes (Leica's
+order number 11506432 as a `CatalogNumber`), the mapping keeping the source's
+own value the same way; text that is no finite number stays a Property. Record IDs
 follow OME's `Type:N` convention (`Property:2653`, `SourceMapping:12`).
 
 A dataset for the metaseed Hub needs metaseed's tree serialisation, not this

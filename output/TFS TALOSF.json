@@ -196,124 +196,177 @@
   "Plane": {
     "PixelDwellTime": "0.0001"
   },
-  "GenericDetector": {
-    "Configuration": [
-      {
-        "DetectorName": "BM-Ceta",
-        "DetectorType": "ImagingDetector",
-        "ExposureMode": "",
-        "Binning": {
-          "width": "1",
-          "height": "1"
-        },
-        "ReadOutArea": {
-          "left": "0",
-          "top": "0",
-          "right": "4096",
-          "bottom": "4096"
-        },
-        "ExposureTime": "0.5",
-        "Shutters": {
-          "Shutter-0": {
-            "Position": "PostSpecimen",
-            "Type": "Electrostatic"
-          }
-        },
-        "DarkGainCorrectionType": "3",
-        "id": "Detector-0"
+  "GenericDetector": [
+    {
+      "ExposureMode": "",
+      "Binning": {
+        "X": "1",
+        "Y": "1"
       },
-      {
-        "DetectorName": "DualX1",
-        "DetectorType": "AnalyticalDetector",
-        "Inserted": "true",
-        "Enabled": "true",
-        "ElevationAngle": "0.34906585000000001",
-        "AzimuthAngle": "1.5707963267948966",
-        "CollectionAngle": "0.90101100000000001",
-        "Dispersion": "5",
-        "PulseProcessTime": "2.9081620097620193e-06",
-        "RealTime": "424.70166195152729",
-        "LiveTime": "285.18219999999997",
-        "InputCountRate": "132519",
-        "OutputCountRate": "88985",
-        "AnalyticalDetectorShutterState": "1",
-        "OffsetEnergy": "-480.05000000000001",
-        "ElectronicsNoise": "12.145301744118672",
-        "BeginEnergy": "150",
-        "id": "Detector-1"
+      "ReadOutArea": {
+        "left": "0",
+        "top": "0",
+        "right": "4096",
+        "bottom": "4096"
       },
-      {
-        "DetectorName": "DualX2",
-        "DetectorType": "AnalyticalDetector",
-        "Inserted": "true",
-        "Enabled": "true",
-        "ElevationAngle": "0.34906585000000001",
-        "AzimuthAngle": "-1.5707963267948966",
-        "CollectionAngle": "0.90101100000000001",
-        "Dispersion": "5",
-        "PulseProcessTime": "2.9081620097620193e-06",
-        "RealTime": "424.70166195152729",
-        "LiveTime": "285.18219999999997",
-        "InputCountRate": "132519",
-        "OutputCountRate": "88985",
-        "AnalyticalDetectorShutterState": "1",
-        "OffsetEnergy": "-480.05000000000001",
-        "ElectronicsNoise": "13.249420084493098",
-        "BeginEnergy": "150",
-        "id": "Detector-2"
+      "Shutters": {
+        "Shutter-0": {
+          "Position": "PostSpecimen",
+          "Type": "Electrostatic"
+        }
       },
-      {
-        "DetectorName": "Flucam",
-        "DetectorType": "ImagingDetector",
-        "ExposureMode": "",
-        "Gain": "0.69999999999999996",
-        "Binning": {
-          "width": "2",
-          "height": "2"
-        },
-        "ReadOutArea": {
-          "left": "0",
-          "top": "0",
-          "right": "512",
-          "bottom": "512"
-        },
-        "ExposureTime": "0.0016000000000000001",
-        "Shutters": {
-          "Shutter-0": {
-            "Position": "None",
-            "Type": "Electrostatic"
-          }
-        },
-        "DarkGainCorrectionType": "3",
-        "id": "Detector-3"
-      },
-      {
-        "DetectorName": "HAADF",
-        "DetectorType": "ScanningDetector",
-        "Inserted": "true",
-        "Enabled": "true",
-        "Gain": "18.579199760535872",
-        "Offset": "-4.5638399999999999",
-        "CollectionAngleRange": {
-          "begin": "0.046715186654504498",
-          "end": "0.20000000000000001"
-        },
-        "id": "Detector-4"
+      "DarkGainCorrectionType": "3",
+      "id": "Detector-0",
+      "Name": "BM-Ceta",
+      "Type": "ImagingDetector",
+      "ExposureTime": {
+        "Value": "0.5",
+        "Unit": "s"
       }
-    ],
-    "ActiveConfiguration": {
-      "DetectorName": "HAADF",
-      "DetectorType": "ScanningDetector",
+    },
+    {
+      "Inserted": "true",
+      "Enabled": "true",
+      "InputCountRate": "132519",
+      "OutputCountRate": "88985",
+      "AnalyticalDetectorShutterState": "1",
+      "id": "Detector-1",
+      "Name": "DualX1",
+      "Type": "AnalyticalDetector",
+      "ElevationAngle": {
+        "Value": "0.34906585000000001",
+        "Unit": "rad"
+      },
+      "AzimuthAngle": {
+        "Value": "1.5707963267948966",
+        "Unit": "rad"
+      },
+      "CollectionAngle": {
+        "Value": "0.90101100000000001",
+        "Unit": "rad"
+      },
+      "Dispersion": {
+        "Value": "5",
+        "Unit": "eV"
+      },
+      "PulseProcessTime": {
+        "Value": "2.9081620097620193e-06",
+        "Unit": "s"
+      },
+      "RealTime": {
+        "Value": "424.70166195152729",
+        "Unit": "s"
+      },
+      "LiveTime": {
+        "Value": "285.18219999999997",
+        "Unit": "s"
+      },
+      "OffsetEnergy": {
+        "Value": "-480.05000000000001",
+        "Unit": "eV"
+      },
+      "ElectronicsNoise": {
+        "Value": "12.145301744118672",
+        "Unit": "eV"
+      },
+      "BeginEnergy": {
+        "Value": "150",
+        "Unit": "eV"
+      }
+    },
+    {
+      "Inserted": "true",
+      "Enabled": "true",
+      "InputCountRate": "132519",
+      "OutputCountRate": "88985",
+      "AnalyticalDetectorShutterState": "1",
+      "id": "Detector-2",
+      "Name": "DualX2",
+      "Type": "AnalyticalDetector",
+      "ElevationAngle": {
+        "Value": "0.34906585000000001",
+        "Unit": "rad"
+      },
+      "AzimuthAngle": {
+        "Value": "-1.5707963267948966",
+        "Unit": "rad"
+      },
+      "CollectionAngle": {
+        "Value": "0.90101100000000001",
+        "Unit": "rad"
+      },
+      "Dispersion": {
+        "Value": "5",
+        "Unit": "eV"
+      },
+      "PulseProcessTime": {
+        "Value": "2.9081620097620193e-06",
+        "Unit": "s"
+      },
+      "RealTime": {
+        "Value": "424.70166195152729",
+        "Unit": "s"
+      },
+      "LiveTime": {
+        "Value": "285.18219999999997",
+        "Unit": "s"
+      },
+      "OffsetEnergy": {
+        "Value": "-480.05000000000001",
+        "Unit": "eV"
+      },
+      "ElectronicsNoise": {
+        "Value": "13.249420084493098",
+        "Unit": "eV"
+      },
+      "BeginEnergy": {
+        "Value": "150",
+        "Unit": "eV"
+      }
+    },
+    {
+      "ExposureMode": "",
+      "Gain": "0.69999999999999996",
+      "Binning": {
+        "X": "2",
+        "Y": "2"
+      },
+      "ReadOutArea": {
+        "left": "0",
+        "top": "0",
+        "right": "512",
+        "bottom": "512"
+      },
+      "Shutters": {
+        "Shutter-0": {
+          "Position": "None",
+          "Type": "Electrostatic"
+        }
+      },
+      "DarkGainCorrectionType": "3",
+      "id": "Detector-3",
+      "Name": "Flucam",
+      "Type": "ImagingDetector",
+      "ExposureTime": {
+        "Value": "0.0016000000000000001",
+        "Unit": "s"
+      }
+    },
+    {
       "Inserted": "true",
       "Enabled": "true",
       "Gain": "18.579199760535872",
       "Offset": "-4.5638399999999999",
       "CollectionAngleRange": {
-        "begin": "0.046715186654504498",
-        "end": "0.20000000000000001"
-      }
+        "Begin": "0.046715186654504498",
+        "Unit": "rad",
+        "End": "0.20000000000000001"
+      },
+      "id": "Detector-4",
+      "Name": "HAADF",
+      "Type": "ScanningDetector"
     }
-  },
+  ],
   "Sample": {
     "SampleId": "6232"
   },
@@ -4280,6 +4333,18 @@
       }
     }
   },
+  "DetectorMetadata": {
+    "DetectorName": "HAADF",
+    "DetectorType": "ScanningDetector",
+    "Inserted": "true",
+    "Enabled": "true",
+    "Gain": "18.579199760535872",
+    "Offset": "-4.5638399999999999",
+    "CollectionAngleRange": {
+      "begin": "0.046715186654504498",
+      "end": "0.20000000000000001"
+    }
+  },
   "SourceMap": {
     "Instrument.MetadataDefinitionVersion": "Core.MetadataDefinitionVersion",
     "Instrument.MetadataSchemaVersion": "Core.MetadataSchemaVersion",
@@ -4376,80 +4441,149 @@
     "Image.ScanSettings.FrameTime.Value": "Scan.FrameTime",
     "Image.ScanSettings.Rotation.Value": "Scan.ScanRotation",
     "Instrument.Vacuum.VacuumMode": "Vacuum.VacuumMode",
-    "GenericDetector.Configuration[0].DetectorName": "Detectors.Detector-0.DetectorName",
-    "GenericDetector.Configuration[0].DetectorType": "Detectors.Detector-0.DetectorType",
-    "GenericDetector.Configuration[0].ExposureMode": "Detectors.Detector-0.ExposureMode",
-    "GenericDetector.Configuration[0].Binning.width": "Detectors.Detector-0.Binning.width",
-    "GenericDetector.Configuration[0].Binning.height": "Detectors.Detector-0.Binning.height",
-    "GenericDetector.Configuration[0].ReadOutArea.left": "Detectors.Detector-0.ReadOutArea.left",
-    "GenericDetector.Configuration[0].ReadOutArea.top": "Detectors.Detector-0.ReadOutArea.top",
-    "GenericDetector.Configuration[0].ReadOutArea.right": "Detectors.Detector-0.ReadOutArea.right",
-    "GenericDetector.Configuration[0].ReadOutArea.bottom": "Detectors.Detector-0.ReadOutArea.bottom",
-    "GenericDetector.Configuration[0].ExposureTime": "Detectors.Detector-0.ExposureTime",
-    "GenericDetector.Configuration[0].Shutters.Shutter-0.Position": "Detectors.Detector-0.Shutters.Shutter-0.Position",
-    "GenericDetector.Configuration[0].Shutters.Shutter-0.Type": "Detectors.Detector-0.Shutters.Shutter-0.Type",
-    "GenericDetector.Configuration[0].DarkGainCorrectionType": "Detectors.Detector-0.DarkGainCorrectionType",
-    "GenericDetector.Configuration[0].id": "Detectors.Detector-0",
-    "GenericDetector.Configuration[1].DetectorName": "Detectors.Detector-1.DetectorName",
-    "GenericDetector.Configuration[1].DetectorType": "Detectors.Detector-1.DetectorType",
-    "GenericDetector.Configuration[1].Inserted": "Detectors.Detector-1.Inserted",
-    "GenericDetector.Configuration[1].Enabled": "Detectors.Detector-1.Enabled",
-    "GenericDetector.Configuration[1].ElevationAngle": "Detectors.Detector-1.ElevationAngle",
-    "GenericDetector.Configuration[1].AzimuthAngle": "Detectors.Detector-1.AzimuthAngle",
-    "GenericDetector.Configuration[1].CollectionAngle": "Detectors.Detector-1.CollectionAngle",
-    "GenericDetector.Configuration[1].Dispersion": "Detectors.Detector-1.Dispersion",
-    "GenericDetector.Configuration[1].PulseProcessTime": "Detectors.Detector-1.PulseProcessTime",
-    "GenericDetector.Configuration[1].RealTime": "Detectors.Detector-1.RealTime",
-    "GenericDetector.Configuration[1].LiveTime": "Detectors.Detector-1.LiveTime",
-    "GenericDetector.Configuration[1].InputCountRate": "Detectors.Detector-1.InputCountRate",
-    "GenericDetector.Configuration[1].OutputCountRate": "Detectors.Detector-1.OutputCountRate",
-    "GenericDetector.Configuration[1].AnalyticalDetectorShutterState": "Detectors.Detector-1.AnalyticalDetectorShutterState",
-    "GenericDetector.Configuration[1].OffsetEnergy": "Detectors.Detector-1.OffsetEnergy",
-    "GenericDetector.Configuration[1].ElectronicsNoise": "Detectors.Detector-1.ElectronicsNoise",
-    "GenericDetector.Configuration[1].BeginEnergy": "Detectors.Detector-1.BeginEnergy",
-    "GenericDetector.Configuration[1].id": "Detectors.Detector-1",
-    "GenericDetector.Configuration[2].DetectorName": "Detectors.Detector-2.DetectorName",
-    "GenericDetector.Configuration[2].DetectorType": "Detectors.Detector-2.DetectorType",
-    "GenericDetector.Configuration[2].Inserted": "Detectors.Detector-2.Inserted",
-    "GenericDetector.Configuration[2].Enabled": "Detectors.Detector-2.Enabled",
-    "GenericDetector.Configuration[2].ElevationAngle": "Detectors.Detector-2.ElevationAngle",
-    "GenericDetector.Configuration[2].AzimuthAngle": "Detectors.Detector-2.AzimuthAngle",
-    "GenericDetector.Configuration[2].CollectionAngle": "Detectors.Detector-2.CollectionAngle",
-    "GenericDetector.Configuration[2].Dispersion": "Detectors.Detector-2.Dispersion",
-    "GenericDetector.Configuration[2].PulseProcessTime": "Detectors.Detector-2.PulseProcessTime",
-    "GenericDetector.Configuration[2].RealTime": "Detectors.Detector-2.RealTime",
-    "GenericDetector.Configuration[2].LiveTime": "Detectors.Detector-2.LiveTime",
-    "GenericDetector.Configuration[2].InputCountRate": "Detectors.Detector-2.InputCountRate",
-    "GenericDetector.Configuration[2].OutputCountRate": "Detectors.Detector-2.OutputCountRate",
-    "GenericDetector.Configuration[2].AnalyticalDetectorShutterState": "Detectors.Detector-2.AnalyticalDetectorShutterState",
-    "GenericDetector.Configuration[2].OffsetEnergy": "Detectors.Detector-2.OffsetEnergy",
-    "GenericDetector.Configuration[2].ElectronicsNoise": "Detectors.Detector-2.ElectronicsNoise",
-    "GenericDetector.Configuration[2].BeginEnergy": "Detectors.Detector-2.BeginEnergy",
-    "GenericDetector.Configuration[2].id": "Detectors.Detector-2",
-    "GenericDetector.Configuration[3].DetectorName": "Detectors.Detector-3.DetectorName",
-    "GenericDetector.Configuration[3].DetectorType": "Detectors.Detector-3.DetectorType",
-    "GenericDetector.Configuration[3].ExposureMode": "Detectors.Detector-3.ExposureMode",
-    "GenericDetector.Configuration[3].Gain": "Detectors.Detector-3.Gain",
-    "GenericDetector.Configuration[3].Binning.width": "Detectors.Detector-3.Binning.width",
-    "GenericDetector.Configuration[3].Binning.height": "Detectors.Detector-3.Binning.height",
-    "GenericDetector.Configuration[3].ReadOutArea.left": "Detectors.Detector-3.ReadOutArea.left",
-    "GenericDetector.Configuration[3].ReadOutArea.top": "Detectors.Detector-3.ReadOutArea.top",
-    "GenericDetector.Configuration[3].ReadOutArea.right": "Detectors.Detector-3.ReadOutArea.right",
-    "GenericDetector.Configuration[3].ReadOutArea.bottom": "Detectors.Detector-3.ReadOutArea.bottom",
-    "GenericDetector.Configuration[3].ExposureTime": "Detectors.Detector-3.ExposureTime",
-    "GenericDetector.Configuration[3].Shutters.Shutter-0.Position": "Detectors.Detector-3.Shutters.Shutter-0.Position",
-    "GenericDetector.Configuration[3].Shutters.Shutter-0.Type": "Detectors.Detector-3.Shutters.Shutter-0.Type",
-    "GenericDetector.Configuration[3].DarkGainCorrectionType": "Detectors.Detector-3.DarkGainCorrectionType",
-    "GenericDetector.Configuration[3].id": "Detectors.Detector-3",
-    "GenericDetector.Configuration[4].DetectorName": "Detectors.Detector-4.DetectorName",
-    "GenericDetector.Configuration[4].DetectorType": "Detectors.Detector-4.DetectorType",
-    "GenericDetector.Configuration[4].Inserted": "Detectors.Detector-4.Inserted",
-    "GenericDetector.Configuration[4].Enabled": "Detectors.Detector-4.Enabled",
-    "GenericDetector.Configuration[4].Gain": "Detectors.Detector-4.Gain",
-    "GenericDetector.Configuration[4].Offset": "Detectors.Detector-4.Offset",
-    "GenericDetector.Configuration[4].CollectionAngleRange.begin": "Detectors.Detector-4.CollectionAngleRange.begin",
-    "GenericDetector.Configuration[4].CollectionAngleRange.end": "Detectors.Detector-4.CollectionAngleRange.end",
-    "GenericDetector.Configuration[4].id": "Detectors.Detector-4",
+    "GenericDetector[0].ExposureMode": "Detectors.Detector-0.ExposureMode",
+    "GenericDetector[0].ReadOutArea.left": "Detectors.Detector-0.ReadOutArea.left",
+    "GenericDetector[0].ReadOutArea.top": "Detectors.Detector-0.ReadOutArea.top",
+    "GenericDetector[0].ReadOutArea.right": "Detectors.Detector-0.ReadOutArea.right",
+    "GenericDetector[0].ReadOutArea.bottom": "Detectors.Detector-0.ReadOutArea.bottom",
+    "GenericDetector[0].Shutters.Shutter-0.Position": "Detectors.Detector-0.Shutters.Shutter-0.Position",
+    "GenericDetector[0].Shutters.Shutter-0.Type": "Detectors.Detector-0.Shutters.Shutter-0.Type",
+    "GenericDetector[0].DarkGainCorrectionType": "Detectors.Detector-0.DarkGainCorrectionType",
+    "GenericDetector[0].id": "Detectors.Detector-0",
+    "GenericDetector[0].Name": "Detectors.Detector-0.DetectorName",
+    "GenericDetector[0].Type": "Detectors.Detector-0.DetectorType",
+    "GenericDetector[0].Binning.X": "Detectors.Detector-0.Binning.width",
+    "GenericDetector[0].Binning.Y": "Detectors.Detector-0.Binning.height",
+    "GenericDetector[0].ExposureTime.Value": "Detectors.Detector-0.ExposureTime",
+    "GenericDetector[0].ExposureTime.Unit": [
+      "Detectors.Detector-0.ExposureTime"
+    ],
+    "GenericDetector[1].Inserted": "Detectors.Detector-1.Inserted",
+    "GenericDetector[1].Enabled": "Detectors.Detector-1.Enabled",
+    "GenericDetector[1].InputCountRate": "Detectors.Detector-1.InputCountRate",
+    "GenericDetector[1].OutputCountRate": "Detectors.Detector-1.OutputCountRate",
+    "GenericDetector[1].AnalyticalDetectorShutterState": "Detectors.Detector-1.AnalyticalDetectorShutterState",
+    "GenericDetector[1].id": "Detectors.Detector-1",
+    "GenericDetector[1].Name": "Detectors.Detector-1.DetectorName",
+    "GenericDetector[1].Type": "Detectors.Detector-1.DetectorType",
+    "GenericDetector[1].ElevationAngle.Value": "Detectors.Detector-1.ElevationAngle",
+    "GenericDetector[1].ElevationAngle.Unit": [
+      "Detectors.Detector-1.ElevationAngle"
+    ],
+    "GenericDetector[1].AzimuthAngle.Value": "Detectors.Detector-1.AzimuthAngle",
+    "GenericDetector[1].AzimuthAngle.Unit": [
+      "Detectors.Detector-1.AzimuthAngle"
+    ],
+    "GenericDetector[1].CollectionAngle.Value": "Detectors.Detector-1.CollectionAngle",
+    "GenericDetector[1].CollectionAngle.Unit": [
+      "Detectors.Detector-1.CollectionAngle"
+    ],
+    "GenericDetector[1].Dispersion.Value": "Detectors.Detector-1.Dispersion",
+    "GenericDetector[1].Dispersion.Unit": [
+      "Detectors.Detector-1.Dispersion"
+    ],
+    "GenericDetector[1].PulseProcessTime.Value": "Detectors.Detector-1.PulseProcessTime",
+    "GenericDetector[1].PulseProcessTime.Unit": [
+      "Detectors.Detector-1.PulseProcessTime"
+    ],
+    "GenericDetector[1].RealTime.Value": "Detectors.Detector-1.RealTime",
+    "GenericDetector[1].RealTime.Unit": [
+      "Detectors.Detector-1.RealTime"
+    ],
+    "GenericDetector[1].LiveTime.Value": "Detectors.Detector-1.LiveTime",
+    "GenericDetector[1].LiveTime.Unit": [
+      "Detectors.Detector-1.LiveTime"
+    ],
+    "GenericDetector[1].OffsetEnergy.Value": "Detectors.Detector-1.OffsetEnergy",
+    "GenericDetector[1].OffsetEnergy.Unit": [
+      "Detectors.Detector-1.OffsetEnergy"
+    ],
+    "GenericDetector[1].ElectronicsNoise.Value": "Detectors.Detector-1.ElectronicsNoise",
+    "GenericDetector[1].ElectronicsNoise.Unit": [
+      "Detectors.Detector-1.ElectronicsNoise"
+    ],
+    "GenericDetector[1].BeginEnergy.Value": "Detectors.Detector-1.BeginEnergy",
+    "GenericDetector[1].BeginEnergy.Unit": [
+      "Detectors.Detector-1.BeginEnergy"
+    ],
+    "GenericDetector[2].Inserted": "Detectors.Detector-2.Inserted",
+    "GenericDetector[2].Enabled": "Detectors.Detector-2.Enabled",
+    "GenericDetector[2].InputCountRate": "Detectors.Detector-2.InputCountRate",
+    "GenericDetector[2].OutputCountRate": "Detectors.Detector-2.OutputCountRate",
+    "GenericDetector[2].AnalyticalDetectorShutterState": "Detectors.Detector-2.AnalyticalDetectorShutterState",
+    "GenericDetector[2].id": "Detectors.Detector-2",
+    "GenericDetector[2].Name": "Detectors.Detector-2.DetectorName",
+    "GenericDetector[2].Type": "Detectors.Detector-2.DetectorType",
+    "GenericDetector[2].ElevationAngle.Value": "Detectors.Detector-2.ElevationAngle",
+    "GenericDetector[2].ElevationAngle.Unit": [
+      "Detectors.Detector-2.ElevationAngle"
+    ],
+    "GenericDetector[2].AzimuthAngle.Value": "Detectors.Detector-2.AzimuthAngle",
+    "GenericDetector[2].AzimuthAngle.Unit": [
+      "Detectors.Detector-2.AzimuthAngle"
+    ],
+    "GenericDetector[2].CollectionAngle.Value": "Detectors.Detector-2.CollectionAngle",
+    "GenericDetector[2].CollectionAngle.Unit": [
+      "Detectors.Detector-2.CollectionAngle"
+    ],
+    "GenericDetector[2].Dispersion.Value": "Detectors.Detector-2.Dispersion",
+    "GenericDetector[2].Dispersion.Unit": [
+      "Detectors.Detector-2.Dispersion"
+    ],
+    "GenericDetector[2].PulseProcessTime.Value": "Detectors.Detector-2.PulseProcessTime",
+    "GenericDetector[2].PulseProcessTime.Unit": [
+      "Detectors.Detector-2.PulseProcessTime"
+    ],
+    "GenericDetector[2].RealTime.Value": "Detectors.Detector-2.RealTime",
+    "GenericDetector[2].RealTime.Unit": [
+      "Detectors.Detector-2.RealTime"
+    ],
+    "GenericDetector[2].LiveTime.Value": "Detectors.Detector-2.LiveTime",
+    "GenericDetector[2].LiveTime.Unit": [
+      "Detectors.Detector-2.LiveTime"
+    ],
+    "GenericDetector[2].OffsetEnergy.Value": "Detectors.Detector-2.OffsetEnergy",
+    "GenericDetector[2].OffsetEnergy.Unit": [
+      "Detectors.Detector-2.OffsetEnergy"
+    ],
+    "GenericDetector[2].ElectronicsNoise.Value": "Detectors.Detector-2.ElectronicsNoise",
+    "GenericDetector[2].ElectronicsNoise.Unit": [
+      "Detectors.Detector-2.ElectronicsNoise"
+    ],
+    "GenericDetector[2].BeginEnergy.Value": "Detectors.Detector-2.BeginEnergy",
+    "GenericDetector[2].BeginEnergy.Unit": [
+      "Detectors.Detector-2.BeginEnergy"
+    ],
+    "GenericDetector[3].ExposureMode": "Detectors.Detector-3.ExposureMode",
+    "GenericDetector[3].Gain": "Detectors.Detector-3.Gain",
+    "GenericDetector[3].ReadOutArea.left": "Detectors.Detector-3.ReadOutArea.left",
+    "GenericDetector[3].ReadOutArea.top": "Detectors.Detector-3.ReadOutArea.top",
+    "GenericDetector[3].ReadOutArea.right": "Detectors.Detector-3.ReadOutArea.right",
+    "GenericDetector[3].ReadOutArea.bottom": "Detectors.Detector-3.ReadOutArea.bottom",
+    "GenericDetector[3].Shutters.Shutter-0.Position": "Detectors.Detector-3.Shutters.Shutter-0.Position",
+    "GenericDetector[3].Shutters.Shutter-0.Type": "Detectors.Detector-3.Shutters.Shutter-0.Type",
+    "GenericDetector[3].DarkGainCorrectionType": "Detectors.Detector-3.DarkGainCorrectionType",
+    "GenericDetector[3].id": "Detectors.Detector-3",
+    "GenericDetector[3].Name": "Detectors.Detector-3.DetectorName",
+    "GenericDetector[3].Type": "Detectors.Detector-3.DetectorType",
+    "GenericDetector[3].Binning.X": "Detectors.Detector-3.Binning.width",
+    "GenericDetector[3].Binning.Y": "Detectors.Detector-3.Binning.height",
+    "GenericDetector[3].ExposureTime.Value": "Detectors.Detector-3.ExposureTime",
+    "GenericDetector[3].ExposureTime.Unit": [
+      "Detectors.Detector-3.ExposureTime"
+    ],
+    "GenericDetector[4].Inserted": "Detectors.Detector-4.Inserted",
+    "GenericDetector[4].Enabled": "Detectors.Detector-4.Enabled",
+    "GenericDetector[4].Gain": "Detectors.Detector-4.Gain",
+    "GenericDetector[4].Offset": "Detectors.Detector-4.Offset",
+    "GenericDetector[4].id": "Detectors.Detector-4",
+    "GenericDetector[4].Name": "Detectors.Detector-4.DetectorName",
+    "GenericDetector[4].Type": "Detectors.Detector-4.DetectorType",
+    "GenericDetector[4].CollectionAngleRange.Begin": "Detectors.Detector-4.CollectionAngleRange.begin",
+    "GenericDetector[4].CollectionAngleRange.Unit": [
+      "Detectors.Detector-4.CollectionAngleRange.begin"
+    ],
+    "GenericDetector[4].CollectionAngleRange.End": "Detectors.Detector-4.CollectionAngleRange.end",
     "Image.BinaryResult.AcquisitionUnit": "BinaryResult.AcquisitionUnit",
     "Image.BinaryResult.CompositionType": "BinaryResult.CompositionType",
     "Image.BinaryResult.DetectorIndex": "BinaryResult.DetectorIndex",
@@ -6229,14 +6363,14 @@
     "OME.Features.SIFeature.31b28890d1df469fada28c61102d78b9.imageDisplays[10]": "Features.SIFeature.31b28890d1df469fada28c61102d78b9.imageDisplays[10]",
     "OME.Features.SIFeature.31b28890d1df469fada28c61102d78b9.imageDisplays[11]": "Features.SIFeature.31b28890d1df469fada28c61102d78b9.imageDisplays[11]",
     "OME.Features.SIFeature.31b28890d1df469fada28c61102d78b9.spectrums[0].Summed": "Features.SIFeature.31b28890d1df469fada28c61102d78b9.spectrums[0].Summed",
-    "GenericDetector.ActiveConfiguration.DetectorName": "DetectorMetadata.DetectorName",
-    "GenericDetector.ActiveConfiguration.DetectorType": "DetectorMetadata.DetectorType",
-    "GenericDetector.ActiveConfiguration.Inserted": "DetectorMetadata.Inserted",
-    "GenericDetector.ActiveConfiguration.Enabled": "DetectorMetadata.Enabled",
-    "GenericDetector.ActiveConfiguration.Gain": "DetectorMetadata.Gain",
-    "GenericDetector.ActiveConfiguration.Offset": "DetectorMetadata.Offset",
-    "GenericDetector.ActiveConfiguration.CollectionAngleRange.begin": "DetectorMetadata.CollectionAngleRange.begin",
-    "GenericDetector.ActiveConfiguration.CollectionAngleRange.end": "DetectorMetadata.CollectionAngleRange.end",
+    "DetectorMetadata.DetectorName": "DetectorMetadata.DetectorName",
+    "DetectorMetadata.DetectorType": "DetectorMetadata.DetectorType",
+    "DetectorMetadata.Inserted": "DetectorMetadata.Inserted",
+    "DetectorMetadata.Enabled": "DetectorMetadata.Enabled",
+    "DetectorMetadata.Gain": "DetectorMetadata.Gain",
+    "DetectorMetadata.Offset": "DetectorMetadata.Offset",
+    "DetectorMetadata.CollectionAngleRange.begin": "DetectorMetadata.CollectionAngleRange.begin",
+    "DetectorMetadata.CollectionAngleRange.end": "DetectorMetadata.CollectionAngleRange.end",
     "Image.AcquisitionDate": [
       "Acquisition.AcquisitionStartDatetime.DateTime"
     ]

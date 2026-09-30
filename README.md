@@ -153,7 +153,7 @@ path in the `SourceMap` keeps it.
 
 ### Mapping rules
 
-A `mappings.json` entry is `"source path": "target path"`. There are eight
+A `mappings.json` entry is `"source path": "target path"`. There are nine
 forms.
 
 **Exact** - rename one field:
@@ -195,6 +195,17 @@ that key is often meaningful, it is preserved as an `id` on the item
 (`GenericDetector.Configuration[0].id = "QBSD"`). A purely numeric key carries
 no information and is dropped instead, and an item that already has an `id`
 or `ID` of its own is left alone.
+
+A rule for `Prefix.*.field` whose target is `Target[].Field` renames a field
+inside each of those items, where the model name is free, rather than writing
+it at the root; the label counts as the item's field `id`:
+
+```json
+"Detectors.*": "GenericDetector[]",
+"Detectors.*.DetectorName": "GenericDetector[].Name",
+"Detectors.*.ExposureTime": {"target": "GenericDetector[].ExposureTime.Value", "unit": "s"},
+"acquisition.scan.detectors.*.id": "GenericDetector[].Name"
+```
 
 **A `*` that is not a trailing `.*`** - match the whole path and discard the
 part the `*` covered:

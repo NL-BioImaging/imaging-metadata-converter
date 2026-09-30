@@ -37,6 +37,7 @@ import json
 import re
 import sys
 from collections import Counter
+from fnmatch import fnmatchcase
 from pathlib import Path
 
 import yaml
@@ -62,6 +63,8 @@ LABELS = {
     'no_location': 'no location',
 }
 TOP = 10
+# the keys the mapper keeps a collapsed record's label under
+LABEL_KEYS = ('id', 'ID', 'SourceKey')
 
 
 def records(node, field=None):
@@ -110,11 +113,24 @@ class FitContext:
             parts = path.split('.')
             for start in range(len(parts)):
                 level = '.'.join(parts[start:])
-                if self.mapper._resolve_rule_path(level) is not None:
+                if self.mapper._resolve_rule_path(level) is not None or self._names_an_item_field(level):
                     return 'rule'
                 if self.mapper._resolve_schema_path(level) is not None:
                     return 'automatic'
         return None
+
+    def _names_an_item_field(self, level):
+        """Whether the value at `level` is in a record a "Prefix.*": "Target[]" rule collapses into an item, as
+        is or named by a rule for its field ("Detectors.*.DetectorName"), or is such a record's label, which the
+        item records at the record's own path."""
+        segments = level.split('.')
+        collapsed = any(self.mapper._resolve_whole_segment_wildcard_path('.'.join(segments[:end]))[1]
+                        for end in range(1, len(segments) + 1))
+        return collapsed or any(
+            (len(parts) == len(segments) and fnmatchcase(level, pattern))
+            or (parts[-1] in LABEL_KEYS and len(parts) == len(segments) + 1
+                and fnmatchcase(level, '.'.join(parts[:-1])))
+            for pattern, parts in ((pattern, pattern.split('.')) for pattern in self.mapper.item_fields))
 
     def is_extension(self, field_path):
         """Whether the dataset field `field_path` (Image[0].ScanSettings.Rotation.Value) runs through a class or

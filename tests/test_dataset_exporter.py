@@ -104,6 +104,43 @@ class DatasetExporterTest(unittest.TestCase):
         self.assertEqual([(mapping['Source'], mapping['SourceValue']) for mapping in image['SourceFile'][0]['Mapping']],
                          [('pixelWidth.unit', '"um"'), ('pixelHeight.unit', '"micrometre"')])
 
+    def test_number_written_as_text_is_stored_as_a_number(self):
+        dataset = self.export({'Pixels': {'SizeX': '2048', 'PhysicalSizeX': ' 4.0000000000000011e-09'},
+                               'SourceMap': {'Pixels.SizeX': 'Scan.ScanSize.width',
+                                             'Pixels.PhysicalSizeX': 'BinaryResult.PixelSize.width'}})
+
+        image = dataset['Image'][0]
+        self.assertEqual(image['Pixels'], {'SizeX': 2048, 'PhysicalSizeX': 4.0000000000000011e-09})
+        self.assertEqual([mapping['SourceValue'] for mapping in image['SourceFile'][0]['Mapping']],
+                         ['"2048"', '" 4.0000000000000011e-09"'])
+
+    def test_number_is_stored_as_text_in_a_text_field(self):
+        dataset = self.export({'Objective': {'CatalogNumber': 11506432},
+                               'SourceMap': {'Objective.CatalogNumber': 'ObjectiveNumber'}})
+
+        mapping = dataset['Image'][0]['SourceFile'][0]['Mapping'][0]
+        self.assertEqual(dataset['Instrument'][0]['Objective'][0]['CatalogNumber'], '11506432')
+        self.assertEqual(mapping['SourceValue'], '11506432')
+
+    def test_true_or_false_written_as_text_is_stored_as_a_boolean(self):
+        dataset = self.export({'Laser': {'Tuneable': 'true', 'IsPumped': 'False'},
+                               'SourceMap': {'Laser.Tuneable': 'tuneable', 'Laser.IsPumped': 'pumped'}})
+
+        laser = dataset['Instrument'][0]['Laser'][0]
+        self.assertEqual((laser['Tuneable'], laser['IsPumped']), (True, False))
+        self.assertEqual([mapping['SourceValue'] for mapping in dataset['Image'][0]['SourceFile'][0]['Mapping']],
+                         ['"true"', '"False"'])
+
+    def test_text_that_is_no_fitting_number_stays_a_property(self):
+        for text in ('1.5', 'wide', 'nan', 'inf', ''):
+            with self.subTest(text=text):
+                dataset = self.export({'Pixels': {'SizeX': text}, 'SourceMap': {'Pixels.SizeX': 'width'}})
+                self.assertEqual(dataset['Image'][0]['Pixels'], {})
+        dataset = self.export({'Objective': {'CatalogNumber': True}, 'SourceMap': {'Objective.CatalogNumber': 'n'}})
+        instrument = dataset['Instrument'][0]
+        self.assertEqual(instrument['Objective'], [{}])
+        self.assertEqual(instrument['CustomProperties'][0]['Value'], 'true')
+
     def test_value_that_does_not_fit_becomes_a_property(self):
         dataset = self.export({'Pixels': {'PhysicalSizeXUnit': 'micro', 'SizeX': 1.5},
                                'SourceMap': {'Pixels.PhysicalSizeXUnit': 'unit', 'Pixels.SizeX': 'Pixels.SizeX'}})

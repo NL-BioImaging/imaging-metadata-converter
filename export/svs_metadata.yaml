@@ -31,6 +31,10 @@ Image:
       Field: Image[0].Pixels.Plane[0].PositionY
       Source: Top
     - ID: SourceMapping:8
+      Field: Image[0].ID
+      Source: ImageID
+      SourceValue: '18489'
+    - ID: SourceMapping:9
       Field: Image[0].AcquisitionDate
       Source: Date + Time + Time Zone
       DerivedFrom:
@@ -45,12 +49,7 @@ Image:
     Plane:
     - PositionX: 29.282969
       PositionY: 13.628824
-  CustomProperties:
-  - ID: Property:14
-    Name: ImageID
-    Value: '18489'
-    SchemaPath: Image.ID
-    Source: SourceFile:0
+  ID: '18489'
   AcquisitionDate: '2015-10-19T17:18:12-05:00'
 CustomProperties:
 - ID: Property:0
@@ -109,19 +108,19 @@ CustomProperties:
   Name: DSR ID
   Value: '"129.112.7.45"'
   Source: SourceFile:0
-- ID: Property:15
+- ID: Property:14
   Name: Exposure Time
   Value: '109'
   Source: SourceFile:0
-- ID: Property:16
+- ID: Property:15
   Name: Exposure Scale
   Value: 1e-06
   Source: SourceFile:0
-- ID: Property:17
+- ID: Property:16
   Name: DisplayColor
   Value: '0'
   Source: SourceFile:0
-- ID: Property:18
+- ID: Property:17
   Name: ICC Profile
   Value: '"ScanScope v1"'
   Source: SourceFile:0

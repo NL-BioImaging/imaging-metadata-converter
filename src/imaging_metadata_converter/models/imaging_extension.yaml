@@ -23,6 +23,15 @@ classes:
         range: float
       Unit:
         description: The unit as the source writes it, e.g. "um" or "mm".
+  QuantityRange:
+    description: A range of values, from Begin to End, with the unit its source states, as free text.
+    attributes:
+      Begin:
+        range: float
+      End:
+        range: float
+      Unit:
+        description: The unit as the source writes it, e.g. "rad".
   Vector2D:
     description: A pair of values along X and Y.
     attributes:
@@ -173,6 +182,70 @@ classes:
         annotations: {schema_extended_path: Detector.Configuration, source_type: array}
       ActiveConfiguration:
         annotations: {schema_extended_path: Detector.ActiveConfiguration, source_type: object}
+      Inserted:
+        description: Whether the detector is inserted into the beam path.
+        range: boolean
+      Enabled:
+        description: Whether the detector is enabled for this acquisition.
+        range: boolean
+      ExposureTime:
+        description: The exposure time of a camera, for this acquisition.
+        range: Quantity
+        inlined: true
+      Binning:
+        description: The number of sensor pixels binned into one along X and Y.
+        range: Vector2D
+        inlined: true
+      CollectionAngle:
+        description: The solid angle an analytical (X-ray) detector collects over.
+        range: Quantity
+        inlined: true
+      ElevationAngle:
+        description: The angle of an analytical detector above the specimen plane.
+        range: Quantity
+        inlined: true
+      AzimuthAngle:
+        description: The angle of an analytical detector around the beam axis.
+        range: Quantity
+        inlined: true
+      CollectionAngleRange:
+        description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
+        range: QuantityRange
+        inlined: true
+      LiveTime:
+        description: The time an analytical detector's pulse processor was open for counts.
+        range: Quantity
+        inlined: true
+      RealTime:
+        description: The elapsed time of an analytical acquisition.
+        range: Quantity
+        inlined: true
+      PulseProcessTime:
+        description: The pulse processing (shaping) time of an analytical detector.
+        range: Quantity
+        inlined: true
+      InputCountRate:
+        description: The rate of counts arriving at an analytical detector, per second.
+        range: float
+      OutputCountRate:
+        description: The rate of counts an analytical detector processed, per second.
+        range: float
+      Dispersion:
+        description: The energy width of one channel of an analytical detector's spectrum.
+        range: Quantity
+        inlined: true
+      OffsetEnergy:
+        description: The energy offset of an analytical detector's spectrum.
+        range: Quantity
+        inlined: true
+      BeginEnergy:
+        description: The energy an analytical detector's spectrum begins at.
+        range: Quantity
+        inlined: true
+      ElectronicsNoise:
+        description: The electronic noise of an analytical detector, as an energy.
+        range: Quantity
+        inlined: true
 
   StageExtension:
     mixin: true

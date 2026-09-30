@@ -157,7 +157,9 @@ class RuleTargetsTest(unittest.TestCase):
         targets += [combination['target'] for combination in combinations]
         model = ModelPaths()
         # a per-item target (Pixels.Channel[*].Fluorophore...) runs through nested classes the tree lists apart
-        missing = [target for target in targets if '[*]' not in target and target.removesuffix('[]') not in paths]
+        # a field of each item a "Target[]" rule collapses (GenericDetector[].Name) is that class's field
+        missing = [target for target in targets
+                   if '[*]' not in target and target.removesuffix('[]').replace('[].', '.') not in paths]
         missing += [target for target in targets if '[*]' in target and not _nested_path(model, target)]
         self.assertEqual(missing, [])
 
@@ -284,9 +286,50 @@ class LosslessMappingTest(unittest.TestCase):
         for source, rule in rules.items():
             if isinstance(rule, dict):
                 with self.subTest(source=source):
-                    target = re.sub(r'\[\*\]', '', rule['target'])
+                    target = re.sub(r'\[\*?\]', '', rule['target'])
                     self.assertIn(target, model_fields)
                     self.assertIn(unit_field(target), model_fields)
+
+    def test_rule_names_a_field_of_each_collapsed_item(self):
+        mapper = self.mapper_for({'Detectors.*': 'GenericDetector[]',
+                                  'Detectors.*.DetectorName': 'GenericDetector[].Name',
+                                  'Detectors.*.Binning.width': 'GenericDetector[].Binning.X',
+                                  'Detectors.*.Binning.height': 'GenericDetector[].Binning.Y'})
+
+        converted = mapper.convert_metadata({'Detectors': {
+            'Detector-0': {'DetectorName': 'Ceta', 'Binning': {'width': 1, 'height': 2}, 'Mode': 'x'},
+            'Detector-1': {'DetectorName': 'HAADF'}}})
+
+        self.assertEqual(converted['GenericDetector'], [
+            {'Name': 'Ceta', 'Binning': {'X': 1, 'Y': 2}, 'Mode': 'x', 'id': 'Detector-0'},
+            {'Name': 'HAADF', 'id': 'Detector-1'}])
+        self.assertEqual(converted['SourceMap']['GenericDetector[0].Binning.X'], 'Detectors.Detector-0.Binning.width')
+        self.assertEqual(converted['SourceMap']['GenericDetector[1].Name'], 'Detectors.Detector-1.DetectorName')
+        self.assertNotIn('GenericDetector[0].DetectorName', converted['SourceMap'])
+
+    def test_rule_names_the_label_of_each_collapsed_item(self):
+        mapper = self.mapper_for({'detectors.*': 'D[]', 'detectors.*.id': 'D[].Name'})
+
+        converted = mapper.convert_metadata({'detectors': {'QBSD': {'gain': 45}}})
+
+        self.assertEqual(converted['D'], [{'gain': 45, 'Name': 'QBSD'}])
+        self.assertEqual(converted['SourceMap']['D[0].Name'], 'detectors.QBSD')
+
+    def test_collapsed_item_field_with_a_unit(self):
+        mapper = self.mapper_for({'Detectors.*': 'D[]',
+                                  'Detectors.*.ExposureTime': {'target': 'D[].ExposureTime.Value', 'unit': 's'}})
+
+        converted = mapper.convert_metadata({'Detectors': {'A': {'ExposureTime': 0.5}}})
+
+        self.assertEqual(converted['D'], [{'ExposureTime': {'Value': 0.5, 'Unit': 's'}, 'id': 'A'}])
+        self.assertEqual(converted['SourceMap']['D[0].ExposureTime.Unit'], ['Detectors.A.ExposureTime'])
+
+    def test_collapsed_item_field_keeps_its_name_where_the_model_name_is_taken(self):
+        mapper = self.mapper_for({'Detectors.*': 'D[]', 'Detectors.*.label': 'D[].Name'})
+
+        converted = mapper.convert_metadata({'Detectors': {'A': {'Name': 'kept', 'label': 'other'}}})
+
+        self.assertEqual(converted['D'], [{'Name': 'kept', 'label': 'other', 'id': 'A'}])
 
     def test_several_targets_for_a_group_are_refused(self):
         mapper = self.mapper_for({'Beam': ['A', 'B']})
