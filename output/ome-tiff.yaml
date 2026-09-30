@@ -1,0 +1,393 @@
+Objective:
+  ID: Objective:0
+  ImmersionType: Oil
+  LensNA: 1.4
+  Magnification: 100.0
+Instrument:
+  ID: Instrument:0
+Image:
+  ObjectiveSettings:
+    ID: Objective:0
+  Pixels:
+    Channel:
+    - ID: Channel:0
+      AcquisitionMode: WideField
+      PinholeSize: 56.0
+      PinholeSizeUnit: µm
+      SamplesPerPixel: 1
+    - ID: Channel:1
+      AcquisitionMode: WideField
+      PinholeSize: 56.0
+      PinholeSizeUnit: µm
+      SamplesPerPixel: 1
+    TiffData:
+      FirstC: 0
+      FirstT: 0
+      FirstZ: 0
+      IFD: 0
+      PlaneCount: 88
+    ID: Pixels:0
+    DimensionOrder: XYZTC
+    BigEndian: false
+    SizeX: 167
+    SizeY: 172
+    SizeZ: 44
+    SizeC: 2
+    SizeT: 1
+    PhysicalSizeX: 0.064967
+    PhysicalSizeXUnit: µm
+    PhysicalSizeY: 0.064967
+    PhysicalSizeYUnit: µm
+    PhysicalSizeZ: 0.2128
+    PhysicalSizeZUnit: µm
+    TimeIncrement: 1.0
+    TimeIncrementUnit: s
+  AnnotationRef:
+    ID: Annotation:CustomAttributes:SVI:Image:0
+  ID: Image:0
+ImmersionLiquid:
+  Type: Oil
+  RefractiveIndex: 1.518
+Pixels:
+  Channel:
+  - Fluorophore:
+      ExcitationWavelength: 424
+      ExcitationWavelengthUnit: nm
+      EmissionWavelength: 461
+      EmissionWavelengthUnit: nm
+  - Fluorophore:
+      ExcitationWavelength: 488
+      ExcitationWavelengthUnit: nm
+      EmissionWavelength: 610
+      EmissionWavelengthUnit: nm
+  PixelType: uint16
+  PhysicalSizeX: 0.064967
+  PhysicalSizeY: 0.064967
+  PhysicalSizeZ: 0.2128
+  TimeIncrement: 1.0
+OME:
+  StructuredAnnotations:
+    XMLAnnotation:
+      Value:
+        Geometry:
+          SamplingSizes:
+            DeltaXState: Reported
+            DeltaYState: Reported
+            DeltaZState: Reported
+            DeltaTState: Reported
+          Offsets:
+            OffsetX: 61.523749
+            OffsetXState: Default
+            OffsetY: 50.609293
+            OffsetYState: Default
+            OffsetZ: 6.384
+            OffsetZState: Default
+            OffsetT: 0.0
+            OffsetTState: Default
+          Interface:
+            InterFacePrimary: -12.7684
+            InterFacePrimaryState: Estimated
+            InterFaceSecondary: 999993.616
+            InterFaceSecondaryState: Default
+        ChannelData:
+        - MicrParamData:
+            Mode: fluorescence
+            ModeState: Estimated
+            ImagingDirection: upward
+            ImagingDirectionState: Default
+            NumAperture: 1.4
+            NumApertureState: Reported
+            PinholeRadius: 280.0
+            PinholeRadiusState: Default
+            IllPinholeRadius: 0.0
+            IllPinholeRadiusState: Default
+            DetectorMagnif: 100.0
+            DetectorMagnifState: Estimated
+          DetectorData:
+            PPU: 1.0
+            PPUState: Default
+            Baseline: 0.0
+            BaselineState: Default
+            LineAvgCnt: 1.0
+            LineAvgCntState: Default
+            NoiseGain: 1.0
+            NoiseGainState: Default
+          ScatterData:
+            Model: none
+            ModelState: Default
+            FreePath: 1000.0
+            FreePathState: Default
+            RelContrib: 0.0
+            RelContribState: Default
+            Blurring: 0.0
+            BlurringState: Default
+          ChannelID: Channel:0
+          MicroscopeSpec: Widefield
+          MicroscopeSpecState: Reported
+          ExPhotonCnt: 1
+          ExPhotonCntState: Default
+          RefrIndexMediumState: Estimated
+          RefrIndexLensMedium: 1.518
+          RefrIndexLensMediumState: Reported
+          PinholeSpacing: 2.53
+          PinholeSpacingState: Default
+          ObjectiveQuality: 80
+          ObjectiveQualityState: Default
+          ExcitationBeamFill: 2.0
+          ExcitationBeamFillState: Default
+          LambdaEm: 461.0
+          LambdaEmState: Estimated
+          LambdaEx: 424.119995
+          LambdaExState: Estimated
+          ScalingFactor: 1.0
+        - MicrParamData:
+            Mode: fluorescence
+            ModeState: Estimated
+            ImagingDirection: upward
+            ImagingDirectionState: Default
+            NumAperture: 1.4
+            NumApertureState: Reported
+            PinholeRadius: 280.0
+            PinholeRadiusState: Default
+            IllPinholeRadius: 0.0
+            IllPinholeRadiusState: Default
+            DetectorMagnif: 100.0
+            DetectorMagnifState: Estimated
+          DetectorData:
+            PPU: 1.0
+            PPUState: Default
+            Baseline: 0.0
+            BaselineState: Default
+            LineAvgCnt: 1.0
+            LineAvgCntState: Default
+            NoiseGain: 1.0
+            NoiseGainState: Default
+          ScatterData:
+            Model: none
+            ModelState: Default
+            FreePath: 1000.0
+            FreePathState: Default
+            RelContrib: 0.0
+            RelContribState: Default
+            Blurring: 0.0
+            BlurringState: Default
+          ChannelID: Channel:1
+          MicroscopeSpec: Widefield
+          MicroscopeSpecState: Reported
+          ExPhotonCnt: 1
+          ExPhotonCntState: Default
+          RefrIndexMedium: 1.458
+          RefrIndexMediumState: Estimated
+          RefrIndexLensMedium: 1.518
+          RefrIndexLensMediumState: Reported
+          PinholeSpacing: 2.53
+          PinholeSpacingState: Default
+          ObjectiveQuality: 80
+          ObjectiveQualityState: Default
+          ExcitationBeamFill: 2.0
+          ExcitationBeamFillState: Default
+          LambdaEm: 610.0
+          LambdaEmState: Estimated
+          LambdaEx: 488.0
+          LambdaExState: Default
+          ScalingFactor: 1.0
+        PDimConfig:
+          Type: generic
+          Size: 1
+        FeatureHistory:
+          FeatureDescription:
+          - String: none;
+          - String: base;
+          - String: Parameter states and STED, SPIM and pdim parameters;
+          - String: Scaling factors;
+          - String: Array detector STED;
+          FeatureCnt: 5
+      ID: Annotation:CustomAttributes:SVI:Image:0
+  Creator: Scientific Volume Imaging B.V., The Huygens System, V24.10.0p6
+  UUID: urn:uuid:69658110-5216-4e10-95c3-b1bdca2a1e52
+MountingMedium:
+  RefractiveIndex: 1.458
+SoftwareModule:
+  Version: 24.10.0p6
+AcquisitionSoftware:
+  Version: 1.3p0
+SourceMap:
+  Objective.ID: OME.Instrument.Objective.ID
+  Objective.ImmersionType: OME.Instrument.Objective.Immersion
+  Objective.LensNA: OME.Instrument.Objective.LensNA
+  Objective.Magnification: OME.Instrument.Objective.NominalMagnification
+  Instrument.ID: OME.Instrument.ID
+  Image.ObjectiveSettings.ID: OME.Image.ObjectiveSettings.ID
+  ImmersionLiquid.Type: OME.Image.ObjectiveSettings.Medium
+  ImmersionLiquid.RefractiveIndex: OME.Image.ObjectiveSettings.RefractiveIndex
+  Pixels.Channel[0].Fluorophore.ExcitationWavelength: OME.Image.Pixels.Channel[0].ExcitationWavelength
+  Pixels.Channel[0].Fluorophore.ExcitationWavelengthUnit: OME.Image.Pixels.Channel[0].ExcitationWavelengthUnit
+  Pixels.Channel[0].Fluorophore.EmissionWavelength: OME.Image.Pixels.Channel[0].EmissionWavelength
+  Pixels.Channel[0].Fluorophore.EmissionWavelengthUnit: OME.Image.Pixels.Channel[0].EmissionWavelengthUnit
+  Pixels.Channel[1].Fluorophore.ExcitationWavelength: OME.Image.Pixels.Channel[1].ExcitationWavelength
+  Pixels.Channel[1].Fluorophore.ExcitationWavelengthUnit: OME.Image.Pixels.Channel[1].ExcitationWavelengthUnit
+  Pixels.Channel[1].Fluorophore.EmissionWavelength: OME.Image.Pixels.Channel[1].EmissionWavelength
+  Pixels.Channel[1].Fluorophore.EmissionWavelengthUnit: OME.Image.Pixels.Channel[1].EmissionWavelengthUnit
+  Image.Pixels.Channel[0].ID: OME.Image.Pixels.Channel[0].ID
+  Image.Pixels.Channel[0].AcquisitionMode: OME.Image.Pixels.Channel[0].AcquisitionMode
+  Image.Pixels.Channel[0].PinholeSize: OME.Image.Pixels.Channel[0].PinholeSize
+  Image.Pixels.Channel[0].PinholeSizeUnit: OME.Image.Pixels.Channel[0].PinholeSizeUnit
+  Image.Pixels.Channel[0].SamplesPerPixel: OME.Image.Pixels.Channel[0].SamplesPerPixel
+  Image.Pixels.Channel[1].ID: OME.Image.Pixels.Channel[1].ID
+  Image.Pixels.Channel[1].AcquisitionMode: OME.Image.Pixels.Channel[1].AcquisitionMode
+  Image.Pixels.Channel[1].PinholeSize: OME.Image.Pixels.Channel[1].PinholeSize
+  Image.Pixels.Channel[1].PinholeSizeUnit: OME.Image.Pixels.Channel[1].PinholeSizeUnit
+  Image.Pixels.Channel[1].SamplesPerPixel: OME.Image.Pixels.Channel[1].SamplesPerPixel
+  Image.Pixels.TiffData.FirstC: OME.Image.Pixels.TiffData.FirstC
+  Image.Pixels.TiffData.FirstT: OME.Image.Pixels.TiffData.FirstT
+  Image.Pixels.TiffData.FirstZ: OME.Image.Pixels.TiffData.FirstZ
+  Image.Pixels.TiffData.IFD: OME.Image.Pixels.TiffData.IFD
+  Image.Pixels.TiffData.PlaneCount: OME.Image.Pixels.TiffData.PlaneCount
+  Image.Pixels.ID: OME.Image.Pixels.ID
+  Image.Pixels.DimensionOrder: OME.Image.Pixels.DimensionOrder
+  Pixels.PixelType: OME.Image.Pixels.Type
+  Image.Pixels.BigEndian: OME.Image.Pixels.BigEndian
+  Image.Pixels.SizeX: OME.Image.Pixels.SizeX
+  Image.Pixels.SizeY: OME.Image.Pixels.SizeY
+  Image.Pixels.SizeZ: OME.Image.Pixels.SizeZ
+  Image.Pixels.SizeC: OME.Image.Pixels.SizeC
+  Image.Pixels.SizeT: OME.Image.Pixels.SizeT
+  Image.Pixels.PhysicalSizeX: OME.Image.Pixels.PhysicalSizeX
+  Image.Pixels.PhysicalSizeXUnit: OME.Image.Pixels.PhysicalSizeXUnit
+  Image.Pixels.PhysicalSizeY: OME.Image.Pixels.PhysicalSizeY
+  Image.Pixels.PhysicalSizeYUnit: OME.Image.Pixels.PhysicalSizeYUnit
+  Image.Pixels.PhysicalSizeZ: OME.Image.Pixels.PhysicalSizeZ
+  Image.Pixels.PhysicalSizeZUnit: OME.Image.Pixels.PhysicalSizeZUnit
+  Image.Pixels.TimeIncrement: OME.Image.Pixels.TimeIncrement
+  Image.Pixels.TimeIncrementUnit: OME.Image.Pixels.TimeIncrementUnit
+  Image.AnnotationRef.ID: OME.Image.AnnotationRef.ID
+  Image.ID: OME.Image.ID
+  Pixels.PhysicalSizeX: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaX
+  OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaXState: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaXState
+  Pixels.PhysicalSizeY: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaY
+  OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaYState: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaYState
+  Pixels.PhysicalSizeZ: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaZ
+  OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaZState: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaZState
+  Pixels.TimeIncrement: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaT
+  OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaTState: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.SamplingSizes.DeltaTState
+  OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetX: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetX
+  OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetXState: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetXState
+  OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetY: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetY
+  OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetYState: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetYState
+  OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetZ: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetZ
+  OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetZState: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetZState
+  OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetT: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetT
+  OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetTState: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Offsets.OffsetTState
+  OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Interface.InterFacePrimary: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Interface.InterFacePrimary
+  OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Interface.InterFacePrimaryState: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Interface.InterFacePrimaryState
+  OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Interface.InterFaceSecondary: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Interface.InterFaceSecondary
+  OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Interface.InterFaceSecondaryState: OME.StructuredAnnotations.XMLAnnotation.Value.Geometry.Interface.InterFaceSecondaryState
+  MountingMedium.RefractiveIndex: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].RefrIndexMedium
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.Mode: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.Mode
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.ModeState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.ModeState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.ImagingDirection: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.ImagingDirection
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.ImagingDirectionState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.ImagingDirectionState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.NumAperture: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.NumAperture
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.NumApertureState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.NumApertureState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.PinholeRadius: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.PinholeRadius
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.PinholeRadiusState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.PinholeRadiusState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.IllPinholeRadius: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.IllPinholeRadius
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.IllPinholeRadiusState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.IllPinholeRadiusState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.DetectorMagnif: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.DetectorMagnif
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.DetectorMagnifState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicrParamData.DetectorMagnifState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.PPU: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.PPU
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.PPUState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.PPUState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.Baseline: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.Baseline
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.BaselineState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.BaselineState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.LineAvgCnt: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.LineAvgCnt
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.LineAvgCntState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.LineAvgCntState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.NoiseGain: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.NoiseGain
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.NoiseGainState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].DetectorData.NoiseGainState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.Model: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.Model
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.ModelState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.ModelState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.FreePath: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.FreePath
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.FreePathState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.FreePathState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.RelContrib: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.RelContrib
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.RelContribState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.RelContribState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.Blurring: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.Blurring
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.BlurringState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScatterData.BlurringState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ChannelID: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ChannelID
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicroscopeSpec: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicroscopeSpec
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicroscopeSpecState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].MicroscopeSpecState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ExPhotonCnt: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ExPhotonCnt
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ExPhotonCntState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ExPhotonCntState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].RefrIndexMediumState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].RefrIndexMediumState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].RefrIndexLensMedium: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].RefrIndexLensMedium
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].RefrIndexLensMediumState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].RefrIndexLensMediumState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].PinholeSpacing: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].PinholeSpacing
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].PinholeSpacingState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].PinholeSpacingState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ObjectiveQuality: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ObjectiveQuality
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ObjectiveQualityState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ObjectiveQualityState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ExcitationBeamFill: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ExcitationBeamFill
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ExcitationBeamFillState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ExcitationBeamFillState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].LambdaEm: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].LambdaEm
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].LambdaEmState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].LambdaEmState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].LambdaEx: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].LambdaEx
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].LambdaExState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].LambdaExState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScalingFactor: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].ScalingFactor
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.Mode: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.Mode
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.ModeState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.ModeState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.ImagingDirection: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.ImagingDirection
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.ImagingDirectionState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.ImagingDirectionState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.NumAperture: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.NumAperture
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.NumApertureState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.NumApertureState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.PinholeRadius: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.PinholeRadius
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.PinholeRadiusState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.PinholeRadiusState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.IllPinholeRadius: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.IllPinholeRadius
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.IllPinholeRadiusState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.IllPinholeRadiusState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.DetectorMagnif: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.DetectorMagnif
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.DetectorMagnifState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicrParamData.DetectorMagnifState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.PPU: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.PPU
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.PPUState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.PPUState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.Baseline: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.Baseline
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.BaselineState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.BaselineState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.LineAvgCnt: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.LineAvgCnt
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.LineAvgCntState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.LineAvgCntState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.NoiseGain: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.NoiseGain
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.NoiseGainState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].DetectorData.NoiseGainState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.Model: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.Model
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.ModelState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.ModelState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.FreePath: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.FreePath
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.FreePathState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.FreePathState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.RelContrib: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.RelContrib
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.RelContribState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.RelContribState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.Blurring: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.Blurring
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.BlurringState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScatterData.BlurringState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ChannelID: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ChannelID
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicroscopeSpec: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicroscopeSpec
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicroscopeSpecState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].MicroscopeSpecState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ExPhotonCnt: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ExPhotonCnt
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ExPhotonCntState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ExPhotonCntState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].RefrIndexMedium: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].RefrIndexMedium
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].RefrIndexMediumState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].RefrIndexMediumState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].RefrIndexLensMedium: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].RefrIndexLensMedium
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].RefrIndexLensMediumState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].RefrIndexLensMediumState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].PinholeSpacing: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].PinholeSpacing
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].PinholeSpacingState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].PinholeSpacingState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ObjectiveQuality: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ObjectiveQuality
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ObjectiveQualityState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ObjectiveQualityState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ExcitationBeamFill: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ExcitationBeamFill
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ExcitationBeamFillState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ExcitationBeamFillState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].LambdaEm: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].LambdaEm
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].LambdaEmState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].LambdaEmState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].LambdaEx: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].LambdaEx
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].LambdaExState: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].LambdaExState
+  OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScalingFactor: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[1].ScalingFactor
+  OME.StructuredAnnotations.XMLAnnotation.Value.PDimConfig.Type: OME.StructuredAnnotations.XMLAnnotation.Value.PDimConfig.Type
+  OME.StructuredAnnotations.XMLAnnotation.Value.PDimConfig.Size: OME.StructuredAnnotations.XMLAnnotation.Value.PDimConfig.Size
+  OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureDescription[0].String: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureDescription[0].String
+  OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureDescription[1].String: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureDescription[1].String
+  OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureDescription[2].String: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureDescription[2].String
+  OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureDescription[3].String: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureDescription[3].String
+  OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureDescription[4].String: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureDescription[4].String
+  SoftwareModule.Version: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.HuygensVersion
+  AcquisitionSoftware.Version: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.OmeWriterVersion
+  OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureCnt: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.FeatureCnt
+  OME.StructuredAnnotations.XMLAnnotation.ID: OME.StructuredAnnotations.XMLAnnotation.ID
+  OME.Creator: OME.Creator
+  OME.UUID: OME.UUID

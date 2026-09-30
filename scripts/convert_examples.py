@@ -1,4 +1,4 @@
-"""Convert every example in examples/ and write the results to output/.
+"""Convert every example in examples/ and write the results to output/, as YAML.
 
 The output files show what the converter currently makes of each
 instrument's metadata, which is handy for checking the effect of a
@@ -12,8 +12,11 @@ differs from what the converter now produces.
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
+
+import yaml
 
 from imaging_metadata_converter import AcquisitionMetadataMapper
 
@@ -22,11 +25,24 @@ SOURCE = ROOT / 'examples'
 TARGET = ROOT / 'output'
 
 
+class _Dumper(yaml.SafeDumper):
+    """Quotes text that a YAML 1.2 reader would take for a number ("042959", a DICOM time), which PyYAML, reading
+    YAML 1.1, leaves bare."""
+
+
+def _text(dumper, value):
+    looks_numeric = re.fullmatch(r'[-+]?(\d+\.?\d*|\.\d+)([eE][-+]?\d+)?', value) is not None
+    return dumper.represent_scalar('tag:yaml.org,2002:str', value, style="'" if looks_numeric else None)
+
+
+_Dumper.add_representer(str, _text)
+
+
 def rendered(mapper, path):
     """The text the output copy of the example at ``path`` should hold."""
     custom = json.loads(path.read_text(encoding='utf-8'))
     common = mapper.convert_metadata(custom)
-    return json.dumps(common, indent=2, ensure_ascii=False) + '\n'
+    return yaml.dump(common, Dumper=_Dumper, sort_keys=False, allow_unicode=True)
 
 
 def main(argv=None):
@@ -40,13 +56,13 @@ def main(argv=None):
     stale = []
     for source in sorted(SOURCE.glob('*.json')):
         text = rendered(mapper, source)
-        path = TARGET / source.name
-        if path.exists() and path.read_text(encoding='utf-8') == text:
-            continue
-        stale.append(source.name)
-        if not args.check:
-            with path.open('w', encoding='utf-8', newline='\n') as f:
-                f.write(text)
+        path = TARGET / f'{source.stem}.yaml'
+        is_current = path.exists() and path.read_text(encoding='utf-8') == text
+        if not is_current:
+            stale.append(path.name)
+        if not is_current and not args.check:
+            with path.open('w', encoding='utf-8', newline='\n') as file:
+                file.write(text)
 
     if args.check and stale:
         print('out of date: ' + ', '.join(stale), file=sys.stderr)

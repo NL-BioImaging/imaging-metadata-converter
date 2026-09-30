@@ -105,7 +105,8 @@ metaseed's containment order (each after every entity nesting it).
   unset time, not converted, so TALOS's date comes from AcquisitionStartDatetime (2023-05-12T20:10:16+00:00,
   2022-03-09T17:43:42+00:00); the raw timestamps stay Properties, as every combination's parts do.
 - ome-tiff: OME's ObjectiveSettings Medium "Oil" fits no LiMi ImmersionLiquidType (Mineral Oil, Silicone
-  Oil, ...), and is not guessed.
+  Oil, ...), and is not guessed. The objective's own ImmersionType takes "Oil" since 2026-09-30: OME's value,
+  added to ImmersionTypeList, not a guess at the kind of oil.
 - Where a source states a value twice (ome-tiff's Huygens annotation and its own OME fields: pixel sizes,
   wavelengths, immersion refractive index), the second copy meets a filled field and stays a Property; a
   test checks the two agree. `RefrIndexMedium` is per channel: channel 0's value goes to
@@ -311,6 +312,64 @@ What follows from a new example or new metadata:
   committed profile out of date (a test fails until `python scripts/metaseed_generator.py` is rerun); then
   rerun both example scripts, and the value moves from a Property to a typed field. To publish the changed
   profile, see "Hub state".
+
+## How new model fields are decided
+
+The criteria the extension (imaging_extension.yaml) grew by, 2026-09-30, while raising the examples'
+coverage (user: "match values from source formats to the extended model, extending the model following its
+structure, for common fields in the source data"). A value is only a candidate if the analytics
+(scripts/model_fit.py) list it as not covered; each step is tried in order, and the first that applies wins.
+
+1. A rule to a field the model has, before any new field. The model is LiMi (itself OME 2016-06) plus the
+   extension; a vendor name that means an existing field gets a rule, whatever it is called: DICOM
+   ManufacturerModelName -> Instrument.Model, Leica ObjectiveNumber -> Objective.CatalogNumber, TALOS
+   LastMeasuredScreenCurrent -> ElectronBeamSettings.Current. A value that already reaches its field by the
+   mapper's automatic match needs no rule (the analytics list those to check: DICOM Rows matched Plate.Rows
+   automatically, so a rule sends it to Pixels.SizeY). A mapper feature comes before a model field when only
+   the source's form is in the way (a list item, PixelSpacing[0]; a spaced string, BDV "1100 1100 1150"; a
+   renamed field in a collapsed record, Detectors.*.DetectorName; a unit left unstated).
+2. Only acquisition metadata: what the instrument is (hardware: Instrument and its components) or how it was
+   set for this image (settings: Image and its settings classes). Not processing history (Velox's
+   Operations/Features), file bookkeeping (Core.MetadataSchemaVersion, GUIDs), UI or software state (LIF
+   triggers, autofocus, filter-wheel positions), or patient and administrative data (DICOM). Those stay
+   Properties, kept and traced.
+3. Common to the data: a new field is added when more than one source (vendor or file) states it, or when it
+   is a core parameter of its modality that LiMi has no place for (the EM detector's collection angles, live
+   and real time, spectrum energies). A value only one vendor writes, and specific to that vendor's design,
+   stays a Property: TALOS's lens intensities, probe and illumination modes, EFTEM and mains lock were left
+   out, while its C1/C2 intensities became Condenser1/2 because Cikteq writes Condenser/Condenser2 too, and
+   LineInterlacing was added because TALOS and Phenom both write it.
+4. Clear meaning: the source's meaning has to be certain enough to state in the field's description. Where
+   it is not, the value stays a Property rather than a guess: LIF's spectral bands as the image's channels
+   (band i = channel i unconfirmed), ScanSpeed (LiMi's ScanningFrequency is a percentage), a white-light
+   laser's wavelength 0 is placed only because the file says 0. Values that would need translating (Argon
+   -> laser type Gas, TL-BF -> Brightfield) are not translated.
+5. The model's structure, not the vendor's:
+   - on the class that owns the concept, following LiMi's split of hardware and settings (as Objective and
+     ObjectiveSettings): an aperture's diameter and position as set for the image are ElectronOpticsSettings.
+     Aperture, a detector's own values are the GenericDetector's (one per detector, not a Configuration
+     record);
+   - on LiMi's classes through the extension's mixins (InstrumentExtension, DetectorExtension, ...), new
+     groups as classes of their own (ElectronAperture);
+   - LiMi's names and terms first, then OME's: Instrument.CatalogNumber, LiMi's "Catalog, Part or Serial
+     Number", not a SerialNumber LiMi does not have; "Oil" from OME's immersion list, not a new term;
+   - the shared classes for values with a unit or several parts: Quantity {Value, Unit} with the unit as
+     free text, QuantityRange {Begin, End, Unit}, Vector2D {X, Y}; typed ranges (float, integer, boolean)
+     wherever the values are numbers or flags.
+6. Additive only: new optional fields, classes and enumeration values, never a removal or a changed range,
+   so the profile stays compatible with the published version (metaseed's compare_specs finds every change
+   since 1.0 compatible). ElectronOpticsSettings.Apertures (text) stays beside the new Aperture records, and
+   Detector.Configuration stays although no example uses it now.
+7. A unit the source leaves out is stated only with reasonable confidence: the vendor's convention is known
+   and the values agree with it and with each other (TALOS's SI units: 4 nm pixels x 2048 = the 8.19 um
+   field of view, 2048 lines x 0.207 s = the frame time; Cikteq's working distance in mm; Aperio's slide
+   position in mm, within a 75 x 25 mm slide). Cikteq's beam current and point time have no unit, as pA/nA and
+   us/ns cannot be told apart. An implied unit qualifies numbers only.
+8. Checked as a whole: a synthetic test for every new mapper or exporter code path before real data; then
+   the profile, output/ and export/ regenerated, the no-data-loss and metaseed validation tests passing, and
+   the analytics showing the keys moving to covered with Kept and Traced still at 100%. Before a rule for a
+   shared or short key, every example holding that key is checked, not only the ones where it is placed
+   (Cikteq's "2min52s" under TALOS's Scan.FrameTime rule showed why).
 
 ## TODO
 

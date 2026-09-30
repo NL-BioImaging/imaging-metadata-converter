@@ -1,0 +1,25 @@
+Image:
+  Name: ''
+  AcquisitionDate: '2025-05-28 10:54:00'
+  Type: ''
+Pixels:
+  PhysicalSizeX: 1.652845302290227e-09
+  PhysicalSizeY: 1.652845302290227e-09
+  PhysicalSizeXUnit: m
+  PhysicalSizeYUnit: m
+Objective:
+  Magnification: 6000.0
+GenericDetector:
+  Name: ''
+SourceMap:
+  Image.Name: name
+  Image.AcquisitionDate: datetime
+  Pixels.PhysicalSizeX: pixelsizex
+  Pixels.PhysicalSizeY: pixelsizey
+  Objective.Magnification: magnification
+  GenericDetector.Name: cameraname
+  Image.Type: picturetype
+  Pixels.PhysicalSizeXUnit:
+  - pixelsizex
+  Pixels.PhysicalSizeYUnit:
+  - pixelsizey

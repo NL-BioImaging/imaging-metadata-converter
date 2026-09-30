@@ -1,0 +1,210 @@
+Image:
+  ElectronBeamSettings:
+    Stigmator:
+      X: -0.01
+      Y: 0.0
+    BeamDownX: 0
+    BeamDownY: 0
+    Mode: 1-20um
+    Type: 1
+    BeamUpX: 0
+    BeamUpY: 0
+    ElectricMoveX: 0.01
+    ElectricMoveY: -0.2
+    ElectricRotate: 0.0
+    Focus: 51662.0
+    ImagingMode: 0
+    Current:
+      Value: 11.36
+    Shift:
+      X: 0.0
+      Y: 0.0
+    TiltX: 0.0
+    TiltY: 0.0
+    VisibleMultiple: 1800
+    WorkingDistance:
+      Value: 3.88
+      Unit: mm
+    HighVoltage:
+      BV: 6000.24
+      Bia: 0.0
+      CV: 200.0
+      ExtCurrent: 141.86
+      ExtVoltage: 3600.62
+      FV: 0.0
+      FcCurrent: 2.28
+      FcVoltage: 1.49
+      HighEmissionMode: false
+      HvCurrent: 2.28
+      HvMode: 0
+      HvVoltage: 3000.0
+      Mid10kvVoltage: 0.0
+      SV: 10001.24
+      SchCurrent: 3.51
+      SchVoltage: 300.68
+  ElectronOpticsSettings:
+    Condenser1: 1374
+    Condenser2: 1103
+  ScanSettings:
+    FieldOfView:
+      X:
+        Value: 71.17µm
+    Drift: true
+    FramAdd: 1
+    FrameTime:
+      Value: 2min29s
+    LineInterlacing: Disable
+    LineAdd: 1
+GenericDetector:
+  Brightness: 50.0
+  Channel: 1
+  ConsumerBrightness: 50.0
+  ConsumerContrast: 50.0
+  Contrast: 0.0
+  Name: ETD-SE
+  Gain: 100
+  PMT: 0.37
+FEI_HELIOS:
+  Other:
+    BottomInfoVacuum: 1.1e-07Pa
+  TiltCorrect:
+    CorrectAngle: 0.0
+    IonWorkTilt: 54.0
+    IsTiltCorrent: false
+    PreTiltAngle: 0.0
+    TiltCompensateMode: 0
+Plane:
+  PixelDwellTime: 5.0
+Pixels:
+  SizeX: 6144
+  SizeY: 4096
+MechanicalStage:
+  NavCoordinate: 1
+  Rotation:
+    Value: 11.7
+    Unit: deg
+  Tilt:
+    Value: 0.0
+    Unit: deg
+  Position:
+    X:
+      Value: 12.3745
+      Unit: mm
+    Y:
+      Value: 9.0143
+      Unit: mm
+    Z:
+      Value: 58.0
+      Unit: mm
+  StageType: TMCM-GYLZ-4000X-FIVE-110x110x69
+Instrument:
+  Name: SEM4000X
+  Version: 2.6
+  Vacuum:
+    BufferVacuum: 123.0
+    GunVacuum: 1.14e-07
+    SampleVacuum: 0.000203
+AcquisitionSoftware:
+  Version: 3.2.3.300
+Experimenter:
+  BottomInfoShowEnable: 2038
+  DateTimeFmt: yyyy/MM/dd HH:mm:ss
+  MagType: 1
+  RulerText: SEM4000X
+  TimeStamp: 1784645361
+  UserName: "\x01"
+  VacuumType: 0
+SourceMap:
+  Image.ElectronBeamSettings.Stigmator.X: FEI_HELIOS.Beam.AstigX
+  Image.ElectronBeamSettings.Stigmator.Y: FEI_HELIOS.Beam.AstigY
+  Image.ElectronBeamSettings.BeamDownX: FEI_HELIOS.Beam.BeamDownX
+  Image.ElectronBeamSettings.BeamDownY: FEI_HELIOS.Beam.BeamDownY
+  Image.ElectronBeamSettings.Mode: FEI_HELIOS.Beam.BeamMode
+  Image.ElectronBeamSettings.Type: FEI_HELIOS.Beam.BeamType
+  Image.ElectronBeamSettings.BeamUpX: FEI_HELIOS.Beam.BeamUpX
+  Image.ElectronBeamSettings.BeamUpY: FEI_HELIOS.Beam.BeamUpY
+  Image.ElectronOpticsSettings.Condenser1: FEI_HELIOS.Beam.Condenser
+  Image.ElectronOpticsSettings.Condenser2: FEI_HELIOS.Beam.Condenser2
+  Image.ElectronBeamSettings.ElectricMoveX: FEI_HELIOS.Beam.ElectricMoveX
+  Image.ElectronBeamSettings.ElectricMoveY: FEI_HELIOS.Beam.ElectricMoveY
+  Image.ElectronBeamSettings.ElectricRotate: FEI_HELIOS.Beam.ElectricRotate
+  Image.ElectronBeamSettings.Focus: FEI_HELIOS.Beam.Focus
+  Image.ScanSettings.FieldOfView.X.Value: FEI_HELIOS.Beam.HFW
+  Image.ElectronBeamSettings.ImagingMode: FEI_HELIOS.Beam.ImagingMode
+  Image.ElectronBeamSettings.Current.Value: FEI_HELIOS.Beam.RealAbsCurrent
+  Image.ElectronBeamSettings.Shift.X: FEI_HELIOS.Beam.ShiftX
+  Image.ElectronBeamSettings.Shift.Y: FEI_HELIOS.Beam.ShiftY
+  Image.ElectronBeamSettings.TiltX: FEI_HELIOS.Beam.TiltX
+  Image.ElectronBeamSettings.TiltY: FEI_HELIOS.Beam.TiltY
+  Image.ElectronBeamSettings.VisibleMultiple: FEI_HELIOS.Beam.VisibleMultiple
+  Image.ElectronBeamSettings.WorkingDistance.Value: FEI_HELIOS.Beam.WD
+  GenericDetector.Brightness: FEI_HELIOS.Detector.Brightness
+  GenericDetector.Channel: FEI_HELIOS.Detector.Channel
+  GenericDetector.ConsumerBrightness: FEI_HELIOS.Detector.ConsumerBrightness
+  GenericDetector.ConsumerContrast: FEI_HELIOS.Detector.ConsumerContrast
+  GenericDetector.Contrast: FEI_HELIOS.Detector.Contrast
+  GenericDetector.Name: FEI_HELIOS.Detector.DetectorName
+  GenericDetector.Gain: FEI_HELIOS.Detector.Gain
+  GenericDetector.PMT: FEI_HELIOS.Detector.PMT
+  Image.ElectronBeamSettings.HighVoltage.BV: FEI_HELIOS.HV.BV
+  Image.ElectronBeamSettings.HighVoltage.Bia: FEI_HELIOS.HV.Bia
+  Image.ElectronBeamSettings.HighVoltage.CV: FEI_HELIOS.HV.CV
+  Image.ElectronBeamSettings.HighVoltage.ExtCurrent: FEI_HELIOS.HV.ExtCurrent
+  Image.ElectronBeamSettings.HighVoltage.ExtVoltage: FEI_HELIOS.HV.ExtVoltage
+  Image.ElectronBeamSettings.HighVoltage.FV: FEI_HELIOS.HV.FV
+  Image.ElectronBeamSettings.HighVoltage.FcCurrent: FEI_HELIOS.HV.FcCurrent
+  Image.ElectronBeamSettings.HighVoltage.FcVoltage: FEI_HELIOS.HV.FcVoltage
+  Image.ElectronBeamSettings.HighVoltage.HighEmissionMode: FEI_HELIOS.HV.HighEmissionMode
+  Image.ElectronBeamSettings.HighVoltage.HvCurrent: FEI_HELIOS.HV.HvCurrent
+  Image.ElectronBeamSettings.HighVoltage.HvMode: FEI_HELIOS.HV.HvMode
+  Image.ElectronBeamSettings.HighVoltage.HvVoltage: FEI_HELIOS.HV.HvVoltage
+  Image.ElectronBeamSettings.HighVoltage.Mid10kvVoltage: FEI_HELIOS.HV.Mid10kvVoltage
+  Image.ElectronBeamSettings.HighVoltage.SV: FEI_HELIOS.HV.SV
+  Image.ElectronBeamSettings.HighVoltage.SchCurrent: FEI_HELIOS.HV.SchCurrent
+  Image.ElectronBeamSettings.HighVoltage.SchVoltage: FEI_HELIOS.HV.SchVoltage
+  FEI_HELIOS.Other.BottomInfoVacuum: FEI_HELIOS.Other.BottomInfoVacuum
+  Image.ScanSettings.Drift: FEI_HELIOS.Scan.Drift
+  Image.ScanSettings.FramAdd: FEI_HELIOS.Scan.FramAdd
+  Image.ScanSettings.FrameTime.Value: FEI_HELIOS.Scan.FrameTime
+  Image.ScanSettings.LineInterlacing: FEI_HELIOS.Scan.Interlaced
+  Image.ScanSettings.LineAdd: FEI_HELIOS.Scan.LineAdd
+  Plane.PixelDwellTime: FEI_HELIOS.Scan.PointTime
+  Pixels.SizeX: FEI_HELIOS.Scan.ResolutionX
+  Pixels.SizeY: FEI_HELIOS.Scan.ResolutionY
+  MechanicalStage.NavCoordinate: FEI_HELIOS.Stage.NavCoordinate
+  MechanicalStage.Rotation.Value: FEI_HELIOS.Stage.StagePosR
+  MechanicalStage.Tilt.Value: FEI_HELIOS.Stage.StagePosT
+  MechanicalStage.Position.X.Value: FEI_HELIOS.Stage.StagePosX
+  MechanicalStage.Position.Y.Value: FEI_HELIOS.Stage.StagePosY
+  MechanicalStage.Position.Z.Value: FEI_HELIOS.Stage.StagePosZ
+  MechanicalStage.StageType: FEI_HELIOS.Stage.StageType
+  Instrument.Name: FEI_HELIOS.System.ProductName
+  AcquisitionSoftware.Version: FEI_HELIOS.System.SoftwareVersion
+  Instrument.Version: FEI_HELIOS.System.Version
+  FEI_HELIOS.TiltCorrect.CorrectAngle: FEI_HELIOS.TiltCorrect.CorrectAngle
+  FEI_HELIOS.TiltCorrect.IonWorkTilt: FEI_HELIOS.TiltCorrect.IonWorkTilt
+  FEI_HELIOS.TiltCorrect.IsTiltCorrent: FEI_HELIOS.TiltCorrect.IsTiltCorrent
+  FEI_HELIOS.TiltCorrect.PreTiltAngle: FEI_HELIOS.TiltCorrect.PreTiltAngle
+  FEI_HELIOS.TiltCorrect.TiltCompensateMode: FEI_HELIOS.TiltCorrect.TiltCompensateMode
+  Experimenter.BottomInfoShowEnable: FEI_HELIOS.User.BottomInfoShowEnable
+  Experimenter.DateTimeFmt: FEI_HELIOS.User.DateTimeFmt
+  Experimenter.MagType: FEI_HELIOS.User.MagType
+  Experimenter.RulerText: FEI_HELIOS.User.RulerText
+  Experimenter.TimeStamp: FEI_HELIOS.User.TimeStamp
+  Experimenter.UserName: FEI_HELIOS.User.UserName
+  Experimenter.VacuumType: FEI_HELIOS.User.VacuumType
+  Instrument.Vacuum.BufferVacuum: FEI_HELIOS.Vacuum.BufferVacuum
+  Instrument.Vacuum.GunVacuum: FEI_HELIOS.Vacuum.GunVacuum
+  Instrument.Vacuum.SampleVacuum: FEI_HELIOS.Vacuum.SampleVacuum
+  Image.ElectronBeamSettings.WorkingDistance.Unit:
+  - FEI_HELIOS.Beam.WD
+  MechanicalStage.Rotation.Unit:
+  - FEI_HELIOS.Stage.StagePosR
+  MechanicalStage.Tilt.Unit:
+  - FEI_HELIOS.Stage.StagePosT
+  MechanicalStage.Position.X.Unit:
+  - FEI_HELIOS.Stage.StagePosX
+  MechanicalStage.Position.Y.Unit:
+  - FEI_HELIOS.Stage.StagePosY
+  MechanicalStage.Position.Z.Unit:
+  - FEI_HELIOS.Stage.StagePosZ

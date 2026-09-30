@@ -158,7 +158,7 @@ nested form: `MetaseedClient(...)._facade.load_nested(document)`, then
 ```bash
 pip install -e . pytest
 python scripts/metaseed_generator.py    # model -> profile/imaging.metaseed.yaml
-python scripts/convert_examples.py      # examples -> output/
+python scripts/convert_examples.py      # examples -> output/, as YAML
 python scripts/dataset_exporter.py      # examples -> export/, metaseed datasets
 python scripts/model_fit.py             # export/ -> how well each example fits the model
 python -m pytest tests                  # all of the checks above

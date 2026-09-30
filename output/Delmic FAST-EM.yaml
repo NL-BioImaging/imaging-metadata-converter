@@ -1,0 +1,6 @@
+Instrument:
+  Manufacturer: Delmic B.V.
+  Model: Fast EM
+SourceMap:
+  Instrument.Manufacturer: Make
+  Instrument.Model: Model

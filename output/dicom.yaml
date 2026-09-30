@@ -1,0 +1,234 @@
+SpecificCharacterSet: ISO_IR 100
+ImageType:
+- ORIGINAL
+- PRIMARY
+- LOCALIZER
+InstanceCreationDate: '20200101'
+InstanceCreationTime: '045140.172'
+SOPClassUID: 1.2.840.10008.5.1.4.1.1.2
+Image:
+  ID: 1.3.46.670589.33.1.63825767579215202100001.2207126070281312668
+  AcquisitionDate: '20200101'
+  Name: ''
+  Description: ''
+StudyDate: '20200101'
+SeriesDate: '20200101'
+ContentDate: '20200101'
+AcquisitionDateTime: '20200101045136.010'
+StudyTime: '042959'
+SeriesTime: '045114'
+AcquisitionTime: '045136'
+ContentTime: '045136'
+AccessionNumber: '0000123456'
+Instrument:
+  Type: CT
+  Manufacturer: Philips
+  Name: HOST-000000
+  Model: iCT 256
+  CatalogNumber: CT1-iCT
+ModalitiesInStudy:
+- CT
+- SR
+Experimenter:
+  Institution: University Medical Center
+InstitutionAddress: Europaweg 1
+ReferringPhysicianName: J DOE
+Experiment:
+  Description: CT Aorta Thoracaal
+  ID: 1.3.46.670589.33.1.63825766252000289800001.2328319612625549181
+InstitutionalDepartmentName: Radiologie
+AdmittingDiagnosesDescription: ''
+AdmittingDiagnosesCodeSequence: []
+ReferencedPerformedProcedureStepSequence:
+- ReferencedSOPClassUID: 1.2.840.10008.3.1.2.3.3
+  ReferencedSOPInstanceUID: 1.3.46.670589.33.1.63825766252006290100001.9976435088453342104
+IrradiationEventUID: 1.3.46.670589.33.1.63825767550984587400001.4361746523786309551
+PatientName: DOE^J
+PatientID: '111111111'
+IssuerOfPatientID: 2.16.840.1.309205.6.5.7.1
+PatientBirthDate: '20000101'
+PatientSex: M
+OtherPatientIDsSequence:
+- PatientID: '12345678900'
+  IssuerOfPatientID: UMC
+  TypeOfPatientID: TEXT
+PatientAge: 020Y
+ResponsibleOrganization: University Medical Center
+BodyPartExamined: ''
+ScanOptions: SURVIEW
+Pixels:
+  PhysicalSizeZ: 0.625
+  SizeY: 472
+  SizeX: 512
+  PhysicalSizeY: 0.9765625
+  PhysicalSizeX: 0.9765625
+  SignificantBits: 12
+  PhysicalSizeZUnit: mm
+  PhysicalSizeYUnit: mm
+  PhysicalSizeXUnit: mm
+KVP: 80.0
+DataCollectionDiameter: 500.0
+AcquisitionSoftware:
+  Version: '4.1'
+ProtocolName: Aorta AAA/totaal /CTA
+ReconstructionDiameter: 500.0
+DistanceSourceToDetector: 1040.0
+DistanceSourceToPatient: 570.0
+GantryDetectorTilt: 0.0
+TableHeight: 115.8
+AngularPosition: 180.0
+Plane:
+  ExposureTime: 3095
+XRayTubeCurrent: 30
+PatientPosition: FFS
+AcquisitionType: CONSTANT_ANGLE
+SingleCollimationWidth: 0.625
+TotalCollimationWidth: 2.5
+TableSpeed: 150.0
+ExposureModulationType: NONE
+SeriesInstanceUID: 1.3.46.670589.33.1.63825767550979587100001.9043597260722751287
+StudyID: '1234'
+SeriesNumber: 100
+AcquisitionNumber: 0
+InstanceNumber: 1
+ImagePositionPatient:
+- -250.0
+- 139.2
+- 461.9
+ImageOrientationPatient:
+- 1.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- -1.0
+FrameOfReferenceUID: 1.3.46.670589.33.1.63825767550984587400002.6105002875805871436
+PositionReferenceIndicator: ''
+SliceLocation: -461.9
+NumberOfStudyRelatedInstances: 1334
+Channel:
+  SamplesPerPixel: 1
+PhotometricInterpretation: MONOCHROME2
+BitsAllocated: 16
+HighBit: 11
+PixelRepresentation: 0
+SmallestImagePixelValue: 0
+LargestImagePixelValue: 2985
+WindowCenter: -59.54343
+WindowWidth: 2250.74478149414
+RescaleIntercept: -1024.0
+RescaleSlope: 1.0
+RequestedProcedureID: '0000123456'
+ConfidentialityCode: N
+SourceMap:
+  SpecificCharacterSet: SpecificCharacterSet
+  ImageType[0]: ImageType[0]
+  ImageType[1]: ImageType[1]
+  ImageType[2]: ImageType[2]
+  InstanceCreationDate: InstanceCreationDate
+  InstanceCreationTime: InstanceCreationTime
+  SOPClassUID: SOPClassUID
+  Image.ID: SOPInstanceUID
+  StudyDate: StudyDate
+  SeriesDate: SeriesDate
+  Image.AcquisitionDate: AcquisitionDate
+  ContentDate: ContentDate
+  AcquisitionDateTime: AcquisitionDateTime
+  StudyTime: StudyTime
+  SeriesTime: SeriesTime
+  AcquisitionTime: AcquisitionTime
+  ContentTime: ContentTime
+  AccessionNumber: AccessionNumber
+  Instrument.Type: Modality
+  ModalitiesInStudy[0]: ModalitiesInStudy[0]
+  ModalitiesInStudy[1]: ModalitiesInStudy[1]
+  Instrument.Manufacturer: Manufacturer
+  Experimenter.Institution: InstitutionName
+  InstitutionAddress: InstitutionAddress
+  ReferringPhysicianName: ReferringPhysicianName
+  Instrument.Name: StationName
+  Experiment.Description: StudyDescription
+  Image.Name: SeriesDescription
+  InstitutionalDepartmentName: InstitutionalDepartmentName
+  AdmittingDiagnosesDescription: AdmittingDiagnosesDescription
+  AdmittingDiagnosesCodeSequence: AdmittingDiagnosesCodeSequence
+  Instrument.Model: ManufacturerModelName
+  ReferencedPerformedProcedureStepSequence[0].ReferencedSOPClassUID: ReferencedPerformedProcedureStepSequence[0].ReferencedSOPClassUID
+  ReferencedPerformedProcedureStepSequence[0].ReferencedSOPInstanceUID: ReferencedPerformedProcedureStepSequence[0].ReferencedSOPInstanceUID
+  IrradiationEventUID: IrradiationEventUID
+  PatientName: PatientName
+  PatientID: PatientID
+  IssuerOfPatientID: IssuerOfPatientID
+  PatientBirthDate: PatientBirthDate
+  PatientSex: PatientSex
+  OtherPatientIDsSequence[0].PatientID: OtherPatientIDsSequence[0].PatientID
+  OtherPatientIDsSequence[0].IssuerOfPatientID: OtherPatientIDsSequence[0].IssuerOfPatientID
+  OtherPatientIDsSequence[0].TypeOfPatientID: OtherPatientIDsSequence[0].TypeOfPatientID
+  PatientAge: PatientAge
+  ResponsibleOrganization: ResponsibleOrganization
+  BodyPartExamined: BodyPartExamined
+  ScanOptions: ScanOptions
+  Pixels.PhysicalSizeZ: SliceThickness
+  KVP: KVP
+  DataCollectionDiameter: DataCollectionDiameter
+  Instrument.CatalogNumber: DeviceSerialNumber
+  AcquisitionSoftware.Version: SoftwareVersions
+  ProtocolName: ProtocolName
+  ReconstructionDiameter: ReconstructionDiameter
+  DistanceSourceToDetector: DistanceSourceToDetector
+  DistanceSourceToPatient: DistanceSourceToPatient
+  GantryDetectorTilt: GantryDetectorTilt
+  TableHeight: TableHeight
+  AngularPosition: AngularPosition
+  Plane.ExposureTime: ExposureTime
+  XRayTubeCurrent: XRayTubeCurrent
+  PatientPosition: PatientPosition
+  AcquisitionType: AcquisitionType
+  SingleCollimationWidth: SingleCollimationWidth
+  TotalCollimationWidth: TotalCollimationWidth
+  TableSpeed: TableSpeed
+  ExposureModulationType: ExposureModulationType
+  Experiment.ID: StudyInstanceUID
+  SeriesInstanceUID: SeriesInstanceUID
+  StudyID: StudyID
+  SeriesNumber: SeriesNumber
+  AcquisitionNumber: AcquisitionNumber
+  InstanceNumber: InstanceNumber
+  ImagePositionPatient[0]: ImagePositionPatient[0]
+  ImagePositionPatient[1]: ImagePositionPatient[1]
+  ImagePositionPatient[2]: ImagePositionPatient[2]
+  ImageOrientationPatient[0]: ImageOrientationPatient[0]
+  ImageOrientationPatient[1]: ImageOrientationPatient[1]
+  ImageOrientationPatient[2]: ImageOrientationPatient[2]
+  ImageOrientationPatient[3]: ImageOrientationPatient[3]
+  ImageOrientationPatient[4]: ImageOrientationPatient[4]
+  ImageOrientationPatient[5]: ImageOrientationPatient[5]
+  FrameOfReferenceUID: FrameOfReferenceUID
+  PositionReferenceIndicator: PositionReferenceIndicator
+  SliceLocation: SliceLocation
+  NumberOfStudyRelatedInstances: NumberOfStudyRelatedInstances
+  Image.Description: ImageComments
+  Channel.SamplesPerPixel: SamplesPerPixel
+  PhotometricInterpretation: PhotometricInterpretation
+  Pixels.SizeY: Rows
+  Pixels.SizeX: Columns
+  Pixels.PhysicalSizeY: PixelSpacing[0]
+  Pixels.PhysicalSizeX: PixelSpacing[1]
+  BitsAllocated: BitsAllocated
+  Pixels.SignificantBits: BitsStored
+  HighBit: HighBit
+  PixelRepresentation: PixelRepresentation
+  SmallestImagePixelValue: SmallestImagePixelValue
+  LargestImagePixelValue: LargestImagePixelValue
+  WindowCenter: WindowCenter
+  WindowWidth: WindowWidth
+  RescaleIntercept: RescaleIntercept
+  RescaleSlope: RescaleSlope
+  RequestedProcedureID: RequestedProcedureID
+  ConfidentialityCode: ConfidentialityCode
+  Pixels.PhysicalSizeZUnit:
+  - SliceThickness
+  Pixels.PhysicalSizeYUnit:
+  - PixelSpacing[0]
+  Pixels.PhysicalSizeXUnit:
+  - PixelSpacing[1]

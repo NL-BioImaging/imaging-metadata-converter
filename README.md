@@ -105,7 +105,7 @@ by `tests/test_examples.py` and handy as input while extending the mappings:
 | `platy_tomography.json` | BigDataViewer (SpimData) tomography |
 | `svs_metadata.json` | Aperio SVS |
 
-`output/` holds what the converter makes of each, written by
+`output/` holds what the converter makes of each, as YAML, written by
 `scripts/convert_examples.py`.
 
 ## How mapping works
