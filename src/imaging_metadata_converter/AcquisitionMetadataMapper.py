@@ -11,6 +11,7 @@ field names that match the schema, just without a vendor-specific prefix.
 """
 
 import json
+import math
 import os.path
 import re
 from datetime import datetime, timezone
@@ -23,6 +24,9 @@ DEFAULT_SCHEMA_FILE = DEFAULT_MODEL_FILE
 DEFAULT_MAPPINGS_FILE = os.path.join(os.path.dirname(__file__), 'mappings', 'mappings.json')
 DEFAULT_COMBINATIONS_FILE = os.path.join(os.path.dirname(__file__), 'mappings', 'combinations.json')
 SOURCE_MAP_KEY = 'SourceMap'
+# a time written as text, in hours, minutes and seconds ("2min52s"), and a number written with its unit ("21.12µm")
+DURATION = re.compile(r'(?:(\d+(?:\.\d+)?)\s*h)?\s*(?:(\d+(?:\.\d+)?)\s*min)?\s*(?:(\d+(?:\.\d+)?)\s*s)?')
+QUANTITY = re.compile(r'([-+]?(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?)\s*([^\d\s].*)')
 
 
 class AcquisitionMetadataMapper:
@@ -585,15 +589,37 @@ class AcquisitionMetadataMapper:
         target, or with "split" taken as the entry's "item"-th number of them - only where that is free,
         and only when every part is there
         and parses. The parts themselves stay where the mapping put them;
-        the combined value's SourceMap entry is the list of its parts.
+        the combined value's SourceMap entry is the list of its parts. "count" gives last - first + 1 of two
+        parts, "product" the parts multiplied (Aperio's Exposure Time x Exposure Scale), "duration" a time written
+        as text ("2min52s") in seconds, and "quantity" the number of a value written with its unit ("21.12µm");
+        those two write the unit beside the value too, where free, as does any entry stating a "unit".
+
+        A value derived from one part may replace that part at its target, where a rule put the part's text
+        there and the text is no number (Cikteq's frame time "2min52s" under TALOS's rule for a number): the
+        text goes back to its own path, still kept.
         """
         for combination in self.combinations:
-            parts = [value_at_path(metadata, path) for path in combination['sources']]
+            sources = combination['sources']
+            target = combination['target']
+            parts = [value_at_path(metadata, path) for path in sources]
             has_all_parts = all(part is not None for part in parts)
-            combined = parse_combination(' '.join(map(str, parts)), combination['format'], combination.get('item'))                 if has_all_parts else None
-            if combined is not None and is_free_path(result, combination['target']):
-                set_nested_value(result, combination['target'], combined)
-                provenance[combination['target']] = list(combination['sources'])
+            text = ' '.join(map(str, parts))
+            combined = parse_combination(text, combination['format'], combination.get('item')) \
+                if has_all_parts else None
+            placed = value_at_path(result, target)
+            replaces_its_text = (len(sources) == 1 and provenance.get(target) == sources[0]
+                                 and isinstance(placed, str) and not is_number(placed)
+                                 and is_free_path(result, sources[0]))
+            if combined is not None and replaces_its_text:
+                set_nested_value(result, sources[0], pop_nested_value(result, target))
+                provenance[sources[0]] = provenance.pop(target)
+            if combined is not None and is_free_path(result, target):
+                set_nested_value(result, target, combined)
+                provenance[target] = list(sources)
+                unit = combination.get('unit') or combination_unit(text, combination['format'])
+                if unit is not None and is_free_path(result, unit_field(target)):
+                    set_nested_value(result, unit_field(target), unit)
+                    provenance[unit_field(target)] = list(sources)
 
     def unmatched_fields(self, metadata):
         """List the output paths of leaf fields not represented in the model.
@@ -677,6 +703,20 @@ def parse_combination(text, date_format, item=None):
     if date_format == 'split':
         words = text.split()
         return _number(words[item]) if item < len(words) else None
+    if date_format == 'product':
+        factors = [_number(word) for word in text.split()]
+        return math.prod(factors) if factors and None not in factors else None
+    if date_format == 'count':
+        ends = [_number(word) for word in text.split()]
+        return ends[1] - ends[0] + 1 if len(ends) == 2 and all(isinstance(end, int) for end in ends) else None
+    if date_format == 'duration':
+        match = DURATION.fullmatch(text.strip())
+        seconds = sum(_number(amount) * factor for amount, factor in zip(match.groups(), (3600, 60, 1))
+                      if amount) if match and any(match.groups()) else None
+        return int(seconds) if seconds is not None and seconds == int(seconds) else seconds
+    if date_format == 'quantity':
+        match = QUANTITY.fullmatch(text.strip())
+        return _number(match.group(1)) if match else None
     if date_format == 'unix':
         seconds = int(text) if text.strip().isdigit() else 0
         return datetime.fromtimestamp(seconds, tz=timezone.utc).isoformat() if seconds > 0 else None
@@ -684,6 +724,14 @@ def parse_combination(text, date_format, item=None):
         return datetime.strptime(text, date_format).isoformat()
     except ValueError:
         return None
+
+
+def combination_unit(text, value_format):
+    """The unit a "duration" or "quantity" combination writes beside its value, else None."""
+    if value_format == 'duration' and DURATION.fullmatch(text.strip()):
+        return 's'
+    match = QUANTITY.fullmatch(text.strip()) if value_format == 'quantity' else None
+    return match.group(2) if match else None
 
 
 def is_number(value):

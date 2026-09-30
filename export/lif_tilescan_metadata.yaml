@@ -129,108 +129,132 @@ Image:
       Field: Instrument[0].GenericDetector[5].Offset
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Offset
     - ID: SourceMapping:40
+      Field: Instrument[0].GenericDetector[0].Enabled
+      Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsActive
+      SourceValue: '0'
+    - ID: SourceMapping:41
+      Field: Instrument[0].GenericDetector[1].Enabled
+      Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsActive
+      SourceValue: '0'
+    - ID: SourceMapping:42
+      Field: Instrument[0].GenericDetector[2].Enabled
+      Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsActive
+      SourceValue: '0'
+    - ID: SourceMapping:43
+      Field: Instrument[0].GenericDetector[3].Enabled
+      Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsActive
+      SourceValue: '0'
+    - ID: SourceMapping:44
+      Field: Instrument[0].GenericDetector[4].Enabled
+      Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsActive
+      SourceValue: '1'
+    - ID: SourceMapping:45
+      Field: Instrument[0].GenericDetector[5].Enabled
+      Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsActive
+      SourceValue: '0'
+    - ID: SourceMapping:46
       Field: Instrument[0].Laser[0].Name
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LaserName
-    - ID: SourceMapping:41
+    - ID: SourceMapping:47
       Field: Instrument[0].Laser[0].IlluminationWavelengthRange[0].PeakWavelength
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].Wavelength
-    - ID: SourceMapping:42
+    - ID: SourceMapping:48
       Field: Instrument[0].Laser[0].IlluminationWavelengthRange[0].PeakWavelengthUnit
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].Wavelength
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].Wavelength
-    - ID: SourceMapping:43
+    - ID: SourceMapping:49
       Field: Instrument[0].Laser[1].Name
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].LaserName
-    - ID: SourceMapping:44
+    - ID: SourceMapping:50
       Field: Instrument[0].Laser[1].IlluminationWavelengthRange[0].PeakWavelength
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].Wavelength
-    - ID: SourceMapping:45
+    - ID: SourceMapping:51
       Field: Instrument[0].Laser[1].IlluminationWavelengthRange[0].PeakWavelengthUnit
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].Wavelength
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].Wavelength
-    - ID: SourceMapping:46
+    - ID: SourceMapping:52
       Field: Instrument[0].Laser[2].Name
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].LaserName
-    - ID: SourceMapping:47
+    - ID: SourceMapping:53
       Field: Instrument[0].Laser[2].IlluminationWavelengthRange[0].PeakWavelength
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].Wavelength
-    - ID: SourceMapping:48
+    - ID: SourceMapping:54
       Field: Instrument[0].Laser[2].IlluminationWavelengthRange[0].PeakWavelengthUnit
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].Wavelength
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].Wavelength
-    - ID: SourceMapping:49
+    - ID: SourceMapping:55
       Field: Instrument[0].Laser[3].Name
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LaserName
-    - ID: SourceMapping:50
+    - ID: SourceMapping:56
       Field: Instrument[0].Laser[3].IlluminationWavelengthRange[0].PeakWavelength
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].Wavelength
-    - ID: SourceMapping:51
+    - ID: SourceMapping:57
       Field: Instrument[0].Laser[3].IlluminationWavelengthRange[0].PeakWavelengthUnit
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].Wavelength
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].Wavelength
-    - ID: SourceMapping:52
+    - ID: SourceMapping:58
       Field: Image[0].Pixels.SignificantBits
       Source: HardwareSetting.ConfocalSettingDefinition.BitSize
-    - ID: SourceMapping:53
+    - ID: SourceMapping:59
       Field: Image[0].Pixels.SizeX
       Source: HardwareSetting.ConfocalSettingDefinition.InDimension
-    - ID: SourceMapping:54
+    - ID: SourceMapping:60
       Field: Image[0].Pixels.SizeY
       Source: HardwareSetting.ConfocalSettingDefinition.OutDimension
-    - ID: SourceMapping:55
+    - ID: SourceMapping:61
       Field: Image[0].Pixels.Plane[0].PositionZ
       Source: HardwareSetting.ConfocalSettingDefinition.ZPosition
-    - ID: SourceMapping:56
+    - ID: SourceMapping:62
       Field: Image[0].Pixels.Plane[0].PositionX
       Source: HardwareSetting.ConfocalSettingDefinition.StagePosX
-    - ID: SourceMapping:57
+    - ID: SourceMapping:63
       Field: Image[0].Pixels.Plane[0].PositionY
       Source: HardwareSetting.ConfocalSettingDefinition.StagePosY
-    - ID: SourceMapping:58
+    - ID: SourceMapping:64
       Field: Image[0].Pixels.Plane[0].PixelDwellTime
       Source: HardwareSetting.ConfocalSettingDefinition.PixelDwellTime
-    - ID: SourceMapping:59
+    - ID: SourceMapping:65
       Field: Image[0].Pixels.Plane[0].PositionZUnit
       Source: HardwareSetting.ConfocalSettingDefinition.ZPosition
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.ZPosition
-    - ID: SourceMapping:60
+    - ID: SourceMapping:66
       Field: Image[0].Pixels.Plane[0].PositionXUnit
       Source: HardwareSetting.ConfocalSettingDefinition.StagePosX
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.StagePosX
-    - ID: SourceMapping:61
+    - ID: SourceMapping:67
       Field: Image[0].Pixels.Plane[0].PositionYUnit
       Source: HardwareSetting.ConfocalSettingDefinition.StagePosY
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.StagePosY
-    - ID: SourceMapping:62
+    - ID: SourceMapping:68
       Field: Image[0].Pixels.Plane[0].PixelDwellTimeUnit
       Source: HardwareSetting.ConfocalSettingDefinition.PixelDwellTime
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.PixelDwellTime
-    - ID: SourceMapping:63
+    - ID: SourceMapping:69
       Field: Image[0].Pixels.Channel[0].LightPath.ConfocalScannerSettings[0].EffectiveZoom
       Source: HardwareSetting.ConfocalSettingDefinition.Zoom
-    - ID: SourceMapping:64
+    - ID: SourceMapping:70
       Field: Image[0].Pixels.Channel[0].LightPath.ConfocalScannerSettings[0].ScanDirectionality
       Source: HardwareSetting.ConfocalSettingDefinition.ScanDirectionXName
-    - ID: SourceMapping:65
+    - ID: SourceMapping:71
       Field: Image[0].Pixels.Channel[0].LightPath.ConfocalScannerSettings[0].PresetPinholeSize
       Source: HardwareSetting.ConfocalSettingDefinition.Pinhole
-    - ID: SourceMapping:66
+    - ID: SourceMapping:72
       Field: Image[0].Pixels.Channel[0].LightPath.ConfocalScannerSettings[0].IntegrationNumber
       Source: HardwareSetting.ConfocalSettingDefinition.LineAverage
-    - ID: SourceMapping:67
+    - ID: SourceMapping:73
       Field: Image[0].Pixels.Channel[0].LightPath.ConfocalScannerSettings[0].PresetPinholeSizeUnit
       Source: HardwareSetting.ConfocalSettingDefinition.Pinhole
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Pinhole
-    - ID: SourceMapping:68
+    - ID: SourceMapping:74
       Field: Instrument[0].AcquisitionSoftware[0].Name
       Source: HardwareSetting.Software
   ObjectiveSettings:
@@ -411,594 +435,570 @@ Instrument:
     Value: '"Channel 1"'
     Source: SourceFile:0
   - ID: Property:482
-    Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsActive
-    Value: '0'
-    Source: SourceFile:0
-  - ID: Property:483
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsSTEDDetector
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:484
+  - ID: Property:483
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsSRSDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:485
+  - ID: Property:484
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].DetectionRangeBegin
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:486
+  - ID: Property:485
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].DetectionRangeEnd
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:487
+  - ID: Property:486
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Phase
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:488
+  - ID: Property:487
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsFlimDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:489
+  - ID: Property:488
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsHPDDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:490
+  - ID: Property:489
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].CanDoTimeGate
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:491
+  - ID: Property:490
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].ScanType
     Value: '"Internal"'
     Source: SourceFile:0
-  - ID: Property:492
+  - ID: Property:491
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].ChannelName
     Value: '"Channel 2"'
     Source: SourceFile:0
-  - ID: Property:493
-    Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsActive
-    Value: '0'
-    Source: SourceFile:0
-  - ID: Property:494
+  - ID: Property:492
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsSTEDDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:495
+  - ID: Property:493
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsSRSDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:496
+  - ID: Property:494
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].DetectionRangeBegin
     Value: '350'
     Source: SourceFile:0
-  - ID: Property:497
+  - ID: Property:495
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].DetectionRangeEnd
     Value: '800'
     Source: SourceFile:0
-  - ID: Property:498
+  - ID: Property:496
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Phase
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:499
+  - ID: Property:497
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsFlimDetector
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:500
+  - ID: Property:498
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].StoreFlimGain
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:501
+  - ID: Property:499
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].nStoreFlimOffset
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:502
+  - ID: Property:500
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsFlimActive
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:503
+  - ID: Property:501
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsHPDDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:504
+  - ID: Property:502
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].CanDoTimeGate
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:505
+  - ID: Property:503
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].ScanType
     Value: '"Internal"'
     Source: SourceFile:0
-  - ID: Property:506
+  - ID: Property:504
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].ChannelName
     Value: '"Channel 3"'
     Source: SourceFile:0
-  - ID: Property:507
-    Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsActive
-    Value: '0'
-    Source: SourceFile:0
-  - ID: Property:508
+  - ID: Property:505
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsSTEDDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:509
+  - ID: Property:506
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsSRSDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:510
+  - ID: Property:507
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].DetectionRangeBegin
     Value: '350'
     Source: SourceFile:0
-  - ID: Property:511
+  - ID: Property:508
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].DetectionRangeEnd
     Value: '800'
     Source: SourceFile:0
-  - ID: Property:512
+  - ID: Property:509
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Phase
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:513
+  - ID: Property:510
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsFlimDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:514
+  - ID: Property:511
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsHPDDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:515
+  - ID: Property:512
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].CanDoTimeGate
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:516
+  - ID: Property:513
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].ScanType
     Value: '"Internal"'
     Source: SourceFile:0
-  - ID: Property:517
+  - ID: Property:514
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].ChannelName
     Value: '"Channel 4"'
     Source: SourceFile:0
-  - ID: Property:518
-    Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsActive
-    Value: '0'
-    Source: SourceFile:0
-  - ID: Property:519
+  - ID: Property:515
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsSTEDDetector
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:520
+  - ID: Property:516
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsSRSDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:521
+  - ID: Property:517
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].DetectionRangeBegin
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:522
+  - ID: Property:518
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].DetectionRangeEnd
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:523
+  - ID: Property:519
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Phase
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:524
+  - ID: Property:520
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsFlimDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:525
+  - ID: Property:521
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsHPDDetector
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:526
+  - ID: Property:522
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsEnabled
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:527
+  - ID: Property:523
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsHPDOverloaded
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:528
+  - ID: Property:524
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].CanDoPhotonCounting
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:529
+  - ID: Property:525
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].AcquisitionMode
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:530
+  - ID: Property:526
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].AcquisitionModeName
     Value: '"PhotonIntegration"'
     Source: SourceFile:0
-  - ID: Property:531
+  - ID: Property:527
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].CanDoTimeGate
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:532
+  - ID: Property:528
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsTimeGateActivated
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:533
+  - ID: Property:529
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].TimeGatePulseStart
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:534
+  - ID: Property:530
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].TimeGateWavelength
     Value: '561'
     Source: SourceFile:0
-  - ID: Property:535
+  - ID: Property:531
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].TimeGatePulseEnd
     Value: '3500'
     Source: SourceFile:0
-  - ID: Property:536
+  - ID: Property:532
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].ScanType
     Value: '"Internal"'
     Source: SourceFile:0
-  - ID: Property:537
+  - ID: Property:533
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].ChannelName
     Value: '"Channel 5"'
     Source: SourceFile:0
-  - ID: Property:538
-    Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsActive
-    Value: '1'
-    Source: SourceFile:0
-  - ID: Property:539
+  - ID: Property:534
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsSTEDDetector
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:540
+  - ID: Property:535
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsSRSDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:541
+  - ID: Property:536
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].DetectionRangeBegin
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:542
+  - ID: Property:537
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].DetectionRangeEnd
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:543
+  - ID: Property:538
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Phase
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:544
+  - ID: Property:539
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsFlimDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:545
+  - ID: Property:540
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsHPDDetector
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:546
+  - ID: Property:541
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsEnabled
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:547
+  - ID: Property:542
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsHPDOverloaded
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:548
+  - ID: Property:543
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].CanDoPhotonCounting
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:549
+  - ID: Property:544
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].AcquisitionMode
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:550
+  - ID: Property:545
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].AcquisitionModeName
     Value: '"PhotonIntegration"'
     Source: SourceFile:0
-  - ID: Property:551
+  - ID: Property:546
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].CanDoTimeGate
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:552
+  - ID: Property:547
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsTimeGateActivated
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:553
+  - ID: Property:548
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].TimeGatePulseStart
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:554
+  - ID: Property:549
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].TimeGateWavelength
     Value: '561'
     Source: SourceFile:0
-  - ID: Property:555
+  - ID: Property:550
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].TimeGatePulseEnd
     Value: '3500'
     Source: SourceFile:0
-  - ID: Property:556
+  - ID: Property:551
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].ScanType
     Value: '"TLD"'
     Source: SourceFile:0
-  - ID: Property:557
+  - ID: Property:552
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].ChannelName
     Value: '"Transmission Channel"'
     Source: SourceFile:0
-  - ID: Property:558
-    Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsActive
-    Value: '0'
-    Source: SourceFile:0
-  - ID: Property:559
+  - ID: Property:553
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsSTEDDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:560
+  - ID: Property:554
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsSRSDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:561
+  - ID: Property:555
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].DetectionRangeBegin
     Value: '350'
     Source: SourceFile:0
-  - ID: Property:562
+  - ID: Property:556
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].DetectionRangeEnd
     Value: '800'
     Source: SourceFile:0
-  - ID: Property:563
+  - ID: Property:557
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Phase
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:564
+  - ID: Property:558
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsFlimDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:565
+  - ID: Property:559
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsHPDDetector
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:566
+  - ID: Property:560
     Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].CanDoTimeGate
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:569
+  - ID: Property:563
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].BeamRoute.BeamPosition.BeamPositionLevel
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:570
+  - ID: Property:564
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].BeamRoute.BeamPosition.BeamPosition
     Value: '30'
     Source: SourceFile:0
-  - ID: Property:571
+  - ID: Property:565
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].BeamRoute.Version
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:572
+  - ID: Property:566
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].Version
     Value: '6'
     Source: SourceFile:0
-  - ID: Property:573
+  - ID: Property:567
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LightSourceType
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:574
+  - ID: Property:568
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].PowerState
     Value: '"On"'
     Source: SourceFile:0
-  - ID: Property:575
+  - ID: Property:569
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].StedAlignFlag
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:576
+  - ID: Property:570
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].CanDoLinearOutputPower
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:577
+  - ID: Property:571
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].CanDoPulsing
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:578
+  - ID: Property:572
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].CanDoOutputPowerWatt
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:579
+  - ID: Property:573
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].HighPowerModeActive
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:580
+  - ID: Property:574
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LightSourceName
     Value: '"UV"'
     Source: SourceFile:0
-  - ID: Property:581
+  - ID: Property:575
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].OutputPowerWatt
     Value: '16383'
     Source: SourceFile:0
-  - ID: Property:582
+  - ID: Property:576
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].CanDoChangeWavelength
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:583
+  - ID: Property:577
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].BeamRoute.BeamPosition.BeamPositionLevel
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:584
+  - ID: Property:578
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].BeamRoute.BeamPosition.BeamPosition
     Value: '20'
     Source: SourceFile:0
-  - ID: Property:585
+  - ID: Property:579
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].BeamRoute.Version
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:586
+  - ID: Property:580
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].Version
     Value: '6'
     Source: SourceFile:0
-  - ID: Property:587
+  - ID: Property:581
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].LightSourceType
     Value: '2'
     Source: SourceFile:0
-  - ID: Property:588
+  - ID: Property:582
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].PowerState
     Value: '"Off"'
     Source: SourceFile:0
-  - ID: Property:589
+  - ID: Property:583
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].StedAlignFlag
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:590
+  - ID: Property:584
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].CanDoLinearOutputPower
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:591
+  - ID: Property:585
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].CanDoPulsing
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:592
+  - ID: Property:586
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].CanDoOutputPowerWatt
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:593
+  - ID: Property:587
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].HighPowerModeActive
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:594
+  - ID: Property:588
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].LightSourceName
     Value: '"Chaser UV"'
     Source: SourceFile:0
-  - ID: Property:595
+  - ID: Property:589
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].OutputPowerWatt
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:596
+  - ID: Property:590
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].CanDoChangeWavelength
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:597
+  - ID: Property:591
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].BeamRoute.BeamPosition[0].BeamPositionLevel
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:598
+  - ID: Property:592
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].BeamRoute.BeamPosition[0].BeamPosition
     Value: '10'
     Source: SourceFile:0
-  - ID: Property:599
+  - ID: Property:593
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].BeamRoute.BeamPosition[1].BeamPositionLevel
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:600
+  - ID: Property:594
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].BeamRoute.BeamPosition[1].BeamPosition
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:601
+  - ID: Property:595
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].BeamRoute.Version
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:602
+  - ID: Property:596
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].Version
     Value: '6'
     Source: SourceFile:0
-  - ID: Property:603
+  - ID: Property:597
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].LightSourceType
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:604
+  - ID: Property:598
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].PowerState
     Value: '"Off"'
     Source: SourceFile:0
-  - ID: Property:605
+  - ID: Property:599
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].StedAlignFlag
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:606
+  - ID: Property:600
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].CanDoLinearOutputPower
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:607
+  - ID: Property:601
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].CanDoPulsing
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:608
+  - ID: Property:602
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].CanDoOutputPowerWatt
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:609
+  - ID: Property:603
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].HighPowerModeActive
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:610
+  - ID: Property:604
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].LightSourceName
     Value: '"Visible"'
     Source: SourceFile:0
-  - ID: Property:611
+  - ID: Property:605
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].OutputPowerWatt
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:612
+  - ID: Property:606
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].OutputPowerPercentage
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:613
+  - ID: Property:607
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].CanDoChangeWavelength
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:614
+  - ID: Property:608
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].BeamRoute.BeamPosition[0].BeamPositionLevel
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:615
+  - ID: Property:609
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].BeamRoute.BeamPosition[0].BeamPosition
     Value: '10'
     Source: SourceFile:0
-  - ID: Property:616
+  - ID: Property:610
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].BeamRoute.BeamPosition[1].BeamPositionLevel
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:617
+  - ID: Property:611
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].BeamRoute.BeamPosition[1].BeamPosition
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:618
+  - ID: Property:612
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].BeamRoute.Version
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:619
+  - ID: Property:613
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].Version
     Value: '6'
     Source: SourceFile:0
-  - ID: Property:620
+  - ID: Property:614
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LightSourceType
     Value: '4'
     Source: SourceFile:0
-  - ID: Property:621
+  - ID: Property:615
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].PowerState
     Value: '"On"'
     Source: SourceFile:0
-  - ID: Property:622
+  - ID: Property:616
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].StedAlignFlag
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:623
+  - ID: Property:617
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].CanDoLinearOutputPower
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:624
+  - ID: Property:618
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].CanDoPulsing
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:625
+  - ID: Property:619
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].CanDoOutputPowerWatt
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:626
+  - ID: Property:620
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].HighPowerModeActive
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:627
+  - ID: Property:621
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LightSourceName
     Value: '"SuperContVisible2"'
     Source: SourceFile:0
-  - ID: Property:628
+  - ID: Property:622
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].OutputPowerWatt
     Value: '0'
     Source: SourceFile:0
-  - ID: Property:629
+  - ID: Property:623
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].OutputPowerPercentage
     Value: '0.5'
     Source: SourceFile:0
-  - ID: Property:630
+  - ID: Property:624
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].PulsePickerRatio
     Value: '80'
     Source: SourceFile:0
-  - ID: Property:631
+  - ID: Property:625
     Name: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].CanDoChangeWavelength
     Value: '0'
     Source: SourceFile:0
@@ -1008,31 +1008,37 @@ Instrument:
     Channel: 1
     Gain: 588.483253223468
     Offset: 0
+    Enabled: false
   - Name: PMT 2
     Type: PMT
     Channel: 2
     Gain: 753.536278324559
     Offset: 0
+    Enabled: false
   - Name: PMT 3
     Type: PMT
     Channel: 3
     Gain: 739.852750438697
     Offset: -0.0400000000000063
+    Enabled: false
   - Name: HyD-SMD 4
     Type: HyD
     Channel: 4
     Gain: 100.722938465371
     Offset: -0.0066666666666606
+    Enabled: false
   - Name: Hyd-SMD 5
     Type: HyD
     Channel: 5
     Gain: 80.3749377179871
     Offset: -0.0066666666666606
+    Enabled: true
   - Name: PMT Trans
     Type: PMT
     Channel: 100
     Gain: 285.992217898833
     Offset: 0
+    Enabled: false
   Laser:
   - Name: 405 Diode
     IlluminationWavelengthRange:
@@ -2845,339 +2851,339 @@ CustomProperties:
   Name: HardwareSetting.ConfocalSettingDefinition.LUT_List.LUT[5].LutName
   Value: '"Gray"'
   Source: SourceFile:0
-- ID: Property:567
+- ID: Property:561
   Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.DetectorAutoSelection
   Value: '1'
   Source: SourceFile:0
-- ID: Property:568
+- ID: Property:562
   Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.InExternalDetectionMode
   Value: '0'
   Source: SourceFile:0
-- ID: Property:632
+- ID: Property:626
   Name: HardwareSetting.ConfocalSettingDefinition.OnlineDyeSeparation.OnlineDyeSeparationDetectorList
   Value: 'null'
   Source: SourceFile:0
-- ID: Property:633
+- ID: Property:627
   Name: HardwareSetting.ConfocalSettingDefinition.OnlineDyeSeparation.OnlineDyeSeparationChannelList
   Value: 'null'
   Source: SourceFile:0
-- ID: Property:634
+- ID: Property:628
   Name: HardwareSetting.ConfocalSettingDefinition.OnlineDyeSeparation.Enabled
   Value: '0'
   Source: SourceFile:0
-- ID: Property:635
+- ID: Property:629
   Name: HardwareSetting.ConfocalSettingDefinition.OnlineDyeSeparation.KeepRawImage
   Value: '0'
   Source: SourceFile:0
-- ID: Property:636
+- ID: Property:630
   Name: HardwareSetting.ConfocalSettingDefinition.OnlineDyeSeparation.Detectors
   Value: '0'
   Source: SourceFile:0
-- ID: Property:637
+- ID: Property:631
   Name: HardwareSetting.ConfocalSettingDefinition.OnlineDyeSeparation.Channels
   Value: '0'
   Source: SourceFile:0
-- ID: Property:638
+- ID: Property:632
   Name: HardwareSetting.ConfocalSettingDefinition.OnlineDyeSeparation.Normalize
   Value: '0'
   Source: SourceFile:0
-- ID: Property:639
+- ID: Property:633
   Name: HardwareSetting.ConfocalSettingDefinition.VariableBeamExpanderFactors.CommonSettingEnabled
   Value: '0'
   Source: SourceFile:0
-- ID: Property:640
+- ID: Property:634
   Name: HardwareSetting.ConfocalSettingDefinition.VariableBeamExpanderFactors.CommonFactor
   Value: '1.03'
   Source: SourceFile:0
-- ID: Property:641
+- ID: Property:635
   Name: HardwareSetting.ConfocalSettingDefinition.VersionNumber
   Value: '15'
   Source: SourceFile:0
-- ID: Property:642
+- ID: Property:636
   Name: HardwareSetting.ConfocalSettingDefinition.UserSettingName
   Value: '"S14"'
   Source: SourceFile:0
-- ID: Property:643
+- ID: Property:637
   Name: HardwareSetting.ConfocalSettingDefinition.CanDoSTED
   Value: '0'
   Source: SourceFile:0
-- ID: Property:644
+- ID: Property:638
   Name: HardwareSetting.ConfocalSettingDefinition.IsSTEDActive
   Value: '0'
   Source: SourceFile:0
-- ID: Property:645
+- ID: Property:639
   Name: HardwareSetting.ConfocalSettingDefinition.IsSwitchForPulsedStedWithMpActive
   Value: '0'
   Source: SourceFile:0
-- ID: Property:646
+- ID: Property:640
   Name: HardwareSetting.ConfocalSettingDefinition.UseSystemOptimizedVoxelCalculation
   Value: '1'
   Source: SourceFile:0
-- ID: Property:647
+- ID: Property:641
   Name: HardwareSetting.ConfocalSettingDefinition.IsUserSettingNameSet
   Value: '0'
   Source: SourceFile:0
-- ID: Property:648
+- ID: Property:642
   Name: HardwareSetting.ConfocalSettingDefinition.IsHydPulsedModeCoeffntManualActive
   Value: '0'
   Source: SourceFile:0
-- ID: Property:649
+- ID: Property:643
   Name: HardwareSetting.ConfocalSettingDefinition.XGalvoMovementMode
   Value: '0'
   Source: SourceFile:0
-- ID: Property:650
+- ID: Property:644
   Name: HardwareSetting.ConfocalSettingDefinition.XGalvoMovementModeName
   Value: '"sinus"'
   Source: SourceFile:0
-- ID: Property:651
+- ID: Property:645
   Name: HardwareSetting.ConfocalSettingDefinition.MaxIntegrationTime
   Value: '1'
   Source: SourceFile:0
-- ID: Property:652
+- ID: Property:646
   Name: HardwareSetting.ConfocalSettingDefinition.ScanMode
   Value: '"xyz"'
   Source: SourceFile:0
-- ID: Property:653
+- ID: Property:647
   Name: HardwareSetting.ConfocalSettingDefinition.ZUseMode
   Value: '1'
   Source: SourceFile:0
-- ID: Property:654
+- ID: Property:648
   Name: HardwareSetting.ConfocalSettingDefinition.ZUseModeName
   Value: '"z-galvo"'
   Source: SourceFile:0
-- ID: Property:655
+- ID: Property:649
   Name: HardwareSetting.ConfocalSettingDefinition.IsSuperZ
   Value: '0'
   Source: SourceFile:0
-- ID: Property:656
+- ID: Property:650
   Name: HardwareSetting.ConfocalSettingDefinition.ValidBeginStack
   Value: '0'
   Source: SourceFile:0
-- ID: Property:657
+- ID: Property:651
   Name: HardwareSetting.ConfocalSettingDefinition.ValidEndStack
   Value: '0'
   Source: SourceFile:0
-- ID: Property:658
+- ID: Property:652
   Name: HardwareSetting.ConfocalSettingDefinition.Sections
   Value: '1'
   Source: SourceFile:0
-- ID: Property:659
+- ID: Property:653
   Name: HardwareSetting.ConfocalSettingDefinition.StackCalculationMode
   Value: '2'
   Source: SourceFile:0
-- ID: Property:660
+- ID: Property:654
   Name: HardwareSetting.ConfocalSettingDefinition.StackCalculationModeName
   Value: '"System optimized step size"'
   Source: SourceFile:0
-- ID: Property:661
+- ID: Property:655
   Name: HardwareSetting.ConfocalSettingDefinition.IsMPFormulaForStepSizerUsageActive
   Value: '0'
   Source: SourceFile:0
-- ID: Property:662
+- ID: Property:656
   Name: HardwareSetting.ConfocalSettingDefinition.IsFastZStack
   Value: '0'
   Source: SourceFile:0
-- ID: Property:663
+- ID: Property:657
   Name: HardwareSetting.ConfocalSettingDefinition.ZStackDirectionMode
   Value: '1'
   Source: SourceFile:0
-- ID: Property:664
+- ID: Property:658
   Name: HardwareSetting.ConfocalSettingDefinition.ZStackDirectionModeName
   Value: '"Unidirectional"'
   Source: SourceFile:0
-- ID: Property:665
+- ID: Property:659
   Name: HardwareSetting.ConfocalSettingDefinition.StageRangeX
   Value: '0.11697940299714'
   Source: SourceFile:0
-- ID: Property:666
+- ID: Property:660
   Name: HardwareSetting.ConfocalSettingDefinition.StageRangeY
   Value: '0.08300777'
   Source: SourceFile:0
-- ID: Property:667
+- ID: Property:661
   Name: HardwareSetting.ConfocalSettingDefinition.FlipX
   Value: '0'
   Source: SourceFile:0
-- ID: Property:668
+- ID: Property:662
   Name: HardwareSetting.ConfocalSettingDefinition.FlipY
   Value: '1'
   Source: SourceFile:0
-- ID: Property:669
+- ID: Property:663
   Name: HardwareSetting.ConfocalSettingDefinition.SwapXY
   Value: '1'
   Source: SourceFile:0
-- ID: Property:670
+- ID: Property:664
   Name: HardwareSetting.ConfocalSettingDefinition.Magnification
   Value: '40'
   Source: SourceFile:0
-- ID: Property:671
+- ID: Property:665
   Name: HardwareSetting.ConfocalSettingDefinition.ObjectivePos
   Value: '1'
   Source: SourceFile:0
-- ID: Property:672
+- ID: Property:666
   Name: HardwareSetting.ConfocalSettingDefinition.MicroscopeModel
   Value: '"DMI6000B-CS"'
   Source: SourceFile:0
-- ID: Property:673
+- ID: Property:667
   Name: HardwareSetting.ConfocalSettingDefinition.IsInverseMicroscopeModel
   Value: '1'
   Source: SourceFile:0
-- ID: Property:674
+- ID: Property:668
   Name: HardwareSetting.ConfocalSettingDefinition.Immersion
   Value: '"OIL"'
   Source: SourceFile:0
-- ID: Property:675
+- ID: Property:669
   Name: HardwareSetting.ConfocalSettingDefinition.NumericalAperture
   Value: '1.3'
   Source: SourceFile:0
-- ID: Property:676
+- ID: Property:670
   Name: HardwareSetting.ConfocalSettingDefinition.RefractionIndex
   Value: '1.518'
   Source: SourceFile:0
-- ID: Property:677
+- ID: Property:671
   Name: HardwareSetting.ConfocalSettingDefinition.IsFCSFilterAutomationActive
   Value: '0'
   Source: SourceFile:0
-- ID: Property:678
+- ID: Property:672
   Name: HardwareSetting.ConfocalSettingDefinition.IsSMDChaserUVAOTFAutomationActive
   Value: '0'
   Source: SourceFile:0
-- ID: Property:679
+- ID: Property:673
   Name: HardwareSetting.ConfocalSettingDefinition.CanDoCSMode
   Value: '1'
   Source: SourceFile:0
-- ID: Property:680
+- ID: Property:674
   Name: HardwareSetting.ConfocalSettingDefinition.ActiveCS_SubModeForTLD
   Value: '0'
   Source: SourceFile:0
-- ID: Property:681
+- ID: Property:675
   Name: HardwareSetting.ConfocalSettingDefinition.ActiveCS_SubModeForTLDName
   Value: '"Scan-BF"'
   Source: SourceFile:0
-- ID: Property:682
+- ID: Property:676
   Name: HardwareSetting.ConfocalSettingDefinition.ActiveCS_SubModeForRLD
   Value: '0'
   Source: SourceFile:0
-- ID: Property:683
+- ID: Property:677
   Name: HardwareSetting.ConfocalSettingDefinition.ActiveCS_SubModeForRLDName
   Value: '"Empty"'
   Source: SourceFile:0
-- ID: Property:684
+- ID: Property:678
   Name: HardwareSetting.ConfocalSettingDefinition.RldFluoCubePos
   Value: '6'
   Source: SourceFile:0
-- ID: Property:685
+- ID: Property:679
   Name: HardwareSetting.ConfocalSettingDefinition.RldCubeAutoSelectionEnabled
   Value: '0'
   Source: SourceFile:0
-- ID: Property:686
+- ID: Property:680
   Name: HardwareSetting.ConfocalSettingDefinition.LastNonMP_MFP_FW_Name
   Value: '""'
   Source: SourceFile:0
-- ID: Property:687
+- ID: Property:681
   Name: HardwareSetting.ConfocalSettingDefinition.LastNonMP_Pol_FW_Name
   Value: '""'
   Source: SourceFile:0
-- ID: Property:688
+- ID: Property:682
   Name: HardwareSetting.ConfocalSettingDefinition.ScanSpeed
   Value: '8000'
   Source: SourceFile:0
-- ID: Property:689
+- ID: Property:683
   Name: HardwareSetting.ConfocalSettingDefinition.UseScanFormatRestriction
   Value: '1'
   Source: SourceFile:0
-- ID: Property:690
+- ID: Property:684
   Name: HardwareSetting.ConfocalSettingDefinition.BaseZoom
   Value: '0.75'
   Source: SourceFile:0
-- ID: Property:691
+- ID: Property:685
   Name: HardwareSetting.ConfocalSettingDefinition.PanFirstDim
   Value: '8.67361737988404e-19'
   Source: SourceFile:0
-- ID: Property:692
+- ID: Property:686
   Name: HardwareSetting.ConfocalSettingDefinition.PanSecondDim
   Value: '8.67361737988404e-19'
   Source: SourceFile:0
-- ID: Property:693
+- ID: Property:687
   Name: HardwareSetting.ConfocalSettingDefinition.ScanDirectionX
   Value: '2'
   Source: SourceFile:0
-- ID: Property:694
+- ID: Property:688
   Name: HardwareSetting.ConfocalSettingDefinition.PhaseX
   Value: '2.40024414435035'
   Source: SourceFile:0
-- ID: Property:695
+- ID: Property:689
   Name: HardwareSetting.ConfocalSettingDefinition.RotatorAngle
   Value: '1.2994761884307'
   Source: SourceFile:0
-- ID: Property:696
+- ID: Property:690
   Name: HardwareSetting.ConfocalSettingDefinition.PinholeAiry
   Value: '1.00009739182015'
   Source: SourceFile:0
-- ID: Property:697
+- ID: Property:691
   Name: HardwareSetting.ConfocalSettingDefinition.EmissionWavelengthForPinholeAiryCalculation
   Value: '580'
   Source: SourceFile:0
-- ID: Property:698
+- ID: Property:692
   Name: HardwareSetting.ConfocalSettingDefinition.FrameAverage
   Value: '1'
   Source: SourceFile:0
-- ID: Property:699
+- ID: Property:693
   Name: HardwareSetting.ConfocalSettingDefinition.FrameAccumulation
   Value: '1'
   Source: SourceFile:0
-- ID: Property:700
+- ID: Property:694
   Name: HardwareSetting.ConfocalSettingDefinition.Line_Accumulation
   Value: '1'
   Source: SourceFile:0
-- ID: Property:701
+- ID: Property:695
   Name: HardwareSetting.ConfocalSettingDefinition.AreBleachPointsEnabled
   Value: '0'
   Source: SourceFile:0
-- ID: Property:702
+- ID: Property:696
   Name: HardwareSetting.ConfocalSettingDefinition.InTrigger
   Value: '-1'
   Source: SourceFile:0
-- ID: Property:703
+- ID: Property:697
   Name: HardwareSetting.ConfocalSettingDefinition.OutTrigger
   Value: '-1'
   Source: SourceFile:0
-- ID: Property:704
+- ID: Property:698
   Name: HardwareSetting.ConfocalSettingDefinition.IsRoiScanEnable
   Value: '0'
   Source: SourceFile:0
-- ID: Property:705
+- ID: Property:699
   Name: HardwareSetting.ConfocalSettingDefinition.Is3DLimitedRoiScanEnable
   Value: '0'
   Source: SourceFile:0
-- ID: Property:706
+- ID: Property:700
   Name: HardwareSetting.ConfocalSettingDefinition.ZCompensationModes
   Value: '0'
   Source: SourceFile:0
-- ID: Property:707
+- ID: Property:701
   Name: HardwareSetting.ConfocalSettingDefinition.WizardMode
   Value: '0'
   Source: SourceFile:0
-- ID: Property:708
+- ID: Property:702
   Name: HardwareSetting.ConfocalSettingDefinition.IsConstantIntegrationTimeActive
   Value: '0'
   Source: SourceFile:0
-- ID: Property:709
+- ID: Property:703
   Name: HardwareSetting.Application
   Value: '"LAS AF"'
   Source: SourceFile:0
-- ID: Property:710
+- ID: Property:704
   Name: HardwareSetting.HardwareServerVersion
   Value: '"Build 18963"'
   Source: SourceFile:0
-- ID: Property:711
+- ID: Property:705
   Name: HardwareSetting.SystemType
   Value: '12'
   Source: SourceFile:0
-- ID: Property:712
+- ID: Property:706
   Name: HardwareSetting.DataSourceType
   Value: '0'
   Source: SourceFile:0
-- ID: Property:713
+- ID: Property:707
   Name: HardwareSetting.DataSourceTypeName
   Value: '"Confocal"'
   Source: SourceFile:0

@@ -46,15 +46,18 @@ Image:
     Condenser1: 1456
     Condenser2: 839
   ScanSettings:
-    FieldOfView:
-      X:
-        Value: 21.12µm
     Drift: false
     FramAdd: 1
-    FrameTime:
-      Value: 2min52s
     LineInterlacing: 0/1
     LineAdd: 1
+    FrameTime:
+      Value: 172
+      Unit: s
+    FieldOfView:
+      X:
+        Value: 21.12
+        Unit: µm
+  AcquisitionDate: '2026-07-22T15:44:49+00:00'
 GenericDetector:
   Brightness: 50.0
   Channel: 1
@@ -113,6 +116,10 @@ Experimenter:
   TimeStamp: 1784735089
   UserName: "\x01"
   VacuumType: 0
+Scan:
+  FrameTime: 2min52s
+Beam:
+  HFW: 21.12µm
 SourceMap:
   Image.ElectronBeamSettings.Stigmator.X: Beam.AstigX
   Image.ElectronBeamSettings.Stigmator.Y: Beam.AstigY
@@ -128,7 +135,6 @@ SourceMap:
   Image.ElectronBeamSettings.ElectricMoveY: Beam.ElectricMoveY
   Image.ElectronBeamSettings.ElectricRotate: Beam.ElectricRotate
   Image.ElectronBeamSettings.Focus: Beam.Focus
-  Image.ScanSettings.FieldOfView.X.Value: Beam.HFW
   Image.ElectronBeamSettings.ImagingMode: Beam.ImagingMode
   Image.ElectronBeamSettings.Current.Value: Beam.RealAbsCurrent
   Image.ElectronBeamSettings.Shift.X: Beam.ShiftX
@@ -164,7 +170,6 @@ SourceMap:
   Other.BottomInfoVacuum: Other.BottomInfoVacuum
   Image.ScanSettings.Drift: Scan.Drift
   Image.ScanSettings.FramAdd: Scan.FramAdd
-  Image.ScanSettings.FrameTime.Value: Scan.FrameTime
   Image.ScanSettings.LineInterlacing: Scan.Interlaced
   Image.ScanSettings.LineAdd: Scan.LineAdd
   Plane.PixelDwellTime: Scan.PointTime
@@ -207,3 +212,15 @@ SourceMap:
   - Stage.StagePosY
   MechanicalStage.Position.Z.Unit:
   - Stage.StagePosZ
+  Image.AcquisitionDate:
+  - User.TimeStamp
+  Scan.FrameTime: Scan.FrameTime
+  Image.ScanSettings.FrameTime.Value:
+  - Scan.FrameTime
+  Image.ScanSettings.FrameTime.Unit:
+  - Scan.FrameTime
+  Beam.HFW: Beam.HFW
+  Image.ScanSettings.FieldOfView.X.Value:
+  - Beam.HFW
+  Image.ScanSettings.FieldOfView.X.Unit:
+  - Beam.HFW

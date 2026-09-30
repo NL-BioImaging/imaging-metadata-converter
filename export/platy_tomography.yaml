@@ -54,6 +54,12 @@ Image:
       Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
       DerivedFrom:
       - SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
+    - ID: SourceMapping:11
+      Field: Image[0].Pixels.SizeT
+      Source: SpimData.SequenceDescription.Timepoints.first + SpimData.SequenceDescription.Timepoints.last
+      DerivedFrom:
+      - SpimData.SequenceDescription.Timepoints.first
+      - SpimData.SequenceDescription.Timepoints.last
   Pixels:
     Channel:
     - Name: channel 1
@@ -66,6 +72,7 @@ Image:
     PhysicalSizeX: 0.325
     PhysicalSizeY: 0.325
     PhysicalSizeZ: 0.325
+    SizeT: 1
   CustomProperties:
   - ID: Property:9
     Name: SpimData.SequenceDescription.ViewSetups.Attributes.Channel.id

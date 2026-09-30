@@ -79,6 +79,12 @@ TableHeight: 115.8
 AngularPosition: 180.0
 Plane:
   ExposureTime: 3095
+  PositionX: -250.0
+  PositionY: 139.2
+  PositionZ: 461.9
+  PositionXUnit: mm
+  PositionYUnit: mm
+  PositionZUnit: mm
 XRayTubeCurrent: 30
 PatientPosition: FFS
 AcquisitionType: CONSTANT_ANGLE
@@ -91,10 +97,6 @@ StudyID: '1234'
 SeriesNumber: 100
 AcquisitionNumber: 0
 InstanceNumber: 1
-ImagePositionPatient:
-- -250.0
-- 139.2
-- 461.9
 ImageOrientationPatient:
 - 1.0
 - 0.0
@@ -194,9 +196,9 @@ SourceMap:
   SeriesNumber: SeriesNumber
   AcquisitionNumber: AcquisitionNumber
   InstanceNumber: InstanceNumber
-  ImagePositionPatient[0]: ImagePositionPatient[0]
-  ImagePositionPatient[1]: ImagePositionPatient[1]
-  ImagePositionPatient[2]: ImagePositionPatient[2]
+  Plane.PositionX: ImagePositionPatient[0]
+  Plane.PositionY: ImagePositionPatient[1]
+  Plane.PositionZ: ImagePositionPatient[2]
   ImageOrientationPatient[0]: ImageOrientationPatient[0]
   ImageOrientationPatient[1]: ImageOrientationPatient[1]
   ImageOrientationPatient[2]: ImageOrientationPatient[2]
@@ -228,6 +230,12 @@ SourceMap:
   ConfidentialityCode: ConfidentialityCode
   Pixels.PhysicalSizeZUnit:
   - SliceThickness
+  Plane.PositionXUnit:
+  - ImagePositionPatient[0]
+  Plane.PositionYUnit:
+  - ImagePositionPatient[1]
+  Plane.PositionZUnit:
+  - ImagePositionPatient[2]
   Pixels.PhysicalSizeYUnit:
   - PixelSpacing[0]
   Pixels.PhysicalSizeXUnit:

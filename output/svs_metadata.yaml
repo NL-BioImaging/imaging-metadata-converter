@@ -24,6 +24,8 @@ Plane:
   PositionY: 13.628824
   PositionXUnit: mm
   PositionYUnit: mm
+  ExposureTime: 0.00010899999999999999
+  ExposureTimeUnit: s
 LineCameraSkew: 0.001055
 LineAreaXOffset: 0.01646
 LineAreaYOffset: -0.009263
@@ -74,3 +76,9 @@ SourceMap:
   - Date
   - Time
   - Time Zone
+  Plane.ExposureTime:
+  - Exposure Time
+  - Exposure Scale
+  Plane.ExposureTimeUnit:
+  - Exposure Time
+  - Exposure Scale

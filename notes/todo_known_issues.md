@@ -228,7 +228,36 @@ left without); "Oil" in ImmersionTypeList (from OME 2016-06; LIF confocal and om
 profile's enum widened, compatible); model_fit.analyse(dataset, metadata) returns the stats as a dict,
 analyse_metadata(metadata) for a source dict (converted and exported in memory), analyse_examples()
 for all; render, the script and the tests use them.
-Status: not committed.
+1.1.0 released in the repository (f115688), not yet published on the Hub.
+Coverage beyond this (user, 2026-09-30), in order: (1) in-scope coverage - a reviewed list of source
+groups out of scope (processing history, file bookkeeping, software/UI state, patient/administrative),
+the analytics adding coverage of in-scope values; (2) derived values - small combination extensions
+(SizeT from BDV time points, durations such as Cikteq's "2min52s"); (3) rules implied by Bio-Formats'
+readers (LIF, DICOM, SVS, FEI/TFS, Zeiss), proposed per format. Not: vendor values as MapAnnotation.
+(1) done, list to be reviewed by the user: scripts/out_of_scope.json (processing, file, display, software
+state, patient and administrative; fnmatch patterns over source keys; a covered key always counts; a
+test fails on a pattern matching no key). In-scope key coverage: TALOS 61/66%, DICOM 47%, ome-tiff 49%,
+LIF 7/13% (LIF's remaining settings are real gaps).
+(2) done: combination formats count (platy SizeT), duration (Cikteq FrameTime "2min52s" -> 172 s) and
+quantity (Cikteq HFW "21.12µm" -> 21.12 um); a one-part combination replaces its part's non-numeric text
+a rule placed (the text back at its path). Cikteq also gets its acquisition date from User.TimeStamp
+(unix) - so User.* is no longer all display, only BottomInfoShowEnable, DateTimeFmt, RulerText.
+Cikteq 57 -> 60% keys (in scope 64%), platy 22 -> 30% (41%).
+(3) Bio-Formats (develop, read 2026-09-30): no reader for Velox/EMD or Zeiss/Fibics; FEITiffReader maps
+fewer FEI fields than ours; SVSReader/DicomReader/LIFReader imply three rules, taken (user): DICOM
+ImagePositionPatient[0/1/2] -> Plane.PositionX/Y/Z (mm), SVS Exposure Time x Exposure Scale ->
+Plane.ExposureTime (s; a new "product" combination, without Bio-Formats' x1000, which looks like a bug
+there), LIF DetectorList.Detector[].IsActive -> GenericDetector.Enabled. Kept (user): SliceThickness ->
+PhysicalSizeZ (Bio-Formats uses SpacingBetweenSlices, which no example has), Leica stage positions raw
+(Bio-Formats applies FlipX/FlipY/SwapXY). Not taken: the stand model (LiMi types the stand by
+IsInverseMicroscopeModel, no rule picks a class by value), channel names/dyes (Bio-Formats joins
+active detectors to the last SizeC, which the metadata lacks), AOTF lines (Bio-Formats skips them at
+this level).
+Done: the three rules; the exporter reads an integer flag 0/1 into a boolean field (Leica's IsActive),
+and keeps a source value whose type the stored one changes (0 -> False compare equal) in SourceValue -
+the no-data-loss test caught it. DICOM 21 -> 22% (in scope 49%), SVS 42 -> 50% (68%), LIF confocal 11%
+(14%). A SpacingBetweenSlices rule waits for an example stating it.
+Status: (1)+(2)+(3) done, not committed.
 
 ## The model and the pipeline
 

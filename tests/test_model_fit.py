@@ -1,6 +1,7 @@
 import json
 import sys
 import unittest
+from fnmatch import fnmatchcase
 from pathlib import Path
 
 import yaml
@@ -119,6 +120,27 @@ class ModelFitTest(unittest.TestCase):
         exported = next(stats for stats in model_fit.analyse_examples(self.context) if stats['name'] == name)
 
         self.assertEqual(model_fit.analyse_metadata(metadata, name, self.context), exported)
+
+    def test_every_out_of_scope_pattern_names_a_key_of_some_example(self):
+        keys = set()
+        for export in model_fit.EXPORT_DIR.glob('*.yaml'):
+            fit = model_fit.ExampleFit(export.stem, yaml.safe_load(export.read_text(encoding='utf-8')), self.context)
+            keys |= set(fit.key_categories)
+        for kind, patterns in self.context.out_of_scope.items():
+            for pattern in patterns:
+                with self.subTest(kind=kind, pattern=pattern):
+                    self.assertTrue(any(fnmatchcase(key, pattern) for key in keys))
+
+    def test_in_scope_coverage_leaves_out_only_what_is_not_covered(self):
+        dataset = {'Image': [{
+            'SourceFile': [{'Mapping': [mapping('Image[0].Pixels.SizeX', 'Pixels.SizeX')]}],
+            'CustomProperties': [prop('Operations.Display.Level'), prop('Vendor.Other')],
+        }]}
+        stats = model_fit.analyse(dataset, context=self.context)
+        # Operations.* is processing history: out of scope, so one of the two in-scope keys is covered
+        self.assertEqual(stats['in_scope']['out_of_scope'], {'processing': 1})
+        self.assertEqual((stats['in_scope']['keys'], stats['in_scope']['coverage']['keys']), (2, 0.5))
+        self.assertEqual(stats['coverage']['keys'], 1 / 3)
 
     def test_page_fills_in(self):
         page = (ROOT / 'docs' / 'model-fit.md').read_text(encoding='utf-8')

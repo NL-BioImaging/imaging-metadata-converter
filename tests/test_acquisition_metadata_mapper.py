@@ -374,6 +374,65 @@ class LosslessMappingTest(unittest.TestCase):
         self.assertEqual(converted['View'], {'size': '1100 1100 1150', 'voxel': '0.325 0.325 0.325'})
         self.assertEqual(converted['SourceMap']['Pixels.SizeZ'], [source])
 
+    def test_count_combination_gives_the_number_of_a_range(self):
+        mapper = self.mapper_for({}, [{'target': 'Pixels.SizeT', 'sources': ['Time.first', 'Time.last'],
+                                       'format': 'count'}])
+
+        converted = mapper.convert_metadata({'Time': {'first': 0, 'last': 4}})
+
+        self.assertEqual(converted['Pixels'], {'SizeT': 5})
+        self.assertEqual(converted['SourceMap']['Pixels.SizeT'], ['Time.first', 'Time.last'])
+
+    def test_duration_combination_replaces_the_text_its_rule_placed(self):
+        mapper = self.mapper_for({'FrameTime': 'Scan.FrameTime.Value'},
+                                 [{'target': 'Scan.FrameTime.Value', 'sources': ['FrameTime'], 'format': 'duration'}])
+
+        converted = mapper.convert_metadata({'FrameTime': '2min52s'})
+
+        self.assertEqual(converted['Scan'], {'FrameTime': {'Value': 172, 'Unit': 's'}})
+        # the raw text is kept at its source path, the derived value names it
+        self.assertEqual(converted['FrameTime'], '2min52s')
+        self.assertEqual(converted['SourceMap']['FrameTime'], 'FrameTime')
+        self.assertEqual(converted['SourceMap']['Scan.FrameTime.Value'], ['FrameTime'])
+        self.assertEqual(converted['SourceMap']['Scan.FrameTime.Unit'], ['FrameTime'])
+
+    def test_derived_value_leaves_a_number_its_rule_placed(self):
+        mapper = self.mapper_for({'FrameTime': 'Scan.FrameTime.Value'},
+                                 [{'target': 'Scan.FrameTime.Value', 'sources': ['FrameTime'], 'format': 'duration'}])
+
+        converted = mapper.convert_metadata({'FrameTime': '424.55'})
+
+        self.assertEqual(converted['Scan'], {'FrameTime': {'Value': '424.55'}})
+        self.assertEqual(converted['SourceMap']['Scan.FrameTime.Value'], 'FrameTime')
+
+    def test_quantity_combination_splits_a_number_from_its_unit(self):
+        mapper = self.mapper_for({'HFW': 'Scan.FieldOfView.X.Value'},
+                                 [{'target': 'Scan.FieldOfView.X.Value', 'sources': ['HFW'], 'format': 'quantity'}])
+
+        converted = mapper.convert_metadata({'HFW': '21.12µm'})
+
+        self.assertEqual(converted['Scan'], {'FieldOfView': {'X': {'Value': 21.12, 'Unit': 'µm'}}})
+
+    def test_product_combination_multiplies_its_parts_and_states_its_unit(self):
+        mapper = self.mapper_for({}, [{'target': 'Plane.ExposureTime', 'sources': ['Exposure Time', 'Exposure Scale'],
+                                       'format': 'product', 'unit': 's'}])
+
+        converted = mapper.convert_metadata({'Exposure Time': 109, 'Exposure Scale': 1e-06})
+
+        self.assertEqual(converted['Plane']['ExposureTimeUnit'], 's')
+        self.assertAlmostEqual(converted['Plane']['ExposureTime'], 1.09e-04)
+        self.assertEqual(converted['SourceMap']['Plane.ExposureTimeUnit'], ['Exposure Time', 'Exposure Scale'])
+        self.assertNotIn('Plane', mapper.convert_metadata({'Exposure Time': 109, 'Exposure Scale': 'n/a'}))
+
+    def test_duration_and_quantity_are_left_out_without_one(self):
+        mapper = self.mapper_for({}, [{'target': 'D', 'sources': ['time'], 'format': 'duration'},
+                                      {'target': 'Q', 'sources': ['size'], 'format': 'quantity'}])
+
+        converted = mapper.convert_metadata({'time': 'long', 'size': 'µm'})
+
+        self.assertNotIn('D', converted)
+        self.assertNotIn('Q', converted)
+
     def test_split_combination_is_left_out_without_a_number_there(self):
         mapper = self.mapper_for({}, [{'target': 'N', 'sources': ['size'], 'format': 'split', 'item': 2}])
 

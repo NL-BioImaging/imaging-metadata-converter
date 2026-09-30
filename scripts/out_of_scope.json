@@ -1,0 +1,123 @@
+{
+    "processing": {
+        "description": "analysis done after the acquisition, not how it was made",
+        "patterns": [
+            "Operations.*",
+            "Features.*",
+            "HardwareSetting.ConfocalSettingDefinition.OnlineDyeSeparation.*"
+        ]
+    },
+    "file": {
+        "description": "about the file or its format, not the acquisition",
+        "patterns": [
+            "Core.*",
+            "CustomProperties.*.type",
+            "BinaryResult.AcquisitionUnit",
+            "BinaryResult.CompositionType",
+            "BinaryResult.DetectorIndex",
+            "BinaryResult.Encoding",
+            "SpimData.version",
+            "SpimData.BasePath.*",
+            "SpimData.SequenceDescription.ImageLoader.*",
+            "FibicsXML.Fibics.version",
+            "FibicsXML.Fibics.Application.*",
+            "FEI_TITAN.FeiImage.PPI.version",
+            "FEI_TITAN.FeiImage.applicationID",
+            "",
+            "Aperio Image Library *",
+            "* J2K/KDU Q",
+            "Filename",
+            "DSR ID",
+            "ICC Profile",
+            "HardwareSetting.DataSourceType",
+            "HardwareSetting.SystemType",
+            "HardwareSetting.HardwareServerVersion",
+            "HardwareSetting.*SettingDefinition.VersionNumber",
+            "HardwareSetting.*SettingDefinition.ChannelToXmlMode",
+            "HardwareSetting.ConfocalSettingDefinition.BleachPoints.*",
+            "OME.StructuredAnnotations.XMLAnnotation.Value.*State",
+            "SpecificCharacterSet",
+            "SOPClassUID",
+            "InstanceCreationDate",
+            "InstanceCreationTime",
+            "InstanceNumber",
+            "ContentDate",
+            "ContentTime",
+            "ImageType[]",
+            "FrameOfReferenceUID",
+            "IrradiationEventUID",
+            "SeriesInstanceUID",
+            "SeriesNumber",
+            "AcquisitionNumber",
+            "NumberOfStudyRelatedInstances",
+            "PositionReferenceIndicator",
+            "ReferencedPerformedProcedureStepSequence[].*",
+            "BitsAllocated",
+            "HighBit",
+            "PixelRepresentation",
+            "PhotometricInterpretation",
+            "SmallestImagePixelValue",
+            "LargestImagePixelValue",
+            "RescaleIntercept",
+            "RescaleSlope"
+        ]
+    },
+    "display": {
+        "description": "how the image is shown, not how it was acquired",
+        "patterns": [
+            "User.BottomInfoShowEnable",
+            "User.DateTimeFmt",
+            "User.RulerText",
+            "FEI_HELIOS.User.BottomInfoShowEnable",
+            "FEI_HELIOS.User.DateTimeFmt",
+            "FEI_HELIOS.User.RulerText",
+            "Other.BottomInfoVacuum",
+            "FEI_HELIOS.Other.BottomInfoVacuum",
+            "FEI_TITAN.FeiImage.databar*",
+            "FEI_TITAN.FeiImage.displayWidth",
+            "DisplayColor",
+            "WindowCenter",
+            "WindowWidth",
+            "HardwareSetting.ConfocalSettingDefinition.LUT_List.*",
+            "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.LUT",
+            "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[].LUT",
+            "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[].BackgroundLUT"
+        ]
+    },
+    "software state": {
+        "description": "the acquisition software's own configuration and capabilities, not the acquisition's settings",
+        "patterns": [
+            "HardwareSetting.*.Autofocus-config.*",
+            "HardwareSetting.*Trigger*",
+            "HardwareSetting.*.CanDo*",
+            "HardwareSetting.*.XYStageConfiguratorSettings.*",
+            "HardwareSetting.*.EasySRSlider.*"
+        ]
+    },
+    "patient and administrative": {
+        "description": "about the patient, the request or the institution, not the acquisition",
+        "patterns": [
+            "PatientName",
+            "PatientID",
+            "PatientBirthDate",
+            "PatientSex",
+            "PatientAge",
+            "OtherPatientIDsSequence[].*",
+            "IssuerOfPatientID",
+            "ReferringPhysicianName",
+            "AccessionNumber",
+            "RequestedProcedureID",
+            "InstitutionAddress",
+            "InstitutionalDepartmentName",
+            "ResponsibleOrganization",
+            "AdmittingDiagnoses*",
+            "ConfidentialityCode",
+            "StudyID",
+            "StudyDate",
+            "StudyTime",
+            "SeriesDate",
+            "SeriesTime",
+            "ModalitiesInStudy[]"
+        ]
+    }
+}

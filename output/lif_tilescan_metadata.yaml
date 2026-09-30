@@ -551,7 +551,6 @@ HardwareSetting:
         ScanType: Internal
         Channel: 1
         ChannelName: Channel 1
-        IsActive: 0
         Gain: 588.483253223468
         Offset: 0
         IsSTEDDetector: 1
@@ -567,7 +566,6 @@ HardwareSetting:
         ScanType: Internal
         Channel: 2
         ChannelName: Channel 2
-        IsActive: 0
         Gain: 753.536278324559
         Offset: 0
         IsSTEDDetector: 0
@@ -586,7 +584,6 @@ HardwareSetting:
         ScanType: Internal
         Channel: 3
         ChannelName: Channel 3
-        IsActive: 0
         Gain: 739.852750438697
         Offset: -0.0400000000000063
         IsSTEDDetector: 0
@@ -602,7 +599,6 @@ HardwareSetting:
         ScanType: Internal
         Channel: 4
         ChannelName: Channel 4
-        IsActive: 0
         Gain: 100.722938465371
         Offset: -0.0066666666666606
         IsSTEDDetector: 1
@@ -627,7 +623,6 @@ HardwareSetting:
         ScanType: Internal
         Channel: 5
         ChannelName: Channel 5
-        IsActive: 1
         Gain: 80.3749377179871
         Offset: -0.0066666666666606
         IsSTEDDetector: 1
@@ -652,7 +647,6 @@ HardwareSetting:
         ScanType: TLD
         Channel: 100
         ChannelName: Transmission Channel
-        IsActive: 0
         Gain: 285.992217898833
         Offset: 0
         IsSTEDDetector: 0
@@ -822,6 +816,13 @@ HardwareSetting:
   SystemType: 12
   DataSourceType: 0
   DataSourceTypeName: Confocal
+GenericDetector:
+- Enabled: 0
+- Enabled: 0
+- Enabled: 0
+- Enabled: 0
+- Enabled: 1
+- Enabled: 0
 Laser:
 - Name: 405 Diode
   IlluminationWavelengthRange:
@@ -1348,12 +1349,17 @@ SourceMap:
   HardwareSetting.ConfocalSettingDefinition.LUT_List.LUT[4].LutName: HardwareSetting.ConfocalSettingDefinition.LUT_List.LUT[4].LutName
   HardwareSetting.ConfocalSettingDefinition.LUT_List.LUT[5].Channel: HardwareSetting.ConfocalSettingDefinition.LUT_List.LUT[5].Channel
   HardwareSetting.ConfocalSettingDefinition.LUT_List.LUT[5].LutName: HardwareSetting.ConfocalSettingDefinition.LUT_List.LUT[5].LutName
+  GenericDetector[0].Enabled: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsActive
+  GenericDetector[1].Enabled: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsActive
+  GenericDetector[2].Enabled: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsActive
+  GenericDetector[3].Enabled: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsActive
+  GenericDetector[4].Enabled: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsActive
+  GenericDetector[5].Enabled: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsActive
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Name
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Type: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Type
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].ScanType: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].ScanType
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Channel: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Channel
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].ChannelName: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].ChannelName
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsActive: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsActive
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Gain: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Gain
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Offset: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Offset
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsSTEDDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsSTEDDetector
@@ -1369,7 +1375,6 @@ SourceMap:
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].ScanType: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].ScanType
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Channel: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Channel
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].ChannelName: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].ChannelName
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsActive: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsActive
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Gain: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Gain
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Offset: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Offset
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsSTEDDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsSTEDDetector
@@ -1388,7 +1393,6 @@ SourceMap:
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].ScanType: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].ScanType
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Channel: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Channel
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].ChannelName: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].ChannelName
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsActive: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsActive
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Gain: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Gain
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Offset: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Offset
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsSTEDDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsSTEDDetector
@@ -1404,7 +1408,6 @@ SourceMap:
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].ScanType: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].ScanType
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Channel: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Channel
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].ChannelName: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].ChannelName
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsActive: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsActive
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Gain: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Gain
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Offset: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Offset
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsSTEDDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsSTEDDetector
@@ -1429,7 +1432,6 @@ SourceMap:
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].ScanType: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].ScanType
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Channel: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Channel
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].ChannelName: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].ChannelName
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsActive: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsActive
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Gain: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Gain
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Offset: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Offset
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsSTEDDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsSTEDDetector
@@ -1454,7 +1456,6 @@ SourceMap:
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].ScanType: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].ScanType
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Channel: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Channel
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].ChannelName: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].ChannelName
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsActive: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsActive
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Gain: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Gain
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Offset: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Offset
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsSTEDDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsSTEDDetector

@@ -288,6 +288,25 @@ numbers in one string:
 BigDataViewer's size `"1100 1100 1150"` gives `SizeZ` 1150. An item that is
 not there, or is no number, adds nothing.
 
+Three more formats derive a value a source writes in another form:
+
+- `count` gives last − first + 1 of two parts: BigDataViewer's time points
+  `first` 0 and `last` 0 give `Pixels.SizeT` 1.
+- `duration` reads a time written as text in seconds, and writes the unit `s`
+  beside it: Cikteq's frame time `"2min52s"` gives 172 s.
+- `quantity` splits a number from the unit written after it: Cikteq's
+  horizontal field width `"21.12µm"` gives 21.12 with the unit `µm`.
+- `product` multiplies its parts: Aperio's `Exposure Time` 109 and
+  `Exposure Scale` 0.000001 give 0.000109. An entry may state the unit the
+  result is in, written beside it where free (`"unit": "s"` here, as the
+  model would read an exposure without one in ms).
+
+A value derived from one part may replace that part's text where a rule put
+it, when the text is no number, so the rule and the combination can share a
+key: Cikteq writes `"2min52s"` under the `Scan.FrameTime` TALOS writes as a
+number, and TALOS's number stays. The replaced text goes back to its own
+path, where it is kept.
+
 ### Matching details
 
 - Patterns are glob-matched with `fnmatch.fnmatchcase`, so matching is

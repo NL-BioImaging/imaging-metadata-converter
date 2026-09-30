@@ -69,5 +69,64 @@
         ],
         "format": "split",
         "item": 2
+    },
+    {
+        "target": "Pixels.SizeT",
+        "sources": [
+            "SpimData.SequenceDescription.Timepoints.first",
+            "SpimData.SequenceDescription.Timepoints.last"
+        ],
+        "format": "count"
+    },
+    {
+        "target": "Image.AcquisitionDate",
+        "sources": [
+            "User.TimeStamp"
+        ],
+        "format": "unix"
+    },
+    {
+        "target": "Image.ScanSettings.FrameTime.Value",
+        "sources": [
+            "Scan.FrameTime"
+        ],
+        "format": "duration"
+    },
+    {
+        "target": "Image.ScanSettings.FieldOfView.X.Value",
+        "sources": [
+            "Beam.HFW"
+        ],
+        "format": "quantity"
+    },
+    {
+        "target": "Image.AcquisitionDate",
+        "sources": [
+            "FEI_HELIOS.User.TimeStamp"
+        ],
+        "format": "unix"
+    },
+    {
+        "target": "Image.ScanSettings.FrameTime.Value",
+        "sources": [
+            "FEI_HELIOS.Scan.FrameTime"
+        ],
+        "format": "duration"
+    },
+    {
+        "target": "Image.ScanSettings.FieldOfView.X.Value",
+        "sources": [
+            "FEI_HELIOS.Beam.HFW"
+        ],
+        "format": "quantity"
+    },
+    {
+        "target": "Plane.ExposureTime",
+        "sources": [
+            "Exposure Time",
+            "Exposure Scale"
+        ],
+        "format": "product",
+        "unit": "s"
     }
 ]

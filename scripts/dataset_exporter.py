@@ -171,7 +171,9 @@ class _Export:
             elif field is not None and nested is None and key not in instance.node                     and self.exporter.fitting(value, field)[0]:
                 stored = self.exporter.fitting(value, field)[1]
                 instance.node[key] = stored
-                self.add_mapping(instance.child_path(key), converted_path, value if stored != value else None)
+                # the type too: 0 == False, but a stored False keeps the source's 0 only in SourceValue
+                changed = stored != value or type(stored) is not type(value)
+                self.add_mapping(instance.child_path(key), converted_path, value if changed else None)
             elif field is None and entity is not None and (is_record or is_record_list):
                 records = value if is_record_list else [value]
                 for index, record in enumerate(records):
@@ -259,7 +261,10 @@ def _as_number(value):
 
 
 def _as_boolean(value):
-    """The boolean text `value` writes ("true", "False", "1", "0"), else None."""
+    """The boolean `value` writes as text ("true", "False", "1", "0") or as an integer flag (Leica's 1 and 0),
+    else None."""
+    if isinstance(value, int) and not isinstance(value, bool):
+        return {1: True, 0: False}.get(value)
     return {'true': True, 'false': False, '1': True, '0': False}.get(value.lower()) if isinstance(value, str) else None
 
 

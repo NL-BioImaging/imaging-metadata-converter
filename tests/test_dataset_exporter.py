@@ -139,6 +139,17 @@ class DatasetExporterTest(unittest.TestCase):
         self.assertEqual((laser['Tuneable'], laser['IsPumped']), (True, False))
         self.assertNotIn('Pulse', laser)
 
+    def test_integer_flag_is_stored_as_a_boolean(self):
+        dataset = self.export({'Laser': {'Tuneable': 1, 'IsPumped': 0, 'Pulse': 2},
+                               'SourceMap': {'Laser.Tuneable': 'a', 'Laser.IsPumped': 'b', 'Laser.Pulse': 'c'}})
+
+        laser = dataset['Instrument'][0]['Laser'][0]
+        self.assertEqual((laser['Tuneable'], laser['IsPumped']), (True, False))
+        self.assertNotIn('Pulse', laser)
+        # 1 == True, so the source's integers are kept by type, not by value
+        self.assertEqual([mapping['SourceValue'] for mapping in dataset['Image'][0]['SourceFile'][0]['Mapping']],
+                         ['1', '0'])
+
     def test_text_that_is_no_fitting_number_stays_a_property(self):
         for text in ('1.5', 'wide', 'nan', 'inf', ''):
             with self.subTest(text=text):

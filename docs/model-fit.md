@@ -26,6 +26,16 @@ and are 100% for every example, or data is lost or made up:
   input values they hold, or the ones they are derived from (a combined date,
   a unit the source implies).
 
+Not every value is acquisition metadata. **Covered, in scope** leaves out the
+values the model is not meant to hold: processing done after the acquisition
+(TALOS's Velox operations), facts about the file or its format (schema
+versions, GUIDs, DICOM's instance bookkeeping), how the image is shown (display
+levels, databars), the acquisition software's own configuration (Leica's
+autofocus and trigger setup), and patient and administrative data. They are
+listed, by kind, in `scripts/out_of_scope.json`, and they are still kept: only
+the coverage leaves them out. A value the model does hold always counts, and a
+test fails on a pattern that names no key of any example.
+
 The table counts **keys**: source paths with their list indices removed, so
 `Laser[0].Name` and `Laser[1].Name` are one key, and a long list of repeated
 records does not swamp an example. A key whose values differ, one channel's

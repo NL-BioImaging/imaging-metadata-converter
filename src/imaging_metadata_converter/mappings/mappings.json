@@ -491,5 +491,18 @@
     "Image.Brightness": "GenericDetector.Brightness",
     "Image.Contrast": "GenericDetector.Contrast",
     "Scan.ShiftX": "Image.ElectronBeamSettings.Shift.X",
-    "Scan.ShiftY": "Image.ElectronBeamSettings.Shift.Y"
+    "Scan.ShiftY": "Image.ElectronBeamSettings.Shift.Y",
+    "ImagePositionPatient[0]": {
+        "target": "Plane.PositionX",
+        "unit": "mm"
+    },
+    "ImagePositionPatient[1]": {
+        "target": "Plane.PositionY",
+        "unit": "mm"
+    },
+    "ImagePositionPatient[2]": {
+        "target": "Plane.PositionZ",
+        "unit": "mm"
+    },
+    "ConfocalSettingDefinition.DetectorList.Detector.IsActive": "GenericDetector[*].Enabled"
 }

@@ -46,15 +46,18 @@ Image:
     Condenser1: 1374
     Condenser2: 1103
   ScanSettings:
-    FieldOfView:
-      X:
-        Value: 71.17µm
     Drift: true
     FramAdd: 1
-    FrameTime:
-      Value: 2min29s
     LineInterlacing: Disable
     LineAdd: 1
+    FrameTime:
+      Value: 149
+      Unit: s
+    FieldOfView:
+      X:
+        Value: 71.17
+        Unit: µm
+  AcquisitionDate: '2026-07-21T14:49:21+00:00'
 GenericDetector:
   Brightness: 50.0
   Channel: 1
@@ -73,6 +76,10 @@ FEI_HELIOS:
     IsTiltCorrent: false
     PreTiltAngle: 0.0
     TiltCompensateMode: 0
+  Scan:
+    FrameTime: 2min29s
+  Beam:
+    HFW: 71.17µm
 Plane:
   PixelDwellTime: 5.0
 Pixels:
@@ -129,7 +136,6 @@ SourceMap:
   Image.ElectronBeamSettings.ElectricMoveY: FEI_HELIOS.Beam.ElectricMoveY
   Image.ElectronBeamSettings.ElectricRotate: FEI_HELIOS.Beam.ElectricRotate
   Image.ElectronBeamSettings.Focus: FEI_HELIOS.Beam.Focus
-  Image.ScanSettings.FieldOfView.X.Value: FEI_HELIOS.Beam.HFW
   Image.ElectronBeamSettings.ImagingMode: FEI_HELIOS.Beam.ImagingMode
   Image.ElectronBeamSettings.Current.Value: FEI_HELIOS.Beam.RealAbsCurrent
   Image.ElectronBeamSettings.Shift.X: FEI_HELIOS.Beam.ShiftX
@@ -165,7 +171,6 @@ SourceMap:
   FEI_HELIOS.Other.BottomInfoVacuum: FEI_HELIOS.Other.BottomInfoVacuum
   Image.ScanSettings.Drift: FEI_HELIOS.Scan.Drift
   Image.ScanSettings.FramAdd: FEI_HELIOS.Scan.FramAdd
-  Image.ScanSettings.FrameTime.Value: FEI_HELIOS.Scan.FrameTime
   Image.ScanSettings.LineInterlacing: FEI_HELIOS.Scan.Interlaced
   Image.ScanSettings.LineAdd: FEI_HELIOS.Scan.LineAdd
   Plane.PixelDwellTime: FEI_HELIOS.Scan.PointTime
@@ -208,3 +213,15 @@ SourceMap:
   - FEI_HELIOS.Stage.StagePosY
   MechanicalStage.Position.Z.Unit:
   - FEI_HELIOS.Stage.StagePosZ
+  Image.AcquisitionDate:
+  - FEI_HELIOS.User.TimeStamp
+  FEI_HELIOS.Scan.FrameTime: FEI_HELIOS.Scan.FrameTime
+  Image.ScanSettings.FrameTime.Value:
+  - FEI_HELIOS.Scan.FrameTime
+  Image.ScanSettings.FrameTime.Unit:
+  - FEI_HELIOS.Scan.FrameTime
+  FEI_HELIOS.Beam.HFW: FEI_HELIOS.Beam.HFW
+  Image.ScanSettings.FieldOfView.X.Value:
+  - FEI_HELIOS.Beam.HFW
+  Image.ScanSettings.FieldOfView.X.Unit:
+  - FEI_HELIOS.Beam.HFW

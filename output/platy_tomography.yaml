@@ -47,6 +47,7 @@ Pixels:
   PhysicalSizeX: 0.325
   PhysicalSizeY: 0.325
   PhysicalSizeZ: 0.325
+  SizeT: 1
 SourceMap:
   SpimData.BasePath.type: SpimData.BasePath.type
   SpimData.BasePath.value: SpimData.BasePath.value
@@ -85,3 +86,6 @@ SourceMap:
   - SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
   Pixels.PhysicalSizeZ:
   - SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
+  Pixels.SizeT:
+  - SpimData.SequenceDescription.Timepoints.first
+  - SpimData.SequenceDescription.Timepoints.last

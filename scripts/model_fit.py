@@ -54,6 +54,8 @@ from docs_data import ModelData, added_classes, all_paths, declared_only_by_adde
 
 EXAMPLES_DIR = ROOT / 'examples'
 EXPORT_DIR = ROOT / 'export'
+# the reviewed source groups that are not acquisition metadata (processing, file, display, ...), by kind
+OUT_OF_SCOPE_FILE = ROOT / 'scripts' / 'out_of_scope.json'
 
 CATEGORIES = ('rule', 'automatic', 'no_fit', 'no_field', 'no_location')
 COVERED = ('rule', 'automatic')
@@ -103,6 +105,13 @@ class FitContext:
         self.added = added_classes(self.model)
         self.model_paths = set(all_paths(self.data.tree))
         self.fields = set(leaf_paths(self.data.tree)) | set(self.model.aliases())
+        self.out_of_scope = {kind: entry['patterns']
+                             for kind, entry in json.loads(OUT_OF_SCOPE_FILE.read_text(encoding='utf-8')).items()}
+
+    def scope_of(self, key):
+        """The kind of source key `key` if it is out of scope, not acquisition metadata, else None."""
+        return next((kind for kind, patterns in self.out_of_scope.items()
+                     if any(fnmatchcase(key, pattern) for pattern in patterns)), None)
 
     def mechanism(self, source):
         """How the mapper placed the value at `source`: 'rule', 'automatic', or None if it resolves neither way.
@@ -212,6 +221,11 @@ class ExampleFit:
                 self.unlocated['.'.join(key.split('.')[:2])] += 1
         self.values = Counter(value_categories.values())
         self.keys = Counter(self.key_categories.values())
+        # a covered key counts as in scope whatever its group: only what the model does not hold can be out of it
+        self.out_of_scope_keys = {key: context.scope_of(key) for key, category in self.key_categories.items()
+                                  if category not in COVERED and context.scope_of(key)}
+        self.out_of_scope_values = sum(1 for source, category in value_categories.items()
+                                       if category not in COVERED and source_key(source) in self.out_of_scope_keys)
         self.input_values = source_values_of(metadata) if metadata is not None else set(value_categories)
         self.kept_values = len(self.input_values & set(value_categories))
 
@@ -239,6 +253,16 @@ class ExampleFit:
         return self._share(self.values)
 
     @property
+    def in_scope_key_coverage(self):
+        in_scope = sum(self.keys.values()) - len(self.out_of_scope_keys)
+        return sum(self.keys[category] for category in COVERED) / in_scope if in_scope else 1.0
+
+    @property
+    def in_scope_value_coverage(self):
+        in_scope = sum(self.values.values()) - self.out_of_scope_values
+        return sum(self.values[category] for category in COVERED) / in_scope if in_scope else 1.0
+
+    @property
     def extension_fields(self):
         return sum(1 for is_extension in self.fields.values() if is_extension)
 
@@ -261,6 +285,12 @@ class ExampleFit:
             'automatic': dict(sorted(self.automatic.items())),
             'missing_fields': dict(self.missing_fields.most_common()),
             'unlocated': dict(self.unlocated.most_common()),
+            'in_scope': {
+                'keys': sum(self.keys.values()) - len(self.out_of_scope_keys),
+                'values': sum(self.values.values()) - self.out_of_scope_values,
+                'coverage': {'keys': self.in_scope_key_coverage, 'values': self.in_scope_value_coverage},
+                'out_of_scope': dict(Counter(self.out_of_scope_keys.values()).most_common()),
+            },
         }
 
 
@@ -321,17 +351,20 @@ def _percent(share):
 
 
 def summary_table(results):
-    lines = ['| Example | Kept | Traced | Covered, keys | Covered, values | Keys | '
-             + ' | '.join(LABELS[category].capitalize() for category in CATEGORIES) + ' |',
-             '| --- | ---: | ---: | ---: | ---: | ---: | ' + ' | '.join('---:' for _ in CATEGORIES) + ' |']
+    lines = ['| Example | Kept | Traced | Covered, keys | Covered, in scope | Covered, values | Keys | '
+             + ' | '.join(LABELS[category].capitalize() for category in CATEGORIES) + ' | Out of scope |',
+             '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ' + ' | '.join('---:' for _ in CATEGORIES)
+             + ' | ---: |']
     for result in results:
         values = result['values']
         covered_values = sum(values[category] for category in COVERED)
         lines.append(f"| {result['name']} | {_percent(result['kept'])} | {_percent(result['traced'])} "
                      f"| **{_percent(result['coverage']['keys'])}** "
+                     f"| **{_percent(result['in_scope']['coverage']['keys'])}** "
                      f"| {_percent(result['coverage']['values'])} ({covered_values} of {values['total']}) "
                      f"| {result['keys']['total']} | "
-                     + ' | '.join(str(result['keys'][category]) for category in CATEGORIES) + ' |')
+                     + ' | '.join(str(result['keys'][category]) for category in CATEGORIES)
+                     + f" | {result['keys']['total'] - result['in_scope']['keys']} |")
     return '\n'.join(lines)
 
 
@@ -360,6 +393,9 @@ def details(result):
                      'or a plain field given a record):\n\n' + _counted(result['missing_fields']))
     if result['unlocated']:
         parts.append('No location, by source group:\n\n' + _counted(result['unlocated']))
+    if result['in_scope']['out_of_scope']:
+        parts.append('Out of scope, not acquisition metadata (scripts/out_of_scope.json):\n\n'
+                     + _counted(result['in_scope']['out_of_scope']))
     return '\n\n'.join(parts) or 'Every key is covered.'
 
 
