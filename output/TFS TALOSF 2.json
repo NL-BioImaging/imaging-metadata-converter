@@ -27,11 +27,13 @@
     "ElectronBeamSettings": {
       "Type": "",
       "AccelerationVoltage": {
-        "Value": "80000"
+        "Value": "80000",
+        "Unit": "V"
       },
       "SpotIndex": "3",
       "ConvergenceAngle": {
-        "Value": "0.01575"
+        "Value": "0.01575",
+        "Unit": "rad"
       },
       "Current": {
         "Value": "4.4763959373203257e-09",
@@ -39,7 +41,8 @@
       },
       "Focus": "0",
       "Defocus": {
-        "Value": "3.9653945906137231e-06"
+        "Value": "3.9653945906137231e-06",
+        "Unit": "m"
       }
     },
     "ElectronOpticsSettings": {
@@ -119,16 +122,19 @@
       "IlluminationMode": "None",
       "ProbeMode": "1",
       "CameraLength": {
-        "Value": "0.20499999999999999"
+        "Value": "0.20499999999999999",
+        "Unit": "m"
       }
     },
     "ScanSettings": {
       "FieldOfView": {
         "X": {
-          "Value": "5.1199999999999984e-06"
+          "Value": "5.1199999999999984e-06",
+          "Unit": "m"
         },
         "Y": {
-          "Value": "5.1199999999999984e-06"
+          "Value": "5.1199999999999984e-06",
+          "Unit": "m"
         }
       },
       "ScanArea": {
@@ -139,15 +145,18 @@
       },
       "MainsLockOn": "false",
       "LineTime": {
-        "Value": "0.20730000000000001"
+        "Value": "0.20730000000000001",
+        "Unit": "s"
       },
       "LineIntegrationCount": "1",
       "LineInterlacing": "1",
       "FrameTime": {
-        "Value": "424.55040000000002"
+        "Value": "424.55040000000002",
+        "Unit": "s"
       },
       "Rotation": {
-        "Value": "-3.1415926535897931"
+        "Value": "-3.1415926535897931",
+        "Unit": "rad"
       },
       "Detector": "DualX"
     },
@@ -174,21 +183,26 @@
   "MechanicalStage": {
     "Position": {
       "X": {
-        "Value": "-7.7850195000000151e-05"
+        "Value": "-7.7850195000000151e-05",
+        "Unit": "m"
       },
       "Y": {
-        "Value": "-0.00035773861200000002"
+        "Value": "-0.00035773861200000002",
+        "Unit": "m"
       },
       "Z": {
-        "Value": "-0.00016222569000000001"
+        "Value": "-0.00016222569000000001",
+        "Unit": "m"
       }
     },
     "Tilt": {
       "Alpha": {
-        "Value": "-0.087257206000000045"
+        "Value": "-0.087257206000000045",
+        "Unit": "rad"
       },
       "Beta": {
-        "Value": "-5.9311804152093827e-05"
+        "Value": "-5.9311804152093827e-05",
+        "Unit": "rad"
       }
     }
   },
@@ -204,7 +218,8 @@
     "PhysicalSizeYUnit": "m"
   },
   "Plane": {
-    "PixelDwellTime": "0.0001"
+    "PixelDwellTime": "0.0001",
+    "PixelDwellTimeUnit": "s"
   },
   "GenericDetector": [
     {
@@ -9788,8 +9803,53 @@
     "OME.Features.SIFeature.e125fe5c4f5348f8b32af9611730b212.imageDisplays[7]": "Features.SIFeature.e125fe5c4f5348f8b32af9611730b212.imageDisplays[7]",
     "OME.Features.SIFeature.e125fe5c4f5348f8b32af9611730b212.spectrums[0].Summed": "Features.SIFeature.e125fe5c4f5348f8b32af9611730b212.spectrums[0].Summed",
     "DetectorMetadata": "DetectorMetadata",
+    "Image.ElectronBeamSettings.AccelerationVoltage.Unit": [
+      "Optics.AccelerationVoltage"
+    ],
+    "Image.ElectronBeamSettings.ConvergenceAngle.Unit": [
+      "Optics.BeamConvergence"
+    ],
     "Image.ElectronBeamSettings.Current.Unit": [
       "Optics.LastMeasuredScreenCurrent"
+    ],
+    "Image.ScanSettings.FieldOfView.X.Unit": [
+      "Optics.FullScanFieldOfView.x"
+    ],
+    "Image.ScanSettings.FieldOfView.Y.Unit": [
+      "Optics.FullScanFieldOfView.y"
+    ],
+    "Image.ElectronBeamSettings.Defocus.Unit": [
+      "Optics.Defocus"
+    ],
+    "Image.ElectronOpticsSettings.CameraLength.Unit": [
+      "Optics.CameraLength"
+    ],
+    "MechanicalStage.Position.X.Unit": [
+      "Stage.Position.x"
+    ],
+    "MechanicalStage.Position.Y.Unit": [
+      "Stage.Position.y"
+    ],
+    "MechanicalStage.Position.Z.Unit": [
+      "Stage.Position.z"
+    ],
+    "MechanicalStage.Tilt.Alpha.Unit": [
+      "Stage.AlphaTilt"
+    ],
+    "MechanicalStage.Tilt.Beta.Unit": [
+      "Stage.BetaTilt"
+    ],
+    "Plane.PixelDwellTimeUnit": [
+      "Scan.DwellTime"
+    ],
+    "Image.ScanSettings.LineTime.Unit": [
+      "Scan.LineTime"
+    ],
+    "Image.ScanSettings.FrameTime.Unit": [
+      "Scan.FrameTime"
+    ],
+    "Image.ScanSettings.Rotation.Unit": [
+      "Scan.ScanRotation"
     ],
     "Image.AcquisitionDate": [
       "Acquisition.AcquisitionStartDatetime.DateTime"

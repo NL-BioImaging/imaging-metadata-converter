@@ -4582,6 +4582,7 @@ entities:
         - Multi
         - Mineral Oil
         - Silicone Oil
+        - Oil
         - Water
         - Other
     - name: InfinityCorrected

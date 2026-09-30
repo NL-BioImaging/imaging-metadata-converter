@@ -17,8 +17,6 @@
       "Top": 0,
       "Bottom": 49533
     },
-    "Contrast": 0,
-    "Brightness": 0,
     "InvertedSignal": false,
     "ScanSettings": {
       "LineAvg": 1,
@@ -40,13 +38,15 @@
       "Uy": 0,
       "Vx": 0,
       "Vy": -0.00255054620872196,
-      "AppliedScaleCorrection": 1,
-      "ShiftX": 0,
-      "ShiftY": 0
+      "AppliedScaleCorrection": 1
     },
     "ElectronBeamSettings": {
       "Focus": 0,
       "Stigmator": {
+        "X": 0,
+        "Y": 0
+      },
+      "Shift": {
         "X": 0,
         "Y": 0
       }
@@ -59,6 +59,10 @@
       "YBrightSlope": 0,
       "RBrightSlope": 0
     }
+  },
+  "GenericDetector": {
+    "Contrast": 0,
+    "Brightness": 0
   },
   "MechanicalStage": {
     "Bias": {
@@ -141,8 +145,8 @@
     "Image.CropHint.Right": "FibicsXML.Fibics.Image.BoundingBox.Right",
     "Image.CropHint.Top": "FibicsXML.Fibics.Image.BoundingBox.Top",
     "Image.CropHint.Bottom": "FibicsXML.Fibics.Image.BoundingBox.Bottom",
-    "Image.Contrast": "FibicsXML.Fibics.Image.Contrast",
-    "Image.Brightness": "FibicsXML.Fibics.Image.Brightness",
+    "GenericDetector.Contrast": "FibicsXML.Fibics.Image.Contrast",
+    "GenericDetector.Brightness": "FibicsXML.Fibics.Image.Brightness",
     "Image.InvertedSignal": "FibicsXML.Fibics.Image.InvertedSignal",
     "Image.ScanSettings.LineAvg": "FibicsXML.Fibics.Scan.LineAvg",
     "Image.ScanSettings.FieldOfView.X.Unit": "FibicsXML.Fibics.Scan.FOV_X.units",
@@ -159,8 +163,8 @@
     "Image.ElectronBeamSettings.Stigmator.X": "FibicsXML.Fibics.Scan.StigX",
     "Image.ElectronBeamSettings.Stigmator.Y": "FibicsXML.Fibics.Scan.StigY",
     "Image.ScanSettings.AppliedScaleCorrection": "FibicsXML.Fibics.Scan.AppliedScaleCorrection",
-    "Image.ScanSettings.ShiftX": "FibicsXML.Fibics.Scan.ShiftX",
-    "Image.ScanSettings.ShiftY": "FibicsXML.Fibics.Scan.ShiftY",
+    "Image.ElectronBeamSettings.Shift.X": "FibicsXML.Fibics.Scan.ShiftX",
+    "Image.ElectronBeamSettings.Shift.Y": "FibicsXML.Fibics.Scan.ShiftY",
     "MechanicalStage.Bias.BiasType": "FibicsXML.Fibics.StageBias.BiasType",
     "MechanicalStage.Bias.Mode": "FibicsXML.Fibics.StageBias.Mode",
     "MechanicalStage.Bias.Volts": "FibicsXML.Fibics.StageBias.Volts",

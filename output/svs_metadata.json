@@ -26,7 +26,9 @@
   },
   "Plane": {
     "PositionX": 29.282969,
-    "PositionY": 13.628824
+    "PositionY": 13.628824,
+    "PositionXUnit": "mm",
+    "PositionYUnit": "mm"
   },
   "LineCameraSkew": 0.001055,
   "LineAreaXOffset": 0.01646,
@@ -69,6 +71,12 @@
     "Pixels.SizeX": "OriginalWidth",
     "Pixels.SizeY": "OriginalHeight",
     "ICC Profile": "ICC Profile",
+    "Plane.PositionXUnit": [
+      "Left"
+    ],
+    "Plane.PositionYUnit": [
+      "Top"
+    ],
     "Image.AcquisitionDate": [
       "Date",
       "Time",

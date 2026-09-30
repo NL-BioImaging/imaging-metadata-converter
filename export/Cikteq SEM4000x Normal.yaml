@@ -35,114 +35,144 @@ Image:
       Field: Image[0].ElectronBeamSettings.WorkingDistance.Value
       Source: FEI_HELIOS.Beam.WD
     - ID: SourceMapping:9
+      Field: Image[0].ElectronBeamSettings.WorkingDistance.Unit
+      Source: FEI_HELIOS.Beam.WD
+      DerivedFrom:
+      - FEI_HELIOS.Beam.WD
+    - ID: SourceMapping:10
       Field: Image[0].ElectronBeamSettings.HighVoltage.BV
       Source: FEI_HELIOS.HV.BV
-    - ID: SourceMapping:10
+    - ID: SourceMapping:11
       Field: Image[0].ElectronBeamSettings.HighVoltage.Bia
       Source: FEI_HELIOS.HV.Bia
-    - ID: SourceMapping:11
+    - ID: SourceMapping:12
       Field: Image[0].ElectronBeamSettings.HighVoltage.CV
       Source: FEI_HELIOS.HV.CV
-    - ID: SourceMapping:12
+    - ID: SourceMapping:13
       Field: Image[0].ElectronBeamSettings.HighVoltage.ExtCurrent
       Source: FEI_HELIOS.HV.ExtCurrent
-    - ID: SourceMapping:13
+    - ID: SourceMapping:14
       Field: Image[0].ElectronBeamSettings.HighVoltage.ExtVoltage
       Source: FEI_HELIOS.HV.ExtVoltage
-    - ID: SourceMapping:14
+    - ID: SourceMapping:15
       Field: Image[0].ElectronBeamSettings.HighVoltage.FV
       Source: FEI_HELIOS.HV.FV
-    - ID: SourceMapping:15
+    - ID: SourceMapping:16
       Field: Image[0].ElectronBeamSettings.HighVoltage.FcCurrent
       Source: FEI_HELIOS.HV.FcCurrent
-    - ID: SourceMapping:16
+    - ID: SourceMapping:17
       Field: Image[0].ElectronBeamSettings.HighVoltage.FcVoltage
       Source: FEI_HELIOS.HV.FcVoltage
-    - ID: SourceMapping:17
+    - ID: SourceMapping:18
       Field: Image[0].ElectronBeamSettings.HighVoltage.HighEmissionMode
       Source: FEI_HELIOS.HV.HighEmissionMode
-    - ID: SourceMapping:18
+    - ID: SourceMapping:19
       Field: Image[0].ElectronBeamSettings.HighVoltage.HvCurrent
       Source: FEI_HELIOS.HV.HvCurrent
-    - ID: SourceMapping:19
+    - ID: SourceMapping:20
       Field: Image[0].ElectronBeamSettings.HighVoltage.HvMode
       Source: FEI_HELIOS.HV.HvMode
-    - ID: SourceMapping:20
+    - ID: SourceMapping:21
       Field: Image[0].ElectronBeamSettings.HighVoltage.HvVoltage
       Source: FEI_HELIOS.HV.HvVoltage
-    - ID: SourceMapping:21
+    - ID: SourceMapping:22
       Field: Image[0].ElectronBeamSettings.HighVoltage.Mid10kvVoltage
       Source: FEI_HELIOS.HV.Mid10kvVoltage
-    - ID: SourceMapping:22
+    - ID: SourceMapping:23
       Field: Image[0].ElectronBeamSettings.HighVoltage.SV
       Source: FEI_HELIOS.HV.SV
-    - ID: SourceMapping:23
+    - ID: SourceMapping:24
       Field: Image[0].ElectronBeamSettings.HighVoltage.SchCurrent
       Source: FEI_HELIOS.HV.SchCurrent
-    - ID: SourceMapping:24
+    - ID: SourceMapping:25
       Field: Image[0].ElectronBeamSettings.HighVoltage.SchVoltage
       Source: FEI_HELIOS.HV.SchVoltage
-    - ID: SourceMapping:25
+    - ID: SourceMapping:26
       Field: Image[0].ElectronOpticsSettings.Condenser1
       Source: FEI_HELIOS.Beam.Condenser
-    - ID: SourceMapping:26
+    - ID: SourceMapping:27
       Field: Image[0].ElectronOpticsSettings.Condenser2
       Source: FEI_HELIOS.Beam.Condenser2
-    - ID: SourceMapping:27
+    - ID: SourceMapping:28
       Field: Instrument[0].GenericDetector[0].Brightness
       Source: FEI_HELIOS.Detector.Brightness
-    - ID: SourceMapping:28
+    - ID: SourceMapping:29
       Field: Instrument[0].GenericDetector[0].Channel
       Source: FEI_HELIOS.Detector.Channel
-    - ID: SourceMapping:29
+    - ID: SourceMapping:30
       Field: Instrument[0].GenericDetector[0].Contrast
       Source: FEI_HELIOS.Detector.Contrast
-    - ID: SourceMapping:30
+    - ID: SourceMapping:31
       Field: Instrument[0].GenericDetector[0].Name
       Source: FEI_HELIOS.Detector.DetectorName
-    - ID: SourceMapping:31
+    - ID: SourceMapping:32
       Field: Instrument[0].GenericDetector[0].Gain
       Source: FEI_HELIOS.Detector.Gain
-    - ID: SourceMapping:32
+    - ID: SourceMapping:33
       Field: Image[0].Pixels.Plane[0].PixelDwellTime
       Source: FEI_HELIOS.Scan.PointTime
-    - ID: SourceMapping:33
+    - ID: SourceMapping:34
       Field: Image[0].Pixels.SizeX
       Source: FEI_HELIOS.Scan.ResolutionX
-    - ID: SourceMapping:34
+    - ID: SourceMapping:35
       Field: Image[0].Pixels.SizeY
       Source: FEI_HELIOS.Scan.ResolutionY
-    - ID: SourceMapping:35
+    - ID: SourceMapping:36
       Field: Instrument[0].MechanicalStage[0].Rotation.Value
       Source: FEI_HELIOS.Stage.StagePosR
-    - ID: SourceMapping:36
+    - ID: SourceMapping:37
+      Field: Instrument[0].MechanicalStage[0].Rotation.Unit
+      Source: FEI_HELIOS.Stage.StagePosR
+      DerivedFrom:
+      - FEI_HELIOS.Stage.StagePosR
+    - ID: SourceMapping:38
       Field: Instrument[0].MechanicalStage[0].Tilt.Value
       Source: FEI_HELIOS.Stage.StagePosT
-    - ID: SourceMapping:37
+    - ID: SourceMapping:39
+      Field: Instrument[0].MechanicalStage[0].Tilt.Unit
+      Source: FEI_HELIOS.Stage.StagePosT
+      DerivedFrom:
+      - FEI_HELIOS.Stage.StagePosT
+    - ID: SourceMapping:40
       Field: Instrument[0].MechanicalStage[0].Position.X.Value
       Source: FEI_HELIOS.Stage.StagePosX
-    - ID: SourceMapping:38
+    - ID: SourceMapping:41
+      Field: Instrument[0].MechanicalStage[0].Position.X.Unit
+      Source: FEI_HELIOS.Stage.StagePosX
+      DerivedFrom:
+      - FEI_HELIOS.Stage.StagePosX
+    - ID: SourceMapping:42
       Field: Instrument[0].MechanicalStage[0].Position.Y.Value
       Source: FEI_HELIOS.Stage.StagePosY
-    - ID: SourceMapping:39
+    - ID: SourceMapping:43
+      Field: Instrument[0].MechanicalStage[0].Position.Y.Unit
+      Source: FEI_HELIOS.Stage.StagePosY
+      DerivedFrom:
+      - FEI_HELIOS.Stage.StagePosY
+    - ID: SourceMapping:44
       Field: Instrument[0].MechanicalStage[0].Position.Z.Value
       Source: FEI_HELIOS.Stage.StagePosZ
-    - ID: SourceMapping:40
+    - ID: SourceMapping:45
+      Field: Instrument[0].MechanicalStage[0].Position.Z.Unit
+      Source: FEI_HELIOS.Stage.StagePosZ
+      DerivedFrom:
+      - FEI_HELIOS.Stage.StagePosZ
+    - ID: SourceMapping:46
       Field: Instrument[0].Name
       Source: FEI_HELIOS.System.ProductName
-    - ID: SourceMapping:41
+    - ID: SourceMapping:47
       Field: Instrument[0].Vacuum.BufferVacuum
       Source: FEI_HELIOS.Vacuum.BufferVacuum
-    - ID: SourceMapping:42
+    - ID: SourceMapping:48
       Field: Instrument[0].Vacuum.GunVacuum
       Source: FEI_HELIOS.Vacuum.GunVacuum
-    - ID: SourceMapping:43
+    - ID: SourceMapping:49
       Field: Instrument[0].Vacuum.SampleVacuum
       Source: FEI_HELIOS.Vacuum.SampleVacuum
-    - ID: SourceMapping:44
+    - ID: SourceMapping:50
       Field: Instrument[0].AcquisitionSoftware[0].Version
       Source: FEI_HELIOS.System.SoftwareVersion
-    - ID: SourceMapping:45
+    - ID: SourceMapping:51
       Field: Experimenter[0].UserName
       Source: FEI_HELIOS.User.UserName
   ElectronBeamSettings:
@@ -159,6 +189,7 @@ Image:
       Y: 0.0
     WorkingDistance:
       Value: 3.88
+      Unit: mm
     HighVoltage:
       BV: 6000.24
       Bia: 0.0
@@ -315,15 +346,20 @@ Instrument:
   MechanicalStage:
   - Rotation:
       Value: 11.7
+      Unit: deg
     Tilt:
       Value: 0.0
+      Unit: deg
     Position:
       X:
         Value: 12.3745
+        Unit: mm
       Y:
         Value: 9.0143
+        Unit: mm
       Z:
         Value: 58.0
+        Unit: mm
   Name: SEM4000X
   Vacuum:
     BufferVacuum: 123.0

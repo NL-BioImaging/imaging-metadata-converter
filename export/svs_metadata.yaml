@@ -31,10 +31,20 @@ Image:
       Field: Image[0].Pixels.Plane[0].PositionY
       Source: Top
     - ID: SourceMapping:8
+      Field: Image[0].Pixels.Plane[0].PositionXUnit
+      Source: Left
+      DerivedFrom:
+      - Left
+    - ID: SourceMapping:9
+      Field: Image[0].Pixels.Plane[0].PositionYUnit
+      Source: Top
+      DerivedFrom:
+      - Top
+    - ID: SourceMapping:10
       Field: Image[0].ID
       Source: ImageID
       SourceValue: '18489'
-    - ID: SourceMapping:9
+    - ID: SourceMapping:11
       Field: Image[0].AcquisitionDate
       Source: Date + Time + Time Zone
       DerivedFrom:
@@ -49,6 +59,8 @@ Image:
     Plane:
     - PositionX: 29.282969
       PositionY: 13.628824
+      PositionXUnit: mm
+      PositionYUnit: mm
   ID: '18489'
   AcquisitionDate: '2015-10-19T17:18:12-05:00'
 CustomProperties:

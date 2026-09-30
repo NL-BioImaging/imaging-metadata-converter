@@ -99,7 +99,6 @@
               {
                 "LUT": "Gray",
                 "Active": 1,
-                "Gain": 1,
                 "EMGain": 1,
                 "GainString": 0,
                 "StringGainName": "",
@@ -377,7 +376,6 @@
       "TheoCamSensorPixelSizeX": 3.45e-06,
       "TheoCamSensorPixelSizeY": 3.45e-06,
       "Gamma": 1,
-      "Brightness": 125,
       "WhiteValue": 255,
       "BlackValue": 0,
       "GainStringValue": 0,
@@ -492,7 +490,9 @@
     "PositionYUnit": "m"
   },
   "GenericDetector": {
-    "Model": "DFC4400-GI_700010131528_700010131530_700010131533_700010131558"
+    "Gain": 1,
+    "Model": "DFC4400-GI_700010131528_700010131530_700010131533_700010131558",
+    "Brightness": 125
   },
   "Pixels": {
     "SizeX": 2448,
@@ -568,9 +568,9 @@
     "HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.EndValue": "HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.EndValue",
     "HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.NbSections": "HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.NbSections",
     "Plane.ExposureTime": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].ExposureTime",
+    "GenericDetector.Gain": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Gain",
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].LUT": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].LUT",
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Active": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Active",
-    "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Gain": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Gain",
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].EMGain": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].EMGain",
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].GainString": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].GainString",
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].StringGainName": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].StringGainName",
@@ -827,7 +827,7 @@
     "HardwareSetting.CameraSettingDefinition.TheoCamSensorPixelSizeX": "HardwareSetting.CameraSettingDefinition.TheoCamSensorPixelSizeX",
     "HardwareSetting.CameraSettingDefinition.TheoCamSensorPixelSizeY": "HardwareSetting.CameraSettingDefinition.TheoCamSensorPixelSizeY",
     "HardwareSetting.CameraSettingDefinition.Gamma": "HardwareSetting.CameraSettingDefinition.Gamma",
-    "HardwareSetting.CameraSettingDefinition.Brightness": "HardwareSetting.CameraSettingDefinition.Brightness",
+    "GenericDetector.Brightness": "HardwareSetting.CameraSettingDefinition.Brightness",
     "HardwareSetting.CameraSettingDefinition.WhiteValue": "HardwareSetting.CameraSettingDefinition.WhiteValue",
     "HardwareSetting.CameraSettingDefinition.BlackValue": "HardwareSetting.CameraSettingDefinition.BlackValue",
     "HardwareSetting.CameraSettingDefinition.GainStringValue": "HardwareSetting.CameraSettingDefinition.GainStringValue",

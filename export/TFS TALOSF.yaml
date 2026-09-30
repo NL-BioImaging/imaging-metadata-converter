@@ -35,580 +35,655 @@ Image:
       Source: Optics.AccelerationVoltage
       SourceValue: '"80000"'
     - ID: SourceMapping:9
+      Field: Image[0].ElectronBeamSettings.AccelerationVoltage.Unit
+      Source: Optics.AccelerationVoltage
+      DerivedFrom:
+      - Optics.AccelerationVoltage
+    - ID: SourceMapping:10
       Field: Image[0].ElectronBeamSettings.SpotIndex
       Source: Optics.SpotIndex
       SourceValue: '"5"'
-    - ID: SourceMapping:10
+    - ID: SourceMapping:11
       Field: Image[0].ElectronBeamSettings.ConvergenceAngle.Value
       Source: Optics.BeamConvergence
       SourceValue: '"0.01575"'
-    - ID: SourceMapping:11
+    - ID: SourceMapping:12
+      Field: Image[0].ElectronBeamSettings.ConvergenceAngle.Unit
+      Source: Optics.BeamConvergence
+      DerivedFrom:
+      - Optics.BeamConvergence
+    - ID: SourceMapping:13
       Field: Image[0].ElectronBeamSettings.Current.Value
       Source: Optics.LastMeasuredScreenCurrent
       SourceValue: '"4.8587396462493915e-09"'
-    - ID: SourceMapping:12
+    - ID: SourceMapping:14
       Field: Image[0].ElectronBeamSettings.Current.Unit
       Source: Optics.LastMeasuredScreenCurrent
       DerivedFrom:
       - Optics.LastMeasuredScreenCurrent
-    - ID: SourceMapping:13
+    - ID: SourceMapping:15
       Field: Image[0].ElectronBeamSettings.Focus
       Source: Optics.Focus
       SourceValue: '"0"'
-    - ID: SourceMapping:14
+    - ID: SourceMapping:16
       Field: Image[0].ElectronBeamSettings.Defocus.Value
       Source: Optics.Defocus
       SourceValue: '"4.357877185027627e-07"'
-    - ID: SourceMapping:15
+    - ID: SourceMapping:17
+      Field: Image[0].ElectronBeamSettings.Defocus.Unit
+      Source: Optics.Defocus
+      DerivedFrom:
+      - Optics.Defocus
+    - ID: SourceMapping:18
       Field: Image[0].ElectronOpticsSettings.GunLensSetting
       Source: Optics.GunLensSetting
-    - ID: SourceMapping:16
+    - ID: SourceMapping:19
       Field: Image[0].ElectronOpticsSettings.Condenser1
       Source: Optics.C1LensIntensity
       SourceValue: '"0.18007874086202763"'
-    - ID: SourceMapping:17
+    - ID: SourceMapping:20
       Field: Image[0].ElectronOpticsSettings.Condenser2
       Source: Optics.C2LensIntensity
       SourceValue: '"0.53735048495642079"'
-    - ID: SourceMapping:18
+    - ID: SourceMapping:21
       Field: Image[0].ElectronOpticsSettings.Aperture[0].Name
       Source: Optics.Apertures.Aperture-0.Name
-    - ID: SourceMapping:19
+    - ID: SourceMapping:22
       Field: Image[0].ElectronOpticsSettings.Aperture[0].Number
       Source: Optics.Apertures.Aperture-0.Number
       SourceValue: '"1"'
-    - ID: SourceMapping:20
+    - ID: SourceMapping:23
       Field: Image[0].ElectronOpticsSettings.Aperture[0].MechanismType
       Source: Optics.Apertures.Aperture-0.MechanismType
-    - ID: SourceMapping:21
+    - ID: SourceMapping:24
       Field: Image[0].ElectronOpticsSettings.Aperture[0].Type
       Source: Optics.Apertures.Aperture-0.Type
-    - ID: SourceMapping:22
+    - ID: SourceMapping:25
       Field: Image[0].ElectronOpticsSettings.Aperture[0].Enabled
       Source: Optics.Apertures.Aperture-0.Enabled
       SourceValue: '"0"'
-    - ID: SourceMapping:23
+    - ID: SourceMapping:26
       Field: Image[0].ElectronOpticsSettings.Aperture[0].PositionOffset.X
       Source: Optics.Apertures.Aperture-0.PositionOffset.x
       SourceValue: '"0.00058848000000000006"'
-    - ID: SourceMapping:24
+    - ID: SourceMapping:27
       Field: Image[0].ElectronOpticsSettings.Aperture[0].PositionOffset.Y
       Source: Optics.Apertures.Aperture-0.PositionOffset.y
       SourceValue: '"0.00154032"'
-    - ID: SourceMapping:25
+    - ID: SourceMapping:28
       Field: Image[0].ElectronOpticsSettings.Aperture[0].Diameter.Value
       Source: Optics.Apertures.Aperture-0.Diameter
       SourceValue: '"0.002"'
-    - ID: SourceMapping:26
+    - ID: SourceMapping:29
       Field: Image[0].ElectronOpticsSettings.Aperture[0].Diameter.Unit
       Source: Optics.Apertures.Aperture-0.Diameter
       DerivedFrom:
       - Optics.Apertures.Aperture-0.Diameter
-    - ID: SourceMapping:27
+    - ID: SourceMapping:30
       Field: Image[0].ElectronOpticsSettings.Aperture[1].Name
       Source: Optics.Apertures.Aperture-1.Name
-    - ID: SourceMapping:28
+    - ID: SourceMapping:31
       Field: Image[0].ElectronOpticsSettings.Aperture[1].Number
       Source: Optics.Apertures.Aperture-1.Number
       SourceValue: '"2"'
-    - ID: SourceMapping:29
+    - ID: SourceMapping:32
       Field: Image[0].ElectronOpticsSettings.Aperture[1].MechanismType
       Source: Optics.Apertures.Aperture-1.MechanismType
-    - ID: SourceMapping:30
+    - ID: SourceMapping:33
       Field: Image[0].ElectronOpticsSettings.Aperture[1].Type
       Source: Optics.Apertures.Aperture-1.Type
-    - ID: SourceMapping:31
+    - ID: SourceMapping:34
       Field: Image[0].ElectronOpticsSettings.Aperture[1].Enabled
       Source: Optics.Apertures.Aperture-1.Enabled
       SourceValue: '"0"'
-    - ID: SourceMapping:32
+    - ID: SourceMapping:35
       Field: Image[0].ElectronOpticsSettings.Aperture[1].PositionOffset.X
       Source: Optics.Apertures.Aperture-1.PositionOffset.x
       SourceValue: '"0.00029952000000000001"'
-    - ID: SourceMapping:33
+    - ID: SourceMapping:36
       Field: Image[0].ElectronOpticsSettings.Aperture[1].PositionOffset.Y
       Source: Optics.Apertures.Aperture-1.PositionOffset.y
       SourceValue: '"0.0006912"'
-    - ID: SourceMapping:34
+    - ID: SourceMapping:37
       Field: Image[0].ElectronOpticsSettings.Aperture[1].Diameter.Value
       Source: Optics.Apertures.Aperture-1.Diameter
       SourceValue: '"0.00014999999999999999"'
-    - ID: SourceMapping:35
+    - ID: SourceMapping:38
       Field: Image[0].ElectronOpticsSettings.Aperture[1].Diameter.Unit
       Source: Optics.Apertures.Aperture-1.Diameter
       DerivedFrom:
       - Optics.Apertures.Aperture-1.Diameter
-    - ID: SourceMapping:36
+    - ID: SourceMapping:39
       Field: Image[0].ElectronOpticsSettings.Aperture[2].Name
       Source: Optics.Apertures.Aperture-2.Name
-    - ID: SourceMapping:37
+    - ID: SourceMapping:40
       Field: Image[0].ElectronOpticsSettings.Aperture[2].Number
       Source: Optics.Apertures.Aperture-2.Number
       SourceValue: '"4"'
-    - ID: SourceMapping:38
+    - ID: SourceMapping:41
       Field: Image[0].ElectronOpticsSettings.Aperture[2].MechanismType
       Source: Optics.Apertures.Aperture-2.MechanismType
-    - ID: SourceMapping:39
+    - ID: SourceMapping:42
       Field: Image[0].ElectronOpticsSettings.Aperture[2].Type
       Source: Optics.Apertures.Aperture-2.Type
-    - ID: SourceMapping:40
+    - ID: SourceMapping:43
       Field: Image[0].ElectronOpticsSettings.Aperture[2].PositionOffset.X
       Source: Optics.Apertures.Aperture-2.PositionOffset.x
       SourceValue: '"1.984e-05"'
-    - ID: SourceMapping:41
+    - ID: SourceMapping:44
       Field: Image[0].ElectronOpticsSettings.Aperture[2].PositionOffset.Y
       Source: Optics.Apertures.Aperture-2.PositionOffset.y
       SourceValue: '"-0.00061936000000000001"'
-    - ID: SourceMapping:42
+    - ID: SourceMapping:45
       Field: Image[0].ElectronOpticsSettings.Aperture[3].Name
       Source: Optics.Apertures.Aperture-3.Name
-    - ID: SourceMapping:43
+    - ID: SourceMapping:46
       Field: Image[0].ElectronOpticsSettings.Aperture[3].Number
       Source: Optics.Apertures.Aperture-3.Number
       SourceValue: '"5"'
-    - ID: SourceMapping:44
+    - ID: SourceMapping:47
       Field: Image[0].ElectronOpticsSettings.Aperture[3].MechanismType
       Source: Optics.Apertures.Aperture-3.MechanismType
-    - ID: SourceMapping:45
+    - ID: SourceMapping:48
       Field: Image[0].ElectronOpticsSettings.Aperture[3].Type
       Source: Optics.Apertures.Aperture-3.Type
-    - ID: SourceMapping:46
+    - ID: SourceMapping:49
       Field: Image[0].ElectronOpticsSettings.Aperture[3].PositionOffset.X
       Source: Optics.Apertures.Aperture-3.PositionOffset.x
       SourceValue: '"0.00013104000000000002"'
-    - ID: SourceMapping:47
+    - ID: SourceMapping:50
       Field: Image[0].ElectronOpticsSettings.Aperture[3].PositionOffset.Y
       Source: Optics.Apertures.Aperture-3.PositionOffset.y
       SourceValue: '"-0.00066224000000000003"'
-    - ID: SourceMapping:48
+    - ID: SourceMapping:51
       Field: Image[0].ElectronOpticsSettings.OperatingMode
       Source: Optics.OperatingMode
-    - ID: SourceMapping:49
+    - ID: SourceMapping:52
       Field: Image[0].ElectronOpticsSettings.OperatingSubMode
       Source: Optics.TemOperatingSubMode
-    - ID: SourceMapping:50
+    - ID: SourceMapping:53
       Field: Image[0].ElectronOpticsSettings.ProjectorMode
       Source: Optics.ProjectorMode
-    - ID: SourceMapping:51
+    - ID: SourceMapping:54
       Field: Image[0].ElectronOpticsSettings.CameraLength.Value
       Source: Optics.CameraLength
       SourceValue: '"0.20499999999999999"'
-    - ID: SourceMapping:52
+    - ID: SourceMapping:55
+      Field: Image[0].ElectronOpticsSettings.CameraLength.Unit
+      Source: Optics.CameraLength
+      DerivedFrom:
+      - Optics.CameraLength
+    - ID: SourceMapping:56
       Field: Image[0].ScanSettings.FieldOfView.X.Value
       Source: Optics.FullScanFieldOfView.x
       SourceValue: '"8.1920000000000022e-06"'
-    - ID: SourceMapping:53
+    - ID: SourceMapping:57
+      Field: Image[0].ScanSettings.FieldOfView.X.Unit
+      Source: Optics.FullScanFieldOfView.x
+      DerivedFrom:
+      - Optics.FullScanFieldOfView.x
+    - ID: SourceMapping:58
       Field: Image[0].ScanSettings.FieldOfView.Y.Value
       Source: Optics.FullScanFieldOfView.y
       SourceValue: '"8.1920000000000022e-06"'
-    - ID: SourceMapping:54
+    - ID: SourceMapping:59
+      Field: Image[0].ScanSettings.FieldOfView.Y.Unit
+      Source: Optics.FullScanFieldOfView.y
+      DerivedFrom:
+      - Optics.FullScanFieldOfView.y
+    - ID: SourceMapping:60
       Field: Image[0].ScanSettings.LineTime.Value
       Source: Scan.LineTime
       SourceValue: '"0.20730000000000001"'
-    - ID: SourceMapping:55
+    - ID: SourceMapping:61
+      Field: Image[0].ScanSettings.LineTime.Unit
+      Source: Scan.LineTime
+      DerivedFrom:
+      - Scan.LineTime
+    - ID: SourceMapping:62
       Field: Image[0].ScanSettings.LineIntegrationCount
       Source: Scan.LineIntegrationCount
       SourceValue: '"1"'
-    - ID: SourceMapping:56
+    - ID: SourceMapping:63
       Field: Image[0].ScanSettings.LineInterlacing
       Source: Scan.LineInterlacing
       SourceValue: '"1"'
-    - ID: SourceMapping:57
+    - ID: SourceMapping:64
       Field: Image[0].ScanSettings.FrameTime.Value
       Source: Scan.FrameTime
       SourceValue: '"424.55040000000002"'
-    - ID: SourceMapping:58
+    - ID: SourceMapping:65
+      Field: Image[0].ScanSettings.FrameTime.Unit
+      Source: Scan.FrameTime
+      DerivedFrom:
+      - Scan.FrameTime
+    - ID: SourceMapping:66
       Field: Image[0].ScanSettings.Rotation.Value
       Source: Scan.ScanRotation
       SourceValue: '"0"'
-    - ID: SourceMapping:59
+    - ID: SourceMapping:67
+      Field: Image[0].ScanSettings.Rotation.Unit
+      Source: Scan.ScanRotation
+      DerivedFrom:
+      - Scan.ScanRotation
+    - ID: SourceMapping:68
       Field: Image[0].ScanSettings.Detector
       Source: BinaryResult.Detector
-    - ID: SourceMapping:60
+    - ID: SourceMapping:69
       Field: Image[0].AcquisitionDate
       Source: Acquisition.AcquisitionStartDatetime.DateTime
       DerivedFrom:
       - Acquisition.AcquisitionStartDatetime.DateTime
-    - ID: SourceMapping:61
+    - ID: SourceMapping:70
       Field: Instrument[0].ElectronSource[0].Type
       Source: Acquisition.SourceType
-    - ID: SourceMapping:62
+    - ID: SourceMapping:71
       Field: Instrument[0].MechanicalStage[0].Position.X.Value
       Source: Stage.Position.x
       SourceValue: '"-3.565290000000008e-05"'
-    - ID: SourceMapping:63
+    - ID: SourceMapping:72
+      Field: Instrument[0].MechanicalStage[0].Position.X.Unit
+      Source: Stage.Position.x
+      DerivedFrom:
+      - Stage.Position.x
+    - ID: SourceMapping:73
       Field: Instrument[0].MechanicalStage[0].Position.Y.Value
       Source: Stage.Position.y
       SourceValue: '"2.7880518000000015e-05"'
-    - ID: SourceMapping:64
+    - ID: SourceMapping:74
+      Field: Instrument[0].MechanicalStage[0].Position.Y.Unit
+      Source: Stage.Position.y
+      DerivedFrom:
+      - Stage.Position.y
+    - ID: SourceMapping:75
       Field: Instrument[0].MechanicalStage[0].Position.Z.Value
       Source: Stage.Position.z
       SourceValue: '"-0.00016588146"'
-    - ID: SourceMapping:65
+    - ID: SourceMapping:76
+      Field: Instrument[0].MechanicalStage[0].Position.Z.Unit
+      Source: Stage.Position.z
+      DerivedFrom:
+      - Stage.Position.z
+    - ID: SourceMapping:77
       Field: Instrument[0].MechanicalStage[0].Tilt.Alpha.Value
       Source: Stage.AlphaTilt
       SourceValue: '"-0.00010274500000013157"'
-    - ID: SourceMapping:66
+    - ID: SourceMapping:78
+      Field: Instrument[0].MechanicalStage[0].Tilt.Alpha.Unit
+      Source: Stage.AlphaTilt
+      DerivedFrom:
+      - Stage.AlphaTilt
+    - ID: SourceMapping:79
       Field: Instrument[0].MechanicalStage[0].Tilt.Beta.Value
       Source: Stage.BetaTilt
       SourceValue: '"8.4731148788705459e-06"'
-    - ID: SourceMapping:67
+    - ID: SourceMapping:80
+      Field: Instrument[0].MechanicalStage[0].Tilt.Beta.Unit
+      Source: Stage.BetaTilt
+      DerivedFrom:
+      - Stage.BetaTilt
+    - ID: SourceMapping:81
       Field: Experiment[0].Sample[0].SampleHolder[0].Type
       Source: Stage.HolderType
-    - ID: SourceMapping:68
+    - ID: SourceMapping:82
       Field: Image[0].Pixels.SizeX
       Source: Scan.ScanSize.width
       SourceValue: '"2048"'
-    - ID: SourceMapping:69
+    - ID: SourceMapping:83
       Field: Image[0].Pixels.SizeY
       Source: Scan.ScanSize.height
       SourceValue: '"2048"'
-    - ID: SourceMapping:70
+    - ID: SourceMapping:84
       Field: Image[0].Pixels.PhysicalSizeX
       Source: BinaryResult.PixelSize.width
       SourceValue: '"4.0000000000000011e-09"'
-    - ID: SourceMapping:71
+    - ID: SourceMapping:85
       Field: Image[0].Pixels.PhysicalSizeY
       Source: BinaryResult.PixelSize.height
       SourceValue: '"4.0000000000000011e-09"'
-    - ID: SourceMapping:72
+    - ID: SourceMapping:86
       Field: Image[0].Pixels.PhysicalSizeXUnit
       Source: BinaryResult.PixelUnitX
-    - ID: SourceMapping:73
+    - ID: SourceMapping:87
       Field: Image[0].Pixels.PhysicalSizeYUnit
       Source: BinaryResult.PixelUnitY
-    - ID: SourceMapping:74
+    - ID: SourceMapping:88
       Field: Image[0].Pixels.Plane[0].PixelDwellTime
       Source: Scan.DwellTime
       SourceValue: '"0.0001"'
-    - ID: SourceMapping:75
+    - ID: SourceMapping:89
+      Field: Image[0].Pixels.Plane[0].PixelDwellTimeUnit
+      Source: Scan.DwellTime
+      DerivedFrom:
+      - Scan.DwellTime
+    - ID: SourceMapping:90
       Field: Instrument[0].GenericDetector[0].Binning.X
       Source: Detectors.Detector-0.Binning.width
       SourceValue: '"1"'
-    - ID: SourceMapping:76
+    - ID: SourceMapping:91
       Field: Instrument[0].GenericDetector[0].Binning.Y
       Source: Detectors.Detector-0.Binning.height
       SourceValue: '"1"'
-    - ID: SourceMapping:77
+    - ID: SourceMapping:92
       Field: Instrument[0].GenericDetector[0].Name
       Source: Detectors.Detector-0.DetectorName
-    - ID: SourceMapping:78
+    - ID: SourceMapping:93
       Field: Instrument[0].GenericDetector[0].Type
       Source: Detectors.Detector-0.DetectorType
-    - ID: SourceMapping:79
+    - ID: SourceMapping:94
       Field: Instrument[0].GenericDetector[0].ExposureTime.Value
       Source: Detectors.Detector-0.ExposureTime
       SourceValue: '"0.5"'
-    - ID: SourceMapping:80
+    - ID: SourceMapping:95
       Field: Instrument[0].GenericDetector[0].ExposureTime.Unit
       Source: Detectors.Detector-0.ExposureTime
       DerivedFrom:
       - Detectors.Detector-0.ExposureTime
-    - ID: SourceMapping:81
+    - ID: SourceMapping:96
       Field: Instrument[0].GenericDetector[0].ID
       Source: Detectors.Detector-0
-    - ID: SourceMapping:82
+    - ID: SourceMapping:97
       Field: Instrument[0].GenericDetector[1].Inserted
       Source: Detectors.Detector-1.Inserted
       SourceValue: '"true"'
-    - ID: SourceMapping:83
+    - ID: SourceMapping:98
       Field: Instrument[0].GenericDetector[1].Enabled
       Source: Detectors.Detector-1.Enabled
       SourceValue: '"true"'
-    - ID: SourceMapping:84
+    - ID: SourceMapping:99
       Field: Instrument[0].GenericDetector[1].InputCountRate
       Source: Detectors.Detector-1.InputCountRate
       SourceValue: '"132519"'
-    - ID: SourceMapping:85
+    - ID: SourceMapping:100
       Field: Instrument[0].GenericDetector[1].OutputCountRate
       Source: Detectors.Detector-1.OutputCountRate
       SourceValue: '"88985"'
-    - ID: SourceMapping:86
+    - ID: SourceMapping:101
       Field: Instrument[0].GenericDetector[1].Name
       Source: Detectors.Detector-1.DetectorName
-    - ID: SourceMapping:87
+    - ID: SourceMapping:102
       Field: Instrument[0].GenericDetector[1].Type
       Source: Detectors.Detector-1.DetectorType
-    - ID: SourceMapping:88
+    - ID: SourceMapping:103
       Field: Instrument[0].GenericDetector[1].ElevationAngle.Value
       Source: Detectors.Detector-1.ElevationAngle
       SourceValue: '"0.34906585000000001"'
-    - ID: SourceMapping:89
+    - ID: SourceMapping:104
       Field: Instrument[0].GenericDetector[1].ElevationAngle.Unit
       Source: Detectors.Detector-1.ElevationAngle
       DerivedFrom:
       - Detectors.Detector-1.ElevationAngle
-    - ID: SourceMapping:90
+    - ID: SourceMapping:105
       Field: Instrument[0].GenericDetector[1].AzimuthAngle.Value
       Source: Detectors.Detector-1.AzimuthAngle
       SourceValue: '"1.5707963267948966"'
-    - ID: SourceMapping:91
+    - ID: SourceMapping:106
       Field: Instrument[0].GenericDetector[1].AzimuthAngle.Unit
       Source: Detectors.Detector-1.AzimuthAngle
       DerivedFrom:
       - Detectors.Detector-1.AzimuthAngle
-    - ID: SourceMapping:92
+    - ID: SourceMapping:107
       Field: Instrument[0].GenericDetector[1].CollectionAngle.Value
       Source: Detectors.Detector-1.CollectionAngle
       SourceValue: '"0.90101100000000001"'
-    - ID: SourceMapping:93
+    - ID: SourceMapping:108
       Field: Instrument[0].GenericDetector[1].CollectionAngle.Unit
       Source: Detectors.Detector-1.CollectionAngle
       DerivedFrom:
       - Detectors.Detector-1.CollectionAngle
-    - ID: SourceMapping:94
+    - ID: SourceMapping:109
       Field: Instrument[0].GenericDetector[1].Dispersion.Value
       Source: Detectors.Detector-1.Dispersion
       SourceValue: '"5"'
-    - ID: SourceMapping:95
+    - ID: SourceMapping:110
       Field: Instrument[0].GenericDetector[1].Dispersion.Unit
       Source: Detectors.Detector-1.Dispersion
       DerivedFrom:
       - Detectors.Detector-1.Dispersion
-    - ID: SourceMapping:96
+    - ID: SourceMapping:111
       Field: Instrument[0].GenericDetector[1].PulseProcessTime.Value
       Source: Detectors.Detector-1.PulseProcessTime
       SourceValue: '"2.9081620097620193e-06"'
-    - ID: SourceMapping:97
+    - ID: SourceMapping:112
       Field: Instrument[0].GenericDetector[1].PulseProcessTime.Unit
       Source: Detectors.Detector-1.PulseProcessTime
       DerivedFrom:
       - Detectors.Detector-1.PulseProcessTime
-    - ID: SourceMapping:98
+    - ID: SourceMapping:113
       Field: Instrument[0].GenericDetector[1].RealTime.Value
       Source: Detectors.Detector-1.RealTime
       SourceValue: '"424.70166195152729"'
-    - ID: SourceMapping:99
+    - ID: SourceMapping:114
       Field: Instrument[0].GenericDetector[1].RealTime.Unit
       Source: Detectors.Detector-1.RealTime
       DerivedFrom:
       - Detectors.Detector-1.RealTime
-    - ID: SourceMapping:100
+    - ID: SourceMapping:115
       Field: Instrument[0].GenericDetector[1].LiveTime.Value
       Source: Detectors.Detector-1.LiveTime
       SourceValue: '"285.18219999999997"'
-    - ID: SourceMapping:101
+    - ID: SourceMapping:116
       Field: Instrument[0].GenericDetector[1].LiveTime.Unit
       Source: Detectors.Detector-1.LiveTime
       DerivedFrom:
       - Detectors.Detector-1.LiveTime
-    - ID: SourceMapping:102
+    - ID: SourceMapping:117
       Field: Instrument[0].GenericDetector[1].OffsetEnergy.Value
       Source: Detectors.Detector-1.OffsetEnergy
       SourceValue: '"-480.05000000000001"'
-    - ID: SourceMapping:103
+    - ID: SourceMapping:118
       Field: Instrument[0].GenericDetector[1].OffsetEnergy.Unit
       Source: Detectors.Detector-1.OffsetEnergy
       DerivedFrom:
       - Detectors.Detector-1.OffsetEnergy
-    - ID: SourceMapping:104
+    - ID: SourceMapping:119
       Field: Instrument[0].GenericDetector[1].ElectronicsNoise.Value
       Source: Detectors.Detector-1.ElectronicsNoise
       SourceValue: '"12.145301744118672"'
-    - ID: SourceMapping:105
+    - ID: SourceMapping:120
       Field: Instrument[0].GenericDetector[1].ElectronicsNoise.Unit
       Source: Detectors.Detector-1.ElectronicsNoise
       DerivedFrom:
       - Detectors.Detector-1.ElectronicsNoise
-    - ID: SourceMapping:106
+    - ID: SourceMapping:121
       Field: Instrument[0].GenericDetector[1].BeginEnergy.Value
       Source: Detectors.Detector-1.BeginEnergy
       SourceValue: '"150"'
-    - ID: SourceMapping:107
+    - ID: SourceMapping:122
       Field: Instrument[0].GenericDetector[1].BeginEnergy.Unit
       Source: Detectors.Detector-1.BeginEnergy
       DerivedFrom:
       - Detectors.Detector-1.BeginEnergy
-    - ID: SourceMapping:108
+    - ID: SourceMapping:123
       Field: Instrument[0].GenericDetector[1].ID
       Source: Detectors.Detector-1
-    - ID: SourceMapping:109
+    - ID: SourceMapping:124
       Field: Instrument[0].GenericDetector[2].Inserted
       Source: Detectors.Detector-2.Inserted
       SourceValue: '"true"'
-    - ID: SourceMapping:110
+    - ID: SourceMapping:125
       Field: Instrument[0].GenericDetector[2].Enabled
       Source: Detectors.Detector-2.Enabled
       SourceValue: '"true"'
-    - ID: SourceMapping:111
+    - ID: SourceMapping:126
       Field: Instrument[0].GenericDetector[2].InputCountRate
       Source: Detectors.Detector-2.InputCountRate
       SourceValue: '"132519"'
-    - ID: SourceMapping:112
+    - ID: SourceMapping:127
       Field: Instrument[0].GenericDetector[2].OutputCountRate
       Source: Detectors.Detector-2.OutputCountRate
       SourceValue: '"88985"'
-    - ID: SourceMapping:113
+    - ID: SourceMapping:128
       Field: Instrument[0].GenericDetector[2].Name
       Source: Detectors.Detector-2.DetectorName
-    - ID: SourceMapping:114
+    - ID: SourceMapping:129
       Field: Instrument[0].GenericDetector[2].Type
       Source: Detectors.Detector-2.DetectorType
-    - ID: SourceMapping:115
+    - ID: SourceMapping:130
       Field: Instrument[0].GenericDetector[2].ElevationAngle.Value
       Source: Detectors.Detector-2.ElevationAngle
       SourceValue: '"0.34906585000000001"'
-    - ID: SourceMapping:116
+    - ID: SourceMapping:131
       Field: Instrument[0].GenericDetector[2].ElevationAngle.Unit
       Source: Detectors.Detector-2.ElevationAngle
       DerivedFrom:
       - Detectors.Detector-2.ElevationAngle
-    - ID: SourceMapping:117
+    - ID: SourceMapping:132
       Field: Instrument[0].GenericDetector[2].AzimuthAngle.Value
       Source: Detectors.Detector-2.AzimuthAngle
       SourceValue: '"-1.5707963267948966"'
-    - ID: SourceMapping:118
+    - ID: SourceMapping:133
       Field: Instrument[0].GenericDetector[2].AzimuthAngle.Unit
       Source: Detectors.Detector-2.AzimuthAngle
       DerivedFrom:
       - Detectors.Detector-2.AzimuthAngle
-    - ID: SourceMapping:119
+    - ID: SourceMapping:134
       Field: Instrument[0].GenericDetector[2].CollectionAngle.Value
       Source: Detectors.Detector-2.CollectionAngle
       SourceValue: '"0.90101100000000001"'
-    - ID: SourceMapping:120
+    - ID: SourceMapping:135
       Field: Instrument[0].GenericDetector[2].CollectionAngle.Unit
       Source: Detectors.Detector-2.CollectionAngle
       DerivedFrom:
       - Detectors.Detector-2.CollectionAngle
-    - ID: SourceMapping:121
+    - ID: SourceMapping:136
       Field: Instrument[0].GenericDetector[2].Dispersion.Value
       Source: Detectors.Detector-2.Dispersion
       SourceValue: '"5"'
-    - ID: SourceMapping:122
+    - ID: SourceMapping:137
       Field: Instrument[0].GenericDetector[2].Dispersion.Unit
       Source: Detectors.Detector-2.Dispersion
       DerivedFrom:
       - Detectors.Detector-2.Dispersion
-    - ID: SourceMapping:123
+    - ID: SourceMapping:138
       Field: Instrument[0].GenericDetector[2].PulseProcessTime.Value
       Source: Detectors.Detector-2.PulseProcessTime
       SourceValue: '"2.9081620097620193e-06"'
-    - ID: SourceMapping:124
+    - ID: SourceMapping:139
       Field: Instrument[0].GenericDetector[2].PulseProcessTime.Unit
       Source: Detectors.Detector-2.PulseProcessTime
       DerivedFrom:
       - Detectors.Detector-2.PulseProcessTime
-    - ID: SourceMapping:125
+    - ID: SourceMapping:140
       Field: Instrument[0].GenericDetector[2].RealTime.Value
       Source: Detectors.Detector-2.RealTime
       SourceValue: '"424.70166195152729"'
-    - ID: SourceMapping:126
+    - ID: SourceMapping:141
       Field: Instrument[0].GenericDetector[2].RealTime.Unit
       Source: Detectors.Detector-2.RealTime
       DerivedFrom:
       - Detectors.Detector-2.RealTime
-    - ID: SourceMapping:127
+    - ID: SourceMapping:142
       Field: Instrument[0].GenericDetector[2].LiveTime.Value
       Source: Detectors.Detector-2.LiveTime
       SourceValue: '"285.18219999999997"'
-    - ID: SourceMapping:128
+    - ID: SourceMapping:143
       Field: Instrument[0].GenericDetector[2].LiveTime.Unit
       Source: Detectors.Detector-2.LiveTime
       DerivedFrom:
       - Detectors.Detector-2.LiveTime
-    - ID: SourceMapping:129
+    - ID: SourceMapping:144
       Field: Instrument[0].GenericDetector[2].OffsetEnergy.Value
       Source: Detectors.Detector-2.OffsetEnergy
       SourceValue: '"-480.05000000000001"'
-    - ID: SourceMapping:130
+    - ID: SourceMapping:145
       Field: Instrument[0].GenericDetector[2].OffsetEnergy.Unit
       Source: Detectors.Detector-2.OffsetEnergy
       DerivedFrom:
       - Detectors.Detector-2.OffsetEnergy
-    - ID: SourceMapping:131
+    - ID: SourceMapping:146
       Field: Instrument[0].GenericDetector[2].ElectronicsNoise.Value
       Source: Detectors.Detector-2.ElectronicsNoise
       SourceValue: '"13.249420084493098"'
-    - ID: SourceMapping:132
+    - ID: SourceMapping:147
       Field: Instrument[0].GenericDetector[2].ElectronicsNoise.Unit
       Source: Detectors.Detector-2.ElectronicsNoise
       DerivedFrom:
       - Detectors.Detector-2.ElectronicsNoise
-    - ID: SourceMapping:133
+    - ID: SourceMapping:148
       Field: Instrument[0].GenericDetector[2].BeginEnergy.Value
       Source: Detectors.Detector-2.BeginEnergy
       SourceValue: '"150"'
-    - ID: SourceMapping:134
+    - ID: SourceMapping:149
       Field: Instrument[0].GenericDetector[2].BeginEnergy.Unit
       Source: Detectors.Detector-2.BeginEnergy
       DerivedFrom:
       - Detectors.Detector-2.BeginEnergy
-    - ID: SourceMapping:135
+    - ID: SourceMapping:150
       Field: Instrument[0].GenericDetector[2].ID
       Source: Detectors.Detector-2
-    - ID: SourceMapping:136
+    - ID: SourceMapping:151
       Field: Instrument[0].GenericDetector[3].Gain
       Source: Detectors.Detector-3.Gain
       SourceValue: '"0.69999999999999996"'
-    - ID: SourceMapping:137
+    - ID: SourceMapping:152
       Field: Instrument[0].GenericDetector[3].Binning.X
       Source: Detectors.Detector-3.Binning.width
       SourceValue: '"2"'
-    - ID: SourceMapping:138
+    - ID: SourceMapping:153
       Field: Instrument[0].GenericDetector[3].Binning.Y
       Source: Detectors.Detector-3.Binning.height
       SourceValue: '"2"'
-    - ID: SourceMapping:139
+    - ID: SourceMapping:154
       Field: Instrument[0].GenericDetector[3].Name
       Source: Detectors.Detector-3.DetectorName
-    - ID: SourceMapping:140
+    - ID: SourceMapping:155
       Field: Instrument[0].GenericDetector[3].Type
       Source: Detectors.Detector-3.DetectorType
-    - ID: SourceMapping:141
+    - ID: SourceMapping:156
       Field: Instrument[0].GenericDetector[3].ExposureTime.Value
       Source: Detectors.Detector-3.ExposureTime
       SourceValue: '"0.0016000000000000001"'
-    - ID: SourceMapping:142
+    - ID: SourceMapping:157
       Field: Instrument[0].GenericDetector[3].ExposureTime.Unit
       Source: Detectors.Detector-3.ExposureTime
       DerivedFrom:
       - Detectors.Detector-3.ExposureTime
-    - ID: SourceMapping:143
+    - ID: SourceMapping:158
       Field: Instrument[0].GenericDetector[3].ID
       Source: Detectors.Detector-3
-    - ID: SourceMapping:144
+    - ID: SourceMapping:159
       Field: Instrument[0].GenericDetector[4].Inserted
       Source: Detectors.Detector-4.Inserted
       SourceValue: '"true"'
-    - ID: SourceMapping:145
+    - ID: SourceMapping:160
       Field: Instrument[0].GenericDetector[4].Enabled
       Source: Detectors.Detector-4.Enabled
       SourceValue: '"true"'
-    - ID: SourceMapping:146
+    - ID: SourceMapping:161
       Field: Instrument[0].GenericDetector[4].Gain
       Source: Detectors.Detector-4.Gain
       SourceValue: '"18.579199760535872"'
-    - ID: SourceMapping:147
+    - ID: SourceMapping:162
       Field: Instrument[0].GenericDetector[4].Offset
       Source: Detectors.Detector-4.Offset
       SourceValue: '"-4.5638399999999999"'
-    - ID: SourceMapping:148
+    - ID: SourceMapping:163
       Field: Instrument[0].GenericDetector[4].CollectionAngleRange.Begin
       Source: Detectors.Detector-4.CollectionAngleRange.begin
       SourceValue: '"0.046715186654504498"'
-    - ID: SourceMapping:149
+    - ID: SourceMapping:164
       Field: Instrument[0].GenericDetector[4].CollectionAngleRange.Unit
       Source: Detectors.Detector-4.CollectionAngleRange.begin
       DerivedFrom:
       - Detectors.Detector-4.CollectionAngleRange.begin
-    - ID: SourceMapping:150
+    - ID: SourceMapping:165
       Field: Instrument[0].GenericDetector[4].CollectionAngleRange.End
       Source: Detectors.Detector-4.CollectionAngleRange.end
       SourceValue: '"0.20000000000000001"'
-    - ID: SourceMapping:151
+    - ID: SourceMapping:166
       Field: Instrument[0].GenericDetector[4].Name
       Source: Detectors.Detector-4.DetectorName
-    - ID: SourceMapping:152
+    - ID: SourceMapping:167
       Field: Instrument[0].GenericDetector[4].Type
       Source: Detectors.Detector-4.DetectorType
-    - ID: SourceMapping:153
+    - ID: SourceMapping:168
       Field: Instrument[0].GenericDetector[4].ID
       Source: Detectors.Detector-4
-    - ID: SourceMapping:154
+    - ID: SourceMapping:169
       Field: Experiment[0].Sample[0].ID
       Source: Sample.SampleId
-    - ID: SourceMapping:155
+    - ID: SourceMapping:170
       Field: Instrument[0].Objective[0].Magnification
       Source: CustomProperties.StemMagnification.value
       SourceValue: '"14500"'
@@ -616,15 +691,18 @@ Image:
     Type: ''
     AccelerationVoltage:
       Value: 80000
+      Unit: V
     SpotIndex: 5
     ConvergenceAngle:
       Value: 0.01575
+      Unit: rad
     Current:
       Value: 4.8587396462493915e-09
       Unit: A
     Focus: 0
     Defocus:
       Value: 4.357877185027627e-07
+      Unit: m
   ElectronOpticsSettings:
     GunLensSetting: '1'
     Condenser1: 0.18007874086202763
@@ -671,6 +749,7 @@ Image:
     ProjectorMode: '1'
     CameraLength:
       Value: 0.205
+      Unit: m
   CustomProperties:
   - ID: Property:5
     Name: Optics.ExtractorVoltage
@@ -816,16 +895,21 @@ Image:
     FieldOfView:
       X:
         Value: 8.192000000000002e-06
+        Unit: m
       Y:
         Value: 8.192000000000002e-06
+        Unit: m
     LineTime:
       Value: 0.2073
+      Unit: s
     LineIntegrationCount: 1
     LineInterlacing: 1
     FrameTime:
       Value: 424.5504
+      Unit: s
     Rotation:
       Value: 0
+      Unit: rad
     Detector: HAADF
   AcquisitionDate: '2023-05-12T20:10:16+00:00'
   Pixels:
@@ -837,6 +921,7 @@ Image:
     PhysicalSizeYUnit: m
     Plane:
     - PixelDwellTime: 0.0001
+      PixelDwellTimeUnit: s
 Instrument:
 - CustomProperties:
   - ID: Property:0
@@ -1019,15 +1104,20 @@ Instrument:
   - Position:
       X:
         Value: -3.565290000000008e-05
+        Unit: m
       Y:
         Value: 2.7880518000000015e-05
+        Unit: m
       Z:
         Value: -0.00016588146
+        Unit: m
     Tilt:
       Alpha:
         Value: -0.00010274500000013157
+        Unit: rad
       Beta:
         Value: 8.473114878870546e-06
+        Unit: rad
   GenericDetector:
   - Binning:
       X: 1

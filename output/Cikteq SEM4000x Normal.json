@@ -27,7 +27,8 @@
       "TiltY": 0.0,
       "VisibleMultiple": 1800,
       "WorkingDistance": {
-        "Value": 3.88
+        "Value": 3.88,
+        "Unit": "mm"
       },
       "HighVoltage": {
         "BV": 6000.24,
@@ -99,20 +100,25 @@
   "MechanicalStage": {
     "NavCoordinate": 1,
     "Rotation": {
-      "Value": 11.7
+      "Value": 11.7,
+      "Unit": "deg"
     },
     "Tilt": {
-      "Value": 0.0
+      "Value": 0.0,
+      "Unit": "deg"
     },
     "Position": {
       "X": {
-        "Value": 12.3745
+        "Value": 12.3745,
+        "Unit": "mm"
       },
       "Y": {
-        "Value": 9.0143
+        "Value": 9.0143,
+        "Unit": "mm"
       },
       "Z": {
-        "Value": 58.0
+        "Value": 58.0,
+        "Unit": "mm"
       }
     },
     "StageType": "TMCM-GYLZ-4000X-FIVE-110x110x69"
@@ -219,6 +225,24 @@
     "Experimenter.VacuumType": "FEI_HELIOS.User.VacuumType",
     "Instrument.Vacuum.BufferVacuum": "FEI_HELIOS.Vacuum.BufferVacuum",
     "Instrument.Vacuum.GunVacuum": "FEI_HELIOS.Vacuum.GunVacuum",
-    "Instrument.Vacuum.SampleVacuum": "FEI_HELIOS.Vacuum.SampleVacuum"
+    "Instrument.Vacuum.SampleVacuum": "FEI_HELIOS.Vacuum.SampleVacuum",
+    "Image.ElectronBeamSettings.WorkingDistance.Unit": [
+      "FEI_HELIOS.Beam.WD"
+    ],
+    "MechanicalStage.Rotation.Unit": [
+      "FEI_HELIOS.Stage.StagePosR"
+    ],
+    "MechanicalStage.Tilt.Unit": [
+      "FEI_HELIOS.Stage.StagePosT"
+    ],
+    "MechanicalStage.Position.X.Unit": [
+      "FEI_HELIOS.Stage.StagePosX"
+    ],
+    "MechanicalStage.Position.Y.Unit": [
+      "FEI_HELIOS.Stage.StagePosY"
+    ],
+    "MechanicalStage.Position.Z.Unit": [
+      "FEI_HELIOS.Stage.StagePosZ"
+    ]
   }
 }

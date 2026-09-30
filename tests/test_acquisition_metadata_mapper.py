@@ -51,7 +51,8 @@ class AcquisitionMetadataMapperTest(unittest.TestCase):
         self.assertEqual(converted['Pixels'], {'PhysicalSizeX': 0.4936, 'PhysicalSizeY': 0.4936,
                                                'SizeX': 28448, 'SizeY': 21839})
         self.assertEqual(converted['Image'], {'ID': 18489})
-        self.assertEqual(converted['Plane'], {'PositionX': 29.282969, 'PositionY': 13.628824})
+        self.assertEqual(converted['Plane'], {'PositionX': 29.282969, 'PositionY': 13.628824,
+                                              'PositionXUnit': 'mm', 'PositionYUnit': 'mm'})
         self.assertEqual(converted['Objective'], {'Magnification': 20})
         self.assertEqual(converted['Instrument'], {'ID': 'SS1735'})
 
@@ -259,6 +260,13 @@ class LosslessMappingTest(unittest.TestCase):
         self.assertEqual(converted['Laser'], [{'Wavelength': 405, 'WavelengthUnit': 'nm'},
                                               {'Wavelength': 488, 'WavelengthUnit': 'nm'}])
         self.assertEqual(converted['SourceMap']['Laser[1].WavelengthUnit'], ['Lasers.Laser[1].Wavelength'])
+
+    def test_implied_unit_qualifies_numbers_only(self):
+        mapper = self.mapper_for({'FrameTime': {'target': 'Scan.FrameTime.Value', 'unit': 's'}})
+
+        self.assertEqual(mapper.convert_metadata({'FrameTime': '424.55'})['Scan'],
+                         {'FrameTime': {'Value': '424.55', 'Unit': 's'}})
+        self.assertEqual(mapper.convert_metadata({'FrameTime': '2min52s'})['Scan'], {'FrameTime': {'Value': '2min52s'}})
 
     def test_implied_unit_never_overrides_a_stated_one(self):
         mapper = self.mapper_for({'Size': {'target': 'P.SizeX', 'unit': 'mm'}, 'SizeUnit': 'P.SizeXUnit'})

@@ -3,6 +3,8 @@ import sys
 import unittest
 from pathlib import Path
 
+import yaml
+
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'scripts'))
 
@@ -77,7 +79,8 @@ class ModelFitTest(unittest.TestCase):
         self.assertEqual(fit.value_categories['Date'], 'rule')
 
     def test_every_source_value_of_every_example_is_counted_once(self):
-        for fit in model_fit.fits(self.context):
+        for export in sorted(model_fit.EXPORT_DIR.glob('*.yaml')):
+            fit = model_fit.ExampleFit(export.stem, yaml.safe_load(export.read_text(encoding='utf-8')), self.context)
             with self.subTest(example=fit.name):
                 example = model_fit.EXAMPLES_DIR / f'{fit.name}.json'
                 leaves = model_fit.source_values(example)
@@ -92,13 +95,38 @@ class ModelFitTest(unittest.TestCase):
                         node = node[part]
                     self.assertIsInstance(node[label], dict, extra)
 
+    def test_kept_and_traced_fall_short_when_output_and_input_differ(self):
+        metadata = {'Image': {'pixelWidth': {'value': 1, 'unit': 'um'}}, 'Vendor': {'Other': 2}}
+        dataset = {'Image': [{
+            'SourceFile': [{'Mapping': [mapping('Image[0].Pixels.PhysicalSizeX', 'Image.pixelWidth.value')]}],
+            'CustomProperties': [prop('Image.pixelWidth.unit'), prop('Nowhere.Else')],
+        }]}
+        stats = model_fit.analyse(dataset, metadata, self.context)
+        # Vendor.Other is lost, and Nowhere.Else names no input value
+        self.assertEqual((stats['kept'], stats['traced']), (2 / 3, 2 / 3))
+        self.assertEqual(stats['values']['input'], 3)
+        self.assertEqual(stats['records'], {'total': 3, 'traced': 2})
+
+    def test_every_example_is_kept_and_traced_in_full(self):
+        for stats in model_fit.analyse_examples(self.context):
+            with self.subTest(example=stats['name']):
+                self.assertEqual((stats['kept'], stats['traced']), (1.0, 1.0))
+                self.assertEqual(stats['values']['kept'], stats['values']['input'])
+
+    def test_a_source_dict_is_analysed_as_its_export_is(self):
+        name = 'EMSIS Xarosa'
+        metadata = json.loads((model_fit.EXAMPLES_DIR / f'{name}.json').read_text(encoding='utf-8'))
+        exported = next(stats for stats in model_fit.analyse_examples(self.context) if stats['name'] == name)
+
+        self.assertEqual(model_fit.analyse_metadata(metadata, name, self.context), exported)
+
     def test_page_fills_in(self):
         page = (ROOT / 'docs' / 'model-fit.md').read_text(encoding='utf-8')
         self.assertIn('{{ model.fit }}', page)
         filled = docs_data.fill(page, {'fit': model_fit.render(self.context.data)})
         self.assertNotIn('{{', filled)
-        for fit in model_fit.fits(self.context):
-            self.assertIn(f'| {fit.name} |', filled)
+        for stats in model_fit.analyse_examples(self.context):
+            self.assertIn(f"| {stats['name']} |", filled)
 
 
 if __name__ == '__main__':

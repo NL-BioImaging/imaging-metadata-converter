@@ -2,7 +2,10 @@
     "System.ProductName": "Instrument.Name",
     "System.SoftwareVersion": "AcquisitionSoftware.Version",
     "User.UserName": "Experimenter.UserName",
-    "Beam.WD": "Image.ElectronBeamSettings.WorkingDistance.Value",
+    "Beam.WD": {
+        "target": "Image.ElectronBeamSettings.WorkingDistance.Value",
+        "unit": "mm"
+    },
     "Beam.Focus": "Image.ElectronBeamSettings.Focus",
     "Beam.HFW": "Image.ScanSettings.FieldOfView.X.Value",
     "Beam.BeamType": "Image.ElectronBeamSettings.Type",
@@ -14,14 +17,32 @@
     "Beam.ShiftY": "Image.ElectronBeamSettings.Shift.Y",
     "Detector.DetectorName": "GenericDetector.Name",
     "Scan.PointTime": "Plane.PixelDwellTime",
-    "Scan.FrameTime": "Image.ScanSettings.FrameTime.Value",
+    "Scan.FrameTime": {
+        "target": "Image.ScanSettings.FrameTime.Value",
+        "unit": "s"
+    },
     "Scan.ResolutionX": "Pixels.SizeX",
     "Scan.ResolutionY": "Pixels.SizeY",
-    "Stage.StagePosX": "MechanicalStage.Position.X.Value",
-    "Stage.StagePosY": "MechanicalStage.Position.Y.Value",
-    "Stage.StagePosZ": "MechanicalStage.Position.Z.Value",
-    "Stage.StagePosR": "MechanicalStage.Rotation.Value",
-    "Stage.StagePosT": "MechanicalStage.Tilt.Value",
+    "Stage.StagePosX": {
+        "target": "MechanicalStage.Position.X.Value",
+        "unit": "mm"
+    },
+    "Stage.StagePosY": {
+        "target": "MechanicalStage.Position.Y.Value",
+        "unit": "mm"
+    },
+    "Stage.StagePosZ": {
+        "target": "MechanicalStage.Position.Z.Value",
+        "unit": "mm"
+    },
+    "Stage.StagePosR": {
+        "target": "MechanicalStage.Rotation.Value",
+        "unit": "deg"
+    },
+    "Stage.StagePosT": {
+        "target": "MechanicalStage.Tilt.Value",
+        "unit": "deg"
+    },
     "Make": "Instrument.Manufacturer",
     "Model": "Instrument.Model",
     "Software": "AcquisitionSoftware.Name",
@@ -73,28 +94,64 @@
     "Instrument.ControlSoftwareVersion": "AcquisitionSoftware.Version",
     "Acquisition.BeamType": "Image.ElectronBeamSettings.Type",
     "Acquisition.SourceType": "ElectronSource.Type",
-    "Optics.AccelerationVoltage": "Image.ElectronBeamSettings.AccelerationVoltage.Value",
-    "Optics.CameraLength": "Image.ElectronOpticsSettings.CameraLength.Value",
+    "Optics.AccelerationVoltage": {
+        "target": "Image.ElectronBeamSettings.AccelerationVoltage.Value",
+        "unit": "V"
+    },
+    "Optics.CameraLength": {
+        "target": "Image.ElectronOpticsSettings.CameraLength.Value",
+        "unit": "m"
+    },
     "Optics.SpotIndex": "Image.ElectronBeamSettings.SpotIndex",
-    "Optics.BeamConvergence": "Image.ElectronBeamSettings.ConvergenceAngle.Value",
-    "Optics.Defocus": "Image.ElectronBeamSettings.Defocus.Value",
+    "Optics.BeamConvergence": {
+        "target": "Image.ElectronBeamSettings.ConvergenceAngle.Value",
+        "unit": "rad"
+    },
+    "Optics.Defocus": {
+        "target": "Image.ElectronBeamSettings.Defocus.Value",
+        "unit": "m"
+    },
     "Optics.StemFocus": "Image.ElectronBeamSettings.Focus",
     "Optics.OperatingMode": "Image.ElectronOpticsSettings.OperatingMode",
     "Optics.TemOperatingSubMode": "Image.ElectronOpticsSettings.OperatingSubMode",
     "Optics.ProjectorMode": "Image.ElectronOpticsSettings.ProjectorMode",
-    "Stage.Position.x": "MechanicalStage.Position.X.Value",
-    "Stage.Position.y": "MechanicalStage.Position.Y.Value",
-    "Stage.Position.z": "MechanicalStage.Position.Z.Value",
-    "Stage.AlphaTilt": "MechanicalStage.Tilt.Alpha.Value",
-    "Stage.BetaTilt": "MechanicalStage.Tilt.Beta.Value",
+    "Stage.Position.x": {
+        "target": "MechanicalStage.Position.X.Value",
+        "unit": "m"
+    },
+    "Stage.Position.y": {
+        "target": "MechanicalStage.Position.Y.Value",
+        "unit": "m"
+    },
+    "Stage.Position.z": {
+        "target": "MechanicalStage.Position.Z.Value",
+        "unit": "m"
+    },
+    "Stage.AlphaTilt": {
+        "target": "MechanicalStage.Tilt.Alpha.Value",
+        "unit": "rad"
+    },
+    "Stage.BetaTilt": {
+        "target": "MechanicalStage.Tilt.Beta.Value",
+        "unit": "rad"
+    },
     "Stage.HolderType": "SampleHolder.Type",
     "instrument.sampleHolder.id": "SampleHolder.ID",
     "instrument.sampleHolder.type": "SampleHolder.Type",
-    "Scan.DwellTime": "Plane.PixelDwellTime",
+    "Scan.DwellTime": {
+        "target": "Plane.PixelDwellTime",
+        "unit": "s"
+    },
     "Scan.ScanSize.width": "Pixels.SizeX",
     "Scan.ScanSize.height": "Pixels.SizeY",
-    "Scan.ScanRotation": "Image.ScanSettings.Rotation.Value",
-    "Scan.LineTime": "Image.ScanSettings.LineTime.Value",
+    "Scan.ScanRotation": {
+        "target": "Image.ScanSettings.Rotation.Value",
+        "unit": "rad"
+    },
+    "Scan.LineTime": {
+        "target": "Image.ScanSettings.LineTime.Value",
+        "unit": "s"
+    },
     "BinaryResult.PixelSize.width": "Pixels.PhysicalSizeX",
     "BinaryResult.PixelSize.height": "Pixels.PhysicalSizeY",
     "BinaryResult.PixelUnitX": "Pixels.PhysicalSizeXUnit",
@@ -127,8 +184,14 @@
     "acquisition.scan.detector": "Image.ScanSettings.Detector",
     "acquisition.scan.beamShift.x": "Image.ElectronBeamSettings.Shift.X",
     "acquisition.scan.beamShift.y": "Image.ElectronBeamSettings.Shift.Y",
-    "Optics.FullScanFieldOfView.x": "Image.ScanSettings.FieldOfView.X.Value",
-    "Optics.FullScanFieldOfView.y": "Image.ScanSettings.FieldOfView.Y.Value",
+    "Optics.FullScanFieldOfView.x": {
+        "target": "Image.ScanSettings.FieldOfView.X.Value",
+        "unit": "m"
+    },
+    "Optics.FullScanFieldOfView.y": {
+        "target": "Image.ScanSettings.FieldOfView.Y.Value",
+        "unit": "m"
+    },
     "Stage.X.value": "MechanicalStage.Position.X.Value",
     "Stage.X.units": "MechanicalStage.Position.X.Unit",
     "Stage.Y.value": "MechanicalStage.Position.Y.Value",
@@ -237,8 +300,14 @@
     "OriginalHeight": "Pixels.SizeY",
     "ScanScope ID": "Instrument.ID",
     "ImageID": "Image.ID",
-    "Left": "Plane.PositionX",
-    "Top": "Plane.PositionY",
+    "Left": {
+        "target": "Plane.PositionX",
+        "unit": "mm"
+    },
+    "Top": {
+        "target": "Plane.PositionY",
+        "unit": "mm"
+    },
     "Manufacturer": "Instrument.Manufacturer",
     "ManufacturerModelName": "Instrument.Model",
     "DeviceSerialNumber": "Instrument.CatalogNumber",
@@ -416,5 +485,11 @@
     "Beam.Condenser": "Image.ElectronOpticsSettings.Condenser1",
     "Beam.Condenser2": "Image.ElectronOpticsSettings.Condenser2",
     "acquisition.scan.interlace": "Image.ScanSettings.LineInterlacing",
-    "Scan.Interlaced": "Image.ScanSettings.LineInterlacing"
+    "Scan.Interlaced": "Image.ScanSettings.LineInterlacing",
+    "CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo.Gain": "GenericDetector.Gain",
+    "CameraSettingDefinition.Brightness": "GenericDetector.Brightness",
+    "Image.Brightness": "GenericDetector.Brightness",
+    "Image.Contrast": "GenericDetector.Contrast",
+    "Scan.ShiftX": "Image.ElectronBeamSettings.Shift.X",
+    "Scan.ShiftY": "Image.ElectronBeamSettings.Shift.Y"
 }

@@ -16,8 +16,8 @@ Unpublished since 1.0 (2026-09-30): `Instrument.CatalogNumber`, the detector ext
 (DetectorExtension: Inserted, Enabled, ExposureTime, Binning, angles, CollectionAngleRange, EDS times,
 rates and energies) and the class `QuantityRange`; metaseed's check finds all 155 changes compatible
 (optional fields, one entity), and ElectronOpticsSettings.Aperture with the class ElectronAperture (all
-compatible too), ScanSettings.LineInterlacing and ElectronOpticsSettings.Condenser1/2: publish as 1.1,
-with the model's version.
+compatible too), ScanSettings.LineInterlacing, ElectronOpticsSettings.Condenser1/2 and "Oil" in the
+immersion enumeration: publish as 1.1, with the model's version.
 
 The model's `id` and `imaging:` prefix still name the consolidator's URL
 (https://github.com/NL-BioImaging/imaging-metadata-consolidator/models/imaging), kept for now (user,
@@ -210,7 +210,22 @@ could not reach Sample.ID; the "Sample.*" rule covers the record); "CustomProper
 Of C3/C4, only what other examples share too (user): ScanSettings.LineInterlacing (TALOS, Phenom;
 Cikteq's "0/1"/"Disable" do not fit an integer) and ElectronOpticsSettings.Condenser1/2 (TALOS C1/C2
 lens intensity, Cikteq Condenser/Condenser2, each on the vendor's scale). The rest is TALOS only.
-Status: C done, not committed.
+C pushed (11cf170). Cross-dataset round (user, 2026-09-30): TALOS's 15 core values get their SI units
+(V, rad, m, s; all its own exact rules); LIF camera Gain/Brightness and Zeiss Image.Brightness/Contrast,
+Scan.ShiftX/Y to the fields other vendors fill. Found: an implied unit was written for a value that is
+no number (Cikteq's Scan.FrameTime "2min52s" shares TALOS's rule): units now qualify numbers only.
+Analytics gain Kept (input values in the output) and Traced (output records naming input values),
+100% for every example, tested. Not done, open for the user: Cikteq units (mm, deg; current and point
+time unknown), SVS Left/Top in mm, immersion "Oil" in the enumeration.
+Next (user): units where reasonably confident (Cikteq WD and stage mm, rotation/tilt deg; SVS Left/Top
+mm; not Cikteq's current or point time), "Oil" in the immersion list, and the analysis as a reused
+Python function returning the stats (coverage, kept, traced, ...), used by the script, page and tests.
+Done: units Cikteq WD/stage mm, rotation/tilt deg, SVS Left/Top mm (Cikteq's current and point time
+left without); "Oil" in ImmersionTypeList (from OME 2016-06; LIF confocal and ome-tiff now fit; the
+profile's enum widened, compatible); model_fit.analyse(dataset, metadata) returns the stats as a dict,
+analyse_metadata(metadata) for a source dict (converted and exported in memory), analyse_examples()
+for all; render, the script and the tests use them.
+Status: not committed.
 
 ## The model and the pipeline
 

@@ -12467,6 +12467,11 @@ enums:
       Multi: {}
       Mineral Oil: {}
       Silicone Oil: {}
+      Oil:
+        description: An immersion oil of a kind the source does not state, as OME 2016-06 has it; added by the
+          imaging model, as LiMi has only Mineral Oil and Silicone Oil.
+        annotations:
+          description_source: OME 2016-06 ome.xsd (CC BY 3.0, Open Microscopy Environment)
       Water: {}
       Other: {}
     description: According to ISO 10934-1:2002, an Immersion Liquid is a liquid (commonly immersion oil, water or glycerol)

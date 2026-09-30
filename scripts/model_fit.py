@@ -28,7 +28,9 @@ the conversion made. The fields filled are counted as LiMi's or the
 extension's, a path counting as extension as soon as it runs through a class
 or slot LiMi does not have, as on the model browser.
 
-`python scripts/model_fit.py` prints the tables; the MkDocs hook
+analyse() returns these stats for one conversion, analyse_metadata() for a
+source dict not exported yet, and analyse_examples() for every example;
+`python scripts/model_fit.py` prints the tables they give, and the MkDocs hook
 scripts/docs_data.py puts render() on docs/model-fit.md, so they are never
 stored and cannot go stale.
 """
@@ -159,15 +161,22 @@ class FitContext:
 class ExampleFit:
     """The fit of one example: its values and keys by category, and what explains the ones not covered."""
 
-    def __init__(self, name, dataset, context):
+    def __init__(self, name, dataset, context, metadata=None):
         self.name = name
         value_categories = {}
+        self.output_records = 0
+        self.traced_records = 0
+        source_nodes = set(all_source_paths(metadata)) if metadata is not None else None
         schema_paths = {}
         self.fields = {}
         self.automatic = {}
         self.missing_fields = Counter()
         self.unlocated = Counter()
         for field, record in records(dataset):
+            if field in ('Mapping', 'CustomProperties'):
+                named = record.get('DerivedFrom') or [record['Source' if field == 'Mapping' else 'Name']]
+                self.output_records += 1
+                self.traced_records += source_nodes is None or all(path in source_nodes for path in named)
             if field == 'Mapping':
                 sources = record.get('DerivedFrom') or [record['Source']]
                 category = 'rule' if record.get('DerivedFrom') else context.mechanism(record['Source'])
@@ -203,6 +212,18 @@ class ExampleFit:
                 self.unlocated['.'.join(key.split('.')[:2])] += 1
         self.values = Counter(value_categories.values())
         self.keys = Counter(self.key_categories.values())
+        self.input_values = source_values_of(metadata) if metadata is not None else set(value_categories)
+        self.kept_values = len(self.input_values & set(value_categories))
+
+    @property
+    def kept(self):
+        """The share of the input's values the output holds, in a field or a Property: always 1, or data is lost."""
+        return self.kept_values / len(self.input_values) if self.input_values else 1.0
+
+    @property
+    def traced(self):
+        """The share of the output's fields and Properties that name the input's values they hold or derive from."""
+        return self.traced_records / self.output_records if self.output_records else 1.0
 
     @staticmethod
     def _share(counts):
@@ -225,69 +246,130 @@ class ExampleFit:
     def limi_fields(self):
         return len(self.fields) - self.extension_fields
 
+    def stats(self):
+        """The fit as plain data, what analyse() returns."""
+        return {
+            'name': self.name,
+            'kept': self.kept,
+            'traced': self.traced,
+            'coverage': {'keys': self.key_coverage, 'values': self.value_coverage},
+            'keys': {'total': sum(self.keys.values()), **{category: self.keys[category] for category in CATEGORIES}},
+            'values': {'total': sum(self.values.values()), 'input': len(self.input_values), 'kept': self.kept_values,
+                       **{category: self.values[category] for category in CATEGORIES}},
+            'records': {'total': self.output_records, 'traced': self.traced_records},
+            'fields': {'total': len(self.fields), 'limi': self.limi_fields, 'extension': self.extension_fields},
+            'automatic': dict(sorted(self.automatic.items())),
+            'missing_fields': dict(self.missing_fields.most_common()),
+            'unlocated': dict(self.unlocated.most_common()),
+        }
+
 
 def source_values(example_file):
     """Every leaf path of an example, as the dataset's source paths spell them."""
-    metadata = json.loads(Path(example_file).read_text(encoding='utf-8'))
+    return source_values_of(json.loads(Path(example_file).read_text(encoding='utf-8')))
+
+
+def source_values_of(metadata):
     return {suffix[1:] if suffix.startswith('.') else suffix for suffix in leaf_suffixes(metadata)}
 
 
-def fits(context=None, export_dir=EXPORT_DIR):
-    """The ExampleFit of every dataset in `export_dir`, in name order."""
+def all_source_paths(node, path=''):
+    """Every path of `node`, its records as well as its values: a record's label is kept at the record's path."""
+    items = node.items() if isinstance(node, dict) else enumerate(node) if isinstance(node, list) else ()
+    for key, value in items:
+        current = f'{path}[{key}]' if isinstance(node, list) else (f'{path}.{key}' if path else str(key))
+        yield current
+        yield from all_source_paths(value, current)
+
+
+def analyse(dataset, metadata=None, context=None, name=''):
+    """The stats of one conversion, as a dict: how much of the source `metadata` its exported `dataset`
+
+    - keeps, in a model field or a Property ("kept"; 1.0, or data is lost),
+    - traces back to it, each field and Property naming the values it holds or derives from ("traced"; 1.0, or
+      something is made up),
+    - places in model fields ("coverage", by keys and by values),
+
+    with the counts behind them by category ("keys", "values"), the fields filled by LiMi and extension
+    ("fields"), and what explains the rest: the automatic matches, the model paths lacking a field and the
+    source groups with no location. Without `metadata` the dataset is taken as complete."""
+    return ExampleFit(name, dataset, context or FitContext(), metadata).stats()
+
+
+def analyse_metadata(metadata, name='', context=None):
+    """analyse() of a source `metadata` dict, converted and exported in memory as dataset_exporter.py would."""
+    from dataset_exporter import DatasetExporter
     context = context or FitContext()
-    return [ExampleFit(path.stem, yaml.safe_load(path.read_text(encoding='utf-8')), context)
+    dataset = DatasetExporter().export(context.mapper.convert_metadata(metadata), name or 'source', '0' * 64)
+    return analyse(dataset, metadata, context, name)
+
+
+def analyse_examples(context=None, export_dir=EXPORT_DIR):
+    """analyse() of every dataset in `export_dir` against its example, in name order."""
+    context = context or FitContext()
+    return [analyse(yaml.safe_load(path.read_text(encoding='utf-8')), _example(path.stem), context, path.stem)
             for path in sorted(Path(export_dir).glob('*.yaml'), key=lambda path: path.stem.lower())]
+
+
+def _example(name):
+    example = EXAMPLES_DIR / f'{name}.json'
+    return json.loads(example.read_text(encoding='utf-8')) if example.exists() else None
 
 
 def _percent(share):
     return f'{100 * share:.0f}%'
 
 
-def summary_table(example_fits):
-    lines = ['| Example | Covered, keys | Covered, values | Keys | '
+def summary_table(results):
+    lines = ['| Example | Kept | Traced | Covered, keys | Covered, values | Keys | '
              + ' | '.join(LABELS[category].capitalize() for category in CATEGORIES) + ' |',
-             '| --- | ---: | ---: | ---: | ' + ' | '.join('---:' for _ in CATEGORIES) + ' |']
-    for fit in example_fits:
-        cells = [str(fit.keys[category]) for category in CATEGORIES]
-        covered_values = sum(fit.values[category] for category in COVERED)
-        lines.append(f'| {fit.name} | **{_percent(fit.key_coverage)}** '
-                     f'| {_percent(fit.value_coverage)} ({covered_values} of {sum(fit.values.values())}) '
-                     f'| {sum(fit.keys.values())} | ' + ' | '.join(cells) + ' |')
+             '| --- | ---: | ---: | ---: | ---: | ---: | ' + ' | '.join('---:' for _ in CATEGORIES) + ' |']
+    for result in results:
+        values = result['values']
+        covered_values = sum(values[category] for category in COVERED)
+        lines.append(f"| {result['name']} | {_percent(result['kept'])} | {_percent(result['traced'])} "
+                     f"| **{_percent(result['coverage']['keys'])}** "
+                     f"| {_percent(result['coverage']['values'])} ({covered_values} of {values['total']}) "
+                     f"| {result['keys']['total']} | "
+                     + ' | '.join(str(result['keys'][category]) for category in CATEGORIES) + ' |')
     return '\n'.join(lines)
 
 
-def fields_table(example_fits):
+def fields_table(results):
     lines = ['| Example | Fields filled | LiMi | Extension |', '| --- | ---: | ---: | ---: |']
-    for fit in example_fits:
-        lines.append(f'| {fit.name} | {len(fit.fields)} | {fit.limi_fields} | {fit.extension_fields} |')
+    for result in results:
+        fields = result['fields']
+        lines.append(f"| {result['name']} | {fields['total']} | {fields['limi']} | {fields['extension']} |")
     return '\n'.join(lines)
 
 
-def _counted(counter):
-    return '\n'.join(f'- `{name}`: {count}' for name, count in counter.most_common(TOP)) \
-        + (f'\n- and {len(counter) - TOP} more' if len(counter) > TOP else '')
+def _counted(counts):
+    ranked = list(counts.items())
+    return '\n'.join(f'- `{name}`: {count}' for name, count in ranked[:TOP]) \
+        + (f'\n- and {len(ranked) - TOP} more' if len(ranked) > TOP else '')
 
 
-def details(fit):
+def details(result):
     """What explains one example's fit: its automatic matches, and where the keys not covered are."""
     parts = []
-    if fit.automatic:
+    if result['automatic']:
         parts.append('Placed automatically, without a rule (worth checking that each means what the field does):\n\n'
-                     + '\n'.join(f'- `{key}` → `{field}`' for key, field in sorted(fit.automatic.items())))
-    if fit.missing_fields:
-        parts.append('No such field, by the model path the keys were headed for (a group without their field, or a plain field given a record):\n\n' + _counted(fit.missing_fields))
-    if fit.unlocated:
-        parts.append('No location, by source group:\n\n' + _counted(fit.unlocated))
+                     + '\n'.join(f'- `{key}` → `{field}`' for key, field in result['automatic'].items()))
+    if result['missing_fields']:
+        parts.append('No such field, by the model path the keys were headed for (a group without their field, '
+                     'or a plain field given a record):\n\n' + _counted(result['missing_fields']))
+    if result['unlocated']:
+        parts.append('No location, by source group:\n\n' + _counted(result['unlocated']))
     return '\n\n'.join(parts) or 'Every key is covered.'
 
 
 def render(data=None, export_dir=EXPORT_DIR):
     """The model fit page's tables, as Markdown."""
-    example_fits = fits(FitContext(data), export_dir)
-    sections = [summary_table(example_fits), '## Fields filled', fields_table(example_fits), '## Per example']
-    for fit in example_fits:
-        sections.append(f'<details markdown>\n<summary>{fit.name}: {_percent(fit.key_coverage)} of '
-                        f'{sum(fit.keys.values())} keys covered</summary>\n\n{details(fit)}\n\n</details>')
+    results = analyse_examples(FitContext(data), export_dir)
+    sections = [summary_table(results), '## Fields filled', fields_table(results), '## Per example']
+    for result in results:
+        sections.append(f"<details markdown>\n<summary>{result['name']}: {_percent(result['coverage']['keys'])} of "
+                        f"{result['keys']['total']} keys covered</summary>\n\n{details(result)}\n\n</details>")
     return '\n\n'.join(sections)
 
 

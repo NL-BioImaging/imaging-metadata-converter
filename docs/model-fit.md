@@ -17,6 +17,15 @@ A value is counted in one of five categories:
 | **No such field** | no | was taken into a model group that has no field of its name (`Image.ScanSettings.scanHW`) |
 | **No location** | no | has no rule, and matches no model path |
 
+Two columns check the output against the input before anything is counted,
+and are 100% for every example, or data is lost or made up:
+
+- **Kept**: the share of the input's values the output holds, in a model
+  field or as a Property.
+- **Traced**: the share of the output's fields and Properties that name the
+  input values they hold, or the ones they are derived from (a combined date,
+  a unit the source implies).
+
 The table counts **keys**: source paths with their list indices removed, so
 `Laser[0].Name` and `Laser[1].Name` are one key, and a long list of repeated
 records does not swamp an example. A key whose values differ, one channel's
@@ -55,3 +64,19 @@ The tables are computed when the site is built, by the MkDocs hook
 `scripts/docs_data.py` (with `scripts/model_fit.py`), from the datasets in
 `export/`; the tests keep those up to date with the examples, the rules and
 the model. `python scripts/model_fit.py` prints the same tables.
+
+The numbers come from one function, reused by the page, the script and the
+tests: `analyse(dataset, metadata)` in `scripts/model_fit.py` returns the
+statistics of one conversion as a dict (kept, traced, coverage by keys and by
+values, the counts per category, the fields filled, and what explains the
+rest). `analyse_metadata(metadata)` gives the same for a source dict that is
+not exported yet, converting and exporting it in memory, and
+`analyse_examples()` gives them for every example:
+
+```python
+from model_fit import analyse_metadata
+
+stats = analyse_metadata(metadata, 'my file')
+stats['kept'], stats['traced']        # 1.0 and 1.0: nothing lost or made up
+stats['coverage']                     # {'keys': 0.57, 'values': 0.57}
+```
