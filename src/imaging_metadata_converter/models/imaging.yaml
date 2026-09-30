@@ -1,9 +1,9 @@
-id: https://github.com/NL-BioImaging/imaging-metadata-consolidator/models/imaging
+id: https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging
 name: imaging
 title: Imaging metadata model
 description: 'Microscopy imaging metadata, based on the LiMi (4DN-BINA-OME) model: converted from models/LiMi_XMLSchema.xsd
   (version 02.00, namespace http://www.NamespaceTest.org/Schemas/NBO/2020-11).'
-version: 1.0.0
+version: 1.1.0
 comments:
 - 'Descriptions annotated with description_source "OME 2016-06 ome.xsd" are from the OME Data Model (Copyright (C) 2002 -
   2016 Open Microscopy Environment), licensed under CC BY 3.0: http://www.openmicroscopy.org/info/attribution'
@@ -13,7 +13,7 @@ see_also:
 - https://github.com/gouttegd/yamf-playground/blob/main/linkml/ome/ome.yaml
 prefixes:
   linkml: https://w3id.org/linkml/
-  imaging: https://github.com/NL-BioImaging/imaging-metadata-consolidator/models/imaging/
+  imaging: https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging/
   ome: https://schemas.incenp.org/ome/v1/core/
 default_prefix: imaging
 default_range: string

@@ -30,7 +30,7 @@ DEFAULT_UNITS_FILE = str(MODELS_DIR / 'imaging_units.yaml')
 DEFAULT_OME_XSD_FILE = str(ROOT / 'reference' / 'ome-2016-06.xsd')
 OME_SOURCE = 'OME 2016-06 ome.xsd (CC BY 3.0, Open Microscopy Environment)'
 SCHEMA_NAME = 'imaging'
-SCHEMA_ID = f'https://github.com/NL-BioImaging/imaging-metadata-consolidator/models/{SCHEMA_NAME}'
+SCHEMA_ID = f'https://github.com/NL-BioImaging/imaging-metadata-converter/models/{SCHEMA_NAME}'
 UNITS_SCHEMA_NAME = f'{SCHEMA_NAME}_units'
 # the model's own version: it starts from the LiMi XSD but is extended beyond it
 SCHEMA_VERSION = '0.1.0'

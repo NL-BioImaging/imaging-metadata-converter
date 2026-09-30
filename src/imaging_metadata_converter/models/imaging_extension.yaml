@@ -1,4 +1,4 @@
-id: https://github.com/NL-BioImaging/imaging-metadata-consolidator/models/imaging/extension
+id: https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging/extension
 name: imaging_extension
 title: Imaging metadata extension
 description: Metadata beyond LiMi that the source files hold, mostly electron microscopy, formerly
@@ -6,10 +6,10 @@ description: Metadata beyond LiMi that the source files hold, mostly electron mi
   the imaging model's classes use; each field's schema_extended_path annotation is its path in
   schema.extended.json. Values of type object in schema.extended.json are strings here (annotation
   source_type), arrays multivalued strings.
-version: 1.0.0
+version: 1.1.0
 prefixes:
   linkml: https://w3id.org/linkml/
-  imaging: https://github.com/NL-BioImaging/imaging-metadata-consolidator/models/imaging/
+  imaging: https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging/
   ome: https://schemas.incenp.org/ome/v1/core/
 default_prefix: imaging
 default_range: string

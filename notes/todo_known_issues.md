@@ -12,16 +12,15 @@ no datasets. After a change to the model: regenerate (`python scripts/metaseed_g
 metaseed's compatibility check against the last published version (see "Profile versions"), bump the
 version, and push and publish again.
 
-Unpublished since 1.0 (2026-09-30): `Instrument.CatalogNumber`, the detector extension fields
+Generated, not yet published (2026-09-30): profile `imaging` 1.1 = `profile/imaging.metaseed.yaml`, model
+1.1.0. It adds, compatibly with 1.0: `Instrument.CatalogNumber`, the detector extension fields
 (DetectorExtension: Inserted, Enabled, ExposureTime, Binning, angles, CollectionAngleRange, EDS times,
-rates and energies) and the class `QuantityRange`; metaseed's check finds all 155 changes compatible
-(optional fields, one entity), and ElectronOpticsSettings.Aperture with the class ElectronAperture (all
-compatible too), ScanSettings.LineInterlacing, ElectronOpticsSettings.Condenser1/2 and "Oil" in the
-immersion enumeration: publish as 1.1, with the model's version.
-
-The model's `id` and `imaging:` prefix still name the consolidator's URL
-(https://github.com/NL-BioImaging/imaging-metadata-consolidator/models/imaging), kept for now (user,
-2026-09-29); move them to this repository with the next model version, since it changes the profile.
+rates and energies), ElectronOpticsSettings.Aperture (class ElectronAperture), Condenser1/2,
+ScanSettings.LineInterlacing, the class QuantityRange, and "Oil" in the immersion enumeration. The
+model's `id` and `imaging:` prefix moved with it from the consolidator's URL to this repository's
+(https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging), as planned (user,
+2026-09-29); in the profile that is only its description. To publish: import the profile on the Hub
+(`metaseed spec import`), validate, save and publish it as 1.1.
 
 ### Profile versions
 
@@ -36,6 +35,9 @@ Hub's "Breaking changes"; run it before publishing a new version.
   Instrument and Image, ObjectiveSettings.Medium/RefractiveIndex removed (they are ImmersionLiquid's), the
   UUID fields strings with a pattern, and ElectronSource.ID required (an identifier, as all LiMi hardware
   IDs).
+- 1.0 -> 1.1: 162 changes, all compatible (required bump minor): 158 optional fields and 2 entities added
+  (QuantityRange, ElectronAperture), the immersion enumeration widened by "Oil", and the description
+  (model 1.1.0, the model's URL in this repository).
 
 ### Validation of the exports
 
@@ -236,7 +238,8 @@ See docs/model.md and docs/maintaining.md for the full account.
   importing `imaging_units.yaml` (units enums, with aliases: LiMi's unit names and an ASCII form such as
   "um"), `imaging_provenance.yaml` (Property, SourceFile, SourceMapping) and `imaging_extension.yaml` (what
   the source files hold beyond LiMi, mostly EM; mixins OMEExtension, InstrumentExtension, ... used by the
-  model's classes; shared Quantity {Value, Unit}, Vector2D, StagePosition). Edited by hand; version 1.0.0.
+  model's classes; shared Quantity {Value, Unit}, QuantityRange, Vector2D, StagePosition). Edited by hand;
+  version 1.1.0.
 - Created once from the whole LiMi XSD by `python scripts/linkml_converter.py` (refuses to overwrite
   without --force). Rules: extension base -> `is_a`; an abstract `*Group` -> a slot over its (abstract)
   type with a type designator; `*Ref` -> a reference slot without `Ref` (`inlined: false`); Settings' ID
