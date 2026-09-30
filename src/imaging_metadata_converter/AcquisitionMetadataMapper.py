@@ -43,7 +43,10 @@ class AcquisitionMetadataMapper:
         model = ModelPaths(schema_file) if schema_file.endswith(('.yaml', '.yml')) else None
         self.schema = model.tree() if model else self._load_json(schema_file)
         self._root = model.root if model else None
-        self.mappings = self._load_json(mappings_file)
+        rules = self._load_json(mappings_file)
+        # a rule may state the unit its source implies but never writes: {"target": ..., "unit": "mm"}
+        self.mappings = {source: rule['target'] if isinstance(rule, dict) else rule for source, rule in rules.items()}
+        self.implied_units = {source: rule['unit'] for source, rule in rules.items() if isinstance(rule, dict)}
         self.combinations = self._load_json(combinations_file) if os.path.exists(combinations_file) else []
         self._schema_index = self._build_schema_index(self.schema)
         # "Detector.Name" in a source still names a field, of the model's default detector (GenericDetector)
@@ -96,7 +99,8 @@ class AcquisitionMetadataMapper:
         known = set()
         patterns = set()
         for pattern in mappings:
-            first_segment = pattern.split('.')[0]
+            # a rule for one item of a value list ("PixelSpacing[0]") names the list's key
+            first_segment = re.sub(r'\[\d+\]$', '', pattern.split('.')[0])
             if '*' in first_segment:
                 patterns.add(first_segment)
             else:
@@ -351,8 +355,8 @@ class AcquisitionMetadataMapper:
         if origin is None:
             origin = rule_path
         if root is None:
-            root = (result, provenance)
-        root_result, root_provenance = root
+            root = (result, provenance, [])
+        root_result, root_provenance, _ = root
         for key, value in metadata.items():
             source_path = f'{path}.{key}' if path else str(key)
             rule_source_path = f'{rule_path}.{key}' if rule_path else str(key)
@@ -423,14 +427,51 @@ class AcquisitionMetadataMapper:
                     placed_at, placed_provenance = self._place(mapped_items, None, *candidates)
                     for item_path, item_source in items_provenance.items():
                         placed_provenance[f'{placed_at}{item_path}'] = item_source
+            elif isinstance(value, list) and any(f'{rule_source_path}[{index}]' in self.mappings
+                                                 for index in range(len(value))):
+                self._place_items(value, rule_source_path, source_path, origin_path, min_rule_segments, result,
+                                  provenance, root)
             else:
                 candidates, copies = self._candidates(rule_source_path, source_path, min_rule_segments, result,
                                                       provenance, root, origin_path)
-                self._place(value, origin_path, *candidates)
+                placed_at, placed_provenance = self._place(value, origin_path, *candidates)
+                self._imply_unit(rule_source_path, placed_at, placed_provenance, origin_path, root)
                 for copy_target in copies:
                     if is_free_path(root_result, copy_target):
                         self._place(value, origin_path, (root_result, copy_target, root_provenance))
         return result
+
+    def _place_items(self, items, rule_source_path, source_path, origin_path, min_rule_segments, result, provenance,
+                     root):
+        """Place a value list some of whose items a rule names ("PixelSpacing[0]", one of a row and column spacing):
+        each such item goes to its rule's target where that is free, and the others stay in a list at the list's
+        own place, their provenance naming the item each came from."""
+        root_result, root_provenance, _ = root
+        rest = []
+        for index, item in enumerate(items):
+            item_rule_path = f'{rule_source_path}[{index}]'
+            item_origin = f'{origin_path}[{index}]'
+            target = self.mappings.get(item_rule_path)
+            single_target(target, item_rule_path)
+            if target is not None and is_free_path(root_result, target):
+                self._place(item, item_origin, (root_result, target, root_provenance))
+                self._imply_unit(item_rule_path, target, root_provenance, item_origin, root)
+            else:
+                rest.append((index, item))
+        if rest:
+            candidates, _ = self._candidates(rule_source_path, source_path, min_rule_segments, result, provenance,
+                                             root, origin_path)
+            placed_at, placed_provenance = self._place([item for _, item in rest], None, *candidates)
+            for position, (index, item) in enumerate(rest):
+                for suffix in leaf_suffixes(item):
+                    placed_provenance[f'{placed_at}[{position}]{suffix}'] = f'{origin_path}[{index}]{suffix}'
+
+    def _imply_unit(self, rule_source_path, placed_at, placed_provenance, origin, root):
+        """Note the unit a rule says its source implies, for a value placed at that rule's target; the units are
+        written once everything is mapped, so a unit the source states always comes first."""
+        unit = self.implied_units.get(rule_source_path)
+        if unit is not None and placed_provenance is root[1] and placed_at == self.mappings[rule_source_path]:
+            root[2].append((unit_field(placed_at), unit, origin))
 
     def _candidates(self, rule_source_path, source_path, min_rule_segments, result, provenance, root, origin=''):
         """Where a value may go, in order - a rule's target from the root, else a schema match or its own
@@ -482,6 +523,8 @@ class AcquisitionMetadataMapper:
 
         provenance = {}
         result = {}
+        implied_units = []
+        root = (result, provenance, implied_units)
         for key, value in metadata.items():
             wrapper = self._vendor_wrapper(key, value)
             if wrapper is not None:
@@ -489,9 +532,14 @@ class AcquisitionMetadataMapper:
                 # wrapper and the SourceMap keeps the full source path.
                 prefix, contents = wrapper
                 self._apply_mappings(contents, result, path=prefix, rule_path='', provenance=provenance,
-                                     origin=prefix)
+                                     origin=prefix, root=root)
             else:
-                self._apply_mappings({key: value}, result, provenance=provenance)
+                self._apply_mappings({key: value}, result, provenance=provenance, root=root)
+        # an implied unit is derived from the value it qualifies, recorded as a combination is from its parts
+        for unit_path, unit, origin in implied_units:
+            if is_free_path(result, unit_path):
+                set_nested_value(result, unit_path, unit)
+                provenance[unit_path] = [origin]
         self._apply_combinations(metadata, result, provenance)
         if SOURCE_MAP_KEY in result:
             raise ValueError(f'Source metadata already has a top-level {SOURCE_MAP_KEY}')
@@ -549,8 +597,17 @@ class AcquisitionMetadataMapper:
 
 
 def rule_targets(target):
-    """A rule's target paths: mappings.json names one, or a list of several for a single value."""
+    """A rule's target paths: mappings.json names one, or a list of several for a single value; a rule stating a
+    unit names its target in "target"."""
+    if isinstance(target, dict):
+        target = target['target']
     return target if isinstance(target, list) else [target]
+
+
+def unit_field(target):
+    """The field holding the unit of the value at `target`: PhysicalSizeX's is PhysicalSizeXUnit, and a Quantity's
+    Value has its Unit beside it."""
+    return f'{target[:-len(".Value")]}.Unit' if target.endswith('.Value') else f'{target}Unit'
 
 
 def single_target(target, source_path):

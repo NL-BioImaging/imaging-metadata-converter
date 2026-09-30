@@ -12,6 +12,9 @@ no datasets. After a change to the model: regenerate (`python scripts/metaseed_g
 metaseed's compatibility check against the last published version (see "Profile versions"), bump the
 version, and push and publish again.
 
+Unpublished since 1.0 (2026-09-30): `Instrument.CatalogNumber` (InstrumentExtension), which metaseed's
+check finds compatible (an optional field added): publish as 1.1, with the model's version.
+
 The model's `id` and `imaging:` prefix still name the consolidator's URL
 (https://github.com/NL-BioImaging/imaging-metadata-consolidator/models/imaging), kept for now (user,
 2026-09-29); move them to this repository with the next model version, since it changes the profile.
@@ -147,7 +150,14 @@ Image.Name, ImageComments -> Image.Description, InstitutionName -> Experimenter.
 to several targets, the merge (combinations) builds datetimes only; Instrument.SerialNumber (model
 extension) for DeviceSerialNumber; a combination cannot replace the automatic AcquisitionDate (date
 only) since combinations write only where free, after the rules.
-Status: adding the DICOM rules, then regenerate output/ and export/.
+DICOM rules pushed (8247f53). Now (user): C and D.
+C done: a rule may be an object {"target": ..., "unit": ...}, the unit written to the target's unit
+field where free once everything is mapped, recorded as derived from its value (DerivedFrom in the
+export); a rule may name one item of a plain value list ("PixelSpacing[0]"), the other items staying in
+a list at its place. DICOM PixelSpacing and SliceThickness map with unit mm. D done, as
+Instrument.CatalogNumber (user): LiMi's ManufacturerSpec has no SerialNumber, its CatalogNumber is
+"Catalog, Part or Serial Number"; DeviceSerialNumber maps to it. DICOM: 21% of keys (17 of 94).
+Status: C and D done, not committed; next LIF, then platy.
 
 ## The model and the pipeline
 

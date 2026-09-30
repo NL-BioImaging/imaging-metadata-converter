@@ -114,7 +114,7 @@ the tree next to LiMi's fields; new groups are classes of their own.
 | --- | --- |
 | `Image` | `ElectronBeamSettings` (type, mode, focus, spot size, working distance, acceleration voltage, currents, convergence angle, defocus, shift, source tilt, stigmator, high-voltage readings, and the electron source it applies to), `ElectronOpticsSettings` (camera length, operating and projector modes, gun lens, apertures), `ScanSettings` (field of view, rotation, frame and line time, line integration, detector) |
 | `Image` | `Type`, `CropHint`, `Corrections` (contrast, brightness, gamma, black and white level) |
-| `Instrument` | `Manufacturer`, `Model`, `Type`, `ComputerName`, `Vacuum` (buffer, gun, sample and system vacuum, mode), `ElectronSource` |
+| `Instrument` | `Manufacturer`, `Model`, `CatalogNumber`, `Type`, `ComputerName`, `Vacuum` (buffer, gun, sample and system vacuum, mode), `ElectronSource` |
 | `Detector` | `Type`, `Gain`, `Offset`, `Brightness`, `Contrast`, `Channel`, configuration |
 | `Stage` | `Position`, `RawPosition`, `Tilt`, `Rotation`, `Bias`, `MultiStage` (sample height and radius) |
 | `Software` | `ApplicationID` |

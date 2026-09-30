@@ -103,15 +103,17 @@ class FitContext:
         """How the mapper placed the value at `source`: 'rule', 'automatic', or None if it resolves neither way.
 
         The mapper strips vendor wrapper levels ("FEI_TITAN.FeiImage") before it resolves a path, and rules see
-        list items unindexed, so the path is tried as rules see it, from each of its levels down.
+        list items unindexed but for a rule naming one item of a value list ("PixelSpacing[0]"), so the path is
+        tried as rules see it, from each of its levels down.
         """
-        parts = unindexed(source).split('.')
-        for start in range(len(parts)):
-            path = '.'.join(parts[start:])
-            if self.mapper._resolve_rule_path(path) is not None:
-                return 'rule'
-            if self.mapper._resolve_schema_path(path) is not None:
-                return 'automatic'
+        for path in (re.sub(r'\[\d+\](?!$)', '', source), unindexed(source)):
+            parts = path.split('.')
+            for start in range(len(parts)):
+                level = '.'.join(parts[start:])
+                if self.mapper._resolve_rule_path(level) is not None:
+                    return 'rule'
+                if self.mapper._resolve_schema_path(level) is not None:
+                    return 'automatic'
         return None
 
     def is_extension(self, field_path):

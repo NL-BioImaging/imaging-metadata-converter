@@ -237,11 +237,24 @@
     "Top": "Plane.PositionY",
     "Manufacturer": "Instrument.Manufacturer",
     "ManufacturerModelName": "Instrument.Model",
+    "DeviceSerialNumber": "Instrument.CatalogNumber",
     "StationName": "Instrument.Name",
     "Modality": "Instrument.Type",
     "SoftwareVersions": "AcquisitionSoftware.Version",
     "Rows": "Pixels.SizeY",
     "Columns": "Pixels.SizeX",
+    "PixelSpacing[0]": {
+        "target": "Pixels.PhysicalSizeY",
+        "unit": "mm"
+    },
+    "PixelSpacing[1]": {
+        "target": "Pixels.PhysicalSizeX",
+        "unit": "mm"
+    },
+    "SliceThickness": {
+        "target": "Pixels.PhysicalSizeZ",
+        "unit": "mm"
+    },
     "BitsStored": "Pixels.SignificantBits",
     "SOPInstanceUID": "Image.ID",
     "StudyInstanceUID": "Experiment.ID",

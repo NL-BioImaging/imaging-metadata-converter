@@ -153,7 +153,7 @@ path in the `SourceMap` keeps it.
 
 ### Mapping rules
 
-A `mappings.json` entry is `"source path": "target path"`. There are six
+A `mappings.json` entry is `"source path": "target path"`. There are eight
 forms.
 
 **Exact** - rename one field:
@@ -217,6 +217,32 @@ model list:
 
 `[*]` stands for the index of the list item the value comes from, so each
 channel's value goes to its own channel.
+
+**`[n]` in a source path** - send one item of a list of values to its own
+field:
+
+```json
+"PixelSpacing[0]": "Pixels.PhysicalSizeY",
+"PixelSpacing[1]": "Pixels.PhysicalSizeX"
+```
+
+DICOM's `PixelSpacing` is one list, the row spacing then the column spacing.
+An item whose target is taken, or that no rule names, stays in a list at the
+list's own path, so nothing is lost.
+
+**A unit the source implies** - a rule may be an object, whose `unit` is
+written beside the value where the source states none:
+
+```json
+"SliceThickness": {"target": "Pixels.PhysicalSizeZ", "unit": "mm"}
+```
+
+DICOM gives every length in mm without saying so; left out, the model would
+read them in its default µm. The unit goes to the target's unit field
+(`PhysicalSizeZUnit`, or the `Unit` beside a `Quantity`'s `Value`), only where
+free, and only once everything is mapped, so a unit the source does state
+always comes first. Its `SourceMap` entry is the list of the value it
+qualifies, as a combined value's is of its parts.
 
 ### Combinations
 

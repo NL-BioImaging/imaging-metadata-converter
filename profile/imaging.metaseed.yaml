@@ -1628,6 +1628,12 @@ entities:
       type: string
       required: false
       tier: required
+    - name: CatalogNumber
+      type: string
+      required: false
+      description: The Catalog, Part or Serial Number used by the Manufacturer to identify this instrument, as LiMi's ManufacturerSpec
+        records it for each of its components.
+      tier: required
     - name: Type
       type: string
       required: false

@@ -8,8 +8,8 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 from imaging_metadata_converter import convert_metadata
 from imaging_metadata_converter.AcquisitionMetadataMapper import (
-    DEFAULT_COMBINATIONS_FILE, DEFAULT_MAPPINGS_FILE, AcquisitionMetadataMapper, rule_targets)
-from imaging_metadata_converter.ModelPaths import ModelPaths
+    DEFAULT_COMBINATIONS_FILE, DEFAULT_MAPPINGS_FILE, AcquisitionMetadataMapper, rule_targets, unit_field)
+from imaging_metadata_converter.ModelPaths import ModelPaths, _leaf_paths
 
 
 class AcquisitionMetadataMapperTest(unittest.TestCase):
@@ -201,6 +201,81 @@ class LosslessMappingTest(unittest.TestCase):
         converted = mapper.convert_metadata({'Height': 7, 'MPP': 0.5})
 
         self.assertEqual(converted, {'Y': 7, 'X': 0.5, 'SourceMap': {'Y': 'Height', 'X': 'MPP'}})
+
+    def test_rule_can_name_one_item_of_a_value_list(self):
+        mapper = self.mapper_for({'Spacing[0]': 'Pixels.PhysicalSizeY', 'Spacing[1]': 'Pixels.PhysicalSizeX'})
+
+        converted = mapper.convert_metadata({'Spacing': [0.5, 0.25]})
+
+        self.assertEqual(converted, {'Pixels': {'PhysicalSizeY': 0.5, 'PhysicalSizeX': 0.25},
+                                     'SourceMap': {'Pixels.PhysicalSizeY': 'Spacing[0]',
+                                                   'Pixels.PhysicalSizeX': 'Spacing[1]'}})
+
+    def test_list_items_without_a_rule_stay_in_the_list(self):
+        mapper = self.mapper_for({'Spacing[1]': 'X'})
+
+        converted = mapper.convert_metadata({'Spacing': [1, 2, 3]})
+
+        self.assertEqual(converted, {'X': 2, 'Spacing': [1, 3],
+                                     'SourceMap': {'X': 'Spacing[1]', 'Spacing[0]': 'Spacing[0]',
+                                                   'Spacing[1]': 'Spacing[2]'}})
+
+    def test_list_item_whose_target_is_taken_stays_in_the_list(self):
+        mapper = self.mapper_for({'Height': 'Y', 'Spacing[0]': 'Y'})
+
+        converted = mapper.convert_metadata({'Height': 7, 'Spacing': [1, 2]})
+
+        self.assertEqual(converted, {'Y': 7, 'Spacing': [1, 2],
+                                     'SourceMap': {'Y': 'Height', 'Spacing[0]': 'Spacing[0]',
+                                                   'Spacing[1]': 'Spacing[1]'}})
+
+    def test_rule_with_a_unit_writes_the_unit_the_source_implies(self):
+        mapper = self.mapper_for({'Thickness': {'target': 'Pixels.PhysicalSizeZ', 'unit': 'mm'},
+                                  'WD': {'target': 'Beam.WorkingDistance.Value', 'unit': 'mm'}})
+
+        converted = mapper.convert_metadata({'Thickness': 0.625, 'WD': 5})
+
+        self.assertEqual(converted['Pixels'], {'PhysicalSizeZ': 0.625, 'PhysicalSizeZUnit': 'mm'})
+        self.assertEqual(converted['Beam'], {'WorkingDistance': {'Value': 5, 'Unit': 'mm'}})
+        # the unit is derived from the value it qualifies, as a combination is from its parts
+        self.assertEqual(converted['SourceMap']['Pixels.PhysicalSizeZUnit'], ['Thickness'])
+
+    def test_list_item_rule_with_a_unit(self):
+        mapper = self.mapper_for({'Spacing[0]': {'target': 'Pixels.PhysicalSizeY', 'unit': 'mm'}})
+
+        converted = mapper.convert_metadata({'Spacing': [0.5, 0.25]})
+
+        self.assertEqual(converted['Pixels'], {'PhysicalSizeY': 0.5, 'PhysicalSizeYUnit': 'mm'})
+        self.assertEqual(converted['SourceMap']['Pixels.PhysicalSizeYUnit'], ['Spacing[0]'])
+
+    def test_implied_unit_never_overrides_a_stated_one(self):
+        mapper = self.mapper_for({'Size': {'target': 'P.SizeX', 'unit': 'mm'}, 'SizeUnit': 'P.SizeXUnit'})
+
+        for source in ({'Size': 3, 'SizeUnit': 'µm'}, {'SizeUnit': 'µm', 'Size': 3}):
+            with self.subTest(order=list(source)):
+                self.assertEqual(mapper.convert_metadata(source)['P'], {'SizeX': 3, 'SizeXUnit': 'µm'})
+
+    def test_implied_unit_is_left_out_when_the_value_misses_its_target(self):
+        mapper = self.mapper_for({'Height': 'Y', 'Size': {'target': 'Y', 'unit': 'mm'}})
+
+        converted = mapper.convert_metadata({'Height': 7, 'Size': 3})
+
+        self.assertEqual(converted, {'Y': 7, 'Size': 3, 'SourceMap': {'Y': 'Height', 'Size': 'Size'}})
+
+    def test_rule_targets_of_a_rule_with_a_unit(self):
+        self.assertEqual(rule_targets({'target': 'Pixels.PhysicalSizeZ', 'unit': 'mm'}), ['Pixels.PhysicalSizeZ'])
+
+    def test_packaged_units_go_to_model_unit_fields(self):
+        model = ModelPaths()
+        model_fields = set(model.aliases()) | {path for name, subtree in model.tree().items()
+                                               for path in _leaf_paths(subtree, name)}
+        with open(DEFAULT_MAPPINGS_FILE, encoding='utf-8') as file:
+            rules = json.load(file)
+        for source, rule in rules.items():
+            if isinstance(rule, dict):
+                with self.subTest(source=source):
+                    self.assertIn(rule['target'], model_fields)
+                    self.assertIn(unit_field(rule['target']), model_fields)
 
     def test_several_targets_for_a_group_are_refused(self):
         mapper = self.mapper_for({'Beam': ['A', 'B']})

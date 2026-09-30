@@ -27,7 +27,8 @@
     "Type": "CT",
     "Manufacturer": "Philips",
     "Name": "HOST-000000",
-    "Model": "iCT 256"
+    "Model": "iCT 256",
+    "CatalogNumber": "CT1-iCT"
   },
   "ModalitiesInStudy": [
     "CT",
@@ -68,10 +69,19 @@
   "ResponsibleOrganization": "University Medical Center",
   "BodyPartExamined": "",
   "ScanOptions": "SURVIEW",
-  "SliceThickness": 0.625,
+  "Pixels": {
+    "PhysicalSizeZ": 0.625,
+    "SizeY": 472,
+    "SizeX": 512,
+    "PhysicalSizeY": 0.9765625,
+    "PhysicalSizeX": 0.9765625,
+    "SignificantBits": 12,
+    "PhysicalSizeZUnit": "mm",
+    "PhysicalSizeYUnit": "mm",
+    "PhysicalSizeXUnit": "mm"
+  },
   "KVP": 80.0,
   "DataCollectionDiameter": 500.0,
-  "DeviceSerialNumber": "CT1-iCT",
   "AcquisitionSoftware": {
     "Version": "4.1"
   },
@@ -118,15 +128,6 @@
     "SamplesPerPixel": 1
   },
   "PhotometricInterpretation": "MONOCHROME2",
-  "Pixels": {
-    "SizeY": 472,
-    "SizeX": 512,
-    "SignificantBits": 12
-  },
-  "PixelSpacing": [
-    0.9765625,
-    0.9765625
-  ],
   "BitsAllocated": 16,
   "HighBit": 11,
   "PixelRepresentation": 0,
@@ -186,10 +187,10 @@
     "ResponsibleOrganization": "ResponsibleOrganization",
     "BodyPartExamined": "BodyPartExamined",
     "ScanOptions": "ScanOptions",
-    "SliceThickness": "SliceThickness",
+    "Pixels.PhysicalSizeZ": "SliceThickness",
     "KVP": "KVP",
     "DataCollectionDiameter": "DataCollectionDiameter",
-    "DeviceSerialNumber": "DeviceSerialNumber",
+    "Instrument.CatalogNumber": "DeviceSerialNumber",
     "AcquisitionSoftware.Version": "SoftwareVersions",
     "ProtocolName": "ProtocolName",
     "ReconstructionDiameter": "ReconstructionDiameter",
@@ -230,8 +231,8 @@
     "PhotometricInterpretation": "PhotometricInterpretation",
     "Pixels.SizeY": "Rows",
     "Pixels.SizeX": "Columns",
-    "PixelSpacing[0]": "PixelSpacing[0]",
-    "PixelSpacing[1]": "PixelSpacing[1]",
+    "Pixels.PhysicalSizeY": "PixelSpacing[0]",
+    "Pixels.PhysicalSizeX": "PixelSpacing[1]",
     "BitsAllocated": "BitsAllocated",
     "Pixels.SignificantBits": "BitsStored",
     "HighBit": "HighBit",
@@ -243,6 +244,15 @@
     "RescaleIntercept": "RescaleIntercept",
     "RescaleSlope": "RescaleSlope",
     "RequestedProcedureID": "RequestedProcedureID",
-    "ConfidentialityCode": "ConfidentialityCode"
+    "ConfidentialityCode": "ConfidentialityCode",
+    "Pixels.PhysicalSizeZUnit": [
+      "SliceThickness"
+    ],
+    "Pixels.PhysicalSizeYUnit": [
+      "PixelSpacing[0]"
+    ],
+    "Pixels.PhysicalSizeXUnit": [
+      "PixelSpacing[1]"
+    ]
   }
 }

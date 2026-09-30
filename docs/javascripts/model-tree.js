@@ -249,7 +249,10 @@
   function mappingTargets(mappings, model) {
     var targets = {};
     Object.keys(mappings || {}).forEach(function (source) {
-      [].concat(mappings[source]).forEach(function (rule) {
+      var named = mappings[source];
+      /* a rule stating the unit its source implies names its target in "target" */
+      if (named && named.target) named = named.target;
+      [].concat(named).forEach(function (rule) {
         var parts = String(rule).replace(/\[\]$/, '').replace(/\[\*\]/g, '').split('.');
         var start = 0;
         if (String(rule).indexOf('[*]') >= 0) {

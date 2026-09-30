@@ -49,6 +49,9 @@ classes:
         annotations: {schema_extended_path: Instrument.Manufacturer}
       Model:
         annotations: {schema_extended_path: Instrument.Model}
+      CatalogNumber:
+        description: The Catalog, Part or Serial Number used by the Manufacturer to identify this instrument, as LiMi's
+          ManufacturerSpec records it for each of its components.
       Type:
         annotations: {schema_extended_path: Instrument.Type}
       ComputerName:
