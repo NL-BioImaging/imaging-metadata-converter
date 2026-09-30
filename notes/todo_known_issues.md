@@ -125,7 +125,20 @@ with `core.autocrlf` Windows checked six of them out with CRLF, so the committed
 
 ## In progress
 
-Nothing (2026-09-29).
+Model fit analytics (user, 2026-09-30): how well each example can be expressed in the model, from
+export/. A source value (and a distinct source key, list indices removed; the headline) counts in its
+best category: covered by a rule (mappings.json or combinations.json), covered automatically (the
+mapper's own match of a source path to a model path as is, counted as covered: 1:1 values need no rule,
+by design), or not covered - does not fit its field (Property whose SchemaPath is a model field), no
+such field (SchemaPath not a model field) or no model location (no SchemaPath). Also LiMi vs extension
+among the fields filled, and per example the automatic matches (to review: DICOM Rows/Columns land in
+Plate, not Pixels.SizeY/SizeX), the groups lacking fields and the source prefixes with no location.
+Output: scripts/model_fit.py (prints the tables) and docs/model-fit.md, filled by the MkDocs hook.
+Then (user): raise coverage of platy, LIF and DICOM - prefer extending the mapping over the model,
+though both are valid; propose per key with stated assumptions, confirm, add. Their coverage was low
+from when they were added (consolidator 46a960a, 2026-09-25), not from the OME root or the LinkML move.
+Status: analytics done (scripts/model_fit.py, docs/model-fit.md, tests/test_model_fit.py), not yet
+committed; next the platy/LIF/DICOM proposals.
 
 ## The model and the pipeline
 
@@ -217,4 +230,3 @@ What follows from a new example or new metadata:
 - [ ] Light-source role, when a source holds light sources (none does yet, so rules setting it would have
       nothing to act on or be tested with; user, 2026-09-28): rules for Transmitted/Fluorescence light
       sources should set `LightSource.Role`.
-- [ ] Model analytics/metrics (user, 2026-09-29): scope still to be settled.

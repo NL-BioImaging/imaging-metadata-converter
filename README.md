@@ -311,6 +311,10 @@ in the documentation describes them in full.
 - `scripts/dataset_exporter.py` - exports each example as a metaseed dataset
   of the profile into `export/`, with every value the model has no field for
   kept as a `Property` record.
+- `scripts/model_fit.py` - prints how well each example can be expressed in
+  the model, from its dataset in `export/`: the source keys covered by a rule
+  or automatically, and the ones not covered, with why (also the docs' Model
+  fit page).
 
 The tests check that `profile/` and `export/` are up to date and lose no
 data; the tests of the XSD conversion need `linkml` and those validating

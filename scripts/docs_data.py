@@ -16,8 +16,9 @@ the browser always shows the model the package ships.
   descriptions are listed once, in "texts", and named by index
 
 It also fills in the pages' {{ model.<name> }} placeholders: the model's
-counts on model.md, so no number there is typed by hand, and the model map
-(scripts/model_map.py) on model-map.md, so the map is never stored.
+counts on model.md, so no number there is typed by hand, the model map
+(scripts/model_map.py) on model-map.md, so the map is never stored, and the
+examples' fit (scripts/model_fit.py) on model-fit.md.
 
 mkdocs.yml loads it under `hooks:`.
 """
@@ -55,24 +56,30 @@ def declarers(model, class_name, slot_name):
             or slot_name in (model.view.get_class(ancestor).slots or [])]
 
 
+def added_classes(model):
+    """The classes LiMi does not have: those of the extension and provenance schemas."""
+    return {name for name, cls in model.classes.items() if not cls.from_schema.endswith(LIMI_SCHEMA_SUFFIX)}
+
+
+def declared_only_by_added(model, added, class_name, slot_name):
+    """Whether `class_name` has `slot_name` only from classes in `added`."""
+    declared = declarers(model, class_name, slot_name)
+    return bool(declared) and all(declarer in added for declarer in declared)
+
+
 def added_paths(model, tree):
     """The paths of `tree` that run through a class or slot LiMi does not have."""
-    added_classes = {name for name, cls in model.classes.items()
-                     if not cls.from_schema.endswith(LIMI_SCHEMA_SUFFIX)}
-
-    def declared_only_by_added(class_name, slot_name):
-        declared = declarers(model, class_name, slot_name)
-        return bool(declared) and all(declarer in added_classes for declarer in declared)
+    added = added_classes(model)
 
     def is_added(path):
         first, *rest = path.split('.')
         current = first
-        added = first in added_classes
+        result = first in added
         for name in rest:
-            added = added or declared_only_by_added(current, name)
+            result = result or declared_only_by_added(model, added, current, name)
             slot = model.slots(current)[name]
             current = slot.range if slot.range in model.classes else None
-        return added
+        return result
 
     return [path for path in all_paths(tree) if is_added(path)]
 
@@ -219,11 +226,11 @@ def fill(markdown, counts):
     return PLACEHOLDER.sub(replace, markdown)
 
 
-def _load_model_map():
+def _load_script(name):
     # MkDocs loads this hook by file path, and its plugins may reset
     # sys.path, so load the sibling module by its path too
     import importlib.util
-    spec = importlib.util.spec_from_file_location('model_map', ROOT / 'scripts' / 'model_map.py')
+    spec = importlib.util.spec_from_file_location(name, ROOT / 'scripts' / f'{name}.py')
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -253,6 +260,9 @@ def on_page_markdown(markdown, page, config, files):
     if page.file.src_uri == 'model.md':
         return fill(markdown, _model_data().counts())
     if page.file.src_uri == 'model-map.md':
-        model_map = _load_model_map()
+        model_map = _load_script('model_map')
         return fill(markdown, {'map': model_map.render(_model_data())})
+    if page.file.src_uri == 'model-fit.md':
+        model_fit = _load_script('model_fit')
+        return fill(markdown, {'fit': model_fit.render(_model_data())})
     return markdown
