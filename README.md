@@ -265,6 +265,18 @@ there and parses; a Unix time of 0 counts as unset, not as 1970-01-01 (TALOS
 writes `"0"` for a time it lacks). The parts stay where the mapping put them,
 and the combined value's `SourceMap` entry is the list of its parts.
 
+The format `split` instead takes one item, counted from 0, of a value's
+whitespace-separated words, as a number, for a source that writes several
+numbers in one string:
+
+```json
+{"target": "Pixels.SizeZ", "sources": ["SpimData.SequenceDescription.ViewSetups.ViewSetup.size"],
+ "format": "split", "item": 2}
+```
+
+BigDataViewer's size `"1100 1100 1150"` gives `SizeZ` 1150. An item that is
+not there, or is no number, adds nothing.
+
 ### Matching details
 
 - Patterns are glob-matched with `fnmatch.fnmatchcase`, so matching is

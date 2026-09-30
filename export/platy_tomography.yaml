@@ -5,18 +5,77 @@ Image:
     Name: platy_tomography.json
     Checksum: d9173f8b534fb77b8ace792a6335246fc5670ae36b4593ab6a923f1d9c54b944
     Format: json
+    Mapping:
+    - ID: SourceMapping:0
+      Field: Image[0].Name
+      Source: SpimData.SequenceDescription.ImageLoader.n5.value
+    - ID: SourceMapping:1
+      Field: Image[0].Pixels.Channel[0].Name
+      Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.name
+    - ID: SourceMapping:2
+      Field: Image[0].Pixels.PhysicalSizeXUnit
+      Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit
+      SourceValue: '"micron"'
+    - ID: SourceMapping:3
+      Field: Image[0].Pixels.PhysicalSizeYUnit
+      Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit
+      SourceValue: '"micron"'
+    - ID: SourceMapping:4
+      Field: Image[0].Pixels.PhysicalSizeZUnit
+      Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit
+      SourceValue: '"micron"'
+    - ID: SourceMapping:5
+      Field: Image[0].Pixels.SizeX
+      Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.size
+      DerivedFrom:
+      - SpimData.SequenceDescription.ViewSetups.ViewSetup.size
+    - ID: SourceMapping:6
+      Field: Image[0].Pixels.SizeY
+      Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.size
+      DerivedFrom:
+      - SpimData.SequenceDescription.ViewSetups.ViewSetup.size
+    - ID: SourceMapping:7
+      Field: Image[0].Pixels.SizeZ
+      Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.size
+      DerivedFrom:
+      - SpimData.SequenceDescription.ViewSetups.ViewSetup.size
+    - ID: SourceMapping:8
+      Field: Image[0].Pixels.PhysicalSizeX
+      Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
+      DerivedFrom:
+      - SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
+    - ID: SourceMapping:9
+      Field: Image[0].Pixels.PhysicalSizeY
+      Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
+      DerivedFrom:
+      - SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
+    - ID: SourceMapping:10
+      Field: Image[0].Pixels.PhysicalSizeZ
+      Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
+      DerivedFrom:
+      - SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
   Pixels:
     Channel:
-    - {}
+    - Name: channel 1
+    PhysicalSizeXUnit: µm
+    PhysicalSizeYUnit: µm
+    PhysicalSizeZUnit: µm
+    SizeX: 1100
+    SizeY: 1100
+    SizeZ: 1150
+    PhysicalSizeX: 0.325
+    PhysicalSizeY: 0.325
+    PhysicalSizeZ: 0.325
   CustomProperties:
-  - ID: Property:12
+  - ID: Property:9
     Name: SpimData.SequenceDescription.ViewSetups.Attributes.Channel.id
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:13
+  - ID: Property:10
     Name: SpimData.SequenceDescription.ViewSetups.Attributes.Channel.name
     Value: '1'
     Source: SourceFile:0
+  Name: Platy-89_02_tomo.n5
 CustomProperties:
 - ID: Property:0
   Name: SpimData.BasePath.type
@@ -31,79 +90,62 @@ CustomProperties:
   Value: '"relative"'
   Source: SourceFile:0
 - ID: Property:3
-  Name: SpimData.SequenceDescription.ImageLoader.n5.value
-  Value: '"Platy-89_02_tomo.n5"'
-  Source: SourceFile:0
-- ID: Property:4
   Name: SpimData.SequenceDescription.ImageLoader.format
   Value: '"bdv.n5"'
   Source: SourceFile:0
-- ID: Property:5
+- ID: Property:4
   Name: SpimData.SequenceDescription.ImageLoader.version
   Value: '1.0'
   Source: SourceFile:0
-- ID: Property:6
+- ID: Property:5
   Name: SpimData.SequenceDescription.ViewSetups.ViewSetup.id
   Value: '0'
   Source: SourceFile:0
-- ID: Property:7
-  Name: SpimData.SequenceDescription.ViewSetups.ViewSetup.name
-  Value: '"channel 1"'
-  Source: SourceFile:0
-- ID: Property:8
+- ID: Property:6
   Name: SpimData.SequenceDescription.ViewSetups.ViewSetup.size
   Value: '"1100 1100 1150"'
   Source: SourceFile:0
-- ID: Property:9
-  Name: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit
-  Value: '"micron"'
-  Source: SourceFile:0
-- ID: Property:10
+- ID: Property:7
   Name: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
   Value: '"0.325 0.325 0.325"'
   Source: SourceFile:0
-- ID: Property:11
+- ID: Property:8
   Name: SpimData.SequenceDescription.ViewSetups.ViewSetup.attributes.channel
   Value: '1'
   Source: SourceFile:0
-- ID: Property:14
+- ID: Property:11
   Name: SpimData.SequenceDescription.ViewSetups.Attributes.name
   Value: '"channel"'
   Source: SourceFile:0
-- ID: Property:15
+- ID: Property:12
   Name: SpimData.SequenceDescription.Timepoints.first
   Value: '0'
   Source: SourceFile:0
-- ID: Property:16
+- ID: Property:13
   Name: SpimData.SequenceDescription.Timepoints.last
   Value: '0'
   Source: SourceFile:0
-- ID: Property:17
+- ID: Property:14
   Name: SpimData.SequenceDescription.Timepoints.type
   Value: '"range"'
   Source: SourceFile:0
-- ID: Property:18
+- ID: Property:15
   Name: SpimData.ViewRegistrations.ViewRegistration.ViewTransform.affine
   Value: '"0.325 0.0 0.0 0.0 0.0 0.325 0.0 0.0 0.0 0.0 0.325 0.0"'
   Source: SourceFile:0
-- ID: Property:19
+- ID: Property:16
   Name: SpimData.ViewRegistrations.ViewRegistration.ViewTransform.type
   Value: '"affine"'
   Source: SourceFile:0
-- ID: Property:20
+- ID: Property:17
   Name: SpimData.ViewRegistrations.ViewRegistration.timepoint
   Value: '0'
   Source: SourceFile:0
-- ID: Property:21
+- ID: Property:18
   Name: SpimData.ViewRegistrations.ViewRegistration.setup
   Value: '0'
   Source: SourceFile:0
-Instrument:
-- AcquisitionSoftware:
-  - {}
-  CustomProperties:
-  - ID: Property:22
-    Name: SpimData.version
-    Value: '0.2'
-    SchemaPath: AcquisitionSoftware.Version
-    Source: SourceFile:0
+- ID: Property:19
+  Name: SpimData.version
+  Value: '0.2'
+  Source: SourceFile:0

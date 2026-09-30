@@ -7,8 +7,7 @@
     "SequenceDescription": {
       "ImageLoader": {
         "n5": {
-          "type": "relative",
-          "value": "Platy-89_02_tomo.n5"
+          "type": "relative"
         },
         "format": "bdv.n5",
         "version": 1.0
@@ -16,10 +15,8 @@
       "ViewSetups": {
         "ViewSetup": {
           "id": 0,
-          "name": "channel 1",
           "size": "1100 1100 1150",
           "voxelSize": {
-            "unit": "micron",
             "size": "0.325 0.325 0.325"
           },
           "attributes": {
@@ -49,22 +46,39 @@
         "timepoint": 0,
         "setup": 0
       }
-    }
+    },
+    "version": 0.2
   },
-  "AcquisitionSoftware": {
-    "Version": 0.2
+  "Image": {
+    "Name": "Platy-89_02_tomo.n5"
+  },
+  "Channel": {
+    "Name": "channel 1"
+  },
+  "Pixels": {
+    "PhysicalSizeXUnit": "micron",
+    "PhysicalSizeYUnit": "micron",
+    "PhysicalSizeZUnit": "micron",
+    "SizeX": 1100,
+    "SizeY": 1100,
+    "SizeZ": 1150,
+    "PhysicalSizeX": 0.325,
+    "PhysicalSizeY": 0.325,
+    "PhysicalSizeZ": 0.325
   },
   "SourceMap": {
     "SpimData.BasePath.type": "SpimData.BasePath.type",
     "SpimData.BasePath.value": "SpimData.BasePath.value",
     "SpimData.SequenceDescription.ImageLoader.n5.type": "SpimData.SequenceDescription.ImageLoader.n5.type",
-    "SpimData.SequenceDescription.ImageLoader.n5.value": "SpimData.SequenceDescription.ImageLoader.n5.value",
+    "Image.Name": "SpimData.SequenceDescription.ImageLoader.n5.value",
     "SpimData.SequenceDescription.ImageLoader.format": "SpimData.SequenceDescription.ImageLoader.format",
     "SpimData.SequenceDescription.ImageLoader.version": "SpimData.SequenceDescription.ImageLoader.version",
     "SpimData.SequenceDescription.ViewSetups.ViewSetup.id": "SpimData.SequenceDescription.ViewSetups.ViewSetup.id",
-    "SpimData.SequenceDescription.ViewSetups.ViewSetup.name": "SpimData.SequenceDescription.ViewSetups.ViewSetup.name",
+    "Channel.Name": "SpimData.SequenceDescription.ViewSetups.ViewSetup.name",
     "SpimData.SequenceDescription.ViewSetups.ViewSetup.size": "SpimData.SequenceDescription.ViewSetups.ViewSetup.size",
-    "SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit": "SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit",
+    "Pixels.PhysicalSizeXUnit": "SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit",
+    "Pixels.PhysicalSizeYUnit": "SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit",
+    "Pixels.PhysicalSizeZUnit": "SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit",
     "SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size": "SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size",
     "SpimData.SequenceDescription.ViewSetups.ViewSetup.attributes.channel": "SpimData.SequenceDescription.ViewSetups.ViewSetup.attributes.channel",
     "SpimData.SequenceDescription.ViewSetups.Attributes.Channel.id": "SpimData.SequenceDescription.ViewSetups.Attributes.Channel.id",
@@ -77,6 +91,24 @@
     "SpimData.ViewRegistrations.ViewRegistration.ViewTransform.type": "SpimData.ViewRegistrations.ViewRegistration.ViewTransform.type",
     "SpimData.ViewRegistrations.ViewRegistration.timepoint": "SpimData.ViewRegistrations.ViewRegistration.timepoint",
     "SpimData.ViewRegistrations.ViewRegistration.setup": "SpimData.ViewRegistrations.ViewRegistration.setup",
-    "AcquisitionSoftware.Version": "SpimData.version"
+    "SpimData.version": "SpimData.version",
+    "Pixels.SizeX": [
+      "SpimData.SequenceDescription.ViewSetups.ViewSetup.size"
+    ],
+    "Pixels.SizeY": [
+      "SpimData.SequenceDescription.ViewSetups.ViewSetup.size"
+    ],
+    "Pixels.SizeZ": [
+      "SpimData.SequenceDescription.ViewSetups.ViewSetup.size"
+    ],
+    "Pixels.PhysicalSizeX": [
+      "SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size"
+    ],
+    "Pixels.PhysicalSizeY": [
+      "SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size"
+    ],
+    "Pixels.PhysicalSizeZ": [
+      "SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size"
+    ]
   }
 }

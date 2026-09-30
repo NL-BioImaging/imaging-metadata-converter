@@ -21,5 +21,53 @@
             "Acquisition.AcquisitionStartDatetime.DateTime"
         ],
         "format": "unix"
+    },
+    {
+        "target": "Pixels.SizeX",
+        "sources": [
+            "SpimData.SequenceDescription.ViewSetups.ViewSetup.size"
+        ],
+        "format": "split",
+        "item": 0
+    },
+    {
+        "target": "Pixels.SizeY",
+        "sources": [
+            "SpimData.SequenceDescription.ViewSetups.ViewSetup.size"
+        ],
+        "format": "split",
+        "item": 1
+    },
+    {
+        "target": "Pixels.SizeZ",
+        "sources": [
+            "SpimData.SequenceDescription.ViewSetups.ViewSetup.size"
+        ],
+        "format": "split",
+        "item": 2
+    },
+    {
+        "target": "Pixels.PhysicalSizeX",
+        "sources": [
+            "SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size"
+        ],
+        "format": "split",
+        "item": 0
+    },
+    {
+        "target": "Pixels.PhysicalSizeY",
+        "sources": [
+            "SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size"
+        ],
+        "format": "split",
+        "item": 1
+    },
+    {
+        "target": "Pixels.PhysicalSizeZ",
+        "sources": [
+            "SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size"
+        ],
+        "format": "split",
+        "item": 2
     }
 ]

@@ -330,5 +330,12 @@
     "ConfocalSettingDefinition.LaserArray.Laser.Wavelength": {
         "target": "Laser[*].IlluminationWavelengthRange.PeakWavelength",
         "unit": "nm"
-    }
+    },
+    "SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit": [
+        "Pixels.PhysicalSizeXUnit",
+        "Pixels.PhysicalSizeYUnit",
+        "Pixels.PhysicalSizeZUnit"
+    ],
+    "SpimData.SequenceDescription.ViewSetups.ViewSetup.name": "Channel.Name",
+    "SpimData.SequenceDescription.ImageLoader.n5.value": "Image.Name"
 }

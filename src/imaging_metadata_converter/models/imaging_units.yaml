@@ -626,6 +626,8 @@ enums:
         - micrometer
         - micrometre
         - micrometres
+        - micron
+        - microns
         - um
         annotations:
           xsdfu_name: micrometer

@@ -170,7 +170,13 @@ follows a [*] target. Not placed: Leica's integer order/serial numbers (CatalogN
 exporter keeps types exact), immersion "Oil" (not in LiMi's list), the HardwareSetting copies of the
 summary keys (field taken), values needing translation (laser type, TL-BF contrast), ScanSpeed. WLL's
 Wavelength 0 is placed as 0 nm, as the file says. Keys: widefield 1 -> 5%, tilescan 3 -> 10%.
-Status: LIF done, not committed; next platy.
+LIF pushed (eb75b15). Platy (user, 2026-09-30): a combination format "split" (item n of a
+whitespace-separated value, as a number) for ViewSetup.size -> Pixels.SizeX/Y/Z and voxelSize.size ->
+PhysicalSizeX/Y/Z (BDV order x y z); voxelSize.unit -> the three units, "micron"/"microns" as aliases
+of um; ViewSetup.name -> Channel.Name; ImageLoader.n5.value -> Image.Name.
+Done: platy 0 -> 22% of keys (5 of 23; the rest is BDV's loader, time points and registration).
+Status: platy done, not committed. Coverage of the three now: DICOM 21%, LIF widefield 5%, LIF
+confocal 10%, platy 22%.
 
 ## The model and the pipeline
 

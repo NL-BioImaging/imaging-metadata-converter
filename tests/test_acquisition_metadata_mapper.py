@@ -310,6 +310,25 @@ class LosslessMappingTest(unittest.TestCase):
         self.assertNotIn('D', mapper.convert_metadata({'Date': '10/19/15'}))
         self.assertNotIn('D', mapper.convert_metadata({'Date': '10/19/15', 'Time': 'noon'}))
 
+    def test_split_combination_takes_one_number_of_a_spaced_value(self):
+        source = 'View.size'
+        mapper = self.mapper_for({}, [{'target': f'Pixels.Size{axis}', 'sources': [source], 'format': 'split',
+                                       'item': index} for index, axis in enumerate('XYZ')]
+                                 + [{'target': 'Pixels.PhysicalSizeX', 'sources': ['View.voxel'], 'format': 'split',
+                                     'item': 0}])
+
+        converted = mapper.convert_metadata({'View': {'size': '1100 1100 1150', 'voxel': '0.325 0.325 0.325'}})
+
+        self.assertEqual(converted['Pixels'], {'SizeX': 1100, 'SizeY': 1100, 'SizeZ': 1150, 'PhysicalSizeX': 0.325})
+        self.assertEqual(converted['View'], {'size': '1100 1100 1150', 'voxel': '0.325 0.325 0.325'})
+        self.assertEqual(converted['SourceMap']['Pixels.SizeZ'], [source])
+
+    def test_split_combination_is_left_out_without_a_number_there(self):
+        mapper = self.mapper_for({}, [{'target': 'N', 'sources': ['size'], 'format': 'split', 'item': 2}])
+
+        self.assertNotIn('N', mapper.convert_metadata({'size': '1100 1100'}))
+        self.assertNotIn('N', mapper.convert_metadata({'size': '1100 1100 large'}))
+
     def test_combination_never_overwrites(self):
         mapper = self.mapper_for({'Stamp': 'D'}, [{'target': 'D', 'sources': ['Date', 'Time'],
                                                    'format': '%m/%d/%y %H:%M:%S'}])

@@ -552,14 +552,15 @@ class AcquisitionMetadataMapper:
 
         The parts, looked up by source path, are joined with spaces, parsed
         with the entry's strptime format (or "unix", seconds since 1970) and written as ISO 8601 at its
-        target - only where that is free, and only when every part is there
+        target, or with "split" taken as the entry's "item"-th number of them - only where that is free,
+        and only when every part is there
         and parses. The parts themselves stay where the mapping put them;
         the combined value's SourceMap entry is the list of its parts.
         """
         for combination in self.combinations:
             parts = [value_at_path(metadata, path) for path in combination['sources']]
             has_all_parts = all(part is not None for part in parts)
-            combined = parse_combination(' '.join(map(str, parts)), combination['format']) if has_all_parts else None
+            combined = parse_combination(' '.join(map(str, parts)), combination['format'], combination.get('item'))                 if has_all_parts else None
             if combined is not None and is_free_path(result, combination['target']):
                 set_nested_value(result, combination['target'], combined)
                 provenance[combination['target']] = list(combination['sources'])
@@ -627,10 +628,14 @@ def value_at_path(metadata, dotted_path):
     return node
 
 
-def parse_combination(text, date_format):
+def parse_combination(text, date_format, item=None):
     """`text` parsed with the strptime `date_format`, as ISO 8601, or None if it does not parse. The format
     "unix" reads seconds since 1970 (UTC); 0 is taken as unset (TALOS writes "0" for a time it lacks), not
-    as 1970-01-01."""
+    as 1970-01-01. The format "split" takes the `item`-th of the whitespace-separated words of `text` as a
+    number (BigDataViewer's size "1100 1100 1150"), or None if there is no number there."""
+    if date_format == 'split':
+        words = text.split()
+        return _number(words[item]) if item < len(words) else None
     if date_format == 'unix':
         seconds = int(text) if text.strip().isdigit() else 0
         return datetime.fromtimestamp(seconds, tz=timezone.utc).isoformat() if seconds > 0 else None
@@ -638,6 +643,16 @@ def parse_combination(text, date_format):
         return datetime.strptime(text, date_format).isoformat()
     except ValueError:
         return None
+
+
+def _number(text):
+    """`text` as an int, or else a float, or None."""
+    for parse in (int, float):
+        try:
+            return parse(text)
+        except ValueError:
+            pass
+    return None
 
 
 def resolve_exact_path(source_path, mappings):
