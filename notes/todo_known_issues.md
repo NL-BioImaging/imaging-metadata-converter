@@ -157,7 +157,20 @@ export); a rule may name one item of a plain value list ("PixelSpacing[0]"), the
 a list at its place. DICOM PixelSpacing and SliceThickness map with unit mm. D done, as
 Instrument.CatalogNumber (user): LiMi's ManufacturerSpec has no SerialNumber, its CatalogNumber is
 "Catalog, Part or Serial Number"; DeviceSerialNumber maps to it. DICOM: 21% of keys (17 of 94).
-Status: C and D done, not committed; next LIF, then platy.
+C and D pushed (ff5ac6a). LIF (user, 2026-09-30): round 1 agreed - summary keys (manufacturer, model,
+lens_na, immersion), SystemTypeName -> Instrument.Name, SystemSerialNumber -> Instrument.CatalogNumber,
+ObjectiveName/-Number -> Objective.Model/CatalogNumber, StagePosX/Y + ZPosition -> Plane.Position* (m),
+MountingMediumRefractionIndex, UserManagementUserName, camera/scan format -> Pixels.SizeX/Y,
+Resolution/BitSize -> SignificantBits, CameraName -> GenericDetector.Model, camera ExposureTime (s),
+PixelDwellTime (s), Zoom, Pinhole (m), ScanDirectionXName -> ConfocalScannerSettings; the shared
+magnification rule -> Objective.Magnification (nominal; EMSIS too); EMSIS pixelsizex/y unit m (were read
+as um). Round 2 (user): LaserName/Wavelength (nm) -> Laser[*], LineAverage -> IntegrationNumber; not the
+channel names/dyes (Spectro.MultiBand band i = image channel i unconfirmed). An implied unit now also
+follows a [*] target. Not placed: Leica's integer order/serial numbers (CatalogNumber is a string, the
+exporter keeps types exact), immersion "Oil" (not in LiMi's list), the HardwareSetting copies of the
+summary keys (field taken), values needing translation (laser type, TL-BF contrast), ScanSpeed. WLL's
+Wavelength 0 is placed as 0 nm, as the file says. Keys: widefield 1 -> 5%, tilescan 3 -> 10%.
+Status: LIF done, not committed; next platy.
 
 ## The model and the pipeline
 

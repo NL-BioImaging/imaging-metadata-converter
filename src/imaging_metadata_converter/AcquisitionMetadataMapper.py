@@ -435,7 +435,8 @@ class AcquisitionMetadataMapper:
                 candidates, copies = self._candidates(rule_source_path, source_path, min_rule_segments, result,
                                                       provenance, root, origin_path)
                 placed_at, placed_provenance = self._place(value, origin_path, *candidates)
-                self._imply_unit(rule_source_path, placed_at, placed_provenance, origin_path, root)
+                if (placed_at, placed_provenance) == (candidates[0][1], root[1]):
+                    self._imply_unit(rule_source_path, placed_at, origin_path, root)
                 for copy_target in copies:
                     if is_free_path(root_result, copy_target):
                         self._place(value, origin_path, (root_result, copy_target, root_provenance))
@@ -455,7 +456,7 @@ class AcquisitionMetadataMapper:
             single_target(target, item_rule_path)
             if target is not None and is_free_path(root_result, target):
                 self._place(item, item_origin, (root_result, target, root_provenance))
-                self._imply_unit(item_rule_path, target, root_provenance, item_origin, root)
+                self._imply_unit(item_rule_path, target, item_origin, root)
             else:
                 rest.append((index, item))
         if rest:
@@ -466,12 +467,12 @@ class AcquisitionMetadataMapper:
                 for suffix in leaf_suffixes(item):
                     placed_provenance[f'{placed_at}[{position}]{suffix}'] = f'{origin_path}[{index}]{suffix}'
 
-    def _imply_unit(self, rule_source_path, placed_at, placed_provenance, origin, root):
-        """Note the unit a rule says its source implies, for a value placed at that rule's target; the units are
+    def _imply_unit(self, rule_source_path, target, origin, root):
+        """Note the unit a rule says its source implies, for a value placed at that rule's `target`; the units are
         written once everything is mapped, so a unit the source states always comes first."""
         unit = self.implied_units.get(rule_source_path)
-        if unit is not None and placed_provenance is root[1] and placed_at == self.mappings[rule_source_path]:
-            root[2].append((unit_field(placed_at), unit, origin))
+        if unit is not None:
+            root[2].append((unit_field(target), unit, origin))
 
     def _candidates(self, rule_source_path, source_path, min_rule_segments, result, provenance, root, origin=''):
         """Where a value may go, in order - a rule's target from the root, else a schema match or its own

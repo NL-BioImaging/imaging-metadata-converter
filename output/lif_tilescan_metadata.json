@@ -1,11 +1,17 @@
 {
-  "manufacturer": "Leica Microsystems",
-  "model": "DMI6000B-CS",
-  "Objective": {
-    "CalibratedMagnification": 40.0
+  "Instrument": {
+    "Manufacturer": "Leica Microsystems",
+    "Model": "DMI6000B-CS",
+    "CatalogNumber": 8100000189,
+    "Name": "TCS SP8"
   },
-  "lens_na": 1.3,
-  "immersion": "Oil",
+  "Objective": {
+    "Magnification": 40.0,
+    "LensNA": 1.3,
+    "ImmersionType": "Oil",
+    "Model": "HC PL APO CS2    40x/1.30 OIL ",
+    "CatalogNumber": 11506358
+  },
   "ImmersionLiquid": {
     "RefractiveIndex": 1.518
   },
@@ -842,7 +848,6 @@
             },
             "Version": 6,
             "LightSourceType": 1,
-            "LaserName": "405 Diode",
             "PowerState": "On",
             "StedAlignFlag": 0,
             "CanDoLinearOutputPower": 0,
@@ -851,7 +856,6 @@
             "HighPowerModeActive": 0,
             "LightSourceName": "UV",
             "OutputPowerWatt": 16383,
-            "Wavelength": 405,
             "CanDoChangeWavelength": 0
           },
           {
@@ -864,7 +868,6 @@
             },
             "Version": 6,
             "LightSourceType": 2,
-            "LaserName": "440pulsed",
             "PowerState": "Off",
             "StedAlignFlag": 0,
             "CanDoLinearOutputPower": 0,
@@ -873,7 +876,6 @@
             "HighPowerModeActive": 0,
             "LightSourceName": "Chaser UV",
             "OutputPowerWatt": 0,
-            "Wavelength": 440,
             "CanDoChangeWavelength": 0
           },
           {
@@ -892,7 +894,6 @@
             },
             "Version": 6,
             "LightSourceType": 0,
-            "LaserName": "Argon",
             "PowerState": "Off",
             "StedAlignFlag": 0,
             "CanDoLinearOutputPower": 1,
@@ -902,7 +903,6 @@
             "LightSourceName": "Visible",
             "OutputPowerWatt": 0,
             "OutputPowerPercentage": 0,
-            "Wavelength": 458,
             "CanDoChangeWavelength": 0
           },
           {
@@ -921,7 +921,6 @@
             },
             "Version": 6,
             "LightSourceType": 4,
-            "LaserName": "WLL",
             "PowerState": "On",
             "StedAlignFlag": 0,
             "CanDoLinearOutputPower": 1,
@@ -931,7 +930,6 @@
             "LightSourceName": "SuperContVisible2",
             "OutputPowerWatt": 0,
             "OutputPowerPercentage": 0.5,
-            "Wavelength": 0,
             "PulsePickerRatio": 80,
             "CanDoChangeWavelength": 0
           }
@@ -960,12 +958,10 @@
       "IsHydPulsedModeCoeffntManualActive": 0,
       "XGalvoMovementMode": 0,
       "XGalvoMovementModeName": "sinus",
-      "BitSize": 8,
       "MaxIntegrationTime": 1,
       "ScanMode": "xyz",
       "ZUseMode": 1,
       "ZUseModeName": "z-galvo",
-      "ZPosition": 7.80344753594138e-07,
       "IsSuperZ": 0,
       "ValidBeginStack": 0,
       "ValidEndStack": 0,
@@ -976,8 +972,6 @@
       "IsFastZStack": 0,
       "ZStackDirectionMode": 1,
       "ZStackDirectionModeName": "Unidirectional",
-      "StagePosX": 0.05289914772031,
-      "StagePosY": 0.0479124754688,
       "StageRangeX": 0.11697940299714,
       "StageRangeY": 0.08300777,
       "FlipX": 0,
@@ -985,8 +979,6 @@
       "SwapXY": 1,
       "Magnification": 40,
       "ObjectivePos": 1,
-      "ObjectiveName": "HC PL APO CS2    40x/1.30 OIL ",
-      "ObjectiveNumber": 11506358,
       "MicroscopeModel": "DMI6000B-CS",
       "IsInverseMicroscopeModel": 1,
       "Immersion": "OIL",
@@ -1004,22 +996,16 @@
       "LastNonMP_MFP_FW_Name": "",
       "LastNonMP_Pol_FW_Name": "",
       "ScanSpeed": 8000,
-      "InDimension": 512,
-      "OutDimension": 512,
       "UseScanFormatRestriction": 1,
-      "Zoom": 1.24999920527191,
       "BaseZoom": 0.75,
       "PanFirstDim": 8.67361737988404e-19,
       "PanSecondDim": 8.67361737988404e-19,
       "ScanDirectionX": 2,
-      "ScanDirectionXName": "Bidirectional",
       "PhaseX": 2.40024414435035,
       "RotatorAngle": 1.2994761884307,
-      "Pinhole": 6.5323284410948e-05,
       "PinholeAiry": 1.00009739182015,
       "EmissionWavelengthForPinholeAiryCalculation": 580,
       "FrameAverage": 1,
-      "LineAverage": 16,
       "FrameAccumulation": 1,
       "Line_Accumulation": 1,
       "AreBleachPointsEnabled": 0,
@@ -1029,26 +1015,77 @@
       "Is3DLimitedRoiScanEnable": 0,
       "ZCompensationModes": 0,
       "WizardMode": 0,
-      "IsConstantIntegrationTimeActive": 0,
-      "PixelDwellTime": 7.20625e-08,
-      "SystemSerialNumber": 8100000189
+      "IsConstantIntegrationTimeActive": 0
     },
     "Application": "LAS AF",
     "HardwareServerVersion": "Build 18963",
     "SystemType": 12,
-    "SystemTypeName": "TCS SP8",
     "DataSourceType": 0,
     "DataSourceTypeName": "Confocal"
+  },
+  "Laser": [
+    {
+      "Name": "405 Diode",
+      "IlluminationWavelengthRange": {
+        "PeakWavelength": 405,
+        "PeakWavelengthUnit": "nm"
+      }
+    },
+    {
+      "Name": "440pulsed",
+      "IlluminationWavelengthRange": {
+        "PeakWavelength": 440,
+        "PeakWavelengthUnit": "nm"
+      }
+    },
+    {
+      "Name": "Argon",
+      "IlluminationWavelengthRange": {
+        "PeakWavelength": 458,
+        "PeakWavelengthUnit": "nm"
+      }
+    },
+    {
+      "Name": "WLL",
+      "IlluminationWavelengthRange": {
+        "PeakWavelength": 0,
+        "PeakWavelengthUnit": "nm"
+      }
+    }
+  ],
+  "Pixels": {
+    "SignificantBits": 8,
+    "SizeX": 512,
+    "SizeY": 512
+  },
+  "Plane": {
+    "PositionZ": 7.80344753594138e-07,
+    "PositionX": 0.05289914772031,
+    "PositionY": 0.0479124754688,
+    "PixelDwellTime": 7.20625e-08,
+    "PositionZUnit": "m",
+    "PositionXUnit": "m",
+    "PositionYUnit": "m",
+    "PixelDwellTimeUnit": "s"
+  },
+  "LightPath": {
+    "ConfocalScannerSettings": {
+      "EffectiveZoom": 1.24999920527191,
+      "ScanDirectionality": "Bidirectional",
+      "PresetPinholeSize": 6.5323284410948e-05,
+      "IntegrationNumber": 16,
+      "PresetPinholeSizeUnit": "m"
+    }
   },
   "AcquisitionSoftware": {
     "Name": "LAS X 3.5.2.18963"
   },
   "SourceMap": {
-    "manufacturer": "manufacturer",
-    "model": "model",
-    "Objective.CalibratedMagnification": "magnification",
-    "lens_na": "lens_na",
-    "immersion": "immersion",
+    "Instrument.Manufacturer": "manufacturer",
+    "Instrument.Model": "model",
+    "Objective.Magnification": "magnification",
+    "Objective.LensNA": "lens_na",
+    "Objective.ImmersionType": "immersion",
     "ImmersionLiquid.RefractiveIndex": "refractive_index",
     "HardwareSetting.ConfocalSettingDefinition.EasySRMappingArray": "HardwareSetting.ConfocalSettingDefinition.EasySRMappingArray",
     "HardwareSetting.ConfocalSettingDefinition.EasySRSlider.SRRelative": "HardwareSetting.ConfocalSettingDefinition.EasySRSlider.SRRelative",
@@ -1649,12 +1686,19 @@
     "HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].CanDoTimeGate": "HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].CanDoTimeGate",
     "HardwareSetting.ConfocalSettingDefinition.DetectorList.DetectorAutoSelection": "HardwareSetting.ConfocalSettingDefinition.DetectorList.DetectorAutoSelection",
     "HardwareSetting.ConfocalSettingDefinition.DetectorList.InExternalDetectionMode": "HardwareSetting.ConfocalSettingDefinition.DetectorList.InExternalDetectionMode",
+    "Laser[0].Name": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LaserName",
+    "Laser[0].IlluminationWavelengthRange.PeakWavelength": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].Wavelength",
+    "Laser[1].Name": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].LaserName",
+    "Laser[1].IlluminationWavelengthRange.PeakWavelength": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].Wavelength",
+    "Laser[2].Name": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].LaserName",
+    "Laser[2].IlluminationWavelengthRange.PeakWavelength": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].Wavelength",
+    "Laser[3].Name": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LaserName",
+    "Laser[3].IlluminationWavelengthRange.PeakWavelength": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].Wavelength",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].BeamRoute.BeamPosition.BeamPositionLevel": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].BeamRoute.BeamPosition.BeamPositionLevel",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].BeamRoute.BeamPosition.BeamPosition": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].BeamRoute.BeamPosition.BeamPosition",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].BeamRoute.Version": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].BeamRoute.Version",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].Version": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].Version",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LightSourceType": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LightSourceType",
-    "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LaserName": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LaserName",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].PowerState": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].PowerState",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].StedAlignFlag": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].StedAlignFlag",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].CanDoLinearOutputPower": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].CanDoLinearOutputPower",
@@ -1663,14 +1707,12 @@
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].HighPowerModeActive": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].HighPowerModeActive",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LightSourceName": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LightSourceName",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].OutputPowerWatt": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].OutputPowerWatt",
-    "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].Wavelength": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].Wavelength",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].CanDoChangeWavelength": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].CanDoChangeWavelength",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].BeamRoute.BeamPosition.BeamPositionLevel": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].BeamRoute.BeamPosition.BeamPositionLevel",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].BeamRoute.BeamPosition.BeamPosition": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].BeamRoute.BeamPosition.BeamPosition",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].BeamRoute.Version": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].BeamRoute.Version",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].Version": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].Version",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].LightSourceType": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].LightSourceType",
-    "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].LaserName": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].LaserName",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].PowerState": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].PowerState",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].StedAlignFlag": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].StedAlignFlag",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].CanDoLinearOutputPower": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].CanDoLinearOutputPower",
@@ -1679,7 +1721,6 @@
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].HighPowerModeActive": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].HighPowerModeActive",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].LightSourceName": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].LightSourceName",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].OutputPowerWatt": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].OutputPowerWatt",
-    "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].Wavelength": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].Wavelength",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].CanDoChangeWavelength": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].CanDoChangeWavelength",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].BeamRoute.BeamPosition[0].BeamPositionLevel": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].BeamRoute.BeamPosition[0].BeamPositionLevel",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].BeamRoute.BeamPosition[0].BeamPosition": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].BeamRoute.BeamPosition[0].BeamPosition",
@@ -1688,7 +1729,6 @@
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].BeamRoute.Version": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].BeamRoute.Version",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].Version": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].Version",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].LightSourceType": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].LightSourceType",
-    "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].LaserName": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].LaserName",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].PowerState": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].PowerState",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].StedAlignFlag": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].StedAlignFlag",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].CanDoLinearOutputPower": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].CanDoLinearOutputPower",
@@ -1698,7 +1738,6 @@
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].LightSourceName": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].LightSourceName",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].OutputPowerWatt": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].OutputPowerWatt",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].OutputPowerPercentage": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].OutputPowerPercentage",
-    "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].Wavelength": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].Wavelength",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].CanDoChangeWavelength": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].CanDoChangeWavelength",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].BeamRoute.BeamPosition[0].BeamPositionLevel": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].BeamRoute.BeamPosition[0].BeamPositionLevel",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].BeamRoute.BeamPosition[0].BeamPosition": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].BeamRoute.BeamPosition[0].BeamPosition",
@@ -1707,7 +1746,6 @@
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].BeamRoute.Version": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].BeamRoute.Version",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].Version": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].Version",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LightSourceType": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LightSourceType",
-    "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LaserName": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LaserName",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].PowerState": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].PowerState",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].StedAlignFlag": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].StedAlignFlag",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].CanDoLinearOutputPower": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].CanDoLinearOutputPower",
@@ -1717,7 +1755,6 @@
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LightSourceName": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LightSourceName",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].OutputPowerWatt": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].OutputPowerWatt",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].OutputPowerPercentage": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].OutputPowerPercentage",
-    "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].Wavelength": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].Wavelength",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].PulsePickerRatio": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].PulsePickerRatio",
     "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].CanDoChangeWavelength": "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].CanDoChangeWavelength",
     "HardwareSetting.ConfocalSettingDefinition.OnlineDyeSeparation.OnlineDyeSeparationDetectorList": "HardwareSetting.ConfocalSettingDefinition.OnlineDyeSeparation.OnlineDyeSeparationDetectorList",
@@ -1739,12 +1776,12 @@
     "HardwareSetting.ConfocalSettingDefinition.IsHydPulsedModeCoeffntManualActive": "HardwareSetting.ConfocalSettingDefinition.IsHydPulsedModeCoeffntManualActive",
     "HardwareSetting.ConfocalSettingDefinition.XGalvoMovementMode": "HardwareSetting.ConfocalSettingDefinition.XGalvoMovementMode",
     "HardwareSetting.ConfocalSettingDefinition.XGalvoMovementModeName": "HardwareSetting.ConfocalSettingDefinition.XGalvoMovementModeName",
-    "HardwareSetting.ConfocalSettingDefinition.BitSize": "HardwareSetting.ConfocalSettingDefinition.BitSize",
+    "Pixels.SignificantBits": "HardwareSetting.ConfocalSettingDefinition.BitSize",
     "HardwareSetting.ConfocalSettingDefinition.MaxIntegrationTime": "HardwareSetting.ConfocalSettingDefinition.MaxIntegrationTime",
     "HardwareSetting.ConfocalSettingDefinition.ScanMode": "HardwareSetting.ConfocalSettingDefinition.ScanMode",
     "HardwareSetting.ConfocalSettingDefinition.ZUseMode": "HardwareSetting.ConfocalSettingDefinition.ZUseMode",
     "HardwareSetting.ConfocalSettingDefinition.ZUseModeName": "HardwareSetting.ConfocalSettingDefinition.ZUseModeName",
-    "HardwareSetting.ConfocalSettingDefinition.ZPosition": "HardwareSetting.ConfocalSettingDefinition.ZPosition",
+    "Plane.PositionZ": "HardwareSetting.ConfocalSettingDefinition.ZPosition",
     "HardwareSetting.ConfocalSettingDefinition.IsSuperZ": "HardwareSetting.ConfocalSettingDefinition.IsSuperZ",
     "HardwareSetting.ConfocalSettingDefinition.ValidBeginStack": "HardwareSetting.ConfocalSettingDefinition.ValidBeginStack",
     "HardwareSetting.ConfocalSettingDefinition.ValidEndStack": "HardwareSetting.ConfocalSettingDefinition.ValidEndStack",
@@ -1755,8 +1792,8 @@
     "HardwareSetting.ConfocalSettingDefinition.IsFastZStack": "HardwareSetting.ConfocalSettingDefinition.IsFastZStack",
     "HardwareSetting.ConfocalSettingDefinition.ZStackDirectionMode": "HardwareSetting.ConfocalSettingDefinition.ZStackDirectionMode",
     "HardwareSetting.ConfocalSettingDefinition.ZStackDirectionModeName": "HardwareSetting.ConfocalSettingDefinition.ZStackDirectionModeName",
-    "HardwareSetting.ConfocalSettingDefinition.StagePosX": "HardwareSetting.ConfocalSettingDefinition.StagePosX",
-    "HardwareSetting.ConfocalSettingDefinition.StagePosY": "HardwareSetting.ConfocalSettingDefinition.StagePosY",
+    "Plane.PositionX": "HardwareSetting.ConfocalSettingDefinition.StagePosX",
+    "Plane.PositionY": "HardwareSetting.ConfocalSettingDefinition.StagePosY",
     "HardwareSetting.ConfocalSettingDefinition.StageRangeX": "HardwareSetting.ConfocalSettingDefinition.StageRangeX",
     "HardwareSetting.ConfocalSettingDefinition.StageRangeY": "HardwareSetting.ConfocalSettingDefinition.StageRangeY",
     "HardwareSetting.ConfocalSettingDefinition.FlipX": "HardwareSetting.ConfocalSettingDefinition.FlipX",
@@ -1764,8 +1801,8 @@
     "HardwareSetting.ConfocalSettingDefinition.SwapXY": "HardwareSetting.ConfocalSettingDefinition.SwapXY",
     "HardwareSetting.ConfocalSettingDefinition.Magnification": "HardwareSetting.ConfocalSettingDefinition.Magnification",
     "HardwareSetting.ConfocalSettingDefinition.ObjectivePos": "HardwareSetting.ConfocalSettingDefinition.ObjectivePos",
-    "HardwareSetting.ConfocalSettingDefinition.ObjectiveName": "HardwareSetting.ConfocalSettingDefinition.ObjectiveName",
-    "HardwareSetting.ConfocalSettingDefinition.ObjectiveNumber": "HardwareSetting.ConfocalSettingDefinition.ObjectiveNumber",
+    "Objective.Model": "HardwareSetting.ConfocalSettingDefinition.ObjectiveName",
+    "Objective.CatalogNumber": "HardwareSetting.ConfocalSettingDefinition.ObjectiveNumber",
     "HardwareSetting.ConfocalSettingDefinition.MicroscopeModel": "HardwareSetting.ConfocalSettingDefinition.MicroscopeModel",
     "HardwareSetting.ConfocalSettingDefinition.IsInverseMicroscopeModel": "HardwareSetting.ConfocalSettingDefinition.IsInverseMicroscopeModel",
     "HardwareSetting.ConfocalSettingDefinition.Immersion": "HardwareSetting.ConfocalSettingDefinition.Immersion",
@@ -1783,22 +1820,22 @@
     "HardwareSetting.ConfocalSettingDefinition.LastNonMP_MFP_FW_Name": "HardwareSetting.ConfocalSettingDefinition.LastNonMP_MFP_FW_Name",
     "HardwareSetting.ConfocalSettingDefinition.LastNonMP_Pol_FW_Name": "HardwareSetting.ConfocalSettingDefinition.LastNonMP_Pol_FW_Name",
     "HardwareSetting.ConfocalSettingDefinition.ScanSpeed": "HardwareSetting.ConfocalSettingDefinition.ScanSpeed",
-    "HardwareSetting.ConfocalSettingDefinition.InDimension": "HardwareSetting.ConfocalSettingDefinition.InDimension",
-    "HardwareSetting.ConfocalSettingDefinition.OutDimension": "HardwareSetting.ConfocalSettingDefinition.OutDimension",
+    "Pixels.SizeX": "HardwareSetting.ConfocalSettingDefinition.InDimension",
+    "Pixels.SizeY": "HardwareSetting.ConfocalSettingDefinition.OutDimension",
     "HardwareSetting.ConfocalSettingDefinition.UseScanFormatRestriction": "HardwareSetting.ConfocalSettingDefinition.UseScanFormatRestriction",
-    "HardwareSetting.ConfocalSettingDefinition.Zoom": "HardwareSetting.ConfocalSettingDefinition.Zoom",
+    "LightPath.ConfocalScannerSettings.EffectiveZoom": "HardwareSetting.ConfocalSettingDefinition.Zoom",
     "HardwareSetting.ConfocalSettingDefinition.BaseZoom": "HardwareSetting.ConfocalSettingDefinition.BaseZoom",
     "HardwareSetting.ConfocalSettingDefinition.PanFirstDim": "HardwareSetting.ConfocalSettingDefinition.PanFirstDim",
     "HardwareSetting.ConfocalSettingDefinition.PanSecondDim": "HardwareSetting.ConfocalSettingDefinition.PanSecondDim",
     "HardwareSetting.ConfocalSettingDefinition.ScanDirectionX": "HardwareSetting.ConfocalSettingDefinition.ScanDirectionX",
-    "HardwareSetting.ConfocalSettingDefinition.ScanDirectionXName": "HardwareSetting.ConfocalSettingDefinition.ScanDirectionXName",
+    "LightPath.ConfocalScannerSettings.ScanDirectionality": "HardwareSetting.ConfocalSettingDefinition.ScanDirectionXName",
     "HardwareSetting.ConfocalSettingDefinition.PhaseX": "HardwareSetting.ConfocalSettingDefinition.PhaseX",
     "HardwareSetting.ConfocalSettingDefinition.RotatorAngle": "HardwareSetting.ConfocalSettingDefinition.RotatorAngle",
-    "HardwareSetting.ConfocalSettingDefinition.Pinhole": "HardwareSetting.ConfocalSettingDefinition.Pinhole",
+    "LightPath.ConfocalScannerSettings.PresetPinholeSize": "HardwareSetting.ConfocalSettingDefinition.Pinhole",
     "HardwareSetting.ConfocalSettingDefinition.PinholeAiry": "HardwareSetting.ConfocalSettingDefinition.PinholeAiry",
     "HardwareSetting.ConfocalSettingDefinition.EmissionWavelengthForPinholeAiryCalculation": "HardwareSetting.ConfocalSettingDefinition.EmissionWavelengthForPinholeAiryCalculation",
     "HardwareSetting.ConfocalSettingDefinition.FrameAverage": "HardwareSetting.ConfocalSettingDefinition.FrameAverage",
-    "HardwareSetting.ConfocalSettingDefinition.LineAverage": "HardwareSetting.ConfocalSettingDefinition.LineAverage",
+    "LightPath.ConfocalScannerSettings.IntegrationNumber": "HardwareSetting.ConfocalSettingDefinition.LineAverage",
     "HardwareSetting.ConfocalSettingDefinition.FrameAccumulation": "HardwareSetting.ConfocalSettingDefinition.FrameAccumulation",
     "HardwareSetting.ConfocalSettingDefinition.Line_Accumulation": "HardwareSetting.ConfocalSettingDefinition.Line_Accumulation",
     "HardwareSetting.ConfocalSettingDefinition.AreBleachPointsEnabled": "HardwareSetting.ConfocalSettingDefinition.AreBleachPointsEnabled",
@@ -1809,14 +1846,41 @@
     "HardwareSetting.ConfocalSettingDefinition.ZCompensationModes": "HardwareSetting.ConfocalSettingDefinition.ZCompensationModes",
     "HardwareSetting.ConfocalSettingDefinition.WizardMode": "HardwareSetting.ConfocalSettingDefinition.WizardMode",
     "HardwareSetting.ConfocalSettingDefinition.IsConstantIntegrationTimeActive": "HardwareSetting.ConfocalSettingDefinition.IsConstantIntegrationTimeActive",
-    "HardwareSetting.ConfocalSettingDefinition.PixelDwellTime": "HardwareSetting.ConfocalSettingDefinition.PixelDwellTime",
-    "HardwareSetting.ConfocalSettingDefinition.SystemSerialNumber": "HardwareSetting.ConfocalSettingDefinition.SystemSerialNumber",
+    "Plane.PixelDwellTime": "HardwareSetting.ConfocalSettingDefinition.PixelDwellTime",
+    "Instrument.CatalogNumber": "HardwareSetting.ConfocalSettingDefinition.SystemSerialNumber",
     "HardwareSetting.Application": "HardwareSetting.Application",
     "AcquisitionSoftware.Name": "HardwareSetting.Software",
     "HardwareSetting.HardwareServerVersion": "HardwareSetting.HardwareServerVersion",
     "HardwareSetting.SystemType": "HardwareSetting.SystemType",
-    "HardwareSetting.SystemTypeName": "HardwareSetting.SystemTypeName",
+    "Instrument.Name": "HardwareSetting.SystemTypeName",
     "HardwareSetting.DataSourceType": "HardwareSetting.DataSourceType",
-    "HardwareSetting.DataSourceTypeName": "HardwareSetting.DataSourceTypeName"
+    "HardwareSetting.DataSourceTypeName": "HardwareSetting.DataSourceTypeName",
+    "Laser[0].IlluminationWavelengthRange.PeakWavelengthUnit": [
+      "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].Wavelength"
+    ],
+    "Laser[1].IlluminationWavelengthRange.PeakWavelengthUnit": [
+      "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].Wavelength"
+    ],
+    "Laser[2].IlluminationWavelengthRange.PeakWavelengthUnit": [
+      "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].Wavelength"
+    ],
+    "Laser[3].IlluminationWavelengthRange.PeakWavelengthUnit": [
+      "HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].Wavelength"
+    ],
+    "Plane.PositionZUnit": [
+      "HardwareSetting.ConfocalSettingDefinition.ZPosition"
+    ],
+    "Plane.PositionXUnit": [
+      "HardwareSetting.ConfocalSettingDefinition.StagePosX"
+    ],
+    "Plane.PositionYUnit": [
+      "HardwareSetting.ConfocalSettingDefinition.StagePosY"
+    ],
+    "LightPath.ConfocalScannerSettings.PresetPinholeSizeUnit": [
+      "HardwareSetting.ConfocalSettingDefinition.Pinhole"
+    ],
+    "Plane.PixelDwellTimeUnit": [
+      "HardwareSetting.ConfocalSettingDefinition.PixelDwellTime"
+    ]
   }
 }

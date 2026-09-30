@@ -1,11 +1,16 @@
 {
-  "manufacturer": "Leica Microsystems",
-  "model": "MICA",
-  "Objective": {
-    "CalibratedMagnification": 10.0
+  "Instrument": {
+    "Manufacturer": "Leica Microsystems",
+    "Model": "MICA",
+    "Name": "MICA"
   },
-  "lens_na": 0.32,
-  "immersion": "Air",
+  "Objective": {
+    "Magnification": 10.0,
+    "LensNA": 0.32,
+    "ImmersionType": "Air",
+    "Model": "HC PL FLUOTAR    10x/0.32 DRY ",
+    "CatalogNumber": 11506432
+  },
   "ImmersionLiquid": {
     "RefractiveIndex": 1.0
   },
@@ -93,7 +98,6 @@
             "IndividualCameraInfo": [
               {
                 "LUT": "Gray",
-                "ExposureTime": 0.04,
                 "Active": 1,
                 "Gain": 1,
                 "EMGain": 1,
@@ -261,7 +265,6 @@
         },
         "ThisIsHSAutofocusInstance": 0,
         "MicroscopeFamilyType": 2,
-        "CameraName": "DFC4400-GI_700010131528_700010131530_700010131533_700010131558",
         "CameraType": 380,
         "CameraNamePure": "DFC4400-GI_700010131528_700010131530_700010131533_700010131558",
         "MaxChannelCount": 8,
@@ -350,9 +353,6 @@
         "WFLaserManipulationTimeCourseExperimentSettings": ""
       },
       "CameraFormat": {
-        "xDim": 2448,
-        "yDim": 2048,
-        "Resolution": 8,
         "IsGray": 1,
         "Binning": 1,
         "LiveBinning": 1,
@@ -394,7 +394,6 @@
       "ScanMode": "xy",
       "ZUseMode": 2,
       "ZUseModeName": "z-wide",
-      "ZPosition": 0.0010216985,
       "IsSuperZ": 0,
       "Begin": 0.00102521005598625,
       "End": 0.00102521005598625,
@@ -418,8 +417,6 @@
       "AddRawDataToSpectralUnmixing": 0,
       "IsRGBImageEnabled": 1,
       "StageUseMode": 7,
-      "StagePosX": 0.0452584875,
-      "StagePosY": 0.0267208985,
       "StagePosID": -1,
       "StageRangeX": 0.12689076885409,
       "StageRangeY": 0.0829567301772394,
@@ -433,8 +430,6 @@
       "AutofocusChannel": 3000,
       "IsAutofocusOnStart": 1,
       "AutofocusRedoEveryNTimePoints": 0,
-      "ObjectiveName": "HC PL FLUOTAR    10x/0.32 DRY ",
-      "ObjectiveNumber": 11506432,
       "ObjectivePos": 4,
       "MicroscopeModel": "MICA",
       "IsInverseMicroscopeModel": 1,
@@ -444,7 +439,6 @@
       "Immersion": "DRY",
       "NumericalAperture": 0.32,
       "RefractionIndex": 1,
-      "MountingMediumRefractionIndex": 1.4729,
       "CoverslipThickness": 0.00017,
       "TubeOpticName": "1x",
       "TubeOpticPos": 1,
@@ -479,25 +473,47 @@
       "EnhancedAcquisitionHDRBrightness": 50,
       "IsSequencerAdvancedUseEnabled": 1,
       "PortCameraPercentage": 25,
-      "UserManagementUserName": "Login",
       "IsMultiCam": 0
     },
     "Application": "LAS AF",
     "HardwareServerVersion": "Build 27469",
     "SystemType": 15,
-    "SystemTypeName": "MICA",
     "DataSourceType": 1,
     "DataSourceTypeName": "Camera"
+  },
+  "Plane": {
+    "ExposureTime": 0.04,
+    "PositionZ": 0.0010216985,
+    "PositionX": 0.0452584875,
+    "PositionY": 0.0267208985,
+    "ExposureTimeUnit": "s",
+    "PositionZUnit": "m",
+    "PositionXUnit": "m",
+    "PositionYUnit": "m"
+  },
+  "GenericDetector": {
+    "Model": "DFC4400-GI_700010131528_700010131530_700010131533_700010131558"
+  },
+  "Pixels": {
+    "SizeX": 2448,
+    "SizeY": 2048,
+    "SignificantBits": 8
+  },
+  "MountingMedium": {
+    "RefractiveIndex": 1.4729
+  },
+  "Experimenter": {
+    "UserName": "Login"
   },
   "AcquisitionSoftware": {
     "Name": "LAS X 6.2.1.27469"
   },
   "SourceMap": {
-    "manufacturer": "manufacturer",
-    "model": "model",
-    "Objective.CalibratedMagnification": "magnification",
-    "lens_na": "lens_na",
-    "immersion": "immersion",
+    "Instrument.Manufacturer": "manufacturer",
+    "Instrument.Model": "model",
+    "Objective.Magnification": "magnification",
+    "Objective.LensNA": "lens_na",
+    "Objective.ImmersionType": "immersion",
     "ImmersionLiquid.RefractiveIndex": "refractive_index",
     "HardwareSetting.CameraSettingDefinition.IndividualCameraGroup.PerCameraSetting[0].MirrorX": "HardwareSetting.CameraSettingDefinition.IndividualCameraGroup.PerCameraSetting[0].MirrorX",
     "HardwareSetting.CameraSettingDefinition.IndividualCameraGroup.PerCameraSetting[0].MirrorY": "HardwareSetting.CameraSettingDefinition.IndividualCameraGroup.PerCameraSetting[0].MirrorY",
@@ -551,8 +567,8 @@
     "HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.BeginValue": "HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.BeginValue",
     "HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.EndValue": "HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.EndValue",
     "HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.NbSections": "HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.NbSections",
+    "Plane.ExposureTime": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].ExposureTime",
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].LUT": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].LUT",
-    "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].ExposureTime": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].ExposureTime",
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Active": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Active",
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Gain": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Gain",
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].EMGain": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].EMGain",
@@ -702,7 +718,7 @@
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.AdvancedCameraFeatures.Advanced_Camera_Features_Activated": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.AdvancedCameraFeatures.Advanced_Camera_Features_Activated",
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.ThisIsHSAutofocusInstance": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.ThisIsHSAutofocusInstance",
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.MicroscopeFamilyType": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.MicroscopeFamilyType",
-    "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraName": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraName",
+    "GenericDetector.Model": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraName",
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraType": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraType",
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraNamePure": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraNamePure",
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.MaxChannelCount": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.MaxChannelCount",
@@ -789,9 +805,9 @@
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.ScanheadAfocalLens": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.ScanheadAfocalLens",
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.ScanheadVelocity": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.ScanheadVelocity",
     "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WFLaserManipulationTimeCourseExperimentSettings": "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WFLaserManipulationTimeCourseExperimentSettings",
-    "HardwareSetting.CameraSettingDefinition.CameraFormat.xDim": "HardwareSetting.CameraSettingDefinition.CameraFormat.xDim",
-    "HardwareSetting.CameraSettingDefinition.CameraFormat.yDim": "HardwareSetting.CameraSettingDefinition.CameraFormat.yDim",
-    "HardwareSetting.CameraSettingDefinition.CameraFormat.Resolution": "HardwareSetting.CameraSettingDefinition.CameraFormat.Resolution",
+    "Pixels.SizeX": "HardwareSetting.CameraSettingDefinition.CameraFormat.xDim",
+    "Pixels.SizeY": "HardwareSetting.CameraSettingDefinition.CameraFormat.yDim",
+    "Pixels.SignificantBits": "HardwareSetting.CameraSettingDefinition.CameraFormat.Resolution",
     "HardwareSetting.CameraSettingDefinition.CameraFormat.IsGray": "HardwareSetting.CameraSettingDefinition.CameraFormat.IsGray",
     "HardwareSetting.CameraSettingDefinition.CameraFormat.Binning": "HardwareSetting.CameraSettingDefinition.CameraFormat.Binning",
     "HardwareSetting.CameraSettingDefinition.CameraFormat.LiveBinning": "HardwareSetting.CameraSettingDefinition.CameraFormat.LiveBinning",
@@ -828,7 +844,7 @@
     "HardwareSetting.CameraSettingDefinition.ScanMode": "HardwareSetting.CameraSettingDefinition.ScanMode",
     "HardwareSetting.CameraSettingDefinition.ZUseMode": "HardwareSetting.CameraSettingDefinition.ZUseMode",
     "HardwareSetting.CameraSettingDefinition.ZUseModeName": "HardwareSetting.CameraSettingDefinition.ZUseModeName",
-    "HardwareSetting.CameraSettingDefinition.ZPosition": "HardwareSetting.CameraSettingDefinition.ZPosition",
+    "Plane.PositionZ": "HardwareSetting.CameraSettingDefinition.ZPosition",
     "HardwareSetting.CameraSettingDefinition.IsSuperZ": "HardwareSetting.CameraSettingDefinition.IsSuperZ",
     "HardwareSetting.CameraSettingDefinition.Begin": "HardwareSetting.CameraSettingDefinition.Begin",
     "HardwareSetting.CameraSettingDefinition.End": "HardwareSetting.CameraSettingDefinition.End",
@@ -852,8 +868,8 @@
     "HardwareSetting.CameraSettingDefinition.AddRawDataToSpectralUnmixing": "HardwareSetting.CameraSettingDefinition.AddRawDataToSpectralUnmixing",
     "HardwareSetting.CameraSettingDefinition.IsRGBImageEnabled": "HardwareSetting.CameraSettingDefinition.IsRGBImageEnabled",
     "HardwareSetting.CameraSettingDefinition.StageUseMode": "HardwareSetting.CameraSettingDefinition.StageUseMode",
-    "HardwareSetting.CameraSettingDefinition.StagePosX": "HardwareSetting.CameraSettingDefinition.StagePosX",
-    "HardwareSetting.CameraSettingDefinition.StagePosY": "HardwareSetting.CameraSettingDefinition.StagePosY",
+    "Plane.PositionX": "HardwareSetting.CameraSettingDefinition.StagePosX",
+    "Plane.PositionY": "HardwareSetting.CameraSettingDefinition.StagePosY",
     "HardwareSetting.CameraSettingDefinition.StagePosID": "HardwareSetting.CameraSettingDefinition.StagePosID",
     "HardwareSetting.CameraSettingDefinition.StageRangeX": "HardwareSetting.CameraSettingDefinition.StageRangeX",
     "HardwareSetting.CameraSettingDefinition.StageRangeY": "HardwareSetting.CameraSettingDefinition.StageRangeY",
@@ -867,8 +883,8 @@
     "HardwareSetting.CameraSettingDefinition.AutofocusChannel": "HardwareSetting.CameraSettingDefinition.AutofocusChannel",
     "HardwareSetting.CameraSettingDefinition.IsAutofocusOnStart": "HardwareSetting.CameraSettingDefinition.IsAutofocusOnStart",
     "HardwareSetting.CameraSettingDefinition.AutofocusRedoEveryNTimePoints": "HardwareSetting.CameraSettingDefinition.AutofocusRedoEveryNTimePoints",
-    "HardwareSetting.CameraSettingDefinition.ObjectiveName": "HardwareSetting.CameraSettingDefinition.ObjectiveName",
-    "HardwareSetting.CameraSettingDefinition.ObjectiveNumber": "HardwareSetting.CameraSettingDefinition.ObjectiveNumber",
+    "Objective.Model": "HardwareSetting.CameraSettingDefinition.ObjectiveName",
+    "Objective.CatalogNumber": "HardwareSetting.CameraSettingDefinition.ObjectiveNumber",
     "HardwareSetting.CameraSettingDefinition.ObjectivePos": "HardwareSetting.CameraSettingDefinition.ObjectivePos",
     "HardwareSetting.CameraSettingDefinition.MicroscopeModel": "HardwareSetting.CameraSettingDefinition.MicroscopeModel",
     "HardwareSetting.CameraSettingDefinition.IsInverseMicroscopeModel": "HardwareSetting.CameraSettingDefinition.IsInverseMicroscopeModel",
@@ -878,7 +894,7 @@
     "HardwareSetting.CameraSettingDefinition.Immersion": "HardwareSetting.CameraSettingDefinition.Immersion",
     "HardwareSetting.CameraSettingDefinition.NumericalAperture": "HardwareSetting.CameraSettingDefinition.NumericalAperture",
     "HardwareSetting.CameraSettingDefinition.RefractionIndex": "HardwareSetting.CameraSettingDefinition.RefractionIndex",
-    "HardwareSetting.CameraSettingDefinition.MountingMediumRefractionIndex": "HardwareSetting.CameraSettingDefinition.MountingMediumRefractionIndex",
+    "MountingMedium.RefractiveIndex": "HardwareSetting.CameraSettingDefinition.MountingMediumRefractionIndex",
     "HardwareSetting.CameraSettingDefinition.CoverslipThickness": "HardwareSetting.CameraSettingDefinition.CoverslipThickness",
     "HardwareSetting.CameraSettingDefinition.TubeOpticName": "HardwareSetting.CameraSettingDefinition.TubeOpticName",
     "HardwareSetting.CameraSettingDefinition.TubeOpticPos": "HardwareSetting.CameraSettingDefinition.TubeOpticPos",
@@ -913,14 +929,26 @@
     "HardwareSetting.CameraSettingDefinition.EnhancedAcquisitionHDRBrightness": "HardwareSetting.CameraSettingDefinition.EnhancedAcquisitionHDRBrightness",
     "HardwareSetting.CameraSettingDefinition.IsSequencerAdvancedUseEnabled": "HardwareSetting.CameraSettingDefinition.IsSequencerAdvancedUseEnabled",
     "HardwareSetting.CameraSettingDefinition.PortCameraPercentage": "HardwareSetting.CameraSettingDefinition.PortCameraPercentage",
-    "HardwareSetting.CameraSettingDefinition.UserManagementUserName": "HardwareSetting.CameraSettingDefinition.UserManagementUserName",
+    "Experimenter.UserName": "HardwareSetting.CameraSettingDefinition.UserManagementUserName",
     "HardwareSetting.CameraSettingDefinition.IsMultiCam": "HardwareSetting.CameraSettingDefinition.IsMultiCam",
     "HardwareSetting.Application": "HardwareSetting.Application",
     "AcquisitionSoftware.Name": "HardwareSetting.Software",
     "HardwareSetting.HardwareServerVersion": "HardwareSetting.HardwareServerVersion",
     "HardwareSetting.SystemType": "HardwareSetting.SystemType",
-    "HardwareSetting.SystemTypeName": "HardwareSetting.SystemTypeName",
+    "Instrument.Name": "HardwareSetting.SystemTypeName",
     "HardwareSetting.DataSourceType": "HardwareSetting.DataSourceType",
-    "HardwareSetting.DataSourceTypeName": "HardwareSetting.DataSourceTypeName"
+    "HardwareSetting.DataSourceTypeName": "HardwareSetting.DataSourceTypeName",
+    "Plane.ExposureTimeUnit": [
+      "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].ExposureTime"
+    ],
+    "Plane.PositionZUnit": [
+      "HardwareSetting.CameraSettingDefinition.ZPosition"
+    ],
+    "Plane.PositionXUnit": [
+      "HardwareSetting.CameraSettingDefinition.StagePosX"
+    ],
+    "Plane.PositionYUnit": [
+      "HardwareSetting.CameraSettingDefinition.StagePosY"
+    ]
   }
 }

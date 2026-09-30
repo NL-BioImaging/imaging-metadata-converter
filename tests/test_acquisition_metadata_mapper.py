@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import shutil
 import tempfile
 import unittest
@@ -248,6 +249,15 @@ class LosslessMappingTest(unittest.TestCase):
         self.assertEqual(converted['Pixels'], {'PhysicalSizeY': 0.5, 'PhysicalSizeYUnit': 'mm'})
         self.assertEqual(converted['SourceMap']['Pixels.PhysicalSizeYUnit'], ['Spacing[0]'])
 
+    def test_rule_with_a_unit_for_each_item_of_a_list(self):
+        mapper = self.mapper_for({'Lasers.Laser.Wavelength': {'target': 'Laser[*].Wavelength', 'unit': 'nm'}})
+
+        converted = mapper.convert_metadata({'Lasers': {'Laser': [{'Wavelength': 405}, {'Wavelength': 488}]}})
+
+        self.assertEqual(converted['Laser'], [{'Wavelength': 405, 'WavelengthUnit': 'nm'},
+                                              {'Wavelength': 488, 'WavelengthUnit': 'nm'}])
+        self.assertEqual(converted['SourceMap']['Laser[1].WavelengthUnit'], ['Lasers.Laser[1].Wavelength'])
+
     def test_implied_unit_never_overrides_a_stated_one(self):
         mapper = self.mapper_for({'Size': {'target': 'P.SizeX', 'unit': 'mm'}, 'SizeUnit': 'P.SizeXUnit'})
 
@@ -274,8 +284,9 @@ class LosslessMappingTest(unittest.TestCase):
         for source, rule in rules.items():
             if isinstance(rule, dict):
                 with self.subTest(source=source):
-                    self.assertIn(rule['target'], model_fields)
-                    self.assertIn(unit_field(rule['target']), model_fields)
+                    target = re.sub(r'\[\*\]', '', rule['target'])
+                    self.assertIn(target, model_fields)
+                    self.assertIn(unit_field(target), model_fields)
 
     def test_several_targets_for_a_group_are_refused(self):
         mapper = self.mapper_for({'Beam': ['A', 'B']})

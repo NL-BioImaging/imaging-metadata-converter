@@ -6,10 +6,12 @@
   },
   "Pixels": {
     "PhysicalSizeX": 1.652845302290227e-09,
-    "PhysicalSizeY": 1.652845302290227e-09
+    "PhysicalSizeY": 1.652845302290227e-09,
+    "PhysicalSizeXUnit": "m",
+    "PhysicalSizeYUnit": "m"
   },
   "Objective": {
-    "CalibratedMagnification": 6000.0
+    "Magnification": 6000.0
   },
   "GenericDetector": {
     "Name": ""
@@ -19,8 +21,14 @@
     "Image.AcquisitionDate": "datetime",
     "Pixels.PhysicalSizeX": "pixelsizex",
     "Pixels.PhysicalSizeY": "pixelsizey",
-    "Objective.CalibratedMagnification": "magnification",
+    "Objective.Magnification": "magnification",
     "GenericDetector.Name": "cameraname",
-    "Image.Type": "picturetype"
+    "Image.Type": "picturetype",
+    "Pixels.PhysicalSizeXUnit": [
+      "pixelsizex"
+    ],
+    "Pixels.PhysicalSizeYUnit": [
+      "pixelsizey"
+    ]
   }
 }

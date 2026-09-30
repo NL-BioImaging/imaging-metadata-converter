@@ -30,9 +30,15 @@
     "DateTimeDigitized": "Image.AcquisitionDate",
     "name": "Image.Name",
     "datetime": "Image.AcquisitionDate",
-    "pixelsizex": "Pixels.PhysicalSizeX",
-    "pixelsizey": "Pixels.PhysicalSizeY",
-    "magnification": "Objective.CalibratedMagnification",
+    "pixelsizex": {
+        "target": "Pixels.PhysicalSizeX",
+        "unit": "m"
+    },
+    "pixelsizey": {
+        "target": "Pixels.PhysicalSizeY",
+        "unit": "m"
+    },
+    "magnification": "Objective.Magnification",
     "cameraname": "GenericDetector.Name",
     "picturetype": "Image.Type",
     "time": "Image.AcquisitionDate",
@@ -261,5 +267,68 @@
     "StudyDescription": "Experiment.Description",
     "SeriesDescription": "Image.Name",
     "ImageComments": "Image.Description",
-    "InstitutionName": "Experimenter.Institution"
+    "InstitutionName": "Experimenter.Institution",
+    "manufacturer": "Instrument.Manufacturer",
+    "model": "Instrument.Model",
+    "lens_na": "Objective.LensNA",
+    "immersion": "Objective.ImmersionType",
+    "SystemTypeName": "Instrument.Name",
+    "ConfocalSettingDefinition.SystemSerialNumber": "Instrument.CatalogNumber",
+    "CameraSettingDefinition.ObjectiveName": "Objective.Model",
+    "CameraSettingDefinition.ObjectiveNumber": "Objective.CatalogNumber",
+    "CameraSettingDefinition.StagePosX": {
+        "target": "Plane.PositionX",
+        "unit": "m"
+    },
+    "CameraSettingDefinition.StagePosY": {
+        "target": "Plane.PositionY",
+        "unit": "m"
+    },
+    "CameraSettingDefinition.ZPosition": {
+        "target": "Plane.PositionZ",
+        "unit": "m"
+    },
+    "ConfocalSettingDefinition.ObjectiveName": "Objective.Model",
+    "ConfocalSettingDefinition.ObjectiveNumber": "Objective.CatalogNumber",
+    "ConfocalSettingDefinition.StagePosX": {
+        "target": "Plane.PositionX",
+        "unit": "m"
+    },
+    "ConfocalSettingDefinition.StagePosY": {
+        "target": "Plane.PositionY",
+        "unit": "m"
+    },
+    "ConfocalSettingDefinition.ZPosition": {
+        "target": "Plane.PositionZ",
+        "unit": "m"
+    },
+    "CameraSettingDefinition.MountingMediumRefractionIndex": "MountingMedium.RefractiveIndex",
+    "CameraSettingDefinition.UserManagementUserName": "Experimenter.UserName",
+    "CameraSettingDefinition.CameraFormat.xDim": "Pixels.SizeX",
+    "CameraSettingDefinition.CameraFormat.yDim": "Pixels.SizeY",
+    "CameraSettingDefinition.CameraFormat.Resolution": "Pixels.SignificantBits",
+    "CameraSettingDefinition.WideFieldChannelConfigurator.CameraName": "GenericDetector.Model",
+    "CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo.ExposureTime": {
+        "target": "Plane.ExposureTime",
+        "unit": "s"
+    },
+    "ConfocalSettingDefinition.InDimension": "Pixels.SizeX",
+    "ConfocalSettingDefinition.OutDimension": "Pixels.SizeY",
+    "ConfocalSettingDefinition.BitSize": "Pixels.SignificantBits",
+    "ConfocalSettingDefinition.PixelDwellTime": {
+        "target": "Plane.PixelDwellTime",
+        "unit": "s"
+    },
+    "ConfocalSettingDefinition.Zoom": "LightPath.ConfocalScannerSettings.EffectiveZoom",
+    "ConfocalSettingDefinition.Pinhole": {
+        "target": "LightPath.ConfocalScannerSettings.PresetPinholeSize",
+        "unit": "m"
+    },
+    "ConfocalSettingDefinition.ScanDirectionXName": "LightPath.ConfocalScannerSettings.ScanDirectionality",
+    "ConfocalSettingDefinition.LineAverage": "LightPath.ConfocalScannerSettings.IntegrationNumber",
+    "ConfocalSettingDefinition.LaserArray.Laser.LaserName": "Laser[*].Name",
+    "ConfocalSettingDefinition.LaserArray.Laser.Wavelength": {
+        "target": "Laser[*].IlluminationWavelengthRange.PeakWavelength",
+        "unit": "nm"
+    }
 }
