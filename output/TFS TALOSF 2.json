@@ -33,7 +33,11 @@
       "ConvergenceAngle": {
         "Value": "0.01575"
       },
-      "Focus": "0.00014316878066399324",
+      "Current": {
+        "Value": "4.4763959373203257e-09",
+        "Unit": "A"
+      },
+      "Focus": "0",
       "Defocus": {
         "Value": "3.9653945906137231e-06"
       }
@@ -41,8 +45,8 @@
     "ElectronOpticsSettings": {
       "GunLensSetting": "4",
       "ExtractorVoltage": "4500",
-      "C1LensIntensity": "0.15325850248336792",
-      "C2LensIntensity": "0.55978876352310181",
+      "Condenser1": "0.15325850248336792",
+      "Condenser2": "0.55978876352310181",
       "ObjectiveLensIntensity": "0.79769915342330933",
       "IntermediateLensIntensity": "-0.04735536128282547",
       "DiffractionLensIntensity": "0.26931595802307129",
@@ -50,35 +54,39 @@
       "Projector2LensIntensity": "0.98021739721298218",
       "MiniCondenserLensIntensity": "0.61476558446884155",
       "ScreenCurrent": "4.4763959373203257e-09",
-      "LastMeasuredScreenCurrent": "4.4763959373203257e-09",
-      "Focus": "0",
       "HighMagnificationMode": "None",
-      "Apertures": [
+      "Aperture": [
         {
           "Name": "C1",
           "Number": "1",
           "MechanismType": "Motorized",
           "Type": "Circular",
-          "Diameter": "0.002",
           "Enabled": "0",
           "PositionOffset": {
-            "x": "0.00058848000000000006",
-            "y": "0.0015404800000000001"
+            "X": "0.00058848000000000006",
+            "Y": "0.0015404800000000001"
           },
-          "id": "Aperture-0"
+          "id": "Aperture-0",
+          "Diameter": {
+            "Value": "0.002",
+            "Unit": "m"
+          }
         },
         {
           "Name": "C2",
           "Number": "2",
           "MechanismType": "Motorized",
           "Type": "Circular",
-          "Diameter": "0.00014999999999999999",
           "Enabled": "0",
           "PositionOffset": {
-            "x": "0.00030384000000000005",
-            "y": "0.00068895999999999996"
+            "X": "0.00030384000000000005",
+            "Y": "0.00068895999999999996"
           },
-          "id": "Aperture-1"
+          "id": "Aperture-1",
+          "Diameter": {
+            "Value": "0.00014999999999999999",
+            "Unit": "m"
+          }
         },
         {
           "Name": "OBJ",
@@ -86,8 +94,8 @@
           "MechanismType": "Motorized",
           "Type": "None",
           "PositionOffset": {
-            "x": "0.00051488",
-            "y": "0.00087312000000000002"
+            "X": "0.00051488",
+            "Y": "0.00087312000000000002"
           },
           "id": "Aperture-2"
         },
@@ -97,8 +105,8 @@
           "MechanismType": "Motorized",
           "Type": "None",
           "PositionOffset": {
-            "x": "0.00013103999999999999",
-            "y": "-0.00066224000000000003"
+            "X": "0.00013103999999999999",
+            "Y": "-0.00066224000000000003"
           },
           "id": "Aperture-3"
         }
@@ -140,12 +148,12 @@
       },
       "Rotation": {
         "Value": "-3.1415926535897931"
-      }
+      },
+      "Detector": "DualX"
     },
     "BinaryResult": {
       "AcquisitionUnit": "",
       "CompositionType": "",
-      "Detector": "DualX",
       "Offset": {
         "x": "-2.5599999999999992e-06",
         "y": "-2.5599999999999992e-06"
@@ -156,6 +164,9 @@
   },
   "ElectronSource": {
     "Type": "SFEG"
+  },
+  "Optics": {
+    "StemFocus": "0.00014316878066399324"
   },
   "EnergyFilter": {
     "EntranceApertureType": ""
@@ -215,13 +226,13 @@
         }
       },
       "DarkGainCorrectionType": "3",
-      "id": "Detector-0",
       "Name": "BM-Ceta",
       "Type": "ImagingDetector",
       "ExposureTime": {
         "Value": "1",
         "Unit": "s"
-      }
+      },
+      "ID": "Detector-0"
     },
     {
       "Inserted": "true",
@@ -229,7 +240,6 @@
       "InputCountRate": "118348.53486137386",
       "OutputCountRate": "82369.032965260209",
       "AnalyticalDetectorShutterState": "1",
-      "id": "Detector-1",
       "Name": "DualX1",
       "Type": "AnalyticalDetector",
       "ElevationAngle": {
@@ -271,7 +281,8 @@
       "BeginEnergy": {
         "Value": "150",
         "Unit": "eV"
-      }
+      },
+      "ID": "Detector-1"
     },
     {
       "Inserted": "true",
@@ -279,7 +290,6 @@
       "InputCountRate": "118348.53486137386",
       "OutputCountRate": "82369.032965260209",
       "AnalyticalDetectorShutterState": "1",
-      "id": "Detector-2",
       "Name": "DualX2",
       "Type": "AnalyticalDetector",
       "ElevationAngle": {
@@ -321,7 +331,8 @@
       "BeginEnergy": {
         "Value": "150",
         "Unit": "eV"
-      }
+      },
+      "ID": "Detector-2"
     },
     {
       "ExposureMode": "",
@@ -343,13 +354,13 @@
         }
       },
       "DarkGainCorrectionType": "3",
-      "id": "Detector-3",
       "Name": "Flucam",
       "Type": "ImagingDetector",
       "ExposureTime": {
         "Value": "0.00040000000000000002",
         "Unit": "s"
-      }
+      },
+      "ID": "Detector-3"
     },
     {
       "Inserted": "true",
@@ -361,90 +372,107 @@
         "Unit": "rad",
         "End": "0.20000000000000001"
       },
-      "id": "Detector-4",
       "Name": "HAADF",
-      "Type": "ScanningDetector"
+      "Type": "ScanningDetector",
+      "ID": "Detector-4"
     }
   ],
   "Sample": "",
   "GasInjectionSystems": "",
   "OME": {
     "CustomProperties": {
-      "Aperture[C1].Name": {
-        "type": "string",
-        "value": "2000"
+      "Aperture[C1]": {
+        "Name": {
+          "type": "string",
+          "value": "2000"
+        }
       },
-      "Aperture[C2].Name": {
-        "type": "string",
-        "value": "150"
+      "Aperture[C2]": {
+        "Name": {
+          "type": "string",
+          "value": "150"
+        }
       },
-      "Aperture[OBJ].Name": {
-        "type": "string",
-        "value": "None"
+      "Aperture[OBJ]": {
+        "Name": {
+          "type": "string",
+          "value": "None"
+        }
       },
-      "Aperture[SA].Name": {
-        "type": "string",
-        "value": "None"
+      "Aperture[SA]": {
+        "Name": {
+          "type": "string",
+          "value": "None"
+        }
       },
-      "Detectors[DualX1].IncidentAngle": {
-        "type": "double",
-        "value": "-0.34906585000000001"
+      "Detectors[DualX1]": {
+        "IncidentAngle": {
+          "type": "double",
+          "value": "-0.34906585000000001"
+        },
+        "SpectrumBeginEnergy": {
+          "type": "long",
+          "value": "150"
+        },
+        "Temperature": {
+          "type": "double",
+          "value": "221.24999999999997"
+        }
       },
-      "Detectors[DualX1].SpectrumBeginEnergy": {
-        "type": "long",
-        "value": "150"
+      "Detectors[DualX2]": {
+        "IncidentAngle": {
+          "type": "double",
+          "value": "-0.34906585000000001"
+        },
+        "SpectrumBeginEnergy": {
+          "type": "long",
+          "value": "150"
+        },
+        "Temperature": {
+          "type": "double",
+          "value": "218.54999999999998"
+        }
       },
-      "Detectors[DualX1].Temperature": {
-        "type": "double",
-        "value": "221.24999999999997"
-      },
-      "Detectors[DualX2].IncidentAngle": {
-        "type": "double",
-        "value": "-0.34906585000000001"
-      },
-      "Detectors[DualX2].SpectrumBeginEnergy": {
-        "type": "long",
-        "value": "150"
-      },
-      "Detectors[DualX2].Temperature": {
-        "type": "double",
-        "value": "218.54999999999998"
-      },
-      "Detectors[DualX].Selected": {
-        "type": "bool",
-        "value": "1"
+      "Detectors[DualX]": {
+        "Selected": {
+          "type": "bool",
+          "value": "1"
+        }
       },
       "IntegratedFrameCount": {
         "type": "long",
         "value": "100"
       },
-      "Scan.ScanTransformation.A11": {
-        "type": "double",
-        "value": "1"
-      },
-      "Scan.ScanTransformation.A12": {
-        "type": "double",
-        "value": "0"
-      },
-      "Scan.ScanTransformation.A13": {
-        "type": "double",
-        "value": "0.021564066410064697"
-      },
-      "Scan.ScanTransformation.A21": {
-        "type": "double",
-        "value": "0"
-      },
-      "Scan.ScanTransformation.A22": {
-        "type": "double",
-        "value": "1"
-      },
-      "Scan.ScanTransformation.A23": {
-        "type": "double",
-        "value": "-0.14537645876407623"
+      "Scan": {
+        "ScanTransformation": {
+          "A11": {
+            "type": "double",
+            "value": "1"
+          },
+          "A12": {
+            "type": "double",
+            "value": "0"
+          },
+          "A13": {
+            "type": "double",
+            "value": "0.021564066410064697"
+          },
+          "A21": {
+            "type": "double",
+            "value": "0"
+          },
+          "A22": {
+            "type": "double",
+            "value": "1"
+          },
+          "A23": {
+            "type": "double",
+            "value": "-0.14537645876407623"
+          }
+        }
       },
       "StemMagnification": {
-        "type": "double",
-        "value": "23000"
+        "type": "double"
       }
     },
     "Operations": {
@@ -6666,6 +6694,9 @@
       }
     }
   },
+  "Objective": {
+    "Magnification": "23000"
+  },
   "DetectorMetadata": null,
   "SourceMap": {
     "Instrument.MetadataDefinitionVersion": "Core.MetadataDefinitionVersion",
@@ -6685,8 +6716,8 @@
     "Image.ElectronOpticsSettings.ExtractorVoltage": "Optics.ExtractorVoltage",
     "Image.ElectronBeamSettings.AccelerationVoltage.Value": "Optics.AccelerationVoltage",
     "Image.ElectronBeamSettings.SpotIndex": "Optics.SpotIndex",
-    "Image.ElectronOpticsSettings.C1LensIntensity": "Optics.C1LensIntensity",
-    "Image.ElectronOpticsSettings.C2LensIntensity": "Optics.C2LensIntensity",
+    "Image.ElectronOpticsSettings.Condenser1": "Optics.C1LensIntensity",
+    "Image.ElectronOpticsSettings.Condenser2": "Optics.C2LensIntensity",
     "Image.ElectronOpticsSettings.ObjectiveLensIntensity": "Optics.ObjectiveLensIntensity",
     "Image.ElectronOpticsSettings.IntermediateLensIntensity": "Optics.IntermediateLensIntensity",
     "Image.ElectronOpticsSettings.DiffractionLensIntensity": "Optics.DiffractionLensIntensity",
@@ -6695,45 +6726,51 @@
     "Image.ElectronOpticsSettings.MiniCondenserLensIntensity": "Optics.MiniCondenserLensIntensity",
     "Image.ElectronBeamSettings.ConvergenceAngle.Value": "Optics.BeamConvergence",
     "Image.ElectronOpticsSettings.ScreenCurrent": "Optics.ScreenCurrent",
-    "Image.ElectronOpticsSettings.LastMeasuredScreenCurrent": "Optics.LastMeasuredScreenCurrent",
+    "Image.ElectronBeamSettings.Current.Value": "Optics.LastMeasuredScreenCurrent",
     "Image.ScanSettings.FieldOfView.X.Value": "Optics.FullScanFieldOfView.x",
     "Image.ScanSettings.FieldOfView.Y.Value": "Optics.FullScanFieldOfView.y",
-    "Image.ElectronOpticsSettings.Focus": "Optics.Focus",
-    "Image.ElectronBeamSettings.Focus": "Optics.StemFocus",
+    "Image.ElectronBeamSettings.Focus": "Optics.Focus",
+    "Optics.StemFocus": "Optics.StemFocus",
     "Image.ElectronBeamSettings.Defocus.Value": "Optics.Defocus",
     "Image.ElectronOpticsSettings.HighMagnificationMode": "Optics.HighMagnificationMode",
-    "Image.ElectronOpticsSettings.Apertures[0].Name": "Optics.Apertures.Aperture-0.Name",
-    "Image.ElectronOpticsSettings.Apertures[0].Number": "Optics.Apertures.Aperture-0.Number",
-    "Image.ElectronOpticsSettings.Apertures[0].MechanismType": "Optics.Apertures.Aperture-0.MechanismType",
-    "Image.ElectronOpticsSettings.Apertures[0].Type": "Optics.Apertures.Aperture-0.Type",
-    "Image.ElectronOpticsSettings.Apertures[0].Diameter": "Optics.Apertures.Aperture-0.Diameter",
-    "Image.ElectronOpticsSettings.Apertures[0].Enabled": "Optics.Apertures.Aperture-0.Enabled",
-    "Image.ElectronOpticsSettings.Apertures[0].PositionOffset.x": "Optics.Apertures.Aperture-0.PositionOffset.x",
-    "Image.ElectronOpticsSettings.Apertures[0].PositionOffset.y": "Optics.Apertures.Aperture-0.PositionOffset.y",
-    "Image.ElectronOpticsSettings.Apertures[0].id": "Optics.Apertures.Aperture-0",
-    "Image.ElectronOpticsSettings.Apertures[1].Name": "Optics.Apertures.Aperture-1.Name",
-    "Image.ElectronOpticsSettings.Apertures[1].Number": "Optics.Apertures.Aperture-1.Number",
-    "Image.ElectronOpticsSettings.Apertures[1].MechanismType": "Optics.Apertures.Aperture-1.MechanismType",
-    "Image.ElectronOpticsSettings.Apertures[1].Type": "Optics.Apertures.Aperture-1.Type",
-    "Image.ElectronOpticsSettings.Apertures[1].Diameter": "Optics.Apertures.Aperture-1.Diameter",
-    "Image.ElectronOpticsSettings.Apertures[1].Enabled": "Optics.Apertures.Aperture-1.Enabled",
-    "Image.ElectronOpticsSettings.Apertures[1].PositionOffset.x": "Optics.Apertures.Aperture-1.PositionOffset.x",
-    "Image.ElectronOpticsSettings.Apertures[1].PositionOffset.y": "Optics.Apertures.Aperture-1.PositionOffset.y",
-    "Image.ElectronOpticsSettings.Apertures[1].id": "Optics.Apertures.Aperture-1",
-    "Image.ElectronOpticsSettings.Apertures[2].Name": "Optics.Apertures.Aperture-2.Name",
-    "Image.ElectronOpticsSettings.Apertures[2].Number": "Optics.Apertures.Aperture-2.Number",
-    "Image.ElectronOpticsSettings.Apertures[2].MechanismType": "Optics.Apertures.Aperture-2.MechanismType",
-    "Image.ElectronOpticsSettings.Apertures[2].Type": "Optics.Apertures.Aperture-2.Type",
-    "Image.ElectronOpticsSettings.Apertures[2].PositionOffset.x": "Optics.Apertures.Aperture-2.PositionOffset.x",
-    "Image.ElectronOpticsSettings.Apertures[2].PositionOffset.y": "Optics.Apertures.Aperture-2.PositionOffset.y",
-    "Image.ElectronOpticsSettings.Apertures[2].id": "Optics.Apertures.Aperture-2",
-    "Image.ElectronOpticsSettings.Apertures[3].Name": "Optics.Apertures.Aperture-3.Name",
-    "Image.ElectronOpticsSettings.Apertures[3].Number": "Optics.Apertures.Aperture-3.Number",
-    "Image.ElectronOpticsSettings.Apertures[3].MechanismType": "Optics.Apertures.Aperture-3.MechanismType",
-    "Image.ElectronOpticsSettings.Apertures[3].Type": "Optics.Apertures.Aperture-3.Type",
-    "Image.ElectronOpticsSettings.Apertures[3].PositionOffset.x": "Optics.Apertures.Aperture-3.PositionOffset.x",
-    "Image.ElectronOpticsSettings.Apertures[3].PositionOffset.y": "Optics.Apertures.Aperture-3.PositionOffset.y",
-    "Image.ElectronOpticsSettings.Apertures[3].id": "Optics.Apertures.Aperture-3",
+    "Image.ElectronOpticsSettings.Aperture[0].Name": "Optics.Apertures.Aperture-0.Name",
+    "Image.ElectronOpticsSettings.Aperture[0].Number": "Optics.Apertures.Aperture-0.Number",
+    "Image.ElectronOpticsSettings.Aperture[0].MechanismType": "Optics.Apertures.Aperture-0.MechanismType",
+    "Image.ElectronOpticsSettings.Aperture[0].Type": "Optics.Apertures.Aperture-0.Type",
+    "Image.ElectronOpticsSettings.Aperture[0].Enabled": "Optics.Apertures.Aperture-0.Enabled",
+    "Image.ElectronOpticsSettings.Aperture[0].id": "Optics.Apertures.Aperture-0",
+    "Image.ElectronOpticsSettings.Aperture[0].Diameter.Value": "Optics.Apertures.Aperture-0.Diameter",
+    "Image.ElectronOpticsSettings.Aperture[0].Diameter.Unit": [
+      "Optics.Apertures.Aperture-0.Diameter"
+    ],
+    "Image.ElectronOpticsSettings.Aperture[0].PositionOffset.X": "Optics.Apertures.Aperture-0.PositionOffset.x",
+    "Image.ElectronOpticsSettings.Aperture[0].PositionOffset.Y": "Optics.Apertures.Aperture-0.PositionOffset.y",
+    "Image.ElectronOpticsSettings.Aperture[1].Name": "Optics.Apertures.Aperture-1.Name",
+    "Image.ElectronOpticsSettings.Aperture[1].Number": "Optics.Apertures.Aperture-1.Number",
+    "Image.ElectronOpticsSettings.Aperture[1].MechanismType": "Optics.Apertures.Aperture-1.MechanismType",
+    "Image.ElectronOpticsSettings.Aperture[1].Type": "Optics.Apertures.Aperture-1.Type",
+    "Image.ElectronOpticsSettings.Aperture[1].Enabled": "Optics.Apertures.Aperture-1.Enabled",
+    "Image.ElectronOpticsSettings.Aperture[1].id": "Optics.Apertures.Aperture-1",
+    "Image.ElectronOpticsSettings.Aperture[1].Diameter.Value": "Optics.Apertures.Aperture-1.Diameter",
+    "Image.ElectronOpticsSettings.Aperture[1].Diameter.Unit": [
+      "Optics.Apertures.Aperture-1.Diameter"
+    ],
+    "Image.ElectronOpticsSettings.Aperture[1].PositionOffset.X": "Optics.Apertures.Aperture-1.PositionOffset.x",
+    "Image.ElectronOpticsSettings.Aperture[1].PositionOffset.Y": "Optics.Apertures.Aperture-1.PositionOffset.y",
+    "Image.ElectronOpticsSettings.Aperture[2].Name": "Optics.Apertures.Aperture-2.Name",
+    "Image.ElectronOpticsSettings.Aperture[2].Number": "Optics.Apertures.Aperture-2.Number",
+    "Image.ElectronOpticsSettings.Aperture[2].MechanismType": "Optics.Apertures.Aperture-2.MechanismType",
+    "Image.ElectronOpticsSettings.Aperture[2].Type": "Optics.Apertures.Aperture-2.Type",
+    "Image.ElectronOpticsSettings.Aperture[2].id": "Optics.Apertures.Aperture-2",
+    "Image.ElectronOpticsSettings.Aperture[2].PositionOffset.X": "Optics.Apertures.Aperture-2.PositionOffset.x",
+    "Image.ElectronOpticsSettings.Aperture[2].PositionOffset.Y": "Optics.Apertures.Aperture-2.PositionOffset.y",
+    "Image.ElectronOpticsSettings.Aperture[3].Name": "Optics.Apertures.Aperture-3.Name",
+    "Image.ElectronOpticsSettings.Aperture[3].Number": "Optics.Apertures.Aperture-3.Number",
+    "Image.ElectronOpticsSettings.Aperture[3].MechanismType": "Optics.Apertures.Aperture-3.MechanismType",
+    "Image.ElectronOpticsSettings.Aperture[3].Type": "Optics.Apertures.Aperture-3.Type",
+    "Image.ElectronOpticsSettings.Aperture[3].id": "Optics.Apertures.Aperture-3",
+    "Image.ElectronOpticsSettings.Aperture[3].PositionOffset.X": "Optics.Apertures.Aperture-3.PositionOffset.x",
+    "Image.ElectronOpticsSettings.Aperture[3].PositionOffset.Y": "Optics.Apertures.Aperture-3.PositionOffset.y",
     "Image.ElectronOpticsSettings.OperatingMode": "Optics.OperatingMode",
     "Image.ElectronOpticsSettings.OperatingSubMode": "Optics.TemOperatingSubMode",
     "Image.ElectronOpticsSettings.ProjectorMode": "Optics.ProjectorMode",
@@ -6771,7 +6808,6 @@
     "GenericDetector[0].Shutters.Shutter-0.Position": "Detectors.Detector-0.Shutters.Shutter-0.Position",
     "GenericDetector[0].Shutters.Shutter-0.Type": "Detectors.Detector-0.Shutters.Shutter-0.Type",
     "GenericDetector[0].DarkGainCorrectionType": "Detectors.Detector-0.DarkGainCorrectionType",
-    "GenericDetector[0].id": "Detectors.Detector-0",
     "GenericDetector[0].Name": "Detectors.Detector-0.DetectorName",
     "GenericDetector[0].Type": "Detectors.Detector-0.DetectorType",
     "GenericDetector[0].Binning.X": "Detectors.Detector-0.Binning.width",
@@ -6780,12 +6816,12 @@
     "GenericDetector[0].ExposureTime.Unit": [
       "Detectors.Detector-0.ExposureTime"
     ],
+    "GenericDetector[0].ID": "Detectors.Detector-0",
     "GenericDetector[1].Inserted": "Detectors.Detector-1.Inserted",
     "GenericDetector[1].Enabled": "Detectors.Detector-1.Enabled",
     "GenericDetector[1].InputCountRate": "Detectors.Detector-1.InputCountRate",
     "GenericDetector[1].OutputCountRate": "Detectors.Detector-1.OutputCountRate",
     "GenericDetector[1].AnalyticalDetectorShutterState": "Detectors.Detector-1.AnalyticalDetectorShutterState",
-    "GenericDetector[1].id": "Detectors.Detector-1",
     "GenericDetector[1].Name": "Detectors.Detector-1.DetectorName",
     "GenericDetector[1].Type": "Detectors.Detector-1.DetectorType",
     "GenericDetector[1].ElevationAngle.Value": "Detectors.Detector-1.ElevationAngle",
@@ -6828,12 +6864,12 @@
     "GenericDetector[1].BeginEnergy.Unit": [
       "Detectors.Detector-1.BeginEnergy"
     ],
+    "GenericDetector[1].ID": "Detectors.Detector-1",
     "GenericDetector[2].Inserted": "Detectors.Detector-2.Inserted",
     "GenericDetector[2].Enabled": "Detectors.Detector-2.Enabled",
     "GenericDetector[2].InputCountRate": "Detectors.Detector-2.InputCountRate",
     "GenericDetector[2].OutputCountRate": "Detectors.Detector-2.OutputCountRate",
     "GenericDetector[2].AnalyticalDetectorShutterState": "Detectors.Detector-2.AnalyticalDetectorShutterState",
-    "GenericDetector[2].id": "Detectors.Detector-2",
     "GenericDetector[2].Name": "Detectors.Detector-2.DetectorName",
     "GenericDetector[2].Type": "Detectors.Detector-2.DetectorType",
     "GenericDetector[2].ElevationAngle.Value": "Detectors.Detector-2.ElevationAngle",
@@ -6876,6 +6912,7 @@
     "GenericDetector[2].BeginEnergy.Unit": [
       "Detectors.Detector-2.BeginEnergy"
     ],
+    "GenericDetector[2].ID": "Detectors.Detector-2",
     "GenericDetector[3].ExposureMode": "Detectors.Detector-3.ExposureMode",
     "GenericDetector[3].Gain": "Detectors.Detector-3.Gain",
     "GenericDetector[3].ReadOutArea.left": "Detectors.Detector-3.ReadOutArea.left",
@@ -6885,7 +6922,6 @@
     "GenericDetector[3].Shutters.Shutter-0.Position": "Detectors.Detector-3.Shutters.Shutter-0.Position",
     "GenericDetector[3].Shutters.Shutter-0.Type": "Detectors.Detector-3.Shutters.Shutter-0.Type",
     "GenericDetector[3].DarkGainCorrectionType": "Detectors.Detector-3.DarkGainCorrectionType",
-    "GenericDetector[3].id": "Detectors.Detector-3",
     "GenericDetector[3].Name": "Detectors.Detector-3.DetectorName",
     "GenericDetector[3].Type": "Detectors.Detector-3.DetectorType",
     "GenericDetector[3].Binning.X": "Detectors.Detector-3.Binning.width",
@@ -6894,11 +6930,11 @@
     "GenericDetector[3].ExposureTime.Unit": [
       "Detectors.Detector-3.ExposureTime"
     ],
+    "GenericDetector[3].ID": "Detectors.Detector-3",
     "GenericDetector[4].Inserted": "Detectors.Detector-4.Inserted",
     "GenericDetector[4].Enabled": "Detectors.Detector-4.Enabled",
     "GenericDetector[4].Gain": "Detectors.Detector-4.Gain",
     "GenericDetector[4].Offset": "Detectors.Detector-4.Offset",
-    "GenericDetector[4].id": "Detectors.Detector-4",
     "GenericDetector[4].Name": "Detectors.Detector-4.DetectorName",
     "GenericDetector[4].Type": "Detectors.Detector-4.DetectorType",
     "GenericDetector[4].CollectionAngleRange.Begin": "Detectors.Detector-4.CollectionAngleRange.begin",
@@ -6906,9 +6942,10 @@
       "Detectors.Detector-4.CollectionAngleRange.begin"
     ],
     "GenericDetector[4].CollectionAngleRange.End": "Detectors.Detector-4.CollectionAngleRange.end",
+    "GenericDetector[4].ID": "Detectors.Detector-4",
     "Image.BinaryResult.AcquisitionUnit": "BinaryResult.AcquisitionUnit",
     "Image.BinaryResult.CompositionType": "BinaryResult.CompositionType",
-    "Image.BinaryResult.Detector": "BinaryResult.Detector",
+    "Image.ScanSettings.Detector": "BinaryResult.Detector",
     "Pixels.PhysicalSizeX": "BinaryResult.PixelSize.width",
     "Pixels.PhysicalSizeY": "BinaryResult.PixelSize.height",
     "Pixels.PhysicalSizeXUnit": "BinaryResult.PixelUnitX",
@@ -6955,7 +6992,7 @@
     "OME.CustomProperties.Scan.ScanTransformation.A23.type": "CustomProperties.Scan.ScanTransformation.A23.type",
     "OME.CustomProperties.Scan.ScanTransformation.A23.value": "CustomProperties.Scan.ScanTransformation.A23.value",
     "OME.CustomProperties.StemMagnification.type": "CustomProperties.StemMagnification.type",
-    "OME.CustomProperties.StemMagnification.value": "CustomProperties.StemMagnification.value",
+    "Objective.Magnification": "CustomProperties.StemMagnification.value",
     "OME.Operations.DisplayLevelsOperation.07c53cacbd7c4da8b72746327d824d52.outputs[0].outputIndex": "Operations.DisplayLevelsOperation.07c53cacbd7c4da8b72746327d824d52.outputs[0].outputIndex",
     "OME.Operations.DisplayLevelsOperation.07c53cacbd7c4da8b72746327d824d52.outputs[0].operation": "Operations.DisplayLevelsOperation.07c53cacbd7c4da8b72746327d824d52.outputs[0].operation",
     "OME.Operations.DisplayLevelsOperation.07c53cacbd7c4da8b72746327d824d52.outputs[0].inputIndex": "Operations.DisplayLevelsOperation.07c53cacbd7c4da8b72746327d824d52.outputs[0].inputIndex",
@@ -9751,6 +9788,9 @@
     "OME.Features.SIFeature.e125fe5c4f5348f8b32af9611730b212.imageDisplays[7]": "Features.SIFeature.e125fe5c4f5348f8b32af9611730b212.imageDisplays[7]",
     "OME.Features.SIFeature.e125fe5c4f5348f8b32af9611730b212.spectrums[0].Summed": "Features.SIFeature.e125fe5c4f5348f8b32af9611730b212.spectrums[0].Summed",
     "DetectorMetadata": "DetectorMetadata",
+    "Image.ElectronBeamSettings.Current.Unit": [
+      "Optics.LastMeasuredScreenCurrent"
+    ],
     "Image.AcquisitionDate": [
       "Acquisition.AcquisitionStartDatetime.DateTime"
     ]

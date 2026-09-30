@@ -436,6 +436,43 @@ classes:
       Apertures:
         multivalued: true
         annotations: {schema_extended_path: ElectronOptics.Apertures, source_type: array}
+      Condenser1:
+        description: The setting of the first condenser lens (C1), on the vendor's own scale, e.g. a fraction of
+          its full excitation or a number of steps; values of different vendors are not comparable.
+        range: float
+      Condenser2:
+        description: The setting of the second condenser lens (C2), on the vendor's own scale, as Condenser1.
+        range: float
+      Aperture:
+        description: The apertures of the electron optics (condenser, objective, selected-area, ...) as set for
+          this acquisition.
+        range: ElectronAperture
+        multivalued: true
+        inlined_as_list: true
+  ElectronAperture:
+    description: One aperture of the electron optics, as set for the acquisition of an image.
+    attributes:
+      Name:
+        description: The aperture's name, e.g. C1, C2, OBJ or SA.
+      Number:
+        description: The aperture's number in its mechanism.
+        range: integer
+      Type:
+        description: The aperture's shape as the source names it, e.g. Circular.
+      MechanismType:
+        description: How the aperture is moved, e.g. Motorized.
+      Diameter:
+        description: The diameter of the aperture's opening.
+        range: Quantity
+        inlined: true
+      Enabled:
+        description: Whether the aperture is in the beam.
+        range: boolean
+      PositionOffset:
+        description: The aperture's offset from its nominal position along X and Y, in the unit the source uses
+          (TALOS writes metres).
+        range: Vector2D
+        inlined: true
   ScanSettings:
     description: The scan of a scanning microscope, as set for the acquisition of this image.
     attributes:
@@ -457,6 +494,9 @@ classes:
       Detector:
         description: The name of the detector used for the scan.
         annotations: {schema_extended_path: Scan.Detector}
+      LineInterlacing:
+        description: The number of interlaced fields the lines are scanned in; 1 is not interlaced.
+        range: integer
   FieldOfView:
     description: The size of the field of view along X and Y.
     attributes:

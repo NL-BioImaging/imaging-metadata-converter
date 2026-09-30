@@ -259,8 +259,8 @@ def _as_number(value):
 
 
 def _as_boolean(value):
-    """The boolean text `value` writes ("true", "False"), else None."""
-    return {'true': True, 'false': False}.get(value.lower()) if isinstance(value, str) else None
+    """The boolean text `value` writes ("true", "False", "1", "0"), else None."""
+    return {'true': True, 'false': False, '1': True, '0': False}.get(value.lower()) if isinstance(value, str) else None
 
 
 def _as_text(value):

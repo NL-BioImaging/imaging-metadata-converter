@@ -11,8 +11,6 @@
       "Type": 1,
       "BeamUpX": 0,
       "BeamUpY": 0,
-      "Condenser": 1374,
-      "Condenser2": 1103,
       "ElectricMoveX": 0.01,
       "ElectricMoveY": -0.2,
       "ElectricRotate": 0.0,
@@ -50,6 +48,10 @@
         "SchVoltage": 300.68
       }
     },
+    "ElectronOpticsSettings": {
+      "Condenser1": 1374,
+      "Condenser2": 1103
+    },
     "ScanSettings": {
       "FieldOfView": {
         "X": {
@@ -61,7 +63,7 @@
       "FrameTime": {
         "Value": "2min29s"
       },
-      "Interlaced": "Disable",
+      "LineInterlacing": "Disable",
       "LineAdd": 1
     }
   },
@@ -145,8 +147,8 @@
     "Image.ElectronBeamSettings.Type": "FEI_HELIOS.Beam.BeamType",
     "Image.ElectronBeamSettings.BeamUpX": "FEI_HELIOS.Beam.BeamUpX",
     "Image.ElectronBeamSettings.BeamUpY": "FEI_HELIOS.Beam.BeamUpY",
-    "Image.ElectronBeamSettings.Condenser": "FEI_HELIOS.Beam.Condenser",
-    "Image.ElectronBeamSettings.Condenser2": "FEI_HELIOS.Beam.Condenser2",
+    "Image.ElectronOpticsSettings.Condenser1": "FEI_HELIOS.Beam.Condenser",
+    "Image.ElectronOpticsSettings.Condenser2": "FEI_HELIOS.Beam.Condenser2",
     "Image.ElectronBeamSettings.ElectricMoveX": "FEI_HELIOS.Beam.ElectricMoveX",
     "Image.ElectronBeamSettings.ElectricMoveY": "FEI_HELIOS.Beam.ElectricMoveY",
     "Image.ElectronBeamSettings.ElectricRotate": "FEI_HELIOS.Beam.ElectricRotate",
@@ -188,7 +190,7 @@
     "Image.ScanSettings.Drift": "FEI_HELIOS.Scan.Drift",
     "Image.ScanSettings.FramAdd": "FEI_HELIOS.Scan.FramAdd",
     "Image.ScanSettings.FrameTime.Value": "FEI_HELIOS.Scan.FrameTime",
-    "Image.ScanSettings.Interlaced": "FEI_HELIOS.Scan.Interlaced",
+    "Image.ScanSettings.LineInterlacing": "FEI_HELIOS.Scan.Interlaced",
     "Image.ScanSettings.LineAdd": "FEI_HELIOS.Scan.LineAdd",
     "Plane.PixelDwellTime": "FEI_HELIOS.Scan.PointTime",
     "Pixels.SizeX": "FEI_HELIOS.Scan.ResolutionX",

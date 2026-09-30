@@ -11,8 +11,6 @@
       "Type": 1,
       "BeamUpX": 0,
       "BeamUpY": 0,
-      "Condenser": 1456,
-      "Condenser2": 839,
       "ElectricMoveX": -0.57,
       "ElectricMoveY": 0.08,
       "ElectricRotate": -135.0,
@@ -50,6 +48,10 @@
         "SchVoltage": 300.68
       }
     },
+    "ElectronOpticsSettings": {
+      "Condenser1": 1456,
+      "Condenser2": 839
+    },
     "ScanSettings": {
       "FieldOfView": {
         "X": {
@@ -61,7 +63,7 @@
       "FrameTime": {
         "Value": "2min52s"
       },
-      "Interlaced": "0/1",
+      "LineInterlacing": "0/1",
       "LineAdd": 1
     }
   },
@@ -143,8 +145,8 @@
     "Image.ElectronBeamSettings.Type": "Beam.BeamType",
     "Image.ElectronBeamSettings.BeamUpX": "Beam.BeamUpX",
     "Image.ElectronBeamSettings.BeamUpY": "Beam.BeamUpY",
-    "Image.ElectronBeamSettings.Condenser": "Beam.Condenser",
-    "Image.ElectronBeamSettings.Condenser2": "Beam.Condenser2",
+    "Image.ElectronOpticsSettings.Condenser1": "Beam.Condenser",
+    "Image.ElectronOpticsSettings.Condenser2": "Beam.Condenser2",
     "Image.ElectronBeamSettings.ElectricMoveX": "Beam.ElectricMoveX",
     "Image.ElectronBeamSettings.ElectricMoveY": "Beam.ElectricMoveY",
     "Image.ElectronBeamSettings.ElectricRotate": "Beam.ElectricRotate",
@@ -186,7 +188,7 @@
     "Image.ScanSettings.Drift": "Scan.Drift",
     "Image.ScanSettings.FramAdd": "Scan.FramAdd",
     "Image.ScanSettings.FrameTime.Value": "Scan.FrameTime",
-    "Image.ScanSettings.Interlaced": "Scan.Interlaced",
+    "Image.ScanSettings.LineInterlacing": "Scan.Interlaced",
     "Image.ScanSettings.LineAdd": "Scan.LineAdd",
     "Plane.PixelDwellTime": "Scan.PointTime",
     "Pixels.SizeX": "Scan.ResolutionX",

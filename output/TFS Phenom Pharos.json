@@ -23,7 +23,7 @@
       "Rotation": {
         "Value": 0
       },
-      "interlace": 1,
+      "LineInterlacing": 1,
       "Detector": "bsd-all",
       "detectorMixFactors": {
         "bsdA": 0,
@@ -203,7 +203,7 @@
     "Image.ElectronBeamSettings.SpotSize": "FEI_TITAN.FeiImage.acquisition.scan.spotSize",
     "Image.ScanSettings.spotPresetName": "FEI_TITAN.FeiImage.acquisition.scan.spotPresetName",
     "Image.ScanSettings.Rotation.Value": "FEI_TITAN.FeiImage.acquisition.scan.rotation",
-    "Image.ScanSettings.interlace": "FEI_TITAN.FeiImage.acquisition.scan.interlace",
+    "Image.ScanSettings.LineInterlacing": "FEI_TITAN.FeiImage.acquisition.scan.interlace",
     "Image.ScanSettings.Detector": "FEI_TITAN.FeiImage.acquisition.scan.detector",
     "Image.ScanSettings.detectorMixFactors.bsdA": "FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.bsdA",
     "Image.ScanSettings.detectorMixFactors.bsdB": "FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.bsdB",

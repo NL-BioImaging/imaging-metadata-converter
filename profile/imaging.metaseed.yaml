@@ -29226,6 +29226,21 @@ entities:
       type: list
       items: string
       required: false
+    - name: Condenser1
+      type: float
+      required: false
+      description: The setting of the first condenser lens (C1), on the vendor's own scale, e.g. a fraction of its full excitation
+        or a number of steps; values of different vendors are not comparable.
+    - name: Condenser2
+      type: float
+      required: false
+      description: The setting of the second condenser lens (C2), on the vendor's own scale, as Condenser1.
+    - name: Aperture
+      type: list
+      required: false
+      description: The apertures of the electron optics (condenser, objective, selected-area, ...) as set for this acquisition.
+      items: ElectronAperture
+      owns: true
   ScanSettings:
     description: The scan of a scanning microscope, as set for the acquisition of this image.
     fields:
@@ -29256,6 +29271,10 @@ entities:
       type: string
       required: false
       description: The name of the detector used for the scan.
+    - name: LineInterlacing
+      type: integer
+      required: false
+      description: The number of interlaced fields the lines are scanned in; 1 is not interlaced.
   XMLAnnotation:
     description: An general xml annotation. The contents of this is not processed as OME XML but should still be well-formed
       XML.
@@ -30756,15 +30775,6 @@ entities:
       required: false
       description: The location of a file containing the Wavelength profile of this hardware component.
       tier: optional
-  Vector2D:
-    description: A pair of values along X and Y.
-    fields:
-    - name: X
-      type: float
-      required: false
-    - name: Y
-      type: float
-      required: false
   QuantityRange:
     description: A range of values, from Begin to End, with the unit its source states, as free text.
     fields:
@@ -32603,6 +32613,56 @@ entities:
       type: float
       required: false
     - name: SchVoltage
+      type: float
+      required: false
+  ElectronAperture:
+    description: One aperture of the electron optics, as set for the acquisition of an image.
+    fields:
+    - name: ID
+      type: string
+      required: false
+      is_identifier: true
+      description: An identifier for this record; the model defines none.
+    - name: Name
+      type: string
+      required: false
+      description: The aperture's name, e.g. C1, C2, OBJ or SA.
+    - name: Number
+      type: integer
+      required: false
+      description: The aperture's number in its mechanism.
+    - name: Type
+      type: string
+      required: false
+      description: The aperture's shape as the source names it, e.g. Circular.
+    - name: MechanismType
+      type: string
+      required: false
+      description: How the aperture is moved, e.g. Motorized.
+    - name: Diameter
+      type: entity
+      required: false
+      description: The diameter of the aperture's opening.
+      items: Quantity
+      owns: true
+    - name: Enabled
+      type: boolean
+      required: false
+      description: Whether the aperture is in the beam.
+    - name: PositionOffset
+      type: entity
+      required: false
+      description: The aperture's offset from its nominal position along X and Y, in the unit the source uses (TALOS writes
+        metres).
+      items: Vector2D
+      owns: true
+  Vector2D:
+    description: A pair of values along X and Y.
+    fields:
+    - name: X
+      type: float
+      required: false
+    - name: Y
       type: float
       required: false
   FieldOfView:

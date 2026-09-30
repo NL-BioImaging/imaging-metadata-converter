@@ -83,60 +83,66 @@ Image:
       Field: Image[0].ElectronBeamSettings.HighVoltage.SchVoltage
       Source: HV.SchVoltage
     - ID: SourceMapping:25
+      Field: Image[0].ElectronOpticsSettings.Condenser1
+      Source: Beam.Condenser
+    - ID: SourceMapping:26
+      Field: Image[0].ElectronOpticsSettings.Condenser2
+      Source: Beam.Condenser2
+    - ID: SourceMapping:27
       Field: Instrument[0].GenericDetector[0].Brightness
       Source: Detector.Brightness
-    - ID: SourceMapping:26
+    - ID: SourceMapping:28
       Field: Instrument[0].GenericDetector[0].Channel
       Source: Detector.Channel
-    - ID: SourceMapping:27
+    - ID: SourceMapping:29
       Field: Instrument[0].GenericDetector[0].Contrast
       Source: Detector.Contrast
-    - ID: SourceMapping:28
+    - ID: SourceMapping:30
       Field: Instrument[0].GenericDetector[0].Name
       Source: Detector.DetectorName
-    - ID: SourceMapping:29
+    - ID: SourceMapping:31
       Field: Instrument[0].GenericDetector[0].Gain
       Source: Detector.Gain
-    - ID: SourceMapping:30
+    - ID: SourceMapping:32
       Field: Image[0].Pixels.Plane[0].PixelDwellTime
       Source: Scan.PointTime
-    - ID: SourceMapping:31
+    - ID: SourceMapping:33
       Field: Image[0].Pixels.SizeX
       Source: Scan.ResolutionX
-    - ID: SourceMapping:32
+    - ID: SourceMapping:34
       Field: Image[0].Pixels.SizeY
       Source: Scan.ResolutionY
-    - ID: SourceMapping:33
+    - ID: SourceMapping:35
       Field: Instrument[0].MechanicalStage[0].Rotation.Value
       Source: Stage.StagePosR
-    - ID: SourceMapping:34
+    - ID: SourceMapping:36
       Field: Instrument[0].MechanicalStage[0].Tilt.Value
       Source: Stage.StagePosT
-    - ID: SourceMapping:35
+    - ID: SourceMapping:37
       Field: Instrument[0].MechanicalStage[0].Position.X.Value
       Source: Stage.StagePosX
-    - ID: SourceMapping:36
+    - ID: SourceMapping:38
       Field: Instrument[0].MechanicalStage[0].Position.Y.Value
       Source: Stage.StagePosY
-    - ID: SourceMapping:37
+    - ID: SourceMapping:39
       Field: Instrument[0].MechanicalStage[0].Position.Z.Value
       Source: Stage.StagePosZ
-    - ID: SourceMapping:38
+    - ID: SourceMapping:40
       Field: Instrument[0].Name
       Source: System.ProductName
-    - ID: SourceMapping:39
+    - ID: SourceMapping:41
       Field: Instrument[0].Vacuum.BufferVacuum
       Source: Vacuum.BufferVacuum
-    - ID: SourceMapping:40
+    - ID: SourceMapping:42
       Field: Instrument[0].Vacuum.GunVacuum
       Source: Vacuum.GunVacuum
-    - ID: SourceMapping:41
+    - ID: SourceMapping:43
       Field: Instrument[0].Vacuum.SampleVacuum
       Source: Vacuum.SampleVacuum
-    - ID: SourceMapping:42
+    - ID: SourceMapping:44
       Field: Instrument[0].AcquisitionSoftware[0].Version
       Source: System.SoftwareVersion
-    - ID: SourceMapping:43
+    - ID: SourceMapping:45
       Field: Experimenter[0].UserName
       Source: User.UserName
   ElectronBeamSettings:
@@ -192,80 +198,73 @@ Image:
     SchemaPath: Image.ElectronBeamSettings.BeamUpY
     Source: SourceFile:0
   - ID: Property:4
-    Name: Beam.Condenser
-    Value: '1456'
-    SchemaPath: Image.ElectronBeamSettings.Condenser
-    Source: SourceFile:0
-  - ID: Property:5
-    Name: Beam.Condenser2
-    Value: '839'
-    SchemaPath: Image.ElectronBeamSettings.Condenser2
-    Source: SourceFile:0
-  - ID: Property:6
     Name: Beam.ElectricMoveX
     Value: '-0.57'
     SchemaPath: Image.ElectronBeamSettings.ElectricMoveX
     Source: SourceFile:0
-  - ID: Property:7
+  - ID: Property:5
     Name: Beam.ElectricMoveY
     Value: '0.08'
     SchemaPath: Image.ElectronBeamSettings.ElectricMoveY
     Source: SourceFile:0
-  - ID: Property:8
+  - ID: Property:6
     Name: Beam.ElectricRotate
     Value: '-135.0'
     SchemaPath: Image.ElectronBeamSettings.ElectricRotate
     Source: SourceFile:0
-  - ID: Property:9
+  - ID: Property:7
     Name: Beam.ImagingMode
     Value: '0'
     SchemaPath: Image.ElectronBeamSettings.ImagingMode
     Source: SourceFile:0
-  - ID: Property:10
+  - ID: Property:8
     Name: Beam.TiltX
     Value: '0.0'
     SchemaPath: Image.ElectronBeamSettings.TiltX
     Source: SourceFile:0
-  - ID: Property:11
+  - ID: Property:9
     Name: Beam.TiltY
     Value: '0.0'
     SchemaPath: Image.ElectronBeamSettings.TiltY
     Source: SourceFile:0
-  - ID: Property:12
+  - ID: Property:10
     Name: Beam.VisibleMultiple
     Value: '6067'
     SchemaPath: Image.ElectronBeamSettings.VisibleMultiple
     Source: SourceFile:0
-  - ID: Property:13
+  - ID: Property:11
     Name: Beam.HFW
     Value: '"21.12µm"'
     SchemaPath: Image.ScanSettings.FieldOfView.X.Value
     Source: SourceFile:0
-  - ID: Property:14
+  - ID: Property:12
     Name: Scan.Drift
     Value: 'false'
     SchemaPath: Image.ScanSettings.Drift
     Source: SourceFile:0
-  - ID: Property:15
+  - ID: Property:13
     Name: Scan.FramAdd
     Value: '1'
     SchemaPath: Image.ScanSettings.FramAdd
     Source: SourceFile:0
-  - ID: Property:16
+  - ID: Property:14
     Name: Scan.FrameTime
     Value: '"2min52s"'
     SchemaPath: Image.ScanSettings.FrameTime.Value
     Source: SourceFile:0
-  - ID: Property:17
+  - ID: Property:15
     Name: Scan.Interlaced
     Value: '"0/1"'
-    SchemaPath: Image.ScanSettings.Interlaced
+    SchemaPath: Image.ScanSettings.LineInterlacing
     Source: SourceFile:0
-  - ID: Property:18
+  - ID: Property:16
     Name: Scan.LineAdd
     Value: '1'
     SchemaPath: Image.ScanSettings.LineAdd
     Source: SourceFile:0
+  ElectronOpticsSettings:
+    Condenser1: 1456
+    Condenser2: 839
   ScanSettings:
     FieldOfView:
       X: {}
@@ -283,32 +282,32 @@ Instrument:
     Name: STEM-USER
     Gain: 1
   CustomProperties:
-  - ID: Property:19
+  - ID: Property:17
     Name: Detector.ConsumerBrightness
     Value: '50.0'
     SchemaPath: GenericDetector.ConsumerBrightness
     Source: SourceFile:0
-  - ID: Property:20
+  - ID: Property:18
     Name: Detector.ConsumerContrast
     Value: '50.0'
     SchemaPath: GenericDetector.ConsumerContrast
     Source: SourceFile:0
-  - ID: Property:21
+  - ID: Property:19
     Name: Detector.PMT
     Value: '0.33'
     SchemaPath: GenericDetector.PMT
     Source: SourceFile:0
-  - ID: Property:23
+  - ID: Property:21
     Name: Stage.NavCoordinate
     Value: '1'
     SchemaPath: MechanicalStage.NavCoordinate
     Source: SourceFile:0
-  - ID: Property:24
+  - ID: Property:22
     Name: Stage.StageType
     Value: '"TMCM-GYLZ-4000X-FIVE-110x110x69"'
     SchemaPath: MechanicalStage.StageType
     Source: SourceFile:0
-  - ID: Property:25
+  - ID: Property:23
     Name: System.Version
     Value: '2.6'
     SchemaPath: Instrument.Version
@@ -333,56 +332,56 @@ Instrument:
   AcquisitionSoftware:
   - Version: 3.2.3.300
 CustomProperties:
-- ID: Property:22
+- ID: Property:20
   Name: Other.BottomInfoVacuum
   Value: '"1.2e-07Pa"'
   Source: SourceFile:0
-- ID: Property:26
+- ID: Property:24
   Name: TiltCorrect.CorrectAngle
   Value: '0.0'
   Source: SourceFile:0
-- ID: Property:27
+- ID: Property:25
   Name: TiltCorrect.IonWorkTilt
   Value: '54.0'
   Source: SourceFile:0
-- ID: Property:28
+- ID: Property:26
   Name: TiltCorrect.IsTiltCorrent
   Value: 'false'
   Source: SourceFile:0
-- ID: Property:29
+- ID: Property:27
   Name: TiltCorrect.PreTiltAngle
   Value: '0.0'
   Source: SourceFile:0
-- ID: Property:30
+- ID: Property:28
   Name: TiltCorrect.TiltCompensateMode
   Value: '0'
   Source: SourceFile:0
-- ID: Property:31
+- ID: Property:29
   Name: User.BottomInfoShowEnable
   Value: '2038'
   SchemaPath: Experimenter.BottomInfoShowEnable
   Source: SourceFile:0
-- ID: Property:32
+- ID: Property:30
   Name: User.DateTimeFmt
   Value: '"yyyy/MM/dd HH:mm:ss"'
   SchemaPath: Experimenter.DateTimeFmt
   Source: SourceFile:0
-- ID: Property:33
+- ID: Property:31
   Name: User.MagType
   Value: '1'
   SchemaPath: Experimenter.MagType
   Source: SourceFile:0
-- ID: Property:34
+- ID: Property:32
   Name: User.RulerText
   Value: '"SEM4000X"'
   SchemaPath: Experimenter.RulerText
   Source: SourceFile:0
-- ID: Property:35
+- ID: Property:33
   Name: User.TimeStamp
   Value: '1784735089'
   SchemaPath: Experimenter.TimeStamp
   Source: SourceFile:0
-- ID: Property:36
+- ID: Property:34
   Name: User.VacuumType
   Value: '0'
   SchemaPath: Experimenter.VacuumType

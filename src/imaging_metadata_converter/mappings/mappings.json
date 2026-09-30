@@ -109,7 +109,6 @@
     "displayWhiteLevel": "Image.Corrections.WhiteLevel",
     "integrations": "Image.ScanSettings.LineIntegrationCount",
     "samplePressureEstimate": "Instrument.Vacuum",
-    "Sample": "Sample",
     "Image.Width": "Pixels.SizeX",
     "Image.Height": "Pixels.SizeY",
     "Scan.FOV_X.value": "Image.ScanSettings.FieldOfView.X.Value",
@@ -203,9 +202,8 @@
     "multiStage.sampleRadius.value": "MechanicalStage.MultiStage.SampleRadius.Value",
     "acquisition.scan.detectors.*": "GenericDetector[]",
     "Detectors.*": "GenericDetector[]",
-    "DetectorMetadata": "GenericDetector.ActiveConfiguration",
-    "Optics.Apertures.*": "Image.ElectronOpticsSettings.Apertures[]",
-    "CustomProperties": "OME.CustomProperties",
+    "Optics.Apertures.*": "Image.ElectronOpticsSettings.Aperture[]",
+    "CustomProperties.*": "OME.CustomProperties",
     "Operations": "OME.Operations",
     "Features": "OME.Features",
     "HV.*": "Image.ElectronBeamSettings.HighVoltage",
@@ -396,5 +394,27 @@
     },
     "acquisition.scan.detectors.*.id": "GenericDetector[].Name",
     "acquisition.scan.detectors.*.gain": "GenericDetector[].Gain",
-    "acquisition.scan.detectors.*.offset": "GenericDetector[].Offset"
+    "acquisition.scan.detectors.*.offset": "GenericDetector[].Offset",
+    "Optics.Focus": "Image.ElectronBeamSettings.Focus",
+    "Optics.LastMeasuredScreenCurrent": {
+        "target": "Image.ElectronBeamSettings.Current.Value",
+        "unit": "A"
+    },
+    "BinaryResult.Detector": "Image.ScanSettings.Detector",
+    "DetectorMetadata.DetectorName": "Image.ScanSettings.Detector",
+    "CustomProperties.StemMagnification.value": "Objective.Magnification",
+    "Sample.SampleId": "Sample.ID",
+    "Detectors.*.id": "GenericDetector[].ID",
+    "Optics.Apertures.*.Diameter": {
+        "target": "Image.ElectronOpticsSettings.Aperture[].Diameter.Value",
+        "unit": "m"
+    },
+    "Optics.Apertures.*.PositionOffset.x": "Image.ElectronOpticsSettings.Aperture[].PositionOffset.X",
+    "Optics.Apertures.*.PositionOffset.y": "Image.ElectronOpticsSettings.Aperture[].PositionOffset.Y",
+    "Optics.C1LensIntensity": "Image.ElectronOpticsSettings.Condenser1",
+    "Optics.C2LensIntensity": "Image.ElectronOpticsSettings.Condenser2",
+    "Beam.Condenser": "Image.ElectronOpticsSettings.Condenser1",
+    "Beam.Condenser2": "Image.ElectronOpticsSettings.Condenser2",
+    "acquisition.scan.interlace": "Image.ScanSettings.LineInterlacing",
+    "Scan.Interlaced": "Image.ScanSettings.LineInterlacing"
 }

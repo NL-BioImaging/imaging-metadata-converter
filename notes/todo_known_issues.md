@@ -15,7 +15,9 @@ version, and push and publish again.
 Unpublished since 1.0 (2026-09-30): `Instrument.CatalogNumber`, the detector extension fields
 (DetectorExtension: Inserted, Enabled, ExposureTime, Binning, angles, CollectionAngleRange, EDS times,
 rates and energies) and the class `QuantityRange`; metaseed's check finds all 155 changes compatible
-(optional fields, one entity): publish as 1.1, with the model's version.
+(optional fields, one entity), and ElectronOpticsSettings.Aperture with the class ElectronAperture (all
+compatible too), ScanSettings.LineInterlacing and ElectronOpticsSettings.Condenser1/2: publish as 1.1,
+with the model's version.
 
 The model's `id` and `imaging:` prefix still name the consolidator's URL
 (https://github.com/NL-BioImaging/imaging-metadata-consolidator/models/imaging), kept for now (user,
@@ -193,8 +195,22 @@ read into boolean fields. Configuration stays in the model, unused by these.
 B done: item-field rules (and the label, as "Prefix.*.id"; an implied unit too), the extension fields,
 text booleans. TALOS keys 3 -> 15% (TALOS 2 2 -> 11%), Phenom 44 -> 53%. DetectorMetadata now has
 no location (GenericDetector is a list, so ActiveConfiguration cannot take it): part of C.
-Status: A and B done, not committed; next C (apertures, optics, CustomProperties, DetectorMetadata,
-instrument/scan/binary-result keys), proposed per key.
+A and B pushed (d455b0f). C (user): C1 rules - Optics.Focus -> ElectronBeamSettings.Focus,
+LastMeasuredScreenCurrent -> ElectronBeamSettings.Current (A), BinaryResult.Detector and
+DetectorMetadata.DetectorName -> ScanSettings.Detector (the DetectorMetadata -> ActiveConfiguration rule
+dropped), CustomProperties.StemMagnification.value -> Objective.Magnification, Sample.SampleId ->
+Sample.ID, Detectors.*.id -> GenericDetector[].ID; C2 an ElectronAperture class (Name, Number, Type,
+MechanismType, Diameter m, Enabled, PositionOffset Vector2D) as ElectronOpticsSettings.Aperture, the
+text field Apertures kept (a range change would break 1.0). Not C3 (optics modes, lens intensities,
+extractor voltage) nor C4 (scan interlacing, mains lock). "0"/"1" read into boolean fields too.
+C done: the rule "Sample": "Sample" is gone (it moved TALOS's Sample record whole, so Sample.SampleId
+could not reach Sample.ID; the "Sample.*" rule covers the record); "CustomProperties" became
+"CustomProperties.*", the same paths, so a rule for one of its values applies. TALOS keys 15 -> 21%
+(TALOS 2 11 -> 16%); the rest is mostly Velox's Operations/Features.
+Of C3/C4, only what other examples share too (user): ScanSettings.LineInterlacing (TALOS, Phenom;
+Cikteq's "0/1"/"Disable" do not fit an integer) and ElectronOpticsSettings.Condenser1/2 (TALOS C1/C2
+lens intensity, Cikteq Condenser/Condenser2, each on the vendor's scale). The rest is TALOS only.
+Status: C done, not committed.
 
 ## The model and the pipeline
 
