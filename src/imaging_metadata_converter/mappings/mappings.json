@@ -234,5 +234,19 @@
     "ScanScope ID": "Instrument.ID",
     "ImageID": "Image.ID",
     "Left": "Plane.PositionX",
-    "Top": "Plane.PositionY"
+    "Top": "Plane.PositionY",
+    "Manufacturer": "Instrument.Manufacturer",
+    "ManufacturerModelName": "Instrument.Model",
+    "StationName": "Instrument.Name",
+    "Modality": "Instrument.Type",
+    "SoftwareVersions": "AcquisitionSoftware.Version",
+    "Rows": "Pixels.SizeY",
+    "Columns": "Pixels.SizeX",
+    "BitsStored": "Pixels.SignificantBits",
+    "SOPInstanceUID": "Image.ID",
+    "StudyInstanceUID": "Experiment.ID",
+    "StudyDescription": "Experiment.Description",
+    "SeriesDescription": "Image.Name",
+    "ImageComments": "Image.Description",
+    "InstitutionName": "Experimenter.Institution"
 }

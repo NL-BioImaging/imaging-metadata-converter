@@ -137,8 +137,17 @@ Output: scripts/model_fit.py (prints the tables) and docs/model-fit.md, filled b
 Then (user): raise coverage of platy, LIF and DICOM - prefer extending the mapping over the model,
 though both are valid; propose per key with stated assumptions, confirm, add. Their coverage was low
 from when they were added (consolidator 46a960a, 2026-09-25), not from the OME root or the LinkML move.
-Status: analytics done (scripts/model_fit.py, docs/model-fit.md, tests/test_model_fit.py), not yet
-committed; next the platy/LIF/DICOM proposals.
+Analytics done and pushed (171254d). DICOM (user, 2026-09-30): plain rules agreed - Manufacturer,
+ManufacturerModelName, StationName -> Instrument.Name, Modality -> Instrument.Type, SoftwareVersions,
+Rows/Columns -> Pixels.SizeY/SizeX (fixing the automatic Plate match), BitsStored -> SignificantBits,
+SOPInstanceUID -> Image.ID, StudyInstanceUID -> Experiment.ID, StudyDescription, SeriesDescription ->
+Image.Name, ImageComments -> Image.Description, InstitutionName -> Experimenter.Institution; the rest
+(patient/admin, CT physics, display) stays Property. Open: a list-element split with an implied unit
+(PixelSpacing, SliceThickness in mm) is no existing rule form - the "split" of c2cb391 copies one value
+to several targets, the merge (combinations) builds datetimes only; Instrument.SerialNumber (model
+extension) for DeviceSerialNumber; a combination cannot replace the automatic AcquisitionDate (date
+only) since combinations write only where free, after the rules.
+Status: adding the DICOM rules, then regenerate output/ and export/.
 
 ## The model and the pipeline
 
