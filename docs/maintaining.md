@@ -12,7 +12,7 @@ need nothing beyond the package's own dependencies (some of their tests need
 |---|---|
 | `src/imaging_metadata_converter/models/imaging.yaml` | The master model, edited by hand, and its three imports (see [The model](model.md)) |
 | `src/imaging_metadata_converter/mappings/mappings.json`, `combinations.json` | The mapping rules |
-| `profile/imaging.metaseed.yaml` | The metaseed profile, generated (`scripts/metaseed_generator.py`), published on the metaseed Hub as `imaging` 1.1 |
+| `profile/imaging.metaseed.yaml` | The metaseed profile `imaging` 1.2, generated (`scripts/metaseed_generator.py`); 1.1 is published on the metaseed Hub |
 | `export/` | One metaseed dataset per example, generated (`scripts/dataset_exporter.py`) |
 | `reference/LiMi_XMLSchema.xsd` | The LiMi XSD the model was converted from (unchanged) |
 | `reference/ome-2016-06.xsd` | The OME 2016-06 schema, source of descriptions LiMi leaves out |
@@ -171,4 +171,4 @@ The tests of the XSD conversion need `linkml`, and the dataset validation
 
 With the metaseed CLI: `metaseed spec import <draft> profile/imaging.metaseed.yaml`,
 `metaseed spec validate <draft>`, `metaseed spec save <draft>`, then
-`metaseed validate export/<name>.yaml -p imaging -v 1.1 -e OME`.
+`metaseed validate export/<name>.yaml -p imaging -v 1.2 -e OME`.

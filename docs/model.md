@@ -116,6 +116,7 @@ the tree next to LiMi's fields; new groups are classes of their own.
 | `Image` | `Type`, `CropHint`, `Corrections` (contrast, brightness, gamma, black and white level) |
 | `Instrument` | `Manufacturer`, `Model`, `CatalogNumber`, `Type`, `ComputerName`, `Vacuum` (buffer, gun, sample and system vacuum, mode), `ElectronSource` |
 | `Detector` | `Type`, `Gain`, `Offset`, `Brightness`, `Contrast`, `Channel`, configuration; `Inserted`, `Enabled`, `ExposureTime`, `Binning`, and for electron-microscopy detectors the collection, elevation and azimuth angles, `CollectionAngleRange`, live, real and pulse-processing times, input and output count rates, and the spectrum's `Dispersion`, `OffsetEnergy`, `BeginEnergy` and `ElectronicsNoise` |
+| `Pixels` | `TimePoints`: the source's own indices of the first and last time point (BigDataViewer's `Timepoints` range), whose count is `SizeT` and by which its registrations name them |
 | `Stage` | `Position`, `RawPosition`, `Tilt`, `Rotation`, `Bias`, `MultiStage` (sample height and radius) |
 | `Software` | `ApplicationID` |
 | `OME` | `Operations`, `Features`, `Annotation`, kept as source text |
@@ -130,8 +131,15 @@ operator is LiMi's `Experimenter.UserName`, the start of acquisition
 
 A value with a unit (`WorkingDistance`, `FieldOfView.X`, ...) is one shared
 class, `Quantity` with `Value` and `Unit`, the unit as the source writes it; a
-range (`CollectionAngleRange`) is a `QuantityRange` with `Begin`, `End` and
-`Unit`; a pair along X and Y (`Shift`, `Stigmator`, `Binning`) is a `Vector2D`.
+range (`CollectionAngleRange`, `Pixels.TimePoints`) is a `QuantityRange` with
+`Begin`, `End` and `Unit`; a pair along X and Y (`Shift`, `Stigmator`,
+`Binning`) is a `Vector2D`.
+
+The model adds values to two of LiMi's enumerations too: `Oil` to the
+objective's immersions (OME's, for an oil of a kind the source does not state),
+and `Microdissection` to the lasers' roles (a laser that cuts the specimen, as a
+Leica LMD7's, rather than lighting the image). LiMi shares the latter list with
+arc lamps and multi-laser engines, so they accept it too.
 
 ## Provenance
 
