@@ -76,7 +76,10 @@ def missing_metadata(source, converted):
                      for part in parts if part not in source_nodes]
 
     placed = {}
-    for output_path, source_path in (entry for entry in source_map.items() if entry[0] not in derived):
+    for output_path, origin in (entry for entry in source_map.items() if entry[0] not in derived):
+        # a value in the model's spelling ("OIL" as Oil) records the source's beside its path
+        source_path = origin['Source'] if isinstance(origin, dict) else origin
+        held = {output_path: origin['SourceValue']} if isinstance(origin, dict) else output
         placed.setdefault(source_path, []).append(output_path)
         if output_path not in output:
             problems.append(f'SourceMap names {output_path}, which holds no value')
@@ -85,8 +88,8 @@ def missing_metadata(source, converted):
         elif not is_leaf(source_nodes[source_path][1]):
             if output[output_path] != source_nodes[source_path][0]:
                 problems.append(f'{output_path} should hold the key of {source_path}')
-        elif typed(output[output_path]) != typed(source_nodes[source_path][1]):
-            problems.append(f'{output_path} holds {typed(output[output_path])}, '
+        elif typed(held[output_path]) != typed(source_nodes[source_path][1]):
+            problems.append(f'{output_path} holds {typed(held[output_path])}, '
                             f'but its source {source_path} holds {typed(source_nodes[source_path][1])}')
 
     for source_path, (_, value) in source_nodes.items():

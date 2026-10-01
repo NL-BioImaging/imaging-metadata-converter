@@ -2,14 +2,6 @@ Instrument:
   Manufacturer: Leica Microsystems
   Model: MICA
   Name: MICA
-Objective:
-  Magnification: 10.0
-  LensNA: 0.32
-  ImmersionType: Air
-  Model: 'HC PL FLUOTAR    10x/0.32 DRY '
-  CatalogNumber: 11506432
-ImmersionLiquid:
-  RefractiveIndex: 1.0
 HardwareSetting:
   CameraSettingDefinition:
     IndividualCameraGroup:
@@ -381,21 +373,16 @@ HardwareSetting:
     FlipX: 0
     FlipY: 0
     SwapXY: 0
-    Magnification: 10
     CanDoTotalVideoMag: 1
     TotalVideoMag: 6
     AutofocusChannel: 3000
     IsAutofocusOnStart: 1
     AutofocusRedoEveryNTimePoints: 0
     ObjectivePos: 4
-    MicroscopeModel: MICA
     IsInverseMicroscopeModel: 1
     ShutterMode: 1
     ShutterModeSoftware: 0
     CanDoIndustryShuttering: 0
-    Immersion: DRY
-    NumericalAperture: 0.32
-    RefractionIndex: 1
     CoverslipThickness: 0.00017
     TubeOpticName: 1x
     TubeOpticPos: 1
@@ -453,6 +440,14 @@ Pixels:
   SizeX: 2448
   SizeY: 2048
   SignificantBits: 8
+Objective:
+  Magnification: 10
+  Model: 'HC PL FLUOTAR    10x/0.32 DRY '
+  CatalogNumber: 11506432
+  ImmersionType: Air
+  LensNA: 0.32
+ImmersionLiquid:
+  RefractiveIndex: 1
 MountingMedium:
   RefractiveIndex: 1.4729
 Experimenter:
@@ -461,11 +456,6 @@ AcquisitionSoftware:
   Name: LAS X 6.2.1.27469
 SourceMap:
   Instrument.Manufacturer: manufacturer
-  Instrument.Model: model
-  Objective.Magnification: magnification
-  Objective.LensNA: lens_na
-  Objective.ImmersionType: immersion
-  ImmersionLiquid.RefractiveIndex: refractive_index
   HardwareSetting.CameraSettingDefinition.IndividualCameraGroup.PerCameraSetting[0].MirrorX: HardwareSetting.CameraSettingDefinition.IndividualCameraGroup.PerCameraSetting[0].MirrorX
   HardwareSetting.CameraSettingDefinition.IndividualCameraGroup.PerCameraSetting[0].MirrorY: HardwareSetting.CameraSettingDefinition.IndividualCameraGroup.PerCameraSetting[0].MirrorY
   HardwareSetting.CameraSettingDefinition.IndividualCameraGroup.PerCameraSetting[1].MirrorX: HardwareSetting.CameraSettingDefinition.IndividualCameraGroup.PerCameraSetting[1].MirrorX
@@ -891,7 +881,7 @@ SourceMap:
   HardwareSetting.CameraSettingDefinition.FlipX: HardwareSetting.CameraSettingDefinition.FlipX
   HardwareSetting.CameraSettingDefinition.FlipY: HardwareSetting.CameraSettingDefinition.FlipY
   HardwareSetting.CameraSettingDefinition.SwapXY: HardwareSetting.CameraSettingDefinition.SwapXY
-  HardwareSetting.CameraSettingDefinition.Magnification: HardwareSetting.CameraSettingDefinition.Magnification
+  Objective.Magnification: HardwareSetting.CameraSettingDefinition.Magnification
   HardwareSetting.CameraSettingDefinition.CanDoTotalVideoMag: HardwareSetting.CameraSettingDefinition.CanDoTotalVideoMag
   HardwareSetting.CameraSettingDefinition.TotalVideoMag: HardwareSetting.CameraSettingDefinition.TotalVideoMag
   HardwareSetting.CameraSettingDefinition.AutofocusChannel: HardwareSetting.CameraSettingDefinition.AutofocusChannel
@@ -900,14 +890,16 @@ SourceMap:
   Objective.Model: HardwareSetting.CameraSettingDefinition.ObjectiveName
   Objective.CatalogNumber: HardwareSetting.CameraSettingDefinition.ObjectiveNumber
   HardwareSetting.CameraSettingDefinition.ObjectivePos: HardwareSetting.CameraSettingDefinition.ObjectivePos
-  HardwareSetting.CameraSettingDefinition.MicroscopeModel: HardwareSetting.CameraSettingDefinition.MicroscopeModel
+  Instrument.Model: HardwareSetting.CameraSettingDefinition.MicroscopeModel
   HardwareSetting.CameraSettingDefinition.IsInverseMicroscopeModel: HardwareSetting.CameraSettingDefinition.IsInverseMicroscopeModel
   HardwareSetting.CameraSettingDefinition.ShutterMode: HardwareSetting.CameraSettingDefinition.ShutterMode
   HardwareSetting.CameraSettingDefinition.ShutterModeSoftware: HardwareSetting.CameraSettingDefinition.ShutterModeSoftware
   HardwareSetting.CameraSettingDefinition.CanDoIndustryShuttering: HardwareSetting.CameraSettingDefinition.CanDoIndustryShuttering
-  HardwareSetting.CameraSettingDefinition.Immersion: HardwareSetting.CameraSettingDefinition.Immersion
-  HardwareSetting.CameraSettingDefinition.NumericalAperture: HardwareSetting.CameraSettingDefinition.NumericalAperture
-  HardwareSetting.CameraSettingDefinition.RefractionIndex: HardwareSetting.CameraSettingDefinition.RefractionIndex
+  Objective.ImmersionType:
+    Source: HardwareSetting.CameraSettingDefinition.Immersion
+    SourceValue: DRY
+  Objective.LensNA: HardwareSetting.CameraSettingDefinition.NumericalAperture
+  ImmersionLiquid.RefractiveIndex: HardwareSetting.CameraSettingDefinition.RefractionIndex
   MountingMedium.RefractiveIndex: HardwareSetting.CameraSettingDefinition.MountingMediumRefractionIndex
   HardwareSetting.CameraSettingDefinition.CoverslipThickness: HardwareSetting.CameraSettingDefinition.CoverslipThickness
   HardwareSetting.CameraSettingDefinition.TubeOpticName: HardwareSetting.CameraSettingDefinition.TubeOpticName

@@ -3,7 +3,7 @@ name: imaging
 title: Imaging metadata model
 description: 'Microscopy imaging metadata, based on the LiMi (4DN-BINA-OME) model: converted from models/LiMi_XMLSchema.xsd
   (version 02.00, namespace http://www.NamespaceTest.org/Schemas/NBO/2020-11).'
-version: 1.1.0
+version: 1.2.0
 comments:
 - 'Descriptions annotated with description_source "OME 2016-06 ome.xsd" are from the OME Data Model (Copyright (C) 2002 -
   2016 Open Microscopy Environment), licensed under CC BY 3.0: http://www.openmicroscopy.org/info/attribution'
@@ -4595,6 +4595,8 @@ classes:
       stored in any associated TIFF format (e.g. SizeX should be the same). Where there is a mismatch our readers will take
       the value from the TIFF structure as overriding the value in the OME-XML. This is simply a pragmatic decision as it
       increases the likelihood of reading data from a slightly incorrect file.
+    mixins:
+    - PixelsExtension
     attributes:
       Plane:
         range: Plane
@@ -12461,7 +12463,9 @@ enums:
       description_source: derived from Objective.CorrectionCollarType
   ImmersionTypeList:
     permissible_values:
-      Air: {}
+      Air:
+        aliases:
+        - DRY
       Dipping: {}
       Glycerol: {}
       Multi: {}
@@ -12472,6 +12476,8 @@ enums:
           imaging model, as LiMi has only Mineral Oil and Silicone Oil.
         annotations:
           description_source: OME 2016-06 ome.xsd (CC BY 3.0, Open Microscopy Environment)
+        aliases:
+        - OIL
       Water: {}
       Other: {}
     description: According to ISO 10934-1:2002, an Immersion Liquid is a liquid (commonly immersion oil, water or glycerol)

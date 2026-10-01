@@ -103,9 +103,11 @@ with a `SourceMapping` naming its source key; anything else becomes a
 fits no declared field (a vendor object where the model has a string) is taken
 apart into one Property per leaf. Nothing is dropped.
 
-A unit spelled otherwise than the model spells it (`um`, `micrometre`) is
-stored as the model's unit (`µm`) when the units schema lists the spelling as
-an alias; the mapping keeps the source's spelling as `SourceValue`. A number
+A value spelled otherwise than the model spells it (the units `um`,
+`micrometre`; Leica's immersion `OIL`) reaches the export in the model's
+spelling (`µm`, `Oil`), as the mapper writes it where the model lists the
+spelling as an alias; the mapping keeps the source's spelling as `SourceValue`,
+from the mapper's `SourceMap`, and a Property keeps it as its value. A number
 the source writes as text (TALOS's `"80000"`) is stored as the number a
 numeric field takes, and a number as the text a text field takes (Leica's
 order number 11506432 as a `CatalogNumber`), the mapping keeping the source's

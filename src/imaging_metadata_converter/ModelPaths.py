@@ -67,6 +67,13 @@ class ModelPaths:
                 aliases.update({f'{name}{path[len(default):]}': path for path in _leaf_paths(tree[default], default)})
         return aliases
 
+    def spellings(self):
+        """{enumeration: {alias: value}} for each enumeration whose values have other spellings ("um" for "µm",
+        Leica's "OIL" for Oil)."""
+        return {name: {alias: value for value, spec in enum.permissible_values.items() for alias in spec.aliases}
+                for name, enum in self.view.all_enums().items()
+                if any(spec.aliases for spec in enum.permissible_values.values())}
+
     def parents(self, class_name):
         """(class, slot) pairs nesting `class_name` directly."""
         return [(owner, name) for owner, cls in self.classes.items() if not cls.mixin and not cls.abstract

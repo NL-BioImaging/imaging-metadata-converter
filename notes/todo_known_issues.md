@@ -20,6 +20,11 @@ model's `id` and `imaging:` prefix moved with it from the consolidator's URL to 
 (https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging), as planned (user,
 2026-09-29); in the profile that is only its description.
 
+Generated, not yet published (2026-10-01): profile `imaging` 1.2 = `profile/imaging.metaseed.yaml`, model
+1.2.0. It adds Pixels.TimePoints (a QuantityRange: a source's first and last time-point index), compatibly
+with 1.1 (compare_specs: the optional field and the description only); the immersion aliases DRY and OIL
+are the model's, not the profile's.
+
 imaging-metadata-consolidator stays archived, read-only and public (user, 2026-09-30): profile 1.0 and
 model 1.0.0 name its URL, and the retired pieces (schema.json, schema.extended.json, ProfileConverter)
 live in its history.

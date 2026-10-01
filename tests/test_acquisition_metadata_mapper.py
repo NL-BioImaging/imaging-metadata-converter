@@ -20,6 +20,35 @@ class AcquisitionMetadataMapperTest(unittest.TestCase):
     def setUpClass(cls):
         cls.mapper = AcquisitionMetadataMapper()
 
+    def test_value_spelled_otherwise_is_written_in_the_models_spelling(self):
+        converted = self.mapper.convert_metadata({'immersion': 'OIL', 'CameraSettingDefinition': {'Immersion': 'Oil'},
+                                                  'voxelSize': {'unit': 'micron'}})
+
+        self.assertEqual(converted['Objective'], {'ImmersionType': 'Oil'})
+        self.assertEqual(converted['SourceMap']['Objective.ImmersionType'], {'Source': 'immersion', 'SourceValue': 'OIL'})
+        # a source already writing the model's spelling is a plain path; one that collides keeps its own
+        self.assertEqual(converted['CameraSettingDefinition'], {'Immersion': 'Oil'})
+        self.assertEqual(converted['SourceMap']['CameraSettingDefinition.Immersion'], 'CameraSettingDefinition.Immersion')
+
+    def test_leica_settings_reach_the_objective_without_summary_keys(self):
+        settings = {'MicroscopeModel': 'MICA', 'Magnification': 10, 'NumericalAperture': 0.32, 'Immersion': 'DRY',
+                    'RefractionIndex': 1}
+
+        converted = self.mapper.convert_metadata({'HardwareSetting': {'CameraSettingDefinition': settings}})
+
+        self.assertEqual(converted['Instrument'], {'Model': 'MICA'})
+        self.assertEqual(converted['Objective'], {'Magnification': 10, 'LensNA': 0.32, 'ImmersionType': 'Air'})
+        self.assertEqual(converted['ImmersionLiquid'], {'RefractiveIndex': 1})
+        self.assertNotIn('HardwareSetting', converted)
+
+    def test_time_point_range_is_kept_beside_its_count(self):
+        timepoints = {'first': 10, 'last': 14, 'type': 'range'}
+
+        converted = self.mapper.convert_metadata({'SpimData': {'SequenceDescription': {'Timepoints': timepoints}}})
+
+        self.assertEqual(converted['Pixels'], {'TimePoints': {'Begin': 10, 'End': 14}, 'SizeT': 5})
+        self.assertEqual(converted['SpimData'], {'SequenceDescription': {'Timepoints': {'type': 'range'}}})
+
     def test_convert_metadata_accepts_in_memory_dict(self):
         sample = {'Make': 'Acme', 'Model': 'Widget-1000'}
 

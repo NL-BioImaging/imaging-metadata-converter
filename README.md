@@ -50,6 +50,12 @@ common = convert_metadata(custom)
 `SourceMap` records the source path of every output field, so renamed and
 collapsed keys stay recoverable from the output alone.
 
+A value the model spells otherwise, listed as an alias of one of its
+enumeration values, is written in the model's spelling: Leica's immersion
+`"OIL"` as `Oil`, BigDataViewer's unit `"micron"` as `µm`. Its `SourceMap`
+entry then records the source's spelling too:
+`{"Source": "...Immersion", "SourceValue": "OIL"}`.
+
 The input is whatever metadata dict you already extracted from your file or
 acquisition software; the output is the same information placed on the common
 model. Nested dicts and lists of dicts are walked recursively.

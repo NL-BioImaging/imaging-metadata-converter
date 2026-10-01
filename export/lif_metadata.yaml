@@ -3,7 +3,7 @@ Image:
 - SourceFile:
   - ID: SourceFile:0
     Name: lif_metadata.json
-    Checksum: 2e0b85737901d925f87ac5c543946f5dbce5d41a0bf287ba1d260a17e5d4602c
+    Checksum: bc6dc8ed9a68fa92d122a7255a0f6fe763cd2913b7658b9bc18b3d3e8dfe412a
     Format: json
     Mapping:
     - ID: SourceMapping:0
@@ -11,79 +11,80 @@ Image:
       Source: manufacturer
     - ID: SourceMapping:1
       Field: Instrument[0].Model
-      Source: model
+      Source: HardwareSetting.CameraSettingDefinition.MicroscopeModel
     - ID: SourceMapping:2
       Field: Instrument[0].Name
       Source: HardwareSetting.SystemTypeName
     - ID: SourceMapping:3
-      Field: Instrument[0].Objective[0].Magnification
-      Source: magnification
-    - ID: SourceMapping:4
-      Field: Instrument[0].Objective[0].LensNA
-      Source: lens_na
-    - ID: SourceMapping:5
-      Field: Instrument[0].Objective[0].ImmersionType
-      Source: immersion
-    - ID: SourceMapping:6
-      Field: Instrument[0].Objective[0].Model
-      Source: HardwareSetting.CameraSettingDefinition.ObjectiveName
-    - ID: SourceMapping:7
-      Field: Instrument[0].Objective[0].CatalogNumber
-      Source: HardwareSetting.CameraSettingDefinition.ObjectiveNumber
-      SourceValue: '11506432'
-    - ID: SourceMapping:8
-      Field: Image[0].ObjectiveSettings.ImmersionLiquid.RefractiveIndex
-      Source: refractive_index
-    - ID: SourceMapping:9
       Field: Image[0].Pixels.Plane[0].ExposureTime
       Source: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].ExposureTime
-    - ID: SourceMapping:10
+    - ID: SourceMapping:4
       Field: Image[0].Pixels.Plane[0].PositionZ
       Source: HardwareSetting.CameraSettingDefinition.ZPosition
-    - ID: SourceMapping:11
+    - ID: SourceMapping:5
       Field: Image[0].Pixels.Plane[0].PositionX
       Source: HardwareSetting.CameraSettingDefinition.StagePosX
-    - ID: SourceMapping:12
+    - ID: SourceMapping:6
       Field: Image[0].Pixels.Plane[0].PositionY
       Source: HardwareSetting.CameraSettingDefinition.StagePosY
-    - ID: SourceMapping:13
+    - ID: SourceMapping:7
       Field: Image[0].Pixels.Plane[0].ExposureTimeUnit
       Source: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].ExposureTime
       DerivedFrom:
       - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].ExposureTime
-    - ID: SourceMapping:14
+    - ID: SourceMapping:8
       Field: Image[0].Pixels.Plane[0].PositionZUnit
       Source: HardwareSetting.CameraSettingDefinition.ZPosition
       DerivedFrom:
       - HardwareSetting.CameraSettingDefinition.ZPosition
-    - ID: SourceMapping:15
+    - ID: SourceMapping:9
       Field: Image[0].Pixels.Plane[0].PositionXUnit
       Source: HardwareSetting.CameraSettingDefinition.StagePosX
       DerivedFrom:
       - HardwareSetting.CameraSettingDefinition.StagePosX
-    - ID: SourceMapping:16
+    - ID: SourceMapping:10
       Field: Image[0].Pixels.Plane[0].PositionYUnit
       Source: HardwareSetting.CameraSettingDefinition.StagePosY
       DerivedFrom:
       - HardwareSetting.CameraSettingDefinition.StagePosY
-    - ID: SourceMapping:17
+    - ID: SourceMapping:11
       Field: Instrument[0].GenericDetector[0].Gain
       Source: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Gain
-    - ID: SourceMapping:18
+    - ID: SourceMapping:12
       Field: Instrument[0].GenericDetector[0].Model
       Source: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraName
-    - ID: SourceMapping:19
+    - ID: SourceMapping:13
       Field: Instrument[0].GenericDetector[0].Brightness
       Source: HardwareSetting.CameraSettingDefinition.Brightness
-    - ID: SourceMapping:20
+    - ID: SourceMapping:14
       Field: Image[0].Pixels.SizeX
       Source: HardwareSetting.CameraSettingDefinition.CameraFormat.xDim
-    - ID: SourceMapping:21
+    - ID: SourceMapping:15
       Field: Image[0].Pixels.SizeY
       Source: HardwareSetting.CameraSettingDefinition.CameraFormat.yDim
-    - ID: SourceMapping:22
+    - ID: SourceMapping:16
       Field: Image[0].Pixels.SignificantBits
       Source: HardwareSetting.CameraSettingDefinition.CameraFormat.Resolution
+    - ID: SourceMapping:17
+      Field: Instrument[0].Objective[0].Magnification
+      Source: HardwareSetting.CameraSettingDefinition.Magnification
+    - ID: SourceMapping:18
+      Field: Instrument[0].Objective[0].Model
+      Source: HardwareSetting.CameraSettingDefinition.ObjectiveName
+    - ID: SourceMapping:19
+      Field: Instrument[0].Objective[0].CatalogNumber
+      Source: HardwareSetting.CameraSettingDefinition.ObjectiveNumber
+      SourceValue: '11506432'
+    - ID: SourceMapping:20
+      Field: Instrument[0].Objective[0].ImmersionType
+      Source: HardwareSetting.CameraSettingDefinition.Immersion
+      SourceValue: '"DRY"'
+    - ID: SourceMapping:21
+      Field: Instrument[0].Objective[0].LensNA
+      Source: HardwareSetting.CameraSettingDefinition.NumericalAperture
+    - ID: SourceMapping:22
+      Field: Image[0].ObjectiveSettings.ImmersionLiquid.RefractiveIndex
+      Source: HardwareSetting.CameraSettingDefinition.RefractionIndex
     - ID: SourceMapping:23
       Field: Experiment[0].Sample[0].MountingMedium[0].RefractiveIndex
       Source: HardwareSetting.CameraSettingDefinition.MountingMediumRefractionIndex
@@ -93,9 +94,6 @@ Image:
     - ID: SourceMapping:25
       Field: Instrument[0].AcquisitionSoftware[0].Name
       Source: HardwareSetting.Software
-  ObjectiveSettings:
-    ImmersionLiquid:
-      RefractiveIndex: 1.0
   Pixels:
     Plane:
     - ExposureTime: 0.04
@@ -109,20 +107,23 @@ Image:
     SizeX: 2448
     SizeY: 2048
     SignificantBits: 8
+  ObjectiveSettings:
+    ImmersionLiquid:
+      RefractiveIndex: 1
 Instrument:
 - Manufacturer: Leica Microsystems
   Model: MICA
   Name: MICA
-  Objective:
-  - Magnification: 10.0
-    LensNA: 0.32
-    ImmersionType: Air
-    Model: 'HC PL FLUOTAR    10x/0.32 DRY '
-    CatalogNumber: '11506432'
   GenericDetector:
   - Gain: 1
     Model: DFC4400-GI_700010131528_700010131530_700010131533_700010131558
     Brightness: 125
+  Objective:
+  - Magnification: 10
+    Model: 'HC PL FLUOTAR    10x/0.32 DRY '
+    CatalogNumber: '11506432'
+    ImmersionType: Air
+    LensNA: 0.32
   AcquisitionSoftware:
   - Name: LAS X 6.2.1.27469
 CustomProperties:
@@ -1535,222 +1536,202 @@ CustomProperties:
   Value: '0'
   Source: SourceFile:0
 - ID: Property:352
-  Name: HardwareSetting.CameraSettingDefinition.Magnification
-  Value: '10'
-  Source: SourceFile:0
-- ID: Property:353
   Name: HardwareSetting.CameraSettingDefinition.CanDoTotalVideoMag
   Value: '1'
   Source: SourceFile:0
-- ID: Property:354
+- ID: Property:353
   Name: HardwareSetting.CameraSettingDefinition.TotalVideoMag
   Value: '6'
   Source: SourceFile:0
-- ID: Property:355
+- ID: Property:354
   Name: HardwareSetting.CameraSettingDefinition.AutofocusChannel
   Value: '3000'
   Source: SourceFile:0
-- ID: Property:356
+- ID: Property:355
   Name: HardwareSetting.CameraSettingDefinition.IsAutofocusOnStart
   Value: '1'
   Source: SourceFile:0
-- ID: Property:357
+- ID: Property:356
   Name: HardwareSetting.CameraSettingDefinition.AutofocusRedoEveryNTimePoints
   Value: '0'
   Source: SourceFile:0
-- ID: Property:358
+- ID: Property:357
   Name: HardwareSetting.CameraSettingDefinition.ObjectivePos
   Value: '4'
   Source: SourceFile:0
-- ID: Property:359
-  Name: HardwareSetting.CameraSettingDefinition.MicroscopeModel
-  Value: '"MICA"'
-  Source: SourceFile:0
-- ID: Property:360
+- ID: Property:358
   Name: HardwareSetting.CameraSettingDefinition.IsInverseMicroscopeModel
   Value: '1'
   Source: SourceFile:0
-- ID: Property:361
+- ID: Property:359
   Name: HardwareSetting.CameraSettingDefinition.ShutterMode
   Value: '1'
   Source: SourceFile:0
-- ID: Property:362
+- ID: Property:360
   Name: HardwareSetting.CameraSettingDefinition.ShutterModeSoftware
   Value: '0'
   Source: SourceFile:0
-- ID: Property:363
+- ID: Property:361
   Name: HardwareSetting.CameraSettingDefinition.CanDoIndustryShuttering
   Value: '0'
   Source: SourceFile:0
-- ID: Property:364
-  Name: HardwareSetting.CameraSettingDefinition.Immersion
-  Value: '"DRY"'
-  Source: SourceFile:0
-- ID: Property:365
-  Name: HardwareSetting.CameraSettingDefinition.NumericalAperture
-  Value: '0.32'
-  Source: SourceFile:0
-- ID: Property:366
-  Name: HardwareSetting.CameraSettingDefinition.RefractionIndex
-  Value: '1'
-  Source: SourceFile:0
-- ID: Property:367
+- ID: Property:362
   Name: HardwareSetting.CameraSettingDefinition.CoverslipThickness
   Value: '0.00017'
   Source: SourceFile:0
-- ID: Property:368
+- ID: Property:363
   Name: HardwareSetting.CameraSettingDefinition.TubeOpticName
   Value: '"1x"'
   Source: SourceFile:0
-- ID: Property:369
+- ID: Property:364
   Name: HardwareSetting.CameraSettingDefinition.TubeOpticPos
   Value: '1'
   Source: SourceFile:0
-- ID: Property:370
+- ID: Property:365
   Name: HardwareSetting.CameraSettingDefinition.TubeOpticPortMagPos
   Value: '0'
   Source: SourceFile:0
-- ID: Property:371
+- ID: Property:366
   Name: HardwareSetting.CameraSettingDefinition.CanDoChangeSpeedAndPort
   Value: '0'
   Source: SourceFile:0
-- ID: Property:372
+- ID: Property:367
   Name: HardwareSetting.CameraSettingDefinition.CanDoColorCapture
   Value: '0'
   Source: SourceFile:0
-- ID: Property:373
+- ID: Property:368
   Name: HardwareSetting.CameraSettingDefinition.CanDoMicroScanning
   Value: '0'
   Source: SourceFile:0
-- ID: Property:374
+- ID: Property:369
   Name: HardwareSetting.CameraSettingDefinition.CanDoDualLightMode
   Value: '0'
   Source: SourceFile:0
-- ID: Property:375
+- ID: Property:370
   Name: HardwareSetting.CameraSettingDefinition.CanDoLiveBinning
   Value: '0'
   Source: SourceFile:0
-- ID: Property:376
+- ID: Property:371
   Name: HardwareSetting.CameraSettingDefinition.CanDoControlCooler
   Value: '0'
   Source: SourceFile:0
-- ID: Property:377
+- ID: Property:372
   Name: HardwareSetting.CameraSettingDefinition.CanDoControlTemperature
   Value: '0'
   Source: SourceFile:0
-- ID: Property:378
+- ID: Property:373
   Name: HardwareSetting.CameraSettingDefinition.CanDoFanControl
   Value: '0'
   Source: SourceFile:0
-- ID: Property:379
+- ID: Property:374
   Name: HardwareSetting.CameraSettingDefinition.CanDoHotSpotCorrection
   Value: '0'
   Source: SourceFile:0
-- ID: Property:380
+- ID: Property:375
   Name: HardwareSetting.CameraSettingDefinition.CanDoBrightnessCorrection
   Value: '1'
   Source: SourceFile:0
-- ID: Property:381
+- ID: Property:376
   Name: HardwareSetting.CameraSettingDefinition.IsBrightnessCorrectionActive
   Value: '1'
   Source: SourceFile:0
-- ID: Property:382
+- ID: Property:377
   Name: HardwareSetting.CameraSettingDefinition.SCMOSReadoutMode
   Value: '0'
   Source: SourceFile:0
-- ID: Property:383
+- ID: Property:378
   Name: HardwareSetting.CameraSettingDefinition.CanDoEnhancedAcquisitionMode
   Value: '1'
   Source: SourceFile:0
-- ID: Property:384
+- ID: Property:379
   Name: HardwareSetting.CameraSettingDefinition.HDR_DigitalFusion_Mode
   Value: '0'
   Source: SourceFile:0
-- ID: Property:385
+- ID: Property:380
   Name: HardwareSetting.CameraSettingDefinition.CurrentLightSheetFilterPosition
   Value: '0'
   Source: SourceFile:0
-- ID: Property:386
+- ID: Property:381
   Name: HardwareSetting.CameraSettingDefinition.BinningValuePrecise
   Value: '1'
   Source: SourceFile:0
-- ID: Property:387
+- ID: Property:382
   Name: HardwareSetting.CameraSettingDefinition.BinningXValuePrecise
   Value: '1'
   Source: SourceFile:0
-- ID: Property:388
+- ID: Property:383
   Name: HardwareSetting.CameraSettingDefinition.BinningYValuePrecise
   Value: '1'
   Source: SourceFile:0
-- ID: Property:389
+- ID: Property:384
   Name: HardwareSetting.CameraSettingDefinition.ZStackUseMode
   Value: '1'
   Source: SourceFile:0
-- ID: Property:390
+- ID: Property:385
   Name: HardwareSetting.CameraSettingDefinition.NbStepsForEDOF
   Value: '10'
   Source: SourceFile:0
-- ID: Property:391
+- ID: Property:386
   Name: HardwareSetting.CameraSettingDefinition.MaxNbStepsForStartUp
   Value: '20'
   Source: SourceFile:0
-- ID: Property:392
+- ID: Property:387
   Name: HardwareSetting.CameraSettingDefinition.CalcEDoFfromZStack
   Value: '0'
   Source: SourceFile:0
-- ID: Property:393
+- ID: Property:388
   Name: HardwareSetting.CameraSettingDefinition.CalcEDoFfromZStackForStartUp
   Value: '0'
   Source: SourceFile:0
-- ID: Property:394
+- ID: Property:389
   Name: HardwareSetting.CameraSettingDefinition.IsEnabledForSequentialScanning
   Value: '1'
   Source: SourceFile:0
-- ID: Property:395
+- ID: Property:390
   Name: HardwareSetting.CameraSettingDefinition.EnhancedAcquisitionHDREnable
   Value: '0'
   Source: SourceFile:0
-- ID: Property:396
+- ID: Property:391
   Name: HardwareSetting.CameraSettingDefinition.EnhancedAcquisitionHDRAutomatic
   Value: '1'
   Source: SourceFile:0
-- ID: Property:397
+- ID: Property:392
   Name: HardwareSetting.CameraSettingDefinition.EnhancedAcquisitionHDRContrast
   Value: '0'
   Source: SourceFile:0
-- ID: Property:398
+- ID: Property:393
   Name: HardwareSetting.CameraSettingDefinition.EnhancedAcquisitionHDRBrightness
   Value: '50'
   Source: SourceFile:0
-- ID: Property:399
+- ID: Property:394
   Name: HardwareSetting.CameraSettingDefinition.IsSequencerAdvancedUseEnabled
   Value: '1'
   Source: SourceFile:0
-- ID: Property:400
+- ID: Property:395
   Name: HardwareSetting.CameraSettingDefinition.PortCameraPercentage
   Value: '25'
   Source: SourceFile:0
-- ID: Property:401
+- ID: Property:396
   Name: HardwareSetting.CameraSettingDefinition.IsMultiCam
   Value: '0'
   Source: SourceFile:0
-- ID: Property:402
+- ID: Property:397
   Name: HardwareSetting.Application
   Value: '"LAS AF"'
   Source: SourceFile:0
-- ID: Property:403
+- ID: Property:398
   Name: HardwareSetting.HardwareServerVersion
   Value: '"Build 27469"'
   Source: SourceFile:0
-- ID: Property:404
+- ID: Property:399
   Name: HardwareSetting.SystemType
   Value: '15'
   Source: SourceFile:0
-- ID: Property:405
+- ID: Property:400
   Name: HardwareSetting.DataSourceType
   Value: '1'
   Source: SourceFile:0
-- ID: Property:406
+- ID: Property:401
   Name: HardwareSetting.DataSourceTypeName
   Value: '"Camera"'
   Source: SourceFile:0

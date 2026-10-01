@@ -19,8 +19,6 @@ SpimData:
           name: 1
         name: channel
     Timepoints:
-      first: 0
-      last: 0
       type: range
   ViewRegistrations:
     ViewRegistration:
@@ -35,9 +33,12 @@ Image:
 Channel:
   Name: channel 1
 Pixels:
-  PhysicalSizeXUnit: micron
-  PhysicalSizeYUnit: micron
-  PhysicalSizeZUnit: micron
+  PhysicalSizeXUnit: µm
+  PhysicalSizeYUnit: µm
+  PhysicalSizeZUnit: µm
+  TimePoints:
+    Begin: 0
+    End: 0
   SizeX: 1100
   SizeY: 1100
   SizeZ: 1150
@@ -54,15 +55,21 @@ SourceMap:
   SpimData.SequenceDescription.ImageLoader.version: SpimData.SequenceDescription.ImageLoader.version
   SpimData.SequenceDescription.ViewSetups.ViewSetup.id: SpimData.SequenceDescription.ViewSetups.ViewSetup.id
   Channel.Name: SpimData.SequenceDescription.ViewSetups.ViewSetup.name
-  Pixels.PhysicalSizeXUnit: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit
-  Pixels.PhysicalSizeYUnit: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit
-  Pixels.PhysicalSizeZUnit: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit
+  Pixels.PhysicalSizeXUnit:
+    Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit
+    SourceValue: micron
+  Pixels.PhysicalSizeYUnit:
+    Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit
+    SourceValue: micron
+  Pixels.PhysicalSizeZUnit:
+    Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit
+    SourceValue: micron
   SpimData.SequenceDescription.ViewSetups.ViewSetup.attributes.channel: SpimData.SequenceDescription.ViewSetups.ViewSetup.attributes.channel
   SpimData.SequenceDescription.ViewSetups.Attributes.Channel.id: SpimData.SequenceDescription.ViewSetups.Attributes.Channel.id
   SpimData.SequenceDescription.ViewSetups.Attributes.Channel.name: SpimData.SequenceDescription.ViewSetups.Attributes.Channel.name
   SpimData.SequenceDescription.ViewSetups.Attributes.name: SpimData.SequenceDescription.ViewSetups.Attributes.name
-  SpimData.SequenceDescription.Timepoints.first: SpimData.SequenceDescription.Timepoints.first
-  SpimData.SequenceDescription.Timepoints.last: SpimData.SequenceDescription.Timepoints.last
+  Pixels.TimePoints.Begin: SpimData.SequenceDescription.Timepoints.first
+  Pixels.TimePoints.End: SpimData.SequenceDescription.Timepoints.last
   SpimData.SequenceDescription.Timepoints.type: SpimData.SequenceDescription.Timepoints.type
   SpimData.ViewRegistrations.ViewRegistration.ViewTransform.affine: SpimData.ViewRegistrations.ViewRegistration.ViewTransform.affine
   SpimData.ViewRegistrations.ViewRegistration.ViewTransform.type: SpimData.ViewRegistrations.ViewRegistration.ViewTransform.type

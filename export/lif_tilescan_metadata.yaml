@@ -3,7 +3,7 @@ Image:
 - SourceFile:
   - ID: SourceFile:0
     Name: lif_tilescan_metadata.json
-    Checksum: bd1e50f57bac823e81ed557fee47fe2c112df651e23ed1f0aec221ac0aa95351
+    Checksum: 85852a5f64b2aa81f917b5776a2a6b7d1771b39f804ce293ee4edf2e4758a23e
     Format: json
     Mapping:
     - ID: SourceMapping:0
@@ -11,7 +11,7 @@ Image:
       Source: manufacturer
     - ID: SourceMapping:1
       Field: Instrument[0].Model
-      Source: model
+      Source: HardwareSetting.ConfocalSettingDefinition.MicroscopeModel
     - ID: SourceMapping:2
       Field: Instrument[0].CatalogNumber
       Source: HardwareSetting.ConfocalSettingDefinition.SystemSerialNumber
@@ -20,223 +20,224 @@ Image:
       Field: Instrument[0].Name
       Source: HardwareSetting.SystemTypeName
     - ID: SourceMapping:4
-      Field: Instrument[0].Objective[0].Magnification
-      Source: magnification
-    - ID: SourceMapping:5
-      Field: Instrument[0].Objective[0].LensNA
-      Source: lens_na
-    - ID: SourceMapping:6
-      Field: Instrument[0].Objective[0].ImmersionType
-      Source: immersion
-    - ID: SourceMapping:7
-      Field: Instrument[0].Objective[0].Model
-      Source: HardwareSetting.ConfocalSettingDefinition.ObjectiveName
-    - ID: SourceMapping:8
-      Field: Instrument[0].Objective[0].CatalogNumber
-      Source: HardwareSetting.ConfocalSettingDefinition.ObjectiveNumber
-      SourceValue: '11506358'
-    - ID: SourceMapping:9
-      Field: Image[0].ObjectiveSettings.ImmersionLiquid.RefractiveIndex
-      Source: refractive_index
-    - ID: SourceMapping:10
       Field: Instrument[0].GenericDetector[0].Name
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Name
-    - ID: SourceMapping:11
+    - ID: SourceMapping:5
       Field: Instrument[0].GenericDetector[0].Type
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Type
-    - ID: SourceMapping:12
+    - ID: SourceMapping:6
       Field: Instrument[0].GenericDetector[0].Channel
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Channel
-    - ID: SourceMapping:13
+    - ID: SourceMapping:7
       Field: Instrument[0].GenericDetector[0].Gain
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Gain
-    - ID: SourceMapping:14
+    - ID: SourceMapping:8
       Field: Instrument[0].GenericDetector[0].Offset
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Offset
-    - ID: SourceMapping:15
+    - ID: SourceMapping:9
       Field: Instrument[0].GenericDetector[1].Name
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Name
-    - ID: SourceMapping:16
+    - ID: SourceMapping:10
       Field: Instrument[0].GenericDetector[1].Type
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Type
-    - ID: SourceMapping:17
+    - ID: SourceMapping:11
       Field: Instrument[0].GenericDetector[1].Channel
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Channel
-    - ID: SourceMapping:18
+    - ID: SourceMapping:12
       Field: Instrument[0].GenericDetector[1].Gain
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Gain
-    - ID: SourceMapping:19
+    - ID: SourceMapping:13
       Field: Instrument[0].GenericDetector[1].Offset
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Offset
-    - ID: SourceMapping:20
+    - ID: SourceMapping:14
       Field: Instrument[0].GenericDetector[2].Name
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Name
-    - ID: SourceMapping:21
+    - ID: SourceMapping:15
       Field: Instrument[0].GenericDetector[2].Type
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Type
-    - ID: SourceMapping:22
+    - ID: SourceMapping:16
       Field: Instrument[0].GenericDetector[2].Channel
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Channel
-    - ID: SourceMapping:23
+    - ID: SourceMapping:17
       Field: Instrument[0].GenericDetector[2].Gain
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Gain
-    - ID: SourceMapping:24
+    - ID: SourceMapping:18
       Field: Instrument[0].GenericDetector[2].Offset
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Offset
-    - ID: SourceMapping:25
+    - ID: SourceMapping:19
       Field: Instrument[0].GenericDetector[3].Name
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Name
-    - ID: SourceMapping:26
+    - ID: SourceMapping:20
       Field: Instrument[0].GenericDetector[3].Type
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Type
-    - ID: SourceMapping:27
+    - ID: SourceMapping:21
       Field: Instrument[0].GenericDetector[3].Channel
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Channel
-    - ID: SourceMapping:28
+    - ID: SourceMapping:22
       Field: Instrument[0].GenericDetector[3].Gain
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Gain
-    - ID: SourceMapping:29
+    - ID: SourceMapping:23
       Field: Instrument[0].GenericDetector[3].Offset
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Offset
-    - ID: SourceMapping:30
+    - ID: SourceMapping:24
       Field: Instrument[0].GenericDetector[4].Name
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Name
-    - ID: SourceMapping:31
+    - ID: SourceMapping:25
       Field: Instrument[0].GenericDetector[4].Type
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Type
-    - ID: SourceMapping:32
+    - ID: SourceMapping:26
       Field: Instrument[0].GenericDetector[4].Channel
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Channel
-    - ID: SourceMapping:33
+    - ID: SourceMapping:27
       Field: Instrument[0].GenericDetector[4].Gain
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Gain
-    - ID: SourceMapping:34
+    - ID: SourceMapping:28
       Field: Instrument[0].GenericDetector[4].Offset
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Offset
-    - ID: SourceMapping:35
+    - ID: SourceMapping:29
       Field: Instrument[0].GenericDetector[5].Name
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Name
-    - ID: SourceMapping:36
+    - ID: SourceMapping:30
       Field: Instrument[0].GenericDetector[5].Type
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Type
-    - ID: SourceMapping:37
+    - ID: SourceMapping:31
       Field: Instrument[0].GenericDetector[5].Channel
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Channel
-    - ID: SourceMapping:38
+    - ID: SourceMapping:32
       Field: Instrument[0].GenericDetector[5].Gain
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Gain
-    - ID: SourceMapping:39
+    - ID: SourceMapping:33
       Field: Instrument[0].GenericDetector[5].Offset
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Offset
-    - ID: SourceMapping:40
+    - ID: SourceMapping:34
       Field: Instrument[0].GenericDetector[0].Enabled
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsActive
       SourceValue: '0'
-    - ID: SourceMapping:41
+    - ID: SourceMapping:35
       Field: Instrument[0].GenericDetector[1].Enabled
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsActive
       SourceValue: '0'
-    - ID: SourceMapping:42
+    - ID: SourceMapping:36
       Field: Instrument[0].GenericDetector[2].Enabled
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsActive
       SourceValue: '0'
-    - ID: SourceMapping:43
+    - ID: SourceMapping:37
       Field: Instrument[0].GenericDetector[3].Enabled
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsActive
       SourceValue: '0'
-    - ID: SourceMapping:44
+    - ID: SourceMapping:38
       Field: Instrument[0].GenericDetector[4].Enabled
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsActive
       SourceValue: '1'
-    - ID: SourceMapping:45
+    - ID: SourceMapping:39
       Field: Instrument[0].GenericDetector[5].Enabled
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsActive
       SourceValue: '0'
-    - ID: SourceMapping:46
+    - ID: SourceMapping:40
       Field: Instrument[0].Laser[0].Name
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LaserName
-    - ID: SourceMapping:47
+    - ID: SourceMapping:41
       Field: Instrument[0].Laser[0].IlluminationWavelengthRange[0].PeakWavelength
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].Wavelength
-    - ID: SourceMapping:48
+    - ID: SourceMapping:42
       Field: Instrument[0].Laser[0].IlluminationWavelengthRange[0].PeakWavelengthUnit
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].Wavelength
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].Wavelength
-    - ID: SourceMapping:49
+    - ID: SourceMapping:43
       Field: Instrument[0].Laser[1].Name
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].LaserName
-    - ID: SourceMapping:50
+    - ID: SourceMapping:44
       Field: Instrument[0].Laser[1].IlluminationWavelengthRange[0].PeakWavelength
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].Wavelength
-    - ID: SourceMapping:51
+    - ID: SourceMapping:45
       Field: Instrument[0].Laser[1].IlluminationWavelengthRange[0].PeakWavelengthUnit
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].Wavelength
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].Wavelength
-    - ID: SourceMapping:52
+    - ID: SourceMapping:46
       Field: Instrument[0].Laser[2].Name
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].LaserName
-    - ID: SourceMapping:53
+    - ID: SourceMapping:47
       Field: Instrument[0].Laser[2].IlluminationWavelengthRange[0].PeakWavelength
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].Wavelength
-    - ID: SourceMapping:54
+    - ID: SourceMapping:48
       Field: Instrument[0].Laser[2].IlluminationWavelengthRange[0].PeakWavelengthUnit
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].Wavelength
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].Wavelength
-    - ID: SourceMapping:55
+    - ID: SourceMapping:49
       Field: Instrument[0].Laser[3].Name
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LaserName
-    - ID: SourceMapping:56
+    - ID: SourceMapping:50
       Field: Instrument[0].Laser[3].IlluminationWavelengthRange[0].PeakWavelength
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].Wavelength
-    - ID: SourceMapping:57
+    - ID: SourceMapping:51
       Field: Instrument[0].Laser[3].IlluminationWavelengthRange[0].PeakWavelengthUnit
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].Wavelength
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].Wavelength
-    - ID: SourceMapping:58
+    - ID: SourceMapping:52
       Field: Image[0].Pixels.SignificantBits
       Source: HardwareSetting.ConfocalSettingDefinition.BitSize
-    - ID: SourceMapping:59
+    - ID: SourceMapping:53
       Field: Image[0].Pixels.SizeX
       Source: HardwareSetting.ConfocalSettingDefinition.InDimension
-    - ID: SourceMapping:60
+    - ID: SourceMapping:54
       Field: Image[0].Pixels.SizeY
       Source: HardwareSetting.ConfocalSettingDefinition.OutDimension
-    - ID: SourceMapping:61
+    - ID: SourceMapping:55
       Field: Image[0].Pixels.Plane[0].PositionZ
       Source: HardwareSetting.ConfocalSettingDefinition.ZPosition
-    - ID: SourceMapping:62
+    - ID: SourceMapping:56
       Field: Image[0].Pixels.Plane[0].PositionX
       Source: HardwareSetting.ConfocalSettingDefinition.StagePosX
-    - ID: SourceMapping:63
+    - ID: SourceMapping:57
       Field: Image[0].Pixels.Plane[0].PositionY
       Source: HardwareSetting.ConfocalSettingDefinition.StagePosY
-    - ID: SourceMapping:64
+    - ID: SourceMapping:58
       Field: Image[0].Pixels.Plane[0].PixelDwellTime
       Source: HardwareSetting.ConfocalSettingDefinition.PixelDwellTime
-    - ID: SourceMapping:65
+    - ID: SourceMapping:59
       Field: Image[0].Pixels.Plane[0].PositionZUnit
       Source: HardwareSetting.ConfocalSettingDefinition.ZPosition
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.ZPosition
-    - ID: SourceMapping:66
+    - ID: SourceMapping:60
       Field: Image[0].Pixels.Plane[0].PositionXUnit
       Source: HardwareSetting.ConfocalSettingDefinition.StagePosX
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.StagePosX
-    - ID: SourceMapping:67
+    - ID: SourceMapping:61
       Field: Image[0].Pixels.Plane[0].PositionYUnit
       Source: HardwareSetting.ConfocalSettingDefinition.StagePosY
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.StagePosY
-    - ID: SourceMapping:68
+    - ID: SourceMapping:62
       Field: Image[0].Pixels.Plane[0].PixelDwellTimeUnit
       Source: HardwareSetting.ConfocalSettingDefinition.PixelDwellTime
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.PixelDwellTime
+    - ID: SourceMapping:63
+      Field: Instrument[0].Objective[0].Magnification
+      Source: HardwareSetting.ConfocalSettingDefinition.Magnification
+    - ID: SourceMapping:64
+      Field: Instrument[0].Objective[0].Model
+      Source: HardwareSetting.ConfocalSettingDefinition.ObjectiveName
+    - ID: SourceMapping:65
+      Field: Instrument[0].Objective[0].CatalogNumber
+      Source: HardwareSetting.ConfocalSettingDefinition.ObjectiveNumber
+      SourceValue: '11506358'
+    - ID: SourceMapping:66
+      Field: Instrument[0].Objective[0].ImmersionType
+      Source: HardwareSetting.ConfocalSettingDefinition.Immersion
+      SourceValue: '"OIL"'
+    - ID: SourceMapping:67
+      Field: Instrument[0].Objective[0].LensNA
+      Source: HardwareSetting.ConfocalSettingDefinition.NumericalAperture
+    - ID: SourceMapping:68
+      Field: Image[0].ObjectiveSettings.ImmersionLiquid.RefractiveIndex
+      Source: HardwareSetting.ConfocalSettingDefinition.RefractionIndex
     - ID: SourceMapping:69
       Field: Image[0].Pixels.Channel[0].LightPath.ConfocalScannerSettings[0].EffectiveZoom
       Source: HardwareSetting.ConfocalSettingDefinition.Zoom
@@ -257,9 +258,6 @@ Image:
     - ID: SourceMapping:74
       Field: Instrument[0].AcquisitionSoftware[0].Name
       Source: HardwareSetting.Software
-  ObjectiveSettings:
-    ImmersionLiquid:
-      RefractiveIndex: 1.518
   Pixels:
     SignificantBits: 8
     SizeX: 512
@@ -281,17 +279,14 @@ Image:
           PresetPinholeSize: 6.5323284410948e-05
           IntegrationNumber: 16
           PresetPinholeSizeUnit: m
+  ObjectiveSettings:
+    ImmersionLiquid:
+      RefractiveIndex: 1.518
 Instrument:
 - Manufacturer: Leica Microsystems
   Model: DMI6000B-CS
   CatalogNumber: '8100000189'
   Name: TCS SP8
-  Objective:
-  - Magnification: 40.0
-    LensNA: 1.3
-    ImmersionType: Oil
-    Model: 'HC PL APO CS2    40x/1.30 OIL '
-    CatalogNumber: '11506358'
   Shutter:
   - {}
   - {}
@@ -1056,6 +1051,12 @@ Instrument:
     IlluminationWavelengthRange:
     - PeakWavelength: 0
       PeakWavelengthUnit: nm
+  Objective:
+  - Magnification: 40
+    Model: 'HC PL APO CS2    40x/1.30 OIL '
+    CatalogNumber: '11506358'
+    ImmersionType: Oil
+    LensNA: 1.3
   AcquisitionSoftware:
   - Name: LAS X 3.5.2.18963
 CustomProperties:
@@ -3012,178 +3013,158 @@ CustomProperties:
   Value: '1'
   Source: SourceFile:0
 - ID: Property:664
-  Name: HardwareSetting.ConfocalSettingDefinition.Magnification
-  Value: '40'
-  Source: SourceFile:0
-- ID: Property:665
   Name: HardwareSetting.ConfocalSettingDefinition.ObjectivePos
   Value: '1'
   Source: SourceFile:0
-- ID: Property:666
-  Name: HardwareSetting.ConfocalSettingDefinition.MicroscopeModel
-  Value: '"DMI6000B-CS"'
-  Source: SourceFile:0
-- ID: Property:667
+- ID: Property:665
   Name: HardwareSetting.ConfocalSettingDefinition.IsInverseMicroscopeModel
   Value: '1'
   Source: SourceFile:0
-- ID: Property:668
-  Name: HardwareSetting.ConfocalSettingDefinition.Immersion
-  Value: '"OIL"'
-  Source: SourceFile:0
-- ID: Property:669
-  Name: HardwareSetting.ConfocalSettingDefinition.NumericalAperture
-  Value: '1.3'
-  Source: SourceFile:0
-- ID: Property:670
-  Name: HardwareSetting.ConfocalSettingDefinition.RefractionIndex
-  Value: '1.518'
-  Source: SourceFile:0
-- ID: Property:671
+- ID: Property:666
   Name: HardwareSetting.ConfocalSettingDefinition.IsFCSFilterAutomationActive
   Value: '0'
   Source: SourceFile:0
-- ID: Property:672
+- ID: Property:667
   Name: HardwareSetting.ConfocalSettingDefinition.IsSMDChaserUVAOTFAutomationActive
   Value: '0'
   Source: SourceFile:0
-- ID: Property:673
+- ID: Property:668
   Name: HardwareSetting.ConfocalSettingDefinition.CanDoCSMode
   Value: '1'
   Source: SourceFile:0
-- ID: Property:674
+- ID: Property:669
   Name: HardwareSetting.ConfocalSettingDefinition.ActiveCS_SubModeForTLD
   Value: '0'
   Source: SourceFile:0
-- ID: Property:675
+- ID: Property:670
   Name: HardwareSetting.ConfocalSettingDefinition.ActiveCS_SubModeForTLDName
   Value: '"Scan-BF"'
   Source: SourceFile:0
-- ID: Property:676
+- ID: Property:671
   Name: HardwareSetting.ConfocalSettingDefinition.ActiveCS_SubModeForRLD
   Value: '0'
   Source: SourceFile:0
-- ID: Property:677
+- ID: Property:672
   Name: HardwareSetting.ConfocalSettingDefinition.ActiveCS_SubModeForRLDName
   Value: '"Empty"'
   Source: SourceFile:0
-- ID: Property:678
+- ID: Property:673
   Name: HardwareSetting.ConfocalSettingDefinition.RldFluoCubePos
   Value: '6'
   Source: SourceFile:0
-- ID: Property:679
+- ID: Property:674
   Name: HardwareSetting.ConfocalSettingDefinition.RldCubeAutoSelectionEnabled
   Value: '0'
   Source: SourceFile:0
-- ID: Property:680
+- ID: Property:675
   Name: HardwareSetting.ConfocalSettingDefinition.LastNonMP_MFP_FW_Name
   Value: '""'
   Source: SourceFile:0
-- ID: Property:681
+- ID: Property:676
   Name: HardwareSetting.ConfocalSettingDefinition.LastNonMP_Pol_FW_Name
   Value: '""'
   Source: SourceFile:0
-- ID: Property:682
+- ID: Property:677
   Name: HardwareSetting.ConfocalSettingDefinition.ScanSpeed
   Value: '8000'
   Source: SourceFile:0
-- ID: Property:683
+- ID: Property:678
   Name: HardwareSetting.ConfocalSettingDefinition.UseScanFormatRestriction
   Value: '1'
   Source: SourceFile:0
-- ID: Property:684
+- ID: Property:679
   Name: HardwareSetting.ConfocalSettingDefinition.BaseZoom
   Value: '0.75'
   Source: SourceFile:0
-- ID: Property:685
+- ID: Property:680
   Name: HardwareSetting.ConfocalSettingDefinition.PanFirstDim
   Value: '8.67361737988404e-19'
   Source: SourceFile:0
-- ID: Property:686
+- ID: Property:681
   Name: HardwareSetting.ConfocalSettingDefinition.PanSecondDim
   Value: '8.67361737988404e-19'
   Source: SourceFile:0
-- ID: Property:687
+- ID: Property:682
   Name: HardwareSetting.ConfocalSettingDefinition.ScanDirectionX
   Value: '2'
   Source: SourceFile:0
-- ID: Property:688
+- ID: Property:683
   Name: HardwareSetting.ConfocalSettingDefinition.PhaseX
   Value: '2.40024414435035'
   Source: SourceFile:0
-- ID: Property:689
+- ID: Property:684
   Name: HardwareSetting.ConfocalSettingDefinition.RotatorAngle
   Value: '1.2994761884307'
   Source: SourceFile:0
-- ID: Property:690
+- ID: Property:685
   Name: HardwareSetting.ConfocalSettingDefinition.PinholeAiry
   Value: '1.00009739182015'
   Source: SourceFile:0
-- ID: Property:691
+- ID: Property:686
   Name: HardwareSetting.ConfocalSettingDefinition.EmissionWavelengthForPinholeAiryCalculation
   Value: '580'
   Source: SourceFile:0
-- ID: Property:692
+- ID: Property:687
   Name: HardwareSetting.ConfocalSettingDefinition.FrameAverage
   Value: '1'
   Source: SourceFile:0
-- ID: Property:693
+- ID: Property:688
   Name: HardwareSetting.ConfocalSettingDefinition.FrameAccumulation
   Value: '1'
   Source: SourceFile:0
-- ID: Property:694
+- ID: Property:689
   Name: HardwareSetting.ConfocalSettingDefinition.Line_Accumulation
   Value: '1'
   Source: SourceFile:0
-- ID: Property:695
+- ID: Property:690
   Name: HardwareSetting.ConfocalSettingDefinition.AreBleachPointsEnabled
   Value: '0'
   Source: SourceFile:0
-- ID: Property:696
+- ID: Property:691
   Name: HardwareSetting.ConfocalSettingDefinition.InTrigger
   Value: '-1'
   Source: SourceFile:0
-- ID: Property:697
+- ID: Property:692
   Name: HardwareSetting.ConfocalSettingDefinition.OutTrigger
   Value: '-1'
   Source: SourceFile:0
-- ID: Property:698
+- ID: Property:693
   Name: HardwareSetting.ConfocalSettingDefinition.IsRoiScanEnable
   Value: '0'
   Source: SourceFile:0
-- ID: Property:699
+- ID: Property:694
   Name: HardwareSetting.ConfocalSettingDefinition.Is3DLimitedRoiScanEnable
   Value: '0'
   Source: SourceFile:0
-- ID: Property:700
+- ID: Property:695
   Name: HardwareSetting.ConfocalSettingDefinition.ZCompensationModes
   Value: '0'
   Source: SourceFile:0
-- ID: Property:701
+- ID: Property:696
   Name: HardwareSetting.ConfocalSettingDefinition.WizardMode
   Value: '0'
   Source: SourceFile:0
-- ID: Property:702
+- ID: Property:697
   Name: HardwareSetting.ConfocalSettingDefinition.IsConstantIntegrationTimeActive
   Value: '0'
   Source: SourceFile:0
-- ID: Property:703
+- ID: Property:698
   Name: HardwareSetting.Application
   Value: '"LAS AF"'
   Source: SourceFile:0
-- ID: Property:704
+- ID: Property:699
   Name: HardwareSetting.HardwareServerVersion
   Value: '"Build 18963"'
   Source: SourceFile:0
-- ID: Property:705
+- ID: Property:700
   Name: HardwareSetting.SystemType
   Value: '12'
   Source: SourceFile:0
-- ID: Property:706
+- ID: Property:701
   Name: HardwareSetting.DataSourceType
   Value: '0'
   Source: SourceFile:0
-- ID: Property:707
+- ID: Property:702
   Name: HardwareSetting.DataSourceTypeName
   Value: '"Confocal"'
   Source: SourceFile:0

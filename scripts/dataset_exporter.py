@@ -173,7 +173,9 @@ class _Export:
                 instance.node[key] = stored
                 # the type too: 0 == False, but a stored False keeps the source's 0 only in SourceValue
                 changed = stored != value or type(stored) is not type(value)
-                self.add_mapping(instance.child_path(key), converted_path, value if changed else None)
+                respelled = self.source_map[converted_path]
+                source_value = respelled['SourceValue'] if isinstance(respelled, dict) else value if changed else None
+                self.add_mapping(instance.child_path(key), converted_path, source_value)
             elif field is None and entity is not None and (is_record or is_record_list):
                 records = value if is_record_list else [value]
                 for index, record in enumerate(records):
@@ -203,8 +205,10 @@ class _Export:
             leaf_path = f'{converted_path}{suffix}'
             leaf = _value_at(value, suffix)
             record = {'ID': f'Property:{self.property_count}'}
-            record.update(_source_fields(self.source_map[leaf_path], 'Name'))
-            record['Value'] = json.dumps(leaf, ensure_ascii=False)
+            source = self.source_map[leaf_path]
+            record.update(_source_fields(source, 'Name'))
+            # a value kept as it is keeps the source's spelling, not the one the mapper gave it for its field
+            record['Value'] = json.dumps(source['SourceValue'] if isinstance(source, dict) else leaf, ensure_ascii=False)
             if leaf_path != record['Name']:
                 record['SchemaPath'] = leaf_path
             record['Source'] = self.source_file['ID']
@@ -214,7 +218,10 @@ class _Export:
 
 def _source_fields(source, field):
     """The provenance of a value: its source path in `field`, or for a value the mapper combined from
-    several source values, those paths joined in `field` and listed in DerivedFrom."""
+    several source values, those paths joined in `field` and listed in DerivedFrom. A value the mapper respelled
+    names its source path in "Source"."""
+    if isinstance(source, dict):
+        return {field: source['Source']}
     if isinstance(source, list):
         return {field: ' + '.join(source), 'DerivedFrom': list(source)}
     return {field: source}

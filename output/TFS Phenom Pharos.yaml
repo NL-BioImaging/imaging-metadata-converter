@@ -5,9 +5,9 @@ FEI_TITAN:
     databarLabel: null
     displayWidth: 0
 Pixels:
-  PhysicalSizeXUnit: um
+  PhysicalSizeXUnit: µm
   PhysicalSizeX: 1.143158459049694
-  PhysicalSizeYUnit: um
+  PhysicalSizeYUnit: µm
   PhysicalSizeY: 1.143158459049694
 Image:
   AcquisitionDate: '2024-02-06T13:21:05'
@@ -133,9 +133,13 @@ SourceMap:
   FEI_TITAN.FeiImage.databarFields: FEI_TITAN.FeiImage.databarFields
   FEI_TITAN.FeiImage.databarLabel: FEI_TITAN.FeiImage.databarLabel
   FEI_TITAN.FeiImage.displayWidth: FEI_TITAN.FeiImage.displayWidth
-  Pixels.PhysicalSizeXUnit: FEI_TITAN.FeiImage.pixelWidth.unit
+  Pixels.PhysicalSizeXUnit:
+    Source: FEI_TITAN.FeiImage.pixelWidth.unit
+    SourceValue: um
   Pixels.PhysicalSizeX: FEI_TITAN.FeiImage.pixelWidth.value
-  Pixels.PhysicalSizeYUnit: FEI_TITAN.FeiImage.pixelHeight.unit
+  Pixels.PhysicalSizeYUnit:
+    Source: FEI_TITAN.FeiImage.pixelHeight.unit
+    SourceValue: um
   Pixels.PhysicalSizeY: FEI_TITAN.FeiImage.pixelHeight.value
   Image.AcquisitionDate: FEI_TITAN.FeiImage.time
   Experimenter.UserName: FEI_TITAN.FeiImage.currentUser

@@ -66,6 +66,10 @@ class AcquisitionMetadataMapper:
             self._schema_index.setdefault(tuple(part.lower() for part in alias.split('.')), path)
         self._known_keys, self._known_key_patterns = self._build_known_key_index(self.mappings, self.schema)
         self._model_fields = set(self._schema_leaf_paths(self.schema))
+        # the model's spelling of each enumeration value a source may spell otherwise, by the field it is for
+        spellings = model.spellings() if model else {}
+        self._spellings = {path: spellings[value_range] for path, value_range in self._schema_leaf_ranges(self.schema)
+                           if value_range in spellings}
 
     @staticmethod
     def _load_json(file_path):
@@ -81,6 +85,16 @@ class AcquisitionMetadataMapper:
                 yield from cls._schema_leaf_paths(value, current)
             else:
                 yield current
+
+    @classmethod
+    def _schema_leaf_ranges(cls, schema, path=''):
+        """Yield (dotted path, range) for every leaf field in `schema`."""
+        for key, value in schema.items():
+            current = f'{path}.{key}' if path else key
+            if isinstance(value, dict):
+                yield from cls._schema_leaf_ranges(value, current)
+            else:
+                yield current, value
 
     @classmethod
     def _build_schema_index(cls, schema):
@@ -551,7 +565,9 @@ class AcquisitionMetadataMapper:
 
         Returns the converted dict, with a top-level SOURCE_MAP_KEY section
         mapping every output leaf path to the source path it came from, so
-        renamed and collapsed keys stay recoverable from the output alone.
+        renamed and collapsed keys stay recoverable from the output alone:
+        a list of paths for a value derived from them, and {"Source": path,
+        "SourceValue": spelling} for a value written in the model's spelling.
         A top-level vendor tag wrapper (see `_vendor_wrapper`) is left out
         of the paths rules are matched against, but nothing else about it
         is: its unmapped fields stay under it, and every source path keeps it.
@@ -580,10 +596,22 @@ class AcquisitionMetadataMapper:
                 set_nested_value(result, unit_path, unit)
                 provenance[unit_path] = [origin]
         self._apply_combinations(metadata, result, provenance)
+        self._respell(result, provenance)
         if SOURCE_MAP_KEY in result:
             raise ValueError(f'Source metadata already has a top-level {SOURCE_MAP_KEY}')
         result[SOURCE_MAP_KEY] = provenance
         return result
+
+    def _respell(self, result, provenance):
+        """Write the model's spelling of each enumeration value a source spells otherwise (Leica's "OIL" as Oil,
+        "micron" as µm); the SourceMap entry of a source value respelled records the source's spelling too, as
+        {"Source": path, "SourceValue": spelling}."""
+        for path, origin in list(provenance.items()):
+            spellings = self._spellings.get(re.sub(r'\[\d+\]', '', path), {})
+            value = value_at_path(result, path)
+            if isinstance(value, str) and value in spellings and not path.endswith(']'):
+                set_nested_value(result, path, spellings[value])
+                provenance[path] = {'Source': origin, 'SourceValue': value} if isinstance(origin, str) else origin
 
     def _apply_combinations(self, metadata, result, provenance):
         """Add each combinations.json value whose parts the source holds, e.g. Date + Time + Time Zone.

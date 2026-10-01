@@ -1,6 +1,6 @@
 name: imaging
-version: '1.1'
-description: 'Generated from imaging 1.1.0 (https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging). Microscopy
+version: '1.2'
+description: 'Generated from imaging 1.2.0 (https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging). Microscopy
   imaging metadata, based on the LiMi (4DN-BINA-OME) model: converted from models/LiMi_XMLSchema.xsd (version 02.00, namespace
   http://www.NamespaceTest.org/Schemas/NBO/2020-11).'
 root_entity: OME
@@ -29064,6 +29064,14 @@ entities:
         match the value used in BinData or TiffData. If it is not, a reader should be used that honors the value used in the
         BinData or TiffData. This value is useful for MetadataOnly files and is to allow for future storage solutions.
       tier: optional
+    - name: TimePoints
+      type: entity
+      required: false
+      description: The source's own indices of the image's first (Begin) and last (End) time point, such as BigDataViewer's
+        Timepoints range, whose count is SizeT; time points are referred to by these indices.
+      tier: required
+      items: QuantityRange
+      owns: true
   SourceFile:
     description: A file this metadata was read from, identified by its checksum.
     fields:

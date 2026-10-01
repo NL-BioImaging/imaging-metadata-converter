@@ -25,36 +25,42 @@ Image:
       Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.unit
       SourceValue: '"micron"'
     - ID: SourceMapping:5
+      Field: Image[0].Pixels.TimePoints.Begin
+      Source: SpimData.SequenceDescription.Timepoints.first
+    - ID: SourceMapping:6
+      Field: Image[0].Pixels.TimePoints.End
+      Source: SpimData.SequenceDescription.Timepoints.last
+    - ID: SourceMapping:7
       Field: Image[0].Pixels.SizeX
       Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.size
       DerivedFrom:
       - SpimData.SequenceDescription.ViewSetups.ViewSetup.size
-    - ID: SourceMapping:6
+    - ID: SourceMapping:8
       Field: Image[0].Pixels.SizeY
       Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.size
       DerivedFrom:
       - SpimData.SequenceDescription.ViewSetups.ViewSetup.size
-    - ID: SourceMapping:7
+    - ID: SourceMapping:9
       Field: Image[0].Pixels.SizeZ
       Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.size
       DerivedFrom:
       - SpimData.SequenceDescription.ViewSetups.ViewSetup.size
-    - ID: SourceMapping:8
+    - ID: SourceMapping:10
       Field: Image[0].Pixels.PhysicalSizeX
       Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
       DerivedFrom:
       - SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
-    - ID: SourceMapping:9
+    - ID: SourceMapping:11
       Field: Image[0].Pixels.PhysicalSizeY
       Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
       DerivedFrom:
       - SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
-    - ID: SourceMapping:10
+    - ID: SourceMapping:12
       Field: Image[0].Pixels.PhysicalSizeZ
       Source: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
       DerivedFrom:
       - SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
-    - ID: SourceMapping:11
+    - ID: SourceMapping:13
       Field: Image[0].Pixels.SizeT
       Source: SpimData.SequenceDescription.Timepoints.first + SpimData.SequenceDescription.Timepoints.last
       DerivedFrom:
@@ -66,6 +72,9 @@ Image:
     PhysicalSizeXUnit: µm
     PhysicalSizeYUnit: µm
     PhysicalSizeZUnit: µm
+    TimePoints:
+      Begin: 0
+      End: 0
     SizeX: 1100
     SizeY: 1100
     SizeZ: 1150
@@ -117,34 +126,26 @@ CustomProperties:
   Value: '"channel"'
   Source: SourceFile:0
 - ID: Property:10
-  Name: SpimData.SequenceDescription.Timepoints.first
-  Value: '0'
-  Source: SourceFile:0
-- ID: Property:11
-  Name: SpimData.SequenceDescription.Timepoints.last
-  Value: '0'
-  Source: SourceFile:0
-- ID: Property:12
   Name: SpimData.SequenceDescription.Timepoints.type
   Value: '"range"'
   Source: SourceFile:0
-- ID: Property:13
+- ID: Property:11
   Name: SpimData.ViewRegistrations.ViewRegistration.ViewTransform.affine
   Value: '"0.325 0.0 0.0 0.0 0.0 0.325 0.0 0.0 0.0 0.0 0.325 0.0"'
   Source: SourceFile:0
-- ID: Property:14
+- ID: Property:12
   Name: SpimData.ViewRegistrations.ViewRegistration.ViewTransform.type
   Value: '"affine"'
   Source: SourceFile:0
-- ID: Property:15
+- ID: Property:13
   Name: SpimData.ViewRegistrations.ViewRegistration.timepoint
   Value: '0'
   Source: SourceFile:0
-- ID: Property:16
+- ID: Property:14
   Name: SpimData.ViewRegistrations.ViewRegistration.setup
   Value: '0'
   Source: SourceFile:0
-- ID: Property:17
+- ID: Property:15
   Name: SpimData.version
   Value: '0.2'
   Source: SourceFile:0

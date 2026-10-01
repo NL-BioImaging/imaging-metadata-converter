@@ -151,7 +151,9 @@ output value knows its source path.
 The unit enumerations (`UnitsLength`, `UnitsTime`, `UnitsPressure`, ...) come
 from LiMi. Each unit lists the other spellings it is known by as aliases —
 `µm` is also `um`, `micrometer` and `micrometre` — so a vendor's spelling can
-be recognised as the model's unit.
+be recognised as the model's unit. Other enumerations do the same where a
+vendor spells a value its own way: Leica's immersions `DRY` and `OIL` are
+`Air` and `Oil`.
 
 ## Reading a field
 

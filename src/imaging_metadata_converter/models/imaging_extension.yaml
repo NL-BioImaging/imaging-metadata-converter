@@ -6,7 +6,7 @@ description: Metadata beyond LiMi that the source files hold, mostly electron mi
   the imaging model's classes use; each field's schema_extended_path annotation is its path in
   schema.extended.json. Values of type object in schema.extended.json are strings here (annotation
   source_type), arrays multivalued strings.
-version: 1.1.0
+version: 1.2.0
 prefixes:
   linkml: https://w3id.org/linkml/
   imaging: https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging/
@@ -247,6 +247,15 @@ classes:
         range: Quantity
         inlined: true
 
+  PixelsExtension:
+    mixin: true
+    attributes:
+      TimePoints:
+        description: The source's own indices of the image's first (Begin) and last (End) time point, such as
+          BigDataViewer's Timepoints range, whose count is SizeT; time points are referred to by these indices.
+        range: QuantityRange
+        inlined: true
+        annotations: {schema_extended_path: Pixels.TimePoints}
   StageExtension:
     mixin: true
     attributes:

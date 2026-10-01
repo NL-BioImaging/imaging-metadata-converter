@@ -3,7 +3,7 @@ name: imaging_provenance
 title: Imaging metadata provenance
 description: Where consolidated metadata came from, and the source values the model does not (yet) model, so no
   metadata is lost. Used by the imaging model's OME, Image and Instrument classes.
-version: 1.1.0
+version: 1.2.0
 prefixes:
   linkml: https://w3id.org/linkml/
   imaging: https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging/

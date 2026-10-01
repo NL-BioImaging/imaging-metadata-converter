@@ -1,10 +1,5 @@
 {
     "manufacturer": "Leica Microsystems",
-    "model": "MICA",
-    "magnification": 10.0,
-    "lens_na": 0.32,
-    "immersion": "Air",
-    "refractive_index": 1.0,
     "HardwareSetting": {
         "CameraSettingDefinition": {
             "IndividualCameraGroup": {
