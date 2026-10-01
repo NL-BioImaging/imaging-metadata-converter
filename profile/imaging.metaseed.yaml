@@ -3218,6 +3218,7 @@ entities:
       constraints:
         enum:
         - Fluorescence
+        - Microdissection
     - name: MapAnnotation
       type: list
       required: false
@@ -3811,6 +3812,7 @@ entities:
       constraints:
         enum:
         - Fluorescence
+        - Microdissection
     - name: MapAnnotation
       type: list
       required: false
@@ -4111,6 +4113,7 @@ entities:
       constraints:
         enum:
         - Fluorescence
+        - Microdissection
     - name: MapAnnotation
       type: list
       required: false

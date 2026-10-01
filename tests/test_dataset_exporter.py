@@ -245,6 +245,23 @@ class ExportFolderTest(unittest.TestCase):
                     self.assertEqual(read_yaml(os.path.join(EXPORT_DIR, name)), read_yaml(fresh),
                                      self.REGENERATE)
 
+    def test_every_derived_value_fits_its_field(self):
+        """A value the mapper derives is written for a model field, so it must fit it: one kept as a Property
+        instead was written in the wrong form (a laser's Role as text, where the field is a list)."""
+        def derived_properties(node):
+            if isinstance(node, dict):
+                for key, value in node.items():
+                    records = value if key == 'CustomProperties' else []
+                    yield from (record.get('SchemaPath') for record in records if 'DerivedFrom' in record)
+                    yield from derived_properties(value) if key != 'CustomProperties' else ()
+            elif isinstance(node, list):
+                for item in node:
+                    yield from derived_properties(item)
+
+        for export in sorted(glob.glob(os.path.join(EXPORT_DIR, '*.yaml'))):
+            with self.subTest(export=os.path.basename(export)):
+                self.assertEqual(list(derived_properties(read_yaml(export))), [])
+
 
 if __name__ == '__main__':
     unittest.main()

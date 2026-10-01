@@ -109,6 +109,7 @@ by `tests/test_examples.py` and handy as input while extending the mappings:
 | `dicom.json` | DICOM (dummy patient data) |
 | `lif_metadata.json`, `lif_tilescan_metadata.json` | Leica LIF (LAS X) |
 | `lif_sp5_metadata.json` | Leica LIF (LAS AF, a TCS SP5) |
+| `lif_lmd7_metadata.json` | Leica LIF (LMD7 laser microdissection) |
 | `platy_tomography.json` | BigDataViewer (SpimData) tomography |
 | `svs_metadata.json` | Aperio SVS |
 
@@ -297,7 +298,7 @@ numbers in one string:
 BigDataViewer's size `"1100 1100 1150"` gives `SizeZ` 1150. An item that is
 not there, or is no number, adds nothing.
 
-Six more formats derive a value a source writes in another form:
+Eight more formats derive a value a source writes in another form:
 
 - `count` gives last − first + 1 of two parts: BigDataViewer's time points
   `first` 0 and `last` 0 give `Pixels.SizeT` 1.
@@ -315,6 +316,11 @@ Six more formats derive a value a source writes in another form:
   `FocalLength`, `ExposureBiasValue`, ...), which the model has no field
   for, becomes its number at its own key: a combination may target the key
   its parts are items of.
+- `join` joins its parts with the entry's `"separator"`: LMD7's version
+  numbers 8, 5 and 9136 give `"8.5.9136"`.
+- `filetime` reads a Windows FILETIME (100 ns steps since 1601), as Leica's
+  LMD software writes its acquisition time: `133966300315161733` gives
+  `2025-07-10T14:07:11.516173`, without a zone, as the file states none.
 - `pattern` takes the first group of the entry's regular expression
   `"pattern"`, as a number where it is one: Leica's objective name
   `"HCX APO L U-V-I  63.0x0.90 WATER  UV"` gives the magnification 63.0
@@ -353,7 +359,10 @@ detection window; the sequence's laser lines on give its excitation. The
 mapper joins them into `Pixels.Channel[k]`: the dye as written as `Name` and
 `Fluorophore.Name`, the window as a band-pass `Filter` its `LightPath` names
 as `EmissionFilter`, a `LightSourceSettings` per laser line on, naming the
-laser, and `Fluorophore.ExcitationWavelength` where only one line is on. The
+laser (whose `Role` is `Fluorescence`, as it excites a dye; a laser
+microdissection system's laser, which cuts the specimen, has the role
+`Microdissection`, a value the model adds to LiMi's), and
+`Fluorophore.ExcitationWavelength` where only one line is on. The
 filters and lasers get IDs by their place (`Filter:0`, `Laser:3`), as the
 source has none. The order is the sequences', not the bands': TileScan.lof's
 sequences use detectors 4, 5 and 1, so its channels are ALEXA 488, mCherry

@@ -13558,3 +13558,6 @@ enums:
     description: The roles a MultiLaserEngine can play.
     permissible_values:
       Fluorescence: {}
+      Microdissection:
+        description: The laser cuts the specimen, as in laser microdissection, rather than lighting the image;
+          added by the imaging model, as LiMi's laser roles have Fluorescence only.

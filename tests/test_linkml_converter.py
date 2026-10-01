@@ -294,7 +294,7 @@ class MasterModelTest(unittest.TestCase):
                                   'Instrument')
         self.assertEqual([problem for problem in problems if 'is a required property' not in problem], [])
         self.assertEqual(self._problems({**laser, 'Role': ['Transmitted']}, 'Laser'),
-                         ["'Transmitted' is not one of ['Fluorescence'] in /Role/0"])
+                         ["'Transmitted' is not one of ['Fluorescence', 'Microdissection'] in /Role/0"])
         self.assertEqual(self._problems({**filament, 'LaserMedium': 'Cu'}, 'Filament'),
                          ["Additional properties are not allowed ('LaserMedium' was unexpected) in /"])
 

@@ -183,8 +183,8 @@ class MetaseedGenerator:
                 constraints[key] = value
         base = RANGES.get(range_name, 'string')
         if base == 'uri' and 'pattern' in constraints:
-            # metaseed applies a pattern to a uri field's parsed URL rather than its text, and fails on any
-            # value (OME.UUID); as a string the pattern is checked as intended
+            # a string, as the published profiles have it: metaseed once failed every value of a uri field with
+            # a pattern (OME.UUID); it checks them since its #313, but a string field turning uri is breaking
             base = 'string'
         return base, constraints
 

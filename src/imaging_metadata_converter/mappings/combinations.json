@@ -307,5 +307,22 @@
         ],
         "format": "pattern",
         "pattern": "\\d\\s*x\\s*/?\\s*\\d+(?:\\.\\d+)?\\s+([A-Za-z]+)"
+    },
+    {
+        "target": "AcquisitionSoftware.Version",
+        "sources": [
+            "CustomData.Version.MajorVersion",
+            "CustomData.Version.MinorVersion",
+            "CustomData.Version.BuildNumber"
+        ],
+        "format": "join",
+        "separator": "."
+    },
+    {
+        "target": "Image.AcquisitionDate",
+        "sources": [
+            "CustomData.ExperimentInfo.DateAndTime"
+        ],
+        "format": "filetime"
     }
 ]

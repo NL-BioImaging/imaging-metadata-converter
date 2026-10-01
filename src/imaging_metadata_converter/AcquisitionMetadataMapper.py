@@ -14,7 +14,7 @@ import json
 import math
 import os.path
 import re
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from fnmatch import fnmatchcase
 
 from .ModelPaths import DEFAULT_MODEL_FILE, ModelPaths
@@ -32,6 +32,8 @@ LEICA_SETTINGS = 'HardwareSetting'
 LEICA_SEQUENCES = 'LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition'
 LEICA_BANDS = 'ConfocalSettingDefinition.Spectro.MultiBand'
 LEICA_LASERS = 'ConfocalSettingDefinition.LaserArray.Laser'
+# Windows FILETIME, as Leica's LMD software writes its acquisition time: 100 ns steps since 1601
+FILETIME_EPOCH = datetime(1601, 1, 1)
 FORMATS_KEEPING_PARTS = ('count',)
 # a time written as text, in hours, minutes and seconds ("2min52s"), and a number written with its unit ("21.12µm")
 DURATION = re.compile(r'(?:(\d+(?:\.\d+)?)\s*h)?\s*(?:(\d+(?:\.\d+)?)\s*min)?\s*(?:(\d+(?:\.\d+)?)\s*s)?')
@@ -603,6 +605,7 @@ class AcquisitionMetadataMapper:
                 set_nested_value(result, unit_path, unit)
                 provenance[unit_path] = [origin]
         self._map_leica_sequential_channels(metadata, result, provenance)
+        self._map_leica_microdissection_laser(metadata, result, provenance)
         self._apply_combinations(metadata, result, provenance)
         self._respell(result, provenance)
         if SOURCE_MAP_KEY in result:
@@ -618,7 +621,8 @@ class AcquisitionMetadataMapper:
         Cerulean, as their LUTs green, red and blue and their pixels, HyD, HyD and PMT, confirm). Its detector's
         band (MultiBand, numbered by detector) gives the dye, as the channel's Name and Fluorophore.Name, and
         its window, as a band-pass emission Filter; the sequence's laser lines on give a LightSourceSettings
-        each, referring to the laser of that type, and the excitation wavelength where only one is on. The
+        each, referring to the laser of that type (whose Role is Fluorescence where it excites a channel with
+        a dye), and the excitation wavelength where only one is on. The
         filters and lasers get IDs by their place, as the source has none for them. Every value written is
         derived, its SourceMap entry listing what it came from, and replaces those source values where it
         holds them (a dye, a band's limits, a single line): the detectors, the line intensities (whose
@@ -679,6 +683,10 @@ class AcquisitionMetadataMapper:
                         derive(f'Laser[{laser_index}].ID', f'Laser:{laser_index}', f'{laser_path}.LightSourceType')
                         derive(f'{target}.LightPath.LightSourceSettings[{position}].ID', f'Laser:{laser_index}',
                                f'{line_path}.LaserLine', f'{laser_path}.LightSourceType')
+                    # a light source's Role is a list: it may serve several
+                    if laser is not None and band.get('DyeName') and is_free_path(result, f'Laser[{laser_index}].Role'):
+                        set_nested_value(result, f'Laser[{laser_index}].Role', ['Fluorescence'])
+                        provenance[f'Laser[{laser_index}].Role[0]'] = [f'{band_path}.DyeName', f'{line_path}.LaserLine']
                 if len(lines) == 1:
                     line, line_path, _ = lines[0]
                     derive(f'{target}.Fluorophore.ExcitationWavelength', line['LaserLine'], f'{line_path}.LaserLine')
@@ -689,6 +697,15 @@ class AcquisitionMetadataMapper:
             if provenance.get(path) == path:
                 pop_nested_value(result, path)
                 del provenance[path]
+
+    def _map_leica_microdissection_laser(self, metadata, result, provenance):
+        """Give the laser of a Leica laser microdissection system (its hardware setting's Application LMD) the
+        role Microdissection: it cuts the specimen, while the images are taken in the microscope's own light."""
+        settings = metadata.get(LEICA_SETTINGS)
+        laser = settings.get('Laser') if isinstance(settings, dict) and settings.get('Application') == 'LMD' else None
+        if isinstance(laser, dict) and laser.get('Lasertype') and is_free_path(result, 'Laser.Role'):
+            set_nested_value(result, 'Laser.Role', ['Microdissection'])
+            provenance['Laser.Role[0]'] = [f'{LEICA_SETTINGS}.Application', f'{LEICA_SETTINGS}.Laser.Lasertype']
 
     def _respell(self, result, provenance):
         """Write the model's spelling of each enumeration value a source spells otherwise (Leica's "OIL" as Oil,
@@ -714,6 +731,9 @@ class AcquisitionMetadataMapper:
         divided by the second (Exif's ExposureTime [41, 5000], a part naming a list item), "duration" a time written
         as text ("2min52s") in seconds, and "quantity" the number of a value written with its unit ("21.12µm");
         those two write the unit beside the value too, where free, as does any entry stating a "unit".
+        "join" joins the parts with the entry's "separator" (LMD7's version 8, 5 and 9136 as "8.5.9136"),
+        "filetime" reads a Windows FILETIME (100 ns steps since 1601, as Leica's LMD software writes its
+        acquisition time) as ISO 8601 without a zone, as none is stated.
         "pattern" takes the first group of the entry's regular expression "pattern", as a number where it is
         one (the magnification 63.0 out of Leica's objective name "HCX APO L U-V-I  63.0x0.90 WATER  UV"). A
         source path may hold "*", for the first source path it matches (a turret named after its stand).
@@ -731,8 +751,11 @@ class AcquisitionMetadataMapper:
             parts = [value_at_path(metadata, path) for path in sources]
             has_all_parts = all(part is not None for part in parts)
             text = ' '.join(map(str, parts))
-            combined = parse_combination(text, combination['format'], combination.get('item'),
-                                         combination.get('pattern')) if has_all_parts else None
+            if combination['format'] == 'join':
+                combined = combination.get('separator', ' ').join(map(str, parts)) if has_all_parts else None
+            else:
+                combined = parse_combination(text, combination['format'], combination.get('item'),
+                                             combination.get('pattern')) if has_all_parts else None
             placed = value_at_path(result, target)
             own_path = placed_from_parts(provenance, target, sources)
             replaces_its_value = (own_path is not None and placed is not None and not is_number(placed)
@@ -918,6 +941,9 @@ def parse_combination(text, date_format, item=None, pattern=None):
     if date_format == 'product':
         factors = [_number(word) for word in text.split()]
         return math.prod(factors) if factors and None not in factors else None
+    if date_format == 'filetime':
+        steps = int(text) if text.strip().isdigit() else 0
+        return (FILETIME_EPOCH + timedelta(microseconds=steps // 10)).isoformat() if steps > 0 else None
     if date_format == 'pattern':
         match = re.search(pattern, text)
         number = _number(match.group(1)) if match else None

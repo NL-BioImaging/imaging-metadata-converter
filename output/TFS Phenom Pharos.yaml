@@ -88,7 +88,7 @@ MechanicalStage:
 Instrument:
   Vacuum: 21.03543261569751
   Type: Phenom
-  ID: MVE084613-20046-F
+  CatalogNumber: MVE084613-20046-F
   Model: Phenom Pharos G2
 Plane:
   PixelDwellTimeUnit: ns
@@ -224,7 +224,7 @@ SourceMap:
   Image.ElectronBeamSettings.WorkingDistance.Value: FEI_TITAN.FeiImage.workingDistance.value
   Instrument.Type: FEI_TITAN.FeiImage.instrument.type
   AcquisitionSoftware.Version: FEI_TITAN.FeiImage.instrument.softwareVersion
-  Instrument.ID: FEI_TITAN.FeiImage.instrument.uniqueID
+  Instrument.CatalogNumber: FEI_TITAN.FeiImage.instrument.uniqueID
   Instrument.Model: FEI_TITAN.FeiImage.instrument.edition
   SampleHolder.Type: FEI_TITAN.FeiImage.instrument.sampleHolder.type
   SampleHolder.ID: FEI_TITAN.FeiImage.instrument.sampleHolder.id

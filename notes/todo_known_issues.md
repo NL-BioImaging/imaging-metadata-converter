@@ -63,15 +63,17 @@ user chose local validation only). Hub datasets need metaseed's tree serializati
 (save_dataset silently stored an empty dataset): `MetaseedClient(...)._facade.load_nested(document)` then
 `serialize(format='tree')`.
 
-### metaseed workarounds (reported upstream, 2026-09-28)
+### metaseed workarounds (reported upstream, 2026-09-28; fixed on metaseed main, 2026-10-01)
 
-Both reported to https://github.com/sorenwacker/metaseed/issues by the user; the workarounds stay until fixed.
-- Slow validation: metaseed makes a new SpecLoader, with an empty `_profile_cache`, for every nested entity it
-  validates, and re-parses the 1.2 MB profile YAML each time (~4 s; hours for TALOS). Sharing one cache
-  across loaders (patch `metaseed.specs.loader.SpecLoader.__init__` to set `self._profile_cache` to one
-  dict) gives identical results in seconds; the metaseed test does this.
-- A `uri` field with a pattern fails on every value (metaseed applies the pattern to the parsed URL): the
-  generator writes such fields (the UUIDs) as strings with the pattern.
+Both reported to https://github.com/sorenwacker/metaseed/issues by the user, both fixed on metaseed's main
+branch after its v0.55.2 release (biomero-converter-env runs main, 109f750d, 0.55.3.dev25).
+- Slow validation (#311, fixed by #314): metaseed made a new SpecLoader, with an empty `_profile_cache`, for
+  every nested entity and re-parsed the 1.2 MB profile each time (hours for TALOS). It now shares one parse
+  per process: the export validation takes 25-45 s without the test's cache patch, which is gone.
+- A `uri` field with a pattern failed on every value (#312, fixed by #313). The generator still writes such
+  fields (the UUIDs) as strings with the pattern: metaseed validates them as uri now (checked on the
+  ome-tiff export), but compare_specs rates string -> uri as breaking for OME.UUID, OMEBinaryOnly.UUID and
+  TiffDataUUID.Value against the published 1.1.
 
 ### Generated metaseed profile
 
@@ -137,18 +139,24 @@ these labels were wrong in biomero-converter's OME-Zarr/OME-TIFF until its Leica
 sequential files (3Channels_Small, ZStack_Small) run their sequences in ascending detector order, where both
 orders agree. Band 5's dye is mCherry in the current setting, dTomato in the sequential master.
 
+### Instrument serial numbers
+
+A serial number goes to Instrument.CatalogNumber, LiMi's "Catalog, Part or Serial Number" (LiMi has no
+SerialNumber): DICOM DeviceSerialNumber, Leica SystemSerialNumber, and Phenom's instrument.uniqueID
+(MVE084613-20046-F; it was Instrument.ID until 2026-10-01, user). Fibics ATLAS states no microscope
+manufacturer, model or serial at all, so none is mapped.
+
 ### DICOM example holds dummy patient details
 
 `examples/dicom.json` has patient fields (PatientName, PatientID, PatientBirthDate, InstitutionName,
 ...), which reach `output/` and, as Property records, `export/`. They are dummy values, not real
-identifiers (user, 2026-09-25), so they can be committed and shared. A real DICOM source would need
-de-identifying before it is added.
+identifiers (user, 2026-09-25), so they can be committed and shared.
 
 ### Environment
 
 The package needs only linkml-runtime; `.venv` (uv) has that and pytest, so the linkml and metaseed tests
-skip there, as in the docs CI. biomero-converter-env (conda) has linkml 1.11.1 and metaseed 0.54.0 and runs
-every test. chardet kept at 5.2.0 there (linkml's ShEx generator pyshexc wants >=7.4.1 but is unused;
+skip there, as in the docs CI. biomero-converter-env (conda) has linkml 1.11.1 and metaseed from its main branch (109f750d, 0.55.3.dev25,
+for #313/#314) and runs every test. chardet kept at 5.2.0 there (linkml's ShEx generator pyshexc wants >=7.4.1 but is unused;
 requests warns on 7.x). The metaseed CLI writes to `%LOCALAPPDATA%/metaseed`, whatever `HOME` is set to:
 point `LOCALAPPDATA` and `APPDATA` at a scratch folder when trying profiles locally.
 
@@ -306,17 +314,11 @@ structure, for common fields in the source data"). A value is only a candidate i
 
 ## TODO
 
-- [ ] Light-source role, when a source holds light sources (none does yet, so rules setting it would have
-      nothing to act on or be tested with; user, 2026-09-28): rules for Transmitted/Fluorescence light
-      sources should set `LightSource.Role`.
+- [ ] Light-source role (user, 2026-09-28): a Leica laser exciting a channel with a dye has Role
+      Fluorescence since 2026-10-01 (Laser.Role allows only that); Transmitted waits for a source stating a
+      transmitted-light source (a LIF transmission channel, PMT Trans, was off in every example).
 - [ ] Review `scripts/out_of_scope.json` (the source groups left out of in-scope coverage: processing,
       file, display, software state, patient and administrative; user, 2026-09-30).
 - [ ] DICOM SpacingBetweenSlices -> PhysicalSizeZ (mm), as Bio-Formats does, once an example states it;
       SliceThickness maps there until then.
 - [ ] Units for Cikteq's beam current and point time, once known (left without, 2026-09-30).
-- [ ] Pull the updated metaseed (user, 2026-10-01: it should now fix an import error and add the caching
-      behind the large speed-up, see "metaseed workarounds"); then drop the SpecLoader cache patch in the
-      metaseed test if validation is as fast without it, and rerun the metaseed tests.
-- [ ] Phenom's instrument.uniqueID (MVE084613-20046-F, its serial number) maps to Instrument.ID; LiMi's
-      Instrument.CatalogNumber ("Catalog, Part or Serial Number") may fit better (from biomero-converter's
-      notes, 2026-10-01). Fibics ATLAS states no microscope manufacturer or model at all, so none is mapped.

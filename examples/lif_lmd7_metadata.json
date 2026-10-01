@@ -1,0 +1,66 @@
+{
+    "manufacturer": "Leica Microsystems",
+    "HardwareSetting": {
+        "Camera": {
+            "TypName": "K7",
+            "Expsoure": 0.083,
+            "Gain": 1,
+            "ColourSaturation": 150
+        },
+        "Image": {
+            "ShootCircumstance": "SaveFile"
+        },
+        "Mic": {
+            "Magnification": 10,
+            "StageposX": 131454,
+            "StageposY": 310564,
+            "StageposZ": 1590430,
+            "Stagetype": "HYDRA-STAGE",
+            "Specimenholder": "HydraFourSlides",
+            "SpecimenholderPosition": "",
+            "Collectorholder": "Hydra Stage",
+            "Collectorholderposition": "A",
+            "ContrstingMethod": "TL-BF",
+            "LightIntensity": 105,
+            "FieldDiaphragm": 32,
+            "ApertureDiaphragm": 16,
+            "Cubename": "EMP",
+            "FluoFieldDiaphragm": 1,
+            "IFWPos": "",
+            "EXMPos": ""
+        },
+        "Laser": {
+            "Lasertype": "Explorer",
+            "Power": 57,
+            "Aperture": 18,
+            "Speed": 10,
+            "SpecimenBalance": 15,
+            "LineSpacing": 12,
+            "Offset": 60,
+            "HeadCurrent": 100,
+            "PulseFrequency": 120
+        },
+        "Application": "LMD"
+    },
+    "CustomData": {
+        "Version": {
+            "SoftwareName": "Laser Microdissection (LMD7)",
+            "SoftwareVersionInfo": "",
+            "MajorVersion": 8,
+            "MinorVersion": 5,
+            "BuildNumber": 9136
+        },
+        "ExperimentInfo": {
+            "ExperimentName": "UnKnown",
+            "TaskName": "",
+            "DateAndTime": 133966300315161733
+        },
+        "UserInfo": {
+            "UserName": "Leica-Admin",
+            "GroupName": "",
+            "DepartmentName": "",
+            "OrganisiationName": ""
+        },
+        "Application": ""
+    }
+}

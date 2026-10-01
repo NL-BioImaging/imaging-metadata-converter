@@ -12,16 +12,15 @@ PROFILE_FILE = os.path.join(REPO_ROOT, 'profile', 'imaging.metaseed.yaml')
 EXPORT_DIR = os.path.join(REPO_ROOT, 'export')
 
 try:
-    from metaseed.specs import loader as metaseed_loader
     from metaseed.validators import validate as metaseed_validate
 except ImportError:
-    metaseed_loader = None
+    metaseed_validate = None
 
 # the one kind of error the exports are known to have: LiMi's own required fields the sources do not state
 REQUIRED_RULE = 'required_fields'
 
 
-@unittest.skipIf(metaseed_loader is None, 'metaseed is not installed')
+@unittest.skipIf(metaseed_validate is None, 'metaseed is not installed')
 class MetaseedValidationTest(unittest.TestCase):
     """Every exported dataset validates with metaseed itself against the generated profile, but for missing
     required fields: no type, format, constraint or unknown-field error."""
@@ -39,20 +38,9 @@ class MetaseedValidationTest(unittest.TestCase):
         cls.saved_environment = {key: os.environ.get(key) for key in ('LOCALAPPDATA', 'XDG_DATA_HOME')}
         os.environ['LOCALAPPDATA'] = cls.data_dir
         os.environ['XDG_DATA_HOME'] = cls.data_dir
-        # metaseed makes a new loader, with an empty profile cache, for every nested entity it validates, and
-        # re-parses the whole profile each time: one cache for all of them validates in seconds, not hours
-        cls.original_init = metaseed_loader.SpecLoader.__init__
-        shared_cache = {}
-
-        def shared_init(loader, *args, **kwargs):
-            cls.original_init(loader, *args, **kwargs)
-            loader._profile_cache = shared_cache
-
-        metaseed_loader.SpecLoader.__init__ = shared_init
 
     @classmethod
     def tearDownClass(cls):
-        metaseed_loader.SpecLoader.__init__ = cls.original_init
         for key, value in cls.saved_environment.items():
             if value is None:
                 os.environ.pop(key, None)

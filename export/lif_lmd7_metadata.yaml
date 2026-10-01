@@ -1,0 +1,217 @@
+ID: OME:0
+Image:
+- SourceFile:
+  - ID: SourceFile:0
+    Name: lif_lmd7_metadata.json
+    Checksum: d0305cb9c1c74ee30025d6faba864411f0c59a64d48ed200222f4516fd630f6f
+    Format: json
+    Mapping:
+    - ID: SourceMapping:0
+      Field: Instrument[0].Manufacturer
+      Source: manufacturer
+    - ID: SourceMapping:1
+      Field: Instrument[0].GenericDetector[0].Model
+      Source: HardwareSetting.Camera.TypName
+    - ID: SourceMapping:2
+      Field: Instrument[0].GenericDetector[0].Gain
+      Source: HardwareSetting.Camera.Gain
+    - ID: SourceMapping:3
+      Field: Image[0].Pixels.Plane[0].ExposureTime
+      Source: HardwareSetting.Camera.Expsoure
+    - ID: SourceMapping:4
+      Field: Image[0].Pixels.Plane[0].ExposureTimeUnit
+      Source: HardwareSetting.Camera.Expsoure
+      DerivedFrom:
+      - HardwareSetting.Camera.Expsoure
+    - ID: SourceMapping:5
+      Field: Image[0].AcquisitionDate
+      Source: CustomData.ExperimentInfo.DateAndTime
+      DerivedFrom:
+      - CustomData.ExperimentInfo.DateAndTime
+    - ID: SourceMapping:6
+      Field: Instrument[0].Objective[0].Magnification
+      Source: HardwareSetting.Mic.Magnification
+    - ID: SourceMapping:7
+      Field: Instrument[0].Laser[0].Model
+      Source: HardwareSetting.Laser.Lasertype
+    - ID: SourceMapping:8
+      Field: Instrument[0].Laser[0].Role
+      Source: HardwareSetting.Application + HardwareSetting.Laser.Lasertype
+      DerivedFrom:
+      - HardwareSetting.Application
+      - HardwareSetting.Laser.Lasertype
+    - ID: SourceMapping:9
+      Field: Instrument[0].AcquisitionSoftware[0].Name
+      Source: CustomData.Version.SoftwareName
+    - ID: SourceMapping:10
+      Field: Instrument[0].AcquisitionSoftware[0].Version
+      Source: CustomData.Version.MajorVersion + CustomData.Version.MinorVersion +
+        CustomData.Version.BuildNumber
+      DerivedFrom:
+      - CustomData.Version.MajorVersion
+      - CustomData.Version.MinorVersion
+      - CustomData.Version.BuildNumber
+    - ID: SourceMapping:11
+      Field: Experimenter[0].UserName
+      Source: CustomData.UserInfo.UserName
+  Pixels:
+    Plane:
+    - ExposureTime: 0.083
+      ExposureTimeUnit: s
+  CustomProperties:
+  - ID: Property:26
+    Name: HardwareSetting.Image.ShootCircumstance
+    Value: '"SaveFile"'
+    SchemaPath: Image.ShootCircumstance
+    Source: SourceFile:0
+  AcquisitionDate: '2025-07-10T14:07:11.516173'
+Instrument:
+- Manufacturer: Leica Microsystems
+  GenericDetector:
+  - Model: K7
+    Gain: 1
+  Laser:
+  - Model: Explorer
+    Role:
+    - Microdissection
+  CustomProperties:
+  - ID: Property:17
+    Name: HardwareSetting.Laser.Power
+    Value: '57'
+    Source: SourceFile:0
+  - ID: Property:18
+    Name: HardwareSetting.Laser.Aperture
+    Value: '18'
+    Source: SourceFile:0
+  - ID: Property:19
+    Name: HardwareSetting.Laser.Speed
+    Value: '10'
+    Source: SourceFile:0
+  - ID: Property:20
+    Name: HardwareSetting.Laser.SpecimenBalance
+    Value: '15'
+    Source: SourceFile:0
+  - ID: Property:21
+    Name: HardwareSetting.Laser.LineSpacing
+    Value: '12'
+    Source: SourceFile:0
+  - ID: Property:22
+    Name: HardwareSetting.Laser.Offset
+    Value: '60'
+    Source: SourceFile:0
+  - ID: Property:23
+    Name: HardwareSetting.Laser.HeadCurrent
+    Value: '100'
+    Source: SourceFile:0
+  - ID: Property:24
+    Name: HardwareSetting.Laser.PulseFrequency
+    Value: '120'
+    Source: SourceFile:0
+  Objective:
+  - Magnification: 10
+  AcquisitionSoftware:
+  - Name: Laser Microdissection (LMD7)
+    Version: 8.5.9136
+CustomProperties:
+- ID: Property:0
+  Name: HardwareSetting.Camera.ColourSaturation
+  Value: '150'
+  Source: SourceFile:0
+- ID: Property:1
+  Name: HardwareSetting.Mic.StageposX
+  Value: '131454'
+  Source: SourceFile:0
+- ID: Property:2
+  Name: HardwareSetting.Mic.StageposY
+  Value: '310564'
+  Source: SourceFile:0
+- ID: Property:3
+  Name: HardwareSetting.Mic.StageposZ
+  Value: '1590430'
+  Source: SourceFile:0
+- ID: Property:4
+  Name: HardwareSetting.Mic.Stagetype
+  Value: '"HYDRA-STAGE"'
+  Source: SourceFile:0
+- ID: Property:5
+  Name: HardwareSetting.Mic.Specimenholder
+  Value: '"HydraFourSlides"'
+  Source: SourceFile:0
+- ID: Property:6
+  Name: HardwareSetting.Mic.SpecimenholderPosition
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:7
+  Name: HardwareSetting.Mic.Collectorholder
+  Value: '"Hydra Stage"'
+  Source: SourceFile:0
+- ID: Property:8
+  Name: HardwareSetting.Mic.Collectorholderposition
+  Value: '"A"'
+  Source: SourceFile:0
+- ID: Property:9
+  Name: HardwareSetting.Mic.ContrstingMethod
+  Value: '"TL-BF"'
+  Source: SourceFile:0
+- ID: Property:10
+  Name: HardwareSetting.Mic.LightIntensity
+  Value: '105'
+  Source: SourceFile:0
+- ID: Property:11
+  Name: HardwareSetting.Mic.FieldDiaphragm
+  Value: '32'
+  Source: SourceFile:0
+- ID: Property:12
+  Name: HardwareSetting.Mic.ApertureDiaphragm
+  Value: '16'
+  Source: SourceFile:0
+- ID: Property:13
+  Name: HardwareSetting.Mic.Cubename
+  Value: '"EMP"'
+  Source: SourceFile:0
+- ID: Property:14
+  Name: HardwareSetting.Mic.FluoFieldDiaphragm
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:15
+  Name: HardwareSetting.Mic.IFWPos
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:16
+  Name: HardwareSetting.Mic.EXMPos
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:25
+  Name: HardwareSetting.Application
+  Value: '"LMD"'
+  Source: SourceFile:0
+- ID: Property:27
+  Name: CustomData.Version.SoftwareVersionInfo
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:28
+  Name: CustomData.ExperimentInfo.ExperimentName
+  Value: '"UnKnown"'
+  Source: SourceFile:0
+- ID: Property:29
+  Name: CustomData.ExperimentInfo.TaskName
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:30
+  Name: CustomData.UserInfo.GroupName
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:31
+  Name: CustomData.UserInfo.DepartmentName
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:32
+  Name: CustomData.UserInfo.OrganisiationName
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:33
+  Name: CustomData.Application
+  Value: '""'
+  Source: SourceFile:0
+Experimenter:
+- UserName: Leica-Admin

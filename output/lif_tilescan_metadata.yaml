@@ -1840,6 +1840,8 @@ Laser:
     PeakWavelength: 405
     PeakWavelengthUnit: nm
   ID: Laser:0
+  Role:
+  - Fluorescence
 - Name: 440pulsed
   IlluminationWavelengthRange:
     PeakWavelength: 440
@@ -1853,6 +1855,8 @@ Laser:
     PeakWavelength: 0
     PeakWavelengthUnit: nm
   ID: Laser:3
+  Role:
+  - Fluorescence
 Pixels:
   SignificantBits: 8
   SizeX: 512
@@ -4551,6 +4555,9 @@ SourceMap:
   Pixels.Channel[0].LightPath.LightSourceSettings[0].ID:
   - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].AotfList.Aotf[3].LaserLineSetting[0].LaserLine
   - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LightSourceType
+  Laser[3].Role[0]:
+  - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].DyeName
+  - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].AotfList.Aotf[3].LaserLineSetting[0].LaserLine
   Pixels.Channel[0].Fluorophore.ExcitationWavelength:
   - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].AotfList.Aotf[3].LaserLineSetting[0].LaserLine
   Pixels.Channel[0].Fluorophore.ExcitationWavelengthUnit:
@@ -4611,6 +4618,9 @@ SourceMap:
   Pixels.Channel[2].LightPath.LightSourceSettings[0].ID:
   - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[2].AotfList.Aotf[0].LaserLineSetting.LaserLine
   - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LightSourceType
+  Laser[0].Role[0]:
+  - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].DyeName
+  - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[2].AotfList.Aotf[0].LaserLineSetting.LaserLine
   Pixels.Channel[2].LightPath.LightSourceSettings[1].ID:
   - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[2].AotfList.Aotf[3].LaserLineSetting[0].LaserLine
   - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LightSourceType

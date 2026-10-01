@@ -1,0 +1,117 @@
+Instrument:
+  Manufacturer: Leica Microsystems
+GenericDetector:
+  Model: K7
+  Gain: 1
+Plane:
+  ExposureTime: 0.083
+  ExposureTimeUnit: s
+HardwareSetting:
+  Camera:
+    ColourSaturation: 150
+  Mic:
+    StageposX: 131454
+    StageposY: 310564
+    StageposZ: 1590430
+    Stagetype: HYDRA-STAGE
+    Specimenholder: HydraFourSlides
+    SpecimenholderPosition: ''
+    Collectorholder: Hydra Stage
+    Collectorholderposition: A
+    ContrstingMethod: TL-BF
+    LightIntensity: 105
+    FieldDiaphragm: 32
+    ApertureDiaphragm: 16
+    Cubename: EMP
+    FluoFieldDiaphragm: 1
+    IFWPos: ''
+    EXMPos: ''
+  Laser:
+    Power: 57
+    Aperture: 18
+    Speed: 10
+    SpecimenBalance: 15
+    LineSpacing: 12
+    Offset: 60
+    HeadCurrent: 100
+    PulseFrequency: 120
+  Application: LMD
+Image:
+  ShootCircumstance: SaveFile
+  AcquisitionDate: '2025-07-10T14:07:11.516173'
+Objective:
+  Magnification: 10
+Laser:
+  Model: Explorer
+  Role:
+  - Microdissection
+AcquisitionSoftware:
+  Name: Laser Microdissection (LMD7)
+  Version: 8.5.9136
+CustomData:
+  Version:
+    SoftwareVersionInfo: ''
+  ExperimentInfo:
+    ExperimentName: UnKnown
+    TaskName: ''
+  UserInfo:
+    GroupName: ''
+    DepartmentName: ''
+    OrganisiationName: ''
+  Application: ''
+Experimenter:
+  UserName: Leica-Admin
+SourceMap:
+  Instrument.Manufacturer: manufacturer
+  GenericDetector.Model: HardwareSetting.Camera.TypName
+  Plane.ExposureTime: HardwareSetting.Camera.Expsoure
+  GenericDetector.Gain: HardwareSetting.Camera.Gain
+  HardwareSetting.Camera.ColourSaturation: HardwareSetting.Camera.ColourSaturation
+  Image.ShootCircumstance: HardwareSetting.Image.ShootCircumstance
+  Objective.Magnification: HardwareSetting.Mic.Magnification
+  HardwareSetting.Mic.StageposX: HardwareSetting.Mic.StageposX
+  HardwareSetting.Mic.StageposY: HardwareSetting.Mic.StageposY
+  HardwareSetting.Mic.StageposZ: HardwareSetting.Mic.StageposZ
+  HardwareSetting.Mic.Stagetype: HardwareSetting.Mic.Stagetype
+  HardwareSetting.Mic.Specimenholder: HardwareSetting.Mic.Specimenholder
+  HardwareSetting.Mic.SpecimenholderPosition: HardwareSetting.Mic.SpecimenholderPosition
+  HardwareSetting.Mic.Collectorholder: HardwareSetting.Mic.Collectorholder
+  HardwareSetting.Mic.Collectorholderposition: HardwareSetting.Mic.Collectorholderposition
+  HardwareSetting.Mic.ContrstingMethod: HardwareSetting.Mic.ContrstingMethod
+  HardwareSetting.Mic.LightIntensity: HardwareSetting.Mic.LightIntensity
+  HardwareSetting.Mic.FieldDiaphragm: HardwareSetting.Mic.FieldDiaphragm
+  HardwareSetting.Mic.ApertureDiaphragm: HardwareSetting.Mic.ApertureDiaphragm
+  HardwareSetting.Mic.Cubename: HardwareSetting.Mic.Cubename
+  HardwareSetting.Mic.FluoFieldDiaphragm: HardwareSetting.Mic.FluoFieldDiaphragm
+  HardwareSetting.Mic.IFWPos: HardwareSetting.Mic.IFWPos
+  HardwareSetting.Mic.EXMPos: HardwareSetting.Mic.EXMPos
+  Laser.Model: HardwareSetting.Laser.Lasertype
+  HardwareSetting.Laser.Power: HardwareSetting.Laser.Power
+  HardwareSetting.Laser.Aperture: HardwareSetting.Laser.Aperture
+  HardwareSetting.Laser.Speed: HardwareSetting.Laser.Speed
+  HardwareSetting.Laser.SpecimenBalance: HardwareSetting.Laser.SpecimenBalance
+  HardwareSetting.Laser.LineSpacing: HardwareSetting.Laser.LineSpacing
+  HardwareSetting.Laser.Offset: HardwareSetting.Laser.Offset
+  HardwareSetting.Laser.HeadCurrent: HardwareSetting.Laser.HeadCurrent
+  HardwareSetting.Laser.PulseFrequency: HardwareSetting.Laser.PulseFrequency
+  HardwareSetting.Application: HardwareSetting.Application
+  AcquisitionSoftware.Name: CustomData.Version.SoftwareName
+  CustomData.Version.SoftwareVersionInfo: CustomData.Version.SoftwareVersionInfo
+  CustomData.ExperimentInfo.ExperimentName: CustomData.ExperimentInfo.ExperimentName
+  CustomData.ExperimentInfo.TaskName: CustomData.ExperimentInfo.TaskName
+  Experimenter.UserName: CustomData.UserInfo.UserName
+  CustomData.UserInfo.GroupName: CustomData.UserInfo.GroupName
+  CustomData.UserInfo.DepartmentName: CustomData.UserInfo.DepartmentName
+  CustomData.UserInfo.OrganisiationName: CustomData.UserInfo.OrganisiationName
+  CustomData.Application: CustomData.Application
+  Plane.ExposureTimeUnit:
+  - HardwareSetting.Camera.Expsoure
+  Laser.Role[0]:
+  - HardwareSetting.Application
+  - HardwareSetting.Laser.Lasertype
+  AcquisitionSoftware.Version:
+  - CustomData.Version.MajorVersion
+  - CustomData.Version.MinorVersion
+  - CustomData.Version.BuildNumber
+  Image.AcquisitionDate:
+  - CustomData.ExperimentInfo.DateAndTime

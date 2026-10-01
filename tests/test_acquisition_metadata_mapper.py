@@ -71,6 +71,8 @@ class AcquisitionMetadataMapperTest(unittest.TestCase):
         self.assertEqual(converted['Filter'][0], {'ID': 'Filter:0', 'Type': 'BandPass', 'TransmittanceRange': {
             'Wavelength': 525, 'FWHMBandwidth': 50, 'WavelengthUnit': 'nm'}})
         self.assertEqual([laser.get('ID') for laser in converted['Laser']], ['Laser:0', 'Laser:1'])
+        # a laser exciting a channel with a dye is used for fluorescence
+        self.assertEqual([laser.get('Role') for laser in converted['Laser']], [['Fluorescence'], ['Fluorescence']])
         # the dyes, band limits and single line are held by the channels now; the two lines and intensities stay
         bands = converted['HardwareSetting']['ConfocalSettingDefinition']['Spectro']['MultiBand']
         self.assertEqual(bands, [{'Channel': 1}, {'Channel': 4}])
@@ -98,6 +100,18 @@ class AcquisitionMetadataMapperTest(unittest.TestCase):
         self.assertEqual(converted['Pixels'], {'PhysicalSizeX': 9.16e-08, 'PhysicalSizeXUnit': 'm'})
         self.assertEqual(converted['LightPath']['ConfocalScannerSettings'],
                          {'EffectiveZoom': 2.5, 'PresetPinholeSize': 0.000156, 'PresetPinholeSizeUnit': 'm'})
+
+    def test_leica_microdissection_laser_has_its_role(self):
+        settings = {'Application': 'LMD', 'Laser': {'Lasertype': 'Explorer', 'Power': 57},
+                    'Camera': {'TypName': 'K7', 'Expsoure': 0.033}}
+
+        converted = self.mapper.convert_metadata({'HardwareSetting': settings})
+
+        self.assertEqual(converted['Laser'], {'Model': 'Explorer', 'Role': ['Microdissection']})
+        self.assertEqual(converted['Plane'], {'ExposureTime': 0.033, 'ExposureTimeUnit': 's'})
+        # a laser in a setting of another application is no microdissection laser
+        other = self.mapper.convert_metadata({'HardwareSetting': {**settings, 'Application': 'LAS X'}})
+        self.assertNotIn('Role', other['Laser'])
 
     def test_time_point_range_is_kept_beside_its_count(self):
         timepoints = {'first': 10, 'last': 14, 'type': 'range'}
@@ -589,6 +603,21 @@ class LosslessMappingTest(unittest.TestCase):
         # the name stays where its rule put it, a model field; a name the pattern misses adds nothing
         self.assertNotIn('ImmersionType', mapper.convert_metadata(
             {'Settings': {'DM6000 Turret': {'Objective': 'HCX PL APO CS 63 x'}}, 'Other': 1})['Objective'])
+
+    def test_join_combination_joins_its_parts_with_a_separator(self):
+        mapper = self.mapper_for({}, [{'target': 'Version', 'sources': ['Major', 'Minor', 'Build'], 'format': 'join',
+                                       'separator': '.'}])
+
+        converted = mapper.convert_metadata({'Major': 8, 'Minor': 5, 'Build': 9136})
+
+        self.assertEqual(converted, {'Version': '8.5.9136', 'SourceMap': {'Version': ['Major', 'Minor', 'Build']}})
+
+    def test_filetime_combination_reads_100_nanosecond_steps_since_1601(self):
+        mapper = self.mapper_for({}, [{'target': 'D', 'sources': ['Time'], 'format': 'filetime'}])
+
+        self.assertEqual(mapper.convert_metadata({'Time': 133966300315161733})['D'], '2025-07-10T14:07:11.516173')
+        self.assertNotIn('D', mapper.convert_metadata({'Time': 0}))
+        self.assertNotIn('D', mapper.convert_metadata({'Time': 'now'}))
 
     def test_ratio_combination_is_left_out_without_a_divisor(self):
         mapper = self.mapper_for({}, [{'target': 'R', 'sources': ['Q[0]', 'Q[1]'], 'format': 'ratio'}])

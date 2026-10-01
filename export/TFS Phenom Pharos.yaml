@@ -123,7 +123,7 @@ Image:
       Field: Instrument[0].Type
       Source: FEI_TITAN.FeiImage.instrument.type
     - ID: SourceMapping:38
-      Field: Instrument[0].ID
+      Field: Instrument[0].CatalogNumber
       Source: FEI_TITAN.FeiImage.instrument.uniqueID
     - ID: SourceMapping:39
       Field: Instrument[0].Model
@@ -452,7 +452,7 @@ Instrument:
     SchemaPath: AcquisitionSoftware.version
     Source: SourceFile:0
   Type: Phenom
-  ID: MVE084613-20046-F
+  CatalogNumber: MVE084613-20046-F
   Model: Phenom Pharos G2
   GenericDetector:
   - Gain: 45
