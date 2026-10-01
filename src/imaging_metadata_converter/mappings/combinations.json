@@ -324,5 +324,23 @@
             "CustomData.ExperimentInfo.DateAndTime"
         ],
         "format": "filetime"
+    },
+    {
+        "target": "Pixels.PhysicalSizeZ",
+        "sources": [
+            "SpacingBetweenSlices"
+        ],
+        "format": "pattern",
+        "pattern": "^(\\d+(?:\\.\\d+)?(?:[eE][-+]?\\d+)?)$",
+        "unit": "mm"
+    },
+    {
+        "target": "Pixels.PhysicalSizeZ",
+        "sources": [
+            "SliceThickness"
+        ],
+        "format": "pattern",
+        "pattern": "^(\\d+(?:\\.\\d+)?(?:[eE][-+]?\\d+)?)$",
+        "unit": "mm"
     }
 ]

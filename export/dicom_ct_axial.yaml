@@ -1,0 +1,565 @@
+ID: OME:0
+Image:
+- SourceFile:
+  - ID: SourceFile:0
+    Name: dicom_ct_axial.json
+    Checksum: 5ad11eefe13e3bb15573d3b037c2800c1b39d9c7aa7d4e009350fc0e4a2f8966
+    Format: json
+    Mapping:
+    - ID: SourceMapping:0
+      Field: Image[0].ID
+      Source: SOPInstanceUID
+    - ID: SourceMapping:1
+      Field: Image[0].AcquisitionDate
+      Source: AcquisitionDate
+    - ID: SourceMapping:2
+      Field: Instrument[0].Type
+      Source: Modality
+    - ID: SourceMapping:3
+      Field: Instrument[0].Manufacturer
+      Source: Manufacturer
+    - ID: SourceMapping:4
+      Field: Instrument[0].Model
+      Source: ManufacturerModelName
+    - ID: SourceMapping:5
+      Field: Instrument[0].CatalogNumber
+      Source: DeviceSerialNumber
+    - ID: SourceMapping:6
+      Field: Instrument[0].AcquisitionSoftware[0].Version
+      Source: SoftwareVersions
+    - ID: SourceMapping:7
+      Field: Image[0].Pixels.Plane[0].ExposureTime
+      Source: ExposureTime
+    - ID: SourceMapping:8
+      Field: Image[0].Pixels.Plane[0].PositionX
+      Source: ImagePositionPatient[0]
+    - ID: SourceMapping:9
+      Field: Image[0].Pixels.Plane[0].PositionY
+      Source: ImagePositionPatient[1]
+    - ID: SourceMapping:10
+      Field: Image[0].Pixels.Plane[0].PositionZ
+      Source: ImagePositionPatient[2]
+    - ID: SourceMapping:11
+      Field: Image[0].Pixels.Plane[0].PositionXUnit
+      Source: ImagePositionPatient[0]
+      DerivedFrom:
+      - ImagePositionPatient[0]
+    - ID: SourceMapping:12
+      Field: Image[0].Pixels.Plane[0].PositionYUnit
+      Source: ImagePositionPatient[1]
+      DerivedFrom:
+      - ImagePositionPatient[1]
+    - ID: SourceMapping:13
+      Field: Image[0].Pixels.Plane[0].PositionZUnit
+      Source: ImagePositionPatient[2]
+      DerivedFrom:
+      - ImagePositionPatient[2]
+    - ID: SourceMapping:14
+      Field: Experiment[0].ID
+      Source: StudyInstanceUID
+    - ID: SourceMapping:15
+      Field: Image[0].Pixels.Channel[0].SamplesPerPixel
+      Source: SamplesPerPixel
+    - ID: SourceMapping:16
+      Field: Image[0].Pixels.SizeY
+      Source: Rows
+    - ID: SourceMapping:17
+      Field: Image[0].Pixels.SizeX
+      Source: Columns
+    - ID: SourceMapping:18
+      Field: Image[0].Pixels.PhysicalSizeY
+      Source: PixelSpacing[0]
+    - ID: SourceMapping:19
+      Field: Image[0].Pixels.PhysicalSizeX
+      Source: PixelSpacing[1]
+    - ID: SourceMapping:20
+      Field: Image[0].Pixels.SignificantBits
+      Source: BitsStored
+    - ID: SourceMapping:21
+      Field: Image[0].Pixels.PhysicalSizeYUnit
+      Source: PixelSpacing[0]
+      DerivedFrom:
+      - PixelSpacing[0]
+    - ID: SourceMapping:22
+      Field: Image[0].Pixels.PhysicalSizeXUnit
+      Source: PixelSpacing[1]
+      DerivedFrom:
+      - PixelSpacing[1]
+    - ID: SourceMapping:23
+      Field: Image[0].Pixels.PhysicalSizeZ
+      Source: SpacingBetweenSlices
+      DerivedFrom:
+      - SpacingBetweenSlices
+    - ID: SourceMapping:24
+      Field: Image[0].Pixels.PhysicalSizeZUnit
+      Source: SpacingBetweenSlices
+      DerivedFrom:
+      - SpacingBetweenSlices
+  ID: 1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2633.0
+  AcquisitionDate: '20100806'
+  Pixels:
+    Plane:
+    - ExposureTime: 800
+      PositionX: -122.2
+      PositionY: -107.1
+      PositionZ: -19.25
+      PositionXUnit: mm
+      PositionYUnit: mm
+      PositionZUnit: mm
+    Channel:
+    - SamplesPerPixel: 1
+    SizeY: 512
+    SizeX: 512
+    PhysicalSizeY: 0.488281
+    PhysicalSizeX: 0.488281
+    SignificantBits: 16
+    PhysicalSizeYUnit: mm
+    PhysicalSizeXUnit: mm
+    PhysicalSizeZ: 2.5
+    PhysicalSizeZUnit: mm
+CustomProperties:
+- ID: Property:0
+  Name: ImageType[0]
+  Value: '"ORIGINAL"'
+  Source: SourceFile:0
+- ID: Property:1
+  Name: ImageType[1]
+  Value: '"PRIMARY"'
+  Source: SourceFile:0
+- ID: Property:2
+  Name: ImageType[2]
+  Value: '"AXIAL"'
+  Source: SourceFile:0
+- ID: Property:3
+  Name: InstanceCreationDate
+  Value: '"20100806"'
+  Source: SourceFile:0
+- ID: Property:4
+  Name: InstanceCreationTime
+  Value: '"010549.000"'
+  Source: SourceFile:0
+- ID: Property:5
+  Name: SOPClassUID
+  Value: '"1.2.840.10008.5.1.4.1.1.2"'
+  Source: SourceFile:0
+- ID: Property:6
+  Name: StudyDate
+  Value: '"20100806"'
+  Source: SourceFile:0
+- ID: Property:7
+  Name: SeriesDate
+  Value: '"20100806"'
+  Source: SourceFile:0
+- ID: Property:8
+  Name: ContentDate
+  Value: '"20100806"'
+  Source: SourceFile:0
+- ID: Property:9
+  Name: StudyTime
+  Value: '"010434.000"'
+  Source: SourceFile:0
+- ID: Property:10
+  Name: SeriesTime
+  Value: '"010521.000"'
+  Source: SourceFile:0
+- ID: Property:11
+  Name: AcquisitionTime
+  Value: '"010531.758"'
+  Source: SourceFile:0
+- ID: Property:12
+  Name: ContentTime
+  Value: '"010549.000"'
+  Source: SourceFile:0
+- ID: Property:13
+  Name: AccessionNumber
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:14
+  Name: ReferringPhysicianName
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:15
+  Name: ReferencedImageSequence[0].ReferencedSOPClassUID
+  Value: '"1.2.840.10008.5.1.4.1.1.2"'
+  Source: SourceFile:0
+- ID: Property:16
+  Name: ReferencedImageSequence[0].ReferencedSOPInstanceUID
+  Value: '"1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2595.0"'
+  Source: SourceFile:0
+- ID: Property:17
+  Name: IrradiationEventUID
+  Value: '"1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2598.0"'
+  Source: SourceFile:0
+- ID: Property:18
+  Name: PatientName
+  Value: '"NAME^NONE"'
+  Source: SourceFile:0
+- ID: Property:19
+  Name: PatientID
+  Value: '"NOID"'
+  Source: SourceFile:0
+- ID: Property:20
+  Name: PatientBirthDate
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:21
+  Name: PatientSex
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:22
+  Name: PatientIdentityRemoved
+  Value: '"YES"'
+  Source: SourceFile:0
+- ID: Property:23
+  Name: DeidentificationMethod[0]
+  Value: '"Deidentified"'
+  Source: SourceFile:0
+- ID: Property:24
+  Name: DeidentificationMethod[1]
+  Value: '"Descriptors removed"'
+  Source: SourceFile:0
+- ID: Property:25
+  Name: DeidentificationMethod[2]
+  Value: '"Patient Characteristics removed"'
+  Source: SourceFile:0
+- ID: Property:26
+  Name: DeidentificationMethod[3]
+  Value: '"Device identity removed"'
+  Source: SourceFile:0
+- ID: Property:27
+  Name: DeidentificationMethod[4]
+  Value: '"Institution identity removed"'
+  Source: SourceFile:0
+- ID: Property:28
+  Name: DeidentificationMethod[5]
+  Value: '"Dates modified"'
+  Source: SourceFile:0
+- ID: Property:29
+  Name: DeidentificationMethod[6]
+  Value: '"Structured content retained"'
+  Source: SourceFile:0
+- ID: Property:30
+  Name: DeidentificationMethod[7]
+  Value: '"Unsafe private removed"'
+  Source: SourceFile:0
+- ID: Property:31
+  Name: DeidentificationMethod[8]
+  Value: '"UIDs remapped"'
+  Source: SourceFile:0
+- ID: Property:32
+  Name: DeidentificationMethodCodeSequence[0].CodeValue
+  Value: '"113100"'
+  Source: SourceFile:0
+- ID: Property:33
+  Name: DeidentificationMethodCodeSequence[0].CodingSchemeDesignator
+  Value: '"DCM"'
+  Source: SourceFile:0
+- ID: Property:34
+  Name: DeidentificationMethodCodeSequence[0].CodeMeaning
+  Value: '"Basic Application Confidentiality Profile"'
+  Source: SourceFile:0
+- ID: Property:35
+  Name: DeidentificationMethodCodeSequence[1].CodeValue
+  Value: '"210004"'
+  Source: SourceFile:0
+- ID: Property:36
+  Name: DeidentificationMethodCodeSequence[1].CodingSchemeDesignator
+  Value: '"99PMP"'
+  Source: SourceFile:0
+- ID: Property:37
+  Name: DeidentificationMethodCodeSequence[1].CodeMeaning
+  Value: '"Remove all descriptors"'
+  Source: SourceFile:0
+- ID: Property:38
+  Name: DeidentificationMethodCodeSequence[2].CodeValue
+  Value: '"113107"'
+  Source: SourceFile:0
+- ID: Property:39
+  Name: DeidentificationMethodCodeSequence[2].CodingSchemeDesignator
+  Value: '"DCM"'
+  Source: SourceFile:0
+- ID: Property:40
+  Name: DeidentificationMethodCodeSequence[2].CodeMeaning
+  Value: '"Retain Longitudinal Temporal Information Modified Dates Option"'
+  Source: SourceFile:0
+- ID: Property:41
+  Name: DeidentificationMethodCodeSequence[3].CodeValue
+  Value: '"210011"'
+  Source: SourceFile:0
+- ID: Property:42
+  Name: DeidentificationMethodCodeSequence[3].CodingSchemeDesignator
+  Value: '"99PMP"'
+  Source: SourceFile:0
+- ID: Property:43
+  Name: DeidentificationMethodCodeSequence[3].CodeMeaning
+  Value: '"Retain all structured content unchanged"'
+  Source: SourceFile:0
+- ID: Property:44
+  Name: DeidentificationMethodCodeSequence[4].CodeValue
+  Value: '"113111"'
+  Source: SourceFile:0
+- ID: Property:45
+  Name: DeidentificationMethodCodeSequence[4].CodingSchemeDesignator
+  Value: '"DCM"'
+  Source: SourceFile:0
+- ID: Property:46
+  Name: DeidentificationMethodCodeSequence[4].CodeMeaning
+  Value: '"Retain Safe Private Option"'
+  Source: SourceFile:0
+- ID: Property:47
+  Name: DeidentificationMethodCodeSequence[5].CodeValue
+  Value: '"210001"'
+  Source: SourceFile:0
+- ID: Property:48
+  Name: DeidentificationMethodCodeSequence[5].CodingSchemeDesignator
+  Value: '"99PMP"'
+  Source: SourceFile:0
+- ID: Property:49
+  Name: DeidentificationMethodCodeSequence[5].CodeMeaning
+  Value: '"Remap UIDs"'
+  Source: SourceFile:0
+- ID: Property:50
+  Name: ScanOptions
+  Value: '"HELICAL MODE"'
+  Source: SourceFile:0
+- ID: Property:51
+  Name: SliceThickness
+  Value: '2.5'
+  Source: SourceFile:0
+- ID: Property:52
+  Name: KVP
+  Value: '120.0'
+  Source: SourceFile:0
+- ID: Property:53
+  Name: DataCollectionDiameter
+  Value: '320.0'
+  Source: SourceFile:0
+- ID: Property:54
+  Name: ReconstructionDiameter
+  Value: '250.0'
+  Source: SourceFile:0
+- ID: Property:55
+  Name: DistanceSourceToDetector
+  Value: '949.147'
+  Source: SourceFile:0
+- ID: Property:56
+  Name: DistanceSourceToPatient
+  Value: '541.0'
+  Source: SourceFile:0
+- ID: Property:57
+  Name: GantryDetectorTilt
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:58
+  Name: TableHeight
+  Value: '169.5'
+  Source: SourceFile:0
+- ID: Property:59
+  Name: RotationDirection
+  Value: '"CW"'
+  Source: SourceFile:0
+- ID: Property:60
+  Name: XRayTubeCurrent
+  Value: '320'
+  Source: SourceFile:0
+- ID: Property:61
+  Name: Exposure
+  Value: '33'
+  Source: SourceFile:0
+- ID: Property:62
+  Name: FilterType
+  Value: '"HEAD FILTER"'
+  Source: SourceFile:0
+- ID: Property:63
+  Name: GeneratorPower
+  Value: '40200'
+  Source: SourceFile:0
+- ID: Property:64
+  Name: FocalSpots
+  Value: '1.2'
+  Source: SourceFile:0
+- ID: Property:65
+  Name: ConvolutionKernel
+  Value: '"STANDARD"'
+  Source: SourceFile:0
+- ID: Property:66
+  Name: PatientPosition
+  Value: '"HFS"'
+  Source: SourceFile:0
+- ID: Property:67
+  Name: RevolutionTime
+  Value: '0.8'
+  Source: SourceFile:0
+- ID: Property:68
+  Name: SingleCollimationWidth
+  Value: '0.625'
+  Source: SourceFile:0
+- ID: Property:69
+  Name: TotalCollimationWidth
+  Value: '20.0'
+  Source: SourceFile:0
+- ID: Property:70
+  Name: TableSpeed
+  Value: '24.21875'
+  Source: SourceFile:0
+- ID: Property:71
+  Name: TableFeedPerRotation
+  Value: '19.375'
+  Source: SourceFile:0
+- ID: Property:72
+  Name: SpiralPitchFactor
+  Value: '0.96875'
+  Source: SourceFile:0
+- ID: Property:73
+  Name: ContributingEquipmentSequence[0].Manufacturer
+  Value: '"PixelMed"'
+  Source: SourceFile:0
+- ID: Property:74
+  Name: ContributingEquipmentSequence[0].StationName
+  Value: '"STUDIO5_11112"'
+  Source: SourceFile:0
+- ID: Property:75
+  Name: ContributingEquipmentSequence[0].ManufacturerModelName
+  Value: '"DicomCleaner"'
+  Source: SourceFile:0
+- ID: Property:76
+  Name: ContributingEquipmentSequence[0].SoftwareVersions
+  Value: '"Sat Dec  5 13:17:48 EST 2020"'
+  Source: SourceFile:0
+- ID: Property:77
+  Name: ContributingEquipmentSequence[0].ContributionDateTime
+  Value: '"20210325104831.439+0000"'
+  Source: SourceFile:0
+- ID: Property:78
+  Name: ContributingEquipmentSequence[0].ContributionDescription
+  Value: '"Cleaned"'
+  Source: SourceFile:0
+- ID: Property:79
+  Name: ContributingEquipmentSequence[0].PurposeOfReferenceCodeSequence[0].CodeValue
+  Value: '"109104"'
+  Source: SourceFile:0
+- ID: Property:80
+  Name: ContributingEquipmentSequence[0].PurposeOfReferenceCodeSequence[0].CodingSchemeDesignator
+  Value: '"DCM"'
+  Source: SourceFile:0
+- ID: Property:81
+  Name: ContributingEquipmentSequence[0].PurposeOfReferenceCodeSequence[0].CodeMeaning
+  Value: '"De-identifying Equipment"'
+  Source: SourceFile:0
+- ID: Property:82
+  Name: SeriesInstanceUID
+  Value: '"1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2634.0"'
+  Source: SourceFile:0
+- ID: Property:83
+  Name: StudyID
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:84
+  Name: SeriesNumber
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:85
+  Name: AcquisitionNumber
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:86
+  Name: InstanceNumber
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:87
+  Name: ImageOrientationPatient[0]
+  Value: '1.0'
+  Source: SourceFile:0
+- ID: Property:88
+  Name: ImageOrientationPatient[1]
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:89
+  Name: ImageOrientationPatient[2]
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:90
+  Name: ImageOrientationPatient[3]
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:91
+  Name: ImageOrientationPatient[4]
+  Value: '1.0'
+  Source: SourceFile:0
+- ID: Property:92
+  Name: ImageOrientationPatient[5]
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:93
+  Name: FrameOfReferenceUID
+  Value: '"1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2594.0"'
+  Source: SourceFile:0
+- ID: Property:94
+  Name: PositionReferenceIndicator
+  Value: '"OM"'
+  Source: SourceFile:0
+- ID: Property:95
+  Name: SliceLocation
+  Value: '-19.25'
+  Source: SourceFile:0
+- ID: Property:96
+  Name: PhotometricInterpretation
+  Value: '"MONOCHROME2"'
+  Source: SourceFile:0
+- ID: Property:97
+  Name: BitsAllocated
+  Value: '16'
+  Source: SourceFile:0
+- ID: Property:98
+  Name: HighBit
+  Value: '15'
+  Source: SourceFile:0
+- ID: Property:99
+  Name: PixelRepresentation
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:100
+  Name: PixelPaddingValue
+  Value: '-2000'
+  Source: SourceFile:0
+- ID: Property:101
+  Name: WindowCenter
+  Value: '30.0'
+  Source: SourceFile:0
+- ID: Property:102
+  Name: WindowWidth
+  Value: '100.0'
+  Source: SourceFile:0
+- ID: Property:103
+  Name: RescaleIntercept
+  Value: '-1024.0'
+  Source: SourceFile:0
+- ID: Property:104
+  Name: RescaleSlope
+  Value: '1.0'
+  Source: SourceFile:0
+- ID: Property:105
+  Name: RescaleType
+  Value: '"HU"'
+  Source: SourceFile:0
+- ID: Property:106
+  Name: LossyImageCompression
+  Value: '"00"'
+  Source: SourceFile:0
+- ID: Property:107
+  Name: PerformedProcedureStepStartDate
+  Value: '"20100806"'
+  Source: SourceFile:0
+- ID: Property:108
+  Name: PerformedProcedureStepStartTime
+  Value: '"010434.000"'
+  Source: SourceFile:0
+Instrument:
+- Type: CT
+  Manufacturer: GE MEDICAL SYSTEMS
+  Model: Revolution EVO
+  CatalogNumber: SN000000
+  AcquisitionSoftware:
+  - Version: cj_kl.89
+Experiment:
+- ID: 1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2592.0

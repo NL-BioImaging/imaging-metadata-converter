@@ -1,0 +1,139 @@
+{
+    "ImageType": [
+        "DERIVED",
+        "SECONDARY",
+        "REFORMATTED",
+        "AVERAGE"
+    ],
+    "InstanceCreationDate": "20100806",
+    "InstanceCreationTime": "010635.000",
+    "SOPClassUID": "1.2.840.10008.5.1.4.1.1.2",
+    "SOPInstanceUID": "1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2703.0",
+    "StudyDate": "20100806",
+    "SeriesDate": "20100806",
+    "AcquisitionDate": "20100806",
+    "ContentDate": "20100806",
+    "StudyTime": "010434.000",
+    "SeriesTime": "010635.000",
+    "AcquisitionTime": "010531.758",
+    "ContentTime": "010635.000",
+    "AccessionNumber": "",
+    "Modality": "CT",
+    "Manufacturer": "GE MEDICAL SYSTEMS",
+    "ReferringPhysicianName": "",
+    "ManufacturerModelName": "Revolution EVO",
+    "PatientName": "NAME^NONE",
+    "PatientID": "NOID",
+    "PatientBirthDate": "",
+    "PatientSex": "",
+    "PatientIdentityRemoved": "YES",
+    "DeidentificationMethod": [
+        "Deidentified",
+        "Descriptors removed",
+        "Patient Characteristics removed",
+        "Device identity removed",
+        "Institution identity removed",
+        "Dates modified",
+        "Structured content retained",
+        "Unsafe private removed",
+        "UIDs remapped"
+    ],
+    "DeidentificationMethodCodeSequence": [
+        {
+            "CodeValue": "113100",
+            "CodingSchemeDesignator": "DCM",
+            "CodeMeaning": "Basic Application Confidentiality Profile"
+        },
+        {
+            "CodeValue": "210004",
+            "CodingSchemeDesignator": "99PMP",
+            "CodeMeaning": "Remove all descriptors"
+        },
+        {
+            "CodeValue": "113107",
+            "CodingSchemeDesignator": "DCM",
+            "CodeMeaning": "Retain Longitudinal Temporal Information Modified Dates Option"
+        },
+        {
+            "CodeValue": "210011",
+            "CodingSchemeDesignator": "99PMP",
+            "CodeMeaning": "Retain all structured content unchanged"
+        },
+        {
+            "CodeValue": "113111",
+            "CodingSchemeDesignator": "DCM",
+            "CodeMeaning": "Retain Safe Private Option"
+        },
+        {
+            "CodeValue": "210001",
+            "CodingSchemeDesignator": "99PMP",
+            "CodeMeaning": "Remap UIDs"
+        }
+    ],
+    "ScanOptions": "HELICAL MODE",
+    "SliceThickness": 2.0,
+    "KVP": 120.0,
+    "DataCollectionDiameter": 320.0,
+    "ReconstructionDiameter": 250.0,
+    "GantryDetectorTilt": 0.0,
+    "ExposureTime": 800,
+    "ConvolutionKernel": "STANDARD",
+    "PatientPosition": "HFS",
+    "ContributingEquipmentSequence": [
+        {
+            "Manufacturer": "PixelMed",
+            "StationName": "STUDIO5_11112",
+            "ManufacturerModelName": "DicomCleaner",
+            "SoftwareVersions": "Sat Dec  5 13:17:48 EST 2020",
+            "ContributionDateTime": "20210325104834.806+0000",
+            "ContributionDescription": "Cleaned",
+            "PurposeOfReferenceCodeSequence": [
+                {
+                    "CodeValue": "109104",
+                    "CodingSchemeDesignator": "DCM",
+                    "CodeMeaning": "De-identifying Equipment"
+                }
+            ]
+        }
+    ],
+    "StudyInstanceUID": "1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2592.0",
+    "SeriesInstanceUID": "1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2702.0",
+    "StudyID": "",
+    "SeriesNumber": 601,
+    "AcquisitionNumber": 1,
+    "InstanceNumber": 2,
+    "ImagePositionPatient": [
+        -126.838,
+        -98.18,
+        184.809
+    ],
+    "ImageOrientationPatient": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+    ],
+    "FrameOfReferenceUID": "1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2594.0",
+    "PositionReferenceIndicator": "OM",
+    "SliceLocation": 98.180084,
+    "SamplesPerPixel": 1,
+    "PhotometricInterpretation": "MONOCHROME2",
+    "Rows": 512,
+    "Columns": 512,
+    "PixelSpacing": [
+        0.488281,
+        0.488281
+    ],
+    "BitsAllocated": 16,
+    "BitsStored": 16,
+    "HighBit": 15,
+    "PixelRepresentation": 1,
+    "WindowCenter": 30.0,
+    "WindowWidth": 100.0,
+    "RescaleIntercept": -1024.0,
+    "RescaleSlope": 1.0,
+    "RescaleType": "Houndsfield Unit",
+    "LossyImageCompression": "00"
+}

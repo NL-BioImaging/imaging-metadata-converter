@@ -56,16 +56,6 @@ PatientAge: 020Y
 ResponsibleOrganization: University Medical Center
 BodyPartExamined: ''
 ScanOptions: SURVIEW
-Pixels:
-  PhysicalSizeZ: 0.625
-  SizeY: 472
-  SizeX: 512
-  PhysicalSizeY: 0.9765625
-  PhysicalSizeX: 0.9765625
-  SignificantBits: 12
-  PhysicalSizeZUnit: mm
-  PhysicalSizeYUnit: mm
-  PhysicalSizeXUnit: mm
 KVP: 80.0
 DataCollectionDiameter: 500.0
 AcquisitionSoftware:
@@ -111,6 +101,16 @@ NumberOfStudyRelatedInstances: 1334
 Channel:
   SamplesPerPixel: 1
 PhotometricInterpretation: MONOCHROME2
+Pixels:
+  SizeY: 472
+  SizeX: 512
+  PhysicalSizeY: 0.9765625
+  PhysicalSizeX: 0.9765625
+  SignificantBits: 12
+  PhysicalSizeYUnit: mm
+  PhysicalSizeXUnit: mm
+  PhysicalSizeZ: 0.625
+  PhysicalSizeZUnit: mm
 BitsAllocated: 16
 HighBit: 11
 PixelRepresentation: 0
@@ -170,7 +170,6 @@ SourceMap:
   ResponsibleOrganization: ResponsibleOrganization
   BodyPartExamined: BodyPartExamined
   ScanOptions: ScanOptions
-  Pixels.PhysicalSizeZ: SliceThickness
   KVP: KVP
   DataCollectionDiameter: DataCollectionDiameter
   Instrument.CatalogNumber: DeviceSerialNumber
@@ -228,8 +227,6 @@ SourceMap:
   RescaleSlope: RescaleSlope
   RequestedProcedureID: RequestedProcedureID
   ConfidentialityCode: ConfidentialityCode
-  Pixels.PhysicalSizeZUnit:
-  - SliceThickness
   Plane.PositionXUnit:
   - ImagePositionPatient[0]
   Plane.PositionYUnit:
@@ -240,3 +237,7 @@ SourceMap:
   - PixelSpacing[0]
   Pixels.PhysicalSizeXUnit:
   - PixelSpacing[1]
+  Pixels.PhysicalSizeZ:
+  - SliceThickness
+  Pixels.PhysicalSizeZUnit:
+  - SliceThickness

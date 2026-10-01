@@ -1,0 +1,290 @@
+ImageType:
+- ORIGINAL
+- PRIMARY
+- AXIAL
+InstanceCreationDate: '20100806'
+InstanceCreationTime: '010549.000'
+SOPClassUID: 1.2.840.10008.5.1.4.1.1.2
+Image:
+  ID: 1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2633.0
+  AcquisitionDate: '20100806'
+StudyDate: '20100806'
+SeriesDate: '20100806'
+ContentDate: '20100806'
+StudyTime: '010434.000'
+SeriesTime: '010521.000'
+AcquisitionTime: '010531.758'
+ContentTime: '010549.000'
+AccessionNumber: ''
+Instrument:
+  Type: CT
+  Manufacturer: GE MEDICAL SYSTEMS
+  Model: Revolution EVO
+  CatalogNumber: SN000000
+ReferringPhysicianName: ''
+ReferencedImageSequence:
+- ReferencedSOPClassUID: 1.2.840.10008.5.1.4.1.1.2
+  ReferencedSOPInstanceUID: 1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2595.0
+IrradiationEventUID: 1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2598.0
+PatientName: NAME^NONE
+PatientID: NOID
+PatientBirthDate: ''
+PatientSex: ''
+PatientIdentityRemoved: 'YES'
+DeidentificationMethod:
+- Deidentified
+- Descriptors removed
+- Patient Characteristics removed
+- Device identity removed
+- Institution identity removed
+- Dates modified
+- Structured content retained
+- Unsafe private removed
+- UIDs remapped
+DeidentificationMethodCodeSequence:
+- CodeValue: '113100'
+  CodingSchemeDesignator: DCM
+  CodeMeaning: Basic Application Confidentiality Profile
+- CodeValue: '210004'
+  CodingSchemeDesignator: 99PMP
+  CodeMeaning: Remove all descriptors
+- CodeValue: '113107'
+  CodingSchemeDesignator: DCM
+  CodeMeaning: Retain Longitudinal Temporal Information Modified Dates Option
+- CodeValue: '210011'
+  CodingSchemeDesignator: 99PMP
+  CodeMeaning: Retain all structured content unchanged
+- CodeValue: '113111'
+  CodingSchemeDesignator: DCM
+  CodeMeaning: Retain Safe Private Option
+- CodeValue: '210001'
+  CodingSchemeDesignator: 99PMP
+  CodeMeaning: Remap UIDs
+ScanOptions: HELICAL MODE
+SliceThickness: 2.5
+KVP: 120.0
+DataCollectionDiameter: 320.0
+AcquisitionSoftware:
+  Version: cj_kl.89
+ReconstructionDiameter: 250.0
+DistanceSourceToDetector: 949.147
+DistanceSourceToPatient: 541.0
+GantryDetectorTilt: 0.0
+TableHeight: 169.5
+RotationDirection: CW
+Plane:
+  ExposureTime: 800
+  PositionX: -122.2
+  PositionY: -107.1
+  PositionZ: -19.25
+  PositionXUnit: mm
+  PositionYUnit: mm
+  PositionZUnit: mm
+XRayTubeCurrent: 320
+Exposure: 33
+FilterType: HEAD FILTER
+GeneratorPower: 40200
+FocalSpots: 1.2
+ConvolutionKernel: STANDARD
+PatientPosition: HFS
+RevolutionTime: 0.8
+SingleCollimationWidth: 0.625
+TotalCollimationWidth: 20.0
+TableSpeed: 24.21875
+TableFeedPerRotation: 19.375
+SpiralPitchFactor: 0.96875
+ContributingEquipmentSequence:
+- Manufacturer: PixelMed
+  StationName: STUDIO5_11112
+  ManufacturerModelName: DicomCleaner
+  SoftwareVersions: Sat Dec  5 13:17:48 EST 2020
+  ContributionDateTime: 20210325104831.439+0000
+  ContributionDescription: Cleaned
+  PurposeOfReferenceCodeSequence:
+  - CodeValue: '109104'
+    CodingSchemeDesignator: DCM
+    CodeMeaning: De-identifying Equipment
+Experiment:
+  ID: 1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2592.0
+SeriesInstanceUID: 1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2634.0
+StudyID: ''
+SeriesNumber: 3
+AcquisitionNumber: 1
+InstanceNumber: 1
+ImageOrientationPatient:
+- 1.0
+- 0.0
+- 0.0
+- 0.0
+- 1.0
+- 0.0
+FrameOfReferenceUID: 1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2594.0
+PositionReferenceIndicator: OM
+SliceLocation: -19.25
+Channel:
+  SamplesPerPixel: 1
+PhotometricInterpretation: MONOCHROME2
+Pixels:
+  SizeY: 512
+  SizeX: 512
+  PhysicalSizeY: 0.488281
+  PhysicalSizeX: 0.488281
+  SignificantBits: 16
+  PhysicalSizeYUnit: mm
+  PhysicalSizeXUnit: mm
+  PhysicalSizeZ: 2.5
+  PhysicalSizeZUnit: mm
+BitsAllocated: 16
+HighBit: 15
+PixelRepresentation: 1
+PixelPaddingValue: -2000
+WindowCenter: 30.0
+WindowWidth: 100.0
+RescaleIntercept: -1024.0
+RescaleSlope: 1.0
+RescaleType: HU
+LossyImageCompression: '00'
+PerformedProcedureStepStartDate: '20100806'
+PerformedProcedureStepStartTime: '010434.000'
+SourceMap:
+  ImageType[0]: ImageType[0]
+  ImageType[1]: ImageType[1]
+  ImageType[2]: ImageType[2]
+  InstanceCreationDate: InstanceCreationDate
+  InstanceCreationTime: InstanceCreationTime
+  SOPClassUID: SOPClassUID
+  Image.ID: SOPInstanceUID
+  StudyDate: StudyDate
+  SeriesDate: SeriesDate
+  Image.AcquisitionDate: AcquisitionDate
+  ContentDate: ContentDate
+  StudyTime: StudyTime
+  SeriesTime: SeriesTime
+  AcquisitionTime: AcquisitionTime
+  ContentTime: ContentTime
+  AccessionNumber: AccessionNumber
+  Instrument.Type: Modality
+  Instrument.Manufacturer: Manufacturer
+  ReferringPhysicianName: ReferringPhysicianName
+  Instrument.Model: ManufacturerModelName
+  ReferencedImageSequence[0].ReferencedSOPClassUID: ReferencedImageSequence[0].ReferencedSOPClassUID
+  ReferencedImageSequence[0].ReferencedSOPInstanceUID: ReferencedImageSequence[0].ReferencedSOPInstanceUID
+  IrradiationEventUID: IrradiationEventUID
+  PatientName: PatientName
+  PatientID: PatientID
+  PatientBirthDate: PatientBirthDate
+  PatientSex: PatientSex
+  PatientIdentityRemoved: PatientIdentityRemoved
+  DeidentificationMethod[0]: DeidentificationMethod[0]
+  DeidentificationMethod[1]: DeidentificationMethod[1]
+  DeidentificationMethod[2]: DeidentificationMethod[2]
+  DeidentificationMethod[3]: DeidentificationMethod[3]
+  DeidentificationMethod[4]: DeidentificationMethod[4]
+  DeidentificationMethod[5]: DeidentificationMethod[5]
+  DeidentificationMethod[6]: DeidentificationMethod[6]
+  DeidentificationMethod[7]: DeidentificationMethod[7]
+  DeidentificationMethod[8]: DeidentificationMethod[8]
+  DeidentificationMethodCodeSequence[0].CodeValue: DeidentificationMethodCodeSequence[0].CodeValue
+  DeidentificationMethodCodeSequence[0].CodingSchemeDesignator: DeidentificationMethodCodeSequence[0].CodingSchemeDesignator
+  DeidentificationMethodCodeSequence[0].CodeMeaning: DeidentificationMethodCodeSequence[0].CodeMeaning
+  DeidentificationMethodCodeSequence[1].CodeValue: DeidentificationMethodCodeSequence[1].CodeValue
+  DeidentificationMethodCodeSequence[1].CodingSchemeDesignator: DeidentificationMethodCodeSequence[1].CodingSchemeDesignator
+  DeidentificationMethodCodeSequence[1].CodeMeaning: DeidentificationMethodCodeSequence[1].CodeMeaning
+  DeidentificationMethodCodeSequence[2].CodeValue: DeidentificationMethodCodeSequence[2].CodeValue
+  DeidentificationMethodCodeSequence[2].CodingSchemeDesignator: DeidentificationMethodCodeSequence[2].CodingSchemeDesignator
+  DeidentificationMethodCodeSequence[2].CodeMeaning: DeidentificationMethodCodeSequence[2].CodeMeaning
+  DeidentificationMethodCodeSequence[3].CodeValue: DeidentificationMethodCodeSequence[3].CodeValue
+  DeidentificationMethodCodeSequence[3].CodingSchemeDesignator: DeidentificationMethodCodeSequence[3].CodingSchemeDesignator
+  DeidentificationMethodCodeSequence[3].CodeMeaning: DeidentificationMethodCodeSequence[3].CodeMeaning
+  DeidentificationMethodCodeSequence[4].CodeValue: DeidentificationMethodCodeSequence[4].CodeValue
+  DeidentificationMethodCodeSequence[4].CodingSchemeDesignator: DeidentificationMethodCodeSequence[4].CodingSchemeDesignator
+  DeidentificationMethodCodeSequence[4].CodeMeaning: DeidentificationMethodCodeSequence[4].CodeMeaning
+  DeidentificationMethodCodeSequence[5].CodeValue: DeidentificationMethodCodeSequence[5].CodeValue
+  DeidentificationMethodCodeSequence[5].CodingSchemeDesignator: DeidentificationMethodCodeSequence[5].CodingSchemeDesignator
+  DeidentificationMethodCodeSequence[5].CodeMeaning: DeidentificationMethodCodeSequence[5].CodeMeaning
+  ScanOptions: ScanOptions
+  SliceThickness: SliceThickness
+  KVP: KVP
+  DataCollectionDiameter: DataCollectionDiameter
+  Instrument.CatalogNumber: DeviceSerialNumber
+  AcquisitionSoftware.Version: SoftwareVersions
+  ReconstructionDiameter: ReconstructionDiameter
+  DistanceSourceToDetector: DistanceSourceToDetector
+  DistanceSourceToPatient: DistanceSourceToPatient
+  GantryDetectorTilt: GantryDetectorTilt
+  TableHeight: TableHeight
+  RotationDirection: RotationDirection
+  Plane.ExposureTime: ExposureTime
+  XRayTubeCurrent: XRayTubeCurrent
+  Exposure: Exposure
+  FilterType: FilterType
+  GeneratorPower: GeneratorPower
+  FocalSpots: FocalSpots
+  ConvolutionKernel: ConvolutionKernel
+  PatientPosition: PatientPosition
+  RevolutionTime: RevolutionTime
+  SingleCollimationWidth: SingleCollimationWidth
+  TotalCollimationWidth: TotalCollimationWidth
+  TableSpeed: TableSpeed
+  TableFeedPerRotation: TableFeedPerRotation
+  SpiralPitchFactor: SpiralPitchFactor
+  ContributingEquipmentSequence[0].Manufacturer: ContributingEquipmentSequence[0].Manufacturer
+  ContributingEquipmentSequence[0].StationName: ContributingEquipmentSequence[0].StationName
+  ContributingEquipmentSequence[0].ManufacturerModelName: ContributingEquipmentSequence[0].ManufacturerModelName
+  ContributingEquipmentSequence[0].SoftwareVersions: ContributingEquipmentSequence[0].SoftwareVersions
+  ContributingEquipmentSequence[0].ContributionDateTime: ContributingEquipmentSequence[0].ContributionDateTime
+  ContributingEquipmentSequence[0].ContributionDescription: ContributingEquipmentSequence[0].ContributionDescription
+  ContributingEquipmentSequence[0].PurposeOfReferenceCodeSequence[0].CodeValue: ContributingEquipmentSequence[0].PurposeOfReferenceCodeSequence[0].CodeValue
+  ContributingEquipmentSequence[0].PurposeOfReferenceCodeSequence[0].CodingSchemeDesignator: ContributingEquipmentSequence[0].PurposeOfReferenceCodeSequence[0].CodingSchemeDesignator
+  ContributingEquipmentSequence[0].PurposeOfReferenceCodeSequence[0].CodeMeaning: ContributingEquipmentSequence[0].PurposeOfReferenceCodeSequence[0].CodeMeaning
+  Experiment.ID: StudyInstanceUID
+  SeriesInstanceUID: SeriesInstanceUID
+  StudyID: StudyID
+  SeriesNumber: SeriesNumber
+  AcquisitionNumber: AcquisitionNumber
+  InstanceNumber: InstanceNumber
+  Plane.PositionX: ImagePositionPatient[0]
+  Plane.PositionY: ImagePositionPatient[1]
+  Plane.PositionZ: ImagePositionPatient[2]
+  ImageOrientationPatient[0]: ImageOrientationPatient[0]
+  ImageOrientationPatient[1]: ImageOrientationPatient[1]
+  ImageOrientationPatient[2]: ImageOrientationPatient[2]
+  ImageOrientationPatient[3]: ImageOrientationPatient[3]
+  ImageOrientationPatient[4]: ImageOrientationPatient[4]
+  ImageOrientationPatient[5]: ImageOrientationPatient[5]
+  FrameOfReferenceUID: FrameOfReferenceUID
+  PositionReferenceIndicator: PositionReferenceIndicator
+  SliceLocation: SliceLocation
+  Channel.SamplesPerPixel: SamplesPerPixel
+  PhotometricInterpretation: PhotometricInterpretation
+  Pixels.SizeY: Rows
+  Pixels.SizeX: Columns
+  Pixels.PhysicalSizeY: PixelSpacing[0]
+  Pixels.PhysicalSizeX: PixelSpacing[1]
+  BitsAllocated: BitsAllocated
+  Pixels.SignificantBits: BitsStored
+  HighBit: HighBit
+  PixelRepresentation: PixelRepresentation
+  PixelPaddingValue: PixelPaddingValue
+  WindowCenter: WindowCenter
+  WindowWidth: WindowWidth
+  RescaleIntercept: RescaleIntercept
+  RescaleSlope: RescaleSlope
+  RescaleType: RescaleType
+  LossyImageCompression: LossyImageCompression
+  PerformedProcedureStepStartDate: PerformedProcedureStepStartDate
+  PerformedProcedureStepStartTime: PerformedProcedureStepStartTime
+  Plane.PositionXUnit:
+  - ImagePositionPatient[0]
+  Plane.PositionYUnit:
+  - ImagePositionPatient[1]
+  Plane.PositionZUnit:
+  - ImagePositionPatient[2]
+  Pixels.PhysicalSizeYUnit:
+  - PixelSpacing[0]
+  Pixels.PhysicalSizeXUnit:
+  - PixelSpacing[1]
+  Pixels.PhysicalSizeZ:
+  - SpacingBetweenSlices
+  Pixels.PhysicalSizeZUnit:
+  - SpacingBetweenSlices

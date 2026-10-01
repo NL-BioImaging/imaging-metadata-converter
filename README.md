@@ -253,7 +253,7 @@ list's own path, so nothing is lost.
 written beside the value where the source states none:
 
 ```json
-"SliceThickness": {"target": "Pixels.PhysicalSizeZ", "unit": "mm"}
+"PixelSpacing[0]": {"target": "Pixels.PhysicalSizeY", "unit": "mm"}
 ```
 
 DICOM gives every length in mm without saying so; left out, the model would
@@ -343,10 +343,14 @@ time point by index. Otherwise it goes, wherever a rule moved it: Cikteq's
 `User.TimeStamp`, which `"User.*"` moves to `Experimenter`, is the
 acquisition date.
 
-A combination writes only where the field is free, after the rules, so it
-also serves as a fallback: Exif's `DateTimeDigitized` (`"2025:05:28
-10:54:29"`) gives the acquisition date only where no vendor field does, as
-EMSIS's Olympus `datetime` does.
+A combination writes only where the field is free, after the rules and the
+combinations before it, so it also serves as a fallback, and the order of the
+entries sets which source wins: DICOM's `SpacingBetweenSlices` gives
+`PhysicalSizeZ` before `SliceThickness` does, as Bio-Formats takes it (a
+Philips MR states 6 mm slices 7.5 mm apart), each only as a positive number
+(a scout's spacing of -10 says nothing about a stack). Likewise Exif's
+`DateTimeDigitized` (`"2025:05:28 10:54:29"`) gives the acquisition date only
+where no vendor field does, as EMSIS's Olympus `datetime` does.
 
 ### Leica sequential confocal scans
 

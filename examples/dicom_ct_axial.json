@@ -1,0 +1,166 @@
+{
+    "ImageType": [
+        "ORIGINAL",
+        "PRIMARY",
+        "AXIAL"
+    ],
+    "InstanceCreationDate": "20100806",
+    "InstanceCreationTime": "010549.000",
+    "SOPClassUID": "1.2.840.10008.5.1.4.1.1.2",
+    "SOPInstanceUID": "1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2633.0",
+    "StudyDate": "20100806",
+    "SeriesDate": "20100806",
+    "AcquisitionDate": "20100806",
+    "ContentDate": "20100806",
+    "StudyTime": "010434.000",
+    "SeriesTime": "010521.000",
+    "AcquisitionTime": "010531.758",
+    "ContentTime": "010549.000",
+    "AccessionNumber": "",
+    "Modality": "CT",
+    "Manufacturer": "GE MEDICAL SYSTEMS",
+    "ReferringPhysicianName": "",
+    "ManufacturerModelName": "Revolution EVO",
+    "ReferencedImageSequence": [
+        {
+            "ReferencedSOPClassUID": "1.2.840.10008.5.1.4.1.1.2",
+            "ReferencedSOPInstanceUID": "1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2595.0"
+        }
+    ],
+    "IrradiationEventUID": "1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2598.0",
+    "PatientName": "NAME^NONE",
+    "PatientID": "NOID",
+    "PatientBirthDate": "",
+    "PatientSex": "",
+    "PatientIdentityRemoved": "YES",
+    "DeidentificationMethod": [
+        "Deidentified",
+        "Descriptors removed",
+        "Patient Characteristics removed",
+        "Device identity removed",
+        "Institution identity removed",
+        "Dates modified",
+        "Structured content retained",
+        "Unsafe private removed",
+        "UIDs remapped"
+    ],
+    "DeidentificationMethodCodeSequence": [
+        {
+            "CodeValue": "113100",
+            "CodingSchemeDesignator": "DCM",
+            "CodeMeaning": "Basic Application Confidentiality Profile"
+        },
+        {
+            "CodeValue": "210004",
+            "CodingSchemeDesignator": "99PMP",
+            "CodeMeaning": "Remove all descriptors"
+        },
+        {
+            "CodeValue": "113107",
+            "CodingSchemeDesignator": "DCM",
+            "CodeMeaning": "Retain Longitudinal Temporal Information Modified Dates Option"
+        },
+        {
+            "CodeValue": "210011",
+            "CodingSchemeDesignator": "99PMP",
+            "CodeMeaning": "Retain all structured content unchanged"
+        },
+        {
+            "CodeValue": "113111",
+            "CodingSchemeDesignator": "DCM",
+            "CodeMeaning": "Retain Safe Private Option"
+        },
+        {
+            "CodeValue": "210001",
+            "CodingSchemeDesignator": "99PMP",
+            "CodeMeaning": "Remap UIDs"
+        }
+    ],
+    "ScanOptions": "HELICAL MODE",
+    "SliceThickness": 2.5,
+    "KVP": 120.0,
+    "SpacingBetweenSlices": 2.5,
+    "DataCollectionDiameter": 320.0,
+    "DeviceSerialNumber": "SN000000",
+    "SoftwareVersions": "cj_kl.89",
+    "ReconstructionDiameter": 250.0,
+    "DistanceSourceToDetector": 949.147,
+    "DistanceSourceToPatient": 541.0,
+    "GantryDetectorTilt": 0.0,
+    "TableHeight": 169.5,
+    "RotationDirection": "CW",
+    "ExposureTime": 800,
+    "XRayTubeCurrent": 320,
+    "Exposure": 33,
+    "FilterType": "HEAD FILTER",
+    "GeneratorPower": 40200,
+    "FocalSpots": 1.2,
+    "ConvolutionKernel": "STANDARD",
+    "PatientPosition": "HFS",
+    "RevolutionTime": 0.8,
+    "SingleCollimationWidth": 0.625,
+    "TotalCollimationWidth": 20.0,
+    "TableSpeed": 24.21875,
+    "TableFeedPerRotation": 19.375,
+    "SpiralPitchFactor": 0.96875,
+    "ContributingEquipmentSequence": [
+        {
+            "Manufacturer": "PixelMed",
+            "StationName": "STUDIO5_11112",
+            "ManufacturerModelName": "DicomCleaner",
+            "SoftwareVersions": "Sat Dec  5 13:17:48 EST 2020",
+            "ContributionDateTime": "20210325104831.439+0000",
+            "ContributionDescription": "Cleaned",
+            "PurposeOfReferenceCodeSequence": [
+                {
+                    "CodeValue": "109104",
+                    "CodingSchemeDesignator": "DCM",
+                    "CodeMeaning": "De-identifying Equipment"
+                }
+            ]
+        }
+    ],
+    "StudyInstanceUID": "1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2592.0",
+    "SeriesInstanceUID": "1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2634.0",
+    "StudyID": "",
+    "SeriesNumber": 3,
+    "AcquisitionNumber": 1,
+    "InstanceNumber": 1,
+    "ImagePositionPatient": [
+        -122.2,
+        -107.1,
+        -19.25
+    ],
+    "ImageOrientationPatient": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+    ],
+    "FrameOfReferenceUID": "1.3.6.1.4.1.5962.99.1.1761388472.1291962045.1616669124536.2594.0",
+    "PositionReferenceIndicator": "OM",
+    "SliceLocation": -19.25,
+    "SamplesPerPixel": 1,
+    "PhotometricInterpretation": "MONOCHROME2",
+    "Rows": 512,
+    "Columns": 512,
+    "PixelSpacing": [
+        0.488281,
+        0.488281
+    ],
+    "BitsAllocated": 16,
+    "BitsStored": 16,
+    "HighBit": 15,
+    "PixelRepresentation": 1,
+    "PixelPaddingValue": -2000,
+    "WindowCenter": 30.0,
+    "WindowWidth": 100.0,
+    "RescaleIntercept": -1024.0,
+    "RescaleSlope": 1.0,
+    "RescaleType": "HU",
+    "LossyImageCompression": "00",
+    "PerformedProcedureStepStartDate": "20100806",
+    "PerformedProcedureStepStartTime": "010434.000"
+}

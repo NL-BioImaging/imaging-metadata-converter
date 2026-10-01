@@ -323,10 +323,6 @@
         "target": "Pixels.PhysicalSizeX",
         "unit": "mm"
     },
-    "SliceThickness": {
-        "target": "Pixels.PhysicalSizeZ",
-        "unit": "mm"
-    },
     "BitsStored": "Pixels.SignificantBits",
     "SOPInstanceUID": "Image.ID",
     "StudyInstanceUID": "Experiment.ID",

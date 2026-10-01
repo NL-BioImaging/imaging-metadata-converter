@@ -150,7 +150,15 @@ manufacturer, model or serial at all, so none is mapped.
 
 `examples/dicom.json` has patient fields (PatientName, PatientID, PatientBirthDate, InstitutionName,
 ...), which reach `output/` and, as Property records, `export/`. They are dummy values, not real
-identifiers (user, 2026-09-25), so they can be committed and shared.
+identifiers (user, 2026-09-25), so they can be committed and shared. `dicom_ct_axial.json` and
+`dicom_ct_reformat.json` (2026-10-01, from C:/Project/slides/dicom/2_skull_ct, GE CT) are de-identified at
+the source: PatientIdentityRemoved YES, NAME^NONE / NOID, device SN000000, dates modified, UIDs remapped.
+
+DICOM's Z size (user, 2026-10-01): SpacingBetweenSlices, then SliceThickness, as combinations in that
+order (a rule would follow the source's own order, thickness first), each a positive number only. In
+2_skull_ct the spacing equals the step between the slice positions (5.0, 2.5); the reformats state none
+and their thickness is the step (2.0); a scout's spacing is -10 (one image, no stack). A Philips MR
+(MRBRAIN.DCM) states 6 mm slices 7.5 mm apart, where only the spacing is the Z size.
 
 ### Environment
 
@@ -319,6 +327,4 @@ structure, for common fields in the source data"). A value is only a candidate i
       transmitted-light source (a LIF transmission channel, PMT Trans, was off in every example).
 - [ ] Review `scripts/out_of_scope.json` (the source groups left out of in-scope coverage: processing,
       file, display, software state, patient and administrative; user, 2026-09-30).
-- [ ] DICOM SpacingBetweenSlices -> PhysicalSizeZ (mm), as Bio-Formats does, once an example states it;
-      SliceThickness maps there until then.
 - [ ] Units for Cikteq's beam current and point time, once known (left without, 2026-09-30).

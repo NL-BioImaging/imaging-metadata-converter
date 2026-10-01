@@ -101,6 +101,18 @@ class AcquisitionMetadataMapperTest(unittest.TestCase):
         self.assertEqual(converted['LightPath']['ConfocalScannerSettings'],
                          {'EffectiveZoom': 2.5, 'PresetPinholeSize': 0.000156, 'PresetPinholeSizeUnit': 'm'})
 
+    def test_dicom_slice_spacing_gives_the_z_size_before_the_slice_thickness(self):
+        # a Philips MR: 6 mm slices, 7.5 mm apart; the spacing replaces itself, the thickness stays
+        converted = self.mapper.convert_metadata({'SliceThickness': 6.0, 'SpacingBetweenSlices': 7.5})
+        self.assertEqual(converted['Pixels'], {'PhysicalSizeZ': 7.5, 'PhysicalSizeZUnit': 'mm'})
+        self.assertEqual(converted['SliceThickness'], 6.0)
+        self.assertNotIn('SpacingBetweenSlices', converted)
+        # no spacing (a reformat), or one that is no positive number (a scout's -10): the thickness
+        for metadata in ({'SliceThickness': 2.0}, {'SliceThickness': 2.0, 'SpacingBetweenSlices': -10.0}):
+            converted = self.mapper.convert_metadata(metadata)
+            self.assertEqual(converted['Pixels'], {'PhysicalSizeZ': 2.0, 'PhysicalSizeZUnit': 'mm'})
+            self.assertEqual(converted.get('SpacingBetweenSlices'), metadata.get('SpacingBetweenSlices'))
+
     def test_leica_microdissection_laser_has_its_role(self):
         settings = {'Application': 'LMD', 'Laser': {'Lasertype': 'Explorer', 'Power': 57},
                     'Camera': {'TypName': 'K7', 'Expsoure': 0.033}}
