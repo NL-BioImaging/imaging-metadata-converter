@@ -66,6 +66,7 @@ Plane:
   PositionX: -126.838
   PositionY: -98.18
   PositionZ: 184.809
+  ExposureTimeUnit: ms
   PositionXUnit: mm
   PositionYUnit: mm
   PositionZUnit: mm
@@ -226,6 +227,8 @@ SourceMap:
   RescaleSlope: RescaleSlope
   RescaleType: RescaleType
   LossyImageCompression: LossyImageCompression
+  Plane.ExposureTimeUnit:
+  - ExposureTime
   Plane.PositionXUnit:
   - ImagePositionPatient[0]
   Plane.PositionYUnit:

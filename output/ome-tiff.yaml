@@ -20,15 +20,8 @@ Image:
       PinholeSize: 56.0
       PinholeSizeUnit: µm
       SamplesPerPixel: 1
-    TiffData:
-      FirstC: 0
-      FirstT: 0
-      FirstZ: 0
-      IFD: 0
-      PlaneCount: 88
     ID: Pixels:0
     DimensionOrder: XYZTC
-    BigEndian: false
     SizeX: 167
     SizeY: 172
     SizeZ: 44
@@ -238,15 +231,9 @@ SourceMap:
   Image.Pixels.Channel[1].PinholeSize: OME.Image.Pixels.Channel[1].PinholeSize
   Image.Pixels.Channel[1].PinholeSizeUnit: OME.Image.Pixels.Channel[1].PinholeSizeUnit
   Image.Pixels.Channel[1].SamplesPerPixel: OME.Image.Pixels.Channel[1].SamplesPerPixel
-  Image.Pixels.TiffData.FirstC: OME.Image.Pixels.TiffData.FirstC
-  Image.Pixels.TiffData.FirstT: OME.Image.Pixels.TiffData.FirstT
-  Image.Pixels.TiffData.FirstZ: OME.Image.Pixels.TiffData.FirstZ
-  Image.Pixels.TiffData.IFD: OME.Image.Pixels.TiffData.IFD
-  Image.Pixels.TiffData.PlaneCount: OME.Image.Pixels.TiffData.PlaneCount
   Image.Pixels.ID: OME.Image.Pixels.ID
   Image.Pixels.DimensionOrder: OME.Image.Pixels.DimensionOrder
   Pixels.PixelType: OME.Image.Pixels.Type
-  Image.Pixels.BigEndian: OME.Image.Pixels.BigEndian
   Image.Pixels.SizeX: OME.Image.Pixels.SizeX
   Image.Pixels.SizeY: OME.Image.Pixels.SizeY
   Image.Pixels.SizeZ: OME.Image.Pixels.SizeZ

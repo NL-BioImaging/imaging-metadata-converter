@@ -128,6 +128,15 @@ AcquisitionSoftware:
 SampleHolder:
   Type: 1
   ID: 0147e8ac1a0000b2
+ImageWidth: 1920
+ImageLength: 1200
+BitsPerSample: 8
+PhotometricInterpretation: MINISBLACK
+Channel:
+  SamplesPerPixel: 1
+ResolutionUnit: INCH
+XResolution: 96.0
+YResolution: 96.0
 SourceMap:
   FEI_TITAN.FeiImage.databarHeight: FEI_TITAN.FeiImage.databarHeight
   FEI_TITAN.FeiImage.databarFields: FEI_TITAN.FeiImage.databarFields
@@ -230,3 +239,15 @@ SourceMap:
   SampleHolder.ID: FEI_TITAN.FeiImage.instrument.sampleHolder.id
   AcquisitionSoftware.ApplicationID: FEI_TITAN.FeiImage.applicationID
   AcquisitionSoftware.version: FEI_TITAN.FeiImage.PPI.version
+  ImageWidth: ImageWidth
+  ImageLength: ImageLength
+  BitsPerSample: BitsPerSample
+  PhotometricInterpretation: PhotometricInterpretation
+  Channel.SamplesPerPixel: SamplesPerPixel
+  ResolutionUnit: ResolutionUnit
+  XResolution:
+  - XResolution[0]
+  - XResolution[1]
+  YResolution:
+  - YResolution[0]
+  - YResolution[1]

@@ -101,5 +101,11 @@
       "GunVacuum": 1.14e-07,
       "SampleVacuum": 0.000203
     }
-  }
+  },
+  "ImageWidth": 6144,
+  "ImageLength": 4096,
+  "BitsPerSample": 16,
+  "PhotometricInterpretation": "MINISBLACK",
+  "SamplesPerPixel": 1,
+  "ResolutionUnit": "INCH"
 }

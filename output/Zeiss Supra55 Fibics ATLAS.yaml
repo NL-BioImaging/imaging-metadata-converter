@@ -98,6 +98,15 @@ Instrument:
 FibicsXML:
   Fibics:
     version: 1.2
+ImageWidth: 50595
+ImageLength: 49533
+BitsPerSample: 8
+PhotometricInterpretation: MINISBLACK
+Orientation: TOPLEFT
+Channel:
+  SamplesPerPixel: 1
+ResolutionUnit: NONE
+SampleFormat: UINT
 SourceMap:
   AcquisitionSoftware.Name: Software
   AcquisitionSoftware.Version: FibicsXML.Fibics.Application.Version
@@ -165,3 +174,11 @@ SourceMap:
   Image.Corrections.RBrightSlope: FibicsXML.Fibics.ImageCorrections.RBrightSlope
   Instrument.Vacuum.SystemVacuum: FibicsXML.Fibics.Microscope.SystemVacuum
   FibicsXML.Fibics.version: FibicsXML.Fibics.version
+  ImageWidth: ImageWidth
+  ImageLength: ImageLength
+  BitsPerSample: BitsPerSample
+  PhotometricInterpretation: PhotometricInterpretation
+  Orientation: Orientation
+  Channel.SamplesPerPixel: SamplesPerPixel
+  ResolutionUnit: ResolutionUnit
+  SampleFormat: SampleFormat

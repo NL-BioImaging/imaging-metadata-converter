@@ -3,47 +3,24 @@ Image:
 - SourceFile:
   - ID: SourceFile:0
     Name: lif_lmd7_metadata.json
-    Checksum: d0305cb9c1c74ee30025d6faba864411f0c59a64d48ed200222f4516fd630f6f
+    Checksum: 435d5d7765f5b3a584ee1e1588cffbcb445a03782a6f6603873ed05daf553189
     Format: json
     Mapping:
     - ID: SourceMapping:0
       Field: Instrument[0].Manufacturer
       Source: manufacturer
     - ID: SourceMapping:1
-      Field: Instrument[0].GenericDetector[0].Model
-      Source: HardwareSetting.Camera.TypName
+      Field: Image[0].Name
+      Source: name
     - ID: SourceMapping:2
-      Field: Instrument[0].GenericDetector[0].Gain
-      Source: HardwareSetting.Camera.Gain
-    - ID: SourceMapping:3
-      Field: Image[0].Pixels.Plane[0].ExposureTime
-      Source: HardwareSetting.Camera.Expsoure
-    - ID: SourceMapping:4
-      Field: Image[0].Pixels.Plane[0].ExposureTimeUnit
-      Source: HardwareSetting.Camera.Expsoure
-      DerivedFrom:
-      - HardwareSetting.Camera.Expsoure
-    - ID: SourceMapping:5
       Field: Image[0].AcquisitionDate
       Source: CustomData.ExperimentInfo.DateAndTime
       DerivedFrom:
       - CustomData.ExperimentInfo.DateAndTime
-    - ID: SourceMapping:6
-      Field: Instrument[0].Objective[0].Magnification
-      Source: HardwareSetting.Mic.Magnification
-    - ID: SourceMapping:7
-      Field: Instrument[0].Laser[0].Model
-      Source: HardwareSetting.Laser.Lasertype
-    - ID: SourceMapping:8
-      Field: Instrument[0].Laser[0].Role
-      Source: HardwareSetting.Application + HardwareSetting.Laser.Lasertype
-      DerivedFrom:
-      - HardwareSetting.Application
-      - HardwareSetting.Laser.Lasertype
-    - ID: SourceMapping:9
+    - ID: SourceMapping:3
       Field: Instrument[0].AcquisitionSoftware[0].Name
       Source: CustomData.Version.SoftwareName
-    - ID: SourceMapping:10
+    - ID: SourceMapping:4
       Field: Instrument[0].AcquisitionSoftware[0].Version
       Source: CustomData.Version.MajorVersion + CustomData.Version.MinorVersion +
         CustomData.Version.BuildNumber
@@ -51,22 +28,52 @@ Image:
       - CustomData.Version.MajorVersion
       - CustomData.Version.MinorVersion
       - CustomData.Version.BuildNumber
-    - ID: SourceMapping:11
+    - ID: SourceMapping:5
       Field: Experimenter[0].UserName
       Source: CustomData.UserInfo.UserName
-  Pixels:
-    Plane:
-    - ExposureTime: 0.083
-      ExposureTimeUnit: s
+    - ID: SourceMapping:6
+      Field: Instrument[0].GenericDetector[0].Model
+      Source: HardwareSetting.Camera.TypName
+    - ID: SourceMapping:7
+      Field: Instrument[0].GenericDetector[0].Gain
+      Source: HardwareSetting.Camera.Gain
+    - ID: SourceMapping:8
+      Field: Image[0].Pixels.Plane[0].ExposureTime
+      Source: HardwareSetting.Camera.Expsoure
+    - ID: SourceMapping:9
+      Field: Image[0].Pixels.Plane[0].ExposureTimeUnit
+      Source: HardwareSetting.Camera.Expsoure
+      DerivedFrom:
+      - HardwareSetting.Camera.Expsoure
+    - ID: SourceMapping:10
+      Field: Instrument[0].Objective[0].Magnification
+      Source: HardwareSetting.Mic.Magnification
+    - ID: SourceMapping:11
+      Field: Instrument[0].Laser[0].Model
+      Source: HardwareSetting.Laser.Lasertype
+    - ID: SourceMapping:12
+      Field: Instrument[0].Laser[0].Role
+      Source: HardwareSetting.Application + HardwareSetting.Laser.Lasertype
+      DerivedFrom:
+      - HardwareSetting.Application
+      - HardwareSetting.Laser.Lasertype
+  Name: LMDPic__wil_7
   CustomProperties:
-  - ID: Property:26
+  - ID: Property:0
     Name: HardwareSetting.Image.ShootCircumstance
     Value: '"SaveFile"'
     SchemaPath: Image.ShootCircumstance
     Source: SourceFile:0
   AcquisitionDate: '2025-07-10T14:07:11.516173'
+  Pixels:
+    Plane:
+    - ExposureTime: 0.083
+      ExposureTimeUnit: s
 Instrument:
 - Manufacturer: Leica Microsystems
+  AcquisitionSoftware:
+  - Name: Laser Microdissection (LMD7)
+    Version: 8.5.9136
   GenericDetector:
   - Model: K7
     Gain: 1
@@ -75,143 +82,304 @@ Instrument:
     Role:
     - Microdissection
   CustomProperties:
-  - ID: Property:17
+  - ID: Property:28
     Name: HardwareSetting.Laser.Power
     Value: '57'
     Source: SourceFile:0
-  - ID: Property:18
+  - ID: Property:29
     Name: HardwareSetting.Laser.Aperture
     Value: '18'
     Source: SourceFile:0
-  - ID: Property:19
+  - ID: Property:30
     Name: HardwareSetting.Laser.Speed
     Value: '10'
     Source: SourceFile:0
-  - ID: Property:20
+  - ID: Property:31
     Name: HardwareSetting.Laser.SpecimenBalance
     Value: '15'
     Source: SourceFile:0
-  - ID: Property:21
+  - ID: Property:32
     Name: HardwareSetting.Laser.LineSpacing
     Value: '12'
     Source: SourceFile:0
-  - ID: Property:22
+  - ID: Property:33
     Name: HardwareSetting.Laser.Offset
     Value: '60'
     Source: SourceFile:0
-  - ID: Property:23
+  - ID: Property:34
     Name: HardwareSetting.Laser.HeadCurrent
     Value: '100'
     Source: SourceFile:0
-  - ID: Property:24
+  - ID: Property:35
     Name: HardwareSetting.Laser.PulseFrequency
     Value: '120'
     Source: SourceFile:0
   Objective:
   - Magnification: 10
-  AcquisitionSoftware:
-  - Name: Laser Microdissection (LMD7)
-    Version: 8.5.9136
 CustomProperties:
-- ID: Property:0
-  Name: HardwareSetting.Camera.ColourSaturation
-  Value: '150'
-  Source: SourceFile:0
 - ID: Property:1
-  Name: HardwareSetting.Mic.StageposX
-  Value: '131454'
+  Name: path
+  Value: '"UnKnown.lif/LMDPic__wil_7"'
   Source: SourceFile:0
 - ID: Property:2
-  Name: HardwareSetting.Mic.StageposY
-  Value: '310564'
+  Name: UniqueID
+  Value: 'null'
   Source: SourceFile:0
 - ID: Property:3
-  Name: HardwareSetting.Mic.StageposZ
-  Value: '1590430'
-  Source: SourceFile:0
-- ID: Property:4
-  Name: HardwareSetting.Mic.Stagetype
-  Value: '"HYDRA-STAGE"'
-  Source: SourceFile:0
-- ID: Property:5
-  Name: HardwareSetting.Mic.Specimenholder
-  Value: '"HydraFourSlides"'
-  Source: SourceFile:0
-- ID: Property:6
-  Name: HardwareSetting.Mic.SpecimenholderPosition
-  Value: '""'
-  Source: SourceFile:0
-- ID: Property:7
-  Name: HardwareSetting.Mic.Collectorholder
-  Value: '"Hydra Stage"'
-  Source: SourceFile:0
-- ID: Property:8
-  Name: HardwareSetting.Mic.Collectorholderposition
-  Value: '"A"'
-  Source: SourceFile:0
-- ID: Property:9
-  Name: HardwareSetting.Mic.ContrstingMethod
-  Value: '"TL-BF"'
-  Source: SourceFile:0
-- ID: Property:10
-  Name: HardwareSetting.Mic.LightIntensity
-  Value: '105'
-  Source: SourceFile:0
-- ID: Property:11
-  Name: HardwareSetting.Mic.FieldDiaphragm
-  Value: '32'
-  Source: SourceFile:0
-- ID: Property:12
-  Name: HardwareSetting.Mic.ApertureDiaphragm
-  Value: '16'
-  Source: SourceFile:0
-- ID: Property:13
-  Name: HardwareSetting.Mic.Cubename
-  Value: '"EMP"'
-  Source: SourceFile:0
-- ID: Property:14
-  Name: HardwareSetting.Mic.FluoFieldDiaphragm
-  Value: '1'
-  Source: SourceFile:0
-- ID: Property:15
-  Name: HardwareSetting.Mic.IFWPos
-  Value: '""'
-  Source: SourceFile:0
-- ID: Property:16
-  Name: HardwareSetting.Mic.EXMPos
-  Value: '""'
-  Source: SourceFile:0
-- ID: Property:25
-  Name: HardwareSetting.Application
-  Value: '"LMD"'
-  Source: SourceFile:0
-- ID: Property:27
   Name: CustomData.Version.SoftwareVersionInfo
   Value: '""'
   Source: SourceFile:0
-- ID: Property:28
+- ID: Property:4
   Name: CustomData.ExperimentInfo.ExperimentName
   Value: '"UnKnown"'
   Source: SourceFile:0
-- ID: Property:29
+- ID: Property:5
   Name: CustomData.ExperimentInfo.TaskName
   Value: '""'
   Source: SourceFile:0
-- ID: Property:30
+- ID: Property:6
   Name: CustomData.UserInfo.GroupName
   Value: '""'
   Source: SourceFile:0
-- ID: Property:31
+- ID: Property:7
   Name: CustomData.UserInfo.DepartmentName
   Value: '""'
   Source: SourceFile:0
-- ID: Property:32
+- ID: Property:8
   Name: CustomData.UserInfo.OrganisiationName
   Value: '""'
   Source: SourceFile:0
-- ID: Property:33
+- ID: Property:9
+  Name: CustomData.Name
+  Value: '"CustomData"'
+  Source: SourceFile:0
+- ID: Property:10
   Name: CustomData.Application
   Value: '""'
+  Source: SourceFile:0
+- ID: Property:11
+  Name: HardwareSetting.Camera.ColourSaturation
+  Value: '150'
+  Source: SourceFile:0
+- ID: Property:12
+  Name: HardwareSetting.Mic.StageposX
+  Value: '131454'
+  Source: SourceFile:0
+- ID: Property:13
+  Name: HardwareSetting.Mic.StageposY
+  Value: '310564'
+  Source: SourceFile:0
+- ID: Property:14
+  Name: HardwareSetting.Mic.StageposZ
+  Value: '1590430'
+  Source: SourceFile:0
+- ID: Property:15
+  Name: HardwareSetting.Mic.Stagetype
+  Value: '"HYDRA-STAGE"'
+  Source: SourceFile:0
+- ID: Property:16
+  Name: HardwareSetting.Mic.Specimenholder
+  Value: '"HydraFourSlides"'
+  Source: SourceFile:0
+- ID: Property:17
+  Name: HardwareSetting.Mic.SpecimenholderPosition
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:18
+  Name: HardwareSetting.Mic.Collectorholder
+  Value: '"Hydra Stage"'
+  Source: SourceFile:0
+- ID: Property:19
+  Name: HardwareSetting.Mic.Collectorholderposition
+  Value: '"A"'
+  Source: SourceFile:0
+- ID: Property:20
+  Name: HardwareSetting.Mic.ContrstingMethod
+  Value: '"TL-BF"'
+  Source: SourceFile:0
+- ID: Property:21
+  Name: HardwareSetting.Mic.LightIntensity
+  Value: '105'
+  Source: SourceFile:0
+- ID: Property:22
+  Name: HardwareSetting.Mic.FieldDiaphragm
+  Value: '32'
+  Source: SourceFile:0
+- ID: Property:23
+  Name: HardwareSetting.Mic.ApertureDiaphragm
+  Value: '16'
+  Source: SourceFile:0
+- ID: Property:24
+  Name: HardwareSetting.Mic.Cubename
+  Value: '"EMP"'
+  Source: SourceFile:0
+- ID: Property:25
+  Name: HardwareSetting.Mic.FluoFieldDiaphragm
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:26
+  Name: HardwareSetting.Mic.IFWPos
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:27
+  Name: HardwareSetting.Mic.EXMPos
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:36
+  Name: HardwareSetting.Name
+  Value: '"HardwareSetting"'
+  Source: SourceFile:0
+- ID: Property:37
+  Name: HardwareSetting.Application
+  Value: '"LMD"'
+  Source: SourceFile:0
+- ID: Property:38
+  Name: ImageDescription.Channels.ChannelDescription[0].DataType
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:39
+  Name: ImageDescription.Channels.ChannelDescription[0].ChannelTag
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:40
+  Name: ImageDescription.Channels.ChannelDescription[0].Resolution
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:41
+  Name: ImageDescription.Channels.ChannelDescription[0].NameOfMeasuredQuantity
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:42
+  Name: ImageDescription.Channels.ChannelDescription[0].Min
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:43
+  Name: ImageDescription.Channels.ChannelDescription[0].Max
+  Value: '255.0'
+  Source: SourceFile:0
+- ID: Property:44
+  Name: ImageDescription.Channels.ChannelDescription[0].Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:45
+  Name: ImageDescription.Channels.ChannelDescription[0].LUTName
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:46
+  Name: ImageDescription.Channels.ChannelDescription[0].IsLUTInverted
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:47
+  Name: ImageDescription.Channels.ChannelDescription[1].DataType
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:48
+  Name: ImageDescription.Channels.ChannelDescription[1].ChannelTag
+  Value: '2'
+  Source: SourceFile:0
+- ID: Property:49
+  Name: ImageDescription.Channels.ChannelDescription[1].Resolution
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:50
+  Name: ImageDescription.Channels.ChannelDescription[1].NameOfMeasuredQuantity
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:51
+  Name: ImageDescription.Channels.ChannelDescription[1].Min
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:52
+  Name: ImageDescription.Channels.ChannelDescription[1].Max
+  Value: '255.0'
+  Source: SourceFile:0
+- ID: Property:53
+  Name: ImageDescription.Channels.ChannelDescription[1].Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:54
+  Name: ImageDescription.Channels.ChannelDescription[1].LUTName
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:55
+  Name: ImageDescription.Channels.ChannelDescription[1].IsLUTInverted
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:56
+  Name: ImageDescription.Channels.ChannelDescription[2].DataType
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:57
+  Name: ImageDescription.Channels.ChannelDescription[2].ChannelTag
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:58
+  Name: ImageDescription.Channels.ChannelDescription[2].Resolution
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:59
+  Name: ImageDescription.Channels.ChannelDescription[2].NameOfMeasuredQuantity
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:60
+  Name: ImageDescription.Channels.ChannelDescription[2].Min
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:61
+  Name: ImageDescription.Channels.ChannelDescription[2].Max
+  Value: '255.0'
+  Source: SourceFile:0
+- ID: Property:62
+  Name: ImageDescription.Channels.ChannelDescription[2].Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:63
+  Name: ImageDescription.Channels.ChannelDescription[2].LUTName
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:64
+  Name: ImageDescription.Channels.ChannelDescription[2].IsLUTInverted
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:65
+  Name: ImageDescription.Dimensions.DimensionDescription[0].DimID
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:66
+  Name: ImageDescription.Dimensions.DimensionDescription[0].NumberOfElements
+  Value: '3200'
+  Source: SourceFile:0
+- ID: Property:67
+  Name: ImageDescription.Dimensions.DimensionDescription[0].Origin
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:68
+  Name: ImageDescription.Dimensions.DimensionDescription[0].Length
+  Value: '0.00144'
+  Source: SourceFile:0
+- ID: Property:69
+  Name: ImageDescription.Dimensions.DimensionDescription[0].Unit
+  Value: '"m"'
+  Source: SourceFile:0
+- ID: Property:70
+  Name: ImageDescription.Dimensions.DimensionDescription[1].DimID
+  Value: '2'
+  Source: SourceFile:0
+- ID: Property:71
+  Name: ImageDescription.Dimensions.DimensionDescription[1].NumberOfElements
+  Value: '2200'
+  Source: SourceFile:0
+- ID: Property:72
+  Name: ImageDescription.Dimensions.DimensionDescription[1].Origin
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:73
+  Name: ImageDescription.Dimensions.DimensionDescription[1].Length
+  Value: '0.00099'
+  Source: SourceFile:0
+- ID: Property:74
+  Name: ImageDescription.Dimensions.DimensionDescription[1].Unit
+  Value: '"m"'
   Source: SourceFile:0
 Experimenter:
 - UserName: Leica-Admin

@@ -318,6 +318,10 @@
     "SoftwareVersions": "AcquisitionSoftware.Version",
     "Rows": "Pixels.SizeY",
     "Columns": "Pixels.SizeX",
+    "ExposureTime": {
+        "target": "Plane.ExposureTime",
+        "unit": "ms"
+    },
     "PixelSpacing[0]": {
         "target": "Pixels.PhysicalSizeY",
         "unit": "mm"

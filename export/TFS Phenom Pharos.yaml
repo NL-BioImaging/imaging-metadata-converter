@@ -3,7 +3,7 @@ Image:
 - SourceFile:
   - ID: SourceFile:0
     Name: TFS Phenom Pharos.json
-    Checksum: 11e5eb97187262000ade3dc72bbc9264b60b8b7d0bf81109e518ca0874739c3f
+    Checksum: 6889eeddb8702ed6d5c1962c755c1bc6301b8f0524bc29a2adf40b93f33b7d6e
     Format: json
     Mapping:
     - ID: SourceMapping:0
@@ -165,6 +165,9 @@ Image:
     - ID: SourceMapping:51
       Field: Experiment[0].Sample[0].SampleHolder[0].ID
       Source: FEI_TITAN.FeiImage.instrument.sampleHolder.id
+    - ID: SourceMapping:52
+      Field: Image[0].Pixels.Channel[0].SamplesPerPixel
+      Source: SamplesPerPixel
   Pixels:
     PhysicalSizeXUnit: µm
     PhysicalSizeX: 1.143158459049694
@@ -173,6 +176,8 @@ Image:
     Plane:
     - PixelDwellTimeUnit: ns
       PixelDwellTime: 499.9999999999999
+    Channel:
+    - SamplesPerPixel: 1
   AcquisitionDate: '2024-02-06T13:21:05'
   ScanSettings:
     LineIntegrationCount: 1
@@ -323,6 +328,42 @@ CustomProperties:
   Name: FEI_TITAN.FeiImage.currentUser
   Value: 'null'
   SchemaPath: Experimenter.UserName
+  Source: SourceFile:0
+- ID: Property:45
+  Name: ImageWidth
+  Value: '1920'
+  Source: SourceFile:0
+- ID: Property:46
+  Name: ImageLength
+  Value: '1200'
+  Source: SourceFile:0
+- ID: Property:47
+  Name: BitsPerSample
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:48
+  Name: PhotometricInterpretation
+  Value: '"MINISBLACK"'
+  Source: SourceFile:0
+- ID: Property:49
+  Name: ResolutionUnit
+  Value: '"INCH"'
+  Source: SourceFile:0
+- ID: Property:50
+  Name: XResolution[0] + XResolution[1]
+  DerivedFrom:
+  - XResolution[0]
+  - XResolution[1]
+  Value: '96.0'
+  SchemaPath: XResolution
+  Source: SourceFile:0
+- ID: Property:51
+  Name: YResolution[0] + YResolution[1]
+  DerivedFrom:
+  - YResolution[0]
+  - YResolution[1]
+  Value: '96.0'
+  SchemaPath: YResolution
   Source: SourceFile:0
 Experimenter:
 - {}

@@ -22,9 +22,24 @@ Objective:
   Magnification: 6000.0
 GenericDetector:
   Name: ''
+ImageWidth: 5120
+ImageLength: 3840
+BitsPerSample:
+- 8
+- 8
+- 8
+PhotometricInterpretation: RGB
+Orientation: TOPLEFT
+Channel:
+  SamplesPerPixel: 3
+ResolutionUnit: INCH
+DateTime: 2025:05:28 10:54:28
+Artist: XAROSA
 Plane:
   ExposureTime: 0.0082
   ExposureTimeUnit: s
+XResolution: 72.0
+YResolution: 72.0
 SourceMap:
   Instrument.Manufacturer: Make
   Instrument.Model: Model
@@ -43,6 +58,17 @@ SourceMap:
   Objective.Magnification: OlympusSIS.magnification
   GenericDetector.Name: OlympusSIS.cameraname
   Image.Type: OlympusSIS.picturetype
+  ImageWidth: ImageWidth
+  ImageLength: ImageLength
+  BitsPerSample[0]: BitsPerSample[0]
+  BitsPerSample[1]: BitsPerSample[1]
+  BitsPerSample[2]: BitsPerSample[2]
+  PhotometricInterpretation: PhotometricInterpretation
+  Orientation: Orientation
+  Channel.SamplesPerPixel: SamplesPerPixel
+  ResolutionUnit: ResolutionUnit
+  DateTime: DateTime
+  Artist: Artist
   Pixels.PhysicalSizeXUnit:
   - OlympusSIS.pixelsizex
   Pixels.PhysicalSizeYUnit:
@@ -53,3 +79,9 @@ SourceMap:
   Plane.ExposureTimeUnit:
   - ExposureTime[0]
   - ExposureTime[1]
+  XResolution:
+  - XResolution[0]
+  - XResolution[1]
+  YResolution:
+  - YResolution[0]
+  - YResolution[1]

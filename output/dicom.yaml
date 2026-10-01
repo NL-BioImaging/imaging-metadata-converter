@@ -72,6 +72,7 @@ Plane:
   PositionX: -250.0
   PositionY: 139.2
   PositionZ: 461.9
+  ExposureTimeUnit: ms
   PositionXUnit: mm
   PositionYUnit: mm
   PositionZUnit: mm
@@ -227,6 +228,8 @@ SourceMap:
   RescaleSlope: RescaleSlope
   RequestedProcedureID: RequestedProcedureID
   ConfidentialityCode: ConfidentialityCode
+  Plane.ExposureTimeUnit:
+  - ExposureTime
   Plane.PositionXUnit:
   - ImagePositionPatient[0]
   Plane.PositionYUnit:

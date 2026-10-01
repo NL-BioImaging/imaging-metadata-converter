@@ -3,7 +3,7 @@ Image:
 - SourceFile:
   - ID: SourceFile:0
     Name: EMSIS Xarosa.json
-    Checksum: 77076c7c37207ac8ebd19aa9a7f92eec9c5bb0a301c5a70360b9b56d6cdd269d
+    Checksum: 6b965b4dd6caef29e0e53a57c3c36eef8b8426b28a1310b68d7e2de8edc0b4b4
     Format: json
     Mapping:
     - ID: SourceMapping:0
@@ -50,12 +50,15 @@ Image:
       Field: Instrument[0].GenericDetector[0].Name
       Source: OlympusSIS.cameraname
     - ID: SourceMapping:13
+      Field: Image[0].Pixels.Channel[0].SamplesPerPixel
+      Source: SamplesPerPixel
+    - ID: SourceMapping:14
       Field: Image[0].Pixels.Plane[0].ExposureTime
       Source: ExposureTime[0] + ExposureTime[1]
       DerivedFrom:
       - ExposureTime[0]
       - ExposureTime[1]
-    - ID: SourceMapping:14
+    - ID: SourceMapping:15
       Field: Image[0].Pixels.Plane[0].ExposureTimeUnit
       Source: ExposureTime[0] + ExposureTime[1]
       DerivedFrom:
@@ -68,6 +71,8 @@ Image:
     PhysicalSizeY: 1.652845302290227e-09
     PhysicalSizeXUnit: m
     PhysicalSizeYUnit: m
+    Channel:
+    - SamplesPerPixel: 3
     Plane:
     - ExposureTime: 0.0082
       ExposureTimeUnit: s
@@ -105,4 +110,60 @@ CustomProperties:
 - ID: Property:5
   Name: ExposureMode
   Value: '1'
+  Source: SourceFile:0
+- ID: Property:6
+  Name: ImageWidth
+  Value: '5120'
+  Source: SourceFile:0
+- ID: Property:7
+  Name: ImageLength
+  Value: '3840'
+  Source: SourceFile:0
+- ID: Property:8
+  Name: BitsPerSample[0]
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:9
+  Name: BitsPerSample[1]
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:10
+  Name: BitsPerSample[2]
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:11
+  Name: PhotometricInterpretation
+  Value: '"RGB"'
+  Source: SourceFile:0
+- ID: Property:12
+  Name: Orientation
+  Value: '"TOPLEFT"'
+  Source: SourceFile:0
+- ID: Property:13
+  Name: ResolutionUnit
+  Value: '"INCH"'
+  Source: SourceFile:0
+- ID: Property:14
+  Name: DateTime
+  Value: '"2025:05:28 10:54:28"'
+  Source: SourceFile:0
+- ID: Property:15
+  Name: Artist
+  Value: '"XAROSA"'
+  Source: SourceFile:0
+- ID: Property:16
+  Name: XResolution[0] + XResolution[1]
+  DerivedFrom:
+  - XResolution[0]
+  - XResolution[1]
+  Value: '72.0'
+  SchemaPath: XResolution
+  Source: SourceFile:0
+- ID: Property:17
+  Name: YResolution[0] + YResolution[1]
+  DerivedFrom:
+  - YResolution[0]
+  - YResolution[1]
+  Value: '72.0'
+  SchemaPath: YResolution
   Source: SourceFile:0

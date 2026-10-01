@@ -58,54 +58,59 @@ Image:
       Field: Image[0].Pixels.Plane[0].PositionZ
       Source: ImagePositionPatient[2]
     - ID: SourceMapping:17
+      Field: Image[0].Pixels.Plane[0].ExposureTimeUnit
+      Source: ExposureTime
+      DerivedFrom:
+      - ExposureTime
+    - ID: SourceMapping:18
       Field: Image[0].Pixels.Plane[0].PositionXUnit
       Source: ImagePositionPatient[0]
       DerivedFrom:
       - ImagePositionPatient[0]
-    - ID: SourceMapping:18
+    - ID: SourceMapping:19
       Field: Image[0].Pixels.Plane[0].PositionYUnit
       Source: ImagePositionPatient[1]
       DerivedFrom:
       - ImagePositionPatient[1]
-    - ID: SourceMapping:19
+    - ID: SourceMapping:20
       Field: Image[0].Pixels.Plane[0].PositionZUnit
       Source: ImagePositionPatient[2]
       DerivedFrom:
       - ImagePositionPatient[2]
-    - ID: SourceMapping:20
+    - ID: SourceMapping:21
       Field: Image[0].Pixels.Channel[0].SamplesPerPixel
       Source: SamplesPerPixel
-    - ID: SourceMapping:21
+    - ID: SourceMapping:22
       Field: Image[0].Pixels.SizeY
       Source: Rows
-    - ID: SourceMapping:22
+    - ID: SourceMapping:23
       Field: Image[0].Pixels.SizeX
       Source: Columns
-    - ID: SourceMapping:23
+    - ID: SourceMapping:24
       Field: Image[0].Pixels.PhysicalSizeY
       Source: PixelSpacing[0]
-    - ID: SourceMapping:24
+    - ID: SourceMapping:25
       Field: Image[0].Pixels.PhysicalSizeX
       Source: PixelSpacing[1]
-    - ID: SourceMapping:25
+    - ID: SourceMapping:26
       Field: Image[0].Pixels.SignificantBits
       Source: BitsStored
-    - ID: SourceMapping:26
+    - ID: SourceMapping:27
       Field: Image[0].Pixels.PhysicalSizeYUnit
       Source: PixelSpacing[0]
       DerivedFrom:
       - PixelSpacing[0]
-    - ID: SourceMapping:27
+    - ID: SourceMapping:28
       Field: Image[0].Pixels.PhysicalSizeXUnit
       Source: PixelSpacing[1]
       DerivedFrom:
       - PixelSpacing[1]
-    - ID: SourceMapping:28
+    - ID: SourceMapping:29
       Field: Image[0].Pixels.PhysicalSizeZ
       Source: SliceThickness
       DerivedFrom:
       - SliceThickness
-    - ID: SourceMapping:29
+    - ID: SourceMapping:30
       Field: Image[0].Pixels.PhysicalSizeZUnit
       Source: SliceThickness
       DerivedFrom:
@@ -120,6 +125,7 @@ Image:
       PositionX: -250.0
       PositionY: 139.2
       PositionZ: 461.9
+      ExposureTimeUnit: ms
       PositionXUnit: mm
       PositionYUnit: mm
       PositionZUnit: mm

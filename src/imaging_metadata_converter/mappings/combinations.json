@@ -342,5 +342,37 @@
         "format": "pattern",
         "pattern": "^(\\d+(?:\\.\\d+)?(?:[eE][-+]?\\d+)?)$",
         "unit": "mm"
+    },
+    {
+        "target": "XResolution",
+        "sources": [
+            "XResolution[0]",
+            "XResolution[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "YResolution",
+        "sources": [
+            "YResolution[0]",
+            "YResolution[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "XPosition",
+        "sources": [
+            "XPosition[0]",
+            "XPosition[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "YPosition",
+        "sources": [
+            "YPosition[0]",
+            "YPosition[1]"
+        ],
+        "format": "ratio"
     }
 ]

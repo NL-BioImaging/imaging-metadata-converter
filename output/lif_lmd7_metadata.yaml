@@ -1,5 +1,28 @@
 Instrument:
   Manufacturer: Leica Microsystems
+Image:
+  Name: LMDPic__wil_7
+  ShootCircumstance: SaveFile
+  AcquisitionDate: '2025-07-10T14:07:11.516173'
+path: UnKnown.lif/LMDPic__wil_7
+UniqueID: null
+AcquisitionSoftware:
+  Name: Laser Microdissection (LMD7)
+  Version: 8.5.9136
+CustomData:
+  Version:
+    SoftwareVersionInfo: ''
+  ExperimentInfo:
+    ExperimentName: UnKnown
+    TaskName: ''
+  UserInfo:
+    GroupName: ''
+    DepartmentName: ''
+    OrganisiationName: ''
+  Name: CustomData
+  Application: ''
+Experimenter:
+  UserName: Leica-Admin
 GenericDetector:
   Model: K7
   Gain: 1
@@ -35,34 +58,71 @@ HardwareSetting:
     Offset: 60
     HeadCurrent: 100
     PulseFrequency: 120
+  Name: HardwareSetting
   Application: LMD
-Image:
-  ShootCircumstance: SaveFile
-  AcquisitionDate: '2025-07-10T14:07:11.516173'
 Objective:
   Magnification: 10
 Laser:
   Model: Explorer
   Role:
   - Microdissection
-AcquisitionSoftware:
-  Name: Laser Microdissection (LMD7)
-  Version: 8.5.9136
-CustomData:
-  Version:
-    SoftwareVersionInfo: ''
-  ExperimentInfo:
-    ExperimentName: UnKnown
-    TaskName: ''
-  UserInfo:
-    GroupName: ''
-    DepartmentName: ''
-    OrganisiationName: ''
-  Application: ''
-Experimenter:
-  UserName: Leica-Admin
+ImageDescription:
+  Channels:
+    ChannelDescription:
+    - DataType: 0
+      ChannelTag: 3
+      Resolution: 8
+      NameOfMeasuredQuantity: ''
+      Min: 0.0
+      Max: 255.0
+      Unit: ''
+      LUTName: ''
+      IsLUTInverted: 0
+    - DataType: 0
+      ChannelTag: 2
+      Resolution: 8
+      NameOfMeasuredQuantity: ''
+      Min: 0.0
+      Max: 255.0
+      Unit: ''
+      LUTName: ''
+      IsLUTInverted: 0
+    - DataType: 0
+      ChannelTag: 1
+      Resolution: 8
+      NameOfMeasuredQuantity: ''
+      Min: 0.0
+      Max: 255.0
+      Unit: ''
+      LUTName: ''
+      IsLUTInverted: 0
+  Dimensions:
+    DimensionDescription:
+    - DimID: 1
+      NumberOfElements: 3200
+      Origin: 0.0
+      Length: 0.00144
+      Unit: m
+    - DimID: 2
+      NumberOfElements: 2200
+      Origin: 0.0
+      Length: 0.00099
+      Unit: m
 SourceMap:
   Instrument.Manufacturer: manufacturer
+  Image.Name: name
+  path: path
+  UniqueID: UniqueID
+  AcquisitionSoftware.Name: CustomData.Version.SoftwareName
+  CustomData.Version.SoftwareVersionInfo: CustomData.Version.SoftwareVersionInfo
+  CustomData.ExperimentInfo.ExperimentName: CustomData.ExperimentInfo.ExperimentName
+  CustomData.ExperimentInfo.TaskName: CustomData.ExperimentInfo.TaskName
+  Experimenter.UserName: CustomData.UserInfo.UserName
+  CustomData.UserInfo.GroupName: CustomData.UserInfo.GroupName
+  CustomData.UserInfo.DepartmentName: CustomData.UserInfo.DepartmentName
+  CustomData.UserInfo.OrganisiationName: CustomData.UserInfo.OrganisiationName
+  CustomData.Name: CustomData.Name
+  CustomData.Application: CustomData.Application
   GenericDetector.Model: HardwareSetting.Camera.TypName
   Plane.ExposureTime: HardwareSetting.Camera.Expsoure
   GenericDetector.Gain: HardwareSetting.Camera.Gain
@@ -94,16 +154,45 @@ SourceMap:
   HardwareSetting.Laser.Offset: HardwareSetting.Laser.Offset
   HardwareSetting.Laser.HeadCurrent: HardwareSetting.Laser.HeadCurrent
   HardwareSetting.Laser.PulseFrequency: HardwareSetting.Laser.PulseFrequency
+  HardwareSetting.Name: HardwareSetting.Name
   HardwareSetting.Application: HardwareSetting.Application
-  AcquisitionSoftware.Name: CustomData.Version.SoftwareName
-  CustomData.Version.SoftwareVersionInfo: CustomData.Version.SoftwareVersionInfo
-  CustomData.ExperimentInfo.ExperimentName: CustomData.ExperimentInfo.ExperimentName
-  CustomData.ExperimentInfo.TaskName: CustomData.ExperimentInfo.TaskName
-  Experimenter.UserName: CustomData.UserInfo.UserName
-  CustomData.UserInfo.GroupName: CustomData.UserInfo.GroupName
-  CustomData.UserInfo.DepartmentName: CustomData.UserInfo.DepartmentName
-  CustomData.UserInfo.OrganisiationName: CustomData.UserInfo.OrganisiationName
-  CustomData.Application: CustomData.Application
+  ImageDescription.Channels.ChannelDescription[0].DataType: ImageDescription.Channels.ChannelDescription[0].DataType
+  ImageDescription.Channels.ChannelDescription[0].ChannelTag: ImageDescription.Channels.ChannelDescription[0].ChannelTag
+  ImageDescription.Channels.ChannelDescription[0].Resolution: ImageDescription.Channels.ChannelDescription[0].Resolution
+  ImageDescription.Channels.ChannelDescription[0].NameOfMeasuredQuantity: ImageDescription.Channels.ChannelDescription[0].NameOfMeasuredQuantity
+  ImageDescription.Channels.ChannelDescription[0].Min: ImageDescription.Channels.ChannelDescription[0].Min
+  ImageDescription.Channels.ChannelDescription[0].Max: ImageDescription.Channels.ChannelDescription[0].Max
+  ImageDescription.Channels.ChannelDescription[0].Unit: ImageDescription.Channels.ChannelDescription[0].Unit
+  ImageDescription.Channels.ChannelDescription[0].LUTName: ImageDescription.Channels.ChannelDescription[0].LUTName
+  ImageDescription.Channels.ChannelDescription[0].IsLUTInverted: ImageDescription.Channels.ChannelDescription[0].IsLUTInverted
+  ImageDescription.Channels.ChannelDescription[1].DataType: ImageDescription.Channels.ChannelDescription[1].DataType
+  ImageDescription.Channels.ChannelDescription[1].ChannelTag: ImageDescription.Channels.ChannelDescription[1].ChannelTag
+  ImageDescription.Channels.ChannelDescription[1].Resolution: ImageDescription.Channels.ChannelDescription[1].Resolution
+  ImageDescription.Channels.ChannelDescription[1].NameOfMeasuredQuantity: ImageDescription.Channels.ChannelDescription[1].NameOfMeasuredQuantity
+  ImageDescription.Channels.ChannelDescription[1].Min: ImageDescription.Channels.ChannelDescription[1].Min
+  ImageDescription.Channels.ChannelDescription[1].Max: ImageDescription.Channels.ChannelDescription[1].Max
+  ImageDescription.Channels.ChannelDescription[1].Unit: ImageDescription.Channels.ChannelDescription[1].Unit
+  ImageDescription.Channels.ChannelDescription[1].LUTName: ImageDescription.Channels.ChannelDescription[1].LUTName
+  ImageDescription.Channels.ChannelDescription[1].IsLUTInverted: ImageDescription.Channels.ChannelDescription[1].IsLUTInverted
+  ImageDescription.Channels.ChannelDescription[2].DataType: ImageDescription.Channels.ChannelDescription[2].DataType
+  ImageDescription.Channels.ChannelDescription[2].ChannelTag: ImageDescription.Channels.ChannelDescription[2].ChannelTag
+  ImageDescription.Channels.ChannelDescription[2].Resolution: ImageDescription.Channels.ChannelDescription[2].Resolution
+  ImageDescription.Channels.ChannelDescription[2].NameOfMeasuredQuantity: ImageDescription.Channels.ChannelDescription[2].NameOfMeasuredQuantity
+  ImageDescription.Channels.ChannelDescription[2].Min: ImageDescription.Channels.ChannelDescription[2].Min
+  ImageDescription.Channels.ChannelDescription[2].Max: ImageDescription.Channels.ChannelDescription[2].Max
+  ImageDescription.Channels.ChannelDescription[2].Unit: ImageDescription.Channels.ChannelDescription[2].Unit
+  ImageDescription.Channels.ChannelDescription[2].LUTName: ImageDescription.Channels.ChannelDescription[2].LUTName
+  ImageDescription.Channels.ChannelDescription[2].IsLUTInverted: ImageDescription.Channels.ChannelDescription[2].IsLUTInverted
+  ImageDescription.Dimensions.DimensionDescription[0].DimID: ImageDescription.Dimensions.DimensionDescription[0].DimID
+  ImageDescription.Dimensions.DimensionDescription[0].NumberOfElements: ImageDescription.Dimensions.DimensionDescription[0].NumberOfElements
+  ImageDescription.Dimensions.DimensionDescription[0].Origin: ImageDescription.Dimensions.DimensionDescription[0].Origin
+  ImageDescription.Dimensions.DimensionDescription[0].Length: ImageDescription.Dimensions.DimensionDescription[0].Length
+  ImageDescription.Dimensions.DimensionDescription[0].Unit: ImageDescription.Dimensions.DimensionDescription[0].Unit
+  ImageDescription.Dimensions.DimensionDescription[1].DimID: ImageDescription.Dimensions.DimensionDescription[1].DimID
+  ImageDescription.Dimensions.DimensionDescription[1].NumberOfElements: ImageDescription.Dimensions.DimensionDescription[1].NumberOfElements
+  ImageDescription.Dimensions.DimensionDescription[1].Origin: ImageDescription.Dimensions.DimensionDescription[1].Origin
+  ImageDescription.Dimensions.DimensionDescription[1].Length: ImageDescription.Dimensions.DimensionDescription[1].Length
+  ImageDescription.Dimensions.DimensionDescription[1].Unit: ImageDescription.Dimensions.DimensionDescription[1].Unit
   Plane.ExposureTimeUnit:
   - HardwareSetting.Camera.Expsoure
   Laser.Role[0]:

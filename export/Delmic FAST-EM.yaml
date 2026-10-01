@@ -3,7 +3,7 @@ Image:
 - SourceFile:
   - ID: SourceFile:0
     Name: Delmic FAST-EM.json
-    Checksum: 2c837d12dd13901dce99321258f6e19e9ecf87b429f791b1125c7e762b702e98
+    Checksum: 33c76eee61c8553faf1c9e78518e69a5e1090ca686a1e4f746d4e277c9e8e8de
     Format: json
     Mapping:
     - ID: SourceMapping:0
@@ -15,8 +15,59 @@ Image:
     - ID: SourceMapping:2
       Field: Instrument[0].AcquisitionSoftware[0].Name
       Source: Software
+    - ID: SourceMapping:3
+      Field: Image[0].Pixels.Channel[0].SamplesPerPixel
+      Source: SamplesPerPixel
+  Pixels:
+    Channel:
+    - SamplesPerPixel: 1
 Instrument:
 - Manufacturer: Delmic B.V.
   Model: Fast EM
   AcquisitionSoftware:
   - Name: asm_service 1.2.3
+CustomProperties:
+- ID: Property:0
+  Name: ImageWidth
+  Value: '6400'
+  Source: SourceFile:0
+- ID: Property:1
+  Name: ImageLength
+  Value: '6400'
+  Source: SourceFile:0
+- ID: Property:2
+  Name: BitsPerSample
+  Value: '16'
+  Source: SourceFile:0
+- ID: Property:3
+  Name: PhotometricInterpretation
+  Value: '"MINISBLACK"'
+  Source: SourceFile:0
+- ID: Property:4
+  Name: ResolutionUnit
+  Value: '"CENTIMETER"'
+  Source: SourceFile:0
+- ID: Property:5
+  Name: DateTime
+  Value: '"2023-11-07 12:24:09"'
+  Source: SourceFile:0
+- ID: Property:6
+  Name: SampleFormat
+  Value: '"UINT"'
+  Source: SourceFile:0
+- ID: Property:7
+  Name: XResolution[0] + XResolution[1]
+  DerivedFrom:
+  - XResolution[0]
+  - XResolution[1]
+  Value: '1.0'
+  SchemaPath: XResolution
+  Source: SourceFile:0
+- ID: Property:8
+  Name: YResolution[0] + YResolution[1]
+  DerivedFrom:
+  - YResolution[0]
+  - YResolution[1]
+  Value: '1.0'
+  SchemaPath: YResolution
+  Source: SourceFile:0

@@ -1,5 +1,30 @@
 {
     "manufacturer": "Leica Microsystems",
+    "name": "LMDPic__wil_7",
+    "path": "UnKnown.lif/LMDPic__wil_7",
+    "UniqueID": null,
+    "CustomData": {
+        "Version": {
+            "SoftwareName": "Laser Microdissection (LMD7)",
+            "SoftwareVersionInfo": "",
+            "MajorVersion": 8,
+            "MinorVersion": 5,
+            "BuildNumber": 9136
+        },
+        "ExperimentInfo": {
+            "ExperimentName": "UnKnown",
+            "TaskName": "",
+            "DateAndTime": 133966300315161733
+        },
+        "UserInfo": {
+            "UserName": "Leica-Admin",
+            "GroupName": "",
+            "DepartmentName": "",
+            "OrganisiationName": ""
+        },
+        "Name": "CustomData",
+        "Application": ""
+    },
     "HardwareSetting": {
         "Camera": {
             "TypName": "K7",
@@ -40,27 +65,64 @@
             "HeadCurrent": 100,
             "PulseFrequency": 120
         },
+        "Name": "HardwareSetting",
         "Application": "LMD"
     },
-    "CustomData": {
-        "Version": {
-            "SoftwareName": "Laser Microdissection (LMD7)",
-            "SoftwareVersionInfo": "",
-            "MajorVersion": 8,
-            "MinorVersion": 5,
-            "BuildNumber": 9136
+    "ImageDescription": {
+        "Channels": {
+            "ChannelDescription": [
+                {
+                    "DataType": 0,
+                    "ChannelTag": 3,
+                    "Resolution": 8,
+                    "NameOfMeasuredQuantity": "",
+                    "Min": 0.0,
+                    "Max": 255.0,
+                    "Unit": "",
+                    "LUTName": "",
+                    "IsLUTInverted": 0
+                },
+                {
+                    "DataType": 0,
+                    "ChannelTag": 2,
+                    "Resolution": 8,
+                    "NameOfMeasuredQuantity": "",
+                    "Min": 0.0,
+                    "Max": 255.0,
+                    "Unit": "",
+                    "LUTName": "",
+                    "IsLUTInverted": 0
+                },
+                {
+                    "DataType": 0,
+                    "ChannelTag": 1,
+                    "Resolution": 8,
+                    "NameOfMeasuredQuantity": "",
+                    "Min": 0.0,
+                    "Max": 255.0,
+                    "Unit": "",
+                    "LUTName": "",
+                    "IsLUTInverted": 0
+                }
+            ]
         },
-        "ExperimentInfo": {
-            "ExperimentName": "UnKnown",
-            "TaskName": "",
-            "DateAndTime": 133966300315161733
-        },
-        "UserInfo": {
-            "UserName": "Leica-Admin",
-            "GroupName": "",
-            "DepartmentName": "",
-            "OrganisiationName": ""
-        },
-        "Application": ""
+        "Dimensions": {
+            "DimensionDescription": [
+                {
+                    "DimID": 1,
+                    "NumberOfElements": 3200,
+                    "Origin": 0.0,
+                    "Length": 0.00144,
+                    "Unit": "m"
+                },
+                {
+                    "DimID": 2,
+                    "NumberOfElements": 2200,
+                    "Origin": 0.0,
+                    "Length": 0.00099,
+                    "Unit": "m"
+                }
+            ]
+        }
     }
 }

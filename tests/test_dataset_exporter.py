@@ -246,13 +246,18 @@ class ExportFolderTest(unittest.TestCase):
                                      self.REGENERATE)
 
     def test_every_derived_value_fits_its_field(self):
-        """A value the mapper derives is written for a model field, so it must fit it: one kept as a Property
-        instead was written in the wrong form (a laser's Role as text, where the field is a list)."""
+        """A value the mapper derives for a model field must fit it: one kept as a Property instead was written in
+        the wrong form (a laser's Role as text, where the field is a list). A value turned into a number in place
+        (a TIFF or Exif fraction, its parts the items of its own key) has no field, and stays a Property."""
+        def in_place(record):
+            return all(part.startswith(f"{record.get('SchemaPath')}[") for part in record['DerivedFrom'])
+
         def derived_properties(node):
             if isinstance(node, dict):
                 for key, value in node.items():
                     records = value if key == 'CustomProperties' else []
-                    yield from (record.get('SchemaPath') for record in records if 'DerivedFrom' in record)
+                    yield from (record.get('SchemaPath') for record in records
+                                if 'DerivedFrom' in record and not in_place(record))
                     yield from derived_properties(value) if key != 'CustomProperties' else ()
             elif isinstance(node, list):
                 for item in node:

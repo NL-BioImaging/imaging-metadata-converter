@@ -3,7 +3,7 @@ Image:
 - SourceFile:
   - ID: SourceFile:0
     Name: ome-tiff.json
-    Checksum: 9e096cbaa9a518eac9ba98e8dc2c773aab9a895d576dca564b241ff5c7ce3731
+    Checksum: a1f6ffd58ca944bdade63f38e4e1946d87cbf37d7d3b12af588e64992ad3c122
     Format: json
     Mapping:
     - ID: SourceMapping:0
@@ -37,117 +37,99 @@ Image:
       Field: Image[0].Pixels.Channel[1].SamplesPerPixel
       Source: OME.Image.Pixels.Channel[1].SamplesPerPixel
     - ID: SourceMapping:10
-      Field: Image[0].Pixels.TiffData[0].FirstC
-      Source: OME.Image.Pixels.TiffData.FirstC
-    - ID: SourceMapping:11
-      Field: Image[0].Pixels.TiffData[0].FirstT
-      Source: OME.Image.Pixels.TiffData.FirstT
-    - ID: SourceMapping:12
-      Field: Image[0].Pixels.TiffData[0].FirstZ
-      Source: OME.Image.Pixels.TiffData.FirstZ
-    - ID: SourceMapping:13
-      Field: Image[0].Pixels.TiffData[0].IFD
-      Source: OME.Image.Pixels.TiffData.IFD
-    - ID: SourceMapping:14
-      Field: Image[0].Pixels.TiffData[0].PlaneCount
-      Source: OME.Image.Pixels.TiffData.PlaneCount
-    - ID: SourceMapping:15
       Field: Image[0].Pixels.ID
       Source: OME.Image.Pixels.ID
-    - ID: SourceMapping:16
+    - ID: SourceMapping:11
       Field: Image[0].Pixels.DimensionOrder
       Source: OME.Image.Pixels.DimensionOrder
-    - ID: SourceMapping:17
-      Field: Image[0].Pixels.BigEndian
-      Source: OME.Image.Pixels.BigEndian
-    - ID: SourceMapping:18
+    - ID: SourceMapping:12
       Field: Image[0].Pixels.SizeX
       Source: OME.Image.Pixels.SizeX
-    - ID: SourceMapping:19
+    - ID: SourceMapping:13
       Field: Image[0].Pixels.SizeY
       Source: OME.Image.Pixels.SizeY
-    - ID: SourceMapping:20
+    - ID: SourceMapping:14
       Field: Image[0].Pixels.SizeZ
       Source: OME.Image.Pixels.SizeZ
-    - ID: SourceMapping:21
+    - ID: SourceMapping:15
       Field: Image[0].Pixels.SizeC
       Source: OME.Image.Pixels.SizeC
-    - ID: SourceMapping:22
+    - ID: SourceMapping:16
       Field: Image[0].Pixels.SizeT
       Source: OME.Image.Pixels.SizeT
-    - ID: SourceMapping:23
+    - ID: SourceMapping:17
       Field: Image[0].Pixels.PhysicalSizeX
       Source: OME.Image.Pixels.PhysicalSizeX
-    - ID: SourceMapping:24
+    - ID: SourceMapping:18
       Field: Image[0].Pixels.PhysicalSizeXUnit
       Source: OME.Image.Pixels.PhysicalSizeXUnit
-    - ID: SourceMapping:25
+    - ID: SourceMapping:19
       Field: Image[0].Pixels.PhysicalSizeY
       Source: OME.Image.Pixels.PhysicalSizeY
-    - ID: SourceMapping:26
+    - ID: SourceMapping:20
       Field: Image[0].Pixels.PhysicalSizeYUnit
       Source: OME.Image.Pixels.PhysicalSizeYUnit
-    - ID: SourceMapping:27
+    - ID: SourceMapping:21
       Field: Image[0].Pixels.PhysicalSizeZ
       Source: OME.Image.Pixels.PhysicalSizeZ
-    - ID: SourceMapping:28
+    - ID: SourceMapping:22
       Field: Image[0].Pixels.PhysicalSizeZUnit
       Source: OME.Image.Pixels.PhysicalSizeZUnit
-    - ID: SourceMapping:29
+    - ID: SourceMapping:23
       Field: Image[0].Pixels.TimeIncrement
       Source: OME.Image.Pixels.TimeIncrement
-    - ID: SourceMapping:30
+    - ID: SourceMapping:24
       Field: Image[0].Pixels.TimeIncrementUnit
       Source: OME.Image.Pixels.TimeIncrementUnit
-    - ID: SourceMapping:31
+    - ID: SourceMapping:25
       Field: Image[0].ID
       Source: OME.Image.ID
-    - ID: SourceMapping:32
+    - ID: SourceMapping:26
       Field: Image[0].ObjectiveSettings.ImmersionLiquid.RefractiveIndex
       Source: OME.Image.ObjectiveSettings.RefractiveIndex
-    - ID: SourceMapping:33
+    - ID: SourceMapping:27
       Field: Image[0].Pixels.Channel[0].Fluorophore[0].ExcitationWavelength
       Source: OME.Image.Pixels.Channel[0].ExcitationWavelength
-    - ID: SourceMapping:34
+    - ID: SourceMapping:28
       Field: Image[0].Pixels.Channel[0].Fluorophore[0].ExcitationWavelengthUnit
       Source: OME.Image.Pixels.Channel[0].ExcitationWavelengthUnit
-    - ID: SourceMapping:35
+    - ID: SourceMapping:29
       Field: Image[0].Pixels.Channel[0].Fluorophore[0].EmissionWavelength
       Source: OME.Image.Pixels.Channel[0].EmissionWavelength
-    - ID: SourceMapping:36
+    - ID: SourceMapping:30
       Field: Image[0].Pixels.Channel[0].Fluorophore[0].EmissionWavelengthUnit
       Source: OME.Image.Pixels.Channel[0].EmissionWavelengthUnit
-    - ID: SourceMapping:37
+    - ID: SourceMapping:31
       Field: Image[0].Pixels.Channel[1].Fluorophore[0].ExcitationWavelength
       Source: OME.Image.Pixels.Channel[1].ExcitationWavelength
-    - ID: SourceMapping:38
+    - ID: SourceMapping:32
       Field: Image[0].Pixels.Channel[1].Fluorophore[0].ExcitationWavelengthUnit
       Source: OME.Image.Pixels.Channel[1].ExcitationWavelengthUnit
-    - ID: SourceMapping:39
+    - ID: SourceMapping:33
       Field: Image[0].Pixels.Channel[1].Fluorophore[0].EmissionWavelength
       Source: OME.Image.Pixels.Channel[1].EmissionWavelength
-    - ID: SourceMapping:40
+    - ID: SourceMapping:34
       Field: Image[0].Pixels.Channel[1].Fluorophore[0].EmissionWavelengthUnit
       Source: OME.Image.Pixels.Channel[1].EmissionWavelengthUnit
-    - ID: SourceMapping:41
+    - ID: SourceMapping:35
       Field: Image[0].Pixels.PixelType
       Source: OME.Image.Pixels.Type
-    - ID: SourceMapping:42
+    - ID: SourceMapping:36
       Field: StructuredAnnotations.XMLAnnotation[0].ID
       Source: OME.StructuredAnnotations.XMLAnnotation.ID
-    - ID: SourceMapping:43
+    - ID: SourceMapping:37
       Field: Creator
       Source: OME.Creator
-    - ID: SourceMapping:44
+    - ID: SourceMapping:38
       Field: UUID
       Source: OME.UUID
-    - ID: SourceMapping:45
+    - ID: SourceMapping:39
       Field: Experiment[0].Sample[0].MountingMedium[0].RefractiveIndex
       Source: OME.StructuredAnnotations.XMLAnnotation.Value.ChannelData[0].RefrIndexMedium
-    - ID: SourceMapping:46
+    - ID: SourceMapping:40
       Field: Instrument[0].SoftwareModule[0].Version
       Source: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.HuygensVersion
-    - ID: SourceMapping:47
+    - ID: SourceMapping:41
       Field: Instrument[0].AcquisitionSoftware[0].Version
       Source: OME.StructuredAnnotations.XMLAnnotation.Value.FeatureHistory.OmeWriterVersion
   ObjectiveSettings:
@@ -170,15 +152,8 @@ Image:
         ExcitationWavelengthUnit: nm
         EmissionWavelength: 610
         EmissionWavelengthUnit: nm
-    TiffData:
-    - FirstC: 0
-      FirstT: 0
-      FirstZ: 0
-      IFD: 0
-      PlaneCount: 88
     ID: Pixels:0
     DimensionOrder: XYZTC
-    BigEndian: false
     SizeX: 167
     SizeY: 172
     SizeZ: 44

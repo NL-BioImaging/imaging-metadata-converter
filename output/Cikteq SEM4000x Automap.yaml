@@ -117,6 +117,13 @@ Experimenter:
   RulerText: SEM4000X
   UserName: "\x01"
   VacuumType: 0
+ImageWidth: 8448
+ImageLength: 5632
+BitsPerSample: 8
+PhotometricInterpretation: MINISBLACK
+Channel:
+  SamplesPerPixel: 1
+ResolutionUnit: INCH
 SourceMap:
   Image.ElectronBeamSettings.Stigmator.X: FEI_HELIOS.Beam.AstigX
   Image.ElectronBeamSettings.Stigmator.Y: FEI_HELIOS.Beam.AstigY
@@ -196,6 +203,12 @@ SourceMap:
   Instrument.Vacuum.BufferVacuum: FEI_HELIOS.Vacuum.BufferVacuum
   Instrument.Vacuum.GunVacuum: FEI_HELIOS.Vacuum.GunVacuum
   Instrument.Vacuum.SampleVacuum: FEI_HELIOS.Vacuum.SampleVacuum
+  ImageWidth: ImageWidth
+  ImageLength: ImageLength
+  BitsPerSample: BitsPerSample
+  PhotometricInterpretation: PhotometricInterpretation
+  Channel.SamplesPerPixel: SamplesPerPixel
+  ResolutionUnit: ResolutionUnit
   Image.ElectronBeamSettings.WorkingDistance.Unit:
   - FEI_HELIOS.Beam.WD
   Plane.PixelDwellTimeUnit:

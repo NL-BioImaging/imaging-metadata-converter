@@ -21,5 +21,26 @@
     "magnification": 6000.0,
     "cameraname": "",
     "picturetype": ""
-  }
+  },
+  "ImageWidth": 5120,
+  "ImageLength": 3840,
+  "BitsPerSample": [
+    8,
+    8,
+    8
+  ],
+  "PhotometricInterpretation": "RGB",
+  "Orientation": "TOPLEFT",
+  "SamplesPerPixel": 3,
+  "XResolution": [
+    72,
+    1
+  ],
+  "YResolution": [
+    72,
+    1
+  ],
+  "ResolutionUnit": "INCH",
+  "DateTime": "2025:05:28 10:54:28",
+  "Artist": "XAROSA"
 }

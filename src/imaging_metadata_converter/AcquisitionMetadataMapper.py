@@ -14,7 +14,7 @@ import json
 import math
 import os.path
 import re
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, time, timedelta, timezone
 from fnmatch import fnmatchcase
 
 from .ModelPaths import DEFAULT_MODEL_FILE, ModelPaths
@@ -69,6 +69,10 @@ class AcquisitionMetadataMapper:
                             if isinstance(target, str) and '[].' in target}
         for source in self.item_fields:
             del self.mappings[source]
+        # only these take part in a wildcard search, and a path resolves the same way every time: a list's items
+        # (Leica's thousands of tiles) share their paths
+        self._wildcard_rules = [(pattern, namespace) for pattern, namespace in self.mappings.items() if '*' in pattern]
+        self._resolved = {}
         self.combinations = self._load_json(combinations_file) if os.path.exists(combinations_file) else []
         self._schema_index = self._build_schema_index(self.schema)
         # "Detector.Name" in a source still names a field, of the model's default detector (GenericDetector)
@@ -221,7 +225,7 @@ class AcquisitionMetadataMapper:
         happily eats further dots too.
         """
         source_segments = source_path.split('.')
-        for pattern, namespace in self.mappings.items():
+        for pattern, namespace in self._wildcard_rules:
             has_wildcard = '*' in pattern
             pattern_segments = pattern.split('.') if has_wildcard else None
             is_remainder_style = has_wildcard and pattern.endswith('.*')
@@ -288,7 +292,7 @@ class AcquisitionMetadataMapper:
         child) this pattern was written for.
         """
         source_segment_count = len(source_path.split('.'))
-        for pattern, namespace in self.mappings.items():
+        for pattern, namespace in self._wildcard_rules:
             has_wildcard = '*' in pattern
             pattern_segments = pattern.split('.') if has_wildcard else None
             is_child_collapse_style = (
@@ -311,10 +315,12 @@ class AcquisitionMetadataMapper:
         whole subtree or a single variable path segment (see
         `_resolve_wildcard_path`).
         """
-        target = resolve_exact_path(source_path, self.mappings)
-        if target is not None:
-            return target
-        return self._resolve_wildcard_path(source_path, min_rule_segments)
+        key = (source_path, min_rule_segments)
+        if key not in self._resolved:
+            target = resolve_exact_path(source_path, self.mappings)
+            self._resolved[key] = target if target is not None else self._resolve_wildcard_path(source_path,
+                                                                                               min_rule_segments)
+        return self._resolved[key]
 
     def _apply_mappings(self, metadata, result=None, path='', rule_path=None, min_rule_segments=0,
                         provenance=None, origin=None, root=None):
@@ -791,7 +797,7 @@ class AcquisitionMetadataMapper:
                 combined = parse_combination(text, combination['format'], combination.get('item'),
                                              combination.get('pattern')) if has_all_parts else None
             placed = value_at_path(result, target)
-            own_path = placed_from_parts(provenance, target, sources)
+            own_path = placed_from_parts(provenance, target, sources) if placed is not None else None
             replaces_its_value = (own_path is not None and placed is not None and not is_number(placed)
                                   and (own_path == target or is_free_path(result, own_path)))
             if combined is not None and replaces_its_value and own_path == target:
@@ -888,12 +894,15 @@ def _items(value, path):
 
 
 def as_lists(value):
-    """`value` with every tuple in it a list, as it would read from JSON: tifffile gives Exif's fractions as
-    tuples ((41, 5000)), which the rules and combinations, written against the JSON examples, take as lists."""
+    """`value` as it would read from JSON, as the examples the rules and combinations are written against do:
+    every tuple a list (tifffile gives Exif's fractions as tuples, (41, 5000)), and a date or time its text
+    (tifffile reads Olympus's datetime as one: "2025-05-28 10:54:00")."""
     if isinstance(value, dict):
         return {key: as_lists(item) for key, item in value.items()}
     if isinstance(value, (list, tuple)):
         return [as_lists(item) for item in value]
+    if isinstance(value, (datetime, date, time)):
+        return str(value)
     return value
 
 

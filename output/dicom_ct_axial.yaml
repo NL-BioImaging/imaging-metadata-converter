@@ -77,6 +77,7 @@ Plane:
   PositionX: -122.2
   PositionY: -107.1
   PositionZ: -19.25
+  ExposureTimeUnit: ms
   PositionXUnit: mm
   PositionYUnit: mm
   PositionZUnit: mm
@@ -274,6 +275,8 @@ SourceMap:
   LossyImageCompression: LossyImageCompression
   PerformedProcedureStepStartDate: PerformedProcedureStepStartDate
   PerformedProcedureStepStartTime: PerformedProcedureStepStartTime
+  Plane.ExposureTimeUnit:
+  - ExposureTime
   Plane.PositionXUnit:
   - ImagePositionPatient[0]
   Plane.PositionYUnit:

@@ -3,7 +3,32 @@ Instrument:
   Model: Fast EM
 AcquisitionSoftware:
   Name: asm_service 1.2.3
+ImageWidth: 6400
+ImageLength: 6400
+BitsPerSample: 16
+PhotometricInterpretation: MINISBLACK
+Channel:
+  SamplesPerPixel: 1
+ResolutionUnit: CENTIMETER
+DateTime: '2023-11-07 12:24:09'
+SampleFormat: UINT
+XResolution: 1.0
+YResolution: 1.0
 SourceMap:
   Instrument.Manufacturer: Make
   Instrument.Model: Model
   AcquisitionSoftware.Name: Software
+  ImageWidth: ImageWidth
+  ImageLength: ImageLength
+  BitsPerSample: BitsPerSample
+  PhotometricInterpretation: PhotometricInterpretation
+  Channel.SamplesPerPixel: SamplesPerPixel
+  ResolutionUnit: ResolutionUnit
+  DateTime: DateTime
+  SampleFormat: SampleFormat
+  XResolution:
+  - XResolution[0]
+  - XResolution[1]
+  YResolution:
+  - YResolution[0]
+  - YResolution[1]

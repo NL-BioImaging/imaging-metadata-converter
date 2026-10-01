@@ -3,7 +3,7 @@ Image:
 - SourceFile:
   - ID: SourceFile:0
     Name: Cikteq SEM4000x Normal.json
-    Checksum: 2e006377234ea99fbd1d5bddba5631f973f5f96e17841a5f2631c617d8db8380
+    Checksum: 8db316309a82a001ed848a1291bd9ee38743ec6e146c0d0e5c90c5faebf92a19
     Format: json
     Mapping:
     - ID: SourceMapping:0
@@ -205,6 +205,9 @@ Image:
     - ID: SourceMapping:57
       Field: Experimenter[0].UserName
       Source: FEI_HELIOS.User.UserName
+    - ID: SourceMapping:58
+      Field: Image[0].Pixels.Channel[0].SamplesPerPixel
+      Source: SamplesPerPixel
   ElectronBeamSettings:
     Stigmator:
       X: -0.01
@@ -331,6 +334,8 @@ Image:
       PixelDwellTimeUnit: µs
     SizeX: 6144
     SizeY: 4096
+    Channel:
+    - SamplesPerPixel: 1
 Instrument:
 - GenericDetector:
   - Brightness: 50.0
@@ -442,6 +447,26 @@ CustomProperties:
   Name: FEI_HELIOS.User.VacuumType
   Value: '0'
   SchemaPath: Experimenter.VacuumType
+  Source: SourceFile:0
+- ID: Property:32
+  Name: ImageWidth
+  Value: '6144'
+  Source: SourceFile:0
+- ID: Property:33
+  Name: ImageLength
+  Value: '4096'
+  Source: SourceFile:0
+- ID: Property:34
+  Name: BitsPerSample
+  Value: '16'
+  Source: SourceFile:0
+- ID: Property:35
+  Name: PhotometricInterpretation
+  Value: '"MINISBLACK"'
+  Source: SourceFile:0
+- ID: Property:36
+  Name: ResolutionUnit
+  Value: '"INCH"'
   Source: SourceFile:0
 Experimenter:
 - UserName: "\x01"

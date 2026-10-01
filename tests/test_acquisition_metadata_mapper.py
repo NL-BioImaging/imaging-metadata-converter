@@ -4,6 +4,7 @@ import re
 import shutil
 import tempfile
 import unittest
+from datetime import datetime
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -570,11 +571,12 @@ class LosslessMappingTest(unittest.TestCase):
         mapper = self.mapper_for({'Spacing[0]': 'Pixels.PhysicalSizeY'},
                                  [{'target': 'Plane.ExposureTime', 'sources': ['ExposureTime[0]', 'ExposureTime[1]'],
                                    'format': 'ratio', 'unit': 's'}])
-        metadata = {'ExposureTime': (41, 5000), 'Spacing': (0.5, 0.25), 'Nested': {'Pairs': [(1, 2)]}}
+        metadata = {'ExposureTime': (41, 5000), 'Spacing': (0.5, 0.25), 'Nested': {'Pairs': [(1, 2)]},
+                    'Olympus': {'datetime': datetime(2025, 5, 28, 10, 54)}}
 
         converted = mapper.convert_metadata(metadata)
 
-        self.assertEqual(converted, mapper.convert_metadata(json.loads(json.dumps(metadata))))
+        self.assertEqual(converted, mapper.convert_metadata(json.loads(json.dumps(metadata, default=str))))
         self.assertEqual(converted['Plane'], {'ExposureTime': 0.0082, 'ExposureTimeUnit': 's'})
         self.assertNotIn('ExposureTime', converted)
 
