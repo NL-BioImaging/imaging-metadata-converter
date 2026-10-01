@@ -1,0 +1,1276 @@
+{
+    "manufacturer": "Leica Microsystems",
+    "HardwareSettingList": {
+        "ScannerSetting": {
+            "SystemType": {
+                "Unit": "",
+                "Description": "System Type",
+                "Data": 0,
+                "Variant": "TCS SP5",
+                "VariantType": 8
+            },
+            "bAFUseFixSliceNumber": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 0,
+                "VariantType": 3
+            },
+            "bAdaptiveFocusControlActive": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 0,
+                "VariantType": 3
+            },
+            "bEnableRoiScan": {
+                "Unit": "",
+                "Description": "RoiScan",
+                "Data": 0,
+                "Variant": 0,
+                "VariantType": 17
+            },
+            "bIs3DLimitedRoiScanEnable": {
+                "Unit": "",
+                "Description": "Is 3D limited ROI scan enable",
+                "Data": 0,
+                "Variant": 0,
+                "VariantType": 17
+            },
+            "bIsSequential": {
+                "Unit": "",
+                "Description": "IsSequential",
+                "Data": 0,
+                "Variant": 0,
+                "VariantType": 11
+            },
+            "bIsSeriesScanAutofocusActive": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 0,
+                "VariantType": 3
+            },
+            "bMinimizeMode": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 0,
+                "VariantType": 17
+            },
+            "bSecondCrystal": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 1,
+                "VariantType": 17
+            },
+            "bStepSizeConstant": {
+                "Unit": "",
+                "Description": "StepSize Constant",
+                "Data": 0,
+                "Variant": 0,
+                "VariantType": 17
+            },
+            "bStepSizerActivated": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 1,
+                "VariantType": 17
+            },
+            "bUseUVShutter": {
+                "Unit": "",
+                "Description": "UV Shutter",
+                "Data": 0,
+                "Variant": 0,
+                "VariantType": 17
+            },
+            "bUseVisibleShutter": {
+                "Unit": "",
+                "Description": "Visible Shutter",
+                "Data": 0,
+                "Variant": 1,
+                "VariantType": 17
+            },
+            "bValidBegin": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 1,
+                "VariantType": 17
+            },
+            "bValidEnd": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 1,
+                "VariantType": 17
+            },
+            "csLutName00": {
+                "Unit": "",
+                "Description": "B:0.000000e+000 W:1.000000e+000 G:1.000000e+000",
+                "Data": 1,
+                "Variant": "Green",
+                "VariantType": 8
+            },
+            "csLutName01": {
+                "Unit": "",
+                "Description": "B:0.000000e+000 W:1.000000e+000 G:1.000000e+000",
+                "Data": 2,
+                "Variant": "Red",
+                "VariantType": 8
+            },
+            "csLutName02": {
+                "Unit": "",
+                "Description": "B:0.000000e+000 W:1.000000e+000 G:1.000000e+000",
+                "Data": 3,
+                "Variant": "Blue",
+                "VariantType": 8
+            },
+            "csLutName03": {
+                "Unit": "",
+                "Description": "B:0.000000e+000 W:1.000000e+000 G:1.000000e+000",
+                "Data": 2000,
+                "Variant": "Green",
+                "VariantType": 8
+            },
+            "csLutName04": {
+                "Unit": "",
+                "Description": "B:0.000000e+000 W:1.000000e+000 G:1.000000e+000",
+                "Data": 2001,
+                "Variant": "Red",
+                "VariantType": 8
+            },
+            "csLutName05": {
+                "Unit": "",
+                "Description": "B:0.000000e+000 W:1.000000e+000 G:1.000000e+000",
+                "Data": 2002,
+                "Variant": "Blue",
+                "VariantType": 8
+            },
+            "csLutName06": {
+                "Unit": "",
+                "Description": "B:0.000000e+000 W:1.000000e+000 G:1.000000e+000",
+                "Data": 2003,
+                "Variant": "Gray",
+                "VariantType": 8
+            },
+            "csLutName07": {
+                "Unit": "",
+                "Description": "B:0.000000e+000 W:1.000000e+000 G:1.000000e+000",
+                "Data": 2004,
+                "Variant": "Cyan",
+                "VariantType": 8
+            },
+            "csLutName08": {
+                "Unit": "",
+                "Description": "B:0.000000e+000 W:1.000000e+000 G:1.000000e+000",
+                "Data": 2005,
+                "Variant": "Magenta",
+                "VariantType": 8
+            },
+            "csLutName09": {
+                "Unit": "",
+                "Description": "B:0.000000e+000 W:1.000000e+000 G:1.000000e+000",
+                "Data": 2006,
+                "Variant": "Yellow",
+                "VariantType": 8
+            },
+            "csLutName10": {
+                "Unit": "",
+                "Description": "B:0.000000e+000 W:1.000000e+000 G:1.000000e+000",
+                "Data": 2007,
+                "Variant": "Glow",
+                "VariantType": 8
+            },
+            "csLutName11": {
+                "Unit": "",
+                "Description": "B:0.000000e+000 W:1.000000e+000 G:1.000000e+000",
+                "Data": 3000,
+                "Variant": "Gray",
+                "VariantType": 8
+            },
+            "csScanMode": {
+                "Unit": "",
+                "Description": "ScanMode",
+                "Data": 0,
+                "Variant": "xyzt",
+                "VariantType": 8
+            },
+            "dAdaptiveFocusControlAutonomousOffset": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": -2,
+                "VariantType": 5
+            },
+            "dblAFCOffset": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": -2,
+                "VariantType": 5
+            },
+            "dblAFFocusRange": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 8e-05,
+                "VariantType": 5
+            },
+            "dblPinhole": {
+                "Unit": "",
+                "Description": "Pinhole [m]",
+                "Data": 0,
+                "Variant": 0.000156039037739575,
+                "VariantType": 5
+            },
+            "dblPinholeAiry": {
+                "Unit": "",
+                "Description": "Pinhole [airy]",
+                "Data": 0,
+                "Variant": 1.0000848432732,
+                "VariantType": 5
+            },
+            "dblSizeX": {
+                "Unit": "m",
+                "Description": "Size-Width",
+                "Data": 0,
+                "Variant": 9.37262900562243e-05,
+                "VariantType": 5
+            },
+            "dblSizeY": {
+                "Unit": "m",
+                "Description": "Size-Height",
+                "Data": 0,
+                "Variant": 9.37262900562243e-05,
+                "VariantType": 5
+            },
+            "dblSizeZ": {
+                "Unit": "m",
+                "Description": "Size-Depth",
+                "Data": 0,
+                "Variant": -9.18839999999865e-06,
+                "VariantType": 5
+            },
+            "dblStepSize": {
+                "Unit": "m",
+                "Description": "StepSize",
+                "Data": 0,
+                "Variant": 2.964e-07,
+                "VariantType": 5
+            },
+            "dblVoxelX": {
+                "Unit": "m",
+                "Description": "Voxel-Width",
+                "Data": 0,
+                "Variant": 9.16190518633669e-08,
+                "VariantType": 5
+            },
+            "dblVoxelY": {
+                "Unit": "m",
+                "Description": "Voxel-Height",
+                "Data": 0,
+                "Variant": 9.16190518633669e-08,
+                "VariantType": 5
+            },
+            "dblZWidePos": {
+                "Unit": "m",
+                "Description": "z-Wide Pos",
+                "Data": 0,
+                "Variant": 0.0122178664,
+                "VariantType": 5
+            },
+            "dblZoom": {
+                "Unit": "",
+                "Description": "Zoom",
+                "Data": 0,
+                "Variant": 2.50000238418806,
+                "VariantType": 5
+            },
+            "dwChannelMask": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 2097152,
+                "VariantType": 3
+            },
+            "dwLogiChMask": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 1,
+                "VariantType": 3
+            },
+            "eAFAnalyseType": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 1,
+                "VariantType": 3
+            },
+            "eAFSubsystem": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 0,
+                "VariantType": 3
+            },
+            "eAFWorkflowTimelapse": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 2,
+                "VariantType": 3
+            },
+            "eAFWorkflowXY": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 2,
+                "VariantType": 3
+            },
+            "eAFZUseMode": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 2,
+                "VariantType": 3
+            },
+            "eAOBSIntensityLow_World514": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 0,
+                "VariantType": 5
+            },
+            "eAOBSIntensity_World514": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 100,
+                "VariantType": 5
+            },
+            "eAOBSMode_514": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 2,
+                "VariantType": 3
+            },
+            "eDataSource": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 0,
+                "VariantType": 3
+            },
+            "eDirectional": {
+                "Unit": "",
+                "Description": "Scan-Direction",
+                "Data": 0,
+                "Variant": 1,
+                "VariantType": 3
+            },
+            "eDirectionalY": {
+                "Unit": "",
+                "Description": "Y-Scan-Direction",
+                "Data": 0,
+                "Variant": 1,
+                "VariantType": 3
+            },
+            "eSequentialMode": {
+                "Unit": "",
+                "Description": "SequentialMode",
+                "Data": 0,
+                "Variant": 0,
+                "VariantType": 3
+            },
+            "eZUseMode": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 2,
+                "VariantType": 3
+            },
+            "m_bConstantIntegrationTimeActive": {
+                "Unit": "",
+                "Description": "Maximum IntegrationTime Active",
+                "Data": 0,
+                "Variant": 0,
+                "VariantType": 17
+            },
+            "nAFFixSliceNumber": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 9,
+                "VariantType": 3
+            },
+            "nAFPrecision": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 2,
+                "VariantType": 3
+            },
+            "nAFWorkflowTimelapseIterator": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 1,
+                "VariantType": 3
+            },
+            "nAFWorkflowXYIterator": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 1,
+                "VariantType": 3
+            },
+            "nAOBSConfigs": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 8,
+                "VariantType": 3
+            },
+            "nAccumulation": {
+                "Unit": "",
+                "Description": "Frame-Accumulation",
+                "Data": 0,
+                "Variant": 1,
+                "VariantType": 3
+            },
+            "nAverageFrame": {
+                "Unit": "",
+                "Description": "Frame-Average",
+                "Data": 0,
+                "Variant": 1,
+                "VariantType": 3
+            },
+            "nAverageLine": {
+                "Unit": "",
+                "Description": "Line-Average",
+                "Data": 0,
+                "Variant": 1,
+                "VariantType": 3
+            },
+            "nBegin": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 3217615,
+                "VariantType": 3
+            },
+            "nBit": {
+                "Unit": "",
+                "Description": "Resolution",
+                "Data": 0,
+                "Variant": 12,
+                "VariantType": 3
+            },
+            "nChannels": {
+                "Unit": "",
+                "Description": "Channels",
+                "Data": 0,
+                "Variant": 1,
+                "VariantType": 3
+            },
+            "nDelayTime_s": {
+                "Unit": "s",
+                "Description": "Delay[s]",
+                "Data": 0,
+                "Variant": 15,
+                "VariantType": 3
+            },
+            "nEnd": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 3215197,
+                "VariantType": 3
+            },
+            "nFormatInDimension": {
+                "Unit": "",
+                "Description": "Format-Width",
+                "Data": 0,
+                "Variant": 1024,
+                "VariantType": 3
+            },
+            "nFormatOutDimension": {
+                "Unit": "",
+                "Description": "Format-Height",
+                "Data": 0,
+                "Variant": 1024,
+                "VariantType": 3
+            },
+            "nLineAccumulation": {
+                "Unit": "",
+                "Description": "Line-Accumulation",
+                "Data": 0,
+                "Variant": 3,
+                "VariantType": 3
+            },
+            "nLines": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 2.50000190734886,
+                "VariantType": 5
+            },
+            "nPages": {
+                "Unit": "",
+                "Description": "",
+                "Data": 0,
+                "Variant": 2.50000190734863,
+                "VariantType": 5
+            },
+            "nRepeatActions": {
+                "Unit": "",
+                "Description": "Iterations",
+                "Data": 0,
+                "Variant": 61,
+                "VariantType": 3
+            },
+            "nSections": {
+                "Unit": "",
+                "Description": "Sections",
+                "Data": 0,
+                "Variant": 32,
+                "VariantType": 3
+            }
+        },
+        "FilterSetting": {
+            "AOBS": {
+                "Intensity": [
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOBS (0)",
+                        "Data": 0,
+                        "Variant": 100,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOBS (1)",
+                        "Data": 1,
+                        "Variant": 100,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOBS (2)",
+                        "Data": 2,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOBS (3)",
+                        "Data": 3,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOBS (4)",
+                        "Data": 4,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOBS (5)",
+                        "Data": 5,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOBS (6)",
+                        "Data": 6,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOBS (7)",
+                        "Data": 7,
+                        "Variant": 0,
+                        "VariantType": 5
+                    }
+                ]
+            },
+            "AOBSLow": {
+                "Intensity": [
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOBS (0)",
+                        "Data": 0,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOBS (1)",
+                        "Data": 1,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOBS (2)",
+                        "Data": 2,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOBS (3)",
+                        "Data": 3,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOBS (4)",
+                        "Data": 4,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOBS (5)",
+                        "Data": 5,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOBS (6)",
+                        "Data": 6,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOBS (7)",
+                        "Data": 7,
+                        "Variant": 0,
+                        "VariantType": 5
+                    }
+                ]
+            },
+            "UV AOTF-1": {
+                "Intensity": {
+                    "ClassName": "CAotf",
+                    "Description": "AOTF (405)",
+                    "Data": 405,
+                    "Variant": 0,
+                    "VariantType": 5
+                }
+            },
+            "UV AOTF-1Low": {
+                "Intensity": {
+                    "ClassName": "CAotf",
+                    "Description": "AOTF (405)",
+                    "Data": 405,
+                    "Variant": 0,
+                    "VariantType": 5
+                }
+            },
+            "Visible AOTF-7": {
+                "Intensity": [
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOTF (458)",
+                        "Data": 458,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOTF (476)",
+                        "Data": 476,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOTF (488)",
+                        "Data": 488,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOTF (496)",
+                        "Data": 496,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOTF (514)",
+                        "Data": 514,
+                        "Variant": 14.9972532503205,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOTF (561)",
+                        "Data": 561,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOTF (633)",
+                        "Data": 633,
+                        "Variant": 0,
+                        "VariantType": 5
+                    }
+                ]
+            },
+            "Visible AOTF-7Low": {
+                "Intensity": [
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOTF (458)",
+                        "Data": 458,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOTF (476)",
+                        "Data": 476,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOTF (488)",
+                        "Data": 488,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOTF (496)",
+                        "Data": 496,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOTF (514)",
+                        "Data": 514,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOTF (561)",
+                        "Data": 561,
+                        "Variant": 0,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CAotf",
+                        "Description": "AOTF (633)",
+                        "Data": 633,
+                        "Variant": 0,
+                        "VariantType": 5
+                    }
+                ]
+            },
+            "HyD 1": {
+                "State": {
+                    "ClassName": "CDetectionUnit",
+                    "Description": "HyD 1",
+                    "Data": 1,
+                    "Variant": "Active",
+                    "VariantType": 8
+                },
+                "HighVoltage": {
+                    "ClassName": "CDetectionUnit",
+                    "Description": "HyD 1 (Gain)",
+                    "Data": 1,
+                    "Variant": 10,
+                    "VariantType": 5
+                },
+                "AcquisitionMode": {
+                    "ClassName": "CDetectionUnit",
+                    "Description": "HyD 1 (AcquisitionMode)",
+                    "Data": 1,
+                    "Variant": "PhotonCounting",
+                    "VariantType": 8
+                },
+                "OverloadState": {
+                    "ClassName": "CDetectionUnit",
+                    "Description": "HyD 1 (OverloadState)",
+                    "Data": 1,
+                    "Variant": "OK",
+                    "VariantType": 8
+                }
+            },
+            "PMT 2": {
+                "State": {
+                    "ClassName": "CDetectionUnit",
+                    "Description": "PMT 2",
+                    "Data": 2,
+                    "Variant": "Inactive",
+                    "VariantType": 8
+                }
+            },
+            "PMT 3": {
+                "State": {
+                    "ClassName": "CDetectionUnit",
+                    "Description": "PMT 3",
+                    "Data": 3,
+                    "Variant": "Inactive",
+                    "VariantType": 8
+                }
+            },
+            "Galvo Slider": {
+                "Filter": {
+                    "ClassName": "CFilterWheel",
+                    "Description": "Galvo Slider",
+                    "Data": 0,
+                    "Variant": "Galvo X Res ",
+                    "VariantType": 8
+                }
+            },
+            "Reson. Galvo Pan": {
+                "Filter": {
+                    "ClassName": "CFilterWheel",
+                    "Description": "Reson. Galvo Pan",
+                    "Data": 0,
+                    "Variant": "Galvo X Pan Center ",
+                    "VariantType": 8
+                }
+            },
+            "Switchable Beam Expander": {
+                "Filter": {
+                    "ClassName": "CFilterWheel",
+                    "Description": "Switchable Beam Expander",
+                    "Data": 0,
+                    "Variant": "No FRAP Booster ",
+                    "VariantType": 8
+                }
+            },
+            "Target Slider": {
+                "Filter": {
+                    "ClassName": "CFilterWheel",
+                    "Description": "Target Slider",
+                    "Data": 0,
+                    "Variant": "Target Park ",
+                    "VariantType": 8
+                }
+            },
+            "UV Lens FW": {
+                "Filter": {
+                    "ClassName": "CFilterWheel",
+                    "Description": "UV Lens FW",
+                    "Data": 0,
+                    "Variant": "Lens 63x/0.9 W ",
+                    "VariantType": 8
+                }
+            },
+            "Hardware Tree (5100001274)": {
+                "Machine_Type": {
+                    "ClassName": "CFolderHardwareTree",
+                    "Description": "Hardware Type No.",
+                    "Data": 0,
+                    "Variant": 7,
+                    "VariantType": 5
+                },
+                "System_Number": {
+                    "ClassName": "CFolderHardwareTree",
+                    "Description": "System Number",
+                    "Data": 0,
+                    "Variant": 5100001274,
+                    "VariantType": 8
+                }
+            },
+            "Laser (405 Diode, UV)": {
+                "Wavelength": {
+                    "ClassName": "CLaser",
+                    "Description": "Laser wavelength",
+                    "Data": 0,
+                    "Variant": 405,
+                    "VariantType": 3
+                },
+                "Power State": {
+                    "ClassName": "CLaser",
+                    "Description": "Power State",
+                    "Data": 0,
+                    "Variant": "Off",
+                    "VariantType": 8
+                }
+            },
+            "Laser (Argon, visible)": {
+                "Wavelength": {
+                    "ClassName": "CLaser",
+                    "Description": "Laser wavelength",
+                    "Data": 0,
+                    "Variant": 458,
+                    "VariantType": 3
+                },
+                "Power State": {
+                    "ClassName": "CLaser",
+                    "Description": "Power State",
+                    "Data": 0,
+                    "Variant": "On",
+                    "VariantType": 8
+                },
+                "Output Power": {
+                    "ClassName": "CLaser",
+                    "Description": "Laser output power",
+                    "Data": 0,
+                    "Variant": 50,
+                    "VariantType": 5
+                }
+            },
+            "Laser (DPSS 561, visible)": {
+                "Wavelength": {
+                    "ClassName": "CLaser",
+                    "Description": "Laser wavelength",
+                    "Data": 0,
+                    "Variant": 561,
+                    "VariantType": 3
+                },
+                "Power State": {
+                    "ClassName": "CLaser",
+                    "Description": "Power State",
+                    "Data": 0,
+                    "Variant": "Off",
+                    "VariantType": 8
+                }
+            },
+            "Laser (HeNe 633, visible)": {
+                "Wavelength": {
+                    "ClassName": "CLaser",
+                    "Description": "Laser wavelength",
+                    "Data": 0,
+                    "Variant": 633,
+                    "VariantType": 3
+                },
+                "Power State": {
+                    "ClassName": "CLaser",
+                    "Description": "Power State",
+                    "Data": 0,
+                    "Variant": "Off",
+                    "VariantType": 8
+                }
+            },
+            "DM6000": {
+                "TLD_Settings": {
+                    "ClassName": "CMicroscopeStand",
+                    "Description": "TLD_Settings",
+                    "Data": 0,
+                    "Variant": 100,
+                    "VariantType": 3
+                },
+                "RLD_Settings": {
+                    "ClassName": "CMicroscopeStand",
+                    "Description": "RLD_Settings",
+                    "Data": 0,
+                    "Variant": -1,
+                    "VariantType": 3
+                }
+            },
+            "Microscope": {
+                "InverseZForCorrectTopo": {
+                    "ClassName": "CMicroscopeStand",
+                    "Description": "inverse flag topo",
+                    "Data": 0,
+                    "Variant": 1,
+                    "VariantType": 3
+                }
+            },
+            "Scan Field Rotator MA4": {
+                "Scan Rotation": {
+                    "ClassName": "CRotator",
+                    "Description": "Scan Field Rotation",
+                    "Data": 0,
+                    "Variant": 0,
+                    "VariantType": 5
+                },
+                "Rotation Direction": {
+                    "ClassName": "CRotator",
+                    "Description": "Rotation Direction",
+                    "Data": 0,
+                    "Variant": 1,
+                    "VariantType": 3
+                }
+            },
+            "X Reson. Scan Actuator": {
+                "ScanPlane": {
+                    "ClassName": "CScanActuator",
+                    "Description": "X Reson. Scan Actuator",
+                    "Data": 0,
+                    "Variant": "Active",
+                    "VariantType": 8
+                },
+                "IsWholeRangeOfSuperZEnabled": {
+                    "ClassName": "CScanActuator",
+                    "Description": "X Reson. Scan Actuator (POS)",
+                    "Data": 0,
+                    "Variant": 0,
+                    "VariantType": 3
+                },
+                "Gain": {
+                    "ClassName": "CScanActuator",
+                    "Description": "X Reson. Scan Actuator (Gain)",
+                    "Data": 0,
+                    "Variant": 2.50000238418806,
+                    "VariantType": 5
+                },
+                "Offset": {
+                    "ClassName": "CScanActuator",
+                    "Description": "X Reson. Scan Actuator (Offs.)",
+                    "Data": 0,
+                    "Variant": 8.67361737988404e-19,
+                    "VariantType": 5
+                }
+            },
+            "Y Reson. Scan Actuator": {
+                "ScanPlane": {
+                    "ClassName": "CScanActuator",
+                    "Description": "Y Reson. Scan Actuator",
+                    "Data": 0,
+                    "Variant": "Active",
+                    "VariantType": 8
+                },
+                "IsWholeRangeOfSuperZEnabled": {
+                    "ClassName": "CScanActuator",
+                    "Description": "Y Reson. Scan Actuator (POS)",
+                    "Data": 0,
+                    "Variant": 0,
+                    "VariantType": 3
+                },
+                "Gain": {
+                    "ClassName": "CScanActuator",
+                    "Description": "Y Reson. Scan Actuator (Gain)",
+                    "Data": 0,
+                    "Variant": 2.50000238418806,
+                    "VariantType": 5
+                },
+                "Offset": {
+                    "ClassName": "CScanActuator",
+                    "Description": "Y Reson. Scan Actuator (Offs.)",
+                    "Data": 0,
+                    "Variant": 8.67361737988404e-19,
+                    "VariantType": 5
+                }
+            },
+            "Scan Head": {
+                "Speed": {
+                    "ClassName": "CScanCtrlUnit",
+                    "Description": "Scan Speed",
+                    "Data": 1,
+                    "Variant": 8000,
+                    "VariantType": 5
+                },
+                "Phase": {
+                    "ClassName": "CScanCtrlUnit",
+                    "Description": "Phase",
+                    "Data": 0,
+                    "Variant": 3.68200198367285,
+                    "VariantType": 5
+                },
+                "Y-Phase": {
+                    "ClassName": "CScanCtrlUnit",
+                    "Description": "Y-Phase",
+                    "Data": 0,
+                    "Variant": 0,
+                    "VariantType": 5
+                },
+                "SMD-Phase": {
+                    "ClassName": "CScanCtrlUnit",
+                    "Description": "SMD-Phase",
+                    "Data": 0,
+                    "Variant": 0,
+                    "VariantType": 5
+                }
+            },
+            "SP Mirror Channel 1": {
+                "Wavelength": [
+                    {
+                        "ClassName": "CSpectrophotometerUnit",
+                        "Description": "SP Mirror Channel 1 (left)",
+                        "Data": 0,
+                        "Variant": 524,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CSpectrophotometerUnit",
+                        "Description": "SP Mirror Channel 1 (right)",
+                        "Data": 1,
+                        "Variant": 649.441552100243,
+                        "VariantType": 5
+                    }
+                ],
+                "Stain": {
+                    "ClassName": "CSpectrophotometerUnit",
+                    "Description": "SP Mirror Channel 1 (stain)",
+                    "Data": 0,
+                    "Variant": "",
+                    "VariantType": 8
+                }
+            },
+            "SP Mirror Channel 2": {
+                "Wavelength": [
+                    {
+                        "ClassName": "CSpectrophotometerUnit",
+                        "Description": "SP Mirror Channel 2 (left)",
+                        "Data": 0,
+                        "Variant": 690.000000123854,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CSpectrophotometerUnit",
+                        "Description": "SP Mirror Channel 2 (right)",
+                        "Data": 1,
+                        "Variant": 695,
+                        "VariantType": 5
+                    }
+                ],
+                "Stain": {
+                    "ClassName": "CSpectrophotometerUnit",
+                    "Description": "SP Mirror Channel 2 (stain)",
+                    "Data": 0,
+                    "Variant": "",
+                    "VariantType": 8
+                }
+            },
+            "SP Mirror Channel 3": {
+                "Wavelength": [
+                    {
+                        "ClassName": "CSpectrophotometerUnit",
+                        "Description": "SP Mirror Channel 3 (left)",
+                        "Data": 0,
+                        "Variant": 695,
+                        "VariantType": 5
+                    },
+                    {
+                        "ClassName": "CSpectrophotometerUnit",
+                        "Description": "SP Mirror Channel 3 (right)",
+                        "Data": 1,
+                        "Variant": 765,
+                        "VariantType": 5
+                    }
+                ],
+                "Stain": {
+                    "ClassName": "CSpectrophotometerUnit",
+                    "Description": "SP Mirror Channel 3 (stain)",
+                    "Data": 0,
+                    "Variant": "",
+                    "VariantType": 8
+                }
+            },
+            "DM6000 TubeOptic": {
+                "Magnification": {
+                    "ClassName": "CTubeOptic",
+                    "Description": "Magnification-Changer",
+                    "Data": 0,
+                    "Variant": "SCANx",
+                    "VariantType": 8
+                },
+                "Position": {
+                    "ClassName": "CTubeOptic",
+                    "Description": "Position",
+                    "Data": 0,
+                    "Variant": 1,
+                    "VariantType": 3
+                }
+            },
+            "DM6000 Turret": {
+                "Objective": {
+                    "ClassName": "CTurret",
+                    "Description": "Objective",
+                    "Data": 0,
+                    "Variant": "HCX APO L U-V-I  63.0x0.90 WATER  UV",
+                    "VariantType": 8
+                },
+                "OrderNumber": {
+                    "ClassName": "CTurret",
+                    "Description": "Order number (Obj.)",
+                    "Data": 0,
+                    "Variant": 11506148,
+                    "VariantType": 3
+                },
+                "NumericalAperture": {
+                    "ClassName": "CTurret",
+                    "Description": "Numerical aperture (Obj.)",
+                    "Data": 0,
+                    "Variant": 0.9,
+                    "VariantType": 5
+                },
+                "RefractionIndex": {
+                    "ClassName": "CTurret",
+                    "Description": "Refraction index",
+                    "Data": 0,
+                    "Variant": 1.33,
+                    "VariantType": 5
+                },
+                "DUMMYNAME": {
+                    "ClassName": "CTurret",
+                    "Description": "Dummy Name (Obj.)",
+                    "Data": 0,
+                    "Variant": "Dummy1",
+                    "VariantType": 8
+                }
+            },
+            "DM6000 Stage": {
+                "XPosOrigin": {
+                    "ClassName": "CXYZStage",
+                    "Description": "DM6000 Stage XOrigin",
+                    "Data": 0,
+                    "Variant": 0,
+                    "VariantType": 5
+                },
+                "YPosOrigin": {
+                    "ClassName": "CXYZStage",
+                    "Description": "DM6000 Stage YOrigin",
+                    "Data": 0,
+                    "Variant": 0,
+                    "VariantType": 5
+                },
+                "ZPosOrigin": {
+                    "ClassName": "CXYZStage",
+                    "Description": "DM6000 Stage ZOrigin",
+                    "Data": 0,
+                    "Variant": 0,
+                    "VariantType": 5
+                },
+                "XPos": {
+                    "ClassName": "CXYZStage",
+                    "Description": "DM6000 Stage Pos x",
+                    "Data": 0,
+                    "Variant": 0.0068001918308,
+                    "VariantType": 5
+                },
+                "YPos": {
+                    "ClassName": "CXYZStage",
+                    "Description": "DM6000 Stage Pos y",
+                    "Data": 0,
+                    "Variant": 0.00539988493057,
+                    "VariantType": 5
+                },
+                "ZPos": {
+                    "ClassName": "CXYZStage",
+                    "Description": "DM6000 Stage Pos z",
+                    "Data": 0,
+                    "Variant": 0,
+                    "VariantType": 5
+                }
+            }
+        },
+        "Application": "LAS AF"
+    }
+}

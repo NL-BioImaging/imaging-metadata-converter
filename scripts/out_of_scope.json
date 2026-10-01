@@ -59,7 +59,11 @@
             "SmallestImagePixelValue",
             "LargestImagePixelValue",
             "RescaleIntercept",
-            "RescaleSlope"
+            "RescaleSlope",
+            "HardwareSettingList.*.Description",
+            "HardwareSettingList.*.Data",
+            "HardwareSettingList.*.VariantType",
+            "HardwareSettingList.*.ClassName"
         ]
     },
     "display": {
@@ -77,7 +81,8 @@
             "HardwareSetting.ConfocalSettingDefinition.LUT_List.*",
             "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.LUT",
             "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[].LUT",
-            "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[].BackgroundLUT"
+            "HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[].BackgroundLUT",
+            "HardwareSettingList.ScannerSetting.csLutName*.*"
         ]
     },
     "software state": {

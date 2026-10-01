@@ -714,6 +714,9 @@ class AcquisitionMetadataMapper:
         divided by the second (Exif's ExposureTime [41, 5000], a part naming a list item), "duration" a time written
         as text ("2min52s") in seconds, and "quantity" the number of a value written with its unit ("21.12µm");
         those two write the unit beside the value too, where free, as does any entry stating a "unit".
+        "pattern" takes the first group of the entry's regular expression "pattern", as a number where it is
+        one (the magnification 63.0 out of Leica's objective name "HCX APO L U-V-I  63.0x0.90 WATER  UV"). A
+        source path may hold "*", for the first source path it matches (a turret named after its stand).
 
         A derived value may replace what a rule put at its target from its own parts, where that is no number
         (Cikteq's frame time "2min52s" under TALOS's rule for a number, Exif's exposure time as a list of two),
@@ -723,13 +726,13 @@ class AcquisitionMetadataMapper:
         derived_parts = set()
         unused_parts = set()
         for combination in self.combinations:
-            sources = combination['sources']
+            sources = [matching_path(metadata, path) for path in combination['sources']]
             target = combination['target']
             parts = [value_at_path(metadata, path) for path in sources]
             has_all_parts = all(part is not None for part in parts)
             text = ' '.join(map(str, parts))
-            combined = parse_combination(text, combination['format'], combination.get('item')) \
-                if has_all_parts else None
+            combined = parse_combination(text, combination['format'], combination.get('item'),
+                                         combination.get('pattern')) if has_all_parts else None
             placed = value_at_path(result, target)
             own_path = placed_from_parts(provenance, target, sources)
             replaces_its_value = (own_path is not None and placed is not None and not is_number(placed)
@@ -801,6 +804,23 @@ def drop_parts(result, provenance, parts, model_fields):
             pop_nested_value(result, path)
             for entry in below:
                 del provenance[entry]
+
+
+def matching_path(metadata, path):
+    """`path`, or where it holds "*" the first path of a value in `metadata` it matches (else `path` itself)."""
+    if '*' not in path:
+        return path
+    return next((candidate for candidate in _value_paths(metadata) if fnmatchcase(candidate, path)), path)
+
+
+def _value_paths(node, path=''):
+    """Yield the dotted path of every value below the dicts of `node`."""
+    for key, value in node.items():
+        current = f'{path}.{key}' if path else str(key)
+        if isinstance(value, dict):
+            yield from _value_paths(value, current)
+        else:
+            yield current
 
 
 def _items(value, path):
@@ -887,7 +907,7 @@ def value_at_path(metadata, dotted_path):
     return node
 
 
-def parse_combination(text, date_format, item=None):
+def parse_combination(text, date_format, item=None, pattern=None):
     """`text` parsed with the strptime `date_format`, as ISO 8601, or None if it does not parse. The format
     "unix" reads seconds since 1970 (UTC); 0 is taken as unset (TALOS writes "0" for a time it lacks), not
     as 1970-01-01. The format "split" takes the `item`-th of the whitespace-separated words of `text` as a
@@ -898,6 +918,10 @@ def parse_combination(text, date_format, item=None):
     if date_format == 'product':
         factors = [_number(word) for word in text.split()]
         return math.prod(factors) if factors and None not in factors else None
+    if date_format == 'pattern':
+        match = re.search(pattern, text)
+        number = _number(match.group(1)) if match else None
+        return (number if number is not None else match.group(1)) if match else None
     if date_format == 'ratio':
         terms = [_number(word) for word in text.split()]
         return terms[0] / terms[1] if len(terms) == 2 and None not in terms and terms[1] else None

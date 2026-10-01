@@ -291,5 +291,21 @@
             "CameraElevationAngle[1]"
         ],
         "format": "ratio"
+    },
+    {
+        "target": "Objective.Magnification",
+        "sources": [
+            "HardwareSettingList.FilterSetting.*Turret.Objective.Variant"
+        ],
+        "format": "pattern",
+        "pattern": "(\\d+(?:\\.\\d+)?)\\s*x"
+    },
+    {
+        "target": "Objective.ImmersionType",
+        "sources": [
+            "HardwareSettingList.FilterSetting.*Turret.Objective.Variant"
+        ],
+        "format": "pattern",
+        "pattern": "\\d\\s*x\\s*/?\\s*\\d+(?:\\.\\d+)?\\s+([A-Za-z]+)"
     }
 ]

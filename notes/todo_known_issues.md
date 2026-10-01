@@ -22,7 +22,7 @@ model's `id` and `imaging:` prefix moved with it from the consolidator's URL to 
 
 Generated, not yet published (2026-10-01): profile `imaging` 1.2 = `profile/imaging.metaseed.yaml`, model
 1.2.0. It adds Pixels.TimePoints (a QuantityRange: a source's first and last time-point index), compatibly
-with 1.1 (compare_specs: the optional field and the description only); the immersion aliases DRY and OIL
+with 1.1 (compare_specs: the optional field and the description only); the immersion aliases DRY, OIL and WATER
 are the model's, not the profile's.
 
 imaging-metadata-consolidator stays archived, read-only and public (user, 2026-09-30): profile 1.0 and
@@ -320,7 +320,3 @@ structure, for common fields in the source data"). A value is only a candidate i
 - [ ] Phenom's instrument.uniqueID (MVE084613-20046-F, its serial number) maps to Instrument.ID; LiMi's
       Instrument.CatalogNumber ("Catalog, Part or Serial Number") may fit better (from biomero-converter's
       notes, 2026-10-01). Fibics ATLAS states no microscope manufacturer or model at all, so none is mapped.
-- [ ] SP5 (LAS AF) HardwareSettingList: flat ScannerSettingRecord/FilterSettingRecord lists ({Identifier or
-      ObjectName + Attribute, Variant}); proposed (2026-10-01): LeicaSource reshapes them into a tree keyed by
-      their names, values as written, so plain rules apply. Magnification and immersion are only in the
-      objective's name there.

@@ -107,7 +107,8 @@ by `tests/test_examples.py` and handy as input while extending the mappings:
 | `Zeiss Supra55 Fibics ATLAS.json` | Zeiss Supra55 (Fibics ATLAS) |
 | `ome-tiff.json` | OME-TIFF derived metadata |
 | `dicom.json` | DICOM (dummy patient data) |
-| `lif_metadata.json`, `lif_tilescan_metadata.json` | Leica LIF |
+| `lif_metadata.json`, `lif_tilescan_metadata.json` | Leica LIF (LAS X) |
+| `lif_sp5_metadata.json` | Leica LIF (LAS AF, a TCS SP5) |
 | `platy_tomography.json` | BigDataViewer (SpimData) tomography |
 | `svs_metadata.json` | Aperio SVS |
 
@@ -296,7 +297,7 @@ numbers in one string:
 BigDataViewer's size `"1100 1100 1150"` gives `SizeZ` 1150. An item that is
 not there, or is no number, adds nothing.
 
-Five more formats derive a value a source writes in another form:
+Six more formats derive a value a source writes in another form:
 
 - `count` gives last − first + 1 of two parts: BigDataViewer's time points
   `first` 0 and `last` 0 give `Pixels.SizeT` 1.
@@ -314,6 +315,13 @@ Five more formats derive a value a source writes in another form:
   `FocalLength`, `ExposureBiasValue`, ...), which the model has no field
   for, becomes its number at its own key: a combination may target the key
   its parts are items of.
+- `pattern` takes the first group of the entry's regular expression
+  `"pattern"`, as a number where it is one: Leica's objective name
+  `"HCX APO L U-V-I  63.0x0.90 WATER  UV"` gives the magnification 63.0
+  (`(\d+(?:\.\d+)?)\s*x`) and the immersion `WATER`, the model's `Water`.
+  A source path may hold `*`, for the first path it matches
+  (`HardwareSettingList.FilterSetting.*Turret.Objective.Variant`, the turret
+  being named after the stand).
 
 A derived value may replace what a rule put at its target from its own
 parts, when that is no number, so the rule and the combination can share a
@@ -351,6 +359,13 @@ source has none. The order is the sequences', not the bands': TileScan.lof's
 sequences use detectors 4, 5 and 1, so its channels are ALEXA 488, mCherry
 and Cerulean, which their LUTs (green, red, blue) and their pixels (two HyD
 detectors and a PMT) confirm.
+
+Older Leica files (LAS AF, as from an SP5) list their settings as records
+instead (`{Identifier: dblZoom, Variant: 2.5}`); `LeicaSource` keys each
+record by its own name (`ScannerSetting.dblZoom`, `FilterSetting.<object>.
+<attribute>`), so plain rules map them: `ScannerSetting.dblZoom.Variant`,
+and the objective's `FilterSetting.*Turret.NumericalAperture.Variant`, the
+turret being named after the stand.
 
 ### Matching details
 

@@ -81,6 +81,24 @@ class AcquisitionMetadataMapperTest(unittest.TestCase):
         self.assertEqual(converted['SourceMap']['Pixels.Channel[0].Name'],
                          ['HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[1].DyeName'])
 
+    def test_leica_las_af_records_map_by_their_names(self):
+        def record(value, unit=''):
+            return {'Variant': value, 'Unit': unit, 'Description': '', 'Data': 0, 'VariantType': 5}
+        setting_list = {'Application': 'LAS AF',
+                        'ScannerSetting': {'dblZoom': record(2.5), 'dblVoxelX': record(9.16e-08, 'm'),
+                                           'dblPinhole': record(0.000156)},
+                        'FilterSetting': {'DMI6000 Turret': {'NumericalAperture': record(1.4),
+                                                             'Objective': record('HC PL APO 63x/1.40 OIL')}}}
+
+        converted = self.mapper.convert_metadata({'HardwareSettingList': setting_list})
+
+        # the turret is named after the stand, so the rule matches any turret's
+        self.assertEqual(converted['Objective'], {'Model': 'HC PL APO 63x/1.40 OIL', 'LensNA': 1.4, 'Magnification': 63,
+                                                  'ImmersionType': 'Oil'})
+        self.assertEqual(converted['Pixels'], {'PhysicalSizeX': 9.16e-08, 'PhysicalSizeXUnit': 'm'})
+        self.assertEqual(converted['LightPath']['ConfocalScannerSettings'],
+                         {'EffectiveZoom': 2.5, 'PresetPinholeSize': 0.000156, 'PresetPinholeSizeUnit': 'm'})
+
     def test_time_point_range_is_kept_beside_its_count(self):
         timepoints = {'first': 10, 'last': 14, 'type': 'range'}
 
@@ -552,6 +570,25 @@ class LosslessMappingTest(unittest.TestCase):
         self.assertEqual(converted['D'], '2015-10-19T00:00:00')
         # a rule moving a part to no model field only renamed it: the derived value holds it
         self.assertEqual(converted['Experimenter'], {'Name': 'x'})
+
+    def test_pattern_combination_takes_a_value_out_of_a_text_by_a_wildcard_path(self):
+        name = 'Settings.*Turret.Objective'
+        mapper = self.mapper_for({name: 'Objective.Model'}, [
+            {'target': 'Objective.Magnification', 'sources': [name], 'format': 'pattern',
+             'pattern': r'(\d+(?:\.\d+)?)\s*x'},
+            {'target': 'Objective.ImmersionType', 'sources': [name], 'format': 'pattern',
+             'pattern': r'\d\s*x\s*/?\s*\d+(?:\.\d+)?\s+([A-Za-z]+)'}],
+            schema={'Objective': {'Model': 'string', 'Magnification': 'float', 'ImmersionType': 'string'}})
+
+        converted = mapper.convert_metadata({'Settings': {'DMI6000 Turret': {'Objective': 'HC PL APO 63x/1.40 OIL'}},
+                                             'Other': 1})
+
+        self.assertEqual(converted['Objective'], {'Model': 'HC PL APO 63x/1.40 OIL', 'Magnification': 63,
+                                                  'ImmersionType': 'OIL'})
+        self.assertEqual(converted['SourceMap']['Objective.Magnification'], ['Settings.DMI6000 Turret.Objective'])
+        # the name stays where its rule put it, a model field; a name the pattern misses adds nothing
+        self.assertNotIn('ImmersionType', mapper.convert_metadata(
+            {'Settings': {'DM6000 Turret': {'Objective': 'HCX PL APO CS 63 x'}}, 'Other': 1})['Objective'])
 
     def test_ratio_combination_is_left_out_without_a_divisor(self):
         mapper = self.mapper_for({}, [{'target': 'R', 'sources': ['Q[0]', 'Q[1]'], 'format': 'ratio'}])

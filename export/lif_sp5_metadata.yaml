@@ -1,0 +1,3447 @@
+ID: OME:0
+Image:
+- SourceFile:
+  - ID: SourceFile:0
+    Name: lif_sp5_metadata.json
+    Checksum: d8f40f837c143e903f9199ea8980bd729019f3c1c936c151466e95efabf54a1e
+    Format: json
+    Mapping:
+    - ID: SourceMapping:0
+      Field: Instrument[0].Manufacturer
+      Source: manufacturer
+    - ID: SourceMapping:1
+      Field: Instrument[0].Name
+      Source: HardwareSettingList.ScannerSetting.SystemType.Variant
+    - ID: SourceMapping:2
+      Field: Image[0].Pixels.Channel[0].LightPath.ConfocalScannerSettings[0].PresetPinholeSize
+      Source: HardwareSettingList.ScannerSetting.dblPinhole.Variant
+    - ID: SourceMapping:3
+      Field: Image[0].Pixels.Channel[0].LightPath.ConfocalScannerSettings[0].EffectiveZoom
+      Source: HardwareSettingList.ScannerSetting.dblZoom.Variant
+    - ID: SourceMapping:4
+      Field: Image[0].Pixels.Channel[0].LightPath.ConfocalScannerSettings[0].IntegrationNumber
+      Source: HardwareSettingList.ScannerSetting.nAverageLine.Variant
+    - ID: SourceMapping:5
+      Field: Image[0].Pixels.Channel[0].LightPath.ConfocalScannerSettings[0].PresetPinholeSizeUnit
+      Source: HardwareSettingList.ScannerSetting.dblPinhole.Variant
+      DerivedFrom:
+      - HardwareSettingList.ScannerSetting.dblPinhole.Variant
+    - ID: SourceMapping:6
+      Field: Image[0].Pixels.PhysicalSizeZUnit
+      Source: HardwareSettingList.ScannerSetting.dblStepSize.Unit
+    - ID: SourceMapping:7
+      Field: Image[0].Pixels.PhysicalSizeZ
+      Source: HardwareSettingList.ScannerSetting.dblStepSize.Variant
+    - ID: SourceMapping:8
+      Field: Image[0].Pixels.PhysicalSizeXUnit
+      Source: HardwareSettingList.ScannerSetting.dblVoxelX.Unit
+    - ID: SourceMapping:9
+      Field: Image[0].Pixels.PhysicalSizeX
+      Source: HardwareSettingList.ScannerSetting.dblVoxelX.Variant
+    - ID: SourceMapping:10
+      Field: Image[0].Pixels.PhysicalSizeYUnit
+      Source: HardwareSettingList.ScannerSetting.dblVoxelY.Unit
+    - ID: SourceMapping:11
+      Field: Image[0].Pixels.PhysicalSizeY
+      Source: HardwareSettingList.ScannerSetting.dblVoxelY.Variant
+    - ID: SourceMapping:12
+      Field: Image[0].Pixels.SignificantBits
+      Source: HardwareSettingList.ScannerSetting.nBit.Variant
+    - ID: SourceMapping:13
+      Field: Image[0].Pixels.SizeC
+      Source: HardwareSettingList.ScannerSetting.nChannels.Variant
+    - ID: SourceMapping:14
+      Field: Image[0].Pixels.SizeX
+      Source: HardwareSettingList.ScannerSetting.nFormatInDimension.Variant
+    - ID: SourceMapping:15
+      Field: Image[0].Pixels.SizeY
+      Source: HardwareSettingList.ScannerSetting.nFormatOutDimension.Variant
+    - ID: SourceMapping:16
+      Field: Image[0].Pixels.SizeT
+      Source: HardwareSettingList.ScannerSetting.nRepeatActions.Variant
+    - ID: SourceMapping:17
+      Field: Image[0].Pixels.SizeZ
+      Source: HardwareSettingList.ScannerSetting.nSections.Variant
+    - ID: SourceMapping:18
+      Field: Instrument[0].Objective[0].Model
+      Source: HardwareSettingList.FilterSetting.DM6000 Turret.Objective.Variant
+    - ID: SourceMapping:19
+      Field: Instrument[0].Objective[0].CatalogNumber
+      Source: HardwareSettingList.FilterSetting.DM6000 Turret.OrderNumber.Variant
+      SourceValue: '11506148'
+    - ID: SourceMapping:20
+      Field: Instrument[0].Objective[0].LensNA
+      Source: HardwareSettingList.FilterSetting.DM6000 Turret.NumericalAperture.Variant
+    - ID: SourceMapping:21
+      Field: Instrument[0].Objective[0].Magnification
+      Source: HardwareSettingList.FilterSetting.DM6000 Turret.Objective.Variant
+      DerivedFrom:
+      - HardwareSettingList.FilterSetting.DM6000 Turret.Objective.Variant
+    - ID: SourceMapping:22
+      Field: Instrument[0].Objective[0].ImmersionType
+      Source: HardwareSettingList.FilterSetting.DM6000 Turret.Objective.Variant
+      DerivedFrom:
+      - HardwareSettingList.FilterSetting.DM6000 Turret.Objective.Variant
+    - ID: SourceMapping:23
+      Field: Image[0].ObjectiveSettings.ImmersionLiquid.RefractiveIndex
+      Source: HardwareSettingList.FilterSetting.DM6000 Turret.RefractionIndex.Variant
+  Pixels:
+    Channel:
+    - LightPath:
+        ConfocalScannerSettings:
+        - PresetPinholeSize: 0.000156039037739575
+          EffectiveZoom: 2.50000238418806
+          IntegrationNumber: 1
+          PresetPinholeSizeUnit: m
+    PhysicalSizeZUnit: m
+    PhysicalSizeZ: 2.964e-07
+    PhysicalSizeXUnit: m
+    PhysicalSizeX: 9.16190518633669e-08
+    PhysicalSizeYUnit: m
+    PhysicalSizeY: 9.16190518633669e-08
+    SignificantBits: 12
+    SizeC: 1
+    SizeX: 1024
+    SizeY: 1024
+    SizeT: 61
+    SizeZ: 32
+  ObjectiveSettings:
+    ImmersionLiquid:
+      RefractiveIndex: 1.33
+Instrument:
+- Manufacturer: Leica Microsystems
+  Name: TCS SP5
+  GenericFilter:
+  - {}
+  CustomProperties:
+  - ID: Property:559
+    Name: HardwareSettingList.FilterSetting.Galvo Slider.Filter.ClassName
+    Value: '"CFilterWheel"'
+    Source: SourceFile:0
+  - ID: Property:560
+    Name: HardwareSettingList.FilterSetting.Galvo Slider.Filter.Description
+    Value: '"Galvo Slider"'
+    Source: SourceFile:0
+  - ID: Property:561
+    Name: HardwareSettingList.FilterSetting.Galvo Slider.Filter.Data
+    Value: '0'
+    Source: SourceFile:0
+  - ID: Property:562
+    Name: HardwareSettingList.FilterSetting.Galvo Slider.Filter.Variant
+    Value: '"Galvo X Res "'
+    Source: SourceFile:0
+  - ID: Property:563
+    Name: HardwareSettingList.FilterSetting.Galvo Slider.Filter.VariantType
+    Value: '8'
+    Source: SourceFile:0
+  - ID: Property:564
+    Name: HardwareSettingList.FilterSetting.Reson. Galvo Pan.Filter.ClassName
+    Value: '"CFilterWheel"'
+    Source: SourceFile:0
+  - ID: Property:565
+    Name: HardwareSettingList.FilterSetting.Reson. Galvo Pan.Filter.Description
+    Value: '"Reson. Galvo Pan"'
+    Source: SourceFile:0
+  - ID: Property:566
+    Name: HardwareSettingList.FilterSetting.Reson. Galvo Pan.Filter.Data
+    Value: '0'
+    Source: SourceFile:0
+  - ID: Property:567
+    Name: HardwareSettingList.FilterSetting.Reson. Galvo Pan.Filter.Variant
+    Value: '"Galvo X Pan Center "'
+    Source: SourceFile:0
+  - ID: Property:568
+    Name: HardwareSettingList.FilterSetting.Reson. Galvo Pan.Filter.VariantType
+    Value: '8'
+    Source: SourceFile:0
+  - ID: Property:569
+    Name: HardwareSettingList.FilterSetting.Switchable Beam Expander.Filter.ClassName
+    Value: '"CFilterWheel"'
+    Source: SourceFile:0
+  - ID: Property:570
+    Name: HardwareSettingList.FilterSetting.Switchable Beam Expander.Filter.Description
+    Value: '"Switchable Beam Expander"'
+    Source: SourceFile:0
+  - ID: Property:571
+    Name: HardwareSettingList.FilterSetting.Switchable Beam Expander.Filter.Data
+    Value: '0'
+    Source: SourceFile:0
+  - ID: Property:572
+    Name: HardwareSettingList.FilterSetting.Switchable Beam Expander.Filter.Variant
+    Value: '"No FRAP Booster "'
+    Source: SourceFile:0
+  - ID: Property:573
+    Name: HardwareSettingList.FilterSetting.Switchable Beam Expander.Filter.VariantType
+    Value: '8'
+    Source: SourceFile:0
+  - ID: Property:574
+    Name: HardwareSettingList.FilterSetting.Target Slider.Filter.ClassName
+    Value: '"CFilterWheel"'
+    Source: SourceFile:0
+  - ID: Property:575
+    Name: HardwareSettingList.FilterSetting.Target Slider.Filter.Description
+    Value: '"Target Slider"'
+    Source: SourceFile:0
+  - ID: Property:576
+    Name: HardwareSettingList.FilterSetting.Target Slider.Filter.Data
+    Value: '0'
+    Source: SourceFile:0
+  - ID: Property:577
+    Name: HardwareSettingList.FilterSetting.Target Slider.Filter.Variant
+    Value: '"Target Park "'
+    Source: SourceFile:0
+  - ID: Property:578
+    Name: HardwareSettingList.FilterSetting.Target Slider.Filter.VariantType
+    Value: '8'
+    Source: SourceFile:0
+  - ID: Property:579
+    Name: HardwareSettingList.FilterSetting.UV Lens FW.Filter.ClassName
+    Value: '"CFilterWheel"'
+    Source: SourceFile:0
+  - ID: Property:580
+    Name: HardwareSettingList.FilterSetting.UV Lens FW.Filter.Description
+    Value: '"UV Lens FW"'
+    Source: SourceFile:0
+  - ID: Property:581
+    Name: HardwareSettingList.FilterSetting.UV Lens FW.Filter.Data
+    Value: '0'
+    Source: SourceFile:0
+  - ID: Property:582
+    Name: HardwareSettingList.FilterSetting.UV Lens FW.Filter.Variant
+    Value: '"Lens 63x/0.9 W "'
+    Source: SourceFile:0
+  - ID: Property:583
+    Name: HardwareSettingList.FilterSetting.UV Lens FW.Filter.VariantType
+    Value: '8'
+    Source: SourceFile:0
+  - ID: Property:779
+    Name: HardwareSettingList.FilterSetting.DM6000 Turret.Objective.ClassName
+    Value: '"CTurret"'
+    Source: SourceFile:0
+  - ID: Property:780
+    Name: HardwareSettingList.FilterSetting.DM6000 Turret.Objective.Description
+    Value: '"Objective"'
+    Source: SourceFile:0
+  - ID: Property:781
+    Name: HardwareSettingList.FilterSetting.DM6000 Turret.Objective.Data
+    Value: '0'
+    Source: SourceFile:0
+  - ID: Property:782
+    Name: HardwareSettingList.FilterSetting.DM6000 Turret.Objective.VariantType
+    Value: '8'
+    Source: SourceFile:0
+  Objective:
+  - Model: HCX APO L U-V-I  63.0x0.90 WATER  UV
+    CatalogNumber: '11506148'
+    LensNA: 0.9
+    Magnification: 63.0
+    ImmersionType: Water
+CustomProperties:
+- ID: Property:0
+  Name: HardwareSettingList.ScannerSetting.SystemType.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:1
+  Name: HardwareSettingList.ScannerSetting.SystemType.Description
+  Value: '"System Type"'
+  Source: SourceFile:0
+- ID: Property:2
+  Name: HardwareSettingList.ScannerSetting.SystemType.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:3
+  Name: HardwareSettingList.ScannerSetting.SystemType.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:4
+  Name: HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:5
+  Name: HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:6
+  Name: HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:7
+  Name: HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:8
+  Name: HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:9
+  Name: HardwareSettingList.ScannerSetting.bAdaptiveFocusControlActive.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:10
+  Name: HardwareSettingList.ScannerSetting.bAdaptiveFocusControlActive.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:11
+  Name: HardwareSettingList.ScannerSetting.bAdaptiveFocusControlActive.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:12
+  Name: HardwareSettingList.ScannerSetting.bAdaptiveFocusControlActive.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:13
+  Name: HardwareSettingList.ScannerSetting.bAdaptiveFocusControlActive.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:14
+  Name: HardwareSettingList.ScannerSetting.bEnableRoiScan.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:15
+  Name: HardwareSettingList.ScannerSetting.bEnableRoiScan.Description
+  Value: '"RoiScan"'
+  Source: SourceFile:0
+- ID: Property:16
+  Name: HardwareSettingList.ScannerSetting.bEnableRoiScan.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:17
+  Name: HardwareSettingList.ScannerSetting.bEnableRoiScan.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:18
+  Name: HardwareSettingList.ScannerSetting.bEnableRoiScan.VariantType
+  Value: '17'
+  Source: SourceFile:0
+- ID: Property:19
+  Name: HardwareSettingList.ScannerSetting.bIs3DLimitedRoiScanEnable.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:20
+  Name: HardwareSettingList.ScannerSetting.bIs3DLimitedRoiScanEnable.Description
+  Value: '"Is 3D limited ROI scan enable"'
+  Source: SourceFile:0
+- ID: Property:21
+  Name: HardwareSettingList.ScannerSetting.bIs3DLimitedRoiScanEnable.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:22
+  Name: HardwareSettingList.ScannerSetting.bIs3DLimitedRoiScanEnable.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:23
+  Name: HardwareSettingList.ScannerSetting.bIs3DLimitedRoiScanEnable.VariantType
+  Value: '17'
+  Source: SourceFile:0
+- ID: Property:24
+  Name: HardwareSettingList.ScannerSetting.bIsSequential.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:25
+  Name: HardwareSettingList.ScannerSetting.bIsSequential.Description
+  Value: '"IsSequential"'
+  Source: SourceFile:0
+- ID: Property:26
+  Name: HardwareSettingList.ScannerSetting.bIsSequential.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:27
+  Name: HardwareSettingList.ScannerSetting.bIsSequential.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:28
+  Name: HardwareSettingList.ScannerSetting.bIsSequential.VariantType
+  Value: '11'
+  Source: SourceFile:0
+- ID: Property:29
+  Name: HardwareSettingList.ScannerSetting.bIsSeriesScanAutofocusActive.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:30
+  Name: HardwareSettingList.ScannerSetting.bIsSeriesScanAutofocusActive.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:31
+  Name: HardwareSettingList.ScannerSetting.bIsSeriesScanAutofocusActive.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:32
+  Name: HardwareSettingList.ScannerSetting.bIsSeriesScanAutofocusActive.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:33
+  Name: HardwareSettingList.ScannerSetting.bIsSeriesScanAutofocusActive.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:34
+  Name: HardwareSettingList.ScannerSetting.bMinimizeMode.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:35
+  Name: HardwareSettingList.ScannerSetting.bMinimizeMode.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:36
+  Name: HardwareSettingList.ScannerSetting.bMinimizeMode.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:37
+  Name: HardwareSettingList.ScannerSetting.bMinimizeMode.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:38
+  Name: HardwareSettingList.ScannerSetting.bMinimizeMode.VariantType
+  Value: '17'
+  Source: SourceFile:0
+- ID: Property:39
+  Name: HardwareSettingList.ScannerSetting.bSecondCrystal.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:40
+  Name: HardwareSettingList.ScannerSetting.bSecondCrystal.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:41
+  Name: HardwareSettingList.ScannerSetting.bSecondCrystal.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:42
+  Name: HardwareSettingList.ScannerSetting.bSecondCrystal.Variant
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:43
+  Name: HardwareSettingList.ScannerSetting.bSecondCrystal.VariantType
+  Value: '17'
+  Source: SourceFile:0
+- ID: Property:44
+  Name: HardwareSettingList.ScannerSetting.bStepSizeConstant.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:45
+  Name: HardwareSettingList.ScannerSetting.bStepSizeConstant.Description
+  Value: '"StepSize Constant"'
+  Source: SourceFile:0
+- ID: Property:46
+  Name: HardwareSettingList.ScannerSetting.bStepSizeConstant.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:47
+  Name: HardwareSettingList.ScannerSetting.bStepSizeConstant.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:48
+  Name: HardwareSettingList.ScannerSetting.bStepSizeConstant.VariantType
+  Value: '17'
+  Source: SourceFile:0
+- ID: Property:49
+  Name: HardwareSettingList.ScannerSetting.bStepSizerActivated.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:50
+  Name: HardwareSettingList.ScannerSetting.bStepSizerActivated.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:51
+  Name: HardwareSettingList.ScannerSetting.bStepSizerActivated.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:52
+  Name: HardwareSettingList.ScannerSetting.bStepSizerActivated.Variant
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:53
+  Name: HardwareSettingList.ScannerSetting.bStepSizerActivated.VariantType
+  Value: '17'
+  Source: SourceFile:0
+- ID: Property:54
+  Name: HardwareSettingList.ScannerSetting.bUseUVShutter.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:55
+  Name: HardwareSettingList.ScannerSetting.bUseUVShutter.Description
+  Value: '"UV Shutter"'
+  Source: SourceFile:0
+- ID: Property:56
+  Name: HardwareSettingList.ScannerSetting.bUseUVShutter.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:57
+  Name: HardwareSettingList.ScannerSetting.bUseUVShutter.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:58
+  Name: HardwareSettingList.ScannerSetting.bUseUVShutter.VariantType
+  Value: '17'
+  Source: SourceFile:0
+- ID: Property:59
+  Name: HardwareSettingList.ScannerSetting.bUseVisibleShutter.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:60
+  Name: HardwareSettingList.ScannerSetting.bUseVisibleShutter.Description
+  Value: '"Visible Shutter"'
+  Source: SourceFile:0
+- ID: Property:61
+  Name: HardwareSettingList.ScannerSetting.bUseVisibleShutter.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:62
+  Name: HardwareSettingList.ScannerSetting.bUseVisibleShutter.Variant
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:63
+  Name: HardwareSettingList.ScannerSetting.bUseVisibleShutter.VariantType
+  Value: '17'
+  Source: SourceFile:0
+- ID: Property:64
+  Name: HardwareSettingList.ScannerSetting.bValidBegin.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:65
+  Name: HardwareSettingList.ScannerSetting.bValidBegin.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:66
+  Name: HardwareSettingList.ScannerSetting.bValidBegin.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:67
+  Name: HardwareSettingList.ScannerSetting.bValidBegin.Variant
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:68
+  Name: HardwareSettingList.ScannerSetting.bValidBegin.VariantType
+  Value: '17'
+  Source: SourceFile:0
+- ID: Property:69
+  Name: HardwareSettingList.ScannerSetting.bValidEnd.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:70
+  Name: HardwareSettingList.ScannerSetting.bValidEnd.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:71
+  Name: HardwareSettingList.ScannerSetting.bValidEnd.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:72
+  Name: HardwareSettingList.ScannerSetting.bValidEnd.Variant
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:73
+  Name: HardwareSettingList.ScannerSetting.bValidEnd.VariantType
+  Value: '17'
+  Source: SourceFile:0
+- ID: Property:74
+  Name: HardwareSettingList.ScannerSetting.csLutName00.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:75
+  Name: HardwareSettingList.ScannerSetting.csLutName00.Description
+  Value: '"B:0.000000e+000 W:1.000000e+000 G:1.000000e+000"'
+  Source: SourceFile:0
+- ID: Property:76
+  Name: HardwareSettingList.ScannerSetting.csLutName00.Data
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:77
+  Name: HardwareSettingList.ScannerSetting.csLutName00.Variant
+  Value: '"Green"'
+  Source: SourceFile:0
+- ID: Property:78
+  Name: HardwareSettingList.ScannerSetting.csLutName00.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:79
+  Name: HardwareSettingList.ScannerSetting.csLutName01.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:80
+  Name: HardwareSettingList.ScannerSetting.csLutName01.Description
+  Value: '"B:0.000000e+000 W:1.000000e+000 G:1.000000e+000"'
+  Source: SourceFile:0
+- ID: Property:81
+  Name: HardwareSettingList.ScannerSetting.csLutName01.Data
+  Value: '2'
+  Source: SourceFile:0
+- ID: Property:82
+  Name: HardwareSettingList.ScannerSetting.csLutName01.Variant
+  Value: '"Red"'
+  Source: SourceFile:0
+- ID: Property:83
+  Name: HardwareSettingList.ScannerSetting.csLutName01.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:84
+  Name: HardwareSettingList.ScannerSetting.csLutName02.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:85
+  Name: HardwareSettingList.ScannerSetting.csLutName02.Description
+  Value: '"B:0.000000e+000 W:1.000000e+000 G:1.000000e+000"'
+  Source: SourceFile:0
+- ID: Property:86
+  Name: HardwareSettingList.ScannerSetting.csLutName02.Data
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:87
+  Name: HardwareSettingList.ScannerSetting.csLutName02.Variant
+  Value: '"Blue"'
+  Source: SourceFile:0
+- ID: Property:88
+  Name: HardwareSettingList.ScannerSetting.csLutName02.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:89
+  Name: HardwareSettingList.ScannerSetting.csLutName03.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:90
+  Name: HardwareSettingList.ScannerSetting.csLutName03.Description
+  Value: '"B:0.000000e+000 W:1.000000e+000 G:1.000000e+000"'
+  Source: SourceFile:0
+- ID: Property:91
+  Name: HardwareSettingList.ScannerSetting.csLutName03.Data
+  Value: '2000'
+  Source: SourceFile:0
+- ID: Property:92
+  Name: HardwareSettingList.ScannerSetting.csLutName03.Variant
+  Value: '"Green"'
+  Source: SourceFile:0
+- ID: Property:93
+  Name: HardwareSettingList.ScannerSetting.csLutName03.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:94
+  Name: HardwareSettingList.ScannerSetting.csLutName04.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:95
+  Name: HardwareSettingList.ScannerSetting.csLutName04.Description
+  Value: '"B:0.000000e+000 W:1.000000e+000 G:1.000000e+000"'
+  Source: SourceFile:0
+- ID: Property:96
+  Name: HardwareSettingList.ScannerSetting.csLutName04.Data
+  Value: '2001'
+  Source: SourceFile:0
+- ID: Property:97
+  Name: HardwareSettingList.ScannerSetting.csLutName04.Variant
+  Value: '"Red"'
+  Source: SourceFile:0
+- ID: Property:98
+  Name: HardwareSettingList.ScannerSetting.csLutName04.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:99
+  Name: HardwareSettingList.ScannerSetting.csLutName05.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:100
+  Name: HardwareSettingList.ScannerSetting.csLutName05.Description
+  Value: '"B:0.000000e+000 W:1.000000e+000 G:1.000000e+000"'
+  Source: SourceFile:0
+- ID: Property:101
+  Name: HardwareSettingList.ScannerSetting.csLutName05.Data
+  Value: '2002'
+  Source: SourceFile:0
+- ID: Property:102
+  Name: HardwareSettingList.ScannerSetting.csLutName05.Variant
+  Value: '"Blue"'
+  Source: SourceFile:0
+- ID: Property:103
+  Name: HardwareSettingList.ScannerSetting.csLutName05.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:104
+  Name: HardwareSettingList.ScannerSetting.csLutName06.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:105
+  Name: HardwareSettingList.ScannerSetting.csLutName06.Description
+  Value: '"B:0.000000e+000 W:1.000000e+000 G:1.000000e+000"'
+  Source: SourceFile:0
+- ID: Property:106
+  Name: HardwareSettingList.ScannerSetting.csLutName06.Data
+  Value: '2003'
+  Source: SourceFile:0
+- ID: Property:107
+  Name: HardwareSettingList.ScannerSetting.csLutName06.Variant
+  Value: '"Gray"'
+  Source: SourceFile:0
+- ID: Property:108
+  Name: HardwareSettingList.ScannerSetting.csLutName06.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:109
+  Name: HardwareSettingList.ScannerSetting.csLutName07.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:110
+  Name: HardwareSettingList.ScannerSetting.csLutName07.Description
+  Value: '"B:0.000000e+000 W:1.000000e+000 G:1.000000e+000"'
+  Source: SourceFile:0
+- ID: Property:111
+  Name: HardwareSettingList.ScannerSetting.csLutName07.Data
+  Value: '2004'
+  Source: SourceFile:0
+- ID: Property:112
+  Name: HardwareSettingList.ScannerSetting.csLutName07.Variant
+  Value: '"Cyan"'
+  Source: SourceFile:0
+- ID: Property:113
+  Name: HardwareSettingList.ScannerSetting.csLutName07.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:114
+  Name: HardwareSettingList.ScannerSetting.csLutName08.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:115
+  Name: HardwareSettingList.ScannerSetting.csLutName08.Description
+  Value: '"B:0.000000e+000 W:1.000000e+000 G:1.000000e+000"'
+  Source: SourceFile:0
+- ID: Property:116
+  Name: HardwareSettingList.ScannerSetting.csLutName08.Data
+  Value: '2005'
+  Source: SourceFile:0
+- ID: Property:117
+  Name: HardwareSettingList.ScannerSetting.csLutName08.Variant
+  Value: '"Magenta"'
+  Source: SourceFile:0
+- ID: Property:118
+  Name: HardwareSettingList.ScannerSetting.csLutName08.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:119
+  Name: HardwareSettingList.ScannerSetting.csLutName09.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:120
+  Name: HardwareSettingList.ScannerSetting.csLutName09.Description
+  Value: '"B:0.000000e+000 W:1.000000e+000 G:1.000000e+000"'
+  Source: SourceFile:0
+- ID: Property:121
+  Name: HardwareSettingList.ScannerSetting.csLutName09.Data
+  Value: '2006'
+  Source: SourceFile:0
+- ID: Property:122
+  Name: HardwareSettingList.ScannerSetting.csLutName09.Variant
+  Value: '"Yellow"'
+  Source: SourceFile:0
+- ID: Property:123
+  Name: HardwareSettingList.ScannerSetting.csLutName09.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:124
+  Name: HardwareSettingList.ScannerSetting.csLutName10.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:125
+  Name: HardwareSettingList.ScannerSetting.csLutName10.Description
+  Value: '"B:0.000000e+000 W:1.000000e+000 G:1.000000e+000"'
+  Source: SourceFile:0
+- ID: Property:126
+  Name: HardwareSettingList.ScannerSetting.csLutName10.Data
+  Value: '2007'
+  Source: SourceFile:0
+- ID: Property:127
+  Name: HardwareSettingList.ScannerSetting.csLutName10.Variant
+  Value: '"Glow"'
+  Source: SourceFile:0
+- ID: Property:128
+  Name: HardwareSettingList.ScannerSetting.csLutName10.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:129
+  Name: HardwareSettingList.ScannerSetting.csLutName11.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:130
+  Name: HardwareSettingList.ScannerSetting.csLutName11.Description
+  Value: '"B:0.000000e+000 W:1.000000e+000 G:1.000000e+000"'
+  Source: SourceFile:0
+- ID: Property:131
+  Name: HardwareSettingList.ScannerSetting.csLutName11.Data
+  Value: '3000'
+  Source: SourceFile:0
+- ID: Property:132
+  Name: HardwareSettingList.ScannerSetting.csLutName11.Variant
+  Value: '"Gray"'
+  Source: SourceFile:0
+- ID: Property:133
+  Name: HardwareSettingList.ScannerSetting.csLutName11.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:134
+  Name: HardwareSettingList.ScannerSetting.csScanMode.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:135
+  Name: HardwareSettingList.ScannerSetting.csScanMode.Description
+  Value: '"ScanMode"'
+  Source: SourceFile:0
+- ID: Property:136
+  Name: HardwareSettingList.ScannerSetting.csScanMode.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:137
+  Name: HardwareSettingList.ScannerSetting.csScanMode.Variant
+  Value: '"xyzt"'
+  Source: SourceFile:0
+- ID: Property:138
+  Name: HardwareSettingList.ScannerSetting.csScanMode.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:139
+  Name: HardwareSettingList.ScannerSetting.dAdaptiveFocusControlAutonomousOffset.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:140
+  Name: HardwareSettingList.ScannerSetting.dAdaptiveFocusControlAutonomousOffset.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:141
+  Name: HardwareSettingList.ScannerSetting.dAdaptiveFocusControlAutonomousOffset.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:142
+  Name: HardwareSettingList.ScannerSetting.dAdaptiveFocusControlAutonomousOffset.Variant
+  Value: '-2'
+  Source: SourceFile:0
+- ID: Property:143
+  Name: HardwareSettingList.ScannerSetting.dAdaptiveFocusControlAutonomousOffset.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:144
+  Name: HardwareSettingList.ScannerSetting.dblAFCOffset.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:145
+  Name: HardwareSettingList.ScannerSetting.dblAFCOffset.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:146
+  Name: HardwareSettingList.ScannerSetting.dblAFCOffset.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:147
+  Name: HardwareSettingList.ScannerSetting.dblAFCOffset.Variant
+  Value: '-2'
+  Source: SourceFile:0
+- ID: Property:148
+  Name: HardwareSettingList.ScannerSetting.dblAFCOffset.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:149
+  Name: HardwareSettingList.ScannerSetting.dblAFFocusRange.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:150
+  Name: HardwareSettingList.ScannerSetting.dblAFFocusRange.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:151
+  Name: HardwareSettingList.ScannerSetting.dblAFFocusRange.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:152
+  Name: HardwareSettingList.ScannerSetting.dblAFFocusRange.Variant
+  Value: 8e-05
+  Source: SourceFile:0
+- ID: Property:153
+  Name: HardwareSettingList.ScannerSetting.dblAFFocusRange.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:154
+  Name: HardwareSettingList.ScannerSetting.dblPinhole.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:155
+  Name: HardwareSettingList.ScannerSetting.dblPinhole.Description
+  Value: '"Pinhole [m]"'
+  Source: SourceFile:0
+- ID: Property:156
+  Name: HardwareSettingList.ScannerSetting.dblPinhole.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:157
+  Name: HardwareSettingList.ScannerSetting.dblPinhole.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:158
+  Name: HardwareSettingList.ScannerSetting.dblPinholeAiry.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:159
+  Name: HardwareSettingList.ScannerSetting.dblPinholeAiry.Description
+  Value: '"Pinhole [airy]"'
+  Source: SourceFile:0
+- ID: Property:160
+  Name: HardwareSettingList.ScannerSetting.dblPinholeAiry.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:161
+  Name: HardwareSettingList.ScannerSetting.dblPinholeAiry.Variant
+  Value: '1.0000848432732'
+  Source: SourceFile:0
+- ID: Property:162
+  Name: HardwareSettingList.ScannerSetting.dblPinholeAiry.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:163
+  Name: HardwareSettingList.ScannerSetting.dblSizeX.Unit
+  Value: '"m"'
+  Source: SourceFile:0
+- ID: Property:164
+  Name: HardwareSettingList.ScannerSetting.dblSizeX.Description
+  Value: '"Size-Width"'
+  Source: SourceFile:0
+- ID: Property:165
+  Name: HardwareSettingList.ScannerSetting.dblSizeX.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:166
+  Name: HardwareSettingList.ScannerSetting.dblSizeX.Variant
+  Value: '9.37262900562243e-05'
+  Source: SourceFile:0
+- ID: Property:167
+  Name: HardwareSettingList.ScannerSetting.dblSizeX.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:168
+  Name: HardwareSettingList.ScannerSetting.dblSizeY.Unit
+  Value: '"m"'
+  Source: SourceFile:0
+- ID: Property:169
+  Name: HardwareSettingList.ScannerSetting.dblSizeY.Description
+  Value: '"Size-Height"'
+  Source: SourceFile:0
+- ID: Property:170
+  Name: HardwareSettingList.ScannerSetting.dblSizeY.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:171
+  Name: HardwareSettingList.ScannerSetting.dblSizeY.Variant
+  Value: '9.37262900562243e-05'
+  Source: SourceFile:0
+- ID: Property:172
+  Name: HardwareSettingList.ScannerSetting.dblSizeY.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:173
+  Name: HardwareSettingList.ScannerSetting.dblSizeZ.Unit
+  Value: '"m"'
+  Source: SourceFile:0
+- ID: Property:174
+  Name: HardwareSettingList.ScannerSetting.dblSizeZ.Description
+  Value: '"Size-Depth"'
+  Source: SourceFile:0
+- ID: Property:175
+  Name: HardwareSettingList.ScannerSetting.dblSizeZ.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:176
+  Name: HardwareSettingList.ScannerSetting.dblSizeZ.Variant
+  Value: '-9.18839999999865e-06'
+  Source: SourceFile:0
+- ID: Property:177
+  Name: HardwareSettingList.ScannerSetting.dblSizeZ.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:178
+  Name: HardwareSettingList.ScannerSetting.dblStepSize.Description
+  Value: '"StepSize"'
+  Source: SourceFile:0
+- ID: Property:179
+  Name: HardwareSettingList.ScannerSetting.dblStepSize.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:180
+  Name: HardwareSettingList.ScannerSetting.dblStepSize.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:181
+  Name: HardwareSettingList.ScannerSetting.dblVoxelX.Description
+  Value: '"Voxel-Width"'
+  Source: SourceFile:0
+- ID: Property:182
+  Name: HardwareSettingList.ScannerSetting.dblVoxelX.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:183
+  Name: HardwareSettingList.ScannerSetting.dblVoxelX.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:184
+  Name: HardwareSettingList.ScannerSetting.dblVoxelY.Description
+  Value: '"Voxel-Height"'
+  Source: SourceFile:0
+- ID: Property:185
+  Name: HardwareSettingList.ScannerSetting.dblVoxelY.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:186
+  Name: HardwareSettingList.ScannerSetting.dblVoxelY.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:187
+  Name: HardwareSettingList.ScannerSetting.dblZWidePos.Unit
+  Value: '"m"'
+  Source: SourceFile:0
+- ID: Property:188
+  Name: HardwareSettingList.ScannerSetting.dblZWidePos.Description
+  Value: '"z-Wide Pos"'
+  Source: SourceFile:0
+- ID: Property:189
+  Name: HardwareSettingList.ScannerSetting.dblZWidePos.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:190
+  Name: HardwareSettingList.ScannerSetting.dblZWidePos.Variant
+  Value: '0.0122178664'
+  Source: SourceFile:0
+- ID: Property:191
+  Name: HardwareSettingList.ScannerSetting.dblZWidePos.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:192
+  Name: HardwareSettingList.ScannerSetting.dblZoom.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:193
+  Name: HardwareSettingList.ScannerSetting.dblZoom.Description
+  Value: '"Zoom"'
+  Source: SourceFile:0
+- ID: Property:194
+  Name: HardwareSettingList.ScannerSetting.dblZoom.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:195
+  Name: HardwareSettingList.ScannerSetting.dblZoom.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:196
+  Name: HardwareSettingList.ScannerSetting.dwChannelMask.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:197
+  Name: HardwareSettingList.ScannerSetting.dwChannelMask.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:198
+  Name: HardwareSettingList.ScannerSetting.dwChannelMask.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:199
+  Name: HardwareSettingList.ScannerSetting.dwChannelMask.Variant
+  Value: '2097152'
+  Source: SourceFile:0
+- ID: Property:200
+  Name: HardwareSettingList.ScannerSetting.dwChannelMask.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:201
+  Name: HardwareSettingList.ScannerSetting.dwLogiChMask.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:202
+  Name: HardwareSettingList.ScannerSetting.dwLogiChMask.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:203
+  Name: HardwareSettingList.ScannerSetting.dwLogiChMask.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:204
+  Name: HardwareSettingList.ScannerSetting.dwLogiChMask.Variant
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:205
+  Name: HardwareSettingList.ScannerSetting.dwLogiChMask.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:206
+  Name: HardwareSettingList.ScannerSetting.eAFAnalyseType.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:207
+  Name: HardwareSettingList.ScannerSetting.eAFAnalyseType.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:208
+  Name: HardwareSettingList.ScannerSetting.eAFAnalyseType.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:209
+  Name: HardwareSettingList.ScannerSetting.eAFAnalyseType.Variant
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:210
+  Name: HardwareSettingList.ScannerSetting.eAFAnalyseType.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:211
+  Name: HardwareSettingList.ScannerSetting.eAFSubsystem.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:212
+  Name: HardwareSettingList.ScannerSetting.eAFSubsystem.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:213
+  Name: HardwareSettingList.ScannerSetting.eAFSubsystem.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:214
+  Name: HardwareSettingList.ScannerSetting.eAFSubsystem.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:215
+  Name: HardwareSettingList.ScannerSetting.eAFSubsystem.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:216
+  Name: HardwareSettingList.ScannerSetting.eAFWorkflowTimelapse.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:217
+  Name: HardwareSettingList.ScannerSetting.eAFWorkflowTimelapse.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:218
+  Name: HardwareSettingList.ScannerSetting.eAFWorkflowTimelapse.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:219
+  Name: HardwareSettingList.ScannerSetting.eAFWorkflowTimelapse.Variant
+  Value: '2'
+  Source: SourceFile:0
+- ID: Property:220
+  Name: HardwareSettingList.ScannerSetting.eAFWorkflowTimelapse.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:221
+  Name: HardwareSettingList.ScannerSetting.eAFWorkflowXY.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:222
+  Name: HardwareSettingList.ScannerSetting.eAFWorkflowXY.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:223
+  Name: HardwareSettingList.ScannerSetting.eAFWorkflowXY.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:224
+  Name: HardwareSettingList.ScannerSetting.eAFWorkflowXY.Variant
+  Value: '2'
+  Source: SourceFile:0
+- ID: Property:225
+  Name: HardwareSettingList.ScannerSetting.eAFWorkflowXY.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:226
+  Name: HardwareSettingList.ScannerSetting.eAFZUseMode.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:227
+  Name: HardwareSettingList.ScannerSetting.eAFZUseMode.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:228
+  Name: HardwareSettingList.ScannerSetting.eAFZUseMode.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:229
+  Name: HardwareSettingList.ScannerSetting.eAFZUseMode.Variant
+  Value: '2'
+  Source: SourceFile:0
+- ID: Property:230
+  Name: HardwareSettingList.ScannerSetting.eAFZUseMode.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:231
+  Name: HardwareSettingList.ScannerSetting.eAOBSIntensityLow_World514.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:232
+  Name: HardwareSettingList.ScannerSetting.eAOBSIntensityLow_World514.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:233
+  Name: HardwareSettingList.ScannerSetting.eAOBSIntensityLow_World514.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:234
+  Name: HardwareSettingList.ScannerSetting.eAOBSIntensityLow_World514.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:235
+  Name: HardwareSettingList.ScannerSetting.eAOBSIntensityLow_World514.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:236
+  Name: HardwareSettingList.ScannerSetting.eAOBSIntensity_World514.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:237
+  Name: HardwareSettingList.ScannerSetting.eAOBSIntensity_World514.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:238
+  Name: HardwareSettingList.ScannerSetting.eAOBSIntensity_World514.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:239
+  Name: HardwareSettingList.ScannerSetting.eAOBSIntensity_World514.Variant
+  Value: '100'
+  Source: SourceFile:0
+- ID: Property:240
+  Name: HardwareSettingList.ScannerSetting.eAOBSIntensity_World514.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:241
+  Name: HardwareSettingList.ScannerSetting.eAOBSMode_514.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:242
+  Name: HardwareSettingList.ScannerSetting.eAOBSMode_514.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:243
+  Name: HardwareSettingList.ScannerSetting.eAOBSMode_514.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:244
+  Name: HardwareSettingList.ScannerSetting.eAOBSMode_514.Variant
+  Value: '2'
+  Source: SourceFile:0
+- ID: Property:245
+  Name: HardwareSettingList.ScannerSetting.eAOBSMode_514.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:246
+  Name: HardwareSettingList.ScannerSetting.eDataSource.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:247
+  Name: HardwareSettingList.ScannerSetting.eDataSource.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:248
+  Name: HardwareSettingList.ScannerSetting.eDataSource.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:249
+  Name: HardwareSettingList.ScannerSetting.eDataSource.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:250
+  Name: HardwareSettingList.ScannerSetting.eDataSource.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:251
+  Name: HardwareSettingList.ScannerSetting.eDirectional.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:252
+  Name: HardwareSettingList.ScannerSetting.eDirectional.Description
+  Value: '"Scan-Direction"'
+  Source: SourceFile:0
+- ID: Property:253
+  Name: HardwareSettingList.ScannerSetting.eDirectional.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:254
+  Name: HardwareSettingList.ScannerSetting.eDirectional.Variant
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:255
+  Name: HardwareSettingList.ScannerSetting.eDirectional.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:256
+  Name: HardwareSettingList.ScannerSetting.eDirectionalY.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:257
+  Name: HardwareSettingList.ScannerSetting.eDirectionalY.Description
+  Value: '"Y-Scan-Direction"'
+  Source: SourceFile:0
+- ID: Property:258
+  Name: HardwareSettingList.ScannerSetting.eDirectionalY.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:259
+  Name: HardwareSettingList.ScannerSetting.eDirectionalY.Variant
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:260
+  Name: HardwareSettingList.ScannerSetting.eDirectionalY.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:261
+  Name: HardwareSettingList.ScannerSetting.eSequentialMode.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:262
+  Name: HardwareSettingList.ScannerSetting.eSequentialMode.Description
+  Value: '"SequentialMode"'
+  Source: SourceFile:0
+- ID: Property:263
+  Name: HardwareSettingList.ScannerSetting.eSequentialMode.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:264
+  Name: HardwareSettingList.ScannerSetting.eSequentialMode.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:265
+  Name: HardwareSettingList.ScannerSetting.eSequentialMode.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:266
+  Name: HardwareSettingList.ScannerSetting.eZUseMode.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:267
+  Name: HardwareSettingList.ScannerSetting.eZUseMode.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:268
+  Name: HardwareSettingList.ScannerSetting.eZUseMode.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:269
+  Name: HardwareSettingList.ScannerSetting.eZUseMode.Variant
+  Value: '2'
+  Source: SourceFile:0
+- ID: Property:270
+  Name: HardwareSettingList.ScannerSetting.eZUseMode.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:271
+  Name: HardwareSettingList.ScannerSetting.m_bConstantIntegrationTimeActive.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:272
+  Name: HardwareSettingList.ScannerSetting.m_bConstantIntegrationTimeActive.Description
+  Value: '"Maximum IntegrationTime Active"'
+  Source: SourceFile:0
+- ID: Property:273
+  Name: HardwareSettingList.ScannerSetting.m_bConstantIntegrationTimeActive.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:274
+  Name: HardwareSettingList.ScannerSetting.m_bConstantIntegrationTimeActive.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:275
+  Name: HardwareSettingList.ScannerSetting.m_bConstantIntegrationTimeActive.VariantType
+  Value: '17'
+  Source: SourceFile:0
+- ID: Property:276
+  Name: HardwareSettingList.ScannerSetting.nAFFixSliceNumber.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:277
+  Name: HardwareSettingList.ScannerSetting.nAFFixSliceNumber.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:278
+  Name: HardwareSettingList.ScannerSetting.nAFFixSliceNumber.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:279
+  Name: HardwareSettingList.ScannerSetting.nAFFixSliceNumber.Variant
+  Value: '9'
+  Source: SourceFile:0
+- ID: Property:280
+  Name: HardwareSettingList.ScannerSetting.nAFFixSliceNumber.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:281
+  Name: HardwareSettingList.ScannerSetting.nAFPrecision.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:282
+  Name: HardwareSettingList.ScannerSetting.nAFPrecision.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:283
+  Name: HardwareSettingList.ScannerSetting.nAFPrecision.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:284
+  Name: HardwareSettingList.ScannerSetting.nAFPrecision.Variant
+  Value: '2'
+  Source: SourceFile:0
+- ID: Property:285
+  Name: HardwareSettingList.ScannerSetting.nAFPrecision.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:286
+  Name: HardwareSettingList.ScannerSetting.nAFWorkflowTimelapseIterator.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:287
+  Name: HardwareSettingList.ScannerSetting.nAFWorkflowTimelapseIterator.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:288
+  Name: HardwareSettingList.ScannerSetting.nAFWorkflowTimelapseIterator.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:289
+  Name: HardwareSettingList.ScannerSetting.nAFWorkflowTimelapseIterator.Variant
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:290
+  Name: HardwareSettingList.ScannerSetting.nAFWorkflowTimelapseIterator.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:291
+  Name: HardwareSettingList.ScannerSetting.nAFWorkflowXYIterator.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:292
+  Name: HardwareSettingList.ScannerSetting.nAFWorkflowXYIterator.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:293
+  Name: HardwareSettingList.ScannerSetting.nAFWorkflowXYIterator.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:294
+  Name: HardwareSettingList.ScannerSetting.nAFWorkflowXYIterator.Variant
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:295
+  Name: HardwareSettingList.ScannerSetting.nAFWorkflowXYIterator.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:296
+  Name: HardwareSettingList.ScannerSetting.nAOBSConfigs.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:297
+  Name: HardwareSettingList.ScannerSetting.nAOBSConfigs.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:298
+  Name: HardwareSettingList.ScannerSetting.nAOBSConfigs.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:299
+  Name: HardwareSettingList.ScannerSetting.nAOBSConfigs.Variant
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:300
+  Name: HardwareSettingList.ScannerSetting.nAOBSConfigs.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:301
+  Name: HardwareSettingList.ScannerSetting.nAccumulation.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:302
+  Name: HardwareSettingList.ScannerSetting.nAccumulation.Description
+  Value: '"Frame-Accumulation"'
+  Source: SourceFile:0
+- ID: Property:303
+  Name: HardwareSettingList.ScannerSetting.nAccumulation.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:304
+  Name: HardwareSettingList.ScannerSetting.nAccumulation.Variant
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:305
+  Name: HardwareSettingList.ScannerSetting.nAccumulation.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:306
+  Name: HardwareSettingList.ScannerSetting.nAverageFrame.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:307
+  Name: HardwareSettingList.ScannerSetting.nAverageFrame.Description
+  Value: '"Frame-Average"'
+  Source: SourceFile:0
+- ID: Property:308
+  Name: HardwareSettingList.ScannerSetting.nAverageFrame.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:309
+  Name: HardwareSettingList.ScannerSetting.nAverageFrame.Variant
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:310
+  Name: HardwareSettingList.ScannerSetting.nAverageFrame.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:311
+  Name: HardwareSettingList.ScannerSetting.nAverageLine.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:312
+  Name: HardwareSettingList.ScannerSetting.nAverageLine.Description
+  Value: '"Line-Average"'
+  Source: SourceFile:0
+- ID: Property:313
+  Name: HardwareSettingList.ScannerSetting.nAverageLine.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:314
+  Name: HardwareSettingList.ScannerSetting.nAverageLine.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:315
+  Name: HardwareSettingList.ScannerSetting.nBegin.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:316
+  Name: HardwareSettingList.ScannerSetting.nBegin.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:317
+  Name: HardwareSettingList.ScannerSetting.nBegin.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:318
+  Name: HardwareSettingList.ScannerSetting.nBegin.Variant
+  Value: '3217615'
+  Source: SourceFile:0
+- ID: Property:319
+  Name: HardwareSettingList.ScannerSetting.nBegin.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:320
+  Name: HardwareSettingList.ScannerSetting.nBit.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:321
+  Name: HardwareSettingList.ScannerSetting.nBit.Description
+  Value: '"Resolution"'
+  Source: SourceFile:0
+- ID: Property:322
+  Name: HardwareSettingList.ScannerSetting.nBit.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:323
+  Name: HardwareSettingList.ScannerSetting.nBit.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:324
+  Name: HardwareSettingList.ScannerSetting.nChannels.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:325
+  Name: HardwareSettingList.ScannerSetting.nChannels.Description
+  Value: '"Channels"'
+  Source: SourceFile:0
+- ID: Property:326
+  Name: HardwareSettingList.ScannerSetting.nChannels.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:327
+  Name: HardwareSettingList.ScannerSetting.nChannels.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:328
+  Name: HardwareSettingList.ScannerSetting.nDelayTime_s.Unit
+  Value: '"s"'
+  Source: SourceFile:0
+- ID: Property:329
+  Name: HardwareSettingList.ScannerSetting.nDelayTime_s.Description
+  Value: '"Delay[s]"'
+  Source: SourceFile:0
+- ID: Property:330
+  Name: HardwareSettingList.ScannerSetting.nDelayTime_s.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:331
+  Name: HardwareSettingList.ScannerSetting.nDelayTime_s.Variant
+  Value: '15'
+  Source: SourceFile:0
+- ID: Property:332
+  Name: HardwareSettingList.ScannerSetting.nDelayTime_s.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:333
+  Name: HardwareSettingList.ScannerSetting.nEnd.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:334
+  Name: HardwareSettingList.ScannerSetting.nEnd.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:335
+  Name: HardwareSettingList.ScannerSetting.nEnd.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:336
+  Name: HardwareSettingList.ScannerSetting.nEnd.Variant
+  Value: '3215197'
+  Source: SourceFile:0
+- ID: Property:337
+  Name: HardwareSettingList.ScannerSetting.nEnd.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:338
+  Name: HardwareSettingList.ScannerSetting.nFormatInDimension.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:339
+  Name: HardwareSettingList.ScannerSetting.nFormatInDimension.Description
+  Value: '"Format-Width"'
+  Source: SourceFile:0
+- ID: Property:340
+  Name: HardwareSettingList.ScannerSetting.nFormatInDimension.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:341
+  Name: HardwareSettingList.ScannerSetting.nFormatInDimension.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:342
+  Name: HardwareSettingList.ScannerSetting.nFormatOutDimension.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:343
+  Name: HardwareSettingList.ScannerSetting.nFormatOutDimension.Description
+  Value: '"Format-Height"'
+  Source: SourceFile:0
+- ID: Property:344
+  Name: HardwareSettingList.ScannerSetting.nFormatOutDimension.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:345
+  Name: HardwareSettingList.ScannerSetting.nFormatOutDimension.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:346
+  Name: HardwareSettingList.ScannerSetting.nLineAccumulation.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:347
+  Name: HardwareSettingList.ScannerSetting.nLineAccumulation.Description
+  Value: '"Line-Accumulation"'
+  Source: SourceFile:0
+- ID: Property:348
+  Name: HardwareSettingList.ScannerSetting.nLineAccumulation.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:349
+  Name: HardwareSettingList.ScannerSetting.nLineAccumulation.Variant
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:350
+  Name: HardwareSettingList.ScannerSetting.nLineAccumulation.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:351
+  Name: HardwareSettingList.ScannerSetting.nLines.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:352
+  Name: HardwareSettingList.ScannerSetting.nLines.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:353
+  Name: HardwareSettingList.ScannerSetting.nLines.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:354
+  Name: HardwareSettingList.ScannerSetting.nLines.Variant
+  Value: '2.50000190734886'
+  Source: SourceFile:0
+- ID: Property:355
+  Name: HardwareSettingList.ScannerSetting.nLines.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:356
+  Name: HardwareSettingList.ScannerSetting.nPages.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:357
+  Name: HardwareSettingList.ScannerSetting.nPages.Description
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:358
+  Name: HardwareSettingList.ScannerSetting.nPages.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:359
+  Name: HardwareSettingList.ScannerSetting.nPages.Variant
+  Value: '2.50000190734863'
+  Source: SourceFile:0
+- ID: Property:360
+  Name: HardwareSettingList.ScannerSetting.nPages.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:361
+  Name: HardwareSettingList.ScannerSetting.nRepeatActions.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:362
+  Name: HardwareSettingList.ScannerSetting.nRepeatActions.Description
+  Value: '"Iterations"'
+  Source: SourceFile:0
+- ID: Property:363
+  Name: HardwareSettingList.ScannerSetting.nRepeatActions.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:364
+  Name: HardwareSettingList.ScannerSetting.nRepeatActions.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:365
+  Name: HardwareSettingList.ScannerSetting.nSections.Unit
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:366
+  Name: HardwareSettingList.ScannerSetting.nSections.Description
+  Value: '"Sections"'
+  Source: SourceFile:0
+- ID: Property:367
+  Name: HardwareSettingList.ScannerSetting.nSections.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:368
+  Name: HardwareSettingList.ScannerSetting.nSections.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:369
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[0].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:370
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[0].Description
+  Value: '"AOBS (0)"'
+  Source: SourceFile:0
+- ID: Property:371
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[0].Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:372
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[0].Variant
+  Value: '100'
+  Source: SourceFile:0
+- ID: Property:373
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[0].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:374
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[1].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:375
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[1].Description
+  Value: '"AOBS (1)"'
+  Source: SourceFile:0
+- ID: Property:376
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[1].Data
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:377
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[1].Variant
+  Value: '100'
+  Source: SourceFile:0
+- ID: Property:378
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[1].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:379
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[2].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:380
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[2].Description
+  Value: '"AOBS (2)"'
+  Source: SourceFile:0
+- ID: Property:381
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[2].Data
+  Value: '2'
+  Source: SourceFile:0
+- ID: Property:382
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[2].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:383
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[2].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:384
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[3].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:385
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[3].Description
+  Value: '"AOBS (3)"'
+  Source: SourceFile:0
+- ID: Property:386
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[3].Data
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:387
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[3].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:388
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[3].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:389
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[4].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:390
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[4].Description
+  Value: '"AOBS (4)"'
+  Source: SourceFile:0
+- ID: Property:391
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[4].Data
+  Value: '4'
+  Source: SourceFile:0
+- ID: Property:392
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[4].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:393
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[4].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:394
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[5].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:395
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[5].Description
+  Value: '"AOBS (5)"'
+  Source: SourceFile:0
+- ID: Property:396
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[5].Data
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:397
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[5].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:398
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[5].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:399
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[6].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:400
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[6].Description
+  Value: '"AOBS (6)"'
+  Source: SourceFile:0
+- ID: Property:401
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[6].Data
+  Value: '6'
+  Source: SourceFile:0
+- ID: Property:402
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[6].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:403
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[6].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:404
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[7].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:405
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[7].Description
+  Value: '"AOBS (7)"'
+  Source: SourceFile:0
+- ID: Property:406
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[7].Data
+  Value: '7'
+  Source: SourceFile:0
+- ID: Property:407
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[7].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:408
+  Name: HardwareSettingList.FilterSetting.AOBS.Intensity[7].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:409
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[0].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:410
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[0].Description
+  Value: '"AOBS (0)"'
+  Source: SourceFile:0
+- ID: Property:411
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[0].Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:412
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[0].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:413
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[0].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:414
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[1].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:415
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[1].Description
+  Value: '"AOBS (1)"'
+  Source: SourceFile:0
+- ID: Property:416
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[1].Data
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:417
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[1].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:418
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[1].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:419
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[2].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:420
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[2].Description
+  Value: '"AOBS (2)"'
+  Source: SourceFile:0
+- ID: Property:421
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[2].Data
+  Value: '2'
+  Source: SourceFile:0
+- ID: Property:422
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[2].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:423
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[2].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:424
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[3].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:425
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[3].Description
+  Value: '"AOBS (3)"'
+  Source: SourceFile:0
+- ID: Property:426
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[3].Data
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:427
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[3].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:428
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[3].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:429
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[4].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:430
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[4].Description
+  Value: '"AOBS (4)"'
+  Source: SourceFile:0
+- ID: Property:431
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[4].Data
+  Value: '4'
+  Source: SourceFile:0
+- ID: Property:432
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[4].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:433
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[4].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:434
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[5].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:435
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[5].Description
+  Value: '"AOBS (5)"'
+  Source: SourceFile:0
+- ID: Property:436
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[5].Data
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:437
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[5].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:438
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[5].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:439
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[6].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:440
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[6].Description
+  Value: '"AOBS (6)"'
+  Source: SourceFile:0
+- ID: Property:441
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[6].Data
+  Value: '6'
+  Source: SourceFile:0
+- ID: Property:442
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[6].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:443
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[6].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:444
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[7].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:445
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[7].Description
+  Value: '"AOBS (7)"'
+  Source: SourceFile:0
+- ID: Property:446
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[7].Data
+  Value: '7'
+  Source: SourceFile:0
+- ID: Property:447
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[7].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:448
+  Name: HardwareSettingList.FilterSetting.AOBSLow.Intensity[7].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:449
+  Name: HardwareSettingList.FilterSetting.UV AOTF-1.Intensity.ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:450
+  Name: HardwareSettingList.FilterSetting.UV AOTF-1.Intensity.Description
+  Value: '"AOTF (405)"'
+  Source: SourceFile:0
+- ID: Property:451
+  Name: HardwareSettingList.FilterSetting.UV AOTF-1.Intensity.Data
+  Value: '405'
+  Source: SourceFile:0
+- ID: Property:452
+  Name: HardwareSettingList.FilterSetting.UV AOTF-1.Intensity.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:453
+  Name: HardwareSettingList.FilterSetting.UV AOTF-1.Intensity.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:454
+  Name: HardwareSettingList.FilterSetting.UV AOTF-1Low.Intensity.ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:455
+  Name: HardwareSettingList.FilterSetting.UV AOTF-1Low.Intensity.Description
+  Value: '"AOTF (405)"'
+  Source: SourceFile:0
+- ID: Property:456
+  Name: HardwareSettingList.FilterSetting.UV AOTF-1Low.Intensity.Data
+  Value: '405'
+  Source: SourceFile:0
+- ID: Property:457
+  Name: HardwareSettingList.FilterSetting.UV AOTF-1Low.Intensity.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:458
+  Name: HardwareSettingList.FilterSetting.UV AOTF-1Low.Intensity.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:459
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[0].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:460
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[0].Description
+  Value: '"AOTF (458)"'
+  Source: SourceFile:0
+- ID: Property:461
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[0].Data
+  Value: '458'
+  Source: SourceFile:0
+- ID: Property:462
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[0].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:463
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[0].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:464
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[1].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:465
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[1].Description
+  Value: '"AOTF (476)"'
+  Source: SourceFile:0
+- ID: Property:466
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[1].Data
+  Value: '476'
+  Source: SourceFile:0
+- ID: Property:467
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[1].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:468
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[1].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:469
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[2].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:470
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[2].Description
+  Value: '"AOTF (488)"'
+  Source: SourceFile:0
+- ID: Property:471
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[2].Data
+  Value: '488'
+  Source: SourceFile:0
+- ID: Property:472
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[2].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:473
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[2].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:474
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[3].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:475
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[3].Description
+  Value: '"AOTF (496)"'
+  Source: SourceFile:0
+- ID: Property:476
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[3].Data
+  Value: '496'
+  Source: SourceFile:0
+- ID: Property:477
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[3].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:478
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[3].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:479
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[4].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:480
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[4].Description
+  Value: '"AOTF (514)"'
+  Source: SourceFile:0
+- ID: Property:481
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[4].Data
+  Value: '514'
+  Source: SourceFile:0
+- ID: Property:482
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[4].Variant
+  Value: '14.9972532503205'
+  Source: SourceFile:0
+- ID: Property:483
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[4].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:484
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[5].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:485
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[5].Description
+  Value: '"AOTF (561)"'
+  Source: SourceFile:0
+- ID: Property:486
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[5].Data
+  Value: '561'
+  Source: SourceFile:0
+- ID: Property:487
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[5].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:488
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[5].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:489
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[6].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:490
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[6].Description
+  Value: '"AOTF (633)"'
+  Source: SourceFile:0
+- ID: Property:491
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[6].Data
+  Value: '633'
+  Source: SourceFile:0
+- ID: Property:492
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[6].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:493
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[6].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:494
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[0].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:495
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[0].Description
+  Value: '"AOTF (458)"'
+  Source: SourceFile:0
+- ID: Property:496
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[0].Data
+  Value: '458'
+  Source: SourceFile:0
+- ID: Property:497
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[0].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:498
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[0].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:499
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[1].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:500
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[1].Description
+  Value: '"AOTF (476)"'
+  Source: SourceFile:0
+- ID: Property:501
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[1].Data
+  Value: '476'
+  Source: SourceFile:0
+- ID: Property:502
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[1].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:503
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[1].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:504
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[2].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:505
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[2].Description
+  Value: '"AOTF (488)"'
+  Source: SourceFile:0
+- ID: Property:506
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[2].Data
+  Value: '488'
+  Source: SourceFile:0
+- ID: Property:507
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[2].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:508
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[2].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:509
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[3].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:510
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[3].Description
+  Value: '"AOTF (496)"'
+  Source: SourceFile:0
+- ID: Property:511
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[3].Data
+  Value: '496'
+  Source: SourceFile:0
+- ID: Property:512
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[3].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:513
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[3].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:514
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[4].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:515
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[4].Description
+  Value: '"AOTF (514)"'
+  Source: SourceFile:0
+- ID: Property:516
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[4].Data
+  Value: '514'
+  Source: SourceFile:0
+- ID: Property:517
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[4].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:518
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[4].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:519
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[5].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:520
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[5].Description
+  Value: '"AOTF (561)"'
+  Source: SourceFile:0
+- ID: Property:521
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[5].Data
+  Value: '561'
+  Source: SourceFile:0
+- ID: Property:522
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[5].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:523
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[5].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:524
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[6].ClassName
+  Value: '"CAotf"'
+  Source: SourceFile:0
+- ID: Property:525
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[6].Description
+  Value: '"AOTF (633)"'
+  Source: SourceFile:0
+- ID: Property:526
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[6].Data
+  Value: '633'
+  Source: SourceFile:0
+- ID: Property:527
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[6].Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:528
+  Name: HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[6].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:529
+  Name: HardwareSettingList.FilterSetting.HyD 1.State.ClassName
+  Value: '"CDetectionUnit"'
+  Source: SourceFile:0
+- ID: Property:530
+  Name: HardwareSettingList.FilterSetting.HyD 1.State.Description
+  Value: '"HyD 1"'
+  Source: SourceFile:0
+- ID: Property:531
+  Name: HardwareSettingList.FilterSetting.HyD 1.State.Data
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:532
+  Name: HardwareSettingList.FilterSetting.HyD 1.State.Variant
+  Value: '"Active"'
+  Source: SourceFile:0
+- ID: Property:533
+  Name: HardwareSettingList.FilterSetting.HyD 1.State.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:534
+  Name: HardwareSettingList.FilterSetting.HyD 1.HighVoltage.ClassName
+  Value: '"CDetectionUnit"'
+  Source: SourceFile:0
+- ID: Property:535
+  Name: HardwareSettingList.FilterSetting.HyD 1.HighVoltage.Description
+  Value: '"HyD 1 (Gain)"'
+  Source: SourceFile:0
+- ID: Property:536
+  Name: HardwareSettingList.FilterSetting.HyD 1.HighVoltage.Data
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:537
+  Name: HardwareSettingList.FilterSetting.HyD 1.HighVoltage.Variant
+  Value: '10'
+  Source: SourceFile:0
+- ID: Property:538
+  Name: HardwareSettingList.FilterSetting.HyD 1.HighVoltage.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:539
+  Name: HardwareSettingList.FilterSetting.HyD 1.AcquisitionMode.ClassName
+  Value: '"CDetectionUnit"'
+  Source: SourceFile:0
+- ID: Property:540
+  Name: HardwareSettingList.FilterSetting.HyD 1.AcquisitionMode.Description
+  Value: '"HyD 1 (AcquisitionMode)"'
+  Source: SourceFile:0
+- ID: Property:541
+  Name: HardwareSettingList.FilterSetting.HyD 1.AcquisitionMode.Data
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:542
+  Name: HardwareSettingList.FilterSetting.HyD 1.AcquisitionMode.Variant
+  Value: '"PhotonCounting"'
+  Source: SourceFile:0
+- ID: Property:543
+  Name: HardwareSettingList.FilterSetting.HyD 1.AcquisitionMode.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:544
+  Name: HardwareSettingList.FilterSetting.HyD 1.OverloadState.ClassName
+  Value: '"CDetectionUnit"'
+  Source: SourceFile:0
+- ID: Property:545
+  Name: HardwareSettingList.FilterSetting.HyD 1.OverloadState.Description
+  Value: '"HyD 1 (OverloadState)"'
+  Source: SourceFile:0
+- ID: Property:546
+  Name: HardwareSettingList.FilterSetting.HyD 1.OverloadState.Data
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:547
+  Name: HardwareSettingList.FilterSetting.HyD 1.OverloadState.Variant
+  Value: '"OK"'
+  Source: SourceFile:0
+- ID: Property:548
+  Name: HardwareSettingList.FilterSetting.HyD 1.OverloadState.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:549
+  Name: HardwareSettingList.FilterSetting.PMT 2.State.ClassName
+  Value: '"CDetectionUnit"'
+  Source: SourceFile:0
+- ID: Property:550
+  Name: HardwareSettingList.FilterSetting.PMT 2.State.Description
+  Value: '"PMT 2"'
+  Source: SourceFile:0
+- ID: Property:551
+  Name: HardwareSettingList.FilterSetting.PMT 2.State.Data
+  Value: '2'
+  Source: SourceFile:0
+- ID: Property:552
+  Name: HardwareSettingList.FilterSetting.PMT 2.State.Variant
+  Value: '"Inactive"'
+  Source: SourceFile:0
+- ID: Property:553
+  Name: HardwareSettingList.FilterSetting.PMT 2.State.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:554
+  Name: HardwareSettingList.FilterSetting.PMT 3.State.ClassName
+  Value: '"CDetectionUnit"'
+  Source: SourceFile:0
+- ID: Property:555
+  Name: HardwareSettingList.FilterSetting.PMT 3.State.Description
+  Value: '"PMT 3"'
+  Source: SourceFile:0
+- ID: Property:556
+  Name: HardwareSettingList.FilterSetting.PMT 3.State.Data
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:557
+  Name: HardwareSettingList.FilterSetting.PMT 3.State.Variant
+  Value: '"Inactive"'
+  Source: SourceFile:0
+- ID: Property:558
+  Name: HardwareSettingList.FilterSetting.PMT 3.State.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:584
+  Name: HardwareSettingList.FilterSetting.Hardware Tree (5100001274).Machine_Type.ClassName
+  Value: '"CFolderHardwareTree"'
+  Source: SourceFile:0
+- ID: Property:585
+  Name: HardwareSettingList.FilterSetting.Hardware Tree (5100001274).Machine_Type.Description
+  Value: '"Hardware Type No."'
+  Source: SourceFile:0
+- ID: Property:586
+  Name: HardwareSettingList.FilterSetting.Hardware Tree (5100001274).Machine_Type.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:587
+  Name: HardwareSettingList.FilterSetting.Hardware Tree (5100001274).Machine_Type.Variant
+  Value: '7'
+  Source: SourceFile:0
+- ID: Property:588
+  Name: HardwareSettingList.FilterSetting.Hardware Tree (5100001274).Machine_Type.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:589
+  Name: HardwareSettingList.FilterSetting.Hardware Tree (5100001274).System_Number.ClassName
+  Value: '"CFolderHardwareTree"'
+  Source: SourceFile:0
+- ID: Property:590
+  Name: HardwareSettingList.FilterSetting.Hardware Tree (5100001274).System_Number.Description
+  Value: '"System Number"'
+  Source: SourceFile:0
+- ID: Property:591
+  Name: HardwareSettingList.FilterSetting.Hardware Tree (5100001274).System_Number.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:592
+  Name: HardwareSettingList.FilterSetting.Hardware Tree (5100001274).System_Number.Variant
+  Value: '5100001274'
+  Source: SourceFile:0
+- ID: Property:593
+  Name: HardwareSettingList.FilterSetting.Hardware Tree (5100001274).System_Number.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:594
+  Name: HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Wavelength.ClassName
+  Value: '"CLaser"'
+  Source: SourceFile:0
+- ID: Property:595
+  Name: HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Wavelength.Description
+  Value: '"Laser wavelength"'
+  Source: SourceFile:0
+- ID: Property:596
+  Name: HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Wavelength.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:597
+  Name: HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Wavelength.Variant
+  Value: '405'
+  Source: SourceFile:0
+- ID: Property:598
+  Name: HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Wavelength.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:599
+  Name: HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Power State.ClassName
+  Value: '"CLaser"'
+  Source: SourceFile:0
+- ID: Property:600
+  Name: HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Power State.Description
+  Value: '"Power State"'
+  Source: SourceFile:0
+- ID: Property:601
+  Name: HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Power State.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:602
+  Name: HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Power State.Variant
+  Value: '"Off"'
+  Source: SourceFile:0
+- ID: Property:603
+  Name: HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Power State.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:604
+  Name: HardwareSettingList.FilterSetting.Laser (Argon, visible).Wavelength.ClassName
+  Value: '"CLaser"'
+  Source: SourceFile:0
+- ID: Property:605
+  Name: HardwareSettingList.FilterSetting.Laser (Argon, visible).Wavelength.Description
+  Value: '"Laser wavelength"'
+  Source: SourceFile:0
+- ID: Property:606
+  Name: HardwareSettingList.FilterSetting.Laser (Argon, visible).Wavelength.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:607
+  Name: HardwareSettingList.FilterSetting.Laser (Argon, visible).Wavelength.Variant
+  Value: '458'
+  Source: SourceFile:0
+- ID: Property:608
+  Name: HardwareSettingList.FilterSetting.Laser (Argon, visible).Wavelength.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:609
+  Name: HardwareSettingList.FilterSetting.Laser (Argon, visible).Power State.ClassName
+  Value: '"CLaser"'
+  Source: SourceFile:0
+- ID: Property:610
+  Name: HardwareSettingList.FilterSetting.Laser (Argon, visible).Power State.Description
+  Value: '"Power State"'
+  Source: SourceFile:0
+- ID: Property:611
+  Name: HardwareSettingList.FilterSetting.Laser (Argon, visible).Power State.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:612
+  Name: HardwareSettingList.FilterSetting.Laser (Argon, visible).Power State.Variant
+  Value: '"On"'
+  Source: SourceFile:0
+- ID: Property:613
+  Name: HardwareSettingList.FilterSetting.Laser (Argon, visible).Power State.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:614
+  Name: HardwareSettingList.FilterSetting.Laser (Argon, visible).Output Power.ClassName
+  Value: '"CLaser"'
+  Source: SourceFile:0
+- ID: Property:615
+  Name: HardwareSettingList.FilterSetting.Laser (Argon, visible).Output Power.Description
+  Value: '"Laser output power"'
+  Source: SourceFile:0
+- ID: Property:616
+  Name: HardwareSettingList.FilterSetting.Laser (Argon, visible).Output Power.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:617
+  Name: HardwareSettingList.FilterSetting.Laser (Argon, visible).Output Power.Variant
+  Value: '50'
+  Source: SourceFile:0
+- ID: Property:618
+  Name: HardwareSettingList.FilterSetting.Laser (Argon, visible).Output Power.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:619
+  Name: HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Wavelength.ClassName
+  Value: '"CLaser"'
+  Source: SourceFile:0
+- ID: Property:620
+  Name: HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Wavelength.Description
+  Value: '"Laser wavelength"'
+  Source: SourceFile:0
+- ID: Property:621
+  Name: HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Wavelength.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:622
+  Name: HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Wavelength.Variant
+  Value: '561'
+  Source: SourceFile:0
+- ID: Property:623
+  Name: HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Wavelength.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:624
+  Name: HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Power State.ClassName
+  Value: '"CLaser"'
+  Source: SourceFile:0
+- ID: Property:625
+  Name: HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Power State.Description
+  Value: '"Power State"'
+  Source: SourceFile:0
+- ID: Property:626
+  Name: HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Power State.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:627
+  Name: HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Power State.Variant
+  Value: '"Off"'
+  Source: SourceFile:0
+- ID: Property:628
+  Name: HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Power State.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:629
+  Name: HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Wavelength.ClassName
+  Value: '"CLaser"'
+  Source: SourceFile:0
+- ID: Property:630
+  Name: HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Wavelength.Description
+  Value: '"Laser wavelength"'
+  Source: SourceFile:0
+- ID: Property:631
+  Name: HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Wavelength.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:632
+  Name: HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Wavelength.Variant
+  Value: '633'
+  Source: SourceFile:0
+- ID: Property:633
+  Name: HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Wavelength.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:634
+  Name: HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Power State.ClassName
+  Value: '"CLaser"'
+  Source: SourceFile:0
+- ID: Property:635
+  Name: HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Power State.Description
+  Value: '"Power State"'
+  Source: SourceFile:0
+- ID: Property:636
+  Name: HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Power State.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:637
+  Name: HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Power State.Variant
+  Value: '"Off"'
+  Source: SourceFile:0
+- ID: Property:638
+  Name: HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Power State.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:639
+  Name: HardwareSettingList.FilterSetting.DM6000.TLD_Settings.ClassName
+  Value: '"CMicroscopeStand"'
+  Source: SourceFile:0
+- ID: Property:640
+  Name: HardwareSettingList.FilterSetting.DM6000.TLD_Settings.Description
+  Value: '"TLD_Settings"'
+  Source: SourceFile:0
+- ID: Property:641
+  Name: HardwareSettingList.FilterSetting.DM6000.TLD_Settings.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:642
+  Name: HardwareSettingList.FilterSetting.DM6000.TLD_Settings.Variant
+  Value: '100'
+  Source: SourceFile:0
+- ID: Property:643
+  Name: HardwareSettingList.FilterSetting.DM6000.TLD_Settings.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:644
+  Name: HardwareSettingList.FilterSetting.DM6000.RLD_Settings.ClassName
+  Value: '"CMicroscopeStand"'
+  Source: SourceFile:0
+- ID: Property:645
+  Name: HardwareSettingList.FilterSetting.DM6000.RLD_Settings.Description
+  Value: '"RLD_Settings"'
+  Source: SourceFile:0
+- ID: Property:646
+  Name: HardwareSettingList.FilterSetting.DM6000.RLD_Settings.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:647
+  Name: HardwareSettingList.FilterSetting.DM6000.RLD_Settings.Variant
+  Value: '-1'
+  Source: SourceFile:0
+- ID: Property:648
+  Name: HardwareSettingList.FilterSetting.DM6000.RLD_Settings.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:649
+  Name: HardwareSettingList.FilterSetting.Microscope.InverseZForCorrectTopo.ClassName
+  Value: '"CMicroscopeStand"'
+  Source: SourceFile:0
+- ID: Property:650
+  Name: HardwareSettingList.FilterSetting.Microscope.InverseZForCorrectTopo.Description
+  Value: '"inverse flag topo"'
+  Source: SourceFile:0
+- ID: Property:651
+  Name: HardwareSettingList.FilterSetting.Microscope.InverseZForCorrectTopo.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:652
+  Name: HardwareSettingList.FilterSetting.Microscope.InverseZForCorrectTopo.Variant
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:653
+  Name: HardwareSettingList.FilterSetting.Microscope.InverseZForCorrectTopo.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:654
+  Name: HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Scan Rotation.ClassName
+  Value: '"CRotator"'
+  Source: SourceFile:0
+- ID: Property:655
+  Name: HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Scan Rotation.Description
+  Value: '"Scan Field Rotation"'
+  Source: SourceFile:0
+- ID: Property:656
+  Name: HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Scan Rotation.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:657
+  Name: HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Scan Rotation.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:658
+  Name: HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Scan Rotation.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:659
+  Name: HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Rotation Direction.ClassName
+  Value: '"CRotator"'
+  Source: SourceFile:0
+- ID: Property:660
+  Name: HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Rotation Direction.Description
+  Value: '"Rotation Direction"'
+  Source: SourceFile:0
+- ID: Property:661
+  Name: HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Rotation Direction.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:662
+  Name: HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Rotation Direction.Variant
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:663
+  Name: HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Rotation Direction.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:664
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.ScanPlane.ClassName
+  Value: '"CScanActuator"'
+  Source: SourceFile:0
+- ID: Property:665
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.ScanPlane.Description
+  Value: '"X Reson. Scan Actuator"'
+  Source: SourceFile:0
+- ID: Property:666
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.ScanPlane.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:667
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.ScanPlane.Variant
+  Value: '"Active"'
+  Source: SourceFile:0
+- ID: Property:668
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.ScanPlane.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:669
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.ClassName
+  Value: '"CScanActuator"'
+  Source: SourceFile:0
+- ID: Property:670
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Description
+  Value: '"X Reson. Scan Actuator (POS)"'
+  Source: SourceFile:0
+- ID: Property:671
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:672
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:673
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:674
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Gain.ClassName
+  Value: '"CScanActuator"'
+  Source: SourceFile:0
+- ID: Property:675
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Gain.Description
+  Value: '"X Reson. Scan Actuator (Gain)"'
+  Source: SourceFile:0
+- ID: Property:676
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Gain.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:677
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Gain.Variant
+  Value: '2.50000238418806'
+  Source: SourceFile:0
+- ID: Property:678
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Gain.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:679
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Offset.ClassName
+  Value: '"CScanActuator"'
+  Source: SourceFile:0
+- ID: Property:680
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Offset.Description
+  Value: '"X Reson. Scan Actuator (Offs.)"'
+  Source: SourceFile:0
+- ID: Property:681
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Offset.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:682
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Offset.Variant
+  Value: '8.67361737988404e-19'
+  Source: SourceFile:0
+- ID: Property:683
+  Name: HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Offset.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:684
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.ScanPlane.ClassName
+  Value: '"CScanActuator"'
+  Source: SourceFile:0
+- ID: Property:685
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.ScanPlane.Description
+  Value: '"Y Reson. Scan Actuator"'
+  Source: SourceFile:0
+- ID: Property:686
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.ScanPlane.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:687
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.ScanPlane.Variant
+  Value: '"Active"'
+  Source: SourceFile:0
+- ID: Property:688
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.ScanPlane.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:689
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.ClassName
+  Value: '"CScanActuator"'
+  Source: SourceFile:0
+- ID: Property:690
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Description
+  Value: '"Y Reson. Scan Actuator (POS)"'
+  Source: SourceFile:0
+- ID: Property:691
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:692
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:693
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:694
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Gain.ClassName
+  Value: '"CScanActuator"'
+  Source: SourceFile:0
+- ID: Property:695
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Gain.Description
+  Value: '"Y Reson. Scan Actuator (Gain)"'
+  Source: SourceFile:0
+- ID: Property:696
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Gain.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:697
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Gain.Variant
+  Value: '2.50000238418806'
+  Source: SourceFile:0
+- ID: Property:698
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Gain.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:699
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Offset.ClassName
+  Value: '"CScanActuator"'
+  Source: SourceFile:0
+- ID: Property:700
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Offset.Description
+  Value: '"Y Reson. Scan Actuator (Offs.)"'
+  Source: SourceFile:0
+- ID: Property:701
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Offset.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:702
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Offset.Variant
+  Value: '8.67361737988404e-19'
+  Source: SourceFile:0
+- ID: Property:703
+  Name: HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Offset.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:704
+  Name: HardwareSettingList.FilterSetting.Scan Head.Speed.ClassName
+  Value: '"CScanCtrlUnit"'
+  Source: SourceFile:0
+- ID: Property:705
+  Name: HardwareSettingList.FilterSetting.Scan Head.Speed.Description
+  Value: '"Scan Speed"'
+  Source: SourceFile:0
+- ID: Property:706
+  Name: HardwareSettingList.FilterSetting.Scan Head.Speed.Data
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:707
+  Name: HardwareSettingList.FilterSetting.Scan Head.Speed.Variant
+  Value: '8000'
+  Source: SourceFile:0
+- ID: Property:708
+  Name: HardwareSettingList.FilterSetting.Scan Head.Speed.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:709
+  Name: HardwareSettingList.FilterSetting.Scan Head.Phase.ClassName
+  Value: '"CScanCtrlUnit"'
+  Source: SourceFile:0
+- ID: Property:710
+  Name: HardwareSettingList.FilterSetting.Scan Head.Phase.Description
+  Value: '"Phase"'
+  Source: SourceFile:0
+- ID: Property:711
+  Name: HardwareSettingList.FilterSetting.Scan Head.Phase.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:712
+  Name: HardwareSettingList.FilterSetting.Scan Head.Phase.Variant
+  Value: '3.68200198367285'
+  Source: SourceFile:0
+- ID: Property:713
+  Name: HardwareSettingList.FilterSetting.Scan Head.Phase.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:714
+  Name: HardwareSettingList.FilterSetting.Scan Head.Y-Phase.ClassName
+  Value: '"CScanCtrlUnit"'
+  Source: SourceFile:0
+- ID: Property:715
+  Name: HardwareSettingList.FilterSetting.Scan Head.Y-Phase.Description
+  Value: '"Y-Phase"'
+  Source: SourceFile:0
+- ID: Property:716
+  Name: HardwareSettingList.FilterSetting.Scan Head.Y-Phase.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:717
+  Name: HardwareSettingList.FilterSetting.Scan Head.Y-Phase.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:718
+  Name: HardwareSettingList.FilterSetting.Scan Head.Y-Phase.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:719
+  Name: HardwareSettingList.FilterSetting.Scan Head.SMD-Phase.ClassName
+  Value: '"CScanCtrlUnit"'
+  Source: SourceFile:0
+- ID: Property:720
+  Name: HardwareSettingList.FilterSetting.Scan Head.SMD-Phase.Description
+  Value: '"SMD-Phase"'
+  Source: SourceFile:0
+- ID: Property:721
+  Name: HardwareSettingList.FilterSetting.Scan Head.SMD-Phase.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:722
+  Name: HardwareSettingList.FilterSetting.Scan Head.SMD-Phase.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:723
+  Name: HardwareSettingList.FilterSetting.Scan Head.SMD-Phase.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:724
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[0].ClassName
+  Value: '"CSpectrophotometerUnit"'
+  Source: SourceFile:0
+- ID: Property:725
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[0].Description
+  Value: '"SP Mirror Channel 1 (left)"'
+  Source: SourceFile:0
+- ID: Property:726
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[0].Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:727
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[0].Variant
+  Value: '524'
+  Source: SourceFile:0
+- ID: Property:728
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[0].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:729
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[1].ClassName
+  Value: '"CSpectrophotometerUnit"'
+  Source: SourceFile:0
+- ID: Property:730
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[1].Description
+  Value: '"SP Mirror Channel 1 (right)"'
+  Source: SourceFile:0
+- ID: Property:731
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[1].Data
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:732
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[1].Variant
+  Value: '649.441552100243'
+  Source: SourceFile:0
+- ID: Property:733
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[1].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:734
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 1.Stain.ClassName
+  Value: '"CSpectrophotometerUnit"'
+  Source: SourceFile:0
+- ID: Property:735
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 1.Stain.Description
+  Value: '"SP Mirror Channel 1 (stain)"'
+  Source: SourceFile:0
+- ID: Property:736
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 1.Stain.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:737
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 1.Stain.Variant
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:738
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 1.Stain.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:739
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[0].ClassName
+  Value: '"CSpectrophotometerUnit"'
+  Source: SourceFile:0
+- ID: Property:740
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[0].Description
+  Value: '"SP Mirror Channel 2 (left)"'
+  Source: SourceFile:0
+- ID: Property:741
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[0].Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:742
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[0].Variant
+  Value: '690.000000123854'
+  Source: SourceFile:0
+- ID: Property:743
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[0].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:744
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[1].ClassName
+  Value: '"CSpectrophotometerUnit"'
+  Source: SourceFile:0
+- ID: Property:745
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[1].Description
+  Value: '"SP Mirror Channel 2 (right)"'
+  Source: SourceFile:0
+- ID: Property:746
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[1].Data
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:747
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[1].Variant
+  Value: '695'
+  Source: SourceFile:0
+- ID: Property:748
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[1].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:749
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 2.Stain.ClassName
+  Value: '"CSpectrophotometerUnit"'
+  Source: SourceFile:0
+- ID: Property:750
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 2.Stain.Description
+  Value: '"SP Mirror Channel 2 (stain)"'
+  Source: SourceFile:0
+- ID: Property:751
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 2.Stain.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:752
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 2.Stain.Variant
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:753
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 2.Stain.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:754
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[0].ClassName
+  Value: '"CSpectrophotometerUnit"'
+  Source: SourceFile:0
+- ID: Property:755
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[0].Description
+  Value: '"SP Mirror Channel 3 (left)"'
+  Source: SourceFile:0
+- ID: Property:756
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[0].Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:757
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[0].Variant
+  Value: '695'
+  Source: SourceFile:0
+- ID: Property:758
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[0].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:759
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[1].ClassName
+  Value: '"CSpectrophotometerUnit"'
+  Source: SourceFile:0
+- ID: Property:760
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[1].Description
+  Value: '"SP Mirror Channel 3 (right)"'
+  Source: SourceFile:0
+- ID: Property:761
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[1].Data
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:762
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[1].Variant
+  Value: '765'
+  Source: SourceFile:0
+- ID: Property:763
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[1].VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:764
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 3.Stain.ClassName
+  Value: '"CSpectrophotometerUnit"'
+  Source: SourceFile:0
+- ID: Property:765
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 3.Stain.Description
+  Value: '"SP Mirror Channel 3 (stain)"'
+  Source: SourceFile:0
+- ID: Property:766
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 3.Stain.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:767
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 3.Stain.Variant
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:768
+  Name: HardwareSettingList.FilterSetting.SP Mirror Channel 3.Stain.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:769
+  Name: HardwareSettingList.FilterSetting.DM6000 TubeOptic.Magnification.ClassName
+  Value: '"CTubeOptic"'
+  Source: SourceFile:0
+- ID: Property:770
+  Name: HardwareSettingList.FilterSetting.DM6000 TubeOptic.Magnification.Description
+  Value: '"Magnification-Changer"'
+  Source: SourceFile:0
+- ID: Property:771
+  Name: HardwareSettingList.FilterSetting.DM6000 TubeOptic.Magnification.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:772
+  Name: HardwareSettingList.FilterSetting.DM6000 TubeOptic.Magnification.Variant
+  Value: '"SCANx"'
+  Source: SourceFile:0
+- ID: Property:773
+  Name: HardwareSettingList.FilterSetting.DM6000 TubeOptic.Magnification.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:774
+  Name: HardwareSettingList.FilterSetting.DM6000 TubeOptic.Position.ClassName
+  Value: '"CTubeOptic"'
+  Source: SourceFile:0
+- ID: Property:775
+  Name: HardwareSettingList.FilterSetting.DM6000 TubeOptic.Position.Description
+  Value: '"Position"'
+  Source: SourceFile:0
+- ID: Property:776
+  Name: HardwareSettingList.FilterSetting.DM6000 TubeOptic.Position.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:777
+  Name: HardwareSettingList.FilterSetting.DM6000 TubeOptic.Position.Variant
+  Value: '1'
+  Source: SourceFile:0
+- ID: Property:778
+  Name: HardwareSettingList.FilterSetting.DM6000 TubeOptic.Position.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:783
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.OrderNumber.ClassName
+  Value: '"CTurret"'
+  Source: SourceFile:0
+- ID: Property:784
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.OrderNumber.Description
+  Value: '"Order number (Obj.)"'
+  Source: SourceFile:0
+- ID: Property:785
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.OrderNumber.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:786
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.OrderNumber.VariantType
+  Value: '3'
+  Source: SourceFile:0
+- ID: Property:787
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.NumericalAperture.ClassName
+  Value: '"CTurret"'
+  Source: SourceFile:0
+- ID: Property:788
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.NumericalAperture.Description
+  Value: '"Numerical aperture (Obj.)"'
+  Source: SourceFile:0
+- ID: Property:789
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.NumericalAperture.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:790
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.NumericalAperture.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:791
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.RefractionIndex.ClassName
+  Value: '"CTurret"'
+  Source: SourceFile:0
+- ID: Property:792
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.RefractionIndex.Description
+  Value: '"Refraction index"'
+  Source: SourceFile:0
+- ID: Property:793
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.RefractionIndex.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:794
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.RefractionIndex.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:795
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.DUMMYNAME.ClassName
+  Value: '"CTurret"'
+  Source: SourceFile:0
+- ID: Property:796
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.DUMMYNAME.Description
+  Value: '"Dummy Name (Obj.)"'
+  Source: SourceFile:0
+- ID: Property:797
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.DUMMYNAME.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:798
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.DUMMYNAME.Variant
+  Value: '"Dummy1"'
+  Source: SourceFile:0
+- ID: Property:799
+  Name: HardwareSettingList.FilterSetting.DM6000 Turret.DUMMYNAME.VariantType
+  Value: '8'
+  Source: SourceFile:0
+- ID: Property:800
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.XPosOrigin.ClassName
+  Value: '"CXYZStage"'
+  Source: SourceFile:0
+- ID: Property:801
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.XPosOrigin.Description
+  Value: '"DM6000 Stage XOrigin"'
+  Source: SourceFile:0
+- ID: Property:802
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.XPosOrigin.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:803
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.XPosOrigin.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:804
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.XPosOrigin.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:805
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.YPosOrigin.ClassName
+  Value: '"CXYZStage"'
+  Source: SourceFile:0
+- ID: Property:806
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.YPosOrigin.Description
+  Value: '"DM6000 Stage YOrigin"'
+  Source: SourceFile:0
+- ID: Property:807
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.YPosOrigin.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:808
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.YPosOrigin.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:809
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.YPosOrigin.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:810
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.ZPosOrigin.ClassName
+  Value: '"CXYZStage"'
+  Source: SourceFile:0
+- ID: Property:811
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.ZPosOrigin.Description
+  Value: '"DM6000 Stage ZOrigin"'
+  Source: SourceFile:0
+- ID: Property:812
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.ZPosOrigin.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:813
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.ZPosOrigin.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:814
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.ZPosOrigin.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:815
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.XPos.ClassName
+  Value: '"CXYZStage"'
+  Source: SourceFile:0
+- ID: Property:816
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.XPos.Description
+  Value: '"DM6000 Stage Pos x"'
+  Source: SourceFile:0
+- ID: Property:817
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.XPos.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:818
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.XPos.Variant
+  Value: '0.0068001918308'
+  Source: SourceFile:0
+- ID: Property:819
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.XPos.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:820
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.YPos.ClassName
+  Value: '"CXYZStage"'
+  Source: SourceFile:0
+- ID: Property:821
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.YPos.Description
+  Value: '"DM6000 Stage Pos y"'
+  Source: SourceFile:0
+- ID: Property:822
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.YPos.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:823
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.YPos.Variant
+  Value: '0.00539988493057'
+  Source: SourceFile:0
+- ID: Property:824
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.YPos.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:825
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.ZPos.ClassName
+  Value: '"CXYZStage"'
+  Source: SourceFile:0
+- ID: Property:826
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.ZPos.Description
+  Value: '"DM6000 Stage Pos z"'
+  Source: SourceFile:0
+- ID: Property:827
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.ZPos.Data
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:828
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.ZPos.Variant
+  Value: '0'
+  Source: SourceFile:0
+- ID: Property:829
+  Name: HardwareSettingList.FilterSetting.DM6000 Stage.ZPos.VariantType
+  Value: '5'
+  Source: SourceFile:0
+- ID: Property:830
+  Name: HardwareSettingList.Application
+  Value: '"LAS AF"'
+  Source: SourceFile:0

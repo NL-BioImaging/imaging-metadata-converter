@@ -152,8 +152,8 @@ The unit enumerations (`UnitsLength`, `UnitsTime`, `UnitsPressure`, ...) come
 from LiMi. Each unit lists the other spellings it is known by as aliases —
 `µm` is also `um`, `micrometer` and `micrometre` — so a vendor's spelling can
 be recognised as the model's unit. Other enumerations do the same where a
-vendor spells a value its own way: Leica's immersions `DRY` and `OIL` are
-`Air` and `Oil`.
+vendor spells a value its own way: Leica's immersions `DRY`, `OIL` and `WATER`
+are `Air`, `Oil` and `Water`.
 
 ## Reading a field
 

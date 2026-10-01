@@ -12478,7 +12478,9 @@ enums:
           description_source: OME 2016-06 ome.xsd (CC BY 3.0, Open Microscopy Environment)
         aliases:
         - OIL
-      Water: {}
+      Water:
+        aliases:
+        - WATER
       Other: {}
     description: According to ISO 10934-1:2002, an Immersion Liquid is a liquid (commonly immersion oil, water or glycerol)
       specified as suitable for use in the space between the front of an immersion lens and the object NOTE Because the immersion

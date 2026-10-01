@@ -1,0 +1,2264 @@
+Instrument:
+  Manufacturer: Leica Microsystems
+  Name: TCS SP5
+HardwareSettingList:
+  ScannerSetting:
+    SystemType:
+      Unit: ''
+      Description: System Type
+      Data: 0
+      VariantType: 8
+    bAFUseFixSliceNumber:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 0
+      VariantType: 3
+    bAdaptiveFocusControlActive:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 0
+      VariantType: 3
+    bEnableRoiScan:
+      Unit: ''
+      Description: RoiScan
+      Data: 0
+      Variant: 0
+      VariantType: 17
+    bIs3DLimitedRoiScanEnable:
+      Unit: ''
+      Description: Is 3D limited ROI scan enable
+      Data: 0
+      Variant: 0
+      VariantType: 17
+    bIsSequential:
+      Unit: ''
+      Description: IsSequential
+      Data: 0
+      Variant: 0
+      VariantType: 11
+    bIsSeriesScanAutofocusActive:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 0
+      VariantType: 3
+    bMinimizeMode:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 0
+      VariantType: 17
+    bSecondCrystal:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 1
+      VariantType: 17
+    bStepSizeConstant:
+      Unit: ''
+      Description: StepSize Constant
+      Data: 0
+      Variant: 0
+      VariantType: 17
+    bStepSizerActivated:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 1
+      VariantType: 17
+    bUseUVShutter:
+      Unit: ''
+      Description: UV Shutter
+      Data: 0
+      Variant: 0
+      VariantType: 17
+    bUseVisibleShutter:
+      Unit: ''
+      Description: Visible Shutter
+      Data: 0
+      Variant: 1
+      VariantType: 17
+    bValidBegin:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 1
+      VariantType: 17
+    bValidEnd:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 1
+      VariantType: 17
+    csLutName00:
+      Unit: ''
+      Description: B:0.000000e+000 W:1.000000e+000 G:1.000000e+000
+      Data: 1
+      Variant: Green
+      VariantType: 8
+    csLutName01:
+      Unit: ''
+      Description: B:0.000000e+000 W:1.000000e+000 G:1.000000e+000
+      Data: 2
+      Variant: Red
+      VariantType: 8
+    csLutName02:
+      Unit: ''
+      Description: B:0.000000e+000 W:1.000000e+000 G:1.000000e+000
+      Data: 3
+      Variant: Blue
+      VariantType: 8
+    csLutName03:
+      Unit: ''
+      Description: B:0.000000e+000 W:1.000000e+000 G:1.000000e+000
+      Data: 2000
+      Variant: Green
+      VariantType: 8
+    csLutName04:
+      Unit: ''
+      Description: B:0.000000e+000 W:1.000000e+000 G:1.000000e+000
+      Data: 2001
+      Variant: Red
+      VariantType: 8
+    csLutName05:
+      Unit: ''
+      Description: B:0.000000e+000 W:1.000000e+000 G:1.000000e+000
+      Data: 2002
+      Variant: Blue
+      VariantType: 8
+    csLutName06:
+      Unit: ''
+      Description: B:0.000000e+000 W:1.000000e+000 G:1.000000e+000
+      Data: 2003
+      Variant: Gray
+      VariantType: 8
+    csLutName07:
+      Unit: ''
+      Description: B:0.000000e+000 W:1.000000e+000 G:1.000000e+000
+      Data: 2004
+      Variant: Cyan
+      VariantType: 8
+    csLutName08:
+      Unit: ''
+      Description: B:0.000000e+000 W:1.000000e+000 G:1.000000e+000
+      Data: 2005
+      Variant: Magenta
+      VariantType: 8
+    csLutName09:
+      Unit: ''
+      Description: B:0.000000e+000 W:1.000000e+000 G:1.000000e+000
+      Data: 2006
+      Variant: Yellow
+      VariantType: 8
+    csLutName10:
+      Unit: ''
+      Description: B:0.000000e+000 W:1.000000e+000 G:1.000000e+000
+      Data: 2007
+      Variant: Glow
+      VariantType: 8
+    csLutName11:
+      Unit: ''
+      Description: B:0.000000e+000 W:1.000000e+000 G:1.000000e+000
+      Data: 3000
+      Variant: Gray
+      VariantType: 8
+    csScanMode:
+      Unit: ''
+      Description: ScanMode
+      Data: 0
+      Variant: xyzt
+      VariantType: 8
+    dAdaptiveFocusControlAutonomousOffset:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: -2
+      VariantType: 5
+    dblAFCOffset:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: -2
+      VariantType: 5
+    dblAFFocusRange:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 8.0e-05
+      VariantType: 5
+    dblPinhole:
+      Unit: ''
+      Description: Pinhole [m]
+      Data: 0
+      VariantType: 5
+    dblPinholeAiry:
+      Unit: ''
+      Description: Pinhole [airy]
+      Data: 0
+      Variant: 1.0000848432732
+      VariantType: 5
+    dblSizeX:
+      Unit: m
+      Description: Size-Width
+      Data: 0
+      Variant: 9.37262900562243e-05
+      VariantType: 5
+    dblSizeY:
+      Unit: m
+      Description: Size-Height
+      Data: 0
+      Variant: 9.37262900562243e-05
+      VariantType: 5
+    dblSizeZ:
+      Unit: m
+      Description: Size-Depth
+      Data: 0
+      Variant: -9.18839999999865e-06
+      VariantType: 5
+    dblStepSize:
+      Description: StepSize
+      Data: 0
+      VariantType: 5
+    dblVoxelX:
+      Description: Voxel-Width
+      Data: 0
+      VariantType: 5
+    dblVoxelY:
+      Description: Voxel-Height
+      Data: 0
+      VariantType: 5
+    dblZWidePos:
+      Unit: m
+      Description: z-Wide Pos
+      Data: 0
+      Variant: 0.0122178664
+      VariantType: 5
+    dblZoom:
+      Unit: ''
+      Description: Zoom
+      Data: 0
+      VariantType: 5
+    dwChannelMask:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 2097152
+      VariantType: 3
+    dwLogiChMask:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 1
+      VariantType: 3
+    eAFAnalyseType:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 1
+      VariantType: 3
+    eAFSubsystem:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 0
+      VariantType: 3
+    eAFWorkflowTimelapse:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 2
+      VariantType: 3
+    eAFWorkflowXY:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 2
+      VariantType: 3
+    eAFZUseMode:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 2
+      VariantType: 3
+    eAOBSIntensityLow_World514:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 0
+      VariantType: 5
+    eAOBSIntensity_World514:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 100
+      VariantType: 5
+    eAOBSMode_514:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 2
+      VariantType: 3
+    eDataSource:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 0
+      VariantType: 3
+    eDirectional:
+      Unit: ''
+      Description: Scan-Direction
+      Data: 0
+      Variant: 1
+      VariantType: 3
+    eDirectionalY:
+      Unit: ''
+      Description: Y-Scan-Direction
+      Data: 0
+      Variant: 1
+      VariantType: 3
+    eSequentialMode:
+      Unit: ''
+      Description: SequentialMode
+      Data: 0
+      Variant: 0
+      VariantType: 3
+    eZUseMode:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 2
+      VariantType: 3
+    m_bConstantIntegrationTimeActive:
+      Unit: ''
+      Description: Maximum IntegrationTime Active
+      Data: 0
+      Variant: 0
+      VariantType: 17
+    nAFFixSliceNumber:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 9
+      VariantType: 3
+    nAFPrecision:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 2
+      VariantType: 3
+    nAFWorkflowTimelapseIterator:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 1
+      VariantType: 3
+    nAFWorkflowXYIterator:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 1
+      VariantType: 3
+    nAOBSConfigs:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 8
+      VariantType: 3
+    nAccumulation:
+      Unit: ''
+      Description: Frame-Accumulation
+      Data: 0
+      Variant: 1
+      VariantType: 3
+    nAverageFrame:
+      Unit: ''
+      Description: Frame-Average
+      Data: 0
+      Variant: 1
+      VariantType: 3
+    nAverageLine:
+      Unit: ''
+      Description: Line-Average
+      Data: 0
+      VariantType: 3
+    nBegin:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 3217615
+      VariantType: 3
+    nBit:
+      Unit: ''
+      Description: Resolution
+      Data: 0
+      VariantType: 3
+    nChannels:
+      Unit: ''
+      Description: Channels
+      Data: 0
+      VariantType: 3
+    nDelayTime_s:
+      Unit: s
+      Description: Delay[s]
+      Data: 0
+      Variant: 15
+      VariantType: 3
+    nEnd:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 3215197
+      VariantType: 3
+    nFormatInDimension:
+      Unit: ''
+      Description: Format-Width
+      Data: 0
+      VariantType: 3
+    nFormatOutDimension:
+      Unit: ''
+      Description: Format-Height
+      Data: 0
+      VariantType: 3
+    nLineAccumulation:
+      Unit: ''
+      Description: Line-Accumulation
+      Data: 0
+      Variant: 3
+      VariantType: 3
+    nLines:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 2.50000190734886
+      VariantType: 5
+    nPages:
+      Unit: ''
+      Description: ''
+      Data: 0
+      Variant: 2.50000190734863
+      VariantType: 5
+    nRepeatActions:
+      Unit: ''
+      Description: Iterations
+      Data: 0
+      VariantType: 3
+    nSections:
+      Unit: ''
+      Description: Sections
+      Data: 0
+      VariantType: 3
+  FilterSetting:
+    AOBS:
+      Intensity:
+      - ClassName: CAotf
+        Description: AOBS (0)
+        Data: 0
+        Variant: 100
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOBS (1)
+        Data: 1
+        Variant: 100
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOBS (2)
+        Data: 2
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOBS (3)
+        Data: 3
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOBS (4)
+        Data: 4
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOBS (5)
+        Data: 5
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOBS (6)
+        Data: 6
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOBS (7)
+        Data: 7
+        Variant: 0
+        VariantType: 5
+    AOBSLow:
+      Intensity:
+      - ClassName: CAotf
+        Description: AOBS (0)
+        Data: 0
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOBS (1)
+        Data: 1
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOBS (2)
+        Data: 2
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOBS (3)
+        Data: 3
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOBS (4)
+        Data: 4
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOBS (5)
+        Data: 5
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOBS (6)
+        Data: 6
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOBS (7)
+        Data: 7
+        Variant: 0
+        VariantType: 5
+    UV AOTF-1:
+      Intensity:
+        ClassName: CAotf
+        Description: AOTF (405)
+        Data: 405
+        Variant: 0
+        VariantType: 5
+    UV AOTF-1Low:
+      Intensity:
+        ClassName: CAotf
+        Description: AOTF (405)
+        Data: 405
+        Variant: 0
+        VariantType: 5
+    Visible AOTF-7:
+      Intensity:
+      - ClassName: CAotf
+        Description: AOTF (458)
+        Data: 458
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOTF (476)
+        Data: 476
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOTF (488)
+        Data: 488
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOTF (496)
+        Data: 496
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOTF (514)
+        Data: 514
+        Variant: 14.9972532503205
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOTF (561)
+        Data: 561
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOTF (633)
+        Data: 633
+        Variant: 0
+        VariantType: 5
+    Visible AOTF-7Low:
+      Intensity:
+      - ClassName: CAotf
+        Description: AOTF (458)
+        Data: 458
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOTF (476)
+        Data: 476
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOTF (488)
+        Data: 488
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOTF (496)
+        Data: 496
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOTF (514)
+        Data: 514
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOTF (561)
+        Data: 561
+        Variant: 0
+        VariantType: 5
+      - ClassName: CAotf
+        Description: AOTF (633)
+        Data: 633
+        Variant: 0
+        VariantType: 5
+    HyD 1:
+      State:
+        ClassName: CDetectionUnit
+        Description: HyD 1
+        Data: 1
+        Variant: Active
+        VariantType: 8
+      HighVoltage:
+        ClassName: CDetectionUnit
+        Description: HyD 1 (Gain)
+        Data: 1
+        Variant: 10
+        VariantType: 5
+      AcquisitionMode:
+        ClassName: CDetectionUnit
+        Description: HyD 1 (AcquisitionMode)
+        Data: 1
+        Variant: PhotonCounting
+        VariantType: 8
+      OverloadState:
+        ClassName: CDetectionUnit
+        Description: HyD 1 (OverloadState)
+        Data: 1
+        Variant: OK
+        VariantType: 8
+    PMT 2:
+      State:
+        ClassName: CDetectionUnit
+        Description: PMT 2
+        Data: 2
+        Variant: Inactive
+        VariantType: 8
+    PMT 3:
+      State:
+        ClassName: CDetectionUnit
+        Description: PMT 3
+        Data: 3
+        Variant: Inactive
+        VariantType: 8
+    Galvo Slider:
+      Filter:
+        ClassName: CFilterWheel
+        Description: Galvo Slider
+        Data: 0
+        Variant: 'Galvo X Res '
+        VariantType: 8
+    Reson:
+      ' Galvo Pan':
+        Filter:
+          ClassName: CFilterWheel
+          Description: Reson. Galvo Pan
+          Data: 0
+          Variant: 'Galvo X Pan Center '
+          VariantType: 8
+    Switchable Beam Expander:
+      Filter:
+        ClassName: CFilterWheel
+        Description: Switchable Beam Expander
+        Data: 0
+        Variant: 'No FRAP Booster '
+        VariantType: 8
+    Target Slider:
+      Filter:
+        ClassName: CFilterWheel
+        Description: Target Slider
+        Data: 0
+        Variant: 'Target Park '
+        VariantType: 8
+    UV Lens FW:
+      Filter:
+        ClassName: CFilterWheel
+        Description: UV Lens FW
+        Data: 0
+        Variant: 'Lens 63x/0.9 W '
+        VariantType: 8
+    Hardware Tree (5100001274):
+      Machine_Type:
+        ClassName: CFolderHardwareTree
+        Description: Hardware Type No.
+        Data: 0
+        Variant: 7
+        VariantType: 5
+      System_Number:
+        ClassName: CFolderHardwareTree
+        Description: System Number
+        Data: 0
+        Variant: 5100001274
+        VariantType: 8
+    Laser (405 Diode, UV):
+      Wavelength:
+        ClassName: CLaser
+        Description: Laser wavelength
+        Data: 0
+        Variant: 405
+        VariantType: 3
+      Power State:
+        ClassName: CLaser
+        Description: Power State
+        Data: 0
+        Variant: 'Off'
+        VariantType: 8
+    Laser (Argon, visible):
+      Wavelength:
+        ClassName: CLaser
+        Description: Laser wavelength
+        Data: 0
+        Variant: 458
+        VariantType: 3
+      Power State:
+        ClassName: CLaser
+        Description: Power State
+        Data: 0
+        Variant: 'On'
+        VariantType: 8
+      Output Power:
+        ClassName: CLaser
+        Description: Laser output power
+        Data: 0
+        Variant: 50
+        VariantType: 5
+    Laser (DPSS 561, visible):
+      Wavelength:
+        ClassName: CLaser
+        Description: Laser wavelength
+        Data: 0
+        Variant: 561
+        VariantType: 3
+      Power State:
+        ClassName: CLaser
+        Description: Power State
+        Data: 0
+        Variant: 'Off'
+        VariantType: 8
+    Laser (HeNe 633, visible):
+      Wavelength:
+        ClassName: CLaser
+        Description: Laser wavelength
+        Data: 0
+        Variant: 633
+        VariantType: 3
+      Power State:
+        ClassName: CLaser
+        Description: Power State
+        Data: 0
+        Variant: 'Off'
+        VariantType: 8
+    DM6000:
+      TLD_Settings:
+        ClassName: CMicroscopeStand
+        Description: TLD_Settings
+        Data: 0
+        Variant: 100
+        VariantType: 3
+      RLD_Settings:
+        ClassName: CMicroscopeStand
+        Description: RLD_Settings
+        Data: 0
+        Variant: -1
+        VariantType: 3
+    Microscope:
+      InverseZForCorrectTopo:
+        ClassName: CMicroscopeStand
+        Description: inverse flag topo
+        Data: 0
+        Variant: 1
+        VariantType: 3
+    Scan Field Rotator MA4:
+      Scan Rotation:
+        ClassName: CRotator
+        Description: Scan Field Rotation
+        Data: 0
+        Variant: 0
+        VariantType: 5
+      Rotation Direction:
+        ClassName: CRotator
+        Description: Rotation Direction
+        Data: 0
+        Variant: 1
+        VariantType: 3
+    X Reson:
+      ' Scan Actuator':
+        ScanPlane:
+          ClassName: CScanActuator
+          Description: X Reson. Scan Actuator
+          Data: 0
+          Variant: Active
+          VariantType: 8
+        IsWholeRangeOfSuperZEnabled:
+          ClassName: CScanActuator
+          Description: X Reson. Scan Actuator (POS)
+          Data: 0
+          Variant: 0
+          VariantType: 3
+        Gain:
+          ClassName: CScanActuator
+          Description: X Reson. Scan Actuator (Gain)
+          Data: 0
+          Variant: 2.50000238418806
+          VariantType: 5
+        Offset:
+          ClassName: CScanActuator
+          Description: X Reson. Scan Actuator (Offs.)
+          Data: 0
+          Variant: 8.67361737988404e-19
+          VariantType: 5
+    Y Reson:
+      ' Scan Actuator':
+        ScanPlane:
+          ClassName: CScanActuator
+          Description: Y Reson. Scan Actuator
+          Data: 0
+          Variant: Active
+          VariantType: 8
+        IsWholeRangeOfSuperZEnabled:
+          ClassName: CScanActuator
+          Description: Y Reson. Scan Actuator (POS)
+          Data: 0
+          Variant: 0
+          VariantType: 3
+        Gain:
+          ClassName: CScanActuator
+          Description: Y Reson. Scan Actuator (Gain)
+          Data: 0
+          Variant: 2.50000238418806
+          VariantType: 5
+        Offset:
+          ClassName: CScanActuator
+          Description: Y Reson. Scan Actuator (Offs.)
+          Data: 0
+          Variant: 8.67361737988404e-19
+          VariantType: 5
+    Scan Head:
+      Speed:
+        ClassName: CScanCtrlUnit
+        Description: Scan Speed
+        Data: 1
+        Variant: 8000
+        VariantType: 5
+      Phase:
+        ClassName: CScanCtrlUnit
+        Description: Phase
+        Data: 0
+        Variant: 3.68200198367285
+        VariantType: 5
+      Y-Phase:
+        ClassName: CScanCtrlUnit
+        Description: Y-Phase
+        Data: 0
+        Variant: 0
+        VariantType: 5
+      SMD-Phase:
+        ClassName: CScanCtrlUnit
+        Description: SMD-Phase
+        Data: 0
+        Variant: 0
+        VariantType: 5
+    SP Mirror Channel 1:
+      Wavelength:
+      - ClassName: CSpectrophotometerUnit
+        Description: SP Mirror Channel 1 (left)
+        Data: 0
+        Variant: 524
+        VariantType: 5
+      - ClassName: CSpectrophotometerUnit
+        Description: SP Mirror Channel 1 (right)
+        Data: 1
+        Variant: 649.441552100243
+        VariantType: 5
+      Stain:
+        ClassName: CSpectrophotometerUnit
+        Description: SP Mirror Channel 1 (stain)
+        Data: 0
+        Variant: ''
+        VariantType: 8
+    SP Mirror Channel 2:
+      Wavelength:
+      - ClassName: CSpectrophotometerUnit
+        Description: SP Mirror Channel 2 (left)
+        Data: 0
+        Variant: 690.000000123854
+        VariantType: 5
+      - ClassName: CSpectrophotometerUnit
+        Description: SP Mirror Channel 2 (right)
+        Data: 1
+        Variant: 695
+        VariantType: 5
+      Stain:
+        ClassName: CSpectrophotometerUnit
+        Description: SP Mirror Channel 2 (stain)
+        Data: 0
+        Variant: ''
+        VariantType: 8
+    SP Mirror Channel 3:
+      Wavelength:
+      - ClassName: CSpectrophotometerUnit
+        Description: SP Mirror Channel 3 (left)
+        Data: 0
+        Variant: 695
+        VariantType: 5
+      - ClassName: CSpectrophotometerUnit
+        Description: SP Mirror Channel 3 (right)
+        Data: 1
+        Variant: 765
+        VariantType: 5
+      Stain:
+        ClassName: CSpectrophotometerUnit
+        Description: SP Mirror Channel 3 (stain)
+        Data: 0
+        Variant: ''
+        VariantType: 8
+    DM6000 TubeOptic:
+      Magnification:
+        ClassName: CTubeOptic
+        Description: Magnification-Changer
+        Data: 0
+        Variant: SCANx
+        VariantType: 8
+      Position:
+        ClassName: CTubeOptic
+        Description: Position
+        Data: 0
+        Variant: 1
+        VariantType: 3
+    DM6000 Turret:
+      Objective:
+        ClassName: CTurret
+        Description: Objective
+        Data: 0
+        VariantType: 8
+      OrderNumber:
+        ClassName: CTurret
+        Description: Order number (Obj.)
+        Data: 0
+        VariantType: 3
+      NumericalAperture:
+        ClassName: CTurret
+        Description: Numerical aperture (Obj.)
+        Data: 0
+        VariantType: 5
+      RefractionIndex:
+        ClassName: CTurret
+        Description: Refraction index
+        Data: 0
+        VariantType: 5
+      DUMMYNAME:
+        ClassName: CTurret
+        Description: Dummy Name (Obj.)
+        Data: 0
+        Variant: Dummy1
+        VariantType: 8
+    DM6000 Stage:
+      XPosOrigin:
+        ClassName: CXYZStage
+        Description: DM6000 Stage XOrigin
+        Data: 0
+        Variant: 0
+        VariantType: 5
+      YPosOrigin:
+        ClassName: CXYZStage
+        Description: DM6000 Stage YOrigin
+        Data: 0
+        Variant: 0
+        VariantType: 5
+      ZPosOrigin:
+        ClassName: CXYZStage
+        Description: DM6000 Stage ZOrigin
+        Data: 0
+        Variant: 0
+        VariantType: 5
+      XPos:
+        ClassName: CXYZStage
+        Description: DM6000 Stage Pos x
+        Data: 0
+        Variant: 0.0068001918308
+        VariantType: 5
+      YPos:
+        ClassName: CXYZStage
+        Description: DM6000 Stage Pos y
+        Data: 0
+        Variant: 0.00539988493057
+        VariantType: 5
+      ZPos:
+        ClassName: CXYZStage
+        Description: DM6000 Stage Pos z
+        Data: 0
+        Variant: 0
+        VariantType: 5
+  Application: LAS AF
+LightPath:
+  ConfocalScannerSettings:
+    PresetPinholeSize: 0.000156039037739575
+    EffectiveZoom: 2.50000238418806
+    IntegrationNumber: 1
+    PresetPinholeSizeUnit: m
+Pixels:
+  PhysicalSizeZUnit: m
+  PhysicalSizeZ: 2.964e-07
+  PhysicalSizeXUnit: m
+  PhysicalSizeX: 9.16190518633669e-08
+  PhysicalSizeYUnit: m
+  PhysicalSizeY: 9.16190518633669e-08
+  SignificantBits: 12
+  SizeC: 1
+  SizeX: 1024
+  SizeY: 1024
+  SizeT: 61
+  SizeZ: 32
+Objective:
+  Model: HCX APO L U-V-I  63.0x0.90 WATER  UV
+  CatalogNumber: 11506148
+  LensNA: 0.9
+  Magnification: 63.0
+  ImmersionType: Water
+ImmersionLiquid:
+  RefractiveIndex: 1.33
+SourceMap:
+  Instrument.Manufacturer: manufacturer
+  HardwareSettingList.ScannerSetting.SystemType.Unit: HardwareSettingList.ScannerSetting.SystemType.Unit
+  HardwareSettingList.ScannerSetting.SystemType.Description: HardwareSettingList.ScannerSetting.SystemType.Description
+  HardwareSettingList.ScannerSetting.SystemType.Data: HardwareSettingList.ScannerSetting.SystemType.Data
+  Instrument.Name: HardwareSettingList.ScannerSetting.SystemType.Variant
+  HardwareSettingList.ScannerSetting.SystemType.VariantType: HardwareSettingList.ScannerSetting.SystemType.VariantType
+  HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.Unit: HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.Unit
+  HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.Description: HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.Description
+  HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.Data: HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.Data
+  HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.Variant: HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.Variant
+  HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.VariantType: HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.VariantType
+  HardwareSettingList.ScannerSetting.bAdaptiveFocusControlActive.Unit: HardwareSettingList.ScannerSetting.bAdaptiveFocusControlActive.Unit
+  HardwareSettingList.ScannerSetting.bAdaptiveFocusControlActive.Description: HardwareSettingList.ScannerSetting.bAdaptiveFocusControlActive.Description
+  HardwareSettingList.ScannerSetting.bAdaptiveFocusControlActive.Data: HardwareSettingList.ScannerSetting.bAdaptiveFocusControlActive.Data
+  HardwareSettingList.ScannerSetting.bAdaptiveFocusControlActive.Variant: HardwareSettingList.ScannerSetting.bAdaptiveFocusControlActive.Variant
+  HardwareSettingList.ScannerSetting.bAdaptiveFocusControlActive.VariantType: HardwareSettingList.ScannerSetting.bAdaptiveFocusControlActive.VariantType
+  HardwareSettingList.ScannerSetting.bEnableRoiScan.Unit: HardwareSettingList.ScannerSetting.bEnableRoiScan.Unit
+  HardwareSettingList.ScannerSetting.bEnableRoiScan.Description: HardwareSettingList.ScannerSetting.bEnableRoiScan.Description
+  HardwareSettingList.ScannerSetting.bEnableRoiScan.Data: HardwareSettingList.ScannerSetting.bEnableRoiScan.Data
+  HardwareSettingList.ScannerSetting.bEnableRoiScan.Variant: HardwareSettingList.ScannerSetting.bEnableRoiScan.Variant
+  HardwareSettingList.ScannerSetting.bEnableRoiScan.VariantType: HardwareSettingList.ScannerSetting.bEnableRoiScan.VariantType
+  HardwareSettingList.ScannerSetting.bIs3DLimitedRoiScanEnable.Unit: HardwareSettingList.ScannerSetting.bIs3DLimitedRoiScanEnable.Unit
+  HardwareSettingList.ScannerSetting.bIs3DLimitedRoiScanEnable.Description: HardwareSettingList.ScannerSetting.bIs3DLimitedRoiScanEnable.Description
+  HardwareSettingList.ScannerSetting.bIs3DLimitedRoiScanEnable.Data: HardwareSettingList.ScannerSetting.bIs3DLimitedRoiScanEnable.Data
+  HardwareSettingList.ScannerSetting.bIs3DLimitedRoiScanEnable.Variant: HardwareSettingList.ScannerSetting.bIs3DLimitedRoiScanEnable.Variant
+  HardwareSettingList.ScannerSetting.bIs3DLimitedRoiScanEnable.VariantType: HardwareSettingList.ScannerSetting.bIs3DLimitedRoiScanEnable.VariantType
+  HardwareSettingList.ScannerSetting.bIsSequential.Unit: HardwareSettingList.ScannerSetting.bIsSequential.Unit
+  HardwareSettingList.ScannerSetting.bIsSequential.Description: HardwareSettingList.ScannerSetting.bIsSequential.Description
+  HardwareSettingList.ScannerSetting.bIsSequential.Data: HardwareSettingList.ScannerSetting.bIsSequential.Data
+  HardwareSettingList.ScannerSetting.bIsSequential.Variant: HardwareSettingList.ScannerSetting.bIsSequential.Variant
+  HardwareSettingList.ScannerSetting.bIsSequential.VariantType: HardwareSettingList.ScannerSetting.bIsSequential.VariantType
+  HardwareSettingList.ScannerSetting.bIsSeriesScanAutofocusActive.Unit: HardwareSettingList.ScannerSetting.bIsSeriesScanAutofocusActive.Unit
+  HardwareSettingList.ScannerSetting.bIsSeriesScanAutofocusActive.Description: HardwareSettingList.ScannerSetting.bIsSeriesScanAutofocusActive.Description
+  HardwareSettingList.ScannerSetting.bIsSeriesScanAutofocusActive.Data: HardwareSettingList.ScannerSetting.bIsSeriesScanAutofocusActive.Data
+  HardwareSettingList.ScannerSetting.bIsSeriesScanAutofocusActive.Variant: HardwareSettingList.ScannerSetting.bIsSeriesScanAutofocusActive.Variant
+  HardwareSettingList.ScannerSetting.bIsSeriesScanAutofocusActive.VariantType: HardwareSettingList.ScannerSetting.bIsSeriesScanAutofocusActive.VariantType
+  HardwareSettingList.ScannerSetting.bMinimizeMode.Unit: HardwareSettingList.ScannerSetting.bMinimizeMode.Unit
+  HardwareSettingList.ScannerSetting.bMinimizeMode.Description: HardwareSettingList.ScannerSetting.bMinimizeMode.Description
+  HardwareSettingList.ScannerSetting.bMinimizeMode.Data: HardwareSettingList.ScannerSetting.bMinimizeMode.Data
+  HardwareSettingList.ScannerSetting.bMinimizeMode.Variant: HardwareSettingList.ScannerSetting.bMinimizeMode.Variant
+  HardwareSettingList.ScannerSetting.bMinimizeMode.VariantType: HardwareSettingList.ScannerSetting.bMinimizeMode.VariantType
+  HardwareSettingList.ScannerSetting.bSecondCrystal.Unit: HardwareSettingList.ScannerSetting.bSecondCrystal.Unit
+  HardwareSettingList.ScannerSetting.bSecondCrystal.Description: HardwareSettingList.ScannerSetting.bSecondCrystal.Description
+  HardwareSettingList.ScannerSetting.bSecondCrystal.Data: HardwareSettingList.ScannerSetting.bSecondCrystal.Data
+  HardwareSettingList.ScannerSetting.bSecondCrystal.Variant: HardwareSettingList.ScannerSetting.bSecondCrystal.Variant
+  HardwareSettingList.ScannerSetting.bSecondCrystal.VariantType: HardwareSettingList.ScannerSetting.bSecondCrystal.VariantType
+  HardwareSettingList.ScannerSetting.bStepSizeConstant.Unit: HardwareSettingList.ScannerSetting.bStepSizeConstant.Unit
+  HardwareSettingList.ScannerSetting.bStepSizeConstant.Description: HardwareSettingList.ScannerSetting.bStepSizeConstant.Description
+  HardwareSettingList.ScannerSetting.bStepSizeConstant.Data: HardwareSettingList.ScannerSetting.bStepSizeConstant.Data
+  HardwareSettingList.ScannerSetting.bStepSizeConstant.Variant: HardwareSettingList.ScannerSetting.bStepSizeConstant.Variant
+  HardwareSettingList.ScannerSetting.bStepSizeConstant.VariantType: HardwareSettingList.ScannerSetting.bStepSizeConstant.VariantType
+  HardwareSettingList.ScannerSetting.bStepSizerActivated.Unit: HardwareSettingList.ScannerSetting.bStepSizerActivated.Unit
+  HardwareSettingList.ScannerSetting.bStepSizerActivated.Description: HardwareSettingList.ScannerSetting.bStepSizerActivated.Description
+  HardwareSettingList.ScannerSetting.bStepSizerActivated.Data: HardwareSettingList.ScannerSetting.bStepSizerActivated.Data
+  HardwareSettingList.ScannerSetting.bStepSizerActivated.Variant: HardwareSettingList.ScannerSetting.bStepSizerActivated.Variant
+  HardwareSettingList.ScannerSetting.bStepSizerActivated.VariantType: HardwareSettingList.ScannerSetting.bStepSizerActivated.VariantType
+  HardwareSettingList.ScannerSetting.bUseUVShutter.Unit: HardwareSettingList.ScannerSetting.bUseUVShutter.Unit
+  HardwareSettingList.ScannerSetting.bUseUVShutter.Description: HardwareSettingList.ScannerSetting.bUseUVShutter.Description
+  HardwareSettingList.ScannerSetting.bUseUVShutter.Data: HardwareSettingList.ScannerSetting.bUseUVShutter.Data
+  HardwareSettingList.ScannerSetting.bUseUVShutter.Variant: HardwareSettingList.ScannerSetting.bUseUVShutter.Variant
+  HardwareSettingList.ScannerSetting.bUseUVShutter.VariantType: HardwareSettingList.ScannerSetting.bUseUVShutter.VariantType
+  HardwareSettingList.ScannerSetting.bUseVisibleShutter.Unit: HardwareSettingList.ScannerSetting.bUseVisibleShutter.Unit
+  HardwareSettingList.ScannerSetting.bUseVisibleShutter.Description: HardwareSettingList.ScannerSetting.bUseVisibleShutter.Description
+  HardwareSettingList.ScannerSetting.bUseVisibleShutter.Data: HardwareSettingList.ScannerSetting.bUseVisibleShutter.Data
+  HardwareSettingList.ScannerSetting.bUseVisibleShutter.Variant: HardwareSettingList.ScannerSetting.bUseVisibleShutter.Variant
+  HardwareSettingList.ScannerSetting.bUseVisibleShutter.VariantType: HardwareSettingList.ScannerSetting.bUseVisibleShutter.VariantType
+  HardwareSettingList.ScannerSetting.bValidBegin.Unit: HardwareSettingList.ScannerSetting.bValidBegin.Unit
+  HardwareSettingList.ScannerSetting.bValidBegin.Description: HardwareSettingList.ScannerSetting.bValidBegin.Description
+  HardwareSettingList.ScannerSetting.bValidBegin.Data: HardwareSettingList.ScannerSetting.bValidBegin.Data
+  HardwareSettingList.ScannerSetting.bValidBegin.Variant: HardwareSettingList.ScannerSetting.bValidBegin.Variant
+  HardwareSettingList.ScannerSetting.bValidBegin.VariantType: HardwareSettingList.ScannerSetting.bValidBegin.VariantType
+  HardwareSettingList.ScannerSetting.bValidEnd.Unit: HardwareSettingList.ScannerSetting.bValidEnd.Unit
+  HardwareSettingList.ScannerSetting.bValidEnd.Description: HardwareSettingList.ScannerSetting.bValidEnd.Description
+  HardwareSettingList.ScannerSetting.bValidEnd.Data: HardwareSettingList.ScannerSetting.bValidEnd.Data
+  HardwareSettingList.ScannerSetting.bValidEnd.Variant: HardwareSettingList.ScannerSetting.bValidEnd.Variant
+  HardwareSettingList.ScannerSetting.bValidEnd.VariantType: HardwareSettingList.ScannerSetting.bValidEnd.VariantType
+  HardwareSettingList.ScannerSetting.csLutName00.Unit: HardwareSettingList.ScannerSetting.csLutName00.Unit
+  HardwareSettingList.ScannerSetting.csLutName00.Description: HardwareSettingList.ScannerSetting.csLutName00.Description
+  HardwareSettingList.ScannerSetting.csLutName00.Data: HardwareSettingList.ScannerSetting.csLutName00.Data
+  HardwareSettingList.ScannerSetting.csLutName00.Variant: HardwareSettingList.ScannerSetting.csLutName00.Variant
+  HardwareSettingList.ScannerSetting.csLutName00.VariantType: HardwareSettingList.ScannerSetting.csLutName00.VariantType
+  HardwareSettingList.ScannerSetting.csLutName01.Unit: HardwareSettingList.ScannerSetting.csLutName01.Unit
+  HardwareSettingList.ScannerSetting.csLutName01.Description: HardwareSettingList.ScannerSetting.csLutName01.Description
+  HardwareSettingList.ScannerSetting.csLutName01.Data: HardwareSettingList.ScannerSetting.csLutName01.Data
+  HardwareSettingList.ScannerSetting.csLutName01.Variant: HardwareSettingList.ScannerSetting.csLutName01.Variant
+  HardwareSettingList.ScannerSetting.csLutName01.VariantType: HardwareSettingList.ScannerSetting.csLutName01.VariantType
+  HardwareSettingList.ScannerSetting.csLutName02.Unit: HardwareSettingList.ScannerSetting.csLutName02.Unit
+  HardwareSettingList.ScannerSetting.csLutName02.Description: HardwareSettingList.ScannerSetting.csLutName02.Description
+  HardwareSettingList.ScannerSetting.csLutName02.Data: HardwareSettingList.ScannerSetting.csLutName02.Data
+  HardwareSettingList.ScannerSetting.csLutName02.Variant: HardwareSettingList.ScannerSetting.csLutName02.Variant
+  HardwareSettingList.ScannerSetting.csLutName02.VariantType: HardwareSettingList.ScannerSetting.csLutName02.VariantType
+  HardwareSettingList.ScannerSetting.csLutName03.Unit: HardwareSettingList.ScannerSetting.csLutName03.Unit
+  HardwareSettingList.ScannerSetting.csLutName03.Description: HardwareSettingList.ScannerSetting.csLutName03.Description
+  HardwareSettingList.ScannerSetting.csLutName03.Data: HardwareSettingList.ScannerSetting.csLutName03.Data
+  HardwareSettingList.ScannerSetting.csLutName03.Variant: HardwareSettingList.ScannerSetting.csLutName03.Variant
+  HardwareSettingList.ScannerSetting.csLutName03.VariantType: HardwareSettingList.ScannerSetting.csLutName03.VariantType
+  HardwareSettingList.ScannerSetting.csLutName04.Unit: HardwareSettingList.ScannerSetting.csLutName04.Unit
+  HardwareSettingList.ScannerSetting.csLutName04.Description: HardwareSettingList.ScannerSetting.csLutName04.Description
+  HardwareSettingList.ScannerSetting.csLutName04.Data: HardwareSettingList.ScannerSetting.csLutName04.Data
+  HardwareSettingList.ScannerSetting.csLutName04.Variant: HardwareSettingList.ScannerSetting.csLutName04.Variant
+  HardwareSettingList.ScannerSetting.csLutName04.VariantType: HardwareSettingList.ScannerSetting.csLutName04.VariantType
+  HardwareSettingList.ScannerSetting.csLutName05.Unit: HardwareSettingList.ScannerSetting.csLutName05.Unit
+  HardwareSettingList.ScannerSetting.csLutName05.Description: HardwareSettingList.ScannerSetting.csLutName05.Description
+  HardwareSettingList.ScannerSetting.csLutName05.Data: HardwareSettingList.ScannerSetting.csLutName05.Data
+  HardwareSettingList.ScannerSetting.csLutName05.Variant: HardwareSettingList.ScannerSetting.csLutName05.Variant
+  HardwareSettingList.ScannerSetting.csLutName05.VariantType: HardwareSettingList.ScannerSetting.csLutName05.VariantType
+  HardwareSettingList.ScannerSetting.csLutName06.Unit: HardwareSettingList.ScannerSetting.csLutName06.Unit
+  HardwareSettingList.ScannerSetting.csLutName06.Description: HardwareSettingList.ScannerSetting.csLutName06.Description
+  HardwareSettingList.ScannerSetting.csLutName06.Data: HardwareSettingList.ScannerSetting.csLutName06.Data
+  HardwareSettingList.ScannerSetting.csLutName06.Variant: HardwareSettingList.ScannerSetting.csLutName06.Variant
+  HardwareSettingList.ScannerSetting.csLutName06.VariantType: HardwareSettingList.ScannerSetting.csLutName06.VariantType
+  HardwareSettingList.ScannerSetting.csLutName07.Unit: HardwareSettingList.ScannerSetting.csLutName07.Unit
+  HardwareSettingList.ScannerSetting.csLutName07.Description: HardwareSettingList.ScannerSetting.csLutName07.Description
+  HardwareSettingList.ScannerSetting.csLutName07.Data: HardwareSettingList.ScannerSetting.csLutName07.Data
+  HardwareSettingList.ScannerSetting.csLutName07.Variant: HardwareSettingList.ScannerSetting.csLutName07.Variant
+  HardwareSettingList.ScannerSetting.csLutName07.VariantType: HardwareSettingList.ScannerSetting.csLutName07.VariantType
+  HardwareSettingList.ScannerSetting.csLutName08.Unit: HardwareSettingList.ScannerSetting.csLutName08.Unit
+  HardwareSettingList.ScannerSetting.csLutName08.Description: HardwareSettingList.ScannerSetting.csLutName08.Description
+  HardwareSettingList.ScannerSetting.csLutName08.Data: HardwareSettingList.ScannerSetting.csLutName08.Data
+  HardwareSettingList.ScannerSetting.csLutName08.Variant: HardwareSettingList.ScannerSetting.csLutName08.Variant
+  HardwareSettingList.ScannerSetting.csLutName08.VariantType: HardwareSettingList.ScannerSetting.csLutName08.VariantType
+  HardwareSettingList.ScannerSetting.csLutName09.Unit: HardwareSettingList.ScannerSetting.csLutName09.Unit
+  HardwareSettingList.ScannerSetting.csLutName09.Description: HardwareSettingList.ScannerSetting.csLutName09.Description
+  HardwareSettingList.ScannerSetting.csLutName09.Data: HardwareSettingList.ScannerSetting.csLutName09.Data
+  HardwareSettingList.ScannerSetting.csLutName09.Variant: HardwareSettingList.ScannerSetting.csLutName09.Variant
+  HardwareSettingList.ScannerSetting.csLutName09.VariantType: HardwareSettingList.ScannerSetting.csLutName09.VariantType
+  HardwareSettingList.ScannerSetting.csLutName10.Unit: HardwareSettingList.ScannerSetting.csLutName10.Unit
+  HardwareSettingList.ScannerSetting.csLutName10.Description: HardwareSettingList.ScannerSetting.csLutName10.Description
+  HardwareSettingList.ScannerSetting.csLutName10.Data: HardwareSettingList.ScannerSetting.csLutName10.Data
+  HardwareSettingList.ScannerSetting.csLutName10.Variant: HardwareSettingList.ScannerSetting.csLutName10.Variant
+  HardwareSettingList.ScannerSetting.csLutName10.VariantType: HardwareSettingList.ScannerSetting.csLutName10.VariantType
+  HardwareSettingList.ScannerSetting.csLutName11.Unit: HardwareSettingList.ScannerSetting.csLutName11.Unit
+  HardwareSettingList.ScannerSetting.csLutName11.Description: HardwareSettingList.ScannerSetting.csLutName11.Description
+  HardwareSettingList.ScannerSetting.csLutName11.Data: HardwareSettingList.ScannerSetting.csLutName11.Data
+  HardwareSettingList.ScannerSetting.csLutName11.Variant: HardwareSettingList.ScannerSetting.csLutName11.Variant
+  HardwareSettingList.ScannerSetting.csLutName11.VariantType: HardwareSettingList.ScannerSetting.csLutName11.VariantType
+  HardwareSettingList.ScannerSetting.csScanMode.Unit: HardwareSettingList.ScannerSetting.csScanMode.Unit
+  HardwareSettingList.ScannerSetting.csScanMode.Description: HardwareSettingList.ScannerSetting.csScanMode.Description
+  HardwareSettingList.ScannerSetting.csScanMode.Data: HardwareSettingList.ScannerSetting.csScanMode.Data
+  HardwareSettingList.ScannerSetting.csScanMode.Variant: HardwareSettingList.ScannerSetting.csScanMode.Variant
+  HardwareSettingList.ScannerSetting.csScanMode.VariantType: HardwareSettingList.ScannerSetting.csScanMode.VariantType
+  HardwareSettingList.ScannerSetting.dAdaptiveFocusControlAutonomousOffset.Unit: HardwareSettingList.ScannerSetting.dAdaptiveFocusControlAutonomousOffset.Unit
+  HardwareSettingList.ScannerSetting.dAdaptiveFocusControlAutonomousOffset.Description: HardwareSettingList.ScannerSetting.dAdaptiveFocusControlAutonomousOffset.Description
+  HardwareSettingList.ScannerSetting.dAdaptiveFocusControlAutonomousOffset.Data: HardwareSettingList.ScannerSetting.dAdaptiveFocusControlAutonomousOffset.Data
+  HardwareSettingList.ScannerSetting.dAdaptiveFocusControlAutonomousOffset.Variant: HardwareSettingList.ScannerSetting.dAdaptiveFocusControlAutonomousOffset.Variant
+  HardwareSettingList.ScannerSetting.dAdaptiveFocusControlAutonomousOffset.VariantType: HardwareSettingList.ScannerSetting.dAdaptiveFocusControlAutonomousOffset.VariantType
+  HardwareSettingList.ScannerSetting.dblAFCOffset.Unit: HardwareSettingList.ScannerSetting.dblAFCOffset.Unit
+  HardwareSettingList.ScannerSetting.dblAFCOffset.Description: HardwareSettingList.ScannerSetting.dblAFCOffset.Description
+  HardwareSettingList.ScannerSetting.dblAFCOffset.Data: HardwareSettingList.ScannerSetting.dblAFCOffset.Data
+  HardwareSettingList.ScannerSetting.dblAFCOffset.Variant: HardwareSettingList.ScannerSetting.dblAFCOffset.Variant
+  HardwareSettingList.ScannerSetting.dblAFCOffset.VariantType: HardwareSettingList.ScannerSetting.dblAFCOffset.VariantType
+  HardwareSettingList.ScannerSetting.dblAFFocusRange.Unit: HardwareSettingList.ScannerSetting.dblAFFocusRange.Unit
+  HardwareSettingList.ScannerSetting.dblAFFocusRange.Description: HardwareSettingList.ScannerSetting.dblAFFocusRange.Description
+  HardwareSettingList.ScannerSetting.dblAFFocusRange.Data: HardwareSettingList.ScannerSetting.dblAFFocusRange.Data
+  HardwareSettingList.ScannerSetting.dblAFFocusRange.Variant: HardwareSettingList.ScannerSetting.dblAFFocusRange.Variant
+  HardwareSettingList.ScannerSetting.dblAFFocusRange.VariantType: HardwareSettingList.ScannerSetting.dblAFFocusRange.VariantType
+  HardwareSettingList.ScannerSetting.dblPinhole.Unit: HardwareSettingList.ScannerSetting.dblPinhole.Unit
+  HardwareSettingList.ScannerSetting.dblPinhole.Description: HardwareSettingList.ScannerSetting.dblPinhole.Description
+  HardwareSettingList.ScannerSetting.dblPinhole.Data: HardwareSettingList.ScannerSetting.dblPinhole.Data
+  LightPath.ConfocalScannerSettings.PresetPinholeSize: HardwareSettingList.ScannerSetting.dblPinhole.Variant
+  HardwareSettingList.ScannerSetting.dblPinhole.VariantType: HardwareSettingList.ScannerSetting.dblPinhole.VariantType
+  HardwareSettingList.ScannerSetting.dblPinholeAiry.Unit: HardwareSettingList.ScannerSetting.dblPinholeAiry.Unit
+  HardwareSettingList.ScannerSetting.dblPinholeAiry.Description: HardwareSettingList.ScannerSetting.dblPinholeAiry.Description
+  HardwareSettingList.ScannerSetting.dblPinholeAiry.Data: HardwareSettingList.ScannerSetting.dblPinholeAiry.Data
+  HardwareSettingList.ScannerSetting.dblPinholeAiry.Variant: HardwareSettingList.ScannerSetting.dblPinholeAiry.Variant
+  HardwareSettingList.ScannerSetting.dblPinholeAiry.VariantType: HardwareSettingList.ScannerSetting.dblPinholeAiry.VariantType
+  HardwareSettingList.ScannerSetting.dblSizeX.Unit: HardwareSettingList.ScannerSetting.dblSizeX.Unit
+  HardwareSettingList.ScannerSetting.dblSizeX.Description: HardwareSettingList.ScannerSetting.dblSizeX.Description
+  HardwareSettingList.ScannerSetting.dblSizeX.Data: HardwareSettingList.ScannerSetting.dblSizeX.Data
+  HardwareSettingList.ScannerSetting.dblSizeX.Variant: HardwareSettingList.ScannerSetting.dblSizeX.Variant
+  HardwareSettingList.ScannerSetting.dblSizeX.VariantType: HardwareSettingList.ScannerSetting.dblSizeX.VariantType
+  HardwareSettingList.ScannerSetting.dblSizeY.Unit: HardwareSettingList.ScannerSetting.dblSizeY.Unit
+  HardwareSettingList.ScannerSetting.dblSizeY.Description: HardwareSettingList.ScannerSetting.dblSizeY.Description
+  HardwareSettingList.ScannerSetting.dblSizeY.Data: HardwareSettingList.ScannerSetting.dblSizeY.Data
+  HardwareSettingList.ScannerSetting.dblSizeY.Variant: HardwareSettingList.ScannerSetting.dblSizeY.Variant
+  HardwareSettingList.ScannerSetting.dblSizeY.VariantType: HardwareSettingList.ScannerSetting.dblSizeY.VariantType
+  HardwareSettingList.ScannerSetting.dblSizeZ.Unit: HardwareSettingList.ScannerSetting.dblSizeZ.Unit
+  HardwareSettingList.ScannerSetting.dblSizeZ.Description: HardwareSettingList.ScannerSetting.dblSizeZ.Description
+  HardwareSettingList.ScannerSetting.dblSizeZ.Data: HardwareSettingList.ScannerSetting.dblSizeZ.Data
+  HardwareSettingList.ScannerSetting.dblSizeZ.Variant: HardwareSettingList.ScannerSetting.dblSizeZ.Variant
+  HardwareSettingList.ScannerSetting.dblSizeZ.VariantType: HardwareSettingList.ScannerSetting.dblSizeZ.VariantType
+  Pixels.PhysicalSizeZUnit: HardwareSettingList.ScannerSetting.dblStepSize.Unit
+  HardwareSettingList.ScannerSetting.dblStepSize.Description: HardwareSettingList.ScannerSetting.dblStepSize.Description
+  HardwareSettingList.ScannerSetting.dblStepSize.Data: HardwareSettingList.ScannerSetting.dblStepSize.Data
+  Pixels.PhysicalSizeZ: HardwareSettingList.ScannerSetting.dblStepSize.Variant
+  HardwareSettingList.ScannerSetting.dblStepSize.VariantType: HardwareSettingList.ScannerSetting.dblStepSize.VariantType
+  Pixels.PhysicalSizeXUnit: HardwareSettingList.ScannerSetting.dblVoxelX.Unit
+  HardwareSettingList.ScannerSetting.dblVoxelX.Description: HardwareSettingList.ScannerSetting.dblVoxelX.Description
+  HardwareSettingList.ScannerSetting.dblVoxelX.Data: HardwareSettingList.ScannerSetting.dblVoxelX.Data
+  Pixels.PhysicalSizeX: HardwareSettingList.ScannerSetting.dblVoxelX.Variant
+  HardwareSettingList.ScannerSetting.dblVoxelX.VariantType: HardwareSettingList.ScannerSetting.dblVoxelX.VariantType
+  Pixels.PhysicalSizeYUnit: HardwareSettingList.ScannerSetting.dblVoxelY.Unit
+  HardwareSettingList.ScannerSetting.dblVoxelY.Description: HardwareSettingList.ScannerSetting.dblVoxelY.Description
+  HardwareSettingList.ScannerSetting.dblVoxelY.Data: HardwareSettingList.ScannerSetting.dblVoxelY.Data
+  Pixels.PhysicalSizeY: HardwareSettingList.ScannerSetting.dblVoxelY.Variant
+  HardwareSettingList.ScannerSetting.dblVoxelY.VariantType: HardwareSettingList.ScannerSetting.dblVoxelY.VariantType
+  HardwareSettingList.ScannerSetting.dblZWidePos.Unit: HardwareSettingList.ScannerSetting.dblZWidePos.Unit
+  HardwareSettingList.ScannerSetting.dblZWidePos.Description: HardwareSettingList.ScannerSetting.dblZWidePos.Description
+  HardwareSettingList.ScannerSetting.dblZWidePos.Data: HardwareSettingList.ScannerSetting.dblZWidePos.Data
+  HardwareSettingList.ScannerSetting.dblZWidePos.Variant: HardwareSettingList.ScannerSetting.dblZWidePos.Variant
+  HardwareSettingList.ScannerSetting.dblZWidePos.VariantType: HardwareSettingList.ScannerSetting.dblZWidePos.VariantType
+  HardwareSettingList.ScannerSetting.dblZoom.Unit: HardwareSettingList.ScannerSetting.dblZoom.Unit
+  HardwareSettingList.ScannerSetting.dblZoom.Description: HardwareSettingList.ScannerSetting.dblZoom.Description
+  HardwareSettingList.ScannerSetting.dblZoom.Data: HardwareSettingList.ScannerSetting.dblZoom.Data
+  LightPath.ConfocalScannerSettings.EffectiveZoom: HardwareSettingList.ScannerSetting.dblZoom.Variant
+  HardwareSettingList.ScannerSetting.dblZoom.VariantType: HardwareSettingList.ScannerSetting.dblZoom.VariantType
+  HardwareSettingList.ScannerSetting.dwChannelMask.Unit: HardwareSettingList.ScannerSetting.dwChannelMask.Unit
+  HardwareSettingList.ScannerSetting.dwChannelMask.Description: HardwareSettingList.ScannerSetting.dwChannelMask.Description
+  HardwareSettingList.ScannerSetting.dwChannelMask.Data: HardwareSettingList.ScannerSetting.dwChannelMask.Data
+  HardwareSettingList.ScannerSetting.dwChannelMask.Variant: HardwareSettingList.ScannerSetting.dwChannelMask.Variant
+  HardwareSettingList.ScannerSetting.dwChannelMask.VariantType: HardwareSettingList.ScannerSetting.dwChannelMask.VariantType
+  HardwareSettingList.ScannerSetting.dwLogiChMask.Unit: HardwareSettingList.ScannerSetting.dwLogiChMask.Unit
+  HardwareSettingList.ScannerSetting.dwLogiChMask.Description: HardwareSettingList.ScannerSetting.dwLogiChMask.Description
+  HardwareSettingList.ScannerSetting.dwLogiChMask.Data: HardwareSettingList.ScannerSetting.dwLogiChMask.Data
+  HardwareSettingList.ScannerSetting.dwLogiChMask.Variant: HardwareSettingList.ScannerSetting.dwLogiChMask.Variant
+  HardwareSettingList.ScannerSetting.dwLogiChMask.VariantType: HardwareSettingList.ScannerSetting.dwLogiChMask.VariantType
+  HardwareSettingList.ScannerSetting.eAFAnalyseType.Unit: HardwareSettingList.ScannerSetting.eAFAnalyseType.Unit
+  HardwareSettingList.ScannerSetting.eAFAnalyseType.Description: HardwareSettingList.ScannerSetting.eAFAnalyseType.Description
+  HardwareSettingList.ScannerSetting.eAFAnalyseType.Data: HardwareSettingList.ScannerSetting.eAFAnalyseType.Data
+  HardwareSettingList.ScannerSetting.eAFAnalyseType.Variant: HardwareSettingList.ScannerSetting.eAFAnalyseType.Variant
+  HardwareSettingList.ScannerSetting.eAFAnalyseType.VariantType: HardwareSettingList.ScannerSetting.eAFAnalyseType.VariantType
+  HardwareSettingList.ScannerSetting.eAFSubsystem.Unit: HardwareSettingList.ScannerSetting.eAFSubsystem.Unit
+  HardwareSettingList.ScannerSetting.eAFSubsystem.Description: HardwareSettingList.ScannerSetting.eAFSubsystem.Description
+  HardwareSettingList.ScannerSetting.eAFSubsystem.Data: HardwareSettingList.ScannerSetting.eAFSubsystem.Data
+  HardwareSettingList.ScannerSetting.eAFSubsystem.Variant: HardwareSettingList.ScannerSetting.eAFSubsystem.Variant
+  HardwareSettingList.ScannerSetting.eAFSubsystem.VariantType: HardwareSettingList.ScannerSetting.eAFSubsystem.VariantType
+  HardwareSettingList.ScannerSetting.eAFWorkflowTimelapse.Unit: HardwareSettingList.ScannerSetting.eAFWorkflowTimelapse.Unit
+  HardwareSettingList.ScannerSetting.eAFWorkflowTimelapse.Description: HardwareSettingList.ScannerSetting.eAFWorkflowTimelapse.Description
+  HardwareSettingList.ScannerSetting.eAFWorkflowTimelapse.Data: HardwareSettingList.ScannerSetting.eAFWorkflowTimelapse.Data
+  HardwareSettingList.ScannerSetting.eAFWorkflowTimelapse.Variant: HardwareSettingList.ScannerSetting.eAFWorkflowTimelapse.Variant
+  HardwareSettingList.ScannerSetting.eAFWorkflowTimelapse.VariantType: HardwareSettingList.ScannerSetting.eAFWorkflowTimelapse.VariantType
+  HardwareSettingList.ScannerSetting.eAFWorkflowXY.Unit: HardwareSettingList.ScannerSetting.eAFWorkflowXY.Unit
+  HardwareSettingList.ScannerSetting.eAFWorkflowXY.Description: HardwareSettingList.ScannerSetting.eAFWorkflowXY.Description
+  HardwareSettingList.ScannerSetting.eAFWorkflowXY.Data: HardwareSettingList.ScannerSetting.eAFWorkflowXY.Data
+  HardwareSettingList.ScannerSetting.eAFWorkflowXY.Variant: HardwareSettingList.ScannerSetting.eAFWorkflowXY.Variant
+  HardwareSettingList.ScannerSetting.eAFWorkflowXY.VariantType: HardwareSettingList.ScannerSetting.eAFWorkflowXY.VariantType
+  HardwareSettingList.ScannerSetting.eAFZUseMode.Unit: HardwareSettingList.ScannerSetting.eAFZUseMode.Unit
+  HardwareSettingList.ScannerSetting.eAFZUseMode.Description: HardwareSettingList.ScannerSetting.eAFZUseMode.Description
+  HardwareSettingList.ScannerSetting.eAFZUseMode.Data: HardwareSettingList.ScannerSetting.eAFZUseMode.Data
+  HardwareSettingList.ScannerSetting.eAFZUseMode.Variant: HardwareSettingList.ScannerSetting.eAFZUseMode.Variant
+  HardwareSettingList.ScannerSetting.eAFZUseMode.VariantType: HardwareSettingList.ScannerSetting.eAFZUseMode.VariantType
+  HardwareSettingList.ScannerSetting.eAOBSIntensityLow_World514.Unit: HardwareSettingList.ScannerSetting.eAOBSIntensityLow_World514.Unit
+  HardwareSettingList.ScannerSetting.eAOBSIntensityLow_World514.Description: HardwareSettingList.ScannerSetting.eAOBSIntensityLow_World514.Description
+  HardwareSettingList.ScannerSetting.eAOBSIntensityLow_World514.Data: HardwareSettingList.ScannerSetting.eAOBSIntensityLow_World514.Data
+  HardwareSettingList.ScannerSetting.eAOBSIntensityLow_World514.Variant: HardwareSettingList.ScannerSetting.eAOBSIntensityLow_World514.Variant
+  HardwareSettingList.ScannerSetting.eAOBSIntensityLow_World514.VariantType: HardwareSettingList.ScannerSetting.eAOBSIntensityLow_World514.VariantType
+  HardwareSettingList.ScannerSetting.eAOBSIntensity_World514.Unit: HardwareSettingList.ScannerSetting.eAOBSIntensity_World514.Unit
+  HardwareSettingList.ScannerSetting.eAOBSIntensity_World514.Description: HardwareSettingList.ScannerSetting.eAOBSIntensity_World514.Description
+  HardwareSettingList.ScannerSetting.eAOBSIntensity_World514.Data: HardwareSettingList.ScannerSetting.eAOBSIntensity_World514.Data
+  HardwareSettingList.ScannerSetting.eAOBSIntensity_World514.Variant: HardwareSettingList.ScannerSetting.eAOBSIntensity_World514.Variant
+  HardwareSettingList.ScannerSetting.eAOBSIntensity_World514.VariantType: HardwareSettingList.ScannerSetting.eAOBSIntensity_World514.VariantType
+  HardwareSettingList.ScannerSetting.eAOBSMode_514.Unit: HardwareSettingList.ScannerSetting.eAOBSMode_514.Unit
+  HardwareSettingList.ScannerSetting.eAOBSMode_514.Description: HardwareSettingList.ScannerSetting.eAOBSMode_514.Description
+  HardwareSettingList.ScannerSetting.eAOBSMode_514.Data: HardwareSettingList.ScannerSetting.eAOBSMode_514.Data
+  HardwareSettingList.ScannerSetting.eAOBSMode_514.Variant: HardwareSettingList.ScannerSetting.eAOBSMode_514.Variant
+  HardwareSettingList.ScannerSetting.eAOBSMode_514.VariantType: HardwareSettingList.ScannerSetting.eAOBSMode_514.VariantType
+  HardwareSettingList.ScannerSetting.eDataSource.Unit: HardwareSettingList.ScannerSetting.eDataSource.Unit
+  HardwareSettingList.ScannerSetting.eDataSource.Description: HardwareSettingList.ScannerSetting.eDataSource.Description
+  HardwareSettingList.ScannerSetting.eDataSource.Data: HardwareSettingList.ScannerSetting.eDataSource.Data
+  HardwareSettingList.ScannerSetting.eDataSource.Variant: HardwareSettingList.ScannerSetting.eDataSource.Variant
+  HardwareSettingList.ScannerSetting.eDataSource.VariantType: HardwareSettingList.ScannerSetting.eDataSource.VariantType
+  HardwareSettingList.ScannerSetting.eDirectional.Unit: HardwareSettingList.ScannerSetting.eDirectional.Unit
+  HardwareSettingList.ScannerSetting.eDirectional.Description: HardwareSettingList.ScannerSetting.eDirectional.Description
+  HardwareSettingList.ScannerSetting.eDirectional.Data: HardwareSettingList.ScannerSetting.eDirectional.Data
+  HardwareSettingList.ScannerSetting.eDirectional.Variant: HardwareSettingList.ScannerSetting.eDirectional.Variant
+  HardwareSettingList.ScannerSetting.eDirectional.VariantType: HardwareSettingList.ScannerSetting.eDirectional.VariantType
+  HardwareSettingList.ScannerSetting.eDirectionalY.Unit: HardwareSettingList.ScannerSetting.eDirectionalY.Unit
+  HardwareSettingList.ScannerSetting.eDirectionalY.Description: HardwareSettingList.ScannerSetting.eDirectionalY.Description
+  HardwareSettingList.ScannerSetting.eDirectionalY.Data: HardwareSettingList.ScannerSetting.eDirectionalY.Data
+  HardwareSettingList.ScannerSetting.eDirectionalY.Variant: HardwareSettingList.ScannerSetting.eDirectionalY.Variant
+  HardwareSettingList.ScannerSetting.eDirectionalY.VariantType: HardwareSettingList.ScannerSetting.eDirectionalY.VariantType
+  HardwareSettingList.ScannerSetting.eSequentialMode.Unit: HardwareSettingList.ScannerSetting.eSequentialMode.Unit
+  HardwareSettingList.ScannerSetting.eSequentialMode.Description: HardwareSettingList.ScannerSetting.eSequentialMode.Description
+  HardwareSettingList.ScannerSetting.eSequentialMode.Data: HardwareSettingList.ScannerSetting.eSequentialMode.Data
+  HardwareSettingList.ScannerSetting.eSequentialMode.Variant: HardwareSettingList.ScannerSetting.eSequentialMode.Variant
+  HardwareSettingList.ScannerSetting.eSequentialMode.VariantType: HardwareSettingList.ScannerSetting.eSequentialMode.VariantType
+  HardwareSettingList.ScannerSetting.eZUseMode.Unit: HardwareSettingList.ScannerSetting.eZUseMode.Unit
+  HardwareSettingList.ScannerSetting.eZUseMode.Description: HardwareSettingList.ScannerSetting.eZUseMode.Description
+  HardwareSettingList.ScannerSetting.eZUseMode.Data: HardwareSettingList.ScannerSetting.eZUseMode.Data
+  HardwareSettingList.ScannerSetting.eZUseMode.Variant: HardwareSettingList.ScannerSetting.eZUseMode.Variant
+  HardwareSettingList.ScannerSetting.eZUseMode.VariantType: HardwareSettingList.ScannerSetting.eZUseMode.VariantType
+  HardwareSettingList.ScannerSetting.m_bConstantIntegrationTimeActive.Unit: HardwareSettingList.ScannerSetting.m_bConstantIntegrationTimeActive.Unit
+  HardwareSettingList.ScannerSetting.m_bConstantIntegrationTimeActive.Description: HardwareSettingList.ScannerSetting.m_bConstantIntegrationTimeActive.Description
+  HardwareSettingList.ScannerSetting.m_bConstantIntegrationTimeActive.Data: HardwareSettingList.ScannerSetting.m_bConstantIntegrationTimeActive.Data
+  HardwareSettingList.ScannerSetting.m_bConstantIntegrationTimeActive.Variant: HardwareSettingList.ScannerSetting.m_bConstantIntegrationTimeActive.Variant
+  HardwareSettingList.ScannerSetting.m_bConstantIntegrationTimeActive.VariantType: HardwareSettingList.ScannerSetting.m_bConstantIntegrationTimeActive.VariantType
+  HardwareSettingList.ScannerSetting.nAFFixSliceNumber.Unit: HardwareSettingList.ScannerSetting.nAFFixSliceNumber.Unit
+  HardwareSettingList.ScannerSetting.nAFFixSliceNumber.Description: HardwareSettingList.ScannerSetting.nAFFixSliceNumber.Description
+  HardwareSettingList.ScannerSetting.nAFFixSliceNumber.Data: HardwareSettingList.ScannerSetting.nAFFixSliceNumber.Data
+  HardwareSettingList.ScannerSetting.nAFFixSliceNumber.Variant: HardwareSettingList.ScannerSetting.nAFFixSliceNumber.Variant
+  HardwareSettingList.ScannerSetting.nAFFixSliceNumber.VariantType: HardwareSettingList.ScannerSetting.nAFFixSliceNumber.VariantType
+  HardwareSettingList.ScannerSetting.nAFPrecision.Unit: HardwareSettingList.ScannerSetting.nAFPrecision.Unit
+  HardwareSettingList.ScannerSetting.nAFPrecision.Description: HardwareSettingList.ScannerSetting.nAFPrecision.Description
+  HardwareSettingList.ScannerSetting.nAFPrecision.Data: HardwareSettingList.ScannerSetting.nAFPrecision.Data
+  HardwareSettingList.ScannerSetting.nAFPrecision.Variant: HardwareSettingList.ScannerSetting.nAFPrecision.Variant
+  HardwareSettingList.ScannerSetting.nAFPrecision.VariantType: HardwareSettingList.ScannerSetting.nAFPrecision.VariantType
+  HardwareSettingList.ScannerSetting.nAFWorkflowTimelapseIterator.Unit: HardwareSettingList.ScannerSetting.nAFWorkflowTimelapseIterator.Unit
+  HardwareSettingList.ScannerSetting.nAFWorkflowTimelapseIterator.Description: HardwareSettingList.ScannerSetting.nAFWorkflowTimelapseIterator.Description
+  HardwareSettingList.ScannerSetting.nAFWorkflowTimelapseIterator.Data: HardwareSettingList.ScannerSetting.nAFWorkflowTimelapseIterator.Data
+  HardwareSettingList.ScannerSetting.nAFWorkflowTimelapseIterator.Variant: HardwareSettingList.ScannerSetting.nAFWorkflowTimelapseIterator.Variant
+  HardwareSettingList.ScannerSetting.nAFWorkflowTimelapseIterator.VariantType: HardwareSettingList.ScannerSetting.nAFWorkflowTimelapseIterator.VariantType
+  HardwareSettingList.ScannerSetting.nAFWorkflowXYIterator.Unit: HardwareSettingList.ScannerSetting.nAFWorkflowXYIterator.Unit
+  HardwareSettingList.ScannerSetting.nAFWorkflowXYIterator.Description: HardwareSettingList.ScannerSetting.nAFWorkflowXYIterator.Description
+  HardwareSettingList.ScannerSetting.nAFWorkflowXYIterator.Data: HardwareSettingList.ScannerSetting.nAFWorkflowXYIterator.Data
+  HardwareSettingList.ScannerSetting.nAFWorkflowXYIterator.Variant: HardwareSettingList.ScannerSetting.nAFWorkflowXYIterator.Variant
+  HardwareSettingList.ScannerSetting.nAFWorkflowXYIterator.VariantType: HardwareSettingList.ScannerSetting.nAFWorkflowXYIterator.VariantType
+  HardwareSettingList.ScannerSetting.nAOBSConfigs.Unit: HardwareSettingList.ScannerSetting.nAOBSConfigs.Unit
+  HardwareSettingList.ScannerSetting.nAOBSConfigs.Description: HardwareSettingList.ScannerSetting.nAOBSConfigs.Description
+  HardwareSettingList.ScannerSetting.nAOBSConfigs.Data: HardwareSettingList.ScannerSetting.nAOBSConfigs.Data
+  HardwareSettingList.ScannerSetting.nAOBSConfigs.Variant: HardwareSettingList.ScannerSetting.nAOBSConfigs.Variant
+  HardwareSettingList.ScannerSetting.nAOBSConfigs.VariantType: HardwareSettingList.ScannerSetting.nAOBSConfigs.VariantType
+  HardwareSettingList.ScannerSetting.nAccumulation.Unit: HardwareSettingList.ScannerSetting.nAccumulation.Unit
+  HardwareSettingList.ScannerSetting.nAccumulation.Description: HardwareSettingList.ScannerSetting.nAccumulation.Description
+  HardwareSettingList.ScannerSetting.nAccumulation.Data: HardwareSettingList.ScannerSetting.nAccumulation.Data
+  HardwareSettingList.ScannerSetting.nAccumulation.Variant: HardwareSettingList.ScannerSetting.nAccumulation.Variant
+  HardwareSettingList.ScannerSetting.nAccumulation.VariantType: HardwareSettingList.ScannerSetting.nAccumulation.VariantType
+  HardwareSettingList.ScannerSetting.nAverageFrame.Unit: HardwareSettingList.ScannerSetting.nAverageFrame.Unit
+  HardwareSettingList.ScannerSetting.nAverageFrame.Description: HardwareSettingList.ScannerSetting.nAverageFrame.Description
+  HardwareSettingList.ScannerSetting.nAverageFrame.Data: HardwareSettingList.ScannerSetting.nAverageFrame.Data
+  HardwareSettingList.ScannerSetting.nAverageFrame.Variant: HardwareSettingList.ScannerSetting.nAverageFrame.Variant
+  HardwareSettingList.ScannerSetting.nAverageFrame.VariantType: HardwareSettingList.ScannerSetting.nAverageFrame.VariantType
+  HardwareSettingList.ScannerSetting.nAverageLine.Unit: HardwareSettingList.ScannerSetting.nAverageLine.Unit
+  HardwareSettingList.ScannerSetting.nAverageLine.Description: HardwareSettingList.ScannerSetting.nAverageLine.Description
+  HardwareSettingList.ScannerSetting.nAverageLine.Data: HardwareSettingList.ScannerSetting.nAverageLine.Data
+  LightPath.ConfocalScannerSettings.IntegrationNumber: HardwareSettingList.ScannerSetting.nAverageLine.Variant
+  HardwareSettingList.ScannerSetting.nAverageLine.VariantType: HardwareSettingList.ScannerSetting.nAverageLine.VariantType
+  HardwareSettingList.ScannerSetting.nBegin.Unit: HardwareSettingList.ScannerSetting.nBegin.Unit
+  HardwareSettingList.ScannerSetting.nBegin.Description: HardwareSettingList.ScannerSetting.nBegin.Description
+  HardwareSettingList.ScannerSetting.nBegin.Data: HardwareSettingList.ScannerSetting.nBegin.Data
+  HardwareSettingList.ScannerSetting.nBegin.Variant: HardwareSettingList.ScannerSetting.nBegin.Variant
+  HardwareSettingList.ScannerSetting.nBegin.VariantType: HardwareSettingList.ScannerSetting.nBegin.VariantType
+  HardwareSettingList.ScannerSetting.nBit.Unit: HardwareSettingList.ScannerSetting.nBit.Unit
+  HardwareSettingList.ScannerSetting.nBit.Description: HardwareSettingList.ScannerSetting.nBit.Description
+  HardwareSettingList.ScannerSetting.nBit.Data: HardwareSettingList.ScannerSetting.nBit.Data
+  Pixels.SignificantBits: HardwareSettingList.ScannerSetting.nBit.Variant
+  HardwareSettingList.ScannerSetting.nBit.VariantType: HardwareSettingList.ScannerSetting.nBit.VariantType
+  HardwareSettingList.ScannerSetting.nChannels.Unit: HardwareSettingList.ScannerSetting.nChannels.Unit
+  HardwareSettingList.ScannerSetting.nChannels.Description: HardwareSettingList.ScannerSetting.nChannels.Description
+  HardwareSettingList.ScannerSetting.nChannels.Data: HardwareSettingList.ScannerSetting.nChannels.Data
+  Pixels.SizeC: HardwareSettingList.ScannerSetting.nChannels.Variant
+  HardwareSettingList.ScannerSetting.nChannels.VariantType: HardwareSettingList.ScannerSetting.nChannels.VariantType
+  HardwareSettingList.ScannerSetting.nDelayTime_s.Unit: HardwareSettingList.ScannerSetting.nDelayTime_s.Unit
+  HardwareSettingList.ScannerSetting.nDelayTime_s.Description: HardwareSettingList.ScannerSetting.nDelayTime_s.Description
+  HardwareSettingList.ScannerSetting.nDelayTime_s.Data: HardwareSettingList.ScannerSetting.nDelayTime_s.Data
+  HardwareSettingList.ScannerSetting.nDelayTime_s.Variant: HardwareSettingList.ScannerSetting.nDelayTime_s.Variant
+  HardwareSettingList.ScannerSetting.nDelayTime_s.VariantType: HardwareSettingList.ScannerSetting.nDelayTime_s.VariantType
+  HardwareSettingList.ScannerSetting.nEnd.Unit: HardwareSettingList.ScannerSetting.nEnd.Unit
+  HardwareSettingList.ScannerSetting.nEnd.Description: HardwareSettingList.ScannerSetting.nEnd.Description
+  HardwareSettingList.ScannerSetting.nEnd.Data: HardwareSettingList.ScannerSetting.nEnd.Data
+  HardwareSettingList.ScannerSetting.nEnd.Variant: HardwareSettingList.ScannerSetting.nEnd.Variant
+  HardwareSettingList.ScannerSetting.nEnd.VariantType: HardwareSettingList.ScannerSetting.nEnd.VariantType
+  HardwareSettingList.ScannerSetting.nFormatInDimension.Unit: HardwareSettingList.ScannerSetting.nFormatInDimension.Unit
+  HardwareSettingList.ScannerSetting.nFormatInDimension.Description: HardwareSettingList.ScannerSetting.nFormatInDimension.Description
+  HardwareSettingList.ScannerSetting.nFormatInDimension.Data: HardwareSettingList.ScannerSetting.nFormatInDimension.Data
+  Pixels.SizeX: HardwareSettingList.ScannerSetting.nFormatInDimension.Variant
+  HardwareSettingList.ScannerSetting.nFormatInDimension.VariantType: HardwareSettingList.ScannerSetting.nFormatInDimension.VariantType
+  HardwareSettingList.ScannerSetting.nFormatOutDimension.Unit: HardwareSettingList.ScannerSetting.nFormatOutDimension.Unit
+  HardwareSettingList.ScannerSetting.nFormatOutDimension.Description: HardwareSettingList.ScannerSetting.nFormatOutDimension.Description
+  HardwareSettingList.ScannerSetting.nFormatOutDimension.Data: HardwareSettingList.ScannerSetting.nFormatOutDimension.Data
+  Pixels.SizeY: HardwareSettingList.ScannerSetting.nFormatOutDimension.Variant
+  HardwareSettingList.ScannerSetting.nFormatOutDimension.VariantType: HardwareSettingList.ScannerSetting.nFormatOutDimension.VariantType
+  HardwareSettingList.ScannerSetting.nLineAccumulation.Unit: HardwareSettingList.ScannerSetting.nLineAccumulation.Unit
+  HardwareSettingList.ScannerSetting.nLineAccumulation.Description: HardwareSettingList.ScannerSetting.nLineAccumulation.Description
+  HardwareSettingList.ScannerSetting.nLineAccumulation.Data: HardwareSettingList.ScannerSetting.nLineAccumulation.Data
+  HardwareSettingList.ScannerSetting.nLineAccumulation.Variant: HardwareSettingList.ScannerSetting.nLineAccumulation.Variant
+  HardwareSettingList.ScannerSetting.nLineAccumulation.VariantType: HardwareSettingList.ScannerSetting.nLineAccumulation.VariantType
+  HardwareSettingList.ScannerSetting.nLines.Unit: HardwareSettingList.ScannerSetting.nLines.Unit
+  HardwareSettingList.ScannerSetting.nLines.Description: HardwareSettingList.ScannerSetting.nLines.Description
+  HardwareSettingList.ScannerSetting.nLines.Data: HardwareSettingList.ScannerSetting.nLines.Data
+  HardwareSettingList.ScannerSetting.nLines.Variant: HardwareSettingList.ScannerSetting.nLines.Variant
+  HardwareSettingList.ScannerSetting.nLines.VariantType: HardwareSettingList.ScannerSetting.nLines.VariantType
+  HardwareSettingList.ScannerSetting.nPages.Unit: HardwareSettingList.ScannerSetting.nPages.Unit
+  HardwareSettingList.ScannerSetting.nPages.Description: HardwareSettingList.ScannerSetting.nPages.Description
+  HardwareSettingList.ScannerSetting.nPages.Data: HardwareSettingList.ScannerSetting.nPages.Data
+  HardwareSettingList.ScannerSetting.nPages.Variant: HardwareSettingList.ScannerSetting.nPages.Variant
+  HardwareSettingList.ScannerSetting.nPages.VariantType: HardwareSettingList.ScannerSetting.nPages.VariantType
+  HardwareSettingList.ScannerSetting.nRepeatActions.Unit: HardwareSettingList.ScannerSetting.nRepeatActions.Unit
+  HardwareSettingList.ScannerSetting.nRepeatActions.Description: HardwareSettingList.ScannerSetting.nRepeatActions.Description
+  HardwareSettingList.ScannerSetting.nRepeatActions.Data: HardwareSettingList.ScannerSetting.nRepeatActions.Data
+  Pixels.SizeT: HardwareSettingList.ScannerSetting.nRepeatActions.Variant
+  HardwareSettingList.ScannerSetting.nRepeatActions.VariantType: HardwareSettingList.ScannerSetting.nRepeatActions.VariantType
+  HardwareSettingList.ScannerSetting.nSections.Unit: HardwareSettingList.ScannerSetting.nSections.Unit
+  HardwareSettingList.ScannerSetting.nSections.Description: HardwareSettingList.ScannerSetting.nSections.Description
+  HardwareSettingList.ScannerSetting.nSections.Data: HardwareSettingList.ScannerSetting.nSections.Data
+  Pixels.SizeZ: HardwareSettingList.ScannerSetting.nSections.Variant
+  HardwareSettingList.ScannerSetting.nSections.VariantType: HardwareSettingList.ScannerSetting.nSections.VariantType
+  HardwareSettingList.FilterSetting.AOBS.Intensity[0].ClassName: HardwareSettingList.FilterSetting.AOBS.Intensity[0].ClassName
+  HardwareSettingList.FilterSetting.AOBS.Intensity[0].Description: HardwareSettingList.FilterSetting.AOBS.Intensity[0].Description
+  HardwareSettingList.FilterSetting.AOBS.Intensity[0].Data: HardwareSettingList.FilterSetting.AOBS.Intensity[0].Data
+  HardwareSettingList.FilterSetting.AOBS.Intensity[0].Variant: HardwareSettingList.FilterSetting.AOBS.Intensity[0].Variant
+  HardwareSettingList.FilterSetting.AOBS.Intensity[0].VariantType: HardwareSettingList.FilterSetting.AOBS.Intensity[0].VariantType
+  HardwareSettingList.FilterSetting.AOBS.Intensity[1].ClassName: HardwareSettingList.FilterSetting.AOBS.Intensity[1].ClassName
+  HardwareSettingList.FilterSetting.AOBS.Intensity[1].Description: HardwareSettingList.FilterSetting.AOBS.Intensity[1].Description
+  HardwareSettingList.FilterSetting.AOBS.Intensity[1].Data: HardwareSettingList.FilterSetting.AOBS.Intensity[1].Data
+  HardwareSettingList.FilterSetting.AOBS.Intensity[1].Variant: HardwareSettingList.FilterSetting.AOBS.Intensity[1].Variant
+  HardwareSettingList.FilterSetting.AOBS.Intensity[1].VariantType: HardwareSettingList.FilterSetting.AOBS.Intensity[1].VariantType
+  HardwareSettingList.FilterSetting.AOBS.Intensity[2].ClassName: HardwareSettingList.FilterSetting.AOBS.Intensity[2].ClassName
+  HardwareSettingList.FilterSetting.AOBS.Intensity[2].Description: HardwareSettingList.FilterSetting.AOBS.Intensity[2].Description
+  HardwareSettingList.FilterSetting.AOBS.Intensity[2].Data: HardwareSettingList.FilterSetting.AOBS.Intensity[2].Data
+  HardwareSettingList.FilterSetting.AOBS.Intensity[2].Variant: HardwareSettingList.FilterSetting.AOBS.Intensity[2].Variant
+  HardwareSettingList.FilterSetting.AOBS.Intensity[2].VariantType: HardwareSettingList.FilterSetting.AOBS.Intensity[2].VariantType
+  HardwareSettingList.FilterSetting.AOBS.Intensity[3].ClassName: HardwareSettingList.FilterSetting.AOBS.Intensity[3].ClassName
+  HardwareSettingList.FilterSetting.AOBS.Intensity[3].Description: HardwareSettingList.FilterSetting.AOBS.Intensity[3].Description
+  HardwareSettingList.FilterSetting.AOBS.Intensity[3].Data: HardwareSettingList.FilterSetting.AOBS.Intensity[3].Data
+  HardwareSettingList.FilterSetting.AOBS.Intensity[3].Variant: HardwareSettingList.FilterSetting.AOBS.Intensity[3].Variant
+  HardwareSettingList.FilterSetting.AOBS.Intensity[3].VariantType: HardwareSettingList.FilterSetting.AOBS.Intensity[3].VariantType
+  HardwareSettingList.FilterSetting.AOBS.Intensity[4].ClassName: HardwareSettingList.FilterSetting.AOBS.Intensity[4].ClassName
+  HardwareSettingList.FilterSetting.AOBS.Intensity[4].Description: HardwareSettingList.FilterSetting.AOBS.Intensity[4].Description
+  HardwareSettingList.FilterSetting.AOBS.Intensity[4].Data: HardwareSettingList.FilterSetting.AOBS.Intensity[4].Data
+  HardwareSettingList.FilterSetting.AOBS.Intensity[4].Variant: HardwareSettingList.FilterSetting.AOBS.Intensity[4].Variant
+  HardwareSettingList.FilterSetting.AOBS.Intensity[4].VariantType: HardwareSettingList.FilterSetting.AOBS.Intensity[4].VariantType
+  HardwareSettingList.FilterSetting.AOBS.Intensity[5].ClassName: HardwareSettingList.FilterSetting.AOBS.Intensity[5].ClassName
+  HardwareSettingList.FilterSetting.AOBS.Intensity[5].Description: HardwareSettingList.FilterSetting.AOBS.Intensity[5].Description
+  HardwareSettingList.FilterSetting.AOBS.Intensity[5].Data: HardwareSettingList.FilterSetting.AOBS.Intensity[5].Data
+  HardwareSettingList.FilterSetting.AOBS.Intensity[5].Variant: HardwareSettingList.FilterSetting.AOBS.Intensity[5].Variant
+  HardwareSettingList.FilterSetting.AOBS.Intensity[5].VariantType: HardwareSettingList.FilterSetting.AOBS.Intensity[5].VariantType
+  HardwareSettingList.FilterSetting.AOBS.Intensity[6].ClassName: HardwareSettingList.FilterSetting.AOBS.Intensity[6].ClassName
+  HardwareSettingList.FilterSetting.AOBS.Intensity[6].Description: HardwareSettingList.FilterSetting.AOBS.Intensity[6].Description
+  HardwareSettingList.FilterSetting.AOBS.Intensity[6].Data: HardwareSettingList.FilterSetting.AOBS.Intensity[6].Data
+  HardwareSettingList.FilterSetting.AOBS.Intensity[6].Variant: HardwareSettingList.FilterSetting.AOBS.Intensity[6].Variant
+  HardwareSettingList.FilterSetting.AOBS.Intensity[6].VariantType: HardwareSettingList.FilterSetting.AOBS.Intensity[6].VariantType
+  HardwareSettingList.FilterSetting.AOBS.Intensity[7].ClassName: HardwareSettingList.FilterSetting.AOBS.Intensity[7].ClassName
+  HardwareSettingList.FilterSetting.AOBS.Intensity[7].Description: HardwareSettingList.FilterSetting.AOBS.Intensity[7].Description
+  HardwareSettingList.FilterSetting.AOBS.Intensity[7].Data: HardwareSettingList.FilterSetting.AOBS.Intensity[7].Data
+  HardwareSettingList.FilterSetting.AOBS.Intensity[7].Variant: HardwareSettingList.FilterSetting.AOBS.Intensity[7].Variant
+  HardwareSettingList.FilterSetting.AOBS.Intensity[7].VariantType: HardwareSettingList.FilterSetting.AOBS.Intensity[7].VariantType
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[0].ClassName: HardwareSettingList.FilterSetting.AOBSLow.Intensity[0].ClassName
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[0].Description: HardwareSettingList.FilterSetting.AOBSLow.Intensity[0].Description
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[0].Data: HardwareSettingList.FilterSetting.AOBSLow.Intensity[0].Data
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[0].Variant: HardwareSettingList.FilterSetting.AOBSLow.Intensity[0].Variant
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[0].VariantType: HardwareSettingList.FilterSetting.AOBSLow.Intensity[0].VariantType
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[1].ClassName: HardwareSettingList.FilterSetting.AOBSLow.Intensity[1].ClassName
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[1].Description: HardwareSettingList.FilterSetting.AOBSLow.Intensity[1].Description
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[1].Data: HardwareSettingList.FilterSetting.AOBSLow.Intensity[1].Data
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[1].Variant: HardwareSettingList.FilterSetting.AOBSLow.Intensity[1].Variant
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[1].VariantType: HardwareSettingList.FilterSetting.AOBSLow.Intensity[1].VariantType
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[2].ClassName: HardwareSettingList.FilterSetting.AOBSLow.Intensity[2].ClassName
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[2].Description: HardwareSettingList.FilterSetting.AOBSLow.Intensity[2].Description
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[2].Data: HardwareSettingList.FilterSetting.AOBSLow.Intensity[2].Data
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[2].Variant: HardwareSettingList.FilterSetting.AOBSLow.Intensity[2].Variant
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[2].VariantType: HardwareSettingList.FilterSetting.AOBSLow.Intensity[2].VariantType
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[3].ClassName: HardwareSettingList.FilterSetting.AOBSLow.Intensity[3].ClassName
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[3].Description: HardwareSettingList.FilterSetting.AOBSLow.Intensity[3].Description
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[3].Data: HardwareSettingList.FilterSetting.AOBSLow.Intensity[3].Data
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[3].Variant: HardwareSettingList.FilterSetting.AOBSLow.Intensity[3].Variant
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[3].VariantType: HardwareSettingList.FilterSetting.AOBSLow.Intensity[3].VariantType
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[4].ClassName: HardwareSettingList.FilterSetting.AOBSLow.Intensity[4].ClassName
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[4].Description: HardwareSettingList.FilterSetting.AOBSLow.Intensity[4].Description
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[4].Data: HardwareSettingList.FilterSetting.AOBSLow.Intensity[4].Data
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[4].Variant: HardwareSettingList.FilterSetting.AOBSLow.Intensity[4].Variant
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[4].VariantType: HardwareSettingList.FilterSetting.AOBSLow.Intensity[4].VariantType
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[5].ClassName: HardwareSettingList.FilterSetting.AOBSLow.Intensity[5].ClassName
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[5].Description: HardwareSettingList.FilterSetting.AOBSLow.Intensity[5].Description
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[5].Data: HardwareSettingList.FilterSetting.AOBSLow.Intensity[5].Data
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[5].Variant: HardwareSettingList.FilterSetting.AOBSLow.Intensity[5].Variant
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[5].VariantType: HardwareSettingList.FilterSetting.AOBSLow.Intensity[5].VariantType
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[6].ClassName: HardwareSettingList.FilterSetting.AOBSLow.Intensity[6].ClassName
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[6].Description: HardwareSettingList.FilterSetting.AOBSLow.Intensity[6].Description
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[6].Data: HardwareSettingList.FilterSetting.AOBSLow.Intensity[6].Data
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[6].Variant: HardwareSettingList.FilterSetting.AOBSLow.Intensity[6].Variant
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[6].VariantType: HardwareSettingList.FilterSetting.AOBSLow.Intensity[6].VariantType
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[7].ClassName: HardwareSettingList.FilterSetting.AOBSLow.Intensity[7].ClassName
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[7].Description: HardwareSettingList.FilterSetting.AOBSLow.Intensity[7].Description
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[7].Data: HardwareSettingList.FilterSetting.AOBSLow.Intensity[7].Data
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[7].Variant: HardwareSettingList.FilterSetting.AOBSLow.Intensity[7].Variant
+  HardwareSettingList.FilterSetting.AOBSLow.Intensity[7].VariantType: HardwareSettingList.FilterSetting.AOBSLow.Intensity[7].VariantType
+  HardwareSettingList.FilterSetting.UV AOTF-1.Intensity.ClassName: HardwareSettingList.FilterSetting.UV
+    AOTF-1.Intensity.ClassName
+  HardwareSettingList.FilterSetting.UV AOTF-1.Intensity.Description: HardwareSettingList.FilterSetting.UV
+    AOTF-1.Intensity.Description
+  HardwareSettingList.FilterSetting.UV AOTF-1.Intensity.Data: HardwareSettingList.FilterSetting.UV
+    AOTF-1.Intensity.Data
+  HardwareSettingList.FilterSetting.UV AOTF-1.Intensity.Variant: HardwareSettingList.FilterSetting.UV
+    AOTF-1.Intensity.Variant
+  HardwareSettingList.FilterSetting.UV AOTF-1.Intensity.VariantType: HardwareSettingList.FilterSetting.UV
+    AOTF-1.Intensity.VariantType
+  HardwareSettingList.FilterSetting.UV AOTF-1Low.Intensity.ClassName: HardwareSettingList.FilterSetting.UV
+    AOTF-1Low.Intensity.ClassName
+  HardwareSettingList.FilterSetting.UV AOTF-1Low.Intensity.Description: HardwareSettingList.FilterSetting.UV
+    AOTF-1Low.Intensity.Description
+  HardwareSettingList.FilterSetting.UV AOTF-1Low.Intensity.Data: HardwareSettingList.FilterSetting.UV
+    AOTF-1Low.Intensity.Data
+  HardwareSettingList.FilterSetting.UV AOTF-1Low.Intensity.Variant: HardwareSettingList.FilterSetting.UV
+    AOTF-1Low.Intensity.Variant
+  HardwareSettingList.FilterSetting.UV AOTF-1Low.Intensity.VariantType: HardwareSettingList.FilterSetting.UV
+    AOTF-1Low.Intensity.VariantType
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[0].ClassName: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[0].ClassName
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[0].Description: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[0].Description
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[0].Data: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[0].Data
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[0].Variant: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[0].Variant
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[0].VariantType: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[0].VariantType
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[1].ClassName: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[1].ClassName
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[1].Description: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[1].Description
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[1].Data: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[1].Data
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[1].Variant: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[1].Variant
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[1].VariantType: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[1].VariantType
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[2].ClassName: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[2].ClassName
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[2].Description: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[2].Description
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[2].Data: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[2].Data
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[2].Variant: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[2].Variant
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[2].VariantType: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[2].VariantType
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[3].ClassName: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[3].ClassName
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[3].Description: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[3].Description
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[3].Data: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[3].Data
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[3].Variant: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[3].Variant
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[3].VariantType: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[3].VariantType
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[4].ClassName: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[4].ClassName
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[4].Description: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[4].Description
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[4].Data: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[4].Data
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[4].Variant: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[4].Variant
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[4].VariantType: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[4].VariantType
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[5].ClassName: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[5].ClassName
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[5].Description: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[5].Description
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[5].Data: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[5].Data
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[5].Variant: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[5].Variant
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[5].VariantType: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[5].VariantType
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[6].ClassName: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[6].ClassName
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[6].Description: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[6].Description
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[6].Data: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[6].Data
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[6].Variant: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[6].Variant
+  HardwareSettingList.FilterSetting.Visible AOTF-7.Intensity[6].VariantType: HardwareSettingList.FilterSetting.Visible
+    AOTF-7.Intensity[6].VariantType
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[0].ClassName: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[0].ClassName
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[0].Description: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[0].Description
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[0].Data: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[0].Data
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[0].Variant: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[0].Variant
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[0].VariantType: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[0].VariantType
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[1].ClassName: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[1].ClassName
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[1].Description: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[1].Description
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[1].Data: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[1].Data
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[1].Variant: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[1].Variant
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[1].VariantType: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[1].VariantType
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[2].ClassName: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[2].ClassName
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[2].Description: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[2].Description
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[2].Data: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[2].Data
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[2].Variant: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[2].Variant
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[2].VariantType: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[2].VariantType
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[3].ClassName: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[3].ClassName
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[3].Description: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[3].Description
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[3].Data: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[3].Data
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[3].Variant: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[3].Variant
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[3].VariantType: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[3].VariantType
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[4].ClassName: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[4].ClassName
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[4].Description: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[4].Description
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[4].Data: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[4].Data
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[4].Variant: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[4].Variant
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[4].VariantType: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[4].VariantType
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[5].ClassName: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[5].ClassName
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[5].Description: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[5].Description
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[5].Data: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[5].Data
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[5].Variant: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[5].Variant
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[5].VariantType: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[5].VariantType
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[6].ClassName: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[6].ClassName
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[6].Description: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[6].Description
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[6].Data: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[6].Data
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[6].Variant: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[6].Variant
+  HardwareSettingList.FilterSetting.Visible AOTF-7Low.Intensity[6].VariantType: HardwareSettingList.FilterSetting.Visible
+    AOTF-7Low.Intensity[6].VariantType
+  HardwareSettingList.FilterSetting.HyD 1.State.ClassName: HardwareSettingList.FilterSetting.HyD
+    1.State.ClassName
+  HardwareSettingList.FilterSetting.HyD 1.State.Description: HardwareSettingList.FilterSetting.HyD
+    1.State.Description
+  HardwareSettingList.FilterSetting.HyD 1.State.Data: HardwareSettingList.FilterSetting.HyD
+    1.State.Data
+  HardwareSettingList.FilterSetting.HyD 1.State.Variant: HardwareSettingList.FilterSetting.HyD
+    1.State.Variant
+  HardwareSettingList.FilterSetting.HyD 1.State.VariantType: HardwareSettingList.FilterSetting.HyD
+    1.State.VariantType
+  HardwareSettingList.FilterSetting.HyD 1.HighVoltage.ClassName: HardwareSettingList.FilterSetting.HyD
+    1.HighVoltage.ClassName
+  HardwareSettingList.FilterSetting.HyD 1.HighVoltage.Description: HardwareSettingList.FilterSetting.HyD
+    1.HighVoltage.Description
+  HardwareSettingList.FilterSetting.HyD 1.HighVoltage.Data: HardwareSettingList.FilterSetting.HyD
+    1.HighVoltage.Data
+  HardwareSettingList.FilterSetting.HyD 1.HighVoltage.Variant: HardwareSettingList.FilterSetting.HyD
+    1.HighVoltage.Variant
+  HardwareSettingList.FilterSetting.HyD 1.HighVoltage.VariantType: HardwareSettingList.FilterSetting.HyD
+    1.HighVoltage.VariantType
+  HardwareSettingList.FilterSetting.HyD 1.AcquisitionMode.ClassName: HardwareSettingList.FilterSetting.HyD
+    1.AcquisitionMode.ClassName
+  HardwareSettingList.FilterSetting.HyD 1.AcquisitionMode.Description: HardwareSettingList.FilterSetting.HyD
+    1.AcquisitionMode.Description
+  HardwareSettingList.FilterSetting.HyD 1.AcquisitionMode.Data: HardwareSettingList.FilterSetting.HyD
+    1.AcquisitionMode.Data
+  HardwareSettingList.FilterSetting.HyD 1.AcquisitionMode.Variant: HardwareSettingList.FilterSetting.HyD
+    1.AcquisitionMode.Variant
+  HardwareSettingList.FilterSetting.HyD 1.AcquisitionMode.VariantType: HardwareSettingList.FilterSetting.HyD
+    1.AcquisitionMode.VariantType
+  HardwareSettingList.FilterSetting.HyD 1.OverloadState.ClassName: HardwareSettingList.FilterSetting.HyD
+    1.OverloadState.ClassName
+  HardwareSettingList.FilterSetting.HyD 1.OverloadState.Description: HardwareSettingList.FilterSetting.HyD
+    1.OverloadState.Description
+  HardwareSettingList.FilterSetting.HyD 1.OverloadState.Data: HardwareSettingList.FilterSetting.HyD
+    1.OverloadState.Data
+  HardwareSettingList.FilterSetting.HyD 1.OverloadState.Variant: HardwareSettingList.FilterSetting.HyD
+    1.OverloadState.Variant
+  HardwareSettingList.FilterSetting.HyD 1.OverloadState.VariantType: HardwareSettingList.FilterSetting.HyD
+    1.OverloadState.VariantType
+  HardwareSettingList.FilterSetting.PMT 2.State.ClassName: HardwareSettingList.FilterSetting.PMT
+    2.State.ClassName
+  HardwareSettingList.FilterSetting.PMT 2.State.Description: HardwareSettingList.FilterSetting.PMT
+    2.State.Description
+  HardwareSettingList.FilterSetting.PMT 2.State.Data: HardwareSettingList.FilterSetting.PMT
+    2.State.Data
+  HardwareSettingList.FilterSetting.PMT 2.State.Variant: HardwareSettingList.FilterSetting.PMT
+    2.State.Variant
+  HardwareSettingList.FilterSetting.PMT 2.State.VariantType: HardwareSettingList.FilterSetting.PMT
+    2.State.VariantType
+  HardwareSettingList.FilterSetting.PMT 3.State.ClassName: HardwareSettingList.FilterSetting.PMT
+    3.State.ClassName
+  HardwareSettingList.FilterSetting.PMT 3.State.Description: HardwareSettingList.FilterSetting.PMT
+    3.State.Description
+  HardwareSettingList.FilterSetting.PMT 3.State.Data: HardwareSettingList.FilterSetting.PMT
+    3.State.Data
+  HardwareSettingList.FilterSetting.PMT 3.State.Variant: HardwareSettingList.FilterSetting.PMT
+    3.State.Variant
+  HardwareSettingList.FilterSetting.PMT 3.State.VariantType: HardwareSettingList.FilterSetting.PMT
+    3.State.VariantType
+  HardwareSettingList.FilterSetting.Galvo Slider.Filter.ClassName: HardwareSettingList.FilterSetting.Galvo
+    Slider.Filter.ClassName
+  HardwareSettingList.FilterSetting.Galvo Slider.Filter.Description: HardwareSettingList.FilterSetting.Galvo
+    Slider.Filter.Description
+  HardwareSettingList.FilterSetting.Galvo Slider.Filter.Data: HardwareSettingList.FilterSetting.Galvo
+    Slider.Filter.Data
+  HardwareSettingList.FilterSetting.Galvo Slider.Filter.Variant: HardwareSettingList.FilterSetting.Galvo
+    Slider.Filter.Variant
+  HardwareSettingList.FilterSetting.Galvo Slider.Filter.VariantType: HardwareSettingList.FilterSetting.Galvo
+    Slider.Filter.VariantType
+  HardwareSettingList.FilterSetting.Reson. Galvo Pan.Filter.ClassName: HardwareSettingList.FilterSetting.Reson.
+    Galvo Pan.Filter.ClassName
+  HardwareSettingList.FilterSetting.Reson. Galvo Pan.Filter.Description: HardwareSettingList.FilterSetting.Reson.
+    Galvo Pan.Filter.Description
+  HardwareSettingList.FilterSetting.Reson. Galvo Pan.Filter.Data: HardwareSettingList.FilterSetting.Reson.
+    Galvo Pan.Filter.Data
+  HardwareSettingList.FilterSetting.Reson. Galvo Pan.Filter.Variant: HardwareSettingList.FilterSetting.Reson.
+    Galvo Pan.Filter.Variant
+  HardwareSettingList.FilterSetting.Reson. Galvo Pan.Filter.VariantType: HardwareSettingList.FilterSetting.Reson.
+    Galvo Pan.Filter.VariantType
+  HardwareSettingList.FilterSetting.Switchable Beam Expander.Filter.ClassName: HardwareSettingList.FilterSetting.Switchable
+    Beam Expander.Filter.ClassName
+  HardwareSettingList.FilterSetting.Switchable Beam Expander.Filter.Description: HardwareSettingList.FilterSetting.Switchable
+    Beam Expander.Filter.Description
+  HardwareSettingList.FilterSetting.Switchable Beam Expander.Filter.Data: HardwareSettingList.FilterSetting.Switchable
+    Beam Expander.Filter.Data
+  HardwareSettingList.FilterSetting.Switchable Beam Expander.Filter.Variant: HardwareSettingList.FilterSetting.Switchable
+    Beam Expander.Filter.Variant
+  HardwareSettingList.FilterSetting.Switchable Beam Expander.Filter.VariantType: HardwareSettingList.FilterSetting.Switchable
+    Beam Expander.Filter.VariantType
+  HardwareSettingList.FilterSetting.Target Slider.Filter.ClassName: HardwareSettingList.FilterSetting.Target
+    Slider.Filter.ClassName
+  HardwareSettingList.FilterSetting.Target Slider.Filter.Description: HardwareSettingList.FilterSetting.Target
+    Slider.Filter.Description
+  HardwareSettingList.FilterSetting.Target Slider.Filter.Data: HardwareSettingList.FilterSetting.Target
+    Slider.Filter.Data
+  HardwareSettingList.FilterSetting.Target Slider.Filter.Variant: HardwareSettingList.FilterSetting.Target
+    Slider.Filter.Variant
+  HardwareSettingList.FilterSetting.Target Slider.Filter.VariantType: HardwareSettingList.FilterSetting.Target
+    Slider.Filter.VariantType
+  HardwareSettingList.FilterSetting.UV Lens FW.Filter.ClassName: HardwareSettingList.FilterSetting.UV
+    Lens FW.Filter.ClassName
+  HardwareSettingList.FilterSetting.UV Lens FW.Filter.Description: HardwareSettingList.FilterSetting.UV
+    Lens FW.Filter.Description
+  HardwareSettingList.FilterSetting.UV Lens FW.Filter.Data: HardwareSettingList.FilterSetting.UV
+    Lens FW.Filter.Data
+  HardwareSettingList.FilterSetting.UV Lens FW.Filter.Variant: HardwareSettingList.FilterSetting.UV
+    Lens FW.Filter.Variant
+  HardwareSettingList.FilterSetting.UV Lens FW.Filter.VariantType: HardwareSettingList.FilterSetting.UV
+    Lens FW.Filter.VariantType
+  HardwareSettingList.FilterSetting.Hardware Tree (5100001274).Machine_Type.ClassName: HardwareSettingList.FilterSetting.Hardware
+    Tree (5100001274).Machine_Type.ClassName
+  HardwareSettingList.FilterSetting.Hardware Tree (5100001274).Machine_Type.Description: HardwareSettingList.FilterSetting.Hardware
+    Tree (5100001274).Machine_Type.Description
+  HardwareSettingList.FilterSetting.Hardware Tree (5100001274).Machine_Type.Data: HardwareSettingList.FilterSetting.Hardware
+    Tree (5100001274).Machine_Type.Data
+  HardwareSettingList.FilterSetting.Hardware Tree (5100001274).Machine_Type.Variant: HardwareSettingList.FilterSetting.Hardware
+    Tree (5100001274).Machine_Type.Variant
+  HardwareSettingList.FilterSetting.Hardware Tree (5100001274).Machine_Type.VariantType: HardwareSettingList.FilterSetting.Hardware
+    Tree (5100001274).Machine_Type.VariantType
+  HardwareSettingList.FilterSetting.Hardware Tree (5100001274).System_Number.ClassName: HardwareSettingList.FilterSetting.Hardware
+    Tree (5100001274).System_Number.ClassName
+  HardwareSettingList.FilterSetting.Hardware Tree (5100001274).System_Number.Description: HardwareSettingList.FilterSetting.Hardware
+    Tree (5100001274).System_Number.Description
+  HardwareSettingList.FilterSetting.Hardware Tree (5100001274).System_Number.Data: HardwareSettingList.FilterSetting.Hardware
+    Tree (5100001274).System_Number.Data
+  HardwareSettingList.FilterSetting.Hardware Tree (5100001274).System_Number.Variant: HardwareSettingList.FilterSetting.Hardware
+    Tree (5100001274).System_Number.Variant
+  HardwareSettingList.FilterSetting.Hardware Tree (5100001274).System_Number.VariantType: HardwareSettingList.FilterSetting.Hardware
+    Tree (5100001274).System_Number.VariantType
+  HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Wavelength.ClassName: HardwareSettingList.FilterSetting.Laser
+    (405 Diode, UV).Wavelength.ClassName
+  HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Wavelength.Description: HardwareSettingList.FilterSetting.Laser
+    (405 Diode, UV).Wavelength.Description
+  HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Wavelength.Data: HardwareSettingList.FilterSetting.Laser
+    (405 Diode, UV).Wavelength.Data
+  HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Wavelength.Variant: HardwareSettingList.FilterSetting.Laser
+    (405 Diode, UV).Wavelength.Variant
+  HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Wavelength.VariantType: HardwareSettingList.FilterSetting.Laser
+    (405 Diode, UV).Wavelength.VariantType
+  HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Power State.ClassName: HardwareSettingList.FilterSetting.Laser
+    (405 Diode, UV).Power State.ClassName
+  HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Power State.Description: HardwareSettingList.FilterSetting.Laser
+    (405 Diode, UV).Power State.Description
+  HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Power State.Data: HardwareSettingList.FilterSetting.Laser
+    (405 Diode, UV).Power State.Data
+  HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Power State.Variant: HardwareSettingList.FilterSetting.Laser
+    (405 Diode, UV).Power State.Variant
+  HardwareSettingList.FilterSetting.Laser (405 Diode, UV).Power State.VariantType: HardwareSettingList.FilterSetting.Laser
+    (405 Diode, UV).Power State.VariantType
+  HardwareSettingList.FilterSetting.Laser (Argon, visible).Wavelength.ClassName: HardwareSettingList.FilterSetting.Laser
+    (Argon, visible).Wavelength.ClassName
+  HardwareSettingList.FilterSetting.Laser (Argon, visible).Wavelength.Description: HardwareSettingList.FilterSetting.Laser
+    (Argon, visible).Wavelength.Description
+  HardwareSettingList.FilterSetting.Laser (Argon, visible).Wavelength.Data: HardwareSettingList.FilterSetting.Laser
+    (Argon, visible).Wavelength.Data
+  HardwareSettingList.FilterSetting.Laser (Argon, visible).Wavelength.Variant: HardwareSettingList.FilterSetting.Laser
+    (Argon, visible).Wavelength.Variant
+  HardwareSettingList.FilterSetting.Laser (Argon, visible).Wavelength.VariantType: HardwareSettingList.FilterSetting.Laser
+    (Argon, visible).Wavelength.VariantType
+  HardwareSettingList.FilterSetting.Laser (Argon, visible).Power State.ClassName: HardwareSettingList.FilterSetting.Laser
+    (Argon, visible).Power State.ClassName
+  HardwareSettingList.FilterSetting.Laser (Argon, visible).Power State.Description: HardwareSettingList.FilterSetting.Laser
+    (Argon, visible).Power State.Description
+  HardwareSettingList.FilterSetting.Laser (Argon, visible).Power State.Data: HardwareSettingList.FilterSetting.Laser
+    (Argon, visible).Power State.Data
+  HardwareSettingList.FilterSetting.Laser (Argon, visible).Power State.Variant: HardwareSettingList.FilterSetting.Laser
+    (Argon, visible).Power State.Variant
+  HardwareSettingList.FilterSetting.Laser (Argon, visible).Power State.VariantType: HardwareSettingList.FilterSetting.Laser
+    (Argon, visible).Power State.VariantType
+  HardwareSettingList.FilterSetting.Laser (Argon, visible).Output Power.ClassName: HardwareSettingList.FilterSetting.Laser
+    (Argon, visible).Output Power.ClassName
+  HardwareSettingList.FilterSetting.Laser (Argon, visible).Output Power.Description: HardwareSettingList.FilterSetting.Laser
+    (Argon, visible).Output Power.Description
+  HardwareSettingList.FilterSetting.Laser (Argon, visible).Output Power.Data: HardwareSettingList.FilterSetting.Laser
+    (Argon, visible).Output Power.Data
+  HardwareSettingList.FilterSetting.Laser (Argon, visible).Output Power.Variant: HardwareSettingList.FilterSetting.Laser
+    (Argon, visible).Output Power.Variant
+  HardwareSettingList.FilterSetting.Laser (Argon, visible).Output Power.VariantType: HardwareSettingList.FilterSetting.Laser
+    (Argon, visible).Output Power.VariantType
+  HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Wavelength.ClassName: HardwareSettingList.FilterSetting.Laser
+    (DPSS 561, visible).Wavelength.ClassName
+  HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Wavelength.Description: HardwareSettingList.FilterSetting.Laser
+    (DPSS 561, visible).Wavelength.Description
+  HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Wavelength.Data: HardwareSettingList.FilterSetting.Laser
+    (DPSS 561, visible).Wavelength.Data
+  HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Wavelength.Variant: HardwareSettingList.FilterSetting.Laser
+    (DPSS 561, visible).Wavelength.Variant
+  HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Wavelength.VariantType: HardwareSettingList.FilterSetting.Laser
+    (DPSS 561, visible).Wavelength.VariantType
+  HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Power State.ClassName: HardwareSettingList.FilterSetting.Laser
+    (DPSS 561, visible).Power State.ClassName
+  HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Power State.Description: HardwareSettingList.FilterSetting.Laser
+    (DPSS 561, visible).Power State.Description
+  HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Power State.Data: HardwareSettingList.FilterSetting.Laser
+    (DPSS 561, visible).Power State.Data
+  HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Power State.Variant: HardwareSettingList.FilterSetting.Laser
+    (DPSS 561, visible).Power State.Variant
+  HardwareSettingList.FilterSetting.Laser (DPSS 561, visible).Power State.VariantType: HardwareSettingList.FilterSetting.Laser
+    (DPSS 561, visible).Power State.VariantType
+  HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Wavelength.ClassName: HardwareSettingList.FilterSetting.Laser
+    (HeNe 633, visible).Wavelength.ClassName
+  HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Wavelength.Description: HardwareSettingList.FilterSetting.Laser
+    (HeNe 633, visible).Wavelength.Description
+  HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Wavelength.Data: HardwareSettingList.FilterSetting.Laser
+    (HeNe 633, visible).Wavelength.Data
+  HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Wavelength.Variant: HardwareSettingList.FilterSetting.Laser
+    (HeNe 633, visible).Wavelength.Variant
+  HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Wavelength.VariantType: HardwareSettingList.FilterSetting.Laser
+    (HeNe 633, visible).Wavelength.VariantType
+  HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Power State.ClassName: HardwareSettingList.FilterSetting.Laser
+    (HeNe 633, visible).Power State.ClassName
+  HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Power State.Description: HardwareSettingList.FilterSetting.Laser
+    (HeNe 633, visible).Power State.Description
+  HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Power State.Data: HardwareSettingList.FilterSetting.Laser
+    (HeNe 633, visible).Power State.Data
+  HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Power State.Variant: HardwareSettingList.FilterSetting.Laser
+    (HeNe 633, visible).Power State.Variant
+  HardwareSettingList.FilterSetting.Laser (HeNe 633, visible).Power State.VariantType: HardwareSettingList.FilterSetting.Laser
+    (HeNe 633, visible).Power State.VariantType
+  HardwareSettingList.FilterSetting.DM6000.TLD_Settings.ClassName: HardwareSettingList.FilterSetting.DM6000.TLD_Settings.ClassName
+  HardwareSettingList.FilterSetting.DM6000.TLD_Settings.Description: HardwareSettingList.FilterSetting.DM6000.TLD_Settings.Description
+  HardwareSettingList.FilterSetting.DM6000.TLD_Settings.Data: HardwareSettingList.FilterSetting.DM6000.TLD_Settings.Data
+  HardwareSettingList.FilterSetting.DM6000.TLD_Settings.Variant: HardwareSettingList.FilterSetting.DM6000.TLD_Settings.Variant
+  HardwareSettingList.FilterSetting.DM6000.TLD_Settings.VariantType: HardwareSettingList.FilterSetting.DM6000.TLD_Settings.VariantType
+  HardwareSettingList.FilterSetting.DM6000.RLD_Settings.ClassName: HardwareSettingList.FilterSetting.DM6000.RLD_Settings.ClassName
+  HardwareSettingList.FilterSetting.DM6000.RLD_Settings.Description: HardwareSettingList.FilterSetting.DM6000.RLD_Settings.Description
+  HardwareSettingList.FilterSetting.DM6000.RLD_Settings.Data: HardwareSettingList.FilterSetting.DM6000.RLD_Settings.Data
+  HardwareSettingList.FilterSetting.DM6000.RLD_Settings.Variant: HardwareSettingList.FilterSetting.DM6000.RLD_Settings.Variant
+  HardwareSettingList.FilterSetting.DM6000.RLD_Settings.VariantType: HardwareSettingList.FilterSetting.DM6000.RLD_Settings.VariantType
+  HardwareSettingList.FilterSetting.Microscope.InverseZForCorrectTopo.ClassName: HardwareSettingList.FilterSetting.Microscope.InverseZForCorrectTopo.ClassName
+  HardwareSettingList.FilterSetting.Microscope.InverseZForCorrectTopo.Description: HardwareSettingList.FilterSetting.Microscope.InverseZForCorrectTopo.Description
+  HardwareSettingList.FilterSetting.Microscope.InverseZForCorrectTopo.Data: HardwareSettingList.FilterSetting.Microscope.InverseZForCorrectTopo.Data
+  HardwareSettingList.FilterSetting.Microscope.InverseZForCorrectTopo.Variant: HardwareSettingList.FilterSetting.Microscope.InverseZForCorrectTopo.Variant
+  HardwareSettingList.FilterSetting.Microscope.InverseZForCorrectTopo.VariantType: HardwareSettingList.FilterSetting.Microscope.InverseZForCorrectTopo.VariantType
+  HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Scan Rotation.ClassName: HardwareSettingList.FilterSetting.Scan
+    Field Rotator MA4.Scan Rotation.ClassName
+  HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Scan Rotation.Description: HardwareSettingList.FilterSetting.Scan
+    Field Rotator MA4.Scan Rotation.Description
+  HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Scan Rotation.Data: HardwareSettingList.FilterSetting.Scan
+    Field Rotator MA4.Scan Rotation.Data
+  HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Scan Rotation.Variant: HardwareSettingList.FilterSetting.Scan
+    Field Rotator MA4.Scan Rotation.Variant
+  HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Scan Rotation.VariantType: HardwareSettingList.FilterSetting.Scan
+    Field Rotator MA4.Scan Rotation.VariantType
+  HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Rotation Direction.ClassName: HardwareSettingList.FilterSetting.Scan
+    Field Rotator MA4.Rotation Direction.ClassName
+  HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Rotation Direction.Description: HardwareSettingList.FilterSetting.Scan
+    Field Rotator MA4.Rotation Direction.Description
+  HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Rotation Direction.Data: HardwareSettingList.FilterSetting.Scan
+    Field Rotator MA4.Rotation Direction.Data
+  HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Rotation Direction.Variant: HardwareSettingList.FilterSetting.Scan
+    Field Rotator MA4.Rotation Direction.Variant
+  HardwareSettingList.FilterSetting.Scan Field Rotator MA4.Rotation Direction.VariantType: HardwareSettingList.FilterSetting.Scan
+    Field Rotator MA4.Rotation Direction.VariantType
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.ScanPlane.ClassName: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.ScanPlane.ClassName
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.ScanPlane.Description: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.ScanPlane.Description
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.ScanPlane.Data: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.ScanPlane.Data
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.ScanPlane.Variant: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.ScanPlane.Variant
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.ScanPlane.VariantType: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.ScanPlane.VariantType
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.ClassName: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.ClassName
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Description: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Description
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Data: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Data
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Variant: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Variant
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.VariantType: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.VariantType
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Gain.ClassName: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.Gain.ClassName
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Gain.Description: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.Gain.Description
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Gain.Data: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.Gain.Data
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Gain.Variant: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.Gain.Variant
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Gain.VariantType: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.Gain.VariantType
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Offset.ClassName: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.Offset.ClassName
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Offset.Description: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.Offset.Description
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Offset.Data: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.Offset.Data
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Offset.Variant: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.Offset.Variant
+  HardwareSettingList.FilterSetting.X Reson. Scan Actuator.Offset.VariantType: HardwareSettingList.FilterSetting.X
+    Reson. Scan Actuator.Offset.VariantType
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.ScanPlane.ClassName: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.ScanPlane.ClassName
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.ScanPlane.Description: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.ScanPlane.Description
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.ScanPlane.Data: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.ScanPlane.Data
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.ScanPlane.Variant: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.ScanPlane.Variant
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.ScanPlane.VariantType: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.ScanPlane.VariantType
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.ClassName: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.ClassName
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Description: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Description
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Data: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Data
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Variant: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.Variant
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.VariantType: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.IsWholeRangeOfSuperZEnabled.VariantType
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Gain.ClassName: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.Gain.ClassName
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Gain.Description: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.Gain.Description
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Gain.Data: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.Gain.Data
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Gain.Variant: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.Gain.Variant
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Gain.VariantType: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.Gain.VariantType
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Offset.ClassName: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.Offset.ClassName
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Offset.Description: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.Offset.Description
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Offset.Data: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.Offset.Data
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Offset.Variant: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.Offset.Variant
+  HardwareSettingList.FilterSetting.Y Reson. Scan Actuator.Offset.VariantType: HardwareSettingList.FilterSetting.Y
+    Reson. Scan Actuator.Offset.VariantType
+  HardwareSettingList.FilterSetting.Scan Head.Speed.ClassName: HardwareSettingList.FilterSetting.Scan
+    Head.Speed.ClassName
+  HardwareSettingList.FilterSetting.Scan Head.Speed.Description: HardwareSettingList.FilterSetting.Scan
+    Head.Speed.Description
+  HardwareSettingList.FilterSetting.Scan Head.Speed.Data: HardwareSettingList.FilterSetting.Scan
+    Head.Speed.Data
+  HardwareSettingList.FilterSetting.Scan Head.Speed.Variant: HardwareSettingList.FilterSetting.Scan
+    Head.Speed.Variant
+  HardwareSettingList.FilterSetting.Scan Head.Speed.VariantType: HardwareSettingList.FilterSetting.Scan
+    Head.Speed.VariantType
+  HardwareSettingList.FilterSetting.Scan Head.Phase.ClassName: HardwareSettingList.FilterSetting.Scan
+    Head.Phase.ClassName
+  HardwareSettingList.FilterSetting.Scan Head.Phase.Description: HardwareSettingList.FilterSetting.Scan
+    Head.Phase.Description
+  HardwareSettingList.FilterSetting.Scan Head.Phase.Data: HardwareSettingList.FilterSetting.Scan
+    Head.Phase.Data
+  HardwareSettingList.FilterSetting.Scan Head.Phase.Variant: HardwareSettingList.FilterSetting.Scan
+    Head.Phase.Variant
+  HardwareSettingList.FilterSetting.Scan Head.Phase.VariantType: HardwareSettingList.FilterSetting.Scan
+    Head.Phase.VariantType
+  HardwareSettingList.FilterSetting.Scan Head.Y-Phase.ClassName: HardwareSettingList.FilterSetting.Scan
+    Head.Y-Phase.ClassName
+  HardwareSettingList.FilterSetting.Scan Head.Y-Phase.Description: HardwareSettingList.FilterSetting.Scan
+    Head.Y-Phase.Description
+  HardwareSettingList.FilterSetting.Scan Head.Y-Phase.Data: HardwareSettingList.FilterSetting.Scan
+    Head.Y-Phase.Data
+  HardwareSettingList.FilterSetting.Scan Head.Y-Phase.Variant: HardwareSettingList.FilterSetting.Scan
+    Head.Y-Phase.Variant
+  HardwareSettingList.FilterSetting.Scan Head.Y-Phase.VariantType: HardwareSettingList.FilterSetting.Scan
+    Head.Y-Phase.VariantType
+  HardwareSettingList.FilterSetting.Scan Head.SMD-Phase.ClassName: HardwareSettingList.FilterSetting.Scan
+    Head.SMD-Phase.ClassName
+  HardwareSettingList.FilterSetting.Scan Head.SMD-Phase.Description: HardwareSettingList.FilterSetting.Scan
+    Head.SMD-Phase.Description
+  HardwareSettingList.FilterSetting.Scan Head.SMD-Phase.Data: HardwareSettingList.FilterSetting.Scan
+    Head.SMD-Phase.Data
+  HardwareSettingList.FilterSetting.Scan Head.SMD-Phase.Variant: HardwareSettingList.FilterSetting.Scan
+    Head.SMD-Phase.Variant
+  HardwareSettingList.FilterSetting.Scan Head.SMD-Phase.VariantType: HardwareSettingList.FilterSetting.Scan
+    Head.SMD-Phase.VariantType
+  HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[0].ClassName: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 1.Wavelength[0].ClassName
+  HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[0].Description: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 1.Wavelength[0].Description
+  HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[0].Data: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 1.Wavelength[0].Data
+  HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[0].Variant: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 1.Wavelength[0].Variant
+  HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[0].VariantType: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 1.Wavelength[0].VariantType
+  HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[1].ClassName: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 1.Wavelength[1].ClassName
+  HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[1].Description: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 1.Wavelength[1].Description
+  HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[1].Data: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 1.Wavelength[1].Data
+  HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[1].Variant: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 1.Wavelength[1].Variant
+  HardwareSettingList.FilterSetting.SP Mirror Channel 1.Wavelength[1].VariantType: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 1.Wavelength[1].VariantType
+  HardwareSettingList.FilterSetting.SP Mirror Channel 1.Stain.ClassName: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 1.Stain.ClassName
+  HardwareSettingList.FilterSetting.SP Mirror Channel 1.Stain.Description: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 1.Stain.Description
+  HardwareSettingList.FilterSetting.SP Mirror Channel 1.Stain.Data: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 1.Stain.Data
+  HardwareSettingList.FilterSetting.SP Mirror Channel 1.Stain.Variant: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 1.Stain.Variant
+  HardwareSettingList.FilterSetting.SP Mirror Channel 1.Stain.VariantType: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 1.Stain.VariantType
+  HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[0].ClassName: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 2.Wavelength[0].ClassName
+  HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[0].Description: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 2.Wavelength[0].Description
+  HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[0].Data: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 2.Wavelength[0].Data
+  HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[0].Variant: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 2.Wavelength[0].Variant
+  HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[0].VariantType: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 2.Wavelength[0].VariantType
+  HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[1].ClassName: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 2.Wavelength[1].ClassName
+  HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[1].Description: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 2.Wavelength[1].Description
+  HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[1].Data: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 2.Wavelength[1].Data
+  HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[1].Variant: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 2.Wavelength[1].Variant
+  HardwareSettingList.FilterSetting.SP Mirror Channel 2.Wavelength[1].VariantType: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 2.Wavelength[1].VariantType
+  HardwareSettingList.FilterSetting.SP Mirror Channel 2.Stain.ClassName: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 2.Stain.ClassName
+  HardwareSettingList.FilterSetting.SP Mirror Channel 2.Stain.Description: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 2.Stain.Description
+  HardwareSettingList.FilterSetting.SP Mirror Channel 2.Stain.Data: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 2.Stain.Data
+  HardwareSettingList.FilterSetting.SP Mirror Channel 2.Stain.Variant: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 2.Stain.Variant
+  HardwareSettingList.FilterSetting.SP Mirror Channel 2.Stain.VariantType: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 2.Stain.VariantType
+  HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[0].ClassName: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 3.Wavelength[0].ClassName
+  HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[0].Description: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 3.Wavelength[0].Description
+  HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[0].Data: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 3.Wavelength[0].Data
+  HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[0].Variant: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 3.Wavelength[0].Variant
+  HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[0].VariantType: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 3.Wavelength[0].VariantType
+  HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[1].ClassName: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 3.Wavelength[1].ClassName
+  HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[1].Description: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 3.Wavelength[1].Description
+  HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[1].Data: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 3.Wavelength[1].Data
+  HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[1].Variant: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 3.Wavelength[1].Variant
+  HardwareSettingList.FilterSetting.SP Mirror Channel 3.Wavelength[1].VariantType: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 3.Wavelength[1].VariantType
+  HardwareSettingList.FilterSetting.SP Mirror Channel 3.Stain.ClassName: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 3.Stain.ClassName
+  HardwareSettingList.FilterSetting.SP Mirror Channel 3.Stain.Description: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 3.Stain.Description
+  HardwareSettingList.FilterSetting.SP Mirror Channel 3.Stain.Data: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 3.Stain.Data
+  HardwareSettingList.FilterSetting.SP Mirror Channel 3.Stain.Variant: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 3.Stain.Variant
+  HardwareSettingList.FilterSetting.SP Mirror Channel 3.Stain.VariantType: HardwareSettingList.FilterSetting.SP
+    Mirror Channel 3.Stain.VariantType
+  HardwareSettingList.FilterSetting.DM6000 TubeOptic.Magnification.ClassName: HardwareSettingList.FilterSetting.DM6000
+    TubeOptic.Magnification.ClassName
+  HardwareSettingList.FilterSetting.DM6000 TubeOptic.Magnification.Description: HardwareSettingList.FilterSetting.DM6000
+    TubeOptic.Magnification.Description
+  HardwareSettingList.FilterSetting.DM6000 TubeOptic.Magnification.Data: HardwareSettingList.FilterSetting.DM6000
+    TubeOptic.Magnification.Data
+  HardwareSettingList.FilterSetting.DM6000 TubeOptic.Magnification.Variant: HardwareSettingList.FilterSetting.DM6000
+    TubeOptic.Magnification.Variant
+  HardwareSettingList.FilterSetting.DM6000 TubeOptic.Magnification.VariantType: HardwareSettingList.FilterSetting.DM6000
+    TubeOptic.Magnification.VariantType
+  HardwareSettingList.FilterSetting.DM6000 TubeOptic.Position.ClassName: HardwareSettingList.FilterSetting.DM6000
+    TubeOptic.Position.ClassName
+  HardwareSettingList.FilterSetting.DM6000 TubeOptic.Position.Description: HardwareSettingList.FilterSetting.DM6000
+    TubeOptic.Position.Description
+  HardwareSettingList.FilterSetting.DM6000 TubeOptic.Position.Data: HardwareSettingList.FilterSetting.DM6000
+    TubeOptic.Position.Data
+  HardwareSettingList.FilterSetting.DM6000 TubeOptic.Position.Variant: HardwareSettingList.FilterSetting.DM6000
+    TubeOptic.Position.Variant
+  HardwareSettingList.FilterSetting.DM6000 TubeOptic.Position.VariantType: HardwareSettingList.FilterSetting.DM6000
+    TubeOptic.Position.VariantType
+  HardwareSettingList.FilterSetting.DM6000 Turret.Objective.ClassName: HardwareSettingList.FilterSetting.DM6000
+    Turret.Objective.ClassName
+  HardwareSettingList.FilterSetting.DM6000 Turret.Objective.Description: HardwareSettingList.FilterSetting.DM6000
+    Turret.Objective.Description
+  HardwareSettingList.FilterSetting.DM6000 Turret.Objective.Data: HardwareSettingList.FilterSetting.DM6000
+    Turret.Objective.Data
+  Objective.Model: HardwareSettingList.FilterSetting.DM6000 Turret.Objective.Variant
+  HardwareSettingList.FilterSetting.DM6000 Turret.Objective.VariantType: HardwareSettingList.FilterSetting.DM6000
+    Turret.Objective.VariantType
+  HardwareSettingList.FilterSetting.DM6000 Turret.OrderNumber.ClassName: HardwareSettingList.FilterSetting.DM6000
+    Turret.OrderNumber.ClassName
+  HardwareSettingList.FilterSetting.DM6000 Turret.OrderNumber.Description: HardwareSettingList.FilterSetting.DM6000
+    Turret.OrderNumber.Description
+  HardwareSettingList.FilterSetting.DM6000 Turret.OrderNumber.Data: HardwareSettingList.FilterSetting.DM6000
+    Turret.OrderNumber.Data
+  Objective.CatalogNumber: HardwareSettingList.FilterSetting.DM6000 Turret.OrderNumber.Variant
+  HardwareSettingList.FilterSetting.DM6000 Turret.OrderNumber.VariantType: HardwareSettingList.FilterSetting.DM6000
+    Turret.OrderNumber.VariantType
+  HardwareSettingList.FilterSetting.DM6000 Turret.NumericalAperture.ClassName: HardwareSettingList.FilterSetting.DM6000
+    Turret.NumericalAperture.ClassName
+  HardwareSettingList.FilterSetting.DM6000 Turret.NumericalAperture.Description: HardwareSettingList.FilterSetting.DM6000
+    Turret.NumericalAperture.Description
+  HardwareSettingList.FilterSetting.DM6000 Turret.NumericalAperture.Data: HardwareSettingList.FilterSetting.DM6000
+    Turret.NumericalAperture.Data
+  Objective.LensNA: HardwareSettingList.FilterSetting.DM6000 Turret.NumericalAperture.Variant
+  HardwareSettingList.FilterSetting.DM6000 Turret.NumericalAperture.VariantType: HardwareSettingList.FilterSetting.DM6000
+    Turret.NumericalAperture.VariantType
+  HardwareSettingList.FilterSetting.DM6000 Turret.RefractionIndex.ClassName: HardwareSettingList.FilterSetting.DM6000
+    Turret.RefractionIndex.ClassName
+  HardwareSettingList.FilterSetting.DM6000 Turret.RefractionIndex.Description: HardwareSettingList.FilterSetting.DM6000
+    Turret.RefractionIndex.Description
+  HardwareSettingList.FilterSetting.DM6000 Turret.RefractionIndex.Data: HardwareSettingList.FilterSetting.DM6000
+    Turret.RefractionIndex.Data
+  ImmersionLiquid.RefractiveIndex: HardwareSettingList.FilterSetting.DM6000 Turret.RefractionIndex.Variant
+  HardwareSettingList.FilterSetting.DM6000 Turret.RefractionIndex.VariantType: HardwareSettingList.FilterSetting.DM6000
+    Turret.RefractionIndex.VariantType
+  HardwareSettingList.FilterSetting.DM6000 Turret.DUMMYNAME.ClassName: HardwareSettingList.FilterSetting.DM6000
+    Turret.DUMMYNAME.ClassName
+  HardwareSettingList.FilterSetting.DM6000 Turret.DUMMYNAME.Description: HardwareSettingList.FilterSetting.DM6000
+    Turret.DUMMYNAME.Description
+  HardwareSettingList.FilterSetting.DM6000 Turret.DUMMYNAME.Data: HardwareSettingList.FilterSetting.DM6000
+    Turret.DUMMYNAME.Data
+  HardwareSettingList.FilterSetting.DM6000 Turret.DUMMYNAME.Variant: HardwareSettingList.FilterSetting.DM6000
+    Turret.DUMMYNAME.Variant
+  HardwareSettingList.FilterSetting.DM6000 Turret.DUMMYNAME.VariantType: HardwareSettingList.FilterSetting.DM6000
+    Turret.DUMMYNAME.VariantType
+  HardwareSettingList.FilterSetting.DM6000 Stage.XPosOrigin.ClassName: HardwareSettingList.FilterSetting.DM6000
+    Stage.XPosOrigin.ClassName
+  HardwareSettingList.FilterSetting.DM6000 Stage.XPosOrigin.Description: HardwareSettingList.FilterSetting.DM6000
+    Stage.XPosOrigin.Description
+  HardwareSettingList.FilterSetting.DM6000 Stage.XPosOrigin.Data: HardwareSettingList.FilterSetting.DM6000
+    Stage.XPosOrigin.Data
+  HardwareSettingList.FilterSetting.DM6000 Stage.XPosOrigin.Variant: HardwareSettingList.FilterSetting.DM6000
+    Stage.XPosOrigin.Variant
+  HardwareSettingList.FilterSetting.DM6000 Stage.XPosOrigin.VariantType: HardwareSettingList.FilterSetting.DM6000
+    Stage.XPosOrigin.VariantType
+  HardwareSettingList.FilterSetting.DM6000 Stage.YPosOrigin.ClassName: HardwareSettingList.FilterSetting.DM6000
+    Stage.YPosOrigin.ClassName
+  HardwareSettingList.FilterSetting.DM6000 Stage.YPosOrigin.Description: HardwareSettingList.FilterSetting.DM6000
+    Stage.YPosOrigin.Description
+  HardwareSettingList.FilterSetting.DM6000 Stage.YPosOrigin.Data: HardwareSettingList.FilterSetting.DM6000
+    Stage.YPosOrigin.Data
+  HardwareSettingList.FilterSetting.DM6000 Stage.YPosOrigin.Variant: HardwareSettingList.FilterSetting.DM6000
+    Stage.YPosOrigin.Variant
+  HardwareSettingList.FilterSetting.DM6000 Stage.YPosOrigin.VariantType: HardwareSettingList.FilterSetting.DM6000
+    Stage.YPosOrigin.VariantType
+  HardwareSettingList.FilterSetting.DM6000 Stage.ZPosOrigin.ClassName: HardwareSettingList.FilterSetting.DM6000
+    Stage.ZPosOrigin.ClassName
+  HardwareSettingList.FilterSetting.DM6000 Stage.ZPosOrigin.Description: HardwareSettingList.FilterSetting.DM6000
+    Stage.ZPosOrigin.Description
+  HardwareSettingList.FilterSetting.DM6000 Stage.ZPosOrigin.Data: HardwareSettingList.FilterSetting.DM6000
+    Stage.ZPosOrigin.Data
+  HardwareSettingList.FilterSetting.DM6000 Stage.ZPosOrigin.Variant: HardwareSettingList.FilterSetting.DM6000
+    Stage.ZPosOrigin.Variant
+  HardwareSettingList.FilterSetting.DM6000 Stage.ZPosOrigin.VariantType: HardwareSettingList.FilterSetting.DM6000
+    Stage.ZPosOrigin.VariantType
+  HardwareSettingList.FilterSetting.DM6000 Stage.XPos.ClassName: HardwareSettingList.FilterSetting.DM6000
+    Stage.XPos.ClassName
+  HardwareSettingList.FilterSetting.DM6000 Stage.XPos.Description: HardwareSettingList.FilterSetting.DM6000
+    Stage.XPos.Description
+  HardwareSettingList.FilterSetting.DM6000 Stage.XPos.Data: HardwareSettingList.FilterSetting.DM6000
+    Stage.XPos.Data
+  HardwareSettingList.FilterSetting.DM6000 Stage.XPos.Variant: HardwareSettingList.FilterSetting.DM6000
+    Stage.XPos.Variant
+  HardwareSettingList.FilterSetting.DM6000 Stage.XPos.VariantType: HardwareSettingList.FilterSetting.DM6000
+    Stage.XPos.VariantType
+  HardwareSettingList.FilterSetting.DM6000 Stage.YPos.ClassName: HardwareSettingList.FilterSetting.DM6000
+    Stage.YPos.ClassName
+  HardwareSettingList.FilterSetting.DM6000 Stage.YPos.Description: HardwareSettingList.FilterSetting.DM6000
+    Stage.YPos.Description
+  HardwareSettingList.FilterSetting.DM6000 Stage.YPos.Data: HardwareSettingList.FilterSetting.DM6000
+    Stage.YPos.Data
+  HardwareSettingList.FilterSetting.DM6000 Stage.YPos.Variant: HardwareSettingList.FilterSetting.DM6000
+    Stage.YPos.Variant
+  HardwareSettingList.FilterSetting.DM6000 Stage.YPos.VariantType: HardwareSettingList.FilterSetting.DM6000
+    Stage.YPos.VariantType
+  HardwareSettingList.FilterSetting.DM6000 Stage.ZPos.ClassName: HardwareSettingList.FilterSetting.DM6000
+    Stage.ZPos.ClassName
+  HardwareSettingList.FilterSetting.DM6000 Stage.ZPos.Description: HardwareSettingList.FilterSetting.DM6000
+    Stage.ZPos.Description
+  HardwareSettingList.FilterSetting.DM6000 Stage.ZPos.Data: HardwareSettingList.FilterSetting.DM6000
+    Stage.ZPos.Data
+  HardwareSettingList.FilterSetting.DM6000 Stage.ZPos.Variant: HardwareSettingList.FilterSetting.DM6000
+    Stage.ZPos.Variant
+  HardwareSettingList.FilterSetting.DM6000 Stage.ZPos.VariantType: HardwareSettingList.FilterSetting.DM6000
+    Stage.ZPos.VariantType
+  HardwareSettingList.Application: HardwareSettingList.Application
+  LightPath.ConfocalScannerSettings.PresetPinholeSizeUnit:
+  - HardwareSettingList.ScannerSetting.dblPinhole.Variant
+  Objective.Magnification:
+  - HardwareSettingList.FilterSetting.DM6000 Turret.Objective.Variant
+  Objective.ImmersionType:
+  - HardwareSettingList.FilterSetting.DM6000 Turret.Objective.Variant
