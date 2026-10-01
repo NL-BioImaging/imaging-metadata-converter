@@ -137,129 +137,7 @@ with `core.autocrlf` Windows checked six of them out with CRLF, so the committed
 
 ## In progress
 
-Model fit analytics (user, 2026-09-30): how well each example can be expressed in the model, from
-export/. A source value (and a distinct source key, list indices removed; the headline) counts in its
-best category: covered by a rule (mappings.json or combinations.json), covered automatically (the
-mapper's own match of a source path to a model path as is, counted as covered: 1:1 values need no rule,
-by design), or not covered - does not fit its field (Property whose SchemaPath is a model field), no
-such field (SchemaPath not a model field) or no model location (no SchemaPath). Also LiMi vs extension
-among the fields filled, and per example the automatic matches (to review: DICOM Rows/Columns land in
-Plate, not Pixels.SizeY/SizeX), the groups lacking fields and the source prefixes with no location.
-Output: scripts/model_fit.py (prints the tables) and docs/model-fit.md, filled by the MkDocs hook.
-Then (user): raise coverage of platy, LIF and DICOM - prefer extending the mapping over the model,
-though both are valid; propose per key with stated assumptions, confirm, add. Their coverage was low
-from when they were added (consolidator 46a960a, 2026-09-25), not from the OME root or the LinkML move.
-Analytics done and pushed (171254d). DICOM (user, 2026-09-30): plain rules agreed - Manufacturer,
-ManufacturerModelName, StationName -> Instrument.Name, Modality -> Instrument.Type, SoftwareVersions,
-Rows/Columns -> Pixels.SizeY/SizeX (fixing the automatic Plate match), BitsStored -> SignificantBits,
-SOPInstanceUID -> Image.ID, StudyInstanceUID -> Experiment.ID, StudyDescription, SeriesDescription ->
-Image.Name, ImageComments -> Image.Description, InstitutionName -> Experimenter.Institution; the rest
-(patient/admin, CT physics, display) stays Property. Open: a list-element split with an implied unit
-(PixelSpacing, SliceThickness in mm) is no existing rule form - the "split" of c2cb391 copies one value
-to several targets, the merge (combinations) builds datetimes only; Instrument.SerialNumber (model
-extension) for DeviceSerialNumber; a combination cannot replace the automatic AcquisitionDate (date
-only) since combinations write only where free, after the rules.
-DICOM rules pushed (8247f53). Now (user): C and D.
-C done: a rule may be an object {"target": ..., "unit": ...}, the unit written to the target's unit
-field where free once everything is mapped, recorded as derived from its value (DerivedFrom in the
-export); a rule may name one item of a plain value list ("PixelSpacing[0]"), the other items staying in
-a list at its place. DICOM PixelSpacing and SliceThickness map with unit mm. D done, as
-Instrument.CatalogNumber (user): LiMi's ManufacturerSpec has no SerialNumber, its CatalogNumber is
-"Catalog, Part or Serial Number"; DeviceSerialNumber maps to it. DICOM: 21% of keys (17 of 94).
-C and D pushed (ff5ac6a). LIF (user, 2026-09-30): round 1 agreed - summary keys (manufacturer, model,
-lens_na, immersion), SystemTypeName -> Instrument.Name, SystemSerialNumber -> Instrument.CatalogNumber,
-ObjectiveName/-Number -> Objective.Model/CatalogNumber, StagePosX/Y + ZPosition -> Plane.Position* (m),
-MountingMediumRefractionIndex, UserManagementUserName, camera/scan format -> Pixels.SizeX/Y,
-Resolution/BitSize -> SignificantBits, CameraName -> GenericDetector.Model, camera ExposureTime (s),
-PixelDwellTime (s), Zoom, Pinhole (m), ScanDirectionXName -> ConfocalScannerSettings; the shared
-magnification rule -> Objective.Magnification (nominal; EMSIS too); EMSIS pixelsizex/y unit m (were read
-as um). Round 2 (user): LaserName/Wavelength (nm) -> Laser[*], LineAverage -> IntegrationNumber; not the
-channel names/dyes (Spectro.MultiBand band i = image channel i unconfirmed). An implied unit now also
-follows a [*] target. Not placed: Leica's integer order/serial numbers (CatalogNumber is a string, the
-exporter keeps types exact), immersion "Oil" (not in LiMi's list), the HardwareSetting copies of the
-summary keys (field taken), values needing translation (laser type, TL-BF contrast), ScanSpeed. WLL's
-Wavelength 0 is placed as 0 nm, as the file says. Keys: widefield 1 -> 5%, tilescan 3 -> 10%.
-LIF pushed (eb75b15). Platy (user, 2026-09-30): a combination format "split" (item n of a
-whitespace-separated value, as a number) for ViewSetup.size -> Pixels.SizeX/Y/Z and voxelSize.size ->
-PhysicalSizeX/Y/Z (BDV order x y z); voxelSize.unit -> the three units, "micron"/"microns" as aliases
-of um; ViewSetup.name -> Channel.Name; ImageLoader.n5.value -> Image.Name.
-Done: platy 0 -> 22% of keys (5 of 23; the rest is BDV's loader, time points and registration).
-Coverage of the three now: DICOM 21%, LIF widefield 5%, LIF confocal 10%, platy 22% (pushed 50ebcb5).
-TALOS (user, 2026-09-30): A - the exporter reads a number written as a string into a numeric field
-(and a number into a string field), SourceValue keeping the source's (TALOS 22 core values; measured: 8
-examples up, none down); B - one GenericDetector per TALOS detector, extension fields for what LiMi
-lacks; C - apertures, optics modes, CustomProperties values, instrument/scan/binary-result keys; all
-proposed per key first. Not D: Operations/Features (Velox processing history) stay Properties.
-A done (numbers as text and back, SourceValue keeping the source's; 128 tests pass), not committed.
-B (user): B1 a rule "Detectors.*.DetectorName": "GenericDetector[].Name" renames a field inside each
-record a Target[] rule collapses (TALOS Detectors.*, Phenom acquisition.scan.detectors.* ->
-GenericDetector[]); B2 DetectorExtension gains Inserted, Enabled, ExposureTime (s), Binning (Vector2D),
-Collection/Elevation/AzimuthAngle (rad), CollectionAngleRange {Begin, End}, Live/Real/PulseProcessTime
-(s), Input/OutputCountRate, Dispersion/OffsetEnergy/BeginEnergy/ElectronicsNoise (eV); B3 "true"/"false"
-read into boolean fields. Configuration stays in the model, unused by these.
-B done: item-field rules (and the label, as "Prefix.*.id"; an implied unit too), the extension fields,
-text booleans. TALOS keys 3 -> 15% (TALOS 2 2 -> 11%), Phenom 44 -> 53%. DetectorMetadata now has
-no location (GenericDetector is a list, so ActiveConfiguration cannot take it): part of C.
-A and B pushed (d455b0f). C (user): C1 rules - Optics.Focus -> ElectronBeamSettings.Focus,
-LastMeasuredScreenCurrent -> ElectronBeamSettings.Current (A), BinaryResult.Detector and
-DetectorMetadata.DetectorName -> ScanSettings.Detector (the DetectorMetadata -> ActiveConfiguration rule
-dropped), CustomProperties.StemMagnification.value -> Objective.Magnification, Sample.SampleId ->
-Sample.ID, Detectors.*.id -> GenericDetector[].ID; C2 an ElectronAperture class (Name, Number, Type,
-MechanismType, Diameter m, Enabled, PositionOffset Vector2D) as ElectronOpticsSettings.Aperture, the
-text field Apertures kept (a range change would break 1.0). Not C3 (optics modes, lens intensities,
-extractor voltage) nor C4 (scan interlacing, mains lock). "0"/"1" read into boolean fields too.
-C done: the rule "Sample": "Sample" is gone (it moved TALOS's Sample record whole, so Sample.SampleId
-could not reach Sample.ID; the "Sample.*" rule covers the record); "CustomProperties" became
-"CustomProperties.*", the same paths, so a rule for one of its values applies. TALOS keys 15 -> 21%
-(TALOS 2 11 -> 16%); the rest is mostly Velox's Operations/Features.
-Of C3/C4, only what other examples share too (user): ScanSettings.LineInterlacing (TALOS, Phenom;
-Cikteq's "0/1"/"Disable" do not fit an integer) and ElectronOpticsSettings.Condenser1/2 (TALOS C1/C2
-lens intensity, Cikteq Condenser/Condenser2, each on the vendor's scale). The rest is TALOS only.
-C pushed (11cf170). Cross-dataset round (user, 2026-09-30): TALOS's 15 core values get their SI units
-(V, rad, m, s; all its own exact rules); LIF camera Gain/Brightness and Zeiss Image.Brightness/Contrast,
-Scan.ShiftX/Y to the fields other vendors fill. Found: an implied unit was written for a value that is
-no number (Cikteq's Scan.FrameTime "2min52s" shares TALOS's rule): units now qualify numbers only.
-Analytics gain Kept (input values in the output) and Traced (output records naming input values),
-100% for every example, tested. Not done, open for the user: Cikteq units (mm, deg; current and point
-time unknown), SVS Left/Top in mm, immersion "Oil" in the enumeration.
-Next (user): units where reasonably confident (Cikteq WD and stage mm, rotation/tilt deg; SVS Left/Top
-mm; not Cikteq's current or point time), "Oil" in the immersion list, and the analysis as a reused
-Python function returning the stats (coverage, kept, traced, ...), used by the script, page and tests.
-Done: units Cikteq WD/stage mm, rotation/tilt deg, SVS Left/Top mm (Cikteq's current and point time
-left without); "Oil" in ImmersionTypeList (from OME 2016-06; LIF confocal and ome-tiff now fit; the
-profile's enum widened, compatible); model_fit.analyse(dataset, metadata) returns the stats as a dict,
-analyse_metadata(metadata) for a source dict (converted and exported in memory), analyse_examples()
-for all; render, the script and the tests use them.
-1.1.0 released in the repository (f115688), not yet published on the Hub.
-Coverage beyond this (user, 2026-09-30), in order: (1) in-scope coverage - a reviewed list of source
-groups out of scope (processing history, file bookkeeping, software/UI state, patient/administrative),
-the analytics adding coverage of in-scope values; (2) derived values - small combination extensions
-(SizeT from BDV time points, durations such as Cikteq's "2min52s"); (3) rules implied by Bio-Formats'
-readers (LIF, DICOM, SVS, FEI/TFS, Zeiss), proposed per format. Not: vendor values as MapAnnotation.
-(1) done, list to be reviewed by the user: scripts/out_of_scope.json (processing, file, display, software
-state, patient and administrative; fnmatch patterns over source keys; a covered key always counts; a
-test fails on a pattern matching no key). In-scope key coverage: TALOS 61/66%, DICOM 47%, ome-tiff 49%,
-LIF 7/13% (LIF's remaining settings are real gaps).
-(2) done: combination formats count (platy SizeT), duration (Cikteq FrameTime "2min52s" -> 172 s) and
-quantity (Cikteq HFW "21.12µm" -> 21.12 um); a one-part combination replaces its part's non-numeric text
-a rule placed (the text back at its path). Cikteq also gets its acquisition date from User.TimeStamp
-(unix) - so User.* is no longer all display, only BottomInfoShowEnable, DateTimeFmt, RulerText.
-Cikteq 57 -> 60% keys (in scope 64%), platy 22 -> 30% (41%).
-(3) Bio-Formats (develop, read 2026-09-30): no reader for Velox/EMD or Zeiss/Fibics; FEITiffReader maps
-fewer FEI fields than ours; SVSReader/DicomReader/LIFReader imply three rules, taken (user): DICOM
-ImagePositionPatient[0/1/2] -> Plane.PositionX/Y/Z (mm), SVS Exposure Time x Exposure Scale ->
-Plane.ExposureTime (s; a new "product" combination, without Bio-Formats' x1000, which looks like a bug
-there), LIF DetectorList.Detector[].IsActive -> GenericDetector.Enabled. Kept (user): SliceThickness ->
-PhysicalSizeZ (Bio-Formats uses SpacingBetweenSlices, which no example has), Leica stage positions raw
-(Bio-Formats applies FlipX/FlipY/SwapXY). Not taken: the stand model (LiMi types the stand by
-IsInverseMicroscopeModel, no rule picks a class by value), channel names/dyes (Bio-Formats joins
-active detectors to the last SizeC, which the metadata lacks), AOTF lines (Bio-Formats skips them at
-this level).
-Done: the three rules; the exporter reads an integer flag 0/1 into a boolean field (Leica's IsActive),
-and keeps a source value whose type the stored one changes (0 -> False compare equal) in SourceValue -
-the no-data-loss test caught it. DICOM 21 -> 22% (in scope 49%), SVS 42 -> 50% (68%), LIF confocal 11%
-(14%). A SpacingBetweenSlices rule waits for an example stating it.
-Status: (1)+(2)+(3) done, not committed.
+Nothing.
 
 ## The model and the pipeline
 
@@ -410,3 +288,8 @@ structure, for common fields in the source data"). A value is only a candidate i
 - [ ] Light-source role, when a source holds light sources (none does yet, so rules setting it would have
       nothing to act on or be tested with; user, 2026-09-28): rules for Transmitted/Fluorescence light
       sources should set `LightSource.Role`.
+- [ ] Review `scripts/out_of_scope.json` (the source groups left out of in-scope coverage: processing,
+      file, display, software state, patient and administrative; user, 2026-09-30).
+- [ ] DICOM SpacingBetweenSlices -> PhysicalSizeZ (mm), as Bio-Formats does, once an example states it;
+      SliceThickness maps there until then.
+- [ ] Units for Cikteq's beam current and point time, once known (left without, 2026-09-30).

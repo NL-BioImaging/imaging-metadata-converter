@@ -424,6 +424,37 @@ class LosslessMappingTest(unittest.TestCase):
         self.assertEqual(converted['SourceMap']['Plane.ExposureTimeUnit'], ['Exposure Time', 'Exposure Scale'])
         self.assertNotIn('Plane', mapper.convert_metadata({'Exposure Time': 109, 'Exposure Scale': 'n/a'}))
 
+    def test_ratio_combination_replaces_the_list_the_schema_placed(self):
+        mapper = self.mapper_for({}, [{'target': 'Plane.ExposureTime', 'sources': ['ExposureTime[0]', 'ExposureTime[1]'],
+                                       'format': 'ratio', 'unit': 's'}])
+
+        converted = mapper.convert_metadata({'ExposureTime': [41, 5000]})
+
+        self.assertEqual(converted['Plane'], {'ExposureTime': 0.0082, 'ExposureTimeUnit': 's'})
+        self.assertEqual(converted['ExposureTime'], [41, 5000])
+        self.assertEqual(converted['SourceMap']['ExposureTime[1]'], 'ExposureTime[1]')
+        self.assertEqual(converted['SourceMap']['Plane.ExposureTime'], ['ExposureTime[0]', 'ExposureTime[1]'])
+        self.assertNotIn('Plane.ExposureTime[0]', converted['SourceMap'])
+
+    def test_ratio_combination_is_left_out_without_a_divisor(self):
+        mapper = self.mapper_for({}, [{'target': 'R', 'sources': ['Q[0]', 'Q[1]'], 'format': 'ratio'}])
+
+        self.assertNotIn('R', mapper.convert_metadata({'Q': [41, 0]}))
+        self.assertNotIn('R', mapper.convert_metadata({'Q': [41]}))
+
+    def test_combination_gives_way_to_the_value_a_rule_placed(self):
+        mapper = self.mapper_for({'datetime': 'Image.AcquisitionDate'},
+                                 [{'target': 'Image.AcquisitionDate', 'sources': ['DateTimeDigitized'],
+                                   'format': '%Y:%m:%d %H:%M:%S'}])
+
+        converted = mapper.convert_metadata({'DateTimeDigitized': '2025:05:28 10:54:29',
+                                             'Vendor': {'datetime': '2025-05-28 10:54:00'}})
+
+        self.assertEqual(converted['Image'], {'AcquisitionDate': '2025-05-28 10:54:00'})
+        self.assertEqual(converted['DateTimeDigitized'], '2025:05:28 10:54:29')
+        self.assertEqual(mapper.convert_metadata({'DateTimeDigitized': '2025:05:28 10:54:29'})['Image'],
+                         {'AcquisitionDate': '2025-05-28T10:54:29'})
+
     def test_duration_and_quantity_are_left_out_without_one(self):
         mapper = self.mapper_for({}, [{'target': 'D', 'sources': ['time'], 'format': 'duration'},
                                       {'target': 'Q', 'sources': ['size'], 'format': 'quantity'}])

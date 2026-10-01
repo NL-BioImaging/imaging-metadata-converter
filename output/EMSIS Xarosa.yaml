@@ -1,25 +1,60 @@
-Image:
-  Name: ''
-  AcquisitionDate: '2025-05-28 10:54:00'
-  Type: ''
+Instrument:
+  Manufacturer: EMSIS
+  Model: Xarosa
+ExifVersion: '0210'
+DateTimeDigitized: 2025:05:28 10:54:29
+MeteringMode: 1
+FlashpixVersion: '0100'
+ColorSpace: 1
 Pixels:
+  SizeX: 5120
+  SizeY: 3840
   PhysicalSizeX: 1.652845302290227e-09
   PhysicalSizeY: 1.652845302290227e-09
   PhysicalSizeXUnit: m
   PhysicalSizeYUnit: m
+ExposureMode: 1
+Image:
+  Name: ''
+  AcquisitionDate: '2025-05-28 10:54:00'
+  Type: ''
 Objective:
   Magnification: 6000.0
 GenericDetector:
   Name: ''
+ExposureTime:
+- 41
+- 5000
+Plane:
+  ExposureTime: 0.0082
+  ExposureTimeUnit: s
 SourceMap:
-  Image.Name: name
-  Image.AcquisitionDate: datetime
-  Pixels.PhysicalSizeX: pixelsizex
-  Pixels.PhysicalSizeY: pixelsizey
-  Objective.Magnification: magnification
-  GenericDetector.Name: cameraname
-  Image.Type: picturetype
+  Instrument.Manufacturer: Make
+  Instrument.Model: Model
+  ExifVersion: ExifVersion
+  DateTimeDigitized: DateTimeDigitized
+  MeteringMode: MeteringMode
+  FlashpixVersion: FlashpixVersion
+  ColorSpace: ColorSpace
+  Pixels.SizeX: PixelXDimension
+  Pixels.SizeY: PixelYDimension
+  ExposureMode: ExposureMode
+  Image.Name: OlympusSIS.name
+  Image.AcquisitionDate: OlympusSIS.datetime
+  Pixels.PhysicalSizeX: OlympusSIS.pixelsizex
+  Pixels.PhysicalSizeY: OlympusSIS.pixelsizey
+  Objective.Magnification: OlympusSIS.magnification
+  GenericDetector.Name: OlympusSIS.cameraname
+  Image.Type: OlympusSIS.picturetype
   Pixels.PhysicalSizeXUnit:
-  - pixelsizex
+  - OlympusSIS.pixelsizex
   Pixels.PhysicalSizeYUnit:
-  - pixelsizey
+  - OlympusSIS.pixelsizey
+  ExposureTime[0]: ExposureTime[0]
+  ExposureTime[1]: ExposureTime[1]
+  Plane.ExposureTime:
+  - ExposureTime[0]
+  - ExposureTime[1]
+  Plane.ExposureTimeUnit:
+  - ExposureTime[0]
+  - ExposureTime[1]

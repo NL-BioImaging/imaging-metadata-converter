@@ -48,7 +48,6 @@
     "Software": "AcquisitionSoftware.Name",
     "PixelXDimension": "Pixels.SizeX",
     "PixelYDimension": "Pixels.SizeY",
-    "DateTimeDigitized": "Image.AcquisitionDate",
     "name": "Image.Name",
     "datetime": "Image.AcquisitionDate",
     "pixelsizex": {

@@ -3,203 +3,203 @@ Image:
 - SourceFile:
   - ID: SourceFile:0
     Name: Cikteq SEM4000x Automap.json
-    Checksum: 07be3b317606b86b323fd1c95ee12a70ac470e3ea167e0d5cbd67f46392728c6
+    Checksum: 20b39b9a77fc406a15248eaeec3c37fb01fb72ca882e72c5d7b579f52f296c35
     Format: json
     Mapping:
     - ID: SourceMapping:0
       Field: Image[0].ElectronBeamSettings.Stigmator.X
-      Source: Beam.AstigX
+      Source: FEI_HELIOS.Beam.AstigX
     - ID: SourceMapping:1
       Field: Image[0].ElectronBeamSettings.Stigmator.Y
-      Source: Beam.AstigY
+      Source: FEI_HELIOS.Beam.AstigY
     - ID: SourceMapping:2
       Field: Image[0].ElectronBeamSettings.Mode
-      Source: Beam.BeamMode
+      Source: FEI_HELIOS.Beam.BeamMode
     - ID: SourceMapping:3
       Field: Image[0].ElectronBeamSettings.Type
-      Source: Beam.BeamType
+      Source: FEI_HELIOS.Beam.BeamType
       SourceValue: '1'
     - ID: SourceMapping:4
       Field: Image[0].ElectronBeamSettings.Focus
-      Source: Beam.Focus
+      Source: FEI_HELIOS.Beam.Focus
     - ID: SourceMapping:5
       Field: Image[0].ElectronBeamSettings.Current.Value
-      Source: Beam.RealAbsCurrent
+      Source: FEI_HELIOS.Beam.RealAbsCurrent
     - ID: SourceMapping:6
       Field: Image[0].ElectronBeamSettings.Shift.X
-      Source: Beam.ShiftX
+      Source: FEI_HELIOS.Beam.ShiftX
     - ID: SourceMapping:7
       Field: Image[0].ElectronBeamSettings.Shift.Y
-      Source: Beam.ShiftY
+      Source: FEI_HELIOS.Beam.ShiftY
     - ID: SourceMapping:8
       Field: Image[0].ElectronBeamSettings.WorkingDistance.Value
-      Source: Beam.WD
+      Source: FEI_HELIOS.Beam.WD
     - ID: SourceMapping:9
       Field: Image[0].ElectronBeamSettings.WorkingDistance.Unit
-      Source: Beam.WD
+      Source: FEI_HELIOS.Beam.WD
       DerivedFrom:
-      - Beam.WD
+      - FEI_HELIOS.Beam.WD
     - ID: SourceMapping:10
       Field: Image[0].ElectronBeamSettings.HighVoltage.BV
-      Source: HV.BV
+      Source: FEI_HELIOS.HV.BV
     - ID: SourceMapping:11
       Field: Image[0].ElectronBeamSettings.HighVoltage.Bia
-      Source: HV.Bia
+      Source: FEI_HELIOS.HV.Bia
     - ID: SourceMapping:12
       Field: Image[0].ElectronBeamSettings.HighVoltage.CV
-      Source: HV.CV
+      Source: FEI_HELIOS.HV.CV
     - ID: SourceMapping:13
       Field: Image[0].ElectronBeamSettings.HighVoltage.ExtCurrent
-      Source: HV.ExtCurrent
+      Source: FEI_HELIOS.HV.ExtCurrent
     - ID: SourceMapping:14
       Field: Image[0].ElectronBeamSettings.HighVoltage.ExtVoltage
-      Source: HV.ExtVoltage
+      Source: FEI_HELIOS.HV.ExtVoltage
     - ID: SourceMapping:15
       Field: Image[0].ElectronBeamSettings.HighVoltage.FV
-      Source: HV.FV
+      Source: FEI_HELIOS.HV.FV
     - ID: SourceMapping:16
       Field: Image[0].ElectronBeamSettings.HighVoltage.FcCurrent
-      Source: HV.FcCurrent
+      Source: FEI_HELIOS.HV.FcCurrent
     - ID: SourceMapping:17
       Field: Image[0].ElectronBeamSettings.HighVoltage.FcVoltage
-      Source: HV.FcVoltage
+      Source: FEI_HELIOS.HV.FcVoltage
     - ID: SourceMapping:18
       Field: Image[0].ElectronBeamSettings.HighVoltage.HighEmissionMode
-      Source: HV.HighEmissionMode
+      Source: FEI_HELIOS.HV.HighEmissionMode
     - ID: SourceMapping:19
       Field: Image[0].ElectronBeamSettings.HighVoltage.HvCurrent
-      Source: HV.HvCurrent
+      Source: FEI_HELIOS.HV.HvCurrent
     - ID: SourceMapping:20
       Field: Image[0].ElectronBeamSettings.HighVoltage.HvMode
-      Source: HV.HvMode
+      Source: FEI_HELIOS.HV.HvMode
     - ID: SourceMapping:21
       Field: Image[0].ElectronBeamSettings.HighVoltage.HvVoltage
-      Source: HV.HvVoltage
+      Source: FEI_HELIOS.HV.HvVoltage
     - ID: SourceMapping:22
       Field: Image[0].ElectronBeamSettings.HighVoltage.Mid10kvVoltage
-      Source: HV.Mid10kvVoltage
+      Source: FEI_HELIOS.HV.Mid10kvVoltage
     - ID: SourceMapping:23
       Field: Image[0].ElectronBeamSettings.HighVoltage.SV
-      Source: HV.SV
+      Source: FEI_HELIOS.HV.SV
     - ID: SourceMapping:24
       Field: Image[0].ElectronBeamSettings.HighVoltage.SchCurrent
-      Source: HV.SchCurrent
+      Source: FEI_HELIOS.HV.SchCurrent
     - ID: SourceMapping:25
       Field: Image[0].ElectronBeamSettings.HighVoltage.SchVoltage
-      Source: HV.SchVoltage
+      Source: FEI_HELIOS.HV.SchVoltage
     - ID: SourceMapping:26
       Field: Image[0].ElectronOpticsSettings.Condenser1
-      Source: Beam.Condenser
+      Source: FEI_HELIOS.Beam.Condenser
     - ID: SourceMapping:27
       Field: Image[0].ElectronOpticsSettings.Condenser2
-      Source: Beam.Condenser2
+      Source: FEI_HELIOS.Beam.Condenser2
     - ID: SourceMapping:28
       Field: Image[0].ScanSettings.FrameTime.Value
-      Source: Scan.FrameTime
+      Source: FEI_HELIOS.Scan.FrameTime
       DerivedFrom:
-      - Scan.FrameTime
+      - FEI_HELIOS.Scan.FrameTime
     - ID: SourceMapping:29
       Field: Image[0].ScanSettings.FrameTime.Unit
-      Source: Scan.FrameTime
+      Source: FEI_HELIOS.Scan.FrameTime
       DerivedFrom:
-      - Scan.FrameTime
+      - FEI_HELIOS.Scan.FrameTime
     - ID: SourceMapping:30
       Field: Image[0].ScanSettings.FieldOfView.X.Value
-      Source: Beam.HFW
+      Source: FEI_HELIOS.Beam.HFW
       DerivedFrom:
-      - Beam.HFW
+      - FEI_HELIOS.Beam.HFW
     - ID: SourceMapping:31
       Field: Image[0].ScanSettings.FieldOfView.X.Unit
-      Source: Beam.HFW
+      Source: FEI_HELIOS.Beam.HFW
       DerivedFrom:
-      - Beam.HFW
+      - FEI_HELIOS.Beam.HFW
     - ID: SourceMapping:32
       Field: Image[0].AcquisitionDate
-      Source: User.TimeStamp
+      Source: FEI_HELIOS.User.TimeStamp
       DerivedFrom:
-      - User.TimeStamp
+      - FEI_HELIOS.User.TimeStamp
     - ID: SourceMapping:33
       Field: Instrument[0].GenericDetector[0].Brightness
-      Source: Detector.Brightness
+      Source: FEI_HELIOS.Detector.Brightness
     - ID: SourceMapping:34
       Field: Instrument[0].GenericDetector[0].Channel
-      Source: Detector.Channel
+      Source: FEI_HELIOS.Detector.Channel
     - ID: SourceMapping:35
       Field: Instrument[0].GenericDetector[0].Contrast
-      Source: Detector.Contrast
+      Source: FEI_HELIOS.Detector.Contrast
     - ID: SourceMapping:36
       Field: Instrument[0].GenericDetector[0].Name
-      Source: Detector.DetectorName
+      Source: FEI_HELIOS.Detector.DetectorName
     - ID: SourceMapping:37
       Field: Instrument[0].GenericDetector[0].Gain
-      Source: Detector.Gain
+      Source: FEI_HELIOS.Detector.Gain
     - ID: SourceMapping:38
       Field: Image[0].Pixels.Plane[0].PixelDwellTime
-      Source: Scan.PointTime
+      Source: FEI_HELIOS.Scan.PointTime
     - ID: SourceMapping:39
       Field: Image[0].Pixels.SizeX
-      Source: Scan.ResolutionX
+      Source: FEI_HELIOS.Scan.ResolutionX
     - ID: SourceMapping:40
       Field: Image[0].Pixels.SizeY
-      Source: Scan.ResolutionY
+      Source: FEI_HELIOS.Scan.ResolutionY
     - ID: SourceMapping:41
       Field: Instrument[0].MechanicalStage[0].Rotation.Value
-      Source: Stage.StagePosR
+      Source: FEI_HELIOS.Stage.StagePosR
     - ID: SourceMapping:42
       Field: Instrument[0].MechanicalStage[0].Rotation.Unit
-      Source: Stage.StagePosR
+      Source: FEI_HELIOS.Stage.StagePosR
       DerivedFrom:
-      - Stage.StagePosR
+      - FEI_HELIOS.Stage.StagePosR
     - ID: SourceMapping:43
       Field: Instrument[0].MechanicalStage[0].Tilt.Value
-      Source: Stage.StagePosT
+      Source: FEI_HELIOS.Stage.StagePosT
     - ID: SourceMapping:44
       Field: Instrument[0].MechanicalStage[0].Tilt.Unit
-      Source: Stage.StagePosT
+      Source: FEI_HELIOS.Stage.StagePosT
       DerivedFrom:
-      - Stage.StagePosT
+      - FEI_HELIOS.Stage.StagePosT
     - ID: SourceMapping:45
       Field: Instrument[0].MechanicalStage[0].Position.X.Value
-      Source: Stage.StagePosX
+      Source: FEI_HELIOS.Stage.StagePosX
     - ID: SourceMapping:46
       Field: Instrument[0].MechanicalStage[0].Position.X.Unit
-      Source: Stage.StagePosX
+      Source: FEI_HELIOS.Stage.StagePosX
       DerivedFrom:
-      - Stage.StagePosX
+      - FEI_HELIOS.Stage.StagePosX
     - ID: SourceMapping:47
       Field: Instrument[0].MechanicalStage[0].Position.Y.Value
-      Source: Stage.StagePosY
+      Source: FEI_HELIOS.Stage.StagePosY
     - ID: SourceMapping:48
       Field: Instrument[0].MechanicalStage[0].Position.Y.Unit
-      Source: Stage.StagePosY
+      Source: FEI_HELIOS.Stage.StagePosY
       DerivedFrom:
-      - Stage.StagePosY
+      - FEI_HELIOS.Stage.StagePosY
     - ID: SourceMapping:49
       Field: Instrument[0].MechanicalStage[0].Position.Z.Value
-      Source: Stage.StagePosZ
+      Source: FEI_HELIOS.Stage.StagePosZ
     - ID: SourceMapping:50
       Field: Instrument[0].MechanicalStage[0].Position.Z.Unit
-      Source: Stage.StagePosZ
+      Source: FEI_HELIOS.Stage.StagePosZ
       DerivedFrom:
-      - Stage.StagePosZ
+      - FEI_HELIOS.Stage.StagePosZ
     - ID: SourceMapping:51
       Field: Instrument[0].Name
-      Source: System.ProductName
+      Source: FEI_HELIOS.System.ProductName
     - ID: SourceMapping:52
       Field: Instrument[0].Vacuum.BufferVacuum
-      Source: Vacuum.BufferVacuum
+      Source: FEI_HELIOS.Vacuum.BufferVacuum
     - ID: SourceMapping:53
       Field: Instrument[0].Vacuum.GunVacuum
-      Source: Vacuum.GunVacuum
+      Source: FEI_HELIOS.Vacuum.GunVacuum
     - ID: SourceMapping:54
       Field: Instrument[0].Vacuum.SampleVacuum
-      Source: Vacuum.SampleVacuum
+      Source: FEI_HELIOS.Vacuum.SampleVacuum
     - ID: SourceMapping:55
       Field: Instrument[0].AcquisitionSoftware[0].Version
-      Source: System.SoftwareVersion
+      Source: FEI_HELIOS.System.SoftwareVersion
     - ID: SourceMapping:56
       Field: Experimenter[0].UserName
-      Source: User.UserName
+      Source: FEI_HELIOS.User.UserName
   ElectronBeamSettings:
     Stigmator:
       X: 0.01
@@ -234,77 +234,77 @@ Image:
       SchVoltage: 300.68
   CustomProperties:
   - ID: Property:0
-    Name: Beam.BeamDownX
+    Name: FEI_HELIOS.Beam.BeamDownX
     Value: '0'
     SchemaPath: Image.ElectronBeamSettings.BeamDownX
     Source: SourceFile:0
   - ID: Property:1
-    Name: Beam.BeamDownY
+    Name: FEI_HELIOS.Beam.BeamDownY
     Value: '0'
     SchemaPath: Image.ElectronBeamSettings.BeamDownY
     Source: SourceFile:0
   - ID: Property:2
-    Name: Beam.BeamUpX
+    Name: FEI_HELIOS.Beam.BeamUpX
     Value: '0'
     SchemaPath: Image.ElectronBeamSettings.BeamUpX
     Source: SourceFile:0
   - ID: Property:3
-    Name: Beam.BeamUpY
+    Name: FEI_HELIOS.Beam.BeamUpY
     Value: '0'
     SchemaPath: Image.ElectronBeamSettings.BeamUpY
     Source: SourceFile:0
   - ID: Property:4
-    Name: Beam.ElectricMoveX
+    Name: FEI_HELIOS.Beam.ElectricMoveX
     Value: '-0.57'
     SchemaPath: Image.ElectronBeamSettings.ElectricMoveX
     Source: SourceFile:0
   - ID: Property:5
-    Name: Beam.ElectricMoveY
+    Name: FEI_HELIOS.Beam.ElectricMoveY
     Value: '0.08'
     SchemaPath: Image.ElectronBeamSettings.ElectricMoveY
     Source: SourceFile:0
   - ID: Property:6
-    Name: Beam.ElectricRotate
+    Name: FEI_HELIOS.Beam.ElectricRotate
     Value: '-135.0'
     SchemaPath: Image.ElectronBeamSettings.ElectricRotate
     Source: SourceFile:0
   - ID: Property:7
-    Name: Beam.ImagingMode
+    Name: FEI_HELIOS.Beam.ImagingMode
     Value: '0'
     SchemaPath: Image.ElectronBeamSettings.ImagingMode
     Source: SourceFile:0
   - ID: Property:8
-    Name: Beam.TiltX
+    Name: FEI_HELIOS.Beam.TiltX
     Value: '0.0'
     SchemaPath: Image.ElectronBeamSettings.TiltX
     Source: SourceFile:0
   - ID: Property:9
-    Name: Beam.TiltY
+    Name: FEI_HELIOS.Beam.TiltY
     Value: '0.0'
     SchemaPath: Image.ElectronBeamSettings.TiltY
     Source: SourceFile:0
   - ID: Property:10
-    Name: Beam.VisibleMultiple
+    Name: FEI_HELIOS.Beam.VisibleMultiple
     Value: '6067'
     SchemaPath: Image.ElectronBeamSettings.VisibleMultiple
     Source: SourceFile:0
   - ID: Property:11
-    Name: Scan.Drift
+    Name: FEI_HELIOS.Scan.Drift
     Value: 'false'
     SchemaPath: Image.ScanSettings.Drift
     Source: SourceFile:0
   - ID: Property:12
-    Name: Scan.FramAdd
+    Name: FEI_HELIOS.Scan.FramAdd
     Value: '1'
     SchemaPath: Image.ScanSettings.FramAdd
     Source: SourceFile:0
   - ID: Property:13
-    Name: Scan.Interlaced
+    Name: FEI_HELIOS.Scan.Interlaced
     Value: '"0/1"'
     SchemaPath: Image.ScanSettings.LineInterlacing
     Source: SourceFile:0
   - ID: Property:14
-    Name: Scan.LineAdd
+    Name: FEI_HELIOS.Scan.LineAdd
     Value: '1'
     SchemaPath: Image.ScanSettings.LineAdd
     Source: SourceFile:0
@@ -334,32 +334,32 @@ Instrument:
     Gain: 1
   CustomProperties:
   - ID: Property:15
-    Name: Detector.ConsumerBrightness
+    Name: FEI_HELIOS.Detector.ConsumerBrightness
     Value: '50.0'
     SchemaPath: GenericDetector.ConsumerBrightness
     Source: SourceFile:0
   - ID: Property:16
-    Name: Detector.ConsumerContrast
+    Name: FEI_HELIOS.Detector.ConsumerContrast
     Value: '50.0'
     SchemaPath: GenericDetector.ConsumerContrast
     Source: SourceFile:0
   - ID: Property:17
-    Name: Detector.PMT
+    Name: FEI_HELIOS.Detector.PMT
     Value: '0.33'
     SchemaPath: GenericDetector.PMT
     Source: SourceFile:0
-  - ID: Property:19
-    Name: Stage.NavCoordinate
+  - ID: Property:26
+    Name: FEI_HELIOS.Stage.NavCoordinate
     Value: '1'
     SchemaPath: MechanicalStage.NavCoordinate
     Source: SourceFile:0
-  - ID: Property:20
-    Name: Stage.StageType
+  - ID: Property:27
+    Name: FEI_HELIOS.Stage.StageType
     Value: '"TMCM-GYLZ-4000X-FIVE-110x110x69"'
     SchemaPath: MechanicalStage.StageType
     Source: SourceFile:0
-  - ID: Property:21
-    Name: System.Version
+  - ID: Property:28
+    Name: FEI_HELIOS.System.Version
     Value: '2.6'
     SchemaPath: Instrument.Version
     Source: SourceFile:0
@@ -389,66 +389,66 @@ Instrument:
   - Version: 3.2.3.300
 CustomProperties:
 - ID: Property:18
-  Name: Other.BottomInfoVacuum
+  Name: FEI_HELIOS.Other.BottomInfoVacuum
   Value: '"1.2e-07Pa"'
   Source: SourceFile:0
+- ID: Property:19
+  Name: FEI_HELIOS.TiltCorrect.CorrectAngle
+  Value: '0.0'
+  Source: SourceFile:0
+- ID: Property:20
+  Name: FEI_HELIOS.TiltCorrect.IonWorkTilt
+  Value: '54.0'
+  Source: SourceFile:0
+- ID: Property:21
+  Name: FEI_HELIOS.TiltCorrect.IsTiltCorrent
+  Value: 'false'
+  Source: SourceFile:0
 - ID: Property:22
-  Name: TiltCorrect.CorrectAngle
+  Name: FEI_HELIOS.TiltCorrect.PreTiltAngle
   Value: '0.0'
   Source: SourceFile:0
 - ID: Property:23
-  Name: TiltCorrect.IonWorkTilt
-  Value: '54.0'
-  Source: SourceFile:0
-- ID: Property:24
-  Name: TiltCorrect.IsTiltCorrent
-  Value: 'false'
-  Source: SourceFile:0
-- ID: Property:25
-  Name: TiltCorrect.PreTiltAngle
-  Value: '0.0'
-  Source: SourceFile:0
-- ID: Property:26
-  Name: TiltCorrect.TiltCompensateMode
+  Name: FEI_HELIOS.TiltCorrect.TiltCompensateMode
   Value: '0'
   Source: SourceFile:0
-- ID: Property:27
-  Name: User.BottomInfoShowEnable
+- ID: Property:24
+  Name: FEI_HELIOS.Scan.FrameTime
+  Value: '"2min52s"'
+  Source: SourceFile:0
+- ID: Property:25
+  Name: FEI_HELIOS.Beam.HFW
+  Value: '"21.12µm"'
+  Source: SourceFile:0
+- ID: Property:29
+  Name: FEI_HELIOS.User.BottomInfoShowEnable
   Value: '2038'
   SchemaPath: Experimenter.BottomInfoShowEnable
   Source: SourceFile:0
-- ID: Property:28
-  Name: User.DateTimeFmt
+- ID: Property:30
+  Name: FEI_HELIOS.User.DateTimeFmt
   Value: '"yyyy/MM/dd HH:mm:ss"'
   SchemaPath: Experimenter.DateTimeFmt
   Source: SourceFile:0
-- ID: Property:29
-  Name: User.MagType
+- ID: Property:31
+  Name: FEI_HELIOS.User.MagType
   Value: '1'
   SchemaPath: Experimenter.MagType
   Source: SourceFile:0
-- ID: Property:30
-  Name: User.RulerText
+- ID: Property:32
+  Name: FEI_HELIOS.User.RulerText
   Value: '"SEM4000X"'
   SchemaPath: Experimenter.RulerText
   Source: SourceFile:0
-- ID: Property:31
-  Name: User.TimeStamp
+- ID: Property:33
+  Name: FEI_HELIOS.User.TimeStamp
   Value: '1784735089'
   SchemaPath: Experimenter.TimeStamp
   Source: SourceFile:0
-- ID: Property:32
-  Name: User.VacuumType
+- ID: Property:34
+  Name: FEI_HELIOS.User.VacuumType
   Value: '0'
   SchemaPath: Experimenter.VacuumType
-  Source: SourceFile:0
-- ID: Property:33
-  Name: Scan.FrameTime
-  Value: '"2min52s"'
-  Source: SourceFile:0
-- ID: Property:34
-  Name: Beam.HFW
-  Value: '"21.12µm"'
   Source: SourceFile:0
 Experimenter:
 - UserName: "\x01"

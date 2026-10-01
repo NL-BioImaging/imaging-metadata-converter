@@ -288,7 +288,7 @@ numbers in one string:
 BigDataViewer's size `"1100 1100 1150"` gives `SizeZ` 1150. An item that is
 not there, or is no number, adds nothing.
 
-Three more formats derive a value a source writes in another form:
+Five more formats derive a value a source writes in another form:
 
 - `count` gives last − first + 1 of two parts: BigDataViewer's time points
   `first` 0 and `last` 0 give `Pixels.SizeT` 1.
@@ -300,12 +300,21 @@ Three more formats derive a value a source writes in another form:
   `Exposure Scale` 0.000001 give 0.000109. An entry may state the unit the
   result is in, written beside it where free (`"unit": "s"` here, as the
   model would read an exposure without one in ms).
+- `ratio` divides the first part by the second: Exif's `ExposureTime`, the
+  fraction `[41, 5000]`, gives 0.0082 s. A part may name a list item
+  (`"ExposureTime[0]"`).
 
-A value derived from one part may replace that part's text where a rule put
-it, when the text is no number, so the rule and the combination can share a
+A derived value may replace what a rule put at its target from its own
+parts, when that is no number, so the rule and the combination can share a
 key: Cikteq writes `"2min52s"` under the `Scan.FrameTime` TALOS writes as a
-number, and TALOS's number stays. The replaced text goes back to its own
-path, where it is kept.
+number, and TALOS's number stays; Exif's exposure fraction, which the model's
+own `ExposureTime` takes as a list, gives way to its ratio. The replaced value
+goes back to its own path, where it is kept.
+
+A combination writes only where the field is free, after the rules, so it
+also serves as a fallback: Exif's `DateTimeDigitized` (`"2025:05:28
+10:54:29"`) gives the acquisition date only where no vendor field does, as
+EMSIS's Olympus `datetime` does.
 
 ### Matching details
 

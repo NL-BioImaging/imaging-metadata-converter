@@ -1,6 +1,9 @@
 Instrument:
   Manufacturer: Delmic B.V.
   Model: Fast EM
+AcquisitionSoftware:
+  Name: asm_service 1.2.3
 SourceMap:
   Instrument.Manufacturer: Make
   Instrument.Model: Model
+  AcquisitionSoftware.Name: Software

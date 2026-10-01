@@ -65,13 +65,9 @@
     "display": {
         "description": "how the image is shown, not how it was acquired",
         "patterns": [
-            "User.BottomInfoShowEnable",
-            "User.DateTimeFmt",
-            "User.RulerText",
             "FEI_HELIOS.User.BottomInfoShowEnable",
             "FEI_HELIOS.User.DateTimeFmt",
             "FEI_HELIOS.User.RulerText",
-            "Other.BottomInfoVacuum",
             "FEI_HELIOS.Other.BottomInfoVacuum",
             "FEI_TITAN.FeiImage.databar*",
             "FEI_TITAN.FeiImage.displayWidth",

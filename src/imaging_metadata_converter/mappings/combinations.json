@@ -81,27 +81,6 @@
     {
         "target": "Image.AcquisitionDate",
         "sources": [
-            "User.TimeStamp"
-        ],
-        "format": "unix"
-    },
-    {
-        "target": "Image.ScanSettings.FrameTime.Value",
-        "sources": [
-            "Scan.FrameTime"
-        ],
-        "format": "duration"
-    },
-    {
-        "target": "Image.ScanSettings.FieldOfView.X.Value",
-        "sources": [
-            "Beam.HFW"
-        ],
-        "format": "quantity"
-    },
-    {
-        "target": "Image.AcquisitionDate",
-        "sources": [
             "FEI_HELIOS.User.TimeStamp"
         ],
         "format": "unix"
@@ -127,6 +106,22 @@
             "Exposure Scale"
         ],
         "format": "product",
+        "unit": "s"
+    },
+    {
+        "target": "Image.AcquisitionDate",
+        "sources": [
+            "DateTimeDigitized"
+        ],
+        "format": "%Y:%m:%d %H:%M:%S"
+    },
+    {
+        "target": "Plane.ExposureTime",
+        "sources": [
+            "ExposureTime[0]",
+            "ExposureTime[1]"
+        ],
+        "format": "ratio",
         "unit": "s"
     }
 ]

@@ -590,13 +590,14 @@ class AcquisitionMetadataMapper:
         and only when every part is there
         and parses. The parts themselves stay where the mapping put them;
         the combined value's SourceMap entry is the list of its parts. "count" gives last - first + 1 of two
-        parts, "product" the parts multiplied (Aperio's Exposure Time x Exposure Scale), "duration" a time written
+        parts, "product" the parts multiplied (Aperio's Exposure Time x Exposure Scale), "ratio" the first part
+        divided by the second (Exif's ExposureTime [41, 5000], a part naming a list item), "duration" a time written
         as text ("2min52s") in seconds, and "quantity" the number of a value written with its unit ("21.12µm");
         those two write the unit beside the value too, where free, as does any entry stating a "unit".
 
-        A value derived from one part may replace that part at its target, where a rule put the part's text
-        there and the text is no number (Cikteq's frame time "2min52s" under TALOS's rule for a number): the
-        text goes back to its own path, still kept.
+        A derived value may replace what a rule put at its target from its own parts, where that is no number
+        (Cikteq's frame time "2min52s" under TALOS's rule for a number, Exif's exposure time as a list of two):
+        it goes back to its own path, still kept.
         """
         for combination in self.combinations:
             sources = combination['sources']
@@ -607,12 +608,13 @@ class AcquisitionMetadataMapper:
             combined = parse_combination(text, combination['format'], combination.get('item')) \
                 if has_all_parts else None
             placed = value_at_path(result, target)
-            replaces_its_text = (len(sources) == 1 and provenance.get(target) == sources[0]
-                                 and isinstance(placed, str) and not is_number(placed)
-                                 and is_free_path(result, sources[0]))
-            if combined is not None and replaces_its_text:
-                set_nested_value(result, sources[0], pop_nested_value(result, target))
-                provenance[sources[0]] = provenance.pop(target)
+            own_path = placed_from_parts(provenance, target, sources)
+            replaces_its_value = (own_path is not None and placed is not None and not is_number(placed)
+                                  and is_free_path(result, own_path))
+            if combined is not None and replaces_its_value:
+                set_nested_value(result, own_path, pop_nested_value(result, target))
+                for path in [path for path in provenance if is_at_or_below(path, target)]:
+                    provenance[own_path + path[len(target):]] = provenance.pop(path)
             if combined is not None and is_free_path(result, target):
                 set_nested_value(result, target, combined)
                 provenance[target] = list(sources)
@@ -675,6 +677,25 @@ def single_target(target, source_path):
                          f'not for a group or list moved as a whole')
 
 
+def is_at_or_below(path, target):
+    """Whether the output `path` is `target` itself, or a field or list item inside it."""
+    return path == target or path.startswith((f'{target}.', f'{target}['))
+
+
+def placed_from_parts(provenance, target, sources):
+    """The source path of the value at `target`, where a rule put it there from the combination's `sources` (the
+    value itself, or its items: "ExposureTime[0]", "ExposureTime[1]"), else None."""
+    own_paths = set()
+    for path, origin in provenance.items():
+        suffix = path[len(target):]
+        if is_at_or_below(path, target) and (not isinstance(origin, str) or origin not in sources
+                                             or not origin.endswith(suffix)):
+            return None
+        if is_at_or_below(path, target):
+            own_paths.add(origin[:len(origin) - len(suffix)])
+    return own_paths.pop() if len(own_paths) == 1 else None
+
+
 def pop_nested_value(target, dotted_path):
     """Remove the value at `dotted_path` from `target` and return it, dropping the dicts it leaves empty."""
     parent, _, key = dotted_path.rpartition('.')
@@ -686,12 +707,18 @@ def pop_nested_value(target, dotted_path):
 
 
 def value_at_path(metadata, dotted_path):
-    """The value at a dotted source path of `metadata`, or None."""
+    """The value at a dotted source path of `metadata` ("Key[1]" naming a list item), or None."""
     node = metadata
     for key in dotted_path.split('.'):
-        if not isinstance(node, dict) or key not in node:
+        segment = _list_segment(key)
+        name, index = segment if segment is not None else (key, None)
+        if not isinstance(node, dict) or name not in node:
             return None
-        node = node[key]
+        node = node[name]
+        if index is not None and not (isinstance(node, list) and index < len(node)):
+            return None
+        if index is not None:
+            node = node[index]
     return node
 
 
@@ -706,6 +733,9 @@ def parse_combination(text, date_format, item=None):
     if date_format == 'product':
         factors = [_number(word) for word in text.split()]
         return math.prod(factors) if factors and None not in factors else None
+    if date_format == 'ratio':
+        terms = [_number(word) for word in text.split()]
+        return terms[0] / terms[1] if len(terms) == 2 and None not in terms and terms[1] else None
     if date_format == 'count':
         ends = [_number(word) for word in text.split()]
         return ends[1] - ends[0] + 1 if len(ends) == 2 and all(isinstance(end, int) for end in ends) else None
