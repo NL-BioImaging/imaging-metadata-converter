@@ -25,6 +25,13 @@ DEFAULT_MAPPINGS_FILE = os.path.join(os.path.dirname(__file__), 'mappings', 'map
 DEFAULT_COMBINATIONS_FILE = os.path.join(os.path.dirname(__file__), 'mappings', 'combinations.json')
 SOURCE_MAP_KEY = 'SourceMap'
 # a count of time points says how many there are, not which: its parts hold more than its value
+# A Leica (LAS X) sequential confocal scan, as biomero-converter's LeicaSource passes it: each sequence names its
+# active detectors and laser lines, and the spectral bands are stated once, numbered by detector (see
+# `_map_leica_sequential_channels`)
+LEICA_SETTINGS = 'HardwareSetting'
+LEICA_SEQUENCES = 'LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition'
+LEICA_BANDS = 'ConfocalSettingDefinition.Spectro.MultiBand'
+LEICA_LASERS = 'ConfocalSettingDefinition.LaserArray.Laser'
 FORMATS_KEEPING_PARTS = ('count',)
 # a time written as text, in hours, minutes and seconds ("2min52s"), and a number written with its unit ("21.12µm")
 DURATION = re.compile(r'(?:(\d+(?:\.\d+)?)\s*h)?\s*(?:(\d+(?:\.\d+)?)\s*min)?\s*(?:(\d+(?:\.\d+)?)\s*s)?')
@@ -595,12 +602,93 @@ class AcquisitionMetadataMapper:
             if is_free_path(result, unit_path):
                 set_nested_value(result, unit_path, unit)
                 provenance[unit_path] = [origin]
+        self._map_leica_sequential_channels(metadata, result, provenance)
         self._apply_combinations(metadata, result, provenance)
         self._respell(result, provenance)
         if SOURCE_MAP_KEY in result:
             raise ValueError(f'Source metadata already has a top-level {SOURCE_MAP_KEY}')
         result[SOURCE_MAP_KEY] = provenance
         return result
+
+    def _map_leica_sequential_channels(self, metadata, result, provenance):
+        """Describe each channel of a Leica sequential confocal scan, where the source holds one.
+
+        Channel k is the k-th active detector, taken sequence by sequence, so the sequences, not the spectral
+        bands, give the channels' order (TileScan.lof's sequences use detectors 4, 5 and 1: ALEXA 488, mCherry,
+        Cerulean, as their LUTs green, red and blue and their pixels, HyD, HyD and PMT, confirm). Its detector's
+        band (MultiBand, numbered by detector) gives the dye, as the channel's Name and Fluorophore.Name, and
+        its window, as a band-pass emission Filter; the sequence's laser lines on give a LightSourceSettings
+        each, referring to the laser of that type, and the excitation wavelength where only one is on. The
+        filters and lasers get IDs by their place, as the source has none for them. Every value written is
+        derived, its SourceMap entry listing what it came from, and replaces those source values where it
+        holds them (a dye, a band's limits, a single line): the detectors, the line intensities (whose
+        attenuation LiMi does not define by them), and the lines of a sequence with several stay.
+        """
+        settings = metadata.get(LEICA_SETTINGS)
+        sequences = _items(value_at_path(settings, LEICA_SEQUENCES), f'{LEICA_SETTINGS}.{LEICA_SEQUENCES}') \
+            if isinstance(settings, dict) else []
+        if not sequences:
+            return
+        bands = {str(band.get('Channel')): path
+                 for band, path in _items(value_at_path(settings, LEICA_BANDS), f'{LEICA_SETTINGS}.{LEICA_BANDS}')}
+        laser_ids = {str(laser.get('LightSourceType')): (index, path) for index, (laser, path) in
+                     enumerate(_items(value_at_path(settings, LEICA_LASERS), f'{LEICA_SETTINGS}.{LEICA_LASERS}'))}
+        held = set()
+
+        def derive(target, value, *origins):
+            if is_free_path(result, target):
+                set_nested_value(result, target, value)
+                provenance[target] = list(origins)
+
+        channel = 0
+        for sequence, sequence_path in sequences:
+            lines = [(line, line_path, str(aotf.get('LightSourceType')))
+                     for aotf, aotf_path in _items(value_at_path(sequence, 'AotfList.Aotf'),
+                                                   f'{sequence_path}.AotfList.Aotf')
+                     for line, line_path in _items(aotf.get('LaserLineSetting'), f'{aotf_path}.LaserLineSetting')
+                     if (_number(str(line.get('IntensityDev'))) or 0) > 0]
+            detectors = [detector for detector, _ in _items(value_at_path(sequence, 'DetectorList.Detector'), '')
+                         if str(detector.get('IsActive')) == '1']
+            for detector in detectors:
+                target = f'Pixels.Channel[{channel}]'
+                band_path = bands.get(str(detector.get('Channel')))
+                band = value_at_path(metadata, band_path) if band_path else {}
+                if band.get('DyeName'):
+                    derive(f'{target}.Name', band['DyeName'], f'{band_path}.DyeName')
+                    derive(f'{target}.Fluorophore.Name', band['DyeName'], f'{band_path}.DyeName')
+                    held.add(f'{band_path}.DyeName')
+                left, right = (_number(str(band.get(edge))) for edge in ('LeftWorld', 'RightWorld'))
+                filters = result.get('Filter', [])
+                if left is not None and right is not None and right > left and isinstance(filters, list):
+                    edges = (f'{band_path}.LeftWorld', f'{band_path}.RightWorld')
+                    filter_path = f'Filter[{len(filters)}]'
+                    filter_id = f'Filter:{len(filters)}'
+                    derive(f'{filter_path}.ID', filter_id, *edges)
+                    derive(f'{filter_path}.Type', 'BandPass', *edges)
+                    derive(f'{filter_path}.TransmittanceRange.Wavelength', (left + right) / 2, *edges)
+                    derive(f'{filter_path}.TransmittanceRange.FWHMBandwidth', right - left, *edges)
+                    derive(f'{filter_path}.TransmittanceRange.WavelengthUnit', 'nm', *edges)
+                    if is_free_path(result, f'{target}.LightPath.EmissionFilter'):
+                        set_nested_value(result, f'{target}.LightPath.EmissionFilter', [filter_id])
+                        provenance[f'{target}.LightPath.EmissionFilter[0]'] = list(edges)
+                    held.update(edges)
+                for position, (line, line_path, light_source_type) in enumerate(lines):
+                    laser = laser_ids.get(light_source_type)
+                    if laser is not None:
+                        laser_index, laser_path = laser
+                        derive(f'Laser[{laser_index}].ID', f'Laser:{laser_index}', f'{laser_path}.LightSourceType')
+                        derive(f'{target}.LightPath.LightSourceSettings[{position}].ID', f'Laser:{laser_index}',
+                               f'{line_path}.LaserLine', f'{laser_path}.LightSourceType')
+                if len(lines) == 1:
+                    line, line_path, _ = lines[0]
+                    derive(f'{target}.Fluorophore.ExcitationWavelength', line['LaserLine'], f'{line_path}.LaserLine')
+                    derive(f'{target}.Fluorophore.ExcitationWavelengthUnit', 'nm', f'{line_path}.LaserLine')
+                    held.add(f'{line_path}.LaserLine')
+                channel += 1
+        for path in sorted(held):
+            if provenance.get(path) == path:
+                pop_nested_value(result, path)
+                del provenance[path]
 
     def _respell(self, result, provenance):
         """Write the model's spelling of each enumeration value a source spells otherwise (Leica's "OIL" as Oil,
@@ -715,6 +803,13 @@ def drop_parts(result, provenance, parts, model_fields):
                 del provenance[entry]
 
 
+def _items(value, path):
+    """(item, its path) for each item of a list at `path`, or the one dict a single item is written as."""
+    if isinstance(value, list):
+        return [(item, f'{path}[{index}]') for index, item in enumerate(value) if isinstance(item, dict)]
+    return [(value, path)] if isinstance(value, dict) else []
+
+
 def as_lists(value):
     """`value` with every tuple in it a list, as it would read from JSON: tifffile gives Exif's fractions as
     tuples ((41, 5000)), which the rules and combinations, written against the JSON examples, take as lists."""
@@ -766,11 +861,12 @@ def placed_from_parts(provenance, target, sources):
 
 
 def pop_nested_value(target, dotted_path):
-    """Remove the value at `dotted_path` from `target` and return it, dropping the dicts it leaves empty."""
+    """Remove the value at `dotted_path` from `target` and return it, dropping the dicts it leaves empty (but not
+    a list item, whose place numbers the items after it)."""
     parent, _, key = dotted_path.rpartition('.')
     node = value_at_path(target, parent) if parent else target
     value = node.pop(key)
-    if parent and not node:
+    if parent and not node and _list_segment(parent.rpartition('.')[2]) is None:
         pop_nested_value(target, parent)
     return value
 

@@ -173,7 +173,7 @@ class _Export:
                 instance.node[key] = stored
                 # the type too: 0 == False, but a stored False keeps the source's 0 only in SourceValue
                 changed = stored != value or type(stored) is not type(value)
-                respelled = self.source_map[converted_path]
+                respelled = self.source_of(converted_path)
                 source_value = respelled['SourceValue'] if isinstance(respelled, dict) else value if changed else None
                 self.add_mapping(instance.child_path(key), converted_path, source_value)
             elif field is None and entity is not None and (is_record or is_record_list):
@@ -194,10 +194,21 @@ class _Export:
 
     def add_mapping(self, dataset_path, converted_path, source_value=None):
         mapping = {'ID': f'SourceMapping:{len(self.mappings)}', 'Field': dataset_path}
-        mapping.update(_source_fields(self.source_map[converted_path], 'Source'))
+        mapping.update(_source_fields(self.source_of(converted_path), 'Source'))
         if source_value is not None:
             mapping['SourceValue'] = json.dumps(source_value, ensure_ascii=False)
         self.mappings.append(mapping)
+
+    def source_of(self, converted_path):
+        """The SourceMap entry of the value at `converted_path`; for a list, which the mapper records item by
+        item (a channel's EmissionFilter references), every source its items name."""
+        if converted_path in self.source_map:
+            return self.source_map[converted_path]
+        sources = []
+        for path, source in self.source_map.items():
+            for part in (source if path.startswith(f'{converted_path}[') and isinstance(source, list) else []):
+                sources += [part] if part not in sources else []
+        return sources
 
     def add_properties(self, anchor, converted_path, value):
         properties = anchor.node.setdefault('CustomProperties', [])

@@ -1030,6 +1030,1302 @@
         "SystemType": 12,
         "SystemTypeName": "TCS SP8",
         "DataSourceType": 0,
-        "DataSourceTypeName": "Confocal"
+        "DataSourceTypeName": "Confocal",
+        "LDM_Block_Sequential": {
+            "LDM_Block_Sequential_List": {
+                "ConfocalSettingDefinition": [
+                    {
+                        "AotfList": {
+                            "Aotf": [
+                                {
+                                    "BeamRoute": {
+                                        "BeamPosition": {
+                                            "BeamPositionLevel": 0,
+                                            "BeamPosition": 30
+                                        },
+                                        "Version": 0
+                                    },
+                                    "LaserLineSetting": {
+                                        "LaserLine": 405,
+                                        "IntensityDev": 0,
+                                        "IntensityLowDev": 0,
+                                        "AOBSIntensityDev": -1,
+                                        "AOBSIntensityLowDev": -1,
+                                        "EnableDoubleMode": 0,
+                                        "LineIndex": 0,
+                                        "SequenceIndex": 0,
+                                        "LineDeactivationFlags": 0,
+                                        "IsLineChecked": 1,
+                                        "OutCheckedIntensity": 0,
+                                        "SuppressionMode": -1,
+                                        "IsVisible": 1,
+                                        "CanDoFastModulation": 1
+                                    },
+                                    "Version": 0,
+                                    "LightSourceName": "UV",
+                                    "LightSourceType": 1,
+                                    "OpenVirtual": 0,
+                                    "IsChanged": 0,
+                                    "CanDoPulseFreq": 0,
+                                    "PulsFreq": 0,
+                                    "CanDoTwoLaserPIE": 0,
+                                    "TwoLaserPIEPossibleLastState": 0,
+                                    "TwoLaserPIEActive": 0
+                                },
+                                {
+                                    "BeamRoute": {
+                                        "BeamPosition": {
+                                            "BeamPositionLevel": 0,
+                                            "BeamPosition": 20
+                                        },
+                                        "Version": 0
+                                    },
+                                    "LaserLineSetting": {
+                                        "LaserLine": 440,
+                                        "IntensityDev": 0,
+                                        "IntensityLowDev": 0,
+                                        "AOBSIntensityDev": -1,
+                                        "AOBSIntensityLowDev": -1,
+                                        "EnableDoubleMode": 0,
+                                        "LineIndex": 0,
+                                        "SequenceIndex": 0,
+                                        "LineDeactivationFlags": 0,
+                                        "IsLineChecked": 1,
+                                        "OutCheckedIntensity": 0,
+                                        "SuppressionMode": -1,
+                                        "IsVisible": 1,
+                                        "CanDoFastModulation": 1
+                                    },
+                                    "Version": 0,
+                                    "LightSourceName": "Chaser UV",
+                                    "LightSourceType": 2,
+                                    "OpenVirtual": 0,
+                                    "IsChanged": 0,
+                                    "CanDoPulseFreq": 1,
+                                    "PulsFreq": 40000000,
+                                    "CanDoTwoLaserPIE": 0,
+                                    "TwoLaserPIEPossibleLastState": 0,
+                                    "TwoLaserPIEActive": 0
+                                },
+                                {
+                                    "BeamRoute": {
+                                        "BeamPosition": [
+                                            {
+                                                "BeamPositionLevel": 0,
+                                                "BeamPosition": 10
+                                            },
+                                            {
+                                                "BeamPositionLevel": 1,
+                                                "BeamPosition": 0
+                                            }
+                                        ],
+                                        "Version": 0
+                                    },
+                                    "LaserLineSetting": [
+                                        {
+                                            "LaserLine": 458,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 0,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 476,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 1,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 488,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 2,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 496,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 3,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 514,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 4,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        }
+                                    ],
+                                    "Version": 0,
+                                    "LightSourceName": "Visible",
+                                    "LightSourceType": 0,
+                                    "OpenVirtual": 0,
+                                    "IsChanged": 0,
+                                    "CanDoPulseFreq": 0,
+                                    "PulsFreq": 0,
+                                    "CanDoTwoLaserPIE": 0,
+                                    "TwoLaserPIEPossibleLastState": 0,
+                                    "TwoLaserPIEActive": 0
+                                },
+                                {
+                                    "BeamRoute": {
+                                        "BeamPosition": [
+                                            {
+                                                "BeamPositionLevel": 0,
+                                                "BeamPosition": 10
+                                            },
+                                            {
+                                                "BeamPositionLevel": 1,
+                                                "BeamPosition": 1
+                                            }
+                                        ],
+                                        "Version": 0
+                                    },
+                                    "LaserLineSetting": [
+                                        {
+                                            "LaserLine": 488,
+                                            "IntensityDev": 24.8424012747986,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": 100,
+                                            "AOBSIntensityLowDev": 0,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 0,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": 1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 561,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 1,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 470,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 2,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 654,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 3,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 628,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 4,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 635,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 5,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 669,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 6,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 0,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 670,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 7,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 0,
+                                            "CanDoFastModulation": 1
+                                        }
+                                    ],
+                                    "Version": 0,
+                                    "LightSourceName": "SuperContVisible2",
+                                    "LightSourceType": 4,
+                                    "OpenVirtual": 0,
+                                    "IsChanged": 1,
+                                    "ExcitationControlMode": 0,
+                                    "ExcitationControlModeBegin": 0,
+                                    "ExcitationControlModeEnd": 0,
+                                    "CanDoPulseFreq": 0,
+                                    "PulsFreq": 0,
+                                    "CanDoTwoLaserPIE": 0,
+                                    "TwoLaserPIEPossibleLastState": 0,
+                                    "TwoLaserPIEActive": 0
+                                }
+                            ]
+                        },
+                        "LUT_List": {
+                            "LUT": [
+                                {
+                                    "Channel": 1,
+                                    "LutName": "Blue"
+                                },
+                                {
+                                    "Channel": 2,
+                                    "LutName": "Green"
+                                },
+                                {
+                                    "Channel": 3,
+                                    "LutName": "Red"
+                                },
+                                {
+                                    "Channel": 4,
+                                    "LutName": "Green"
+                                },
+                                {
+                                    "Channel": 5,
+                                    "LutName": "Cyan"
+                                },
+                                {
+                                    "Channel": 100,
+                                    "LutName": "Gray"
+                                }
+                            ]
+                        },
+                        "DetectorList": {
+                            "Detector": [
+                                {
+                                    "Name": "PMT 1",
+                                    "Type": "PMT",
+                                    "ScanType": "Internal",
+                                    "Channel": 1,
+                                    "ChannelName": "Channel 1",
+                                    "IsActive": 0
+                                },
+                                {
+                                    "Name": "PMT 2",
+                                    "Type": "PMT",
+                                    "ScanType": "Internal",
+                                    "Channel": 2,
+                                    "ChannelName": "Channel 2",
+                                    "IsActive": 0
+                                },
+                                {
+                                    "Name": "PMT 3",
+                                    "Type": "PMT",
+                                    "ScanType": "Internal",
+                                    "Channel": 3,
+                                    "ChannelName": "Channel 3",
+                                    "IsActive": 0
+                                },
+                                {
+                                    "Name": "HyD-SMD 4",
+                                    "Type": "HyD",
+                                    "ScanType": "Internal",
+                                    "Channel": 4,
+                                    "ChannelName": "Channel 4",
+                                    "IsActive": 1
+                                },
+                                {
+                                    "Name": "Hyd-SMD 5",
+                                    "Type": "HyD",
+                                    "ScanType": "Internal",
+                                    "Channel": 5,
+                                    "ChannelName": "Channel 5",
+                                    "IsActive": 0
+                                },
+                                {
+                                    "Name": "PMT Trans",
+                                    "Type": "PMT",
+                                    "ScanType": "TLD",
+                                    "Channel": 100,
+                                    "ChannelName": "Transmission Channel",
+                                    "IsActive": 0
+                                }
+                            ],
+                            "DetectorAutoSelection": 1,
+                            "InExternalDetectionMode": 0
+                        },
+                        "VersionNumber": 15,
+                        "UserSettingName": "Seq. 1",
+                        "IsUserSettingNameSet": 1,
+                        "AreBleachPointsEnabled": 0,
+                        "IsRoiScanEnable": 0,
+                        "ZCompensationModes": 0,
+                        "WizardMode": 0
+                    },
+                    {
+                        "AotfList": {
+                            "Aotf": [
+                                {
+                                    "BeamRoute": {
+                                        "BeamPosition": {
+                                            "BeamPositionLevel": 0,
+                                            "BeamPosition": 30
+                                        },
+                                        "Version": 0
+                                    },
+                                    "LaserLineSetting": {
+                                        "LaserLine": 405,
+                                        "IntensityDev": 0,
+                                        "IntensityLowDev": 0,
+                                        "AOBSIntensityDev": -1,
+                                        "AOBSIntensityLowDev": -1,
+                                        "EnableDoubleMode": 0,
+                                        "LineIndex": 0,
+                                        "SequenceIndex": 0,
+                                        "LineDeactivationFlags": 0,
+                                        "IsLineChecked": 1,
+                                        "OutCheckedIntensity": 0,
+                                        "SuppressionMode": -1,
+                                        "IsVisible": 1,
+                                        "CanDoFastModulation": 1
+                                    },
+                                    "Version": 0,
+                                    "LightSourceName": "UV",
+                                    "LightSourceType": 1,
+                                    "OpenVirtual": 0,
+                                    "IsChanged": 0,
+                                    "CanDoPulseFreq": 0,
+                                    "PulsFreq": 0,
+                                    "CanDoTwoLaserPIE": 0,
+                                    "TwoLaserPIEPossibleLastState": 0,
+                                    "TwoLaserPIEActive": 0
+                                },
+                                {
+                                    "BeamRoute": {
+                                        "BeamPosition": {
+                                            "BeamPositionLevel": 0,
+                                            "BeamPosition": 20
+                                        },
+                                        "Version": 0
+                                    },
+                                    "LaserLineSetting": {
+                                        "LaserLine": 440,
+                                        "IntensityDev": 0,
+                                        "IntensityLowDev": 0,
+                                        "AOBSIntensityDev": -1,
+                                        "AOBSIntensityLowDev": -1,
+                                        "EnableDoubleMode": 0,
+                                        "LineIndex": 0,
+                                        "SequenceIndex": 0,
+                                        "LineDeactivationFlags": 0,
+                                        "IsLineChecked": 1,
+                                        "OutCheckedIntensity": 0,
+                                        "SuppressionMode": -1,
+                                        "IsVisible": 1,
+                                        "CanDoFastModulation": 1
+                                    },
+                                    "Version": 0,
+                                    "LightSourceName": "Chaser UV",
+                                    "LightSourceType": 2,
+                                    "OpenVirtual": 0,
+                                    "IsChanged": 0,
+                                    "CanDoPulseFreq": 1,
+                                    "PulsFreq": 40000000,
+                                    "CanDoTwoLaserPIE": 0,
+                                    "TwoLaserPIEPossibleLastState": 0,
+                                    "TwoLaserPIEActive": 0
+                                },
+                                {
+                                    "BeamRoute": {
+                                        "BeamPosition": [
+                                            {
+                                                "BeamPositionLevel": 0,
+                                                "BeamPosition": 10
+                                            },
+                                            {
+                                                "BeamPositionLevel": 1,
+                                                "BeamPosition": 0
+                                            }
+                                        ],
+                                        "Version": 0
+                                    },
+                                    "LaserLineSetting": [
+                                        {
+                                            "LaserLine": 458,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 0,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 476,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 1,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 488,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 2,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 496,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 3,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 514,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 4,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        }
+                                    ],
+                                    "Version": 0,
+                                    "LightSourceName": "Visible",
+                                    "LightSourceType": 0,
+                                    "OpenVirtual": 0,
+                                    "IsChanged": 0,
+                                    "CanDoPulseFreq": 0,
+                                    "PulsFreq": 0,
+                                    "CanDoTwoLaserPIE": 0,
+                                    "TwoLaserPIEPossibleLastState": 0,
+                                    "TwoLaserPIEActive": 0
+                                },
+                                {
+                                    "BeamRoute": {
+                                        "BeamPosition": [
+                                            {
+                                                "BeamPositionLevel": 0,
+                                                "BeamPosition": 10
+                                            },
+                                            {
+                                                "BeamPositionLevel": 1,
+                                                "BeamPosition": 1
+                                            }
+                                        ],
+                                        "Version": 0
+                                    },
+                                    "LaserLineSetting": [
+                                        {
+                                            "LaserLine": 488,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 0,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 561,
+                                            "IntensityDev": 6.15108211073709,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": 100,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 1,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": 1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 470,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 2,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 654,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 3,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 628,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 4,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 635,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 5,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 669,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 6,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 0,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 670,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 7,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 0,
+                                            "CanDoFastModulation": 1
+                                        }
+                                    ],
+                                    "Version": 0,
+                                    "LightSourceName": "SuperContVisible2",
+                                    "LightSourceType": 4,
+                                    "OpenVirtual": 0,
+                                    "IsChanged": 1,
+                                    "ExcitationControlMode": 0,
+                                    "ExcitationControlModeBegin": 0,
+                                    "ExcitationControlModeEnd": 0,
+                                    "CanDoPulseFreq": 0,
+                                    "PulsFreq": 0,
+                                    "CanDoTwoLaserPIE": 0,
+                                    "TwoLaserPIEPossibleLastState": 0,
+                                    "TwoLaserPIEActive": 0
+                                }
+                            ]
+                        },
+                        "LUT_List": {
+                            "LUT": [
+                                {
+                                    "Channel": 1,
+                                    "LutName": "Blue"
+                                },
+                                {
+                                    "Channel": 2,
+                                    "LutName": "Green"
+                                },
+                                {
+                                    "Channel": 3,
+                                    "LutName": "Red"
+                                },
+                                {
+                                    "Channel": 4,
+                                    "LutName": "Green"
+                                },
+                                {
+                                    "Channel": 5,
+                                    "LutName": "Red"
+                                },
+                                {
+                                    "Channel": 100,
+                                    "LutName": "Gray"
+                                }
+                            ]
+                        },
+                        "DetectorList": {
+                            "Detector": [
+                                {
+                                    "Name": "PMT 1",
+                                    "Type": "PMT",
+                                    "ScanType": "Internal",
+                                    "Channel": 1,
+                                    "ChannelName": "Channel 1",
+                                    "IsActive": 0
+                                },
+                                {
+                                    "Name": "PMT 2",
+                                    "Type": "PMT",
+                                    "ScanType": "Internal",
+                                    "Channel": 2,
+                                    "ChannelName": "Channel 2",
+                                    "IsActive": 0
+                                },
+                                {
+                                    "Name": "PMT 3",
+                                    "Type": "PMT",
+                                    "ScanType": "Internal",
+                                    "Channel": 3,
+                                    "ChannelName": "Channel 3",
+                                    "IsActive": 0
+                                },
+                                {
+                                    "Name": "HyD-SMD 4",
+                                    "Type": "HyD",
+                                    "ScanType": "Internal",
+                                    "Channel": 4,
+                                    "ChannelName": "Channel 4",
+                                    "IsActive": 0
+                                },
+                                {
+                                    "Name": "Hyd-SMD 5",
+                                    "Type": "HyD",
+                                    "ScanType": "Internal",
+                                    "Channel": 5,
+                                    "ChannelName": "Channel 5",
+                                    "IsActive": 1
+                                },
+                                {
+                                    "Name": "PMT Trans",
+                                    "Type": "PMT",
+                                    "ScanType": "TLD",
+                                    "Channel": 100,
+                                    "ChannelName": "Transmission Channel",
+                                    "IsActive": 0
+                                }
+                            ],
+                            "DetectorAutoSelection": 1,
+                            "InExternalDetectionMode": 0
+                        },
+                        "VersionNumber": 15,
+                        "UserSettingName": "Seq. 2",
+                        "IsUserSettingNameSet": 1,
+                        "AreBleachPointsEnabled": 0,
+                        "IsRoiScanEnable": 0,
+                        "ZCompensationModes": 0,
+                        "WizardMode": 0
+                    },
+                    {
+                        "AotfList": {
+                            "Aotf": [
+                                {
+                                    "BeamRoute": {
+                                        "BeamPosition": {
+                                            "BeamPositionLevel": 0,
+                                            "BeamPosition": 30
+                                        },
+                                        "Version": 0
+                                    },
+                                    "LaserLineSetting": {
+                                        "LaserLine": 405,
+                                        "IntensityDev": 3.07357236436817,
+                                        "IntensityLowDev": 0,
+                                        "AOBSIntensityDev": -1,
+                                        "AOBSIntensityLowDev": -1,
+                                        "EnableDoubleMode": 0,
+                                        "LineIndex": 0,
+                                        "SequenceIndex": 0,
+                                        "LineDeactivationFlags": 0,
+                                        "IsLineChecked": 1,
+                                        "OutCheckedIntensity": 0,
+                                        "SuppressionMode": -1,
+                                        "IsVisible": 1,
+                                        "CanDoFastModulation": 1
+                                    },
+                                    "Version": 0,
+                                    "LightSourceName": "UV",
+                                    "LightSourceType": 1,
+                                    "OpenVirtual": 0,
+                                    "IsChanged": 1,
+                                    "CanDoPulseFreq": 0,
+                                    "PulsFreq": 0,
+                                    "CanDoTwoLaserPIE": 0,
+                                    "TwoLaserPIEPossibleLastState": 0,
+                                    "TwoLaserPIEActive": 0
+                                },
+                                {
+                                    "BeamRoute": {
+                                        "BeamPosition": {
+                                            "BeamPositionLevel": 0,
+                                            "BeamPosition": 20
+                                        },
+                                        "Version": 0
+                                    },
+                                    "LaserLineSetting": {
+                                        "LaserLine": 440,
+                                        "IntensityDev": 0,
+                                        "IntensityLowDev": 0,
+                                        "AOBSIntensityDev": -1,
+                                        "AOBSIntensityLowDev": -1,
+                                        "EnableDoubleMode": 0,
+                                        "LineIndex": 0,
+                                        "SequenceIndex": 0,
+                                        "LineDeactivationFlags": 0,
+                                        "IsLineChecked": 1,
+                                        "OutCheckedIntensity": 0,
+                                        "SuppressionMode": -1,
+                                        "IsVisible": 1,
+                                        "CanDoFastModulation": 1
+                                    },
+                                    "Version": 0,
+                                    "LightSourceName": "Chaser UV",
+                                    "LightSourceType": 2,
+                                    "OpenVirtual": 0,
+                                    "IsChanged": 0,
+                                    "CanDoPulseFreq": 1,
+                                    "PulsFreq": 40000000,
+                                    "CanDoTwoLaserPIE": 0,
+                                    "TwoLaserPIEPossibleLastState": 0,
+                                    "TwoLaserPIEActive": 0
+                                },
+                                {
+                                    "BeamRoute": {
+                                        "BeamPosition": [
+                                            {
+                                                "BeamPositionLevel": 0,
+                                                "BeamPosition": 10
+                                            },
+                                            {
+                                                "BeamPositionLevel": 1,
+                                                "BeamPosition": 0
+                                            }
+                                        ],
+                                        "Version": 0
+                                    },
+                                    "LaserLineSetting": [
+                                        {
+                                            "LaserLine": 458,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 0,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 476,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 1,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 488,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 2,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 496,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 3,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 514,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 4,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        }
+                                    ],
+                                    "Version": 0,
+                                    "LightSourceName": "Visible",
+                                    "LightSourceType": 0,
+                                    "OpenVirtual": 0,
+                                    "IsChanged": 0,
+                                    "CanDoPulseFreq": 0,
+                                    "PulsFreq": 0,
+                                    "CanDoTwoLaserPIE": 0,
+                                    "TwoLaserPIEPossibleLastState": 0,
+                                    "TwoLaserPIEActive": 0
+                                },
+                                {
+                                    "BeamRoute": {
+                                        "BeamPosition": [
+                                            {
+                                                "BeamPositionLevel": 0,
+                                                "BeamPosition": 10
+                                            },
+                                            {
+                                                "BeamPositionLevel": 1,
+                                                "BeamPosition": 1
+                                            }
+                                        ],
+                                        "Version": 0
+                                    },
+                                    "LaserLineSetting": [
+                                        {
+                                            "LaserLine": 488,
+                                            "IntensityDev": 76.7229796267051,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": 100,
+                                            "AOBSIntensityLowDev": 0,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 0,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": 1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 561,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 1,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 1,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 470,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 2,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 654,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 3,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 628,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 4,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 635,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 5,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 1,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 669,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 6,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 0,
+                                            "CanDoFastModulation": 1
+                                        },
+                                        {
+                                            "LaserLine": 670,
+                                            "IntensityDev": 0,
+                                            "IntensityLowDev": 0,
+                                            "AOBSIntensityDev": -1,
+                                            "AOBSIntensityLowDev": -1,
+                                            "EnableDoubleMode": 0,
+                                            "LineIndex": 7,
+                                            "SequenceIndex": 0,
+                                            "LineDeactivationFlags": 0,
+                                            "IsLineChecked": 0,
+                                            "OutCheckedIntensity": 0,
+                                            "SuppressionMode": -1,
+                                            "IsVisible": 0,
+                                            "CanDoFastModulation": 1
+                                        }
+                                    ],
+                                    "Version": 0,
+                                    "LightSourceName": "SuperContVisible2",
+                                    "LightSourceType": 4,
+                                    "OpenVirtual": 0,
+                                    "IsChanged": 1,
+                                    "ExcitationControlMode": 0,
+                                    "ExcitationControlModeBegin": 0,
+                                    "ExcitationControlModeEnd": 0,
+                                    "CanDoPulseFreq": 0,
+                                    "PulsFreq": 0,
+                                    "CanDoTwoLaserPIE": 0,
+                                    "TwoLaserPIEPossibleLastState": 0,
+                                    "TwoLaserPIEActive": 0
+                                }
+                            ]
+                        },
+                        "LUT_List": {
+                            "LUT": [
+                                {
+                                    "Channel": 1,
+                                    "LutName": "Blue"
+                                },
+                                {
+                                    "Channel": 2,
+                                    "LutName": "Green"
+                                },
+                                {
+                                    "Channel": 3,
+                                    "LutName": "Red"
+                                },
+                                {
+                                    "Channel": 4,
+                                    "LutName": "Green"
+                                },
+                                {
+                                    "Channel": 5,
+                                    "LutName": "Cyan"
+                                },
+                                {
+                                    "Channel": 100,
+                                    "LutName": "Gray"
+                                }
+                            ]
+                        },
+                        "DetectorList": {
+                            "Detector": [
+                                {
+                                    "Name": "PMT 1",
+                                    "Type": "PMT",
+                                    "ScanType": "Internal",
+                                    "Channel": 1,
+                                    "ChannelName": "Channel 1",
+                                    "IsActive": 1
+                                },
+                                {
+                                    "Name": "PMT 2",
+                                    "Type": "PMT",
+                                    "ScanType": "Internal",
+                                    "Channel": 2,
+                                    "ChannelName": "Channel 2",
+                                    "IsActive": 0
+                                },
+                                {
+                                    "Name": "PMT 3",
+                                    "Type": "PMT",
+                                    "ScanType": "Internal",
+                                    "Channel": 3,
+                                    "ChannelName": "Channel 3",
+                                    "IsActive": 0
+                                },
+                                {
+                                    "Name": "HyD-SMD 4",
+                                    "Type": "HyD",
+                                    "ScanType": "Internal",
+                                    "Channel": 4,
+                                    "ChannelName": "Channel 4",
+                                    "IsActive": 0
+                                },
+                                {
+                                    "Name": "Hyd-SMD 5",
+                                    "Type": "HyD",
+                                    "ScanType": "Internal",
+                                    "Channel": 5,
+                                    "ChannelName": "Channel 5",
+                                    "IsActive": 0
+                                },
+                                {
+                                    "Name": "PMT Trans",
+                                    "Type": "PMT",
+                                    "ScanType": "TLD",
+                                    "Channel": 100,
+                                    "ChannelName": "Transmission Channel",
+                                    "IsActive": 0
+                                }
+                            ],
+                            "DetectorAutoSelection": 1,
+                            "InExternalDetectionMode": 0
+                        },
+                        "VersionNumber": 15,
+                        "UserSettingName": "Seq. 3",
+                        "IsUserSettingNameSet": 1,
+                        "AreBleachPointsEnabled": 0,
+                        "IsRoiScanEnable": 0,
+                        "ZCompensationModes": 0,
+                        "WizardMode": 0
+                    }
+                ]
+            }
+        }
     }
 }

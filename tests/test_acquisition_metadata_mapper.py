@@ -41,6 +41,46 @@ class AcquisitionMetadataMapperTest(unittest.TestCase):
         self.assertEqual(converted['ImmersionLiquid'], {'RefractiveIndex': 1})
         self.assertNotIn('HardwareSetting', converted)
 
+    def test_leica_sequential_channels_follow_the_sequences_not_the_bands(self):
+        def sequence(detector, *lines):
+            return {'DetectorList': {'Detector': [{'Channel': 1, 'IsActive': int(detector == 1)},
+                                                  {'Channel': 4, 'IsActive': int(detector == 4)}]},
+                    'AotfList': {'Aotf': [{'LightSourceType': light_source_type, 'LaserLineSetting': [
+                        {'LaserLine': line, 'IntensityDev': intensity} for line, intensity in settings]}
+                        for light_source_type, settings in lines]}}
+        settings = {
+            'ConfocalSettingDefinition': {
+                'Spectro': {'MultiBand': [{'Channel': 1, 'DyeName': 'Leica/Cerulean', 'LeftWorld': 460, 'RightWorld': 490},
+                                          {'Channel': 4, 'DyeName': 'Leica/ALEXA 488', 'LeftWorld': 500, 'RightWorld': 550}]},
+                'LaserArray': {'Laser': [{'LaserName': '405 Diode', 'LightSourceType': 1},
+                                         {'LaserName': 'WLL', 'LightSourceType': 4}]}},
+            'LDM_Block_Sequential': {'LDM_Block_Sequential_List': {'ConfocalSettingDefinition': [
+                sequence(4, (4, [(488, 24.8), (561, 0)])),
+                sequence(1, (1, [(405, 3.1)]), (4, [(488, 76.7)]))]}}}
+
+        converted = self.mapper.convert_metadata({'HardwareSetting': settings})
+
+        first, second = converted['Pixels']['Channel']
+        self.assertEqual(first['Name'], 'Leica/ALEXA 488')
+        self.assertEqual(first['Fluorophore'], {'Name': 'Leica/ALEXA 488', 'ExcitationWavelength': 488,
+                                                'ExcitationWavelengthUnit': 'nm'})
+        self.assertEqual(first['LightPath'], {'EmissionFilter': ['Filter:0'], 'LightSourceSettings': [{'ID': 'Laser:1'}]})
+        # two lines on: no excitation wavelength chosen between them, a setting for each laser
+        self.assertEqual(second['Fluorophore'], {'Name': 'Leica/Cerulean'})
+        self.assertEqual(second['LightPath']['LightSourceSettings'], [{'ID': 'Laser:0'}, {'ID': 'Laser:1'}])
+        self.assertEqual(converted['Filter'][0], {'ID': 'Filter:0', 'Type': 'BandPass', 'TransmittanceRange': {
+            'Wavelength': 525, 'FWHMBandwidth': 50, 'WavelengthUnit': 'nm'}})
+        self.assertEqual([laser.get('ID') for laser in converted['Laser']], ['Laser:0', 'Laser:1'])
+        # the dyes, band limits and single line are held by the channels now; the two lines and intensities stay
+        bands = converted['HardwareSetting']['ConfocalSettingDefinition']['Spectro']['MultiBand']
+        self.assertEqual(bands, [{'Channel': 1}, {'Channel': 4}])
+        sequences = converted['HardwareSetting']['LDM_Block_Sequential']['LDM_Block_Sequential_List'][
+            'ConfocalSettingDefinition']
+        self.assertEqual(sequences[0]['AotfList']['Aotf'][0]['LaserLineSetting'][0], {'IntensityDev': 24.8})
+        self.assertEqual(sequences[1]['AotfList']['Aotf'][1]['LaserLineSetting'][0], {'LaserLine': 488, 'IntensityDev': 76.7})
+        self.assertEqual(converted['SourceMap']['Pixels.Channel[0].Name'],
+                         ['HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[1].DyeName'])
+
     def test_time_point_range_is_kept_beside_its_count(self):
         timepoints = {'first': 10, 'last': 14, 'type': 'range'}
 

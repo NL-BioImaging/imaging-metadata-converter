@@ -334,6 +334,24 @@ also serves as a fallback: Exif's `DateTimeDigitized` (`"2025:05:28
 10:54:29"`) gives the acquisition date only where no vendor field does, as
 EMSIS's Olympus `datetime` does.
 
+### Leica sequential confocal scans
+
+One structure no rule can join: a Leica (LAS X) sequential scan, as
+biomero-converter's `LeicaSource` passes it, describes each channel across
+three places. Channel k is the k-th active detector, taken sequence by
+sequence (`LDM_Block_Sequential_List`); that detector's spectral band
+(`Spectro.MultiBand`, numbered by detector and stated once) gives its dye and
+detection window; the sequence's laser lines on give its excitation. The
+mapper joins them into `Pixels.Channel[k]`: the dye as written as `Name` and
+`Fluorophore.Name`, the window as a band-pass `Filter` its `LightPath` names
+as `EmissionFilter`, a `LightSourceSettings` per laser line on, naming the
+laser, and `Fluorophore.ExcitationWavelength` where only one line is on. The
+filters and lasers get IDs by their place (`Filter:0`, `Laser:3`), as the
+source has none. The order is the sequences', not the bands': TileScan.lof's
+sequences use detectors 4, 5 and 1, so its channels are ALEXA 488, mCherry
+and Cerulean, which their LUTs (green, red, blue) and their pixels (two HyD
+detectors and a PMT) confirm.
+
 ### Matching details
 
 - Patterns are glob-matched with `fnmatch.fnmatchcase`, so matching is

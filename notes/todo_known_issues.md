@@ -121,6 +121,22 @@ metaseed's containment order (each after every entity nesting it).
   test checks the two agree. `RefrIndexMedium` is per channel: channel 0's value goes to
   MountingMedium.RefractiveIndex, channel 1's collides and stays in its channel item.
 
+### Leica confocal channels (checked 2026-10-01)
+
+A LAS X sequential scan's image channel k is sequence k (HardwareSetting.LDM_Block_Sequential.
+LDM_Block_Sequential_List, which biomero-converter's LeicaSource drops), whose active detector n has the
+spectral band n (ConfocalSettingDefinition.Spectro.MultiBand, numbered by detector Channel, given once,
+not per sequence) and whose laser lines are the excitation. TileScan.lof (also MultiChannel.lif): sequences
+HyD-SMD 4 (488 nm), Hyd-SMD 5 (561 nm), PMT 1 (405 + 488 nm); bands 1 Cerulean, 4 ALEXA 488, 5 mCherry; so
+channels ALEXA 488, mCherry, Cerulean, matching their LUTs Green, Red, Blue. Checked on the pixels: channels
+0 and 1 have HyD's background (half the pixels exactly 0, background std 0), channel 2 a PMT's (no zeros,
+median 5, background std 1.1), so channel 2 is PMT 1. liffile 2026.7.14's coords['C'] (Cerulean, ALEXA 488,
+mCherry) takes the main bands in band order whenever their count equals the channels', so all three of
+these labels were wrong in biomero-converter's OME-Zarr/OME-TIFF until its LeicaSource joined them itself
+(2026-10-01); not reported to liffile. The other
+sequential files (3Channels_Small, ZStack_Small) run their sequences in ascending detector order, where both
+orders agree. Band 5's dye is mCherry in the current setting, dTomato in the sequential master.
+
 ### DICOM example holds dummy patient details
 
 `examples/dicom.json` has patient fields (PatientName, PatientID, PatientBirthDate, InstitutionName,
@@ -258,7 +274,7 @@ structure, for common fields in the source data"). A value is only a candidate i
    LineInterlacing was added because TALOS and Phenom both write it.
 4. Clear meaning: the source's meaning has to be certain enough to state in the field's description. Where
    it is not, the value stays a Property rather than a guess: LIF's spectral bands as the image's channels
-   (band i = channel i unconfirmed), ScanSpeed (LiMi's ScanningFrequency is a percentage), a white-light
+   (band i = channel i is wrong: see "Leica confocal channels"), ScanSpeed (LiMi's ScanningFrequency is a percentage), a white-light
    laser's wavelength 0 is placed only because the file says 0. Values that would need translating (Argon
    -> laser type Gas, TL-BF -> Brightfield) are not translated.
 5. The model's structure, not the vendor's:
@@ -298,3 +314,13 @@ structure, for common fields in the source data"). A value is only a candidate i
 - [ ] DICOM SpacingBetweenSlices -> PhysicalSizeZ (mm), as Bio-Formats does, once an example states it;
       SliceThickness maps there until then.
 - [ ] Units for Cikteq's beam current and point time, once known (left without, 2026-09-30).
+- [ ] Pull the updated metaseed (user, 2026-10-01: it should now fix an import error and add the caching
+      behind the large speed-up, see "metaseed workarounds"); then drop the SpecLoader cache patch in the
+      metaseed test if validation is as fast without it, and rerun the metaseed tests.
+- [ ] Phenom's instrument.uniqueID (MVE084613-20046-F, its serial number) maps to Instrument.ID; LiMi's
+      Instrument.CatalogNumber ("Catalog, Part or Serial Number") may fit better (from biomero-converter's
+      notes, 2026-10-01). Fibics ATLAS states no microscope manufacturer or model at all, so none is mapped.
+- [ ] SP5 (LAS AF) HardwareSettingList: flat ScannerSettingRecord/FilterSettingRecord lists ({Identifier or
+      ObjectName + Attribute, Variant}); proposed (2026-10-01): LeicaSource reshapes them into a tree keyed by
+      their names, values as written, so plain rules apply. Magnification and immersion are only in the
+      objective's name there.
