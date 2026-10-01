@@ -16,7 +16,10 @@
     "Beam.ShiftX": "Image.ElectronBeamSettings.Shift.X",
     "Beam.ShiftY": "Image.ElectronBeamSettings.Shift.Y",
     "Detector.DetectorName": "GenericDetector.Name",
-    "Scan.PointTime": "Plane.PixelDwellTime",
+    "Scan.PointTime": {
+        "target": "Plane.PixelDwellTime",
+        "unit": "us"
+    },
     "Scan.FrameTime": {
         "target": "Image.ScanSettings.FrameTime.Value",
         "unit": "s"

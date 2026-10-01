@@ -137,67 +137,72 @@ Image:
       Field: Image[0].Pixels.Plane[0].PixelDwellTime
       Source: FEI_HELIOS.Scan.PointTime
     - ID: SourceMapping:39
+      Field: Image[0].Pixels.Plane[0].PixelDwellTimeUnit
+      Source: FEI_HELIOS.Scan.PointTime
+      DerivedFrom:
+      - FEI_HELIOS.Scan.PointTime
+    - ID: SourceMapping:40
       Field: Image[0].Pixels.SizeX
       Source: FEI_HELIOS.Scan.ResolutionX
-    - ID: SourceMapping:40
+    - ID: SourceMapping:41
       Field: Image[0].Pixels.SizeY
       Source: FEI_HELIOS.Scan.ResolutionY
-    - ID: SourceMapping:41
+    - ID: SourceMapping:42
       Field: Instrument[0].MechanicalStage[0].Rotation.Value
       Source: FEI_HELIOS.Stage.StagePosR
-    - ID: SourceMapping:42
+    - ID: SourceMapping:43
       Field: Instrument[0].MechanicalStage[0].Rotation.Unit
       Source: FEI_HELIOS.Stage.StagePosR
       DerivedFrom:
       - FEI_HELIOS.Stage.StagePosR
-    - ID: SourceMapping:43
+    - ID: SourceMapping:44
       Field: Instrument[0].MechanicalStage[0].Tilt.Value
       Source: FEI_HELIOS.Stage.StagePosT
-    - ID: SourceMapping:44
+    - ID: SourceMapping:45
       Field: Instrument[0].MechanicalStage[0].Tilt.Unit
       Source: FEI_HELIOS.Stage.StagePosT
       DerivedFrom:
       - FEI_HELIOS.Stage.StagePosT
-    - ID: SourceMapping:45
+    - ID: SourceMapping:46
       Field: Instrument[0].MechanicalStage[0].Position.X.Value
       Source: FEI_HELIOS.Stage.StagePosX
-    - ID: SourceMapping:46
+    - ID: SourceMapping:47
       Field: Instrument[0].MechanicalStage[0].Position.X.Unit
       Source: FEI_HELIOS.Stage.StagePosX
       DerivedFrom:
       - FEI_HELIOS.Stage.StagePosX
-    - ID: SourceMapping:47
+    - ID: SourceMapping:48
       Field: Instrument[0].MechanicalStage[0].Position.Y.Value
       Source: FEI_HELIOS.Stage.StagePosY
-    - ID: SourceMapping:48
+    - ID: SourceMapping:49
       Field: Instrument[0].MechanicalStage[0].Position.Y.Unit
       Source: FEI_HELIOS.Stage.StagePosY
       DerivedFrom:
       - FEI_HELIOS.Stage.StagePosY
-    - ID: SourceMapping:49
+    - ID: SourceMapping:50
       Field: Instrument[0].MechanicalStage[0].Position.Z.Value
       Source: FEI_HELIOS.Stage.StagePosZ
-    - ID: SourceMapping:50
+    - ID: SourceMapping:51
       Field: Instrument[0].MechanicalStage[0].Position.Z.Unit
       Source: FEI_HELIOS.Stage.StagePosZ
       DerivedFrom:
       - FEI_HELIOS.Stage.StagePosZ
-    - ID: SourceMapping:51
+    - ID: SourceMapping:52
       Field: Instrument[0].Name
       Source: FEI_HELIOS.System.ProductName
-    - ID: SourceMapping:52
+    - ID: SourceMapping:53
       Field: Instrument[0].Vacuum.BufferVacuum
       Source: FEI_HELIOS.Vacuum.BufferVacuum
-    - ID: SourceMapping:53
+    - ID: SourceMapping:54
       Field: Instrument[0].Vacuum.GunVacuum
       Source: FEI_HELIOS.Vacuum.GunVacuum
-    - ID: SourceMapping:54
+    - ID: SourceMapping:55
       Field: Instrument[0].Vacuum.SampleVacuum
       Source: FEI_HELIOS.Vacuum.SampleVacuum
-    - ID: SourceMapping:55
+    - ID: SourceMapping:56
       Field: Instrument[0].AcquisitionSoftware[0].Version
       Source: FEI_HELIOS.System.SoftwareVersion
-    - ID: SourceMapping:56
+    - ID: SourceMapping:57
       Field: Experimenter[0].UserName
       Source: FEI_HELIOS.User.UserName
   ElectronBeamSettings:
@@ -323,6 +328,7 @@ Image:
   Pixels:
     Plane:
     - PixelDwellTime: 3.0
+      PixelDwellTimeUnit: µs
     SizeX: 8448
     SizeY: 5632
 Instrument:

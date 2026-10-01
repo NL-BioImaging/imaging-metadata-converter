@@ -78,6 +78,7 @@ FEI_HELIOS:
     TiltCompensateMode: 0
 Plane:
   PixelDwellTime: 3.0
+  PixelDwellTimeUnit: µs
 Pixels:
   SizeX: 8448
   SizeY: 5632
@@ -197,6 +198,8 @@ SourceMap:
   Instrument.Vacuum.SampleVacuum: FEI_HELIOS.Vacuum.SampleVacuum
   Image.ElectronBeamSettings.WorkingDistance.Unit:
   - FEI_HELIOS.Beam.WD
+  Plane.PixelDwellTimeUnit:
+  - FEI_HELIOS.Scan.PointTime
   MechanicalStage.Rotation.Unit:
   - FEI_HELIOS.Stage.StagePosR
   MechanicalStage.Tilt.Unit:

@@ -327,4 +327,7 @@ structure, for common fields in the source data"). A value is only a candidate i
       transmitted-light source (a LIF transmission channel, PMT Trans, was off in every example).
 - [ ] Review `scripts/out_of_scope.json` (the source groups left out of in-scope coverage: processing,
       file, display, software state, patient and administrative; user, 2026-09-30).
-- [ ] Units for Cikteq's beam current and point time, once known (left without, 2026-09-30).
+- [ ] Unit for Cikteq's beam current, once known (Beam.RealAbsCurrent: -67 to +11, sign unexplained; pA and
+      nA cannot be told apart). Its point time is in us (2026-10-01): in all 13 Cikteq files the frame time
+      over the pixels (and line/frame adds) is 1.19-1.21 x PointTime in us (3.0 -> 3.58-3.62 us, 5.0 -> 5.92
+      us), the rest being line overhead; in ns or ms it would be off a thousandfold.
