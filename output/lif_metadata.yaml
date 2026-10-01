@@ -440,6 +440,10 @@ Pixels:
   SizeX: 2448
   SizeY: 2048
   SignificantBits: 8
+  Channel:
+  - LightPath:
+      LightSourceSettings:
+      - ID: LightSource:0
 Objective:
   Magnification: 10
   Model: 'HC PL FLUOTAR    10x/0.32 DRY '
@@ -454,6 +458,10 @@ Experimenter:
   UserName: Login
 AcquisitionSoftware:
   Name: LAS X 6.2.1.27469
+GenericExcitationSource:
+- ID: LightSource:0
+  Role:
+  - Transmitted
 SourceMap:
   Instrument.Manufacturer: manufacturer
   HardwareSetting.CameraSettingDefinition.IndividualCameraGroup.PerCameraSetting[0].MirrorX: HardwareSetting.CameraSettingDefinition.IndividualCameraGroup.PerCameraSetting[0].MirrorX
@@ -952,3 +960,9 @@ SourceMap:
   - HardwareSetting.CameraSettingDefinition.StagePosX
   Plane.PositionYUnit:
   - HardwareSetting.CameraSettingDefinition.StagePosY
+  GenericExcitationSource[0].ID:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.TL_Shutter
+  GenericExcitationSource[0].Role[0]:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.TL_Shutter
+  Pixels.Channel[0].LightPath.LightSourceSettings[0].ID:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.TL_Shutter

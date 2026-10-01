@@ -32,6 +32,7 @@ LEICA_SETTINGS = 'HardwareSetting'
 LEICA_SEQUENCES = 'LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition'
 LEICA_BANDS = 'ConfocalSettingDefinition.Spectro.MultiBand'
 LEICA_LASERS = 'ConfocalSettingDefinition.LaserArray.Laser'
+LEICA_WIDEFIELD_CHANNELS = 'CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo'
 # Windows FILETIME, as Leica's LMD software writes its acquisition time: 100 ns steps since 1601
 FILETIME_EPOCH = datetime(1601, 1, 1)
 FORMATS_KEEPING_PARTS = ('count',)
@@ -606,6 +607,7 @@ class AcquisitionMetadataMapper:
                 provenance[unit_path] = [origin]
         self._map_leica_sequential_channels(metadata, result, provenance)
         self._map_leica_microdissection_laser(metadata, result, provenance)
+        self._map_leica_widefield_light_sources(metadata, result, provenance)
         self._apply_combinations(metadata, result, provenance)
         self._respell(result, provenance)
         if SOURCE_MAP_KEY in result:
@@ -706,6 +708,38 @@ class AcquisitionMetadataMapper:
         if isinstance(laser, dict) and laser.get('Lasertype') and is_free_path(result, 'Laser.Role'):
             set_nested_value(result, 'Laser.Role', ['Microdissection'])
             provenance['Laser.Role[0]'] = [f'{LEICA_SETTINGS}.Application', f'{LEICA_SETTINGS}.Laser.Lasertype']
+
+    def _map_leica_widefield_light_sources(self, metadata, result, provenance):
+        """Give each channel of a Leica widefield image the lamps its shutters open, as light sources.
+
+        LAS X states per channel (WideFieldChannelInfo k, channel k) whether its transmitted-light (TL) and
+        incident-light (IL) shutters are open, not what the lamps are. A channel with the TL shutter open
+        uses the stand's transmitted lamp, a fluorescence channel (FLUO) with the IL shutter open its incident
+        lamp: each a GenericExcitationSource, LiMi's light source of no stated type, with the Role
+        Transmitted or Fluorescence, which the channel's LightSourceSettings name. The lamps get IDs by their
+        place (LightSource:0), as the source has none; their intensities, on a scale without a unit, stay.
+        """
+        settings = metadata.get(LEICA_SETTINGS)
+        channels = _items(value_at_path(settings, LEICA_WIDEFIELD_CHANNELS), f'{LEICA_SETTINGS}.{LEICA_WIDEFIELD_CHANNELS}') \
+            if isinstance(settings, dict) else []
+        lamps = {}
+        for channel, (info, info_path) in enumerate(channels):
+            used = [('Transmitted', f'{info_path}.TL_Shutter')] if str(info.get('TL_Shutter')) == '1' else []
+            if str(info.get('IL_Shutter')) == '1' and info.get('ContrastingMethodName') == 'FLUO':
+                used.append(('Fluorescence', f'{info_path}.IL_Shutter'))
+            for position, (role, origin) in enumerate(used):
+                if role not in lamps and isinstance(result.get('GenericExcitationSource', []), list):
+                    index = len(result.get('GenericExcitationSource', []))
+                    lamp = f'GenericExcitationSource[{index}]'
+                    set_nested_value(result, f'{lamp}.ID', f'LightSource:{index}')
+                    set_nested_value(result, f'{lamp}.Role', [role])
+                    provenance[f'{lamp}.ID'] = [origin]
+                    provenance[f'{lamp}.Role[0]'] = [origin]
+                    lamps[role] = f'LightSource:{index}'
+                target = f'Pixels.Channel[{channel}].LightPath.LightSourceSettings[{position}].ID'
+                if role in lamps and is_free_path(result, target):
+                    set_nested_value(result, target, lamps[role])
+                    provenance[target] = [origin]
 
     def _respell(self, result, provenance):
         """Write the model's spelling of each enumeration value a source spells otherwise (Leica's "OIL" as Oil,

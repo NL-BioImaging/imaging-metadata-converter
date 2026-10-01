@@ -66,34 +66,49 @@ Image:
       Field: Image[0].Pixels.SignificantBits
       Source: HardwareSetting.CameraSettingDefinition.CameraFormat.Resolution
     - ID: SourceMapping:17
+      Field: Image[0].Pixels.Channel[0].LightPath.LightSourceSettings[0].ID
+      Source: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.TL_Shutter
+      DerivedFrom:
+      - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.TL_Shutter
+    - ID: SourceMapping:18
       Field: Instrument[0].Objective[0].Magnification
       Source: HardwareSetting.CameraSettingDefinition.Magnification
-    - ID: SourceMapping:18
+    - ID: SourceMapping:19
       Field: Instrument[0].Objective[0].Model
       Source: HardwareSetting.CameraSettingDefinition.ObjectiveName
-    - ID: SourceMapping:19
+    - ID: SourceMapping:20
       Field: Instrument[0].Objective[0].CatalogNumber
       Source: HardwareSetting.CameraSettingDefinition.ObjectiveNumber
       SourceValue: '11506432'
-    - ID: SourceMapping:20
+    - ID: SourceMapping:21
       Field: Instrument[0].Objective[0].ImmersionType
       Source: HardwareSetting.CameraSettingDefinition.Immersion
       SourceValue: '"DRY"'
-    - ID: SourceMapping:21
+    - ID: SourceMapping:22
       Field: Instrument[0].Objective[0].LensNA
       Source: HardwareSetting.CameraSettingDefinition.NumericalAperture
-    - ID: SourceMapping:22
+    - ID: SourceMapping:23
       Field: Image[0].ObjectiveSettings.ImmersionLiquid.RefractiveIndex
       Source: HardwareSetting.CameraSettingDefinition.RefractionIndex
-    - ID: SourceMapping:23
+    - ID: SourceMapping:24
       Field: Experiment[0].Sample[0].MountingMedium[0].RefractiveIndex
       Source: HardwareSetting.CameraSettingDefinition.MountingMediumRefractionIndex
-    - ID: SourceMapping:24
+    - ID: SourceMapping:25
       Field: Experimenter[0].UserName
       Source: HardwareSetting.CameraSettingDefinition.UserManagementUserName
-    - ID: SourceMapping:25
+    - ID: SourceMapping:26
       Field: Instrument[0].AcquisitionSoftware[0].Name
       Source: HardwareSetting.Software
+    - ID: SourceMapping:27
+      Field: Instrument[0].GenericExcitationSource[0].ID
+      Source: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.TL_Shutter
+      DerivedFrom:
+      - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.TL_Shutter
+    - ID: SourceMapping:28
+      Field: Instrument[0].GenericExcitationSource[0].Role
+      Source: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.TL_Shutter
+      DerivedFrom:
+      - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.TL_Shutter
   Pixels:
     Plane:
     - ExposureTime: 0.04
@@ -107,6 +122,10 @@ Image:
     SizeX: 2448
     SizeY: 2048
     SignificantBits: 8
+    Channel:
+    - LightPath:
+        LightSourceSettings:
+        - ID: LightSource:0
   ObjectiveSettings:
     ImmersionLiquid:
       RefractiveIndex: 1
@@ -126,6 +145,10 @@ Instrument:
     LensNA: 0.32
   AcquisitionSoftware:
   - Name: LAS X 6.2.1.27469
+  GenericExcitationSource:
+  - ID: LightSource:0
+    Role:
+    - Transmitted
 CustomProperties:
 - ID: Property:0
   Name: HardwareSetting.CameraSettingDefinition.IndividualCameraGroup.PerCameraSetting[0].MirrorX

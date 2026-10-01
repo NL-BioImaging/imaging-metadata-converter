@@ -113,6 +113,23 @@ class AcquisitionMetadataMapperTest(unittest.TestCase):
             self.assertEqual(converted['Pixels'], {'PhysicalSizeZ': 2.0, 'PhysicalSizeZUnit': 'mm'})
             self.assertEqual(converted.get('SpacingBetweenSlices'), metadata.get('SpacingBetweenSlices'))
 
+    def test_leica_widefield_channels_name_the_lamps_their_shutters_open(self):
+        channels = [{'ContrastingMethodName': 'TL-BF', 'TL_Shutter': 1, 'IL_Shutter': 0, 'TL_Light-Intensity': 37},
+                    {'ContrastingMethodName': 'FLUO', 'TL_Shutter': 0, 'IL_Shutter': 1},
+                    {'ContrastingMethodName': 'TL-PH', 'TL_Shutter': 1, 'IL_Shutter': 0},
+                    {'ContrastingMethodName': 'FLUO', 'TL_Shutter': 0, 'IL_Shutter': 0}]
+        settings = {'CameraSettingDefinition': {'WideFieldChannelConfigurator': {'WideFieldChannelInfo': channels}}}
+
+        converted = self.mapper.convert_metadata({'HardwareSetting': settings})
+
+        # one lamp each, however many channels use it; a channel with no shutter open names none
+        self.assertEqual(converted['GenericExcitationSource'], [{'ID': 'LightSource:0', 'Role': ['Transmitted']},
+                                                                {'ID': 'LightSource:1', 'Role': ['Fluorescence']}])
+        self.assertEqual([channel.get('LightPath', {}).get('LightSourceSettings') for channel in converted['Pixels']['Channel']],
+                         [[{'ID': 'LightSource:0'}], [{'ID': 'LightSource:1'}], [{'ID': 'LightSource:0'}]])
+        self.assertEqual(converted['HardwareSetting']['CameraSettingDefinition']['WideFieldChannelConfigurator'][
+            'WideFieldChannelInfo'][0]['TL_Light-Intensity'], 37)
+
     def test_leica_microdissection_laser_has_its_role(self):
         settings = {'Application': 'LMD', 'Laser': {'Lasertype': 'Explorer', 'Power': 57},
                     'Camera': {'TypName': 'K7', 'Expsoure': 0.033}}

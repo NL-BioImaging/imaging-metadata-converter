@@ -373,6 +373,13 @@ sequences use detectors 4, 5 and 1, so its channels are ALEXA 488, mCherry
 and Cerulean, which their LUTs (green, red, blue) and their pixels (two HyD
 detectors and a PMT) confirm.
 
+A Leica widefield image states per channel (`WideFieldChannelInfo`) which
+shutters are open, not what the lamps are: a channel with the transmitted-light
+(TL) shutter open names the stand's transmitted lamp, a fluorescence channel
+with the incident-light (IL) shutter open its incident lamp, each a
+`GenericExcitationSource` (a light source of no stated type) with the `Role`
+`Transmitted` or `Fluorescence`, named by the channel's `LightSourceSettings`.
+
 Older Leica files (LAS AF, as from an SP5) list their settings as records
 instead (`{Identifier: dblZoom, Variant: 2.5}`); `LeicaSource` keys each
 record by its own name (`ScannerSetting.dblZoom`, `FilterSetting.<object>.

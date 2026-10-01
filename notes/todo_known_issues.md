@@ -322,9 +322,11 @@ structure, for common fields in the source data"). A value is only a candidate i
 
 ## TODO
 
-- [ ] Light-source role (user, 2026-09-28): a Leica laser exciting a channel with a dye has Role
-      Fluorescence since 2026-10-01 (Laser.Role allows only that); Transmitted waits for a source stating a
-      transmitted-light source (a LIF transmission channel, PMT Trans, was off in every example).
+- [ ] Light-source role (user, 2026-09-28), done but for LEDs: a Leica laser exciting a channel with a dye
+      has Role Fluorescence, an LMD laser Microdissection, and a Leica widefield channel's open TL shutter
+      names a transmitted lamp, a FLUO channel's open IL shutter an incident one (GenericExcitationSource,
+      Role Transmitted / Fluorescence; 2026-10-01). The MICA's LEDs (ILLEDWavelength0-3: 365, 470, 555,
+      625 nm) are on in no channel of any file at hand, so none is a light source yet.
 - [ ] Review `scripts/out_of_scope.json` (the source groups left out of in-scope coverage: processing,
       file, display, software state, patient and administrative; user, 2026-09-30).
 - [ ] Unit for Cikteq's beam current, once known (Beam.RealAbsCurrent: -67 to +11, sign unexplained; pA and
