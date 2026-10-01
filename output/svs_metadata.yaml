@@ -10,9 +10,6 @@ StripeWidth: 2032
 Instrument:
   ID: SS1735
 Filename: 18489
-Date: 10/19/15
-Time: '17:18:12'
-Time Zone: GMT-05:00
 User: 08e1f1aa-01fa-41e5-aa13-9af07029387e
 Pixels:
   PhysicalSizeX: 0.4936
@@ -34,8 +31,6 @@ DSR ID: 129.112.7.45
 Image:
   ID: 18489
   AcquisitionDate: '2015-10-19T17:18:12-05:00'
-Exposure Time: 109
-Exposure Scale: 1.0e-06
 DisplayColor: 0
 ICC Profile: ScanScope v1
 SourceMap:
@@ -48,9 +43,6 @@ SourceMap:
   StripeWidth: StripeWidth
   Instrument.ID: ScanScope ID
   Filename: Filename
-  Date: Date
-  Time: Time
-  Time Zone: Time Zone
   User: User
   Pixels.PhysicalSizeX: MPP
   Pixels.PhysicalSizeY: MPP
@@ -62,8 +54,6 @@ SourceMap:
   Focus Offset: Focus Offset
   DSR ID: DSR ID
   Image.ID: ImageID
-  Exposure Time: Exposure Time
-  Exposure Scale: Exposure Scale
   DisplayColor: DisplayColor
   Pixels.SizeX: OriginalWidth
   Pixels.SizeY: OriginalHeight

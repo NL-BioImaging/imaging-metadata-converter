@@ -24,6 +24,8 @@ DEFAULT_SCHEMA_FILE = DEFAULT_MODEL_FILE
 DEFAULT_MAPPINGS_FILE = os.path.join(os.path.dirname(__file__), 'mappings', 'mappings.json')
 DEFAULT_COMBINATIONS_FILE = os.path.join(os.path.dirname(__file__), 'mappings', 'combinations.json')
 SOURCE_MAP_KEY = 'SourceMap'
+# a count of time points says how many there are, not which: its parts hold more than its value
+FORMATS_KEEPING_PARTS = ('count',)
 # a time written as text, in hours, minutes and seconds ("2min52s"), and a number written with its unit ("21.12µm")
 DURATION = re.compile(r'(?:(\d+(?:\.\d+)?)\s*h)?\s*(?:(\d+(?:\.\d+)?)\s*min)?\s*(?:(\d+(?:\.\d+)?)\s*s)?')
 QUANTITY = re.compile(r'([-+]?(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?)\s*([^\d\s].*)')
@@ -63,6 +65,7 @@ class AcquisitionMetadataMapper:
         for alias, path in (model.aliases() if model else {}).items():
             self._schema_index.setdefault(tuple(part.lower() for part in alias.split('.')), path)
         self._known_keys, self._known_key_patterns = self._build_known_key_index(self.mappings, self.schema)
+        self._model_fields = set(self._schema_leaf_paths(self.schema))
 
     @staticmethod
     def _load_json(file_path):
@@ -589,17 +592,20 @@ class AcquisitionMetadataMapper:
         with the entry's strptime format (or "unix", seconds since 1970) and written as ISO 8601 at its
         target, or with "split" taken as the entry's "item"-th number of them - only where that is free,
         and only when every part is there
-        and parses. The parts themselves stay where the mapping put them;
-        the combined value's SourceMap entry is the list of its parts. "count" gives last - first + 1 of two
+        and parses. The combined value's SourceMap entry is the list of its parts, and it replaces those parts
+        kept at their own path, as it holds them (see `drop_parts`). "count" gives last - first + 1 of two
         parts, "product" the parts multiplied (Aperio's Exposure Time x Exposure Scale), "ratio" the first part
         divided by the second (Exif's ExposureTime [41, 5000], a part naming a list item), "duration" a time written
         as text ("2min52s") in seconds, and "quantity" the number of a value written with its unit ("21.12µm");
         those two write the unit beside the value too, where free, as does any entry stating a "unit".
 
         A derived value may replace what a rule put at its target from its own parts, where that is no number
-        (Cikteq's frame time "2min52s" under TALOS's rule for a number, Exif's exposure time as a list of two):
-        it goes back to its own path, still kept.
+        (Cikteq's frame time "2min52s" under TALOS's rule for a number, Exif's exposure time as a list of two),
+        or what its parts are at their own path, where it targets that path (an Exif rational becoming its
+        number).
         """
+        derived_parts = set()
+        unused_parts = set()
         for combination in self.combinations:
             sources = combination['sources']
             target = combination['target']
@@ -611,18 +617,28 @@ class AcquisitionMetadataMapper:
             placed = value_at_path(result, target)
             own_path = placed_from_parts(provenance, target, sources)
             replaces_its_value = (own_path is not None and placed is not None and not is_number(placed)
-                                  and is_free_path(result, own_path))
-            if combined is not None and replaces_its_value:
+                                  and (own_path == target or is_free_path(result, own_path)))
+            if combined is not None and replaces_its_value and own_path == target:
+                pop_nested_value(result, target)
+                for path in [path for path in provenance if is_at_or_below(path, target)]:
+                    del provenance[path]
+            elif combined is not None and replaces_its_value:
                 set_nested_value(result, own_path, pop_nested_value(result, target))
                 for path in [path for path in provenance if is_at_or_below(path, target)]:
                     provenance[own_path + path[len(target):]] = provenance.pop(path)
-            if combined is not None and is_free_path(result, target):
+            writes = combined is not None and is_free_path(result, target)
+            if writes and combination['format'] not in FORMATS_KEEPING_PARTS:
+                derived_parts.update(sources)
+            elif has_all_parts and not writes:
+                unused_parts.update(sources)
+            if writes:
                 set_nested_value(result, target, combined)
                 provenance[target] = list(sources)
                 unit = combination.get('unit') or combination_unit(text, combination['format'])
                 if unit is not None and is_free_path(result, unit_field(target)):
                     set_nested_value(result, unit_field(target), unit)
                     provenance[unit_field(target)] = list(sources)
+        drop_parts(result, provenance, derived_parts - unused_parts, self._model_fields)
 
     def unmatched_fields(self, metadata):
         """List the output paths of leaf fields not represented in the model.
@@ -655,6 +671,20 @@ class AcquisitionMetadataMapper:
 
         walk({key: value for key, value in converted.items() if key != SOURCE_MAP_KEY})
         return unmatched
+
+
+def drop_parts(result, provenance, parts, model_fields):
+    """Remove from `result` each of `parts` (source paths) that is in no model field, as a value derived from it
+    holds it now: Exif's ExposureTime [41, 5000] once Plane.ExposureTime is 0.0082, Cikteq's User.TimeStamp
+    that "User.*" moved to Experimenter. A list goes once all its items do; a part inside a list item stays."""
+    dropped = {path for path, origin in provenance.items()
+               if isinstance(origin, str) and origin in parts and re.sub(r'\[\d+\]', '', path) not in model_fields}
+    for path in sorted({re.sub(r'(\[\d+\])+$', '', path) for path in dropped}):
+        below = [entry for entry in provenance if is_at_or_below(entry, path)]
+        if '[' not in path and all(entry in dropped for entry in below):
+            pop_nested_value(result, path)
+            for entry in below:
+                del provenance[entry]
 
 
 def as_lists(value):

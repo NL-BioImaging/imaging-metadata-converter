@@ -12,8 +12,6 @@ Instrument:
 AcquisitionSoftware:
   Version: 2.7.1
 Acquisition:
-  AcquisitionStartDatetime:
-    DateTime: '1646847822'
   AcquisitionDatetime:
     DateTime: '0'
 Image:
@@ -3552,7 +3550,6 @@ SourceMap:
   Instrument.Type: Instrument.InstrumentClass
   Instrument.Model: Instrument.InstrumentModel
   Instrument.ComputerName: Instrument.ComputerName
-  Acquisition.AcquisitionStartDatetime.DateTime: Acquisition.AcquisitionStartDatetime.DateTime
   Acquisition.AcquisitionDatetime.DateTime: Acquisition.AcquisitionDatetime.DateTime
   Image.ElectronBeamSettings.Type: Acquisition.BeamType
   ElectronSource.Type: Acquisition.SourceType

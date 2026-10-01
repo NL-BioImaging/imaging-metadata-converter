@@ -76,10 +76,6 @@ FEI_HELIOS:
     IsTiltCorrent: false
     PreTiltAngle: 0.0
     TiltCompensateMode: 0
-  Scan:
-    FrameTime: 2min52s
-  Beam:
-    HFW: 21.12µm
 Plane:
   PixelDwellTime: 3.0
 Pixels:
@@ -118,7 +114,6 @@ Experimenter:
   DateTimeFmt: yyyy/MM/dd HH:mm:ss
   MagType: 1
   RulerText: SEM4000X
-  TimeStamp: 1784735089
   UserName: "\x01"
   VacuumType: 0
 SourceMap:
@@ -195,7 +190,6 @@ SourceMap:
   Experimenter.DateTimeFmt: FEI_HELIOS.User.DateTimeFmt
   Experimenter.MagType: FEI_HELIOS.User.MagType
   Experimenter.RulerText: FEI_HELIOS.User.RulerText
-  Experimenter.TimeStamp: FEI_HELIOS.User.TimeStamp
   Experimenter.UserName: FEI_HELIOS.User.UserName
   Experimenter.VacuumType: FEI_HELIOS.User.VacuumType
   Instrument.Vacuum.BufferVacuum: FEI_HELIOS.Vacuum.BufferVacuum
@@ -215,12 +209,10 @@ SourceMap:
   - FEI_HELIOS.Stage.StagePosZ
   Image.AcquisitionDate:
   - FEI_HELIOS.User.TimeStamp
-  FEI_HELIOS.Scan.FrameTime: FEI_HELIOS.Scan.FrameTime
   Image.ScanSettings.FrameTime.Value:
   - FEI_HELIOS.Scan.FrameTime
   Image.ScanSettings.FrameTime.Unit:
   - FEI_HELIOS.Scan.FrameTime
-  FEI_HELIOS.Beam.HFW: FEI_HELIOS.Beam.HFW
   Image.ScanSettings.FieldOfView.X.Value:
   - FEI_HELIOS.Beam.HFW
   Image.ScanSettings.FieldOfView.X.Unit:

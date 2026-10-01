@@ -273,8 +273,10 @@ The SVS `Date`, `Time` and `Time Zone` become `2015-10-19T17:18:12-05:00`,
 and the TALOS start time `1683922216` becomes `2023-05-12T20:10:16+00:00`. A
 combined value is written only where its target is free and every part is
 there and parses; a Unix time of 0 counts as unset, not as 1970-01-01 (TALOS
-writes `"0"` for a time it lacks). The parts stay where the mapping put them,
-and the combined value's `SourceMap` entry is the list of its parts.
+writes `"0"` for a time it lacks). The combined value's `SourceMap` entry is
+the list of its parts, and it takes their place: it holds the same
+information, so the parts are left out of the output rather than kept twice
+(see below for which stay).
 
 The format `split` instead takes one item, counted from 0, of a value's
 whitespace-separated words, as a number, for a source that writes several
@@ -302,14 +304,24 @@ Five more formats derive a value a source writes in another form:
   model would read an exposure without one in ms).
 - `ratio` divides the first part by the second: Exif's `ExposureTime`, the
   fraction `[41, 5000]`, gives 0.0082 s. A part may name a list item
-  (`"ExposureTime[0]"`).
+  (`"ExposureTime[0]"`). Every other Exif rational (`FNumber`,
+  `FocalLength`, `ExposureBiasValue`, ...), which the model has no field
+  for, becomes its number at its own key: a combination may target the key
+  its parts are items of.
 
 A derived value may replace what a rule put at its target from its own
 parts, when that is no number, so the rule and the combination can share a
 key: Cikteq writes `"2min52s"` under the `Scan.FrameTime` TALOS writes as a
 number, and TALOS's number stays; Exif's exposure fraction, which the model's
-own `ExposureTime` takes as a list, gives way to its ratio. The replaced value
-goes back to its own path, where it is kept.
+own `ExposureTime` takes as a list, gives way to its ratio.
+
+A part stays where it sits in a model field (a rule mapped it), where a
+combination naming it with all its parts there wrote nothing (Exif's date
+below, or TALOS's unset `"0"`), and for `count`: the number of time points
+does not say which they are, and BigDataViewer's registrations name their
+time point by index. Otherwise it goes, wherever a rule moved it: Cikteq's
+`User.TimeStamp`, which `"User.*"` moves to `Experimenter`, is the
+acquisition date.
 
 A combination writes only where the field is free, after the rules, so it
 also serves as a fallback: Exif's `DateTimeDigitized` (`"2025:05:28

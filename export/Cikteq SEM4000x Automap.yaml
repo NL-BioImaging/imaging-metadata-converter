@@ -348,17 +348,17 @@ Instrument:
     Value: '0.33'
     SchemaPath: GenericDetector.PMT
     Source: SourceFile:0
-  - ID: Property:26
+  - ID: Property:24
     Name: FEI_HELIOS.Stage.NavCoordinate
     Value: '1'
     SchemaPath: MechanicalStage.NavCoordinate
     Source: SourceFile:0
-  - ID: Property:27
+  - ID: Property:25
     Name: FEI_HELIOS.Stage.StageType
     Value: '"TMCM-GYLZ-4000X-FIVE-110x110x69"'
     SchemaPath: MechanicalStage.StageType
     Source: SourceFile:0
-  - ID: Property:28
+  - ID: Property:26
     Name: FEI_HELIOS.System.Version
     Value: '2.6'
     SchemaPath: Instrument.Version
@@ -412,40 +412,27 @@ CustomProperties:
   Name: FEI_HELIOS.TiltCorrect.TiltCompensateMode
   Value: '0'
   Source: SourceFile:0
-- ID: Property:24
-  Name: FEI_HELIOS.Scan.FrameTime
-  Value: '"2min52s"'
-  Source: SourceFile:0
-- ID: Property:25
-  Name: FEI_HELIOS.Beam.HFW
-  Value: '"21.12µm"'
-  Source: SourceFile:0
-- ID: Property:29
+- ID: Property:27
   Name: FEI_HELIOS.User.BottomInfoShowEnable
   Value: '2038'
   SchemaPath: Experimenter.BottomInfoShowEnable
   Source: SourceFile:0
-- ID: Property:30
+- ID: Property:28
   Name: FEI_HELIOS.User.DateTimeFmt
   Value: '"yyyy/MM/dd HH:mm:ss"'
   SchemaPath: Experimenter.DateTimeFmt
   Source: SourceFile:0
-- ID: Property:31
+- ID: Property:29
   Name: FEI_HELIOS.User.MagType
   Value: '1'
   SchemaPath: Experimenter.MagType
   Source: SourceFile:0
-- ID: Property:32
+- ID: Property:30
   Name: FEI_HELIOS.User.RulerText
   Value: '"SEM4000X"'
   SchemaPath: Experimenter.RulerText
   Source: SourceFile:0
-- ID: Property:33
-  Name: FEI_HELIOS.User.TimeStamp
-  Value: '1784735089'
-  SchemaPath: Experimenter.TimeStamp
-  Source: SourceFile:0
-- ID: Property:34
+- ID: Property:31
   Name: FEI_HELIOS.User.VacuumType
   Value: '0'
   SchemaPath: Experimenter.VacuumType

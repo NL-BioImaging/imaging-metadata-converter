@@ -22,9 +22,6 @@ Objective:
   Magnification: 6000.0
 GenericDetector:
   Name: ''
-ExposureTime:
-- 41
-- 5000
 Plane:
   ExposureTime: 0.0082
   ExposureTimeUnit: s
@@ -50,8 +47,6 @@ SourceMap:
   - OlympusSIS.pixelsizex
   Pixels.PhysicalSizeYUnit:
   - OlympusSIS.pixelsizey
-  ExposureTime[0]: ExposureTime[0]
-  ExposureTime[1]: ExposureTime[1]
   Plane.ExposureTime:
   - ExposureTime[0]
   - ExposureTime[1]

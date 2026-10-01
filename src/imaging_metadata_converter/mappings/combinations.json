@@ -123,5 +123,173 @@
         ],
         "format": "ratio",
         "unit": "s"
+    },
+    {
+        "target": "FNumber",
+        "sources": [
+            "FNumber[0]",
+            "FNumber[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "CompressedBitsPerPixel",
+        "sources": [
+            "CompressedBitsPerPixel[0]",
+            "CompressedBitsPerPixel[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "ShutterSpeedValue",
+        "sources": [
+            "ShutterSpeedValue[0]",
+            "ShutterSpeedValue[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "ApertureValue",
+        "sources": [
+            "ApertureValue[0]",
+            "ApertureValue[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "BrightnessValue",
+        "sources": [
+            "BrightnessValue[0]",
+            "BrightnessValue[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "ExposureBiasValue",
+        "sources": [
+            "ExposureBiasValue[0]",
+            "ExposureBiasValue[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "MaxApertureValue",
+        "sources": [
+            "MaxApertureValue[0]",
+            "MaxApertureValue[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "SubjectDistance",
+        "sources": [
+            "SubjectDistance[0]",
+            "SubjectDistance[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "FocalLength",
+        "sources": [
+            "FocalLength[0]",
+            "FocalLength[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "FlashEnergy",
+        "sources": [
+            "FlashEnergy[0]",
+            "FlashEnergy[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "FocalPlaneXResolution",
+        "sources": [
+            "FocalPlaneXResolution[0]",
+            "FocalPlaneXResolution[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "FocalPlaneYResolution",
+        "sources": [
+            "FocalPlaneYResolution[0]",
+            "FocalPlaneYResolution[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "ExposureIndex",
+        "sources": [
+            "ExposureIndex[0]",
+            "ExposureIndex[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "DigitalZoomRatio",
+        "sources": [
+            "DigitalZoomRatio[0]",
+            "DigitalZoomRatio[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "Gamma",
+        "sources": [
+            "Gamma[0]",
+            "Gamma[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "Temperature",
+        "sources": [
+            "Temperature[0]",
+            "Temperature[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "Humidity",
+        "sources": [
+            "Humidity[0]",
+            "Humidity[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "Pressure",
+        "sources": [
+            "Pressure[0]",
+            "Pressure[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "WaterDepth",
+        "sources": [
+            "WaterDepth[0]",
+            "WaterDepth[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "Acceleration",
+        "sources": [
+            "Acceleration[0]",
+            "Acceleration[1]"
+        ],
+        "format": "ratio"
+    },
+    {
+        "target": "CameraElevationAngle",
+        "sources": [
+            "CameraElevationAngle[0]",
+            "CameraElevationAngle[1]"
+        ],
+        "format": "ratio"
     }
 ]

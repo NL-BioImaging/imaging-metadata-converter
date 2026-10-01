@@ -4,8 +4,9 @@ The converted output carries a SourceMap of {output path: source path} for
 every leaf. The check is exact: each source leaf must sit, with the same
 value and type (so 1, 1.0, True and "1" stay distinct), at the output path
 the SourceMap records for it, so both the value and its original key path
-are recoverable from the output alone. Nulls and empty dicts and lists count
-as leaves. The same holds for the metaseed dataset scripts/dataset_exporter.py
+are recoverable from the output alone, or a value derived from it names it
+(combinations.json: a date from its date and time parts holds them, so they
+go). Nulls and empty dicts and lists count as leaves. The same holds for the metaseed dataset scripts/dataset_exporter.py
 makes of the output.
 """
 
@@ -65,8 +66,9 @@ def missing_metadata(source, converted):
     source_nodes = {path: (key, value) for path, key, value in nodes(source)}
     problems = []
 
-    # a value combined from several parts (combinations.json) is extra: it recovers none of its parts
+    # a value combined from parts (combinations.json) holds them, in place of the parts themselves
     derived = {output_path: parts for output_path, parts in source_map.items() if isinstance(parts, list)}
+    derived_parts = {part for parts in derived.values() for part in parts}
     for output_path, parts in derived.items():
         if output_path not in output:
             problems.append(f'SourceMap names {output_path}, which holds no value')
@@ -88,7 +90,7 @@ def missing_metadata(source, converted):
                             f'but its source {source_path} holds {typed(source_nodes[source_path][1])}')
 
     for source_path, (_, value) in source_nodes.items():
-        if is_leaf(value) and source_path not in placed:
+        if is_leaf(value) and source_path not in placed and source_path not in derived_parts:
             problems.append(f'{source_path} = {typed(value)} is missing from the output')
     for output_path in output:
         if output_path not in source_map:
@@ -99,11 +101,10 @@ def missing_metadata(source, converted):
 class MissingMetadataTest(unittest.TestCase):
     """The check itself must catch each way metadata can go missing."""
 
-    def test_derived_value_does_not_count_as_keeping_its_parts(self):
-        source = {'Date': '10/19/15', 'Time': '17:18:12'}
-        converted = {'Date': '10/19/15', 'D': '2015-10-19T17:18:12',
-                     SOURCE_MAP_KEY: {'Date': 'Date', 'D': ['Date', 'Time']}}
-        self.assertEqual(missing_metadata(source, converted), ["Time = ('str', \"'17:18:12'\") is missing from the output"])
+    def test_derived_value_keeps_only_the_parts_it_names(self):
+        source = {'Date': '10/19/15', 'Time': '17:18:12', 'Zone': 'GMT'}
+        converted = {'D': '2015-10-19T17:18:12', SOURCE_MAP_KEY: {'D': ['Date', 'Time']}}
+        self.assertEqual(missing_metadata(source, converted), ["Zone = ('str', \"'GMT'\") is missing from the output"])
 
     def test_derived_value_from_an_unknown_part_is_caught(self):
         converted = {'A': 1, 'D': 'x', SOURCE_MAP_KEY: {'A': 'A', 'D': ['A', 'Nope']}}
@@ -167,7 +168,7 @@ class NoDataLossTest(unittest.TestCase):
 
 def recovered_from_dataset(dataset):
     """({source path: [values]}, [derived-from part lists]) as the dataset records them, from its
-    SourceMappings and Properties; a combined value is derived and recovers none of its parts."""
+    SourceMappings and Properties; a combined value is derived from the parts it names."""
     values = {path: value for path, _, value in nodes(dataset)}
     recovered = {}
     derived = []
@@ -200,7 +201,7 @@ def missing_from_dataset(source, dataset):
         expected = value if is_leaf(value) else key
         if path in recovered and typed(recovered[path][0]) != typed(expected):
             problems.append(f'{path} holds {typed(recovered[path][0])}, but the source holds {typed(expected)}')
-        elif path not in recovered and is_leaf(value):
+        elif path not in recovered and is_leaf(value) and not any(path in parts for parts in derived):
             problems.append(f'{path} = {typed(value)} is missing from the dataset')
     problems += [f'dataset records unknown source path {path}' for path in recovered if path not in source_nodes]
     return problems
@@ -221,10 +222,10 @@ class DatasetNoDataLossTest(unittest.TestCase):
         self.assertEqual(missing_from_dataset({'MPP': 0.5}, {'X': 0.5, 'Y': 0.6, 'S': {'Mapping': mappings}}),
                          ['MPP is recorded with different values'])
 
-    def test_missing_from_dataset_does_not_recover_parts_from_a_derived_value(self):
+    def test_missing_from_dataset_takes_a_derived_value_for_the_parts_it_names(self):
         mapping = {'Field': 'D', 'Source': 'Date + Time', 'DerivedFrom': ['Date', 'Time']}
-        problems = missing_from_dataset({'Date': 'd', 'Time': 't'}, {'D': 'x', 'S': {'Mapping': [mapping]}})
-        self.assertEqual(len(problems), 2)
+        problems = missing_from_dataset({'Date': 'd', 'Time': 't', 'Zone': 'z'}, {'D': 'x', 'S': {'Mapping': [mapping]}})
+        self.assertEqual(problems, ["Zone = ('str', \"'z'\") is missing from the dataset"])
 
     def test_missing_from_dataset_recovers_a_respelled_value_from_its_source_value(self):
         mapping = {'Field': 'U', 'Source': 'unit', 'SourceValue': '"um"'}

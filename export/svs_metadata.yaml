@@ -99,54 +99,34 @@ CustomProperties:
   Value: '18489'
   Source: SourceFile:0
 - ID: Property:5
-  Name: Date
-  Value: '"10/19/15"'
-  Source: SourceFile:0
-- ID: Property:6
-  Name: Time
-  Value: '"17:18:12"'
-  Source: SourceFile:0
-- ID: Property:7
-  Name: Time Zone
-  Value: '"GMT-05:00"'
-  Source: SourceFile:0
-- ID: Property:8
   Name: User
   Value: '"08e1f1aa-01fa-41e5-aa13-9af07029387e"'
   Source: SourceFile:0
-- ID: Property:9
+- ID: Property:6
   Name: LineCameraSkew
   Value: '0.001055'
   Source: SourceFile:0
-- ID: Property:10
+- ID: Property:7
   Name: LineAreaXOffset
   Value: '0.01646'
   Source: SourceFile:0
-- ID: Property:11
+- ID: Property:8
   Name: LineAreaYOffset
   Value: '-0.009263'
   Source: SourceFile:0
-- ID: Property:12
+- ID: Property:9
   Name: Focus Offset
   Value: '-0.0005'
   Source: SourceFile:0
-- ID: Property:13
+- ID: Property:10
   Name: DSR ID
   Value: '"129.112.7.45"'
   Source: SourceFile:0
-- ID: Property:14
-  Name: Exposure Time
-  Value: '109'
-  Source: SourceFile:0
-- ID: Property:15
-  Name: Exposure Scale
-  Value: 1e-06
-  Source: SourceFile:0
-- ID: Property:16
+- ID: Property:11
   Name: DisplayColor
   Value: '0'
   Source: SourceFile:0
-- ID: Property:17
+- ID: Property:12
   Name: ICC Profile
   Value: '"ScanScope v1"'
   Source: SourceFile:0

@@ -106,11 +106,3 @@ CustomProperties:
   Name: ExposureMode
   Value: '1'
   Source: SourceFile:0
-- ID: Property:6
-  Name: ExposureTime[0]
-  Value: '41'
-  Source: SourceFile:0
-- ID: Property:7
-  Name: ExposureTime[1]
-  Value: '5000'
-  Source: SourceFile:0

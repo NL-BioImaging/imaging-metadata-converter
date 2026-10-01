@@ -155,7 +155,9 @@ class RuleTargetsTest(unittest.TestCase):
         with open(os.path.join(REPO_ROOT, DEFAULT_COMBINATIONS_FILE), encoding='utf-8') as file:
             combinations = json.load(file)
         targets = [target for rule in mappings.values() for target in rule_targets(rule)]
-        targets += [combination['target'] for combination in combinations]
+        # a combination turning its parts into their number in place (an Exif rational) targets its own key
+        targets += [combination['target'] for combination in combinations
+                    if not all(source.startswith(f"{combination['target']}[") for source in combination['sources'])]
         model = ModelPaths()
         # a per-item target (Pixels.Channel[*].Fluorophore...) runs through nested classes the tree lists apart
         # a field of each item a "Target[]" rule collapses (GenericDetector[].Name) is that class's field
@@ -181,11 +183,11 @@ def _nested_path(model, target):
 class LosslessMappingTest(unittest.TestCase):
     """Collisions, empty values and collapsed keys must never drop metadata."""
 
-    def mapper_for(self, mappings, combinations=()):
+    def mapper_for(self, mappings, combinations=(), schema=None):
         directory = tempfile.mkdtemp()
         self.addCleanup(shutil.rmtree, directory)
         files = {}
-        for name, content in (('schema', {}), ('mappings', mappings), ('combinations', list(combinations))):
+        for name, content in (('schema', schema or {}), ('mappings', mappings), ('combinations', list(combinations))):
             files[name] = os.path.join(directory, f'{name}.json')
             with open(files[name], 'w', encoding='utf-8') as file:
                 json.dump(content, file)
@@ -345,15 +347,15 @@ class LosslessMappingTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             mapper.convert_metadata({'Beam': {'WD': 1}})
 
-    def test_combination_adds_an_iso_timestamp_and_keeps_its_parts(self):
+    def test_combination_adds_an_iso_timestamp_in_place_of_its_parts(self):
         mapper = self.mapper_for({}, [{'target': 'Image.AcquisitionDate', 'sources': ['Date', 'Time', 'Time Zone'],
                                        'format': '%m/%d/%y %H:%M:%S GMT%z'}])
 
         converted = mapper.convert_metadata({'Date': '10/19/15', 'Time': '17:18:12', 'Time Zone': 'GMT-05:00'})
 
         self.assertEqual(converted['Image'], {'AcquisitionDate': '2015-10-19T17:18:12-05:00'})
-        self.assertEqual([converted[key] for key in ('Date', 'Time', 'Time Zone')], ['10/19/15', '17:18:12', 'GMT-05:00'])
-        self.assertEqual(converted['SourceMap']['Image.AcquisitionDate'], ['Date', 'Time', 'Time Zone'])
+        self.assertEqual(converted['SourceMap'], {'Image.AcquisitionDate': ['Date', 'Time', 'Time Zone']})
+        self.assertEqual(set(converted), {'Image', 'SourceMap'})
 
     def test_combination_is_left_out_when_a_part_is_missing_or_does_not_parse(self):
         mapper = self.mapper_for({}, [{'target': 'D', 'sources': ['Date', 'Time'], 'format': '%m/%d/%y %H:%M:%S'}])
@@ -371,7 +373,7 @@ class LosslessMappingTest(unittest.TestCase):
         converted = mapper.convert_metadata({'View': {'size': '1100 1100 1150', 'voxel': '0.325 0.325 0.325'}})
 
         self.assertEqual(converted['Pixels'], {'SizeX': 1100, 'SizeY': 1100, 'SizeZ': 1150, 'PhysicalSizeX': 0.325})
-        self.assertEqual(converted['View'], {'size': '1100 1100 1150', 'voxel': '0.325 0.325 0.325'})
+        self.assertNotIn('View', converted)
         self.assertEqual(converted['SourceMap']['Pixels.SizeZ'], [source])
 
     def test_count_combination_gives_the_number_of_a_range(self):
@@ -390,9 +392,9 @@ class LosslessMappingTest(unittest.TestCase):
         converted = mapper.convert_metadata({'FrameTime': '2min52s'})
 
         self.assertEqual(converted['Scan'], {'FrameTime': {'Value': 172, 'Unit': 's'}})
-        # the raw text is kept at its source path, the derived value names it
-        self.assertEqual(converted['FrameTime'], '2min52s')
-        self.assertEqual(converted['SourceMap']['FrameTime'], 'FrameTime')
+        # the raw text goes, the derived value names it
+        self.assertNotIn('FrameTime', converted)
+        self.assertNotIn('FrameTime', converted['SourceMap'])
         self.assertEqual(converted['SourceMap']['Scan.FrameTime.Value'], ['FrameTime'])
         self.assertEqual(converted['SourceMap']['Scan.FrameTime.Unit'], ['FrameTime'])
 
@@ -430,11 +432,9 @@ class LosslessMappingTest(unittest.TestCase):
 
         converted = mapper.convert_metadata({'ExposureTime': [41, 5000]})
 
-        self.assertEqual(converted['Plane'], {'ExposureTime': 0.0082, 'ExposureTimeUnit': 's'})
-        self.assertEqual(converted['ExposureTime'], [41, 5000])
-        self.assertEqual(converted['SourceMap']['ExposureTime[1]'], 'ExposureTime[1]')
-        self.assertEqual(converted['SourceMap']['Plane.ExposureTime'], ['ExposureTime[0]', 'ExposureTime[1]'])
-        self.assertNotIn('Plane.ExposureTime[0]', converted['SourceMap'])
+        self.assertEqual(converted, {'Plane': {'ExposureTime': 0.0082, 'ExposureTimeUnit': 's'}, 'SourceMap': {
+            'Plane.ExposureTime': ['ExposureTime[0]', 'ExposureTime[1]'],
+            'Plane.ExposureTimeUnit': ['ExposureTime[0]', 'ExposureTime[1]']}})
 
     def test_tuple_converts_as_the_list_json_would_give(self):
         mapper = self.mapper_for({'Spacing[0]': 'Pixels.PhysicalSizeY'},
@@ -446,7 +446,43 @@ class LosslessMappingTest(unittest.TestCase):
 
         self.assertEqual(converted, mapper.convert_metadata(json.loads(json.dumps(metadata))))
         self.assertEqual(converted['Plane'], {'ExposureTime': 0.0082, 'ExposureTimeUnit': 's'})
-        self.assertEqual(converted['ExposureTime'], [41, 5000])
+        self.assertNotIn('ExposureTime', converted)
+
+    def test_ratio_combination_turns_a_rational_into_its_number_in_place(self):
+        mapper = self.mapper_for({}, [{'target': 'FNumber', 'sources': ['FNumber[0]', 'FNumber[1]'],
+                                       'format': 'ratio'}])
+
+        converted = mapper.convert_metadata({'FNumber': (28, 10)})
+
+        self.assertEqual(converted, {'FNumber': 2.8, 'SourceMap': {'FNumber': ['FNumber[0]', 'FNumber[1]']}})
+
+    def test_part_stays_where_a_combination_naming_it_writes_nothing(self):
+        mapper = self.mapper_for({'Stamp': 'D'}, [{'target': 'E', 'sources': ['Date'], 'format': '%m/%d/%y'},
+                                                  {'target': 'D', 'sources': ['Date'], 'format': '%m/%d/%y'}])
+
+        converted = mapper.convert_metadata({'Stamp': 'kept', 'Date': '10/19/15'})
+
+        self.assertEqual(converted['Date'], '10/19/15')
+        self.assertEqual(converted['E'], '2015-10-19T00:00:00')
+
+    def test_count_keeps_its_parts(self):
+        mapper = self.mapper_for({}, [{'target': 'Pixels.SizeT', 'sources': ['Time.first', 'Time.last'],
+                                       'format': 'count'}])
+
+        self.assertEqual(mapper.convert_metadata({'Time': {'first': 3, 'last': 4}})['Time'], {'first': 3, 'last': 4})
+
+    def test_part_a_rule_placed_in_a_model_field_stays(self):
+        mapper = self.mapper_for({'Date': 'Image.Date', 'User.*': 'Experimenter'},
+                                 [{'target': 'D', 'sources': ['Date'], 'format': '%m/%d/%y'},
+                                  {'target': 'E', 'sources': ['User.TimeStamp'], 'format': 'unix'}],
+                                 schema={'Image': {'Date': 'string'}, 'Experimenter': {'UserName': 'string'}})
+
+        converted = mapper.convert_metadata({'Date': '10/19/15', 'User': {'TimeStamp': 1683922216, 'Name': 'x'}})
+
+        self.assertEqual(converted['Image'], {'Date': '10/19/15'})
+        self.assertEqual(converted['D'], '2015-10-19T00:00:00')
+        # a rule moving a part to no model field only renamed it: the derived value holds it
+        self.assertEqual(converted['Experimenter'], {'Name': 'x'})
 
     def test_ratio_combination_is_left_out_without_a_divisor(self):
         mapper = self.mapper_for({}, [{'target': 'R', 'sources': ['Q[0]', 'Q[1]'], 'format': 'ratio'}])
@@ -614,10 +650,11 @@ class LosslessMappingTest(unittest.TestCase):
 
         converted = mapper.convert_metadata({'Acquired': {'DateTime': '0'}, 'Started': {'DateTime': '1683922216'}})
 
-        # "0" is TALOS's unset time: the second timestamp fills the date, and both originals stay
+        # "0" is TALOS's unset time: the second timestamp fills the date and goes, the unset one stays
         self.assertEqual(converted['Image'], {'AcquisitionDate': '2023-05-12T20:10:16+00:00'})
         self.assertEqual(converted['SourceMap']['Image.AcquisitionDate'], ['Started.DateTime'])
-        self.assertEqual((converted['Acquired'], converted['Started']), ({'DateTime': '0'}, {'DateTime': '1683922216'}))
+        self.assertEqual(converted['Acquired'], {'DateTime': '0'})
+        self.assertNotIn('Started', converted)
 
     def test_wrapped_value_colliding_with_a_top_level_one_is_kept(self):
         mapper = self.mapper_for({'DateTime': 'Image.AcquisitionDate', 'datetime': 'Image.AcquisitionDate'})

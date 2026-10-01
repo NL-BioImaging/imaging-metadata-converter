@@ -74,11 +74,11 @@ Image:
     PhysicalSizeZ: 0.325
     SizeT: 1
   CustomProperties:
-  - ID: Property:9
+  - ID: Property:7
     Name: SpimData.SequenceDescription.ViewSetups.Attributes.Channel.id
     Value: '1'
     Source: SourceFile:0
-  - ID: Property:10
+  - ID: Property:8
     Name: SpimData.SequenceDescription.ViewSetups.Attributes.Channel.name
     Value: '1'
     Source: SourceFile:0
@@ -109,50 +109,42 @@ CustomProperties:
   Value: '0'
   Source: SourceFile:0
 - ID: Property:6
-  Name: SpimData.SequenceDescription.ViewSetups.ViewSetup.size
-  Value: '"1100 1100 1150"'
-  Source: SourceFile:0
-- ID: Property:7
-  Name: SpimData.SequenceDescription.ViewSetups.ViewSetup.voxelSize.size
-  Value: '"0.325 0.325 0.325"'
-  Source: SourceFile:0
-- ID: Property:8
   Name: SpimData.SequenceDescription.ViewSetups.ViewSetup.attributes.channel
   Value: '1'
   Source: SourceFile:0
-- ID: Property:11
+- ID: Property:9
   Name: SpimData.SequenceDescription.ViewSetups.Attributes.name
   Value: '"channel"'
   Source: SourceFile:0
-- ID: Property:12
+- ID: Property:10
   Name: SpimData.SequenceDescription.Timepoints.first
   Value: '0'
   Source: SourceFile:0
-- ID: Property:13
+- ID: Property:11
   Name: SpimData.SequenceDescription.Timepoints.last
   Value: '0'
   Source: SourceFile:0
-- ID: Property:14
+- ID: Property:12
   Name: SpimData.SequenceDescription.Timepoints.type
   Value: '"range"'
   Source: SourceFile:0
-- ID: Property:15
+- ID: Property:13
   Name: SpimData.ViewRegistrations.ViewRegistration.ViewTransform.affine
   Value: '"0.325 0.0 0.0 0.0 0.0 0.325 0.0 0.0 0.0 0.0 0.325 0.0"'
   Source: SourceFile:0
-- ID: Property:16
+- ID: Property:14
   Name: SpimData.ViewRegistrations.ViewRegistration.ViewTransform.type
   Value: '"affine"'
   Source: SourceFile:0
-- ID: Property:17
+- ID: Property:15
   Name: SpimData.ViewRegistrations.ViewRegistration.timepoint
   Value: '0'
   Source: SourceFile:0
-- ID: Property:18
+- ID: Property:16
   Name: SpimData.ViewRegistrations.ViewRegistration.setup
   Value: '0'
   Source: SourceFile:0
-- ID: Property:19
+- ID: Property:17
   Name: SpimData.version
   Value: '0.2'
   Source: SourceFile:0

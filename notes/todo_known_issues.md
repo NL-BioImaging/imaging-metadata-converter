@@ -107,7 +107,7 @@ metaseed's containment order (each after every entity nesting it).
 - TALOS: AcquisitionDatetime and AcquisitionStartDatetime are Unix timestamps; combinations.json converts them
   (format "unix", seconds since 1970, UTC) into Image.AcquisitionDate, AcquisitionDatetime first. A "0" is an
   unset time, not converted, so TALOS's date comes from AcquisitionStartDatetime (2023-05-12T20:10:16+00:00,
-  2022-03-09T17:43:42+00:00); the raw timestamps stay Properties, as every combination's parts do.
+  2022-03-09T17:43:42+00:00); the "0" stays a Property, the converted timestamp goes (the date holds it).
 - ome-tiff: OME's ObjectiveSettings Medium "Oil" fits no LiMi ImmersionLiquidType (Mineral Oil, Silicone
   Oil, ...), and is not guessed. The objective's own ImmersionType takes "Oil" since 2026-09-30: OME's value,
   added to ImmersionTypeList, not a guess at the kind of oil.
