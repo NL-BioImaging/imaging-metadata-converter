@@ -555,6 +555,7 @@ class AcquisitionMetadataMapper:
         """
         if not isinstance(metadata, dict):
             raise TypeError('metadata must be a dict')
+        metadata = as_lists(metadata)
 
         provenance = {}
         result = {}
@@ -654,6 +655,16 @@ class AcquisitionMetadataMapper:
 
         walk({key: value for key, value in converted.items() if key != SOURCE_MAP_KEY})
         return unmatched
+
+
+def as_lists(value):
+    """`value` with every tuple in it a list, as it would read from JSON: tifffile gives Exif's fractions as
+    tuples ((41, 5000)), which the rules and combinations, written against the JSON examples, take as lists."""
+    if isinstance(value, dict):
+        return {key: as_lists(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [as_lists(item) for item in value]
+    return value
 
 
 def rule_targets(target):

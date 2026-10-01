@@ -436,6 +436,18 @@ class LosslessMappingTest(unittest.TestCase):
         self.assertEqual(converted['SourceMap']['Plane.ExposureTime'], ['ExposureTime[0]', 'ExposureTime[1]'])
         self.assertNotIn('Plane.ExposureTime[0]', converted['SourceMap'])
 
+    def test_tuple_converts_as_the_list_json_would_give(self):
+        mapper = self.mapper_for({'Spacing[0]': 'Pixels.PhysicalSizeY'},
+                                 [{'target': 'Plane.ExposureTime', 'sources': ['ExposureTime[0]', 'ExposureTime[1]'],
+                                   'format': 'ratio', 'unit': 's'}])
+        metadata = {'ExposureTime': (41, 5000), 'Spacing': (0.5, 0.25), 'Nested': {'Pairs': [(1, 2)]}}
+
+        converted = mapper.convert_metadata(metadata)
+
+        self.assertEqual(converted, mapper.convert_metadata(json.loads(json.dumps(metadata))))
+        self.assertEqual(converted['Plane'], {'ExposureTime': 0.0082, 'ExposureTimeUnit': 's'})
+        self.assertEqual(converted['ExposureTime'], [41, 5000])
+
     def test_ratio_combination_is_left_out_without_a_divisor(self):
         mapper = self.mapper_for({}, [{'target': 'R', 'sources': ['Q[0]', 'Q[1]'], 'format': 'ratio'}])
 
