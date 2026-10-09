@@ -20,9 +20,8 @@ the browser always shows the model the package ships.
   its description and aliases
 
 It also fills in the pages' {{ model.<name> }} placeholders: the model's
-counts on model.md, so no number there is typed by hand, the model map
-(scripts/model_map.py) on model-map.md, so the map is never stored, and the
-examples' fit (scripts/model_fit.py) on model-fit.md.
+counts on model.md, so no number there is typed by hand, and the examples'
+fit (scripts/model_fit.py) on model-fit.md.
 
 mkdocs.yml loads it under `hooks:`.
 """
@@ -294,9 +293,6 @@ def on_files(files, config):
 def on_page_markdown(markdown, page, config, files):
     if page.file.src_uri == 'model.md':
         return fill(markdown, _model_data().counts())
-    if page.file.src_uri == 'model-map.md':
-        model_map = _load_script('model_map')
-        return fill(markdown, {'map': model_map.render(_model_data())})
     if page.file.src_uri == 'model-fit.md':
         model_fit = _load_script('model_fit')
         return fill(markdown, {'fit': model_fit.render(_model_data())})

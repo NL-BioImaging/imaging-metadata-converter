@@ -231,6 +231,20 @@ class AcquisitionMetadataMapperTest(unittest.TestCase):
         kept = converted['HardwareSetting']['CameraSettingDefinition']['WideFieldChannelConfigurator']
         self.assertEqual(kept, configurator)
 
+    def test_exif_make_and_model_are_the_cameras_where_camera_software_wrote_the_file(self):
+        exif = {'Make': 'EMSIS', 'Model': 'Xarosa'}
+
+        converted = self.mapper.convert_metadata({**exif, 'OlympusSIS': {'cameraname': ''}})
+
+        # EXIF names the recording equipment: here the camera, whose software's own block the file carries
+        self.assertEqual(converted['GenericDetector'], {'Manufacturer': 'EMSIS', 'Model': 'Xarosa'})
+        self.assertEqual(converted['SourceMap']['GenericDetector.Model'], 'Model')
+        self.assertNotIn('Instrument', converted)
+        # an empty camera name names nothing, and stays as the source has it
+        self.assertEqual(converted['OlympusSIS'], {'cameraname': ''})
+        # a file a whole system wrote names the instrument
+        self.assertEqual(self.mapper.convert_metadata(exif)['Instrument'], {'Manufacturer': 'EMSIS', 'Model': 'Xarosa'})
+
     def test_a_camera_name_is_the_cameras_model(self):
         converted = self.mapper.convert_metadata({'OlympusSIS': {'cameraname': 'Morada'}})
         self.assertEqual(converted['GenericDetector'], {'Model': 'Morada'})

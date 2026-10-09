@@ -1,6 +1,3 @@
-Instrument:
-  Manufacturer: EMSIS
-  Model: Xarosa
 ExifVersion: '0210'
 DateTimeDigitized: 2025:05:28 10:54:29
 MeteringMode: 1
@@ -21,7 +18,8 @@ Image:
 Objective:
   Magnification: 6000.0
 GenericDetector:
-  Model: ''
+  Manufacturer: EMSIS
+  Model: Xarosa
 ImageWidth: 5120
 ImageLength: 3840
 BitsPerSample:
@@ -35,14 +33,14 @@ Channel:
 ResolutionUnit: INCH
 DateTime: 2025:05:28 10:54:28
 Artist: XAROSA
+OlympusSIS:
+  cameraname: ''
 Plane:
   ExposureTime: 0.0082
   ExposureTimeUnit: s
 XResolution: 72.0
 YResolution: 72.0
 SourceMap:
-  Instrument.Manufacturer: Make
-  Instrument.Model: Model
   ExifVersion: ExifVersion
   DateTimeDigitized: DateTimeDigitized
   MeteringMode: MeteringMode
@@ -56,7 +54,6 @@ SourceMap:
   Pixels.PhysicalSizeX: OlympusSIS.pixelsizex
   Pixels.PhysicalSizeY: OlympusSIS.pixelsizey
   Objective.Magnification: OlympusSIS.magnification
-  GenericDetector.Model: OlympusSIS.cameraname
   Image.Type: OlympusSIS.picturetype
   ImageWidth: ImageWidth
   ImageLength: ImageLength
@@ -73,6 +70,9 @@ SourceMap:
   - OlympusSIS.pixelsizex
   Pixels.PhysicalSizeYUnit:
   - OlympusSIS.pixelsizey
+  GenericDetector.Manufacturer: Make
+  OlympusSIS.cameraname: OlympusSIS.cameraname
+  GenericDetector.Model: Model
   Plane.ExposureTime:
   - ExposureTime[0]
   - ExposureTime[1]

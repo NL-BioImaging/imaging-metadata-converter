@@ -15,7 +15,10 @@ Image:
     Bottom: 49533
   InvertedSignal: false
   BeamScanSettings:
-    LineAvg: 1
+    Integration:
+    - Unit: Line
+      Method: Average
+      Number: 1
     FieldOfView:
       X:
         Unit: um
@@ -110,7 +113,11 @@ SourceMap:
   LightPath.GenericDetectorSettings.Contrast: FibicsXML.Fibics.Image.Contrast
   LightPath.GenericDetectorSettings.Brightness: FibicsXML.Fibics.Image.Brightness
   Image.InvertedSignal: FibicsXML.Fibics.Image.InvertedSignal
-  Image.BeamScanSettings.LineAvg: FibicsXML.Fibics.Scan.LineAvg
+  Image.BeamScanSettings.Integration[0].Unit:
+  - FibicsXML.Fibics.Scan.LineAvg
+  Image.BeamScanSettings.Integration[0].Method:
+  - FibicsXML.Fibics.Scan.LineAvg
+  Image.BeamScanSettings.Integration[0].Number: FibicsXML.Fibics.Scan.LineAvg
   Image.BeamScanSettings.FieldOfView.X.Unit: FibicsXML.Fibics.Scan.FOV_X.units
   Image.BeamScanSettings.FieldOfView.X.Value: FibicsXML.Fibics.Scan.FOV_X.value
   Image.BeamScanSettings.FieldOfView.Y.Unit: FibicsXML.Fibics.Scan.FOV_Y.units

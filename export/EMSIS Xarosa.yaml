@@ -7,58 +7,55 @@ Image:
     Format: json
     Mapping:
     - ID: SourceMapping:0
-      Field: Instrument[0].Manufacturer
-      Source: Make
-    - ID: SourceMapping:1
-      Field: Instrument[0].Model
-      Source: Model
-    - ID: SourceMapping:2
       Field: Image[0].Pixels.SizeX
       Source: PixelXDimension
-    - ID: SourceMapping:3
+    - ID: SourceMapping:1
       Field: Image[0].Pixels.SizeY
       Source: PixelYDimension
-    - ID: SourceMapping:4
+    - ID: SourceMapping:2
       Field: Image[0].Pixels.PhysicalSizeX
       Source: OlympusSIS.pixelsizex
-    - ID: SourceMapping:5
+    - ID: SourceMapping:3
       Field: Image[0].Pixels.PhysicalSizeY
       Source: OlympusSIS.pixelsizey
-    - ID: SourceMapping:6
+    - ID: SourceMapping:4
       Field: Image[0].Pixels.PhysicalSizeXUnit
       Source: OlympusSIS.pixelsizex
       DerivedFrom:
       - OlympusSIS.pixelsizex
-    - ID: SourceMapping:7
+    - ID: SourceMapping:5
       Field: Image[0].Pixels.PhysicalSizeYUnit
       Source: OlympusSIS.pixelsizey
       DerivedFrom:
       - OlympusSIS.pixelsizey
-    - ID: SourceMapping:8
+    - ID: SourceMapping:6
       Field: Image[0].Name
       Source: OlympusSIS.name
-    - ID: SourceMapping:9
+    - ID: SourceMapping:7
       Field: Image[0].AcquisitionDate
       Source: OlympusSIS.datetime
-    - ID: SourceMapping:10
+    - ID: SourceMapping:8
       Field: Image[0].Type
       Source: OlympusSIS.picturetype
-    - ID: SourceMapping:11
+    - ID: SourceMapping:9
       Field: Instrument[0].Objective[0].Magnification
       Source: OlympusSIS.magnification
-    - ID: SourceMapping:12
+    - ID: SourceMapping:10
+      Field: Instrument[0].GenericDetector[0].Manufacturer
+      Source: Make
+    - ID: SourceMapping:11
       Field: Instrument[0].GenericDetector[0].Model
-      Source: OlympusSIS.cameraname
-    - ID: SourceMapping:13
+      Source: Model
+    - ID: SourceMapping:12
       Field: Image[0].Pixels.Channel[0].SamplesPerPixel
       Source: SamplesPerPixel
-    - ID: SourceMapping:14
+    - ID: SourceMapping:13
       Field: Image[0].Pixels.Plane[0].ExposureTime
       Source: ExposureTime[0] + ExposureTime[1]
       DerivedFrom:
       - ExposureTime[0]
       - ExposureTime[1]
-    - ID: SourceMapping:15
+    - ID: SourceMapping:14
       Field: Image[0].Pixels.Plane[0].ExposureTimeUnit
       Source: ExposureTime[0] + ExposureTime[1]
       DerivedFrom:
@@ -79,13 +76,6 @@ Image:
   Name: ''
   AcquisitionDate: '2025-05-28 10:54:00'
   Type: ''
-Instrument:
-- Manufacturer: EMSIS
-  Model: Xarosa
-  Objective:
-  - Magnification: 6000.0
-  GenericDetector:
-  - Model: ''
 CustomProperties:
 - ID: Property:0
   Name: ExifVersion
@@ -152,6 +142,10 @@ CustomProperties:
   Value: '"XAROSA"'
   Source: SourceFile:0
 - ID: Property:16
+  Name: OlympusSIS.cameraname
+  Value: '""'
+  Source: SourceFile:0
+- ID: Property:17
   Name: XResolution[0] + XResolution[1]
   DerivedFrom:
   - XResolution[0]
@@ -159,7 +153,7 @@ CustomProperties:
   Value: '72.0'
   SchemaPath: XResolution
   Source: SourceFile:0
-- ID: Property:17
+- ID: Property:18
   Name: YResolution[0] + YResolution[1]
   DerivedFrom:
   - YResolution[0]
@@ -167,3 +161,9 @@ CustomProperties:
   Value: '72.0'
   SchemaPath: YResolution
   Source: SourceFile:0
+Instrument:
+- Objective:
+  - Magnification: 6000.0
+  GenericDetector:
+  - Manufacturer: EMSIS
+    Model: Xarosa

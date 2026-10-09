@@ -47,9 +47,14 @@ Image:
     Condenser2: 1103
   BeamScanSettings:
     Drift: true
-    FramAdd: 1
+    Integration:
+    - Unit: Frame
+      Method: Sum
+      Number: 1
+    - Unit: Line
+      Method: Sum
+      Number: 1
     LineInterlacing: Disable
-    LineAdd: 1
     FrameTime: 149
     FrameTimeUnit: s
     FieldOfView:
@@ -170,9 +175,17 @@ SourceMap:
   Image.ElectronBeamSettings.HighVoltage.SchVoltage: FEI_HELIOS.HV.SchVoltage
   FEI_HELIOS.Other.BottomInfoVacuum: FEI_HELIOS.Other.BottomInfoVacuum
   Image.BeamScanSettings.Drift: FEI_HELIOS.Scan.Drift
-  Image.BeamScanSettings.FramAdd: FEI_HELIOS.Scan.FramAdd
+  Image.BeamScanSettings.Integration[0].Unit:
+  - FEI_HELIOS.Scan.FramAdd
+  Image.BeamScanSettings.Integration[0].Method:
+  - FEI_HELIOS.Scan.FramAdd
+  Image.BeamScanSettings.Integration[0].Number: FEI_HELIOS.Scan.FramAdd
   Image.BeamScanSettings.LineInterlacing: FEI_HELIOS.Scan.Interlaced
-  Image.BeamScanSettings.LineAdd: FEI_HELIOS.Scan.LineAdd
+  Image.BeamScanSettings.Integration[1].Unit:
+  - FEI_HELIOS.Scan.LineAdd
+  Image.BeamScanSettings.Integration[1].Method:
+  - FEI_HELIOS.Scan.LineAdd
+  Image.BeamScanSettings.Integration[1].Number: FEI_HELIOS.Scan.LineAdd
   Plane.PixelDwellTime: FEI_HELIOS.Scan.PointTime
   Pixels.SizeX: FEI_HELIOS.Scan.ResolutionX
   Pixels.SizeY: FEI_HELIOS.Scan.ResolutionY

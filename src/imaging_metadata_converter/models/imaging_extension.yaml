@@ -171,11 +171,6 @@ classes:
       Channel:
         range: integer
         annotations: {schema_extended_path: Detector.Channel}
-      Configuration:
-        multivalued: true
-        annotations: {schema_extended_path: Detector.Configuration, source_type: array}
-      ActiveConfiguration:
-        annotations: {schema_extended_path: Detector.ActiveConfiguration, source_type: object}
       CollectionAngle:
         description: The solid angle an analytical (X-ray) detector collects over.
         range: Quantity
@@ -445,9 +440,6 @@ classes:
         annotations: {schema_extended_path: ElectronOptics.ProjectorMode}
       GunLensSetting:
         annotations: {schema_extended_path: ElectronOptics.GunLensSetting}
-      Apertures:
-        multivalued: true
-        annotations: {schema_extended_path: ElectronOptics.Apertures, source_type: array}
       Condenser1:
         description: The setting of the first condenser lens (C1), on the vendor's own scale, e.g. a fraction of
           its full excitation or a number of steps; values of different vendors are not comparable.

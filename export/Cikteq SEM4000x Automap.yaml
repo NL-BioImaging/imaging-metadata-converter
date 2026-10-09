@@ -94,40 +94,66 @@ Image:
       Field: Image[0].ElectronOpticsSettings.Condenser2
       Source: FEI_HELIOS.Beam.Condenser2
     - ID: SourceMapping:28
+      Field: Image[0].BeamScanSettings.Integration[0].Unit
+      Source: FEI_HELIOS.Scan.FramAdd
+      DerivedFrom:
+      - FEI_HELIOS.Scan.FramAdd
+    - ID: SourceMapping:29
+      Field: Image[0].BeamScanSettings.Integration[0].Method
+      Source: FEI_HELIOS.Scan.FramAdd
+      DerivedFrom:
+      - FEI_HELIOS.Scan.FramAdd
+    - ID: SourceMapping:30
+      Field: Image[0].BeamScanSettings.Integration[0].Number
+      Source: FEI_HELIOS.Scan.FramAdd
+    - ID: SourceMapping:31
+      Field: Image[0].BeamScanSettings.Integration[1].Unit
+      Source: FEI_HELIOS.Scan.LineAdd
+      DerivedFrom:
+      - FEI_HELIOS.Scan.LineAdd
+    - ID: SourceMapping:32
+      Field: Image[0].BeamScanSettings.Integration[1].Method
+      Source: FEI_HELIOS.Scan.LineAdd
+      DerivedFrom:
+      - FEI_HELIOS.Scan.LineAdd
+    - ID: SourceMapping:33
+      Field: Image[0].BeamScanSettings.Integration[1].Number
+      Source: FEI_HELIOS.Scan.LineAdd
+    - ID: SourceMapping:34
       Field: Image[0].BeamScanSettings.FrameTime
       Source: FEI_HELIOS.Scan.FrameTime
       DerivedFrom:
       - FEI_HELIOS.Scan.FrameTime
-    - ID: SourceMapping:29
+    - ID: SourceMapping:35
       Field: Image[0].BeamScanSettings.FrameTimeUnit
       Source: FEI_HELIOS.Scan.FrameTime
       DerivedFrom:
       - FEI_HELIOS.Scan.FrameTime
-    - ID: SourceMapping:30
+    - ID: SourceMapping:36
       Field: Image[0].BeamScanSettings.FieldOfView.X.Value
       Source: FEI_HELIOS.Beam.HFW
       DerivedFrom:
       - FEI_HELIOS.Beam.HFW
-    - ID: SourceMapping:31
+    - ID: SourceMapping:37
       Field: Image[0].BeamScanSettings.FieldOfView.X.Unit
       Source: FEI_HELIOS.Beam.HFW
       DerivedFrom:
       - FEI_HELIOS.Beam.HFW
-    - ID: SourceMapping:32
+    - ID: SourceMapping:38
       Field: Image[0].AcquisitionDate
       Source: FEI_HELIOS.User.TimeStamp
       DerivedFrom:
       - FEI_HELIOS.User.TimeStamp
-    - ID: SourceMapping:33
+    - ID: SourceMapping:39
       Field: Image[0].Pixels.Channel[0].LightPath.GenericDetectorSettings[0].Brightness
       Source: FEI_HELIOS.Detector.Brightness
-    - ID: SourceMapping:34
+    - ID: SourceMapping:40
       Field: Image[0].Pixels.Channel[0].LightPath.GenericDetectorSettings[0].Contrast
       Source: FEI_HELIOS.Detector.Contrast
-    - ID: SourceMapping:35
+    - ID: SourceMapping:41
       Field: Image[0].Pixels.Channel[0].LightPath.GenericDetectorSettings[0].AnalogGain
       Source: FEI_HELIOS.Detector.Gain
-    - ID: SourceMapping:36
+    - ID: SourceMapping:42
       Field: Image[0].Pixels.Channel[0].LightPath.GenericDetectorSettings[0].ID
       Source: FEI_HELIOS.Detector.Channel + FEI_HELIOS.Detector.ConsumerBrightness
         + FEI_HELIOS.Detector.ConsumerContrast + FEI_HELIOS.Detector.DetectorName
@@ -138,13 +164,13 @@ Image:
       - FEI_HELIOS.Detector.ConsumerContrast
       - FEI_HELIOS.Detector.DetectorName
       - FEI_HELIOS.Detector.PMT
-    - ID: SourceMapping:37
+    - ID: SourceMapping:43
       Field: Instrument[0].GenericDetector[0].Channel
       Source: FEI_HELIOS.Detector.Channel
-    - ID: SourceMapping:38
+    - ID: SourceMapping:44
       Field: Instrument[0].GenericDetector[0].Name
       Source: FEI_HELIOS.Detector.DetectorName
-    - ID: SourceMapping:39
+    - ID: SourceMapping:45
       Field: Instrument[0].GenericDetector[0].ID
       Source: FEI_HELIOS.Detector.Channel + FEI_HELIOS.Detector.ConsumerBrightness
         + FEI_HELIOS.Detector.ConsumerContrast + FEI_HELIOS.Detector.DetectorName
@@ -155,79 +181,79 @@ Image:
       - FEI_HELIOS.Detector.ConsumerContrast
       - FEI_HELIOS.Detector.DetectorName
       - FEI_HELIOS.Detector.PMT
-    - ID: SourceMapping:40
+    - ID: SourceMapping:46
       Field: Image[0].Pixels.Plane[0].PixelDwellTime
       Source: FEI_HELIOS.Scan.PointTime
-    - ID: SourceMapping:41
+    - ID: SourceMapping:47
       Field: Image[0].Pixels.Plane[0].Rotation
       Source: FEI_HELIOS.Stage.StagePosR
-    - ID: SourceMapping:42
+    - ID: SourceMapping:48
       Field: Image[0].Pixels.Plane[0].Tilt
       Source: FEI_HELIOS.Stage.StagePosT
-    - ID: SourceMapping:43
+    - ID: SourceMapping:49
       Field: Image[0].Pixels.Plane[0].PositionX
       Source: FEI_HELIOS.Stage.StagePosX
-    - ID: SourceMapping:44
+    - ID: SourceMapping:50
       Field: Image[0].Pixels.Plane[0].PositionY
       Source: FEI_HELIOS.Stage.StagePosY
-    - ID: SourceMapping:45
+    - ID: SourceMapping:51
       Field: Image[0].Pixels.Plane[0].PositionZ
       Source: FEI_HELIOS.Stage.StagePosZ
-    - ID: SourceMapping:46
+    - ID: SourceMapping:52
       Field: Image[0].Pixels.Plane[0].PixelDwellTimeUnit
       Source: FEI_HELIOS.Scan.PointTime
       DerivedFrom:
       - FEI_HELIOS.Scan.PointTime
-    - ID: SourceMapping:47
+    - ID: SourceMapping:53
       Field: Image[0].Pixels.Plane[0].RotationUnit
       Source: FEI_HELIOS.Stage.StagePosR
       DerivedFrom:
       - FEI_HELIOS.Stage.StagePosR
-    - ID: SourceMapping:48
+    - ID: SourceMapping:54
       Field: Image[0].Pixels.Plane[0].TiltUnit
       Source: FEI_HELIOS.Stage.StagePosT
       DerivedFrom:
       - FEI_HELIOS.Stage.StagePosT
-    - ID: SourceMapping:49
+    - ID: SourceMapping:55
       Field: Image[0].Pixels.Plane[0].PositionXUnit
       Source: FEI_HELIOS.Stage.StagePosX
       DerivedFrom:
       - FEI_HELIOS.Stage.StagePosX
-    - ID: SourceMapping:50
+    - ID: SourceMapping:56
       Field: Image[0].Pixels.Plane[0].PositionYUnit
       Source: FEI_HELIOS.Stage.StagePosY
       DerivedFrom:
       - FEI_HELIOS.Stage.StagePosY
-    - ID: SourceMapping:51
+    - ID: SourceMapping:57
       Field: Image[0].Pixels.Plane[0].PositionZUnit
       Source: FEI_HELIOS.Stage.StagePosZ
       DerivedFrom:
       - FEI_HELIOS.Stage.StagePosZ
-    - ID: SourceMapping:52
+    - ID: SourceMapping:58
       Field: Image[0].Pixels.SizeX
       Source: FEI_HELIOS.Scan.ResolutionX
-    - ID: SourceMapping:53
+    - ID: SourceMapping:59
       Field: Image[0].Pixels.SizeY
       Source: FEI_HELIOS.Scan.ResolutionY
-    - ID: SourceMapping:54
+    - ID: SourceMapping:60
       Field: Instrument[0].Model
       Source: FEI_HELIOS.System.ProductName
-    - ID: SourceMapping:55
+    - ID: SourceMapping:61
       Field: Instrument[0].Vacuum.BufferVacuum
       Source: FEI_HELIOS.Vacuum.BufferVacuum
-    - ID: SourceMapping:56
+    - ID: SourceMapping:62
       Field: Instrument[0].Vacuum.GunVacuum
       Source: FEI_HELIOS.Vacuum.GunVacuum
-    - ID: SourceMapping:57
+    - ID: SourceMapping:63
       Field: Instrument[0].Vacuum.SampleVacuum
       Source: FEI_HELIOS.Vacuum.SampleVacuum
-    - ID: SourceMapping:58
+    - ID: SourceMapping:64
       Field: Instrument[0].AcquisitionSoftware[0].Version
       Source: FEI_HELIOS.System.SoftwareVersion
-    - ID: SourceMapping:59
+    - ID: SourceMapping:65
       Field: Experimenter[0].UserName
       Source: FEI_HELIOS.User.UserName
-    - ID: SourceMapping:60
+    - ID: SourceMapping:66
       Field: Image[0].Pixels.Channel[0].SamplesPerPixel
       Source: SamplesPerPixel
   ElectronBeamSettings:
@@ -324,24 +350,21 @@ Image:
     SchemaPath: Image.BeamScanSettings.Drift
     Source: SourceFile:0
   - ID: Property:12
-    Name: FEI_HELIOS.Scan.FramAdd
-    Value: '1'
-    SchemaPath: Image.BeamScanSettings.FramAdd
-    Source: SourceFile:0
-  - ID: Property:13
     Name: FEI_HELIOS.Scan.Interlaced
     Value: '"0/1"'
     SchemaPath: Image.BeamScanSettings.LineInterlacing
-    Source: SourceFile:0
-  - ID: Property:14
-    Name: FEI_HELIOS.Scan.LineAdd
-    Value: '1'
-    SchemaPath: Image.BeamScanSettings.LineAdd
     Source: SourceFile:0
   ElectronOpticsSettings:
     Condenser1: 1456
     Condenser2: 839
   BeamScanSettings:
+    Integration:
+    - Unit: Frame
+      Method: Sum
+      Number: 1
+    - Unit: Line
+      Method: Sum
+      Number: 1
     FrameTime: 172
     FrameTimeUnit: s
     FieldOfView:
@@ -379,32 +402,32 @@ Instrument:
     Name: STEM-USER
     ID: Detector:0
   CustomProperties:
-  - ID: Property:15
+  - ID: Property:13
     Name: FEI_HELIOS.Detector.ConsumerBrightness
     Value: '50.0'
     SchemaPath: GenericDetector.ConsumerBrightness
     Source: SourceFile:0
-  - ID: Property:16
+  - ID: Property:14
     Name: FEI_HELIOS.Detector.ConsumerContrast
     Value: '50.0'
     SchemaPath: GenericDetector.ConsumerContrast
     Source: SourceFile:0
-  - ID: Property:17
+  - ID: Property:15
     Name: FEI_HELIOS.Detector.PMT
     Value: '0.33'
     SchemaPath: GenericDetector.PMT
     Source: SourceFile:0
-  - ID: Property:24
+  - ID: Property:22
     Name: FEI_HELIOS.Stage.NavCoordinate
     Value: '1'
     SchemaPath: MechanicalStage.NavCoordinate
     Source: SourceFile:0
-  - ID: Property:25
+  - ID: Property:23
     Name: FEI_HELIOS.Stage.StageType
     Value: '"TMCM-GYLZ-4000X-FIVE-110x110x69"'
     SchemaPath: MechanicalStage.StageType
     Source: SourceFile:0
-  - ID: Property:26
+  - ID: Property:24
     Name: FEI_HELIOS.System.Version
     Value: '2.6'
     SchemaPath: Instrument.Version
@@ -419,72 +442,72 @@ Instrument:
   AcquisitionSoftware:
   - Version: 3.2.3.300
 CustomProperties:
-- ID: Property:18
+- ID: Property:16
   Name: FEI_HELIOS.Other.BottomInfoVacuum
   Value: '"1.2e-07Pa"'
   Source: SourceFile:0
-- ID: Property:19
+- ID: Property:17
   Name: FEI_HELIOS.TiltCorrect.CorrectAngle
   Value: '0.0'
   Source: SourceFile:0
-- ID: Property:20
+- ID: Property:18
   Name: FEI_HELIOS.TiltCorrect.IonWorkTilt
   Value: '54.0'
   Source: SourceFile:0
-- ID: Property:21
+- ID: Property:19
   Name: FEI_HELIOS.TiltCorrect.IsTiltCorrent
   Value: 'false'
   Source: SourceFile:0
-- ID: Property:22
+- ID: Property:20
   Name: FEI_HELIOS.TiltCorrect.PreTiltAngle
   Value: '0.0'
   Source: SourceFile:0
-- ID: Property:23
+- ID: Property:21
   Name: FEI_HELIOS.TiltCorrect.TiltCompensateMode
   Value: '0'
   Source: SourceFile:0
-- ID: Property:27
+- ID: Property:25
   Name: FEI_HELIOS.User.BottomInfoShowEnable
   Value: '2038'
   SchemaPath: Experimenter.BottomInfoShowEnable
   Source: SourceFile:0
-- ID: Property:28
+- ID: Property:26
   Name: FEI_HELIOS.User.DateTimeFmt
   Value: '"yyyy/MM/dd HH:mm:ss"'
   SchemaPath: Experimenter.DateTimeFmt
   Source: SourceFile:0
-- ID: Property:29
+- ID: Property:27
   Name: FEI_HELIOS.User.MagType
   Value: '1'
   SchemaPath: Experimenter.MagType
   Source: SourceFile:0
-- ID: Property:30
+- ID: Property:28
   Name: FEI_HELIOS.User.RulerText
   Value: '"SEM4000X"'
   SchemaPath: Experimenter.RulerText
   Source: SourceFile:0
-- ID: Property:31
+- ID: Property:29
   Name: FEI_HELIOS.User.VacuumType
   Value: '0'
   SchemaPath: Experimenter.VacuumType
   Source: SourceFile:0
-- ID: Property:32
+- ID: Property:30
   Name: ImageWidth
   Value: '8448'
   Source: SourceFile:0
-- ID: Property:33
+- ID: Property:31
   Name: ImageLength
   Value: '5632'
   Source: SourceFile:0
-- ID: Property:34
+- ID: Property:32
   Name: BitsPerSample
   Value: '8'
   Source: SourceFile:0
-- ID: Property:35
+- ID: Property:33
   Name: PhotometricInterpretation
   Value: '"MINISBLACK"'
   Source: SourceFile:0
-- ID: Property:36
+- ID: Property:34
   Name: ResolutionUnit
   Value: '"INCH"'
   Source: SourceFile:0

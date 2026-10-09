@@ -31,11 +31,11 @@ model.
 
 - **[The model](model.md)** — browse the model interactively: every field, its
   range, whether it extends LiMi, and which source paths map to it.
+- **[How the mapping works](mapping.md)** — the rule forms, matching by name,
+  vendor wrappers, combinations, the vendor steps and the SourceMap, with
+  examples.
 - **[API reference](reference.md)** — `AcquisitionMetadataMapper`,
   `convert_metadata` and `ModelPaths`.
-- The [README](https://github.com/NL-BioImaging/imaging-metadata-converter#readme)
-  covers the mapping rule forms, vendor tag unwrapping and matching details in
-  full.
 
 ## Installation
 

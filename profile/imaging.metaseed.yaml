@@ -18807,15 +18807,6 @@ entities:
       type: integer
       required: false
       tier: required
-    - name: Configuration
-      type: list
-      items: string
-      required: false
-      tier: required
-    - name: ActiveConfiguration
-      type: string
-      required: false
-      tier: required
     - name: CollectionAngle
       type: entity
       required: false
@@ -19238,15 +19229,6 @@ entities:
       type: integer
       required: false
       tier: required
-    - name: Configuration
-      type: list
-      items: string
-      required: false
-      tier: required
-    - name: ActiveConfiguration
-      type: string
-      required: false
-      tier: required
     - name: CollectionAngle
       type: entity
       required: false
@@ -19636,15 +19618,6 @@ entities:
       type: integer
       required: false
       tier: required
-    - name: Configuration
-      type: list
-      items: string
-      required: false
-      tier: required
-    - name: ActiveConfiguration
-      type: string
-      required: false
-      tier: required
     - name: CollectionAngle
       type: entity
       required: false
@@ -20020,15 +19993,6 @@ entities:
       tier: required
     - name: Channel
       type: integer
-      required: false
-      tier: required
-    - name: Configuration
-      type: list
-      items: string
-      required: false
-      tier: required
-    - name: ActiveConfiguration
-      type: string
       required: false
       tier: required
     - name: CollectionAngle
@@ -20565,15 +20529,6 @@ entities:
       type: integer
       required: false
       tier: required
-    - name: Configuration
-      type: list
-      items: string
-      required: false
-      tier: required
-    - name: ActiveConfiguration
-      type: string
-      required: false
-      tier: required
     - name: CollectionAngle
       type: entity
       required: false
@@ -21073,15 +21028,6 @@ entities:
       tier: required
     - name: Channel
       type: integer
-      required: false
-      tier: required
-    - name: Configuration
-      type: list
-      items: string
-      required: false
-      tier: required
-    - name: ActiveConfiguration
-      type: string
       required: false
       tier: required
     - name: CollectionAngle
@@ -21588,15 +21534,6 @@ entities:
       tier: optional
     - name: Channel
       type: integer
-      required: false
-      tier: required
-    - name: Configuration
-      type: list
-      items: string
-      required: false
-      tier: required
-    - name: ActiveConfiguration
-      type: string
       required: false
       tier: required
     - name: CollectionAngle
@@ -22138,15 +22075,6 @@ entities:
       type: integer
       required: false
       tier: required
-    - name: Configuration
-      type: list
-      items: string
-      required: false
-      tier: required
-    - name: ActiveConfiguration
-      type: string
-      required: false
-      tier: required
     - name: CollectionAngle
       type: entity
       required: false
@@ -22669,15 +22597,6 @@ entities:
       tier: optional
     - name: Channel
       type: integer
-      required: false
-      tier: recommended
-    - name: Configuration
-      type: list
-      items: string
-      required: false
-      tier: recommended
-    - name: ActiveConfiguration
-      type: string
       required: false
       tier: recommended
     - name: CollectionAngle
@@ -28351,10 +28270,6 @@ entities:
       required: false
     - name: GunLensSetting
       type: string
-      required: false
-    - name: Apertures
-      type: list
-      items: string
       required: false
     - name: Condenser1
       type: float

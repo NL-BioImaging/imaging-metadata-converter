@@ -46,6 +46,10 @@ LEICA_STAND_CLASSES = {'1': 'InvertedMicroscopeStand', '0': 'UprightMicroscopeSt
 # a rule target's list item named by its fields: Integration[Unit=Line,Method=Average]
 ITEM_SELECTOR = re.compile(r'(?P<name>[^.\[\]]+)\[(?P<fields>\w+=[^\]]*)\]')
 ITEM_SELECTOR_PART = re.compile(r'\[\w+=[^\]]*\]')
+# the own block of camera software writing EXIF (Olympus SIS, as on EMSIS cameras), where EXIF's Make and Model,
+# the recording equipment, are the camera's
+CAMERA_SOFTWARE_BLOCKS = ('OlympusSIS',)
+EXIF_EQUIPMENT = (('Manufacturer', 'Make'), ('Model', 'Model'))
 # the detector a Velox (TALOS) image was taken with, by its name, or the name its numbered detectors share
 # (DualX: DualX1 and DualX2)
 VELOX_IMAGE_DETECTOR = 'BinaryResult.Detector'
@@ -637,6 +641,7 @@ class AcquisitionMetadataMapper:
         self._map_leica_sequential_channels(metadata, result, provenance)
         self._map_leica_microdissection_laser(metadata, result, provenance)
         self._map_leica_widefield_light_sources(metadata, result, provenance)
+        self._map_camera_exif(metadata, result, provenance)
         self._map_detector_settings(metadata, result, provenance)
         self._apply_combinations(metadata, result, provenance)
         self._respell(result, provenance)
@@ -860,6 +865,22 @@ class AcquisitionMetadataMapper:
                 if role in lamps and is_free_path(result, target):
                     set_nested_value(result, target, lamps[role])
                     provenance[target] = [origin]
+
+    def _map_camera_exif(self, metadata, result, provenance):
+        """Take EXIF's Make and Model, its recording equipment, as the camera's where camera software wrote the file
+        (its own block beside EXIF: OlympusSIS, as EMSIS's Xarosa writes), not the instrument's, which the file
+        then does not name; a camera name the block leaves empty names nothing, and stays as the source has it."""
+        if not any(isinstance(metadata.get(block), dict) for block in CAMERA_SOFTWARE_BLOCKS):
+            return
+        for field, key in EXIF_EQUIPMENT:
+            source, target = f'Instrument.{field}', f'GenericDetector.{field}'
+            named = provenance.get(target)
+            if value_at_path(result, target) == '' and isinstance(named, str) and is_free_path(result, named):
+                set_nested_value(result, named, pop_nested_value(result, target))
+                provenance[named] = provenance.pop(target)
+            if provenance.get(source) == key and is_free_path(result, target):
+                set_nested_value(result, target, pop_nested_value(result, source))
+                provenance[target] = provenance.pop(source)
 
     def _map_detector_settings(self, metadata, result, provenance):
         """Give each detector's settings for the image the detector's ID, as LiMi has them: the settings, in the

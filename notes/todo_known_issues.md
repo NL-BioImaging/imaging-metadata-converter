@@ -331,6 +331,8 @@ structure, for common fields in the source data"). A value is only a candidate i
      SystemTypeName, Cikteq's ProductName); Instrument.Name is a name a user gave it (DICOM's StationName), and
      Type the kind of instrument (DICOM's modality), not a product family (Velox's InstrumentClass, Phenom's
      type, which stay Properties); user, 2026-10-09;
+   - EXIF's Make and Model are the recording equipment: the instrument, or the camera where camera software wrote
+     the file (its own OlympusSIS block: EMSIS's Xarosa); user, 2026-10-09;
    - what several kinds of a thing share defined once, on a parent they have in common (ScanSettings for confocal,
      beam and slide scans), LiMi's own fields moved up to it where they are not confocal's alone; a field of
      LiMi's is reshaped only where its shape cannot hold what sources state (Integration, a list), and marked
@@ -345,8 +347,8 @@ structure, for common fields in the source data"). A value is only a candidate i
      is not repeated elsewhere for some (MechanicalStage.Position); tests/test_redundancy.py checks for a
      field repeating one above it, and for a source name sent to different fields by different rules.
 6. Additive by default: new optional fields, classes and enumeration values, so the profile stays compatible
-   with the published version. ElectronOpticsSettings.Apertures (text) stays beside the new Aperture records,
-   and Detector.Configuration stays although no example uses it now. A removal is for consistency only: a
+   with the published version. A removal is for consistency only (ElectronOpticsSettings.Apertures, text beside the
+   Aperture records, and Detector.Configuration, ActiveConfiguration, which no example filled, went in 2.0): a
    field repeating another, or placed against LiMi's structure, goes with the change that frees it, and the
    major version goes up (2.0: the stage off the hardware, see "Profile versions"; user, 2026-10-09).
    Earlier versions of the extension need not stay compatible.
@@ -363,11 +365,6 @@ structure, for common fields in the source data"). A value is only a candidate i
 
 ## TODO
 
-- [ ] Docs (user, 2026-10-09): remove the model map page (docs/model-map.md, with scripts/model_map.py, its
-      stylesheet, the mkdocs.yml nav entry, tests/test_model_map.py and the links from docs/model.md and the
-      README), and add a mapping page (docs/mapping.md) describing in detail how the mapping works - rules,
-      subtrees and collapsed items, name matching, implied units, combinations, the vendor-specific steps
-      (Leica channels, detectors, stand, cameras; a detector's settings), the SourceMap - with examples.
 - [ ] Light-source role (user, 2026-09-28), done but for LEDs: a Leica laser exciting a channel with a dye
       has Role Fluorescence, an LMD laser Microdissection, and a Leica widefield channel's open TL shutter
       names a transmitted lamp, a FLUO channel's open IL shutter an incident one (GenericExcitationSource,

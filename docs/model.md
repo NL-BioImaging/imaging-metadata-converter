@@ -73,11 +73,9 @@ model — it is a field awaiting a source that provides it.
 
 ## What the converter produces
 
-The [model map](model-map.md) is the other side of that: one picture of the
-fields some rule *does* target, drawn under the groups that hold them, with a
-block per section. Paths LiMi does not have are orange there, against grey for
-LiMi's own, so the map also shows how much of the converter's output comes
-from the extensions.
+[How the mapping works](mapping.md) describes how a source's values reach
+these paths: the rules, the vendor steps, and the SourceMap tracing every
+value to its source.
 
 ## The model files
 
@@ -133,10 +131,10 @@ the tree next to LiMi's fields; new groups are classes of their own.
 
 | Where | What |
 | --- | --- |
-| `Image` | `ElectronBeamSettings` (type, mode, focus, spot size, working distance, acceleration voltage, currents, convergence angle, defocus, shift, source tilt, stigmator, high-voltage readings, and the electron source it applies to), `ElectronOpticsSettings` (camera length, operating and projector modes, gun lens, the two condenser lenses' settings, apertures, and each `Aperture` with its name, number, shape, mechanism, diameter, whether it is in the beam and its position offset), `BeamScanSettings` (an electron beam's scan: field of view, line interlacing) and `SlideScanSettings` (a slide scanner's: stripe width, line-camera skew and offsets, focus offset) |
+| `Image` | `ElectronBeamSettings` (type, mode, focus, spot size, working distance, acceleration voltage, currents, convergence angle, defocus, shift, source tilt, stigmator, high-voltage readings, and the electron source it applies to), `ElectronOpticsSettings` (camera length, operating and projector modes, gun lens, the two condenser lenses' settings, and each `Aperture` with its name, number, shape, mechanism, diameter, whether it is in the beam and its position offset), `BeamScanSettings` (an electron beam's scan: field of view, line interlacing) and `SlideScanSettings` (a slide scanner's: stripe width, line-camera skew and offsets, focus offset) |
 | `Image` | `Type`, `CropHint`, `Corrections` (contrast, brightness, gamma, black and white level) |
 | `Instrument` | the instrument as a whole: `Manufacturer`, `Model`, `CatalogNumber`, `Type` (its kind, such as DICOM's modality), `ComputerName`, `Vacuum` (buffer, gun, sample and system vacuum, mode), `ElectronSource` |
-| `Detector` | `Type`, `Channel`, configuration, and for an analytical (X-ray) detector where it sits: its collection (solid) angle, elevation and azimuth |
+| `Detector` | `Type`, `Channel`, and for an analytical (X-ray) detector where it sits: its collection (solid) angle, elevation and azimuth |
 | `Pixels` | `TimePoints`: the source's own indices of the first and last time point (BigDataViewer's `Timepoints` range), whose count is `SizeT` and by which its registrations name them |
 | `Plane` | the stage's `PositionM`, `Tilt` (its primary, alpha, axis), `TiltBeta` and `Rotation`, each with its unit, beside LiMi's `PositionX`, `PositionY` and `PositionZ`; `RawStage`, the same axes as the stage's own controller reports them |
 | `ScanSettings` | what every scan shares, the parent of LiMi's `ConfocalScannerSettings` and of `BeamScanSettings` and `SlideScanSettings`: `Rotation`, `ScanDirectionality` (moved up from `ConfocalScannerSettings`), `Integration` (one per kind of scanned element integrated and method: LiMi's `IntegrationNumber`, `IntegrationUnit` and `IntegrationMethod`, as a list), `FrameTime`, `LineTime` |
