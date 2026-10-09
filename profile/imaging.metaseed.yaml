@@ -18828,72 +18828,6 @@ entities:
       tier: required
       items: Quantity
       owns: true
-    - name: CollectionAngleRange
-      type: entity
-      required: false
-      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
-      tier: required
-      items: QuantityRange
-      owns: true
-    - name: LiveTime
-      type: entity
-      required: false
-      description: The time an analytical detector's pulse processor was open for counts.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: RealTime
-      type: entity
-      required: false
-      description: The elapsed time of an analytical acquisition.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: PulseProcessTime
-      type: entity
-      required: false
-      description: The pulse processing (shaping) time of an analytical detector.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: InputCountRate
-      type: float
-      required: false
-      description: The rate of counts arriving at an analytical detector, per second.
-      tier: required
-    - name: OutputCountRate
-      type: float
-      required: false
-      description: The rate of counts an analytical detector processed, per second.
-      tier: required
-    - name: Dispersion
-      type: entity
-      required: false
-      description: The energy width of one channel of an analytical detector's spectrum.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: OffsetEnergy
-      type: entity
-      required: false
-      description: The energy offset of an analytical detector's spectrum.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: BeginEnergy
-      type: entity
-      required: false
-      description: The energy an analytical detector's spectrum begins at.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: ElectronicsNoise
-      type: entity
-      required: false
-      description: The electronic noise of an analytical detector, as an energy.
-      tier: required
-      items: Quantity
-      owns: true
     - name: MapAnnotation
       type: list
       required: false
@@ -19325,72 +19259,6 @@ entities:
       tier: required
       items: Quantity
       owns: true
-    - name: CollectionAngleRange
-      type: entity
-      required: false
-      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
-      tier: required
-      items: QuantityRange
-      owns: true
-    - name: LiveTime
-      type: entity
-      required: false
-      description: The time an analytical detector's pulse processor was open for counts.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: RealTime
-      type: entity
-      required: false
-      description: The elapsed time of an analytical acquisition.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: PulseProcessTime
-      type: entity
-      required: false
-      description: The pulse processing (shaping) time of an analytical detector.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: InputCountRate
-      type: float
-      required: false
-      description: The rate of counts arriving at an analytical detector, per second.
-      tier: required
-    - name: OutputCountRate
-      type: float
-      required: false
-      description: The rate of counts an analytical detector processed, per second.
-      tier: required
-    - name: Dispersion
-      type: entity
-      required: false
-      description: The energy width of one channel of an analytical detector's spectrum.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: OffsetEnergy
-      type: entity
-      required: false
-      description: The energy offset of an analytical detector's spectrum.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: BeginEnergy
-      type: entity
-      required: false
-      description: The energy an analytical detector's spectrum begins at.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: ElectronicsNoise
-      type: entity
-      required: false
-      description: The electronic noise of an analytical detector, as an energy.
-      tier: required
-      items: Quantity
-      owns: true
     - name: MapAnnotation
       type: list
       required: false
@@ -19789,72 +19657,6 @@ entities:
       tier: required
       items: Quantity
       owns: true
-    - name: CollectionAngleRange
-      type: entity
-      required: false
-      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
-      tier: required
-      items: QuantityRange
-      owns: true
-    - name: LiveTime
-      type: entity
-      required: false
-      description: The time an analytical detector's pulse processor was open for counts.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: RealTime
-      type: entity
-      required: false
-      description: The elapsed time of an analytical acquisition.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: PulseProcessTime
-      type: entity
-      required: false
-      description: The pulse processing (shaping) time of an analytical detector.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: InputCountRate
-      type: float
-      required: false
-      description: The rate of counts arriving at an analytical detector, per second.
-      tier: required
-    - name: OutputCountRate
-      type: float
-      required: false
-      description: The rate of counts an analytical detector processed, per second.
-      tier: required
-    - name: Dispersion
-      type: entity
-      required: false
-      description: The energy width of one channel of an analytical detector's spectrum.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: OffsetEnergy
-      type: entity
-      required: false
-      description: The energy offset of an analytical detector's spectrum.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: BeginEnergy
-      type: entity
-      required: false
-      description: The energy an analytical detector's spectrum begins at.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: ElectronicsNoise
-      type: entity
-      required: false
-      description: The electronic noise of an analytical detector, as an energy.
-      tier: required
-      items: Quantity
-      owns: true
     - name: MapAnnotation
       type: list
       required: false
@@ -20238,72 +20040,6 @@ entities:
       type: entity
       required: false
       description: The angle of an analytical detector around the beam axis.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: CollectionAngleRange
-      type: entity
-      required: false
-      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
-      tier: required
-      items: QuantityRange
-      owns: true
-    - name: LiveTime
-      type: entity
-      required: false
-      description: The time an analytical detector's pulse processor was open for counts.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: RealTime
-      type: entity
-      required: false
-      description: The elapsed time of an analytical acquisition.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: PulseProcessTime
-      type: entity
-      required: false
-      description: The pulse processing (shaping) time of an analytical detector.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: InputCountRate
-      type: float
-      required: false
-      description: The rate of counts arriving at an analytical detector, per second.
-      tier: required
-    - name: OutputCountRate
-      type: float
-      required: false
-      description: The rate of counts an analytical detector processed, per second.
-      tier: required
-    - name: Dispersion
-      type: entity
-      required: false
-      description: The energy width of one channel of an analytical detector's spectrum.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: OffsetEnergy
-      type: entity
-      required: false
-      description: The energy offset of an analytical detector's spectrum.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: BeginEnergy
-      type: entity
-      required: false
-      description: The energy an analytical detector's spectrum begins at.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: ElectronicsNoise
-      type: entity
-      required: false
-      description: The electronic noise of an analytical detector, as an energy.
       tier: required
       items: Quantity
       owns: true
@@ -20850,72 +20586,6 @@ entities:
       tier: required
       items: Quantity
       owns: true
-    - name: CollectionAngleRange
-      type: entity
-      required: false
-      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
-      tier: required
-      items: QuantityRange
-      owns: true
-    - name: LiveTime
-      type: entity
-      required: false
-      description: The time an analytical detector's pulse processor was open for counts.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: RealTime
-      type: entity
-      required: false
-      description: The elapsed time of an analytical acquisition.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: PulseProcessTime
-      type: entity
-      required: false
-      description: The pulse processing (shaping) time of an analytical detector.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: InputCountRate
-      type: float
-      required: false
-      description: The rate of counts arriving at an analytical detector, per second.
-      tier: required
-    - name: OutputCountRate
-      type: float
-      required: false
-      description: The rate of counts an analytical detector processed, per second.
-      tier: required
-    - name: Dispersion
-      type: entity
-      required: false
-      description: The energy width of one channel of an analytical detector's spectrum.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: OffsetEnergy
-      type: entity
-      required: false
-      description: The energy offset of an analytical detector's spectrum.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: BeginEnergy
-      type: entity
-      required: false
-      description: The energy an analytical detector's spectrum begins at.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: ElectronicsNoise
-      type: entity
-      required: false
-      description: The electronic noise of an analytical detector, as an energy.
-      tier: required
-      items: Quantity
-      owns: true
     - name: MapAnnotation
       type: list
       required: false
@@ -21423,72 +21093,6 @@ entities:
       type: entity
       required: false
       description: The angle of an analytical detector around the beam axis.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: CollectionAngleRange
-      type: entity
-      required: false
-      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
-      tier: required
-      items: QuantityRange
-      owns: true
-    - name: LiveTime
-      type: entity
-      required: false
-      description: The time an analytical detector's pulse processor was open for counts.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: RealTime
-      type: entity
-      required: false
-      description: The elapsed time of an analytical acquisition.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: PulseProcessTime
-      type: entity
-      required: false
-      description: The pulse processing (shaping) time of an analytical detector.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: InputCountRate
-      type: float
-      required: false
-      description: The rate of counts arriving at an analytical detector, per second.
-      tier: required
-    - name: OutputCountRate
-      type: float
-      required: false
-      description: The rate of counts an analytical detector processed, per second.
-      tier: required
-    - name: Dispersion
-      type: entity
-      required: false
-      description: The energy width of one channel of an analytical detector's spectrum.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: OffsetEnergy
-      type: entity
-      required: false
-      description: The energy offset of an analytical detector's spectrum.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: BeginEnergy
-      type: entity
-      required: false
-      description: The energy an analytical detector's spectrum begins at.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: ElectronicsNoise
-      type: entity
-      required: false
-      description: The electronic noise of an analytical detector, as an energy.
       tier: required
       items: Quantity
       owns: true
@@ -22004,72 +21608,6 @@ entities:
       type: entity
       required: false
       description: The angle of an analytical detector around the beam axis.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: CollectionAngleRange
-      type: entity
-      required: false
-      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
-      tier: required
-      items: QuantityRange
-      owns: true
-    - name: LiveTime
-      type: entity
-      required: false
-      description: The time an analytical detector's pulse processor was open for counts.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: RealTime
-      type: entity
-      required: false
-      description: The elapsed time of an analytical acquisition.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: PulseProcessTime
-      type: entity
-      required: false
-      description: The pulse processing (shaping) time of an analytical detector.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: InputCountRate
-      type: float
-      required: false
-      description: The rate of counts arriving at an analytical detector, per second.
-      tier: required
-    - name: OutputCountRate
-      type: float
-      required: false
-      description: The rate of counts an analytical detector processed, per second.
-      tier: required
-    - name: Dispersion
-      type: entity
-      required: false
-      description: The energy width of one channel of an analytical detector's spectrum.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: OffsetEnergy
-      type: entity
-      required: false
-      description: The energy offset of an analytical detector's spectrum.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: BeginEnergy
-      type: entity
-      required: false
-      description: The energy an analytical detector's spectrum begins at.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: ElectronicsNoise
-      type: entity
-      required: false
-      description: The electronic noise of an analytical detector, as an energy.
       tier: required
       items: Quantity
       owns: true
@@ -22621,72 +22159,6 @@ entities:
       tier: required
       items: Quantity
       owns: true
-    - name: CollectionAngleRange
-      type: entity
-      required: false
-      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
-      tier: required
-      items: QuantityRange
-      owns: true
-    - name: LiveTime
-      type: entity
-      required: false
-      description: The time an analytical detector's pulse processor was open for counts.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: RealTime
-      type: entity
-      required: false
-      description: The elapsed time of an analytical acquisition.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: PulseProcessTime
-      type: entity
-      required: false
-      description: The pulse processing (shaping) time of an analytical detector.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: InputCountRate
-      type: float
-      required: false
-      description: The rate of counts arriving at an analytical detector, per second.
-      tier: required
-    - name: OutputCountRate
-      type: float
-      required: false
-      description: The rate of counts an analytical detector processed, per second.
-      tier: required
-    - name: Dispersion
-      type: entity
-      required: false
-      description: The energy width of one channel of an analytical detector's spectrum.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: OffsetEnergy
-      type: entity
-      required: false
-      description: The energy offset of an analytical detector's spectrum.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: BeginEnergy
-      type: entity
-      required: false
-      description: The energy an analytical detector's spectrum begins at.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: ElectronicsNoise
-      type: entity
-      required: false
-      description: The electronic noise of an analytical detector, as an energy.
-      tier: required
-      items: Quantity
-      owns: true
     - name: MapAnnotation
       type: list
       required: false
@@ -23217,72 +22689,6 @@ entities:
       type: entity
       required: false
       description: The angle of an analytical detector around the beam axis.
-      tier: recommended
-      items: Quantity
-      owns: true
-    - name: CollectionAngleRange
-      type: entity
-      required: false
-      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
-      tier: recommended
-      items: QuantityRange
-      owns: true
-    - name: LiveTime
-      type: entity
-      required: false
-      description: The time an analytical detector's pulse processor was open for counts.
-      tier: recommended
-      items: Quantity
-      owns: true
-    - name: RealTime
-      type: entity
-      required: false
-      description: The elapsed time of an analytical acquisition.
-      tier: recommended
-      items: Quantity
-      owns: true
-    - name: PulseProcessTime
-      type: entity
-      required: false
-      description: The pulse processing (shaping) time of an analytical detector.
-      tier: recommended
-      items: Quantity
-      owns: true
-    - name: InputCountRate
-      type: float
-      required: false
-      description: The rate of counts arriving at an analytical detector, per second.
-      tier: recommended
-    - name: OutputCountRate
-      type: float
-      required: false
-      description: The rate of counts an analytical detector processed, per second.
-      tier: recommended
-    - name: Dispersion
-      type: entity
-      required: false
-      description: The energy width of one channel of an analytical detector's spectrum.
-      tier: recommended
-      items: Quantity
-      owns: true
-    - name: OffsetEnergy
-      type: entity
-      required: false
-      description: The energy offset of an analytical detector's spectrum.
-      tier: recommended
-      items: Quantity
-      owns: true
-    - name: BeginEnergy
-      type: entity
-      required: false
-      description: The energy an analytical detector's spectrum begins at.
-      tier: recommended
-      items: Quantity
-      owns: true
-    - name: ElectronicsNoise
-      type: entity
-      required: false
-      description: The electronic noise of an analytical detector, as an energy.
       tier: recommended
       items: Quantity
       owns: true
@@ -30403,19 +29809,6 @@ entities:
       required: false
       description: The location of a file containing the Wavelength profile of this hardware component.
       tier: optional
-  QuantityRange:
-    description: A range of values, from Begin to End, with the unit its source states, as free text.
-    fields:
-    - name: Begin
-      type: float
-      required: false
-    - name: End
-      type: float
-      required: false
-    - name: Unit
-      type: string
-      required: false
-      description: The unit as the source writes it, e.g. "rad".
   PockelsCell:
     description: Pockels cells are the basic components of electro-optic modulators. A Pockels cell is a device consisting
       of an electro-optic crystal (with some electrodes attached to it) through which a light beam can propagate. The phase
@@ -32409,16 +31802,6 @@ entities:
       required: false
       items: Quantity
       owns: true
-  Quantity:
-    description: A value with the unit its source states, as free text.
-    fields:
-    - name: Value
-      type: float
-      required: false
-    - name: Unit
-      type: string
-      required: false
-      description: The unit as the source writes it, e.g. "um" or "mm".
   XMLAnnotationValue:
     fields:
     - name: ID
@@ -36405,6 +35788,16 @@ entities:
       description: The Annotator is the person who attached this annotation.e.g. If UserA annotates something with TagB, owned
         by UserB, UserA is still the Annotator.
       tier: optional
+  Quantity:
+    description: A value with the unit its source states, as free text.
+    fields:
+    - name: Value
+      type: float
+      required: false
+    - name: Unit
+      type: string
+      required: false
+      description: The unit as the source writes it, e.g. "um" or "mm".
   BinData:
     description: The contents of this element are base64-encoded. These are not CDATA sections, just a base64 stream.
     fields:
@@ -36443,6 +35836,19 @@ entities:
       tier: required
       constraints:
         minimum: 0
+  QuantityRange:
+    description: A range of values, from Begin to End, with the unit its source states, as free text.
+    fields:
+    - name: Begin
+      type: float
+      required: false
+    - name: End
+      type: float
+      required: false
+    - name: Unit
+      type: string
+      required: false
+      description: The unit as the source writes it, e.g. "rad".
   BinaryFile:
     description: Describes a binary file.
     fields:
@@ -37167,6 +36573,72 @@ entities:
       required: false
       description: The detector's contrast setting, on the source's own scale.
       tier: required
+    - name: CollectionAngleRange
+      type: entity
+      required: false
+      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
+      tier: required
+      items: QuantityRange
+      owns: true
+    - name: LiveTime
+      type: entity
+      required: false
+      description: The time an analytical detector's pulse processor was open for counts.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: RealTime
+      type: entity
+      required: false
+      description: The elapsed time of an analytical acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: PulseProcessTime
+      type: entity
+      required: false
+      description: The pulse processing (shaping) time of an analytical detector.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: InputCountRate
+      type: float
+      required: false
+      description: The rate of counts arriving at an analytical detector, per second.
+      tier: required
+    - name: OutputCountRate
+      type: float
+      required: false
+      description: The rate of counts an analytical detector processed, per second.
+      tier: required
+    - name: Dispersion
+      type: entity
+      required: false
+      description: The energy width of one channel of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: OffsetEnergy
+      type: entity
+      required: false
+      description: The energy offset of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: BeginEnergy
+      type: entity
+      required: false
+      description: The energy an analytical detector's spectrum begins at.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElectronicsNoise
+      type: entity
+      required: false
+      description: The electronic noise of an analytical detector, as an energy.
+      tier: required
+      items: Quantity
+      owns: true
     - name: MapAnnotation
       type: list
       required: false
@@ -37308,6 +36780,72 @@ entities:
       required: false
       description: The detector's contrast setting, on the source's own scale.
       tier: required
+    - name: CollectionAngleRange
+      type: entity
+      required: false
+      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
+      tier: required
+      items: QuantityRange
+      owns: true
+    - name: LiveTime
+      type: entity
+      required: false
+      description: The time an analytical detector's pulse processor was open for counts.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: RealTime
+      type: entity
+      required: false
+      description: The elapsed time of an analytical acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: PulseProcessTime
+      type: entity
+      required: false
+      description: The pulse processing (shaping) time of an analytical detector.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: InputCountRate
+      type: float
+      required: false
+      description: The rate of counts arriving at an analytical detector, per second.
+      tier: required
+    - name: OutputCountRate
+      type: float
+      required: false
+      description: The rate of counts an analytical detector processed, per second.
+      tier: required
+    - name: Dispersion
+      type: entity
+      required: false
+      description: The energy width of one channel of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: OffsetEnergy
+      type: entity
+      required: false
+      description: The energy offset of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: BeginEnergy
+      type: entity
+      required: false
+      description: The energy an analytical detector's spectrum begins at.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElectronicsNoise
+      type: entity
+      required: false
+      description: The electronic noise of an analytical detector, as an energy.
+      tier: required
+      items: Quantity
+      owns: true
     - name: MapAnnotation
       type: list
       required: false
@@ -37538,6 +37076,72 @@ entities:
       required: false
       description: The detector's contrast setting, on the source's own scale.
       tier: required
+    - name: CollectionAngleRange
+      type: entity
+      required: false
+      description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
+      tier: required
+      items: QuantityRange
+      owns: true
+    - name: LiveTime
+      type: entity
+      required: false
+      description: The time an analytical detector's pulse processor was open for counts.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: RealTime
+      type: entity
+      required: false
+      description: The elapsed time of an analytical acquisition.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: PulseProcessTime
+      type: entity
+      required: false
+      description: The pulse processing (shaping) time of an analytical detector.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: InputCountRate
+      type: float
+      required: false
+      description: The rate of counts arriving at an analytical detector, per second.
+      tier: required
+    - name: OutputCountRate
+      type: float
+      required: false
+      description: The rate of counts an analytical detector processed, per second.
+      tier: required
+    - name: Dispersion
+      type: entity
+      required: false
+      description: The energy width of one channel of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: OffsetEnergy
+      type: entity
+      required: false
+      description: The energy offset of an analytical detector's spectrum.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: BeginEnergy
+      type: entity
+      required: false
+      description: The energy an analytical detector's spectrum begins at.
+      tier: required
+      items: Quantity
+      owns: true
+    - name: ElectronicsNoise
+      type: entity
+      required: false
+      description: The electronic noise of an analytical detector, as an energy.
+      tier: required
+      items: Quantity
+      owns: true
     - name: MapAnnotation
       type: list
       required: false

@@ -97,7 +97,9 @@ published version using metaseed's own compatibility check
   extension's `PositionM`, `Tilt`, `TiltBeta`, `Rotation`, `RawStage`), its
   bias and multi-stage sample onto `SamplePositioningSettings`; a
   detector's `Gain`, `Offset`, `Brightness`, `Contrast`, `ExposureTime`,
-  `Binning`, `Enabled` and `Inserted`, and `ScanSettings.Detector`, removed
+  `Binning`, `Enabled` and `Inserted`, and `ScanSettings.Detector`, removed,
+  and its acquisition values (live and real time, count rates, spectrum
+  energies, collection angle range) moved,
   for LiMi's `DetectorSettings` of the image's channel; 1.2's
   `Pixels.TimePoints`, never published, comes with it.
 

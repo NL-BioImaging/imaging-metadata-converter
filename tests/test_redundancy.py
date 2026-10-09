@@ -73,16 +73,18 @@ def repeated_fields(paths, extension_schema=EXTENSION_SCHEMA, mirrors=frozenset(
     return found
 
 
-def target_field(target, mirrors=frozenset()):
+def target_field(target, mirrors=frozenset(), paths=None):
     """The field a rule's target is a part of: Plane.PositionXUnit and Plane.PositionX are one field, a
-    Quantity's Value and Unit one, a list item's field the list's, and a mirror's field its owner's."""
+    Quantity's Value and Unit one, a list item's field the list's, a mirror's field its owner's, and a detector's
+    settings written with it the settings'."""
     field = re.sub(r'\[\*?\]', '', target)
+    field = paths.settings_path(field) if paths is not None else field
     for mirror in mirrors:
         field = field.replace(f'{mirror}.', f'{mirror.rsplit(".", 1)[0]}.')
     return re.sub(r'\.(Value|Unit|Begin|End)$|Unit$', '', field)
 
 
-def differing_targets(rules, mirrors=frozenset()):
+def differing_targets(rules, mirrors=frozenset(), paths=None):
     """{source name: {(field, source key), ...}} for each name that sources of different rules write, but the
     rules send to different fields: the same value in two places, or a rule to correct."""
     fields_by_name = defaultdict(set)
@@ -90,7 +92,8 @@ def differing_targets(rules, mirrors=frozenset()):
         names = [name for name in source.split('.') if name.lower() not in ('value', 'unit', 'units', 'variant')]
         name = names[-1].lower() if names else ''
         if not source.endswith('*') and len(name) > 2 and name not in GENERIC_SOURCE_NAMES:
-            fields_by_name[name].update((target_field(target, mirrors), source) for target in rule_targets(rule))
+            fields_by_name[name].update((target_field(target, mirrors, paths), source)
+                                        for target in rule_targets(rule))
     return {name: entries for name, entries in fields_by_name.items()
             if len({field for field, _ in entries}) > 1 and len({source for _, source in entries}) > 1}
 
@@ -182,7 +185,7 @@ class DifferingTargetTest(unittest.TestCase):
     def test_the_rules_send_each_source_name_to_one_field(self):
         with open(DEFAULT_MAPPINGS_FILE, encoding='utf-8') as file:
             rules = json.load(file)
-        differing = differing_targets(rules, mirrors=MIRRORS)
+        differing = differing_targets(rules, mirrors=MIRRORS, paths=ModelPaths())
         self.assertEqual({name: sorted(entries) for name, entries in differing.items()
                           if name not in KNOWN_DIFFERING_SOURCE_NAMES}, {})
         self.assertEqual(KNOWN_DIFFERING_SOURCE_NAMES - set(differing), set(),

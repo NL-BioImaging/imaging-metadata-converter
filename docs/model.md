@@ -135,10 +135,10 @@ the tree next to LiMi's fields; new groups are classes of their own.
 | `Image` | `ElectronBeamSettings` (type, mode, focus, spot size, working distance, acceleration voltage, currents, convergence angle, defocus, shift, source tilt, stigmator, high-voltage readings, and the electron source it applies to), `ElectronOpticsSettings` (camera length, operating and projector modes, gun lens, the two condenser lenses' settings, apertures, and each `Aperture` with its name, number, shape, mechanism, diameter, whether it is in the beam and its position offset), `ScanSettings` (field of view, rotation, frame and line time, line integration and interlacing) |
 | `Image` | `Type`, `CropHint`, `Corrections` (contrast, brightness, gamma, black and white level) |
 | `Instrument` | `Manufacturer`, `Model`, `CatalogNumber`, `Type`, `ComputerName`, `Vacuum` (buffer, gun, sample and system vacuum, mode), `ElectronSource` |
-| `Detector` | `Type`, `Channel`, configuration, and for electron-microscopy detectors the collection, elevation and azimuth angles, `CollectionAngleRange`, live, real and pulse-processing times, input and output count rates, and the spectrum's `Dispersion`, `OffsetEnergy`, `BeginEnergy` and `ElectronicsNoise` |
+| `Detector` | `Type`, `Channel`, configuration, and for an analytical (X-ray) detector where it sits: its collection (solid) angle, elevation and azimuth |
 | `Pixels` | `TimePoints`: the source's own indices of the first and last time point (BigDataViewer's `Timepoints` range), whose count is `SizeT` and by which its registrations name them |
 | `Plane` | the stage's `PositionM`, `Tilt` (its primary, alpha, axis), `TiltBeta` and `Rotation`, each with its unit, beside LiMi's `PositionX`, `PositionY` and `PositionZ`; `RawStage`, the same axes as the stage's own controller reports them |
-| `DetectorSettings` | `Brightness`, `Contrast`, beside LiMi's gains and offset |
+| `DetectorSettings` | `Brightness`, `Contrast`, beside LiMi's gains and offset; a scanning (STEM) detector's `CollectionAngleRange`; an analytical detector's live, real and pulse-processing times, input and output count rates, and its spectrum's `Dispersion`, `OffsetEnergy`, `BeginEnergy` and `ElectronicsNoise` |
 | `SamplePositioningSettings` | the stage's `Bias` voltage, `BiasType` and `BiasMode`; `SampleHeight` and `SampleRadius` on a multi-sample stage |
 | `Software` | `ApplicationID` |
 | `OME` | `Operations`, `Features`, `Annotation`, kept as source text |

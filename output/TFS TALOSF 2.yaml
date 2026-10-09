@@ -157,6 +157,57 @@ Pixels:
   PhysicalSizeY: '2.4999999999999992e-09'
   PhysicalSizeXUnit: m
   PhysicalSizeYUnit: m
+  Channel:
+  - LightPath:
+      GenericDetectorSettings:
+      - ID: Detector-1
+        Dispersion:
+          Value: '5'
+          Unit: eV
+        PulseProcessTime:
+          Value: '2.9081620097620193e-06'
+          Unit: s
+        RealTime:
+          Value: '42482.901887118758'
+          Unit: s
+        LiveTime:
+          Value: '29330.534550000004'
+          Unit: s
+        InputCountRate: '118348.53486137386'
+        OutputCountRate: '82369.032965260209'
+        OffsetEnergy:
+          Value: '-479.806015'
+          Unit: eV
+        ElectronicsNoise:
+          Value: '12.145301744118672'
+          Unit: eV
+        BeginEnergy:
+          Value: '150'
+          Unit: eV
+      - ID: Detector-2
+        Dispersion:
+          Value: '5'
+          Unit: eV
+        PulseProcessTime:
+          Value: '2.9081620097620193e-06'
+          Unit: s
+        RealTime:
+          Value: '42482.901887118758'
+          Unit: s
+        LiveTime:
+          Value: '29330.534550000004'
+          Unit: s
+        InputCountRate: '118348.53486137386'
+        OutputCountRate: '82369.032965260209'
+        OffsetEnergy:
+          Value: '-479.806015'
+          Unit: eV
+        ElectronicsNoise:
+          Value: '12.569962644262681'
+          Unit: eV
+        BeginEnergy:
+          Value: '150'
+          Unit: eV
 GenericDetector:
 - ExposureMode: ''
   Binning:
@@ -178,8 +229,6 @@ GenericDetector:
   ID: Detector-0
 - Inserted: 'true'
   Enabled: 'true'
-  InputCountRate: '118348.53486137386'
-  OutputCountRate: '82369.032965260209'
   AnalyticalDetectorShutterState: '1'
   Name: DualX1
   Type: AnalyticalDetector
@@ -192,32 +241,9 @@ GenericDetector:
   CollectionAngle:
     Value: '0.90101100000000001'
     Unit: rad
-  Dispersion:
-    Value: '5'
-    Unit: eV
-  PulseProcessTime:
-    Value: '2.9081620097620193e-06'
-    Unit: s
-  RealTime:
-    Value: '42482.901887118758'
-    Unit: s
-  LiveTime:
-    Value: '29330.534550000004'
-    Unit: s
-  OffsetEnergy:
-    Value: '-479.806015'
-    Unit: eV
-  ElectronicsNoise:
-    Value: '12.145301744118672'
-    Unit: eV
-  BeginEnergy:
-    Value: '150'
-    Unit: eV
   ID: Detector-1
 - Inserted: 'true'
   Enabled: 'true'
-  InputCountRate: '118348.53486137386'
-  OutputCountRate: '82369.032965260209'
   AnalyticalDetectorShutterState: '1'
   Name: DualX2
   Type: AnalyticalDetector
@@ -230,30 +256,8 @@ GenericDetector:
   CollectionAngle:
     Value: '0.90101100000000001'
     Unit: rad
-  Dispersion:
-    Value: '5'
-    Unit: eV
-  PulseProcessTime:
-    Value: '2.9081620097620193e-06'
-    Unit: s
-  RealTime:
-    Value: '42482.901887118758'
-    Unit: s
-  LiveTime:
-    Value: '29330.534550000004'
-    Unit: s
-  OffsetEnergy:
-    Value: '-479.806015'
-    Unit: eV
-  ElectronicsNoise:
-    Value: '12.569962644262681'
-    Unit: eV
-  BeginEnergy:
-    Value: '150'
-    Unit: eV
   ID: Detector-2
 - ExposureMode: ''
-  Gain: '0.69999999999999996'
   Binning:
     width: '2'
     height: '2'
@@ -270,17 +274,20 @@ GenericDetector:
   DarkGainCorrectionType: '3'
   Name: Flucam
   Type: ImagingDetector
+  GenericDetectorSettings:
+    AnalogGain: '0.69999999999999996'
   ID: Detector-3
 - Inserted: 'true'
   Enabled: 'true'
-  Gain: '17.083620906996678'
-  Offset: '-4.2720000000000011'
-  CollectionAngleRange:
-    Begin: '0.046715186654504498'
-    Unit: rad
-    End: '0.20000000000000001'
   Name: HAADF
   Type: ScanningDetector
+  GenericDetectorSettings:
+    AnalogGain: '17.083620906996678'
+    Offset: '-4.2720000000000011'
+    CollectionAngleRange:
+      Begin: '0.046715186654504498'
+      Unit: rad
+      End: '0.20000000000000001'
   ID: Detector-4
 Sample: ''
 GasInjectionSystems: ''
@@ -3643,8 +3650,6 @@ SourceMap:
   GenericDetector[0].ID: Detectors.Detector-0
   GenericDetector[1].Inserted: Detectors.Detector-1.Inserted
   GenericDetector[1].Enabled: Detectors.Detector-1.Enabled
-  GenericDetector[1].InputCountRate: Detectors.Detector-1.InputCountRate
-  GenericDetector[1].OutputCountRate: Detectors.Detector-1.OutputCountRate
   GenericDetector[1].AnalyticalDetectorShutterState: Detectors.Detector-1.AnalyticalDetectorShutterState
   GenericDetector[1].Name: Detectors.Detector-1.DetectorName
   GenericDetector[1].Type: Detectors.Detector-1.DetectorType
@@ -3657,32 +3662,9 @@ SourceMap:
   GenericDetector[1].CollectionAngle.Value: Detectors.Detector-1.CollectionAngle
   GenericDetector[1].CollectionAngle.Unit:
   - Detectors.Detector-1.CollectionAngle
-  GenericDetector[1].Dispersion.Value: Detectors.Detector-1.Dispersion
-  GenericDetector[1].Dispersion.Unit:
-  - Detectors.Detector-1.Dispersion
-  GenericDetector[1].PulseProcessTime.Value: Detectors.Detector-1.PulseProcessTime
-  GenericDetector[1].PulseProcessTime.Unit:
-  - Detectors.Detector-1.PulseProcessTime
-  GenericDetector[1].RealTime.Value: Detectors.Detector-1.RealTime
-  GenericDetector[1].RealTime.Unit:
-  - Detectors.Detector-1.RealTime
-  GenericDetector[1].LiveTime.Value: Detectors.Detector-1.LiveTime
-  GenericDetector[1].LiveTime.Unit:
-  - Detectors.Detector-1.LiveTime
-  GenericDetector[1].OffsetEnergy.Value: Detectors.Detector-1.OffsetEnergy
-  GenericDetector[1].OffsetEnergy.Unit:
-  - Detectors.Detector-1.OffsetEnergy
-  GenericDetector[1].ElectronicsNoise.Value: Detectors.Detector-1.ElectronicsNoise
-  GenericDetector[1].ElectronicsNoise.Unit:
-  - Detectors.Detector-1.ElectronicsNoise
-  GenericDetector[1].BeginEnergy.Value: Detectors.Detector-1.BeginEnergy
-  GenericDetector[1].BeginEnergy.Unit:
-  - Detectors.Detector-1.BeginEnergy
   GenericDetector[1].ID: Detectors.Detector-1
   GenericDetector[2].Inserted: Detectors.Detector-2.Inserted
   GenericDetector[2].Enabled: Detectors.Detector-2.Enabled
-  GenericDetector[2].InputCountRate: Detectors.Detector-2.InputCountRate
-  GenericDetector[2].OutputCountRate: Detectors.Detector-2.OutputCountRate
   GenericDetector[2].AnalyticalDetectorShutterState: Detectors.Detector-2.AnalyticalDetectorShutterState
   GenericDetector[2].Name: Detectors.Detector-2.DetectorName
   GenericDetector[2].Type: Detectors.Detector-2.DetectorType
@@ -3695,30 +3677,8 @@ SourceMap:
   GenericDetector[2].CollectionAngle.Value: Detectors.Detector-2.CollectionAngle
   GenericDetector[2].CollectionAngle.Unit:
   - Detectors.Detector-2.CollectionAngle
-  GenericDetector[2].Dispersion.Value: Detectors.Detector-2.Dispersion
-  GenericDetector[2].Dispersion.Unit:
-  - Detectors.Detector-2.Dispersion
-  GenericDetector[2].PulseProcessTime.Value: Detectors.Detector-2.PulseProcessTime
-  GenericDetector[2].PulseProcessTime.Unit:
-  - Detectors.Detector-2.PulseProcessTime
-  GenericDetector[2].RealTime.Value: Detectors.Detector-2.RealTime
-  GenericDetector[2].RealTime.Unit:
-  - Detectors.Detector-2.RealTime
-  GenericDetector[2].LiveTime.Value: Detectors.Detector-2.LiveTime
-  GenericDetector[2].LiveTime.Unit:
-  - Detectors.Detector-2.LiveTime
-  GenericDetector[2].OffsetEnergy.Value: Detectors.Detector-2.OffsetEnergy
-  GenericDetector[2].OffsetEnergy.Unit:
-  - Detectors.Detector-2.OffsetEnergy
-  GenericDetector[2].ElectronicsNoise.Value: Detectors.Detector-2.ElectronicsNoise
-  GenericDetector[2].ElectronicsNoise.Unit:
-  - Detectors.Detector-2.ElectronicsNoise
-  GenericDetector[2].BeginEnergy.Value: Detectors.Detector-2.BeginEnergy
-  GenericDetector[2].BeginEnergy.Unit:
-  - Detectors.Detector-2.BeginEnergy
   GenericDetector[2].ID: Detectors.Detector-2
   GenericDetector[3].ExposureMode: Detectors.Detector-3.ExposureMode
-  GenericDetector[3].Gain: Detectors.Detector-3.Gain
   GenericDetector[3].Binning.width: Detectors.Detector-3.Binning.width
   GenericDetector[3].Binning.height: Detectors.Detector-3.Binning.height
   GenericDetector[3].ReadOutArea.left: Detectors.Detector-3.ReadOutArea.left
@@ -3731,17 +3691,18 @@ SourceMap:
   GenericDetector[3].DarkGainCorrectionType: Detectors.Detector-3.DarkGainCorrectionType
   GenericDetector[3].Name: Detectors.Detector-3.DetectorName
   GenericDetector[3].Type: Detectors.Detector-3.DetectorType
+  GenericDetector[3].GenericDetectorSettings.AnalogGain: Detectors.Detector-3.Gain
   GenericDetector[3].ID: Detectors.Detector-3
   GenericDetector[4].Inserted: Detectors.Detector-4.Inserted
   GenericDetector[4].Enabled: Detectors.Detector-4.Enabled
-  GenericDetector[4].Gain: Detectors.Detector-4.Gain
-  GenericDetector[4].Offset: Detectors.Detector-4.Offset
   GenericDetector[4].Name: Detectors.Detector-4.DetectorName
   GenericDetector[4].Type: Detectors.Detector-4.DetectorType
-  GenericDetector[4].CollectionAngleRange.Begin: Detectors.Detector-4.CollectionAngleRange.begin
-  GenericDetector[4].CollectionAngleRange.Unit:
+  GenericDetector[4].GenericDetectorSettings.AnalogGain: Detectors.Detector-4.Gain
+  GenericDetector[4].GenericDetectorSettings.Offset: Detectors.Detector-4.Offset
+  GenericDetector[4].GenericDetectorSettings.CollectionAngleRange.Begin: Detectors.Detector-4.CollectionAngleRange.begin
+  GenericDetector[4].GenericDetectorSettings.CollectionAngleRange.Unit:
   - Detectors.Detector-4.CollectionAngleRange.begin
-  GenericDetector[4].CollectionAngleRange.End: Detectors.Detector-4.CollectionAngleRange.end
+  GenericDetector[4].GenericDetectorSettings.CollectionAngleRange.End: Detectors.Detector-4.CollectionAngleRange.end
   GenericDetector[4].ID: Detectors.Detector-4
   Image.BinaryResult.AcquisitionUnit: BinaryResult.AcquisitionUnit
   Image.BinaryResult.CompositionType: BinaryResult.CompositionType
@@ -7324,5 +7285,91 @@ SourceMap:
   - Scan.FrameTime
   Image.ScanSettings.Rotation.Unit:
   - Scan.ScanRotation
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].ID:
+  - Detectors.Detector-1.Inserted
+  - Detectors.Detector-1.Enabled
+  - Detectors.Detector-1.AnalyticalDetectorShutterState
+  - Detectors.Detector-1.DetectorName
+  - Detectors.Detector-1.DetectorType
+  - Detectors.Detector-1.ElevationAngle
+  - Detectors.Detector-1.AzimuthAngle
+  - Detectors.Detector-1.CollectionAngle
+  - Detectors.Detector-1.Dispersion
+  - Detectors.Detector-1.PulseProcessTime
+  - Detectors.Detector-1.RealTime
+  - Detectors.Detector-1.LiveTime
+  - Detectors.Detector-1.InputCountRate
+  - Detectors.Detector-1.OutputCountRate
+  - Detectors.Detector-1.OffsetEnergy
+  - Detectors.Detector-1.ElectronicsNoise
+  - Detectors.Detector-1.BeginEnergy
+  - Detectors.Detector-1
+  - BinaryResult.Detector
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].Dispersion.Value: Detectors.Detector-1.Dispersion
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].Dispersion.Unit:
+  - Detectors.Detector-1.Dispersion
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].PulseProcessTime.Value: Detectors.Detector-1.PulseProcessTime
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].PulseProcessTime.Unit:
+  - Detectors.Detector-1.PulseProcessTime
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].RealTime.Value: Detectors.Detector-1.RealTime
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].RealTime.Unit:
+  - Detectors.Detector-1.RealTime
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].LiveTime.Value: Detectors.Detector-1.LiveTime
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].LiveTime.Unit:
+  - Detectors.Detector-1.LiveTime
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].InputCountRate: Detectors.Detector-1.InputCountRate
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].OutputCountRate: Detectors.Detector-1.OutputCountRate
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].OffsetEnergy.Value: Detectors.Detector-1.OffsetEnergy
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].OffsetEnergy.Unit:
+  - Detectors.Detector-1.OffsetEnergy
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].ElectronicsNoise.Value: Detectors.Detector-1.ElectronicsNoise
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].ElectronicsNoise.Unit:
+  - Detectors.Detector-1.ElectronicsNoise
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].BeginEnergy.Value: Detectors.Detector-1.BeginEnergy
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[0].BeginEnergy.Unit:
+  - Detectors.Detector-1.BeginEnergy
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].ID:
+  - Detectors.Detector-2.Inserted
+  - Detectors.Detector-2.Enabled
+  - Detectors.Detector-2.AnalyticalDetectorShutterState
+  - Detectors.Detector-2.DetectorName
+  - Detectors.Detector-2.DetectorType
+  - Detectors.Detector-2.ElevationAngle
+  - Detectors.Detector-2.AzimuthAngle
+  - Detectors.Detector-2.CollectionAngle
+  - Detectors.Detector-2.Dispersion
+  - Detectors.Detector-2.PulseProcessTime
+  - Detectors.Detector-2.RealTime
+  - Detectors.Detector-2.LiveTime
+  - Detectors.Detector-2.InputCountRate
+  - Detectors.Detector-2.OutputCountRate
+  - Detectors.Detector-2.OffsetEnergy
+  - Detectors.Detector-2.ElectronicsNoise
+  - Detectors.Detector-2.BeginEnergy
+  - Detectors.Detector-2
+  - BinaryResult.Detector
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].Dispersion.Value: Detectors.Detector-2.Dispersion
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].Dispersion.Unit:
+  - Detectors.Detector-2.Dispersion
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].PulseProcessTime.Value: Detectors.Detector-2.PulseProcessTime
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].PulseProcessTime.Unit:
+  - Detectors.Detector-2.PulseProcessTime
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].RealTime.Value: Detectors.Detector-2.RealTime
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].RealTime.Unit:
+  - Detectors.Detector-2.RealTime
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].LiveTime.Value: Detectors.Detector-2.LiveTime
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].LiveTime.Unit:
+  - Detectors.Detector-2.LiveTime
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].InputCountRate: Detectors.Detector-2.InputCountRate
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].OutputCountRate: Detectors.Detector-2.OutputCountRate
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].OffsetEnergy.Value: Detectors.Detector-2.OffsetEnergy
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].OffsetEnergy.Unit:
+  - Detectors.Detector-2.OffsetEnergy
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].ElectronicsNoise.Value: Detectors.Detector-2.ElectronicsNoise
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].ElectronicsNoise.Unit:
+  - Detectors.Detector-2.ElectronicsNoise
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].BeginEnergy.Value: Detectors.Detector-2.BeginEnergy
+  Pixels.Channel[0].LightPath.GenericDetectorSettings[1].BeginEnergy.Unit:
+  - Detectors.Detector-2.BeginEnergy
   Image.AcquisitionDate:
   - Acquisition.AcquisitionStartDatetime.DateTime

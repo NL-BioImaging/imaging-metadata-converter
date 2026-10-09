@@ -137,18 +137,33 @@ class AcquisitionMetadataMapperTest(unittest.TestCase):
 
     def test_the_detector_an_image_names_gets_its_settings(self):
         detectors = {'Detector-0': {'DetectorName': 'BM-Ceta', 'Gain': 0.7, 'ExposureTime': 0.5},
-                     'Detector-4': {'DetectorName': 'HAADF', 'Gain': 18.6, 'Offset': -4.6}}
+                     'Detector-4': {'DetectorName': 'HAADF', 'Gain': 18.6, 'Offset': -4.6,
+                                    'CollectionAngleRange': {'begin': 0.05, 'end': 0.2}}}
 
-        converted = self.mapper.convert_metadata({'Detectors': detectors, 'DetectorMetadata': {'DetectorName': 'HAADF'}})
+        converted = self.mapper.convert_metadata({'Detectors': detectors, 'BinaryResult': {'Detector': 'HAADF'}})
 
         self.assertEqual(converted['Pixels']['Channel'][0]['LightPath'], {'GenericDetectorSettings': [
-            {'ID': 'Detector-4', 'AnalogGain': 18.6, 'Offset': -4.6}]})
+            {'ID': 'Detector-4', 'AnalogGain': 18.6, 'Offset': -4.6,
+             'CollectionAngleRange': {'Begin': 0.05, 'End': 0.2, 'Unit': 'rad'}}]})
         self.assertEqual(converted['SourceMap']['Pixels.Channel[0].LightPath.GenericDetectorSettings[0].AnalogGain'],
                          'Detectors.Detector-4.Gain')
-        # a detector that made no part of the image keeps its values, as the source's
-        self.assertEqual(converted['GenericDetector'][0], {'Name': 'BM-Ceta', 'Gain': 0.7, 'ExposureTime': 0.5,
-                                                           'ID': 'Detector-0'})
-        self.assertEqual(converted['DetectorMetadata'], {'DetectorName': 'HAADF'})
+        # a detector that made no part of the image keeps its settings, as its own
+        self.assertEqual(converted['GenericDetector'][0], {'Name': 'BM-Ceta', 'ExposureTime': 0.5, 'ID': 'Detector-0',
+                                                           'GenericDetectorSettings': {'AnalogGain': 0.7}})
+        self.assertEqual(converted['Image']['BinaryResult'], {'Detector': 'HAADF'})
+
+    def test_the_detectors_an_image_names_by_their_common_name_get_its_settings(self):
+        detectors = {'Detector-1': {'DetectorName': 'DualX1', 'LiveTime': 285.2, 'CollectionAngle': 0.9},
+                     'Detector-2': {'DetectorName': 'DualX2', 'LiveTime': 285.2, 'InputCountRate': 132519}}
+
+        converted = self.mapper.convert_metadata({'Detectors': detectors, 'BinaryResult': {'Detector': 'DualX'}})
+
+        # Velox's DualX image is its two EDS detectors' DualX1 and DualX2
+        self.assertEqual(converted['Pixels']['Channel'][0]['LightPath'], {'GenericDetectorSettings': [
+            {'ID': 'Detector-1', 'LiveTime': {'Value': 285.2, 'Unit': 's'}},
+            {'ID': 'Detector-2', 'LiveTime': {'Value': 285.2, 'Unit': 's'}, 'InputCountRate': 132519}]})
+        # where the detector sits is its own
+        self.assertEqual(converted['GenericDetector'][0]['CollectionAngle'], {'Value': 0.9, 'Unit': 'rad'})
 
     def test_the_detectors_mixed_into_an_image_get_its_settings(self):
         detectors = {'QBSD': {'mixFactor': 1, 'gain': 45, 'offset': -1.4}, 'SED': {'mixFactor': 0, 'gain': 0}}
@@ -158,7 +173,7 @@ class AcquisitionMetadataMapperTest(unittest.TestCase):
         self.assertEqual(converted['Pixels']['Channel'][0]['LightPath'], {'GenericDetectorSettings': [
             {'ID': 'Detector:0', 'AnalogGain': 45, 'Offset': -1.4}]})
         self.assertEqual([detector.get('ID') for detector in converted['GenericDetector']], ['Detector:0', None])
-        self.assertEqual(converted['GenericDetector'][1]['gain'], 0)
+        self.assertEqual(converted['GenericDetector'][1]['GenericDetectorSettings'], {'AnalogGain': 0})
 
     def test_the_settings_of_a_sources_one_detector_are_its(self):
         converted = self.mapper.convert_metadata({'Detector': {'DetectorName': 'ETD-SE', 'Gain': 100, 'Brightness': 50}})
@@ -375,8 +390,9 @@ class RuleTargetsTest(unittest.TestCase):
         model = ModelPaths()
         # a per-item target (Pixels.Channel[*].Fluorophore...) runs through nested classes the tree lists apart
         # a field of each item a "Target[]" rule collapses (GenericDetector[].Name) is that class's field
-        missing = [target for target in targets
-                   if '[*]' not in target and target.removesuffix('[]').replace('[].', '.') not in paths]
+        # a detector's settings written with it until the mapper knows whether it made the image are its settings'
+        missing = [target for target in targets if '[*]' not in target
+                   and model.settings_path(target.removesuffix('[]').replace('[].', '.')) not in paths]
         missing += [target for target in targets if '[*]' in target and not _nested_path(model, target)]
         self.assertEqual(missing, [])
 
@@ -510,7 +526,7 @@ class LosslessMappingTest(unittest.TestCase):
         for source, rule in rules.items():
             if isinstance(rule, dict):
                 with self.subTest(source=source):
-                    target = re.sub(r'\[\*?\]', '', rule['target'])
+                    target = model.settings_path(re.sub(r'\[\*?\]', '', rule['target']))
                     self.assertIn(target, model_fields)
                     self.assertIn(unit_field(target), model_fields)
 

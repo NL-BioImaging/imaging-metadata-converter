@@ -57,7 +57,10 @@ Hub's "Breaking changes"; run it before publishing a new version.
   and RawStage added, compatibly. With it (user, 2026-10-09), the detector extension's per-image fields
   (Gain, Offset, Brightness, Contrast, ExposureTime, Binning, Enabled, Inserted; 85 fields over the detector
   subtypes) and ScanSettings.Detector removed: LiMi's Detector says "variable values modified during the
-  Acquisition go in DetectorSettings"; Brightness and Contrast are DetectorSettingsExtension's.
+  Acquisition go in DetectorSettings"; Brightness and Contrast are DetectorSettingsExtension's, as are the
+  analytical values of an acquisition (LiveTime, RealTime, PulseProcessTime, Input/OutputCountRate, Dispersion,
+  OffsetEnergy, BeginEnergy, ElectronicsNoise, which differs between acquisitions, and CollectionAngleRange); a
+  detector keeps where it sits (CollectionAngle, ElevationAngle, AzimuthAngle, the same in both TALOS files).
 
 ### Validation of the exports
 
@@ -187,7 +190,7 @@ with `core.autocrlf` Windows checked six of them out with CRLF, so the committed
 
 ## In progress
 
-Nothing. The stage (model 2.0.0) and detector changes are done and tested, not committed yet.
+Nothing.
 
 ## The model and the pipeline
 

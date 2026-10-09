@@ -22,19 +22,19 @@ Image:
       Source: FEI_TITAN.FeiImage.pixelHeight.value
     - ID: SourceMapping:4
       Field: Image[0].Pixels.Channel[0].LightPath.GenericDetectorSettings[0].ID
-      Source: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.offset
-        + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.mixFactor + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.A
+      Source: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.mixFactor + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.A
         + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.B + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.C
-        + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.D + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD
+        + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.D + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain
+        + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.offset + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD
         + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.mixFactor
       DerivedFrom:
-      - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain
-      - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.offset
       - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.mixFactor
       - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.A
       - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.B
       - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.C
       - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.D
+      - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain
+      - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.offset
       - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD
       - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.mixFactor
     - ID: SourceMapping:5
@@ -159,18 +159,18 @@ Image:
       Source: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD
     - ID: SourceMapping:45
       Field: Instrument[0].GenericDetector[0].ID
-      Source: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.offset
-        + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.mixFactor + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.A
+      Source: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.mixFactor + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.A
         + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.B + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.C
-        + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.D + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD
+        + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.D + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain
+        + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.offset + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD
       DerivedFrom:
-      - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain
-      - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.offset
       - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.mixFactor
       - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.A
       - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.B
       - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.C
       - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.D
+      - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain
+      - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.offset
       - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD
     - ID: SourceMapping:46
       Field: Instrument[0].GenericDetector[1].Name
@@ -439,24 +439,24 @@ Instrument:
     SchemaPath: GenericDetector[0].D
     Source: SourceFile:0
   - ID: Property:30
-    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.gain
-    Value: '0'
-    SchemaPath: GenericDetector[1].gain
-    Source: SourceFile:0
-  - ID: Property:31
-    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.offset
-    Value: '0'
-    SchemaPath: GenericDetector[1].offset
-    Source: SourceFile:0
-  - ID: Property:32
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.scintillatorVoltage
     Value: '0'
     SchemaPath: GenericDetector[1].scintillatorVoltage
     Source: SourceFile:0
-  - ID: Property:33
+  - ID: Property:31
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.mixFactor
     Value: '0'
     SchemaPath: GenericDetector[1].mixFactor
+    Source: SourceFile:0
+  - ID: Property:32
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.gain
+    Value: '0'
+    SchemaPath: GenericDetector[1].GenericDetectorSettings.AnalogGain
+    Source: SourceFile:0
+  - ID: Property:33
+    Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.offset
+    Value: '0'
+    SchemaPath: GenericDetector[1].GenericDetectorSettings.Offset
     Source: SourceFile:0
   - ID: Property:34
     Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.mixFactor

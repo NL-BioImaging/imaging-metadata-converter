@@ -180,6 +180,18 @@ classes:
         description: The angle of an analytical detector around the beam axis.
         range: Quantity
         inlined: true
+
+  DetectorSettingsExtension:
+    description: Settings of the detector used, and what it measured during the acquisition, beyond LiMi's
+      gains and offset.
+    mixin: true
+    attributes:
+      Brightness:
+        description: The detector's brightness setting, on the source's own scale.
+        range: float
+      Contrast:
+        description: The detector's contrast setting, on the source's own scale.
+        range: float
       CollectionAngleRange:
         description: The range of scattering angles a scanning (STEM) detector collects, e.g. of a HAADF detector.
         range: QuantityRange
@@ -218,17 +230,6 @@ classes:
         description: The electronic noise of an analytical detector, as an energy.
         range: Quantity
         inlined: true
-
-  DetectorSettingsExtension:
-    description: Settings of the detector used beyond LiMi's gains and offset.
-    mixin: true
-    attributes:
-      Brightness:
-        description: The detector's brightness setting, on the source's own scale.
-        range: float
-      Contrast:
-        description: The detector's contrast setting, on the source's own scale.
-        range: float
 
   PixelsExtension:
     mixin: true

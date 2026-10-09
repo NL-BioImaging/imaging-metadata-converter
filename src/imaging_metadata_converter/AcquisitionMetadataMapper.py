@@ -37,10 +37,9 @@ LEICA_DETECTORS = 'ConfocalSettingDefinition.DetectorList.Detector'
 LEICA_SEQUENTIAL_MASTER = 'LDM_Block_Sequential_Master'
 # the detector types LAS X names that LiMi has a class for; any other is a GenericDetector
 LEICA_DETECTOR_CLASSES = {'PMT': 'PhotoMultiplierTube', 'HyD': 'HybridPhotoDetector'}
-# the detector a Velox (TALOS) image was taken with, by its name
-VELOX_IMAGE_DETECTOR = 'DetectorMetadata.DetectorName'
-# a detector's own values that are its settings for the image, by the source's name for them in any case
-DETECTOR_SETTING_FIELDS = {'gain': 'AnalogGain', 'offset': 'Offset'}
+# the detector a Velox (TALOS) image was taken with, by its name, or the name its numbered detectors share
+# (DualX: DualX1 and DualX2)
+VELOX_IMAGE_DETECTOR = 'BinaryResult.Detector'
 # Windows FILETIME, as Leica's LMD software writes its acquisition time: 100 ns steps since 1601
 FILETIME_EPOCH = datetime(1601, 1, 1)
 FORMATS_KEEPING_PARTS = ('count',)
@@ -67,10 +66,7 @@ class AcquisitionMetadataMapper:
         model = ModelPaths(schema_file) if schema_file.endswith(('.yaml', '.yml')) else None
         self.schema = model.tree() if model else self._load_json(schema_file)
         self._root = model.root if model else None
-        # each concrete detector class, with the class of its settings for an image (LiMi's Model_Settings)
-        self._detector_settings = {name: model.classes[name].annotations['Model_Settings'].value
-                                   for name in model.view.class_descendants('Detector')
-                                   if not model.classes[name].abstract} if model else {}
+        self._detector_settings = model.detector_settings() if model else {}
         rules = self._load_json(mappings_file)
         # a rule may state the unit its source implies but never writes: {"target": ..., "unit": "mm"}
         self.mappings = {source: rule['target'] if isinstance(rule, dict) else rule for source, rule in rules.items()}
@@ -801,16 +797,19 @@ class AcquisitionMetadataMapper:
         """Give each detector's settings for the image the detector's ID, as LiMi has them: the settings, in the
         class of the detector's kind, in the LightPath of the image's channel, name the detector they are for.
 
-        Of the detectors a source describes, the image is taken with the one it names (Velox's
-        DetectorMetadata.DetectorName) or those mixed into it (Phenom's mixFactor above 0); their gain and offset
-        move into the first channel's settings, while the other detectors' values stay as the source states
-        them. The settings a source's rules write for its one detector (Cikteq's, a Leica camera's) are that
-        detector's. A detector without an ID gets one by its place (Detector:0), as the source has none.
+        Rules write the settings of each of several detectors with the detector, in its settings class
+        (GenericDetector[].GenericDetectorSettings.AnalogGain), as only now is it known which made the image: the
+        one the source names (Velox's BinaryResult.Detector), or those named it and a number (its DualX image,
+        DualX1 and DualX2), or those mixed into it (Phenom's mixFactor above 0). Their settings move into the
+        first channel's LightPath; the other detectors keep theirs, as the source's. The settings a source's rules
+        write for its one detector (Cikteq's, a Leica camera's) are that detector's. A detector without an ID
+        gets one by its place (Detector:0), as the source has none.
         """
         detectors = [(detector_class, record, record_path) for detector_class in self._detector_settings
                      for record, record_path in _items(result.get(detector_class), detector_class)]
         named = value_at_path(metadata, VELOX_IMAGE_DETECTOR)
-        used = [detector for detector in detectors if named is not None and detector[1].get('Name') == named] or \
+        used = [detector for detector in detectors if isinstance(named, str)
+                and re.fullmatch(rf'{re.escape(named)}\d*', str(detector[1].get('Name')))] or \
             [detector for detector in detectors if (_number(str(detector[1].get('mixFactor'))) or 0) > 0]
         for detector_class, record, record_path in used:
             settings_class = self._detector_settings[detector_class]
@@ -819,10 +818,11 @@ class AcquisitionMetadataMapper:
             reason = VELOX_IMAGE_DETECTOR if named is not None else provenance.get(f'{record_path}.mixFactor')
             set_nested_value(result, f'{settings}.ID', self._detector_id(result, provenance, detectors, record, record_path))
             provenance[f'{settings}.ID'] = record_origins(provenance, record_path) + ([reason] if reason else [])
-            for key in [key for key in record if key.lower() in DETECTOR_SETTING_FIELDS]:
-                field = f'{settings}.{DETECTOR_SETTING_FIELDS[key.lower()]}'
-                set_nested_value(result, field, record.pop(key))
-                provenance[field] = provenance.pop(f'{record_path}.{key}')
+            staged = record.pop(settings_class, {})
+            for key, value in staged.items() if isinstance(staged, dict) else ():
+                set_nested_value(result, f'{settings}.{key}', value)
+            for path in [path for path in provenance if path.startswith(f'{record_path}.{settings_class}.')]:
+                provenance[f'{settings}{path[len(record_path) + len(settings_class) + 1:]}'] = provenance.pop(path)
         written = value_at_path(result, 'LightPath.GenericDetectorSettings')
         generic = [detector for detector in detectors if self._detector_settings[detector[0]] == 'GenericDetectorSettings']
         if isinstance(written, dict) and 'ID' not in written and len(generic) == 1:

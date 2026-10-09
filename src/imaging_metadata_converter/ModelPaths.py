@@ -60,6 +60,22 @@ class ModelPaths:
                     else slot.range or 'string'
         return subtree
 
+    def detector_settings(self):
+        """{detector class: the class of its settings for an image}, as LiMi's Model_Settings pairs them
+        (PhotoMultiplierTube: PointDetectorSettings)."""
+        if 'Detector' not in self.classes:
+            return {}
+        return {name: self.classes[name].annotations['Model_Settings'].value
+                for name in self.view.class_descendants('Detector') if not self.classes[name].abstract}
+
+    def settings_path(self, path):
+        """The model path of a detector's settings a rule writes with the detector until the mapper knows
+        whether it made the image (GenericDetector.GenericDetectorSettings.LiveTime.Value:
+        LightPath.GenericDetectorSettings.LiveTime.Value); any other path as it is."""
+        detector, _, rest = path.partition('.')
+        settings = self.detector_settings().get(detector)
+        return f'LightPath.{rest}' if settings is not None and rest.startswith(f'{settings}.') else path
+
     def slot_at(self, class_name, name):
         """(slot, class it leads to) for the path segment `name` of `class_name`: the slot of that name, or, for a
         concrete subtype named for itself (LightPath.GenericDetectorSettings), the slot over its abstract class."""

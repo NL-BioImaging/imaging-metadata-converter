@@ -459,6 +459,10 @@
     "SpimData.SequenceDescription.Timepoints.last": "Pixels.TimePoints.End",
     "Detectors.*.DetectorName": "GenericDetector[].Name",
     "Detectors.*.DetectorType": "GenericDetector[].Type",
+    "Detectors.*.Gain": "GenericDetector[].GenericDetectorSettings.AnalogGain",
+    "Detectors.*.Offset": "GenericDetector[].GenericDetectorSettings.Offset",
+    "Detectors.*.InputCountRate": "GenericDetector[].GenericDetectorSettings.InputCountRate",
+    "Detectors.*.OutputCountRate": "GenericDetector[].GenericDetectorSettings.OutputCountRate",
     "Detectors.*.CollectionAngle": {
         "target": "GenericDetector[].CollectionAngle.Value",
         "unit": "rad"
@@ -472,42 +476,44 @@
         "unit": "rad"
     },
     "Detectors.*.CollectionAngleRange.begin": {
-        "target": "GenericDetector[].CollectionAngleRange.Begin",
+        "target": "GenericDetector[].GenericDetectorSettings.CollectionAngleRange.Begin",
         "unit": "rad"
     },
     "Detectors.*.CollectionAngleRange.end": {
-        "target": "GenericDetector[].CollectionAngleRange.End",
+        "target": "GenericDetector[].GenericDetectorSettings.CollectionAngleRange.End",
         "unit": "rad"
     },
     "Detectors.*.LiveTime": {
-        "target": "GenericDetector[].LiveTime.Value",
+        "target": "GenericDetector[].GenericDetectorSettings.LiveTime.Value",
         "unit": "s"
     },
     "Detectors.*.RealTime": {
-        "target": "GenericDetector[].RealTime.Value",
+        "target": "GenericDetector[].GenericDetectorSettings.RealTime.Value",
         "unit": "s"
     },
     "Detectors.*.PulseProcessTime": {
-        "target": "GenericDetector[].PulseProcessTime.Value",
+        "target": "GenericDetector[].GenericDetectorSettings.PulseProcessTime.Value",
         "unit": "s"
     },
     "Detectors.*.Dispersion": {
-        "target": "GenericDetector[].Dispersion.Value",
+        "target": "GenericDetector[].GenericDetectorSettings.Dispersion.Value",
         "unit": "eV"
     },
     "Detectors.*.OffsetEnergy": {
-        "target": "GenericDetector[].OffsetEnergy.Value",
+        "target": "GenericDetector[].GenericDetectorSettings.OffsetEnergy.Value",
         "unit": "eV"
     },
     "Detectors.*.BeginEnergy": {
-        "target": "GenericDetector[].BeginEnergy.Value",
+        "target": "GenericDetector[].GenericDetectorSettings.BeginEnergy.Value",
         "unit": "eV"
     },
     "Detectors.*.ElectronicsNoise": {
-        "target": "GenericDetector[].ElectronicsNoise.Value",
+        "target": "GenericDetector[].GenericDetectorSettings.ElectronicsNoise.Value",
         "unit": "eV"
     },
     "acquisition.scan.detectors.*.id": "GenericDetector[].Name",
+    "acquisition.scan.detectors.*.gain": "GenericDetector[].GenericDetectorSettings.AnalogGain",
+    "acquisition.scan.detectors.*.offset": "GenericDetector[].GenericDetectorSettings.Offset",
     "Optics.Focus": "Image.ElectronBeamSettings.Focus",
     "Optics.LastMeasuredScreenCurrent": {
         "target": "Image.ElectronBeamSettings.Current.Value",

@@ -393,10 +393,13 @@ detector is the class of the type LAS X states (`PMT`, `HyD`), else a
 channel's settings name the detector its sequence uses, without its gain,
 which LAS X states once for all sequences. Of the detectors an EM source
 describes, the image is taken with the one it names (Velox's
-`DetectorMetadata.DetectorName`) or those mixed into it (Phenom's
-`mixFactor` above 0): their gain (`AnalogGain`) and offset move into the
-first channel's settings, while the values of the others stay as the source
-states them. A source with one detector (Cikteq, a Leica camera) has rules to
+`BinaryResult.Detector`), or those named it and a number (its `DualX` image:
+`DualX1` and `DualX2`), or those mixed into it (Phenom's `mixFactor` above
+0). Rules write each detector's settings with it, in its settings class
+(`GenericDetector[].GenericDetectorSettings.LiveTime.Value`), and those of the
+detectors that made the image move into the first channel's settings: gain
+(`AnalogGain`), offset, an EDS detector's live time, count rates and spectrum
+energies. The other detectors keep theirs with them, as the source's. A source with one detector (Cikteq, a Leica camera) has rules to
 `LightPath.GenericDetectorSettings`, which then name that detector. A camera
 stays a `GenericDetector` until a source states its sensor (LiMi's cameras
 are CCD, CMOS, ...).

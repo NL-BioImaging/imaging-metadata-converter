@@ -101,10 +101,11 @@ GenericDetector:
   D: +
   Name: QBSD
   ID: Detector:0
-- gain: 0
-  offset: 0
-  scintillatorVoltage: 0
+- scintillatorVoltage: 0
   mixFactor: 0
+  GenericDetectorSettings:
+    AnalogGain: 0
+    Offset: 0
   Name: SED
 - mixFactor: 0
   segmentSelection:
@@ -189,10 +190,10 @@ SourceMap:
   GenericDetector[0].C: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.C
   GenericDetector[0].D: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.D
   GenericDetector[0].Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD
-  GenericDetector[1].gain: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.gain
-  GenericDetector[1].offset: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.offset
   GenericDetector[1].scintillatorVoltage: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.scintillatorVoltage
   GenericDetector[1].mixFactor: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.mixFactor
+  GenericDetector[1].GenericDetectorSettings.AnalogGain: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.gain
+  GenericDetector[1].GenericDetectorSettings.Offset: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED.offset
   GenericDetector[1].Name: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED
   GenericDetector[2].mixFactor: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.mixFactor
   GenericDetector[2].segmentSelection.bf1: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM.segmentSelection.bf1
@@ -243,22 +244,22 @@ SourceMap:
   Channel.SamplesPerPixel: SamplesPerPixel
   ResolutionUnit: ResolutionUnit
   GenericDetector[0].ID:
-  - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain
-  - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.offset
   - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.mixFactor
   - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.A
   - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.B
   - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.C
   - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.D
+  - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain
+  - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.offset
   - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD
   Pixels.Channel[0].LightPath.GenericDetectorSettings[0].ID:
-  - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain
-  - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.offset
   - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.mixFactor
   - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.A
   - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.B
   - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.C
   - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.D
+  - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain
+  - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.offset
   - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD
   - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.mixFactor
   Pixels.Channel[0].LightPath.GenericDetectorSettings[0].AnalogGain: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain

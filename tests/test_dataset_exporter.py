@@ -1,6 +1,7 @@
 import glob
 import json
 import os
+import re
 import sys
 import tempfile
 import unittest
@@ -15,6 +16,7 @@ import yaml
 from dataset_exporter import (PROVENANCE_ENTITIES, SOURCE_DIR as SOURCES_DIR, TARGET_DIR as EXPORT_DIR,
                               DatasetExporter, export_file, fits)
 from imaging_metadata_converter import AcquisitionMetadataMapper
+from imaging_metadata_converter.ModelPaths import ModelPaths
 from metaseed_generator import DEFAULT_PROFILE_FILE as PROFILE_FILE
 
 
@@ -248,16 +250,23 @@ class ExportFolderTest(unittest.TestCase):
     def test_every_derived_value_fits_its_field(self):
         """A value the mapper derives for a model field must fit it: one kept as a Property instead was written in
         the wrong form (a laser's Role as text, where the field is a list). A value turned into a number in place
-        (a TIFF or Exif fraction, its parts the items of its own key) has no field, and stays a Property."""
+        (a TIFF or Exif fraction, its parts the items of its own key) has no field, and stays a Property, as does
+        a unit implied for a setting of a detector that did not make the image, kept with that detector."""
+        model = ModelPaths()
+
         def in_place(record):
             return all(part.startswith(f"{record.get('SchemaPath')}[") for part in record['DerivedFrom'])
+
+        def with_its_detector(record):
+            path = re.sub(r'\[\d+\]', '', record.get('SchemaPath', ''))
+            return model.settings_path(path) != path
 
         def derived_properties(node):
             if isinstance(node, dict):
                 for key, value in node.items():
                     records = value if key == 'CustomProperties' else []
                     yield from (record.get('SchemaPath') for record in records
-                                if 'DerivedFrom' in record and not in_place(record))
+                                if 'DerivedFrom' in record and not in_place(record) and not with_its_detector(record))
                     yield from derived_properties(value) if key != 'CustomProperties' else ()
             elif isinstance(node, list):
                 for item in node:
