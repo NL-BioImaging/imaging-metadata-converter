@@ -6,7 +6,7 @@ description: Metadata beyond LiMi that the source files hold, mostly electron mi
   the imaging model's classes use; each field's schema_extended_path annotation is its path in
   schema.extended.json. Values of type object in schema.extended.json are strings here (annotation
   source_type), arrays multivalued strings.
-version: 1.2.0
+version: 2.0.0
 prefixes:
   linkml: https://w3id.org/linkml/
   imaging: https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging/
@@ -160,20 +160,6 @@ classes:
         description: The type of detector as the source names it; CCD, CMOS and WaveFrontSensor have their own.
         close_mappings: ['ome:type']
         annotations: {schema_extended_path: Detector.Type}
-      Gain:
-        range: float
-        close_mappings: ['ome:gain']
-        annotations: {schema_extended_path: Detector.Gain}
-      Offset:
-        range: float
-        close_mappings: ['ome:offset']
-        annotations: {schema_extended_path: Detector.Offset}
-      Brightness:
-        range: float
-        annotations: {schema_extended_path: Detector.Brightness}
-      Contrast:
-        range: float
-        annotations: {schema_extended_path: Detector.Contrast}
       Channel:
         range: integer
         annotations: {schema_extended_path: Detector.Channel}
@@ -182,20 +168,6 @@ classes:
         annotations: {schema_extended_path: Detector.Configuration, source_type: array}
       ActiveConfiguration:
         annotations: {schema_extended_path: Detector.ActiveConfiguration, source_type: object}
-      Inserted:
-        description: Whether the detector is inserted into the beam path.
-        range: boolean
-      Enabled:
-        description: Whether the detector is enabled for this acquisition.
-        range: boolean
-      ExposureTime:
-        description: The exposure time of a camera, for this acquisition.
-        range: Quantity
-        inlined: true
-      Binning:
-        description: The number of sensor pixels binned into one along X and Y.
-        range: Vector2D
-        inlined: true
       CollectionAngle:
         description: The solid angle an analytical (X-ray) detector collects over.
         range: Quantity
@@ -247,6 +219,17 @@ classes:
         range: Quantity
         inlined: true
 
+  DetectorSettingsExtension:
+    description: Settings of the detector used beyond LiMi's gains and offset.
+    mixin: true
+    attributes:
+      Brightness:
+        description: The detector's brightness setting, on the source's own scale.
+        range: float
+      Contrast:
+        description: The detector's contrast setting, on the source's own scale.
+        range: float
+
   PixelsExtension:
     mixin: true
     attributes:
@@ -256,83 +239,94 @@ classes:
         range: QuantityRange
         inlined: true
         annotations: {schema_extended_path: Pixels.TimePoints}
-  StageExtension:
+  PlaneExtension:
+    description: The stage's axes beyond the Plane's PositionX, PositionY and PositionZ, in their style.
     mixin: true
     attributes:
-      Position:
-        range: StagePosition
-        inlined: true
-        annotations: {schema_extended_path: SamplePositioning.Stage.Position}
-      Tilt:
-        range: StageTilt
-        inlined: true
-        annotations: {schema_extended_path: SamplePositioning.Stage.Tilt}
-      Rotation:
-        range: Quantity
-        inlined: true
-        annotations: {schema_extended_path: SamplePositioning.Stage.Rotation}
-      Bias:
-        range: StageBias
-        inlined: true
-        annotations: {schema_extended_path: SamplePositioning.Stage.Bias}
-      RawPosition:
-        range: StagePosition
-        inlined: true
-        annotations: {schema_extended_path: SamplePositioning.Stage.RawPosition}
-      MultiStage:
-        range: MultiStage
-        inlined: true
-        annotations: {schema_extended_path: SamplePositioning.Stage.MultiStage}
-  StagePosition:
-    description: The stage position along each axis; RawPosition also has Tilt and Rot.
-    attributes:
-      X:
-        range: Quantity
-        inlined: true
-      Y:
-        range: Quantity
-        inlined: true
-      Z:
-        range: Quantity
-        inlined: true
-      M:
-        range: Quantity
-        inlined: true
-      Tilt:
-        range: Quantity
-        inlined: true
-      Rot:
-        range: Quantity
-        inlined: true
-  StageTilt:
-    description: The stage tilt, and its alpha and beta angles.
-    is_a: Quantity
-    attributes:
-      Alpha:
-        range: Quantity
-        inlined: true
-      Beta:
-        range: Quantity
-        inlined: true
-  StageBias:
-    description: The bias applied to the stage.
-    attributes:
-      BiasType:
-        annotations: {schema_extended_path: SamplePositioning.Stage.Bias.BiasType}
-      Mode:
-        annotations: {schema_extended_path: SamplePositioning.Stage.Bias.Mode}
-      Volts:
+      PositionM:
+        description: The position along the stage's M axis, an axis besides X, Y and Z (Zeiss's stages).
         range: float
-        annotations: {schema_extended_path: SamplePositioning.Stage.Bias.Volts}
-  MultiStage:
-    description: The sample on a multi-sample stage.
+      PositionMUnit:
+        description: The unit of PositionM.
+        range: UnitsLength
+      Tilt:
+        description: The stage's tilt, about its primary (alpha) tilt axis.
+        range: float
+      TiltUnit:
+        description: The unit of Tilt.
+        range: UnitsAngle
+      TiltBeta:
+        description: The stage's tilt about its second (beta) tilt axis, as of a double-tilt holder.
+        range: float
+      TiltBetaUnit:
+        description: The unit of TiltBeta.
+        range: UnitsAngle
+      Rotation:
+        description: The stage's rotation.
+        range: float
+      RotationUnit:
+        description: The unit of Rotation.
+        range: UnitsAngle
+      RawStage:
+        range: RawStage
+        inlined: true
+  RawStage:
+    description: The stage's axes as its own controller reports them, beside the Plane's position, which the
+      acquisition software may have offset or aligned (ZEISS Atlas's RawStage beside its Stage).
     attributes:
+      PositionX:
+        range: float
+      PositionXUnit:
+        range: UnitsLength
+      PositionY:
+        range: float
+      PositionYUnit:
+        range: UnitsLength
+      PositionZ:
+        range: float
+      PositionZUnit:
+        range: UnitsLength
+      PositionM:
+        range: float
+      PositionMUnit:
+        range: UnitsLength
+      Tilt:
+        range: float
+      TiltUnit:
+        range: UnitsAngle
+      TiltBeta:
+        range: float
+      TiltBetaUnit:
+        range: UnitsAngle
+      Rotation:
+        range: float
+      RotationUnit:
+        range: UnitsAngle
+  SamplePositioningSettingsExtension:
+    mixin: true
+    attributes:
+      Bias:
+        description: The bias voltage applied to the stage.
+        range: float
+      BiasUnit:
+        description: The unit of Bias.
+        range: UnitsElectricPotential
+      BiasType:
+        description: The kind of bias applied to the stage, as the source names it.
+      BiasMode:
+        description: The mode of the stage bias, as the source names it.
       SampleHeight:
-        range: Quantity
-        inlined: true
+        description: The height of the sample on a multi-sample stage.
+        range: float
+      SampleHeightUnit:
+        description: The unit of SampleHeight.
+        range: UnitsLength
       SampleRadius:
-        range: Quantity
-        inlined: true
+        description: The radius of the sample on a multi-sample stage.
+        range: float
+      SampleRadiusUnit:
+        description: The unit of SampleRadius.
+        range: UnitsLength
 
   ElectronSource:
     description: An electron source of an electron microscope (hardware; how it was set for an image is the
@@ -500,9 +494,6 @@ classes:
       LineIntegrationCount:
         range: integer
         annotations: {schema_extended_path: Scan.LineIntegrationCount}
-      Detector:
-        description: The name of the detector used for the scan.
-        annotations: {schema_extended_path: Scan.Detector}
       LineInterlacing:
         description: The number of interlaced fields the lines are scanned in; 1 is not interlaced.
         range: integer

@@ -2322,8 +2322,6 @@ HardwareSetting:
                 LutWhiteValue: 1
                 LutGammaValue: 1
               Version: 1
-              Name: Blue
-              Type: PMT
               ScanType: Internal
               Channel: 1
               ChannelName: Channel 1
@@ -2373,8 +2371,6 @@ HardwareSetting:
                 LutWhiteValue: 1
                 LutGammaValue: 1
               Version: 1
-              Name: Green
-              Type: PMT
               ScanType: Internal
               Channel: 2
               ChannelName: Channel 2
@@ -2424,8 +2420,6 @@ HardwareSetting:
                 LutWhiteValue: 1
                 LutGammaValue: 1
               Version: 1
-              Name: Yellow
-              Type: PMT
               ScanType: Internal
               Channel: 3
               ChannelName: Channel 3
@@ -2475,8 +2469,6 @@ HardwareSetting:
                 LutWhiteValue: 1
                 LutGammaValue: 1
               Version: 1
-              Name: Red
-              Type: PMT
               ScanType: Internal
               Channel: 4
               ChannelName: Channel 4
@@ -5112,10 +5104,14 @@ Plane:
   PositionZUnit: m
   PositionXUnit: m
   PositionYUnit: m
+LightPath:
+  GenericDetectorSettings:
+    AnalogGain: 1
+    Brightness: 125
+    ID: Detector:4
 GenericDetector:
-  Gain: 1
   Model: DFC4400-GI_700010131528_700010131530_700010131533_700010131558
-  Brightness: 125
+  ID: Detector:4
 Pixels:
   SizeX: 2448
   SizeY: 2048
@@ -5423,6 +5419,19 @@ ImageDescription:
       Origin: 0.0
       Length: 0.01382017
       Unit: m
+PhotoMultiplierTube:
+- ID: Detector:0
+  Name: Blue
+  Type: PMT
+- ID: Detector:1
+  Name: Green
+  Type: PMT
+- ID: Detector:2
+  Name: Yellow
+  Type: PMT
+- ID: Detector:3
+  Name: Red
+  Type: PMT
 GenericExcitationSource:
 - ID: LightSource:0
   Role:
@@ -5493,7 +5502,7 @@ SourceMap:
   HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.EndValue: HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.EndValue
   HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.NbSections: HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.NbSections
   Plane.ExposureTime: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].ExposureTime
-  GenericDetector.Gain: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Gain
+  LightPath.GenericDetectorSettings.AnalogGain: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Gain
   ? HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].LUT
   : HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].LUT
   ? HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Active
@@ -5815,7 +5824,7 @@ SourceMap:
   HardwareSetting.CameraSettingDefinition.TheoCamSensorPixelSizeX: HardwareSetting.CameraSettingDefinition.TheoCamSensorPixelSizeX
   HardwareSetting.CameraSettingDefinition.TheoCamSensorPixelSizeY: HardwareSetting.CameraSettingDefinition.TheoCamSensorPixelSizeY
   HardwareSetting.CameraSettingDefinition.Gamma: HardwareSetting.CameraSettingDefinition.Gamma
-  GenericDetector.Brightness: HardwareSetting.CameraSettingDefinition.Brightness
+  LightPath.GenericDetectorSettings.Brightness: HardwareSetting.CameraSettingDefinition.Brightness
   HardwareSetting.CameraSettingDefinition.WhiteValue: HardwareSetting.CameraSettingDefinition.WhiteValue
   HardwareSetting.CameraSettingDefinition.BlackValue: HardwareSetting.CameraSettingDefinition.BlackValue
   HardwareSetting.CameraSettingDefinition.GainStringValue: HardwareSetting.CameraSettingDefinition.GainStringValue
@@ -9446,10 +9455,6 @@ SourceMap:
   : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[0].LutInfo.LutGammaValue
   ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[0].Version
   : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[0].Version
-  ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[0].Name
-  : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[0].Name
-  ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[0].Type
-  : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[0].Type
   ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[0].ScanType
   : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[0].ScanType
   ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[0].Channel
@@ -9540,10 +9545,6 @@ SourceMap:
   : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[1].LutInfo.LutGammaValue
   ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[1].Version
   : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[1].Version
-  ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[1].Name
-  : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[1].Name
-  ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[1].Type
-  : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[1].Type
   ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[1].ScanType
   : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[1].ScanType
   ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[1].Channel
@@ -9634,10 +9635,6 @@ SourceMap:
   : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[2].LutInfo.LutGammaValue
   ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[2].Version
   : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[2].Version
-  ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[2].Name
-  : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[2].Name
-  ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[2].Type
-  : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[2].Type
   ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[2].ScanType
   : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[2].ScanType
   ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[2].Channel
@@ -9728,10 +9725,6 @@ SourceMap:
   : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].LutInfo.LutGammaValue
   ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].Version
   : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].Version
-  ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].Name
-  : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].Name
-  ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].Type
-  : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].Type
   ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].ScanType
   : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].ScanType
   ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].Channel
@@ -14354,9 +14347,29 @@ SourceMap:
   - HardwareSetting.CameraSettingDefinition.StagePosX
   Plane.PositionYUnit:
   - HardwareSetting.CameraSettingDefinition.StagePosY
+  PhotoMultiplierTube[0].ID:
+  - HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[0].Type
+  PhotoMultiplierTube[0].Name: HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[0].Name
+  PhotoMultiplierTube[0].Type: HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[0].Type
+  PhotoMultiplierTube[1].ID:
+  - HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[1].Type
+  PhotoMultiplierTube[1].Name: HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[1].Name
+  PhotoMultiplierTube[1].Type: HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[1].Type
+  PhotoMultiplierTube[2].ID:
+  - HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[2].Type
+  PhotoMultiplierTube[2].Name: HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[2].Name
+  PhotoMultiplierTube[2].Type: HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[2].Type
+  PhotoMultiplierTube[3].ID:
+  - HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].Type
+  PhotoMultiplierTube[3].Name: HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].Name
+  PhotoMultiplierTube[3].Type: HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].Type
   GenericExcitationSource[0].ID:
   - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.TL_Shutter
   GenericExcitationSource[0].Role[0]:
   - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.TL_Shutter
   Pixels.Channel[0].LightPath.LightSourceSettings[0].ID:
   - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.TL_Shutter
+  GenericDetector.ID:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraName
+  LightPath.GenericDetectorSettings.ID:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraName

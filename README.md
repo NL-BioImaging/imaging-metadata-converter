@@ -129,7 +129,7 @@ Each field's dotted source path is resolved in two steps:
 A model path starts at a class with an identifier (`OME`, `Image`, `Pixels`,
 `Laser`, ...) and continues through the components nested in it:
 `Image.ElectronBeamSettings.WorkingDistance.Value`, `Pixels.PhysicalSizeX`,
-`MechanicalStage.Position.X.Value`. Every value in the model has one such
+`Plane.RawStage.PositionX`. Every value in the model has one such
 path.
 
 Fields matching neither step are kept at their original path, and a value is
@@ -211,7 +211,7 @@ it at the root; the label counts as the item's field `id`:
 ```json
 "Detectors.*": "GenericDetector[]",
 "Detectors.*.DetectorName": "GenericDetector[].Name",
-"Detectors.*.ExposureTime": {"target": "GenericDetector[].ExposureTime.Value", "unit": "s"},
+"Detectors.*.LiveTime": {"target": "GenericDetector[].LiveTime.Value", "unit": "s"},
 "acquisition.scan.detectors.*.id": "GenericDetector[].Name"
 ```
 
@@ -380,6 +380,27 @@ with the incident-light (IL) shutter open its incident lamp, each a
 `GenericExcitationSource` (a light source of no stated type) with the `Role`
 `Transmitted` or `Fluorescence`, named by the channel's `LightSourceSettings`.
 
+### Detectors and their settings
+
+LiMi keeps a detector's fixed values on the detector and those set for an
+image in the `DetectorSettings` of the channel's `LightPath`, which name the
+detector by its `ID`; a settings class goes with each kind of detector
+(`PointDetectorSettings` for a PMT or HyD, `GenericDetectorSettings` for a
+`GenericDetector`), written under its own name (`LightPath.
+GenericDetectorSettings.AnalogGain`), as the profile has it. A Leica
+detector is the class of the type LAS X states (`PMT`, `HyD`), else a
+`GenericDetector`, with an ID by its place (`Detector:3`); each sequential
+channel's settings name the detector its sequence uses, without its gain,
+which LAS X states once for all sequences. Of the detectors an EM source
+describes, the image is taken with the one it names (Velox's
+`DetectorMetadata.DetectorName`) or those mixed into it (Phenom's
+`mixFactor` above 0): their gain (`AnalogGain`) and offset move into the
+first channel's settings, while the values of the others stay as the source
+states them. A source with one detector (Cikteq, a Leica camera) has rules to
+`LightPath.GenericDetectorSettings`, which then name that detector. A camera
+stays a `GenericDetector` until a source states its sensor (LiMi's cameras
+are CCD, CMOS, ...).
+
 Older Leica files (LAS AF, as from an SP5) list their settings as records
 instead (`{Identifier: dblZoom, Variant: 2.5}`); `LeicaSource` keys each
 record by its own name (`ScannerSetting.dblZoom`, `FilterSetting.<object>.
@@ -454,7 +475,7 @@ in the documentation describes them in full.
   the model, once; the model is edited by hand since, so it refuses to
   overwrite it without `--force`. Kept for comparing a future LiMi XSD.
 - `scripts/metaseed_generator.py` - generates the metaseed profile
-  `profile/imaging.metaseed.yaml` (`imaging` 1.2; 1.1 is published on the
+  `profile/imaging.metaseed.yaml` (`imaging` 2.0; 1.1 is published on the
   metaseed Hub) from the model; rerun it after a change to the model.
 - `scripts/dataset_exporter.py` - exports each example as a metaseed dataset
   of the profile into `export/`, with every value the model has no field for

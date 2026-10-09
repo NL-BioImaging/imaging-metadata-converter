@@ -20,10 +20,10 @@ model's `id` and `imaging:` prefix moved with it from the consolidator's URL to 
 (https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging), as planned (user,
 2026-09-29); in the profile that is only its description.
 
-Generated, not yet published (2026-10-01): profile `imaging` 1.2 = `profile/imaging.metaseed.yaml`, model
-1.2.0. It adds Pixels.TimePoints (a QuantityRange: a source's first and last time-point index), compatibly
-with 1.1 (compare_specs: the optional field and the description only); the immersion aliases DRY, OIL and WATER
-are the model's, not the profile's.
+Generated, not yet published (2026-10-09): profile `imaging` 2.0 = `profile/imaging.metaseed.yaml`, model
+2.0.0. It takes in 1.2 (generated 2026-10-01, never published), which added Pixels.TimePoints (a QuantityRange:
+a source's first and last time-point index) compatibly with 1.1; the immersion aliases DRY, OIL and WATER
+are the model's, not the profile's. 2.0 moves the stage off the hardware (see "Profile versions").
 
 imaging-metadata-consolidator stays archived, read-only and public (user, 2026-09-30): profile 1.0 and
 model 1.0.0 name its URL, and the retired pieces (schema.json, schema.extended.json, ProfileConverter)
@@ -45,6 +45,19 @@ Hub's "Breaking changes"; run it before publishing a new version.
 - 1.0 -> 1.1: 162 changes, all compatible (required bump minor): 158 optional fields and 2 entities added
   (QuantityRange, ElectronAperture), the immersion enumeration widened by "Oil", and the description
   (model 1.1.0, the model's URL in this repository).
+- 1.1 -> 2.0: 16 breaking changes, all intended (required bump major; user, 2026-10-09: earlier versions of
+  the extension need not stay compatible): StagePosition, StageTilt, StageBias and MultiStage removed, and
+  Position, Tilt, Rotation, Bias, RawPosition and MultiStage from MechanicalStage and PiezoElectricStage.
+  StagePosition served Position and RawPosition both, so Position.Rot and Position.Tilt repeated the stage's
+  Rotation and Tilt, and the EM vendors' stage position was on the hardware while Leica, SVS and DICOM put
+  theirs on LiMi's Plane. Now every stage position is Plane.PositionX/Y/Z, the other axes the extension's
+  Plane fields in Plane's style (PositionM, Tilt = the primary or alpha tilt, TiltBeta, Rotation, each with
+  a unit enum; RawStage, the same fields for ZEISS Atlas's RawStage), and the bias and multi-stage sample
+  SamplePositioningSettings' (Bias, BiasType, BiasMode, SampleHeight, SampleRadius). 18 optional fields
+  and RawStage added, compatibly. With it (user, 2026-10-09), the detector extension's per-image fields
+  (Gain, Offset, Brightness, Contrast, ExposureTime, Binning, Enabled, Inserted; 85 fields over the detector
+  subtypes) and ScanSettings.Detector removed: LiMi's Detector says "variable values modified during the
+  Acquisition go in DetectorSettings"; Brightness and Contrast are DetectorSettingsExtension's.
 
 ### Validation of the exports
 
@@ -174,7 +187,7 @@ with `core.autocrlf` Windows checked six of them out with CRLF, so the committed
 
 ## In progress
 
-Nothing.
+Nothing. The stage (model 2.0.0) and detector changes are done and tested, not committed yet.
 
 ## The model and the pipeline
 
@@ -184,8 +197,7 @@ See docs/model.md and docs/maintaining.md for the full account.
   importing `imaging_units.yaml` (units enums, with aliases: LiMi's unit names and an ASCII form such as
   "um"), `imaging_provenance.yaml` (Property, SourceFile, SourceMapping) and `imaging_extension.yaml` (what
   the source files hold beyond LiMi, mostly EM; mixins OMEExtension, InstrumentExtension, ... used by the
-  model's classes; shared Quantity {Value, Unit}, QuantityRange, Vector2D, StagePosition). Edited by hand;
-  version 1.1.0.
+  model's classes; shared Quantity {Value, Unit}, QuantityRange, Vector2D). Edited by hand; version 2.0.0.
 - Created once from the whole LiMi XSD by `python scripts/linkml_converter.py` (refuses to overwrite
   without --force). Rules: extension base -> `is_a`; an abstract `*Group` -> a slot over its (abstract)
   type with a type designator; `*Ref` -> a reference slot without `Ref` (`inlined: false`); Settings' ID
@@ -205,7 +217,7 @@ See docs/model.md and docs/maintaining.md for the full account.
   index go to ObjectiveSettings.ImmersionLiquid, as in LiMi.
 - Model paths (ModelPaths): start at a class with an identifier (OME, Image, Pixels, Laser, ...) and run
   through components without one: `Image.ElectronBeamSettings.WorkingDistance.Value`,
-  `MechanicalStage.Position.X.Value`, `Pixels.PhysicalSizeX`. mappings.json targets are these paths (tested);
+  `Plane.RawStage.PositionX`, `Pixels.PhysicalSizeX`. mappings.json targets are these paths (tested);
   a target may hold `[*]`, the index of the list item the value comes from
   (`Pixels.Channel[*].Fluorophore.ExcitationWavelength`). The mapper's name matching indexes the paths, plus
   aliases for abstract classes (`Detector.Name` -> `GenericDetector.Name`). A vendor wrapper
@@ -296,19 +308,27 @@ structure, for common fields in the source data"). A value is only a candidate i
 5. The model's structure, not the vendor's:
    - on the class that owns the concept, following LiMi's split of hardware and settings (as Objective and
      ObjectiveSettings): an aperture's diameter and position as set for the image are ElectronOpticsSettings.
-     Aperture, a detector's own values are the GenericDetector's (one per detector, not a Configuration
-     record);
+     Aperture, a detector's fixed values are the detector's (one per detector, not a Configuration record),
+     how it was set for the image the DetectorSettings of the channel's LightPath, naming it by ID;
+   - a detector is the subtype a source states (Leica's PMT, HyD), else a GenericDetector: a camera's
+     sensor (CCD, CMOS) is not guessed from its product name;
    - on LiMi's classes through the extension's mixins (InstrumentExtension, DetectorExtension, ...), new
      groups as classes of their own (ElectronAperture);
    - LiMi's names and terms first, then OME's: Instrument.CatalogNumber, LiMi's "Catalog, Part or Serial
      Number", not a SerialNumber LiMi does not have; "Oil" from OME's immersion list, not a new term;
    - the shared classes for values with a unit or several parts: Quantity {Value, Unit} with the unit as
      free text, QuantityRange {Begin, End, Unit}, Vector2D {X, Y}; typed ranges (float, integer, boolean)
-     wherever the values are numbers or flags.
-6. Additive only: new optional fields, classes and enumeration values, never a removal or a changed range,
-   so the profile stays compatible with the published version (metaseed's compare_specs finds every change
-   since 1.0 compatible). ElectronOpticsSettings.Apertures (text) stays beside the new Aperture records, and
-   Detector.Configuration stays although no example uses it now.
+     wherever the values are numbers or flags. A field on one of LiMi's classes beside LiMi's own fields
+     takes their style instead: Plane's PositionM and PositionMUnit, as its PositionX and PositionXUnit;
+   - one place per meaning: what LiMi already holds for every source (the stage position, Plane.PositionX)
+     is not repeated elsewhere for some (MechanicalStage.Position); tests/test_redundancy.py checks for a
+     field repeating one above it, and for a source name sent to different fields by different rules.
+6. Additive by default: new optional fields, classes and enumeration values, so the profile stays compatible
+   with the published version. ElectronOpticsSettings.Apertures (text) stays beside the new Aperture records,
+   and Detector.Configuration stays although no example uses it now. A removal is for consistency only: a
+   field repeating another, or placed against LiMi's structure, goes with the change that frees it, and the
+   major version goes up (2.0: the stage off the hardware, see "Profile versions"; user, 2026-10-09).
+   Earlier versions of the extension need not stay compatible.
 7. A unit the source leaves out is stated only with reasonable confidence: the vendor's convention is known
    and the values agree with it and with each other (TALOS's SI units: 4 nm pixels x 2048 = the 8.19 um
    field of view, 2048 lines x 0.207 s = the frame time; Cikteq's working distance in mm; Aperio's slide

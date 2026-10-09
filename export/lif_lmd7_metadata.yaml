@@ -35,8 +35,10 @@ Image:
       Field: Instrument[0].GenericDetector[0].Model
       Source: HardwareSetting.Camera.TypName
     - ID: SourceMapping:7
-      Field: Instrument[0].GenericDetector[0].Gain
-      Source: HardwareSetting.Camera.Gain
+      Field: Instrument[0].GenericDetector[0].ID
+      Source: HardwareSetting.Camera.TypName
+      DerivedFrom:
+      - HardwareSetting.Camera.TypName
     - ID: SourceMapping:8
       Field: Image[0].Pixels.Plane[0].ExposureTime
       Source: HardwareSetting.Camera.Expsoure
@@ -46,12 +48,20 @@ Image:
       DerivedFrom:
       - HardwareSetting.Camera.Expsoure
     - ID: SourceMapping:10
+      Field: Image[0].Pixels.Channel[0].LightPath.GenericDetectorSettings[0].AnalogGain
+      Source: HardwareSetting.Camera.Gain
+    - ID: SourceMapping:11
+      Field: Image[0].Pixels.Channel[0].LightPath.GenericDetectorSettings[0].ID
+      Source: HardwareSetting.Camera.TypName
+      DerivedFrom:
+      - HardwareSetting.Camera.TypName
+    - ID: SourceMapping:12
       Field: Instrument[0].Objective[0].Magnification
       Source: HardwareSetting.Mic.Magnification
-    - ID: SourceMapping:11
+    - ID: SourceMapping:13
       Field: Instrument[0].Laser[0].Model
       Source: HardwareSetting.Laser.Lasertype
-    - ID: SourceMapping:12
+    - ID: SourceMapping:14
       Field: Instrument[0].Laser[0].Role
       Source: HardwareSetting.Application + HardwareSetting.Laser.Lasertype
       DerivedFrom:
@@ -69,6 +79,11 @@ Image:
     Plane:
     - ExposureTime: 0.083
       ExposureTimeUnit: s
+    Channel:
+    - LightPath:
+        GenericDetectorSettings:
+        - AnalogGain: 1
+          ID: Detector:0
 Instrument:
 - Manufacturer: Leica Microsystems
   AcquisitionSoftware:
@@ -76,7 +91,7 @@ Instrument:
     Version: 8.5.9136
   GenericDetector:
   - Model: K7
-    Gain: 1
+    ID: Detector:0
   Laser:
   - Model: Explorer
     Role:

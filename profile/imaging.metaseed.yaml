@@ -1,6 +1,6 @@
 name: imaging
-version: '1.2'
-description: 'Generated from imaging 1.2.0 (https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging). Microscopy
+version: '2.0'
+description: 'Generated from imaging 2.0.0 (https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging). Microscopy
   imaging metadata, based on the LiMi (4DN-BINA-OME) model: converted from models/LiMi_XMLSchema.xsd (version 02.00, namespace
   http://www.NamespaceTest.org/Schemas/NBO/2020-11).'
 root_entity: OME
@@ -8105,42 +8105,6 @@ entities:
       description: This field describes the XY-axis positioning error (typically expressed in % error) associated with this
         Stage as specified by the Manufacturer.
       tier: recommended
-    - name: Position
-      type: entity
-      required: false
-      tier: required
-      items: StagePosition
-      owns: true
-    - name: Tilt
-      type: entity
-      required: false
-      tier: required
-      items: StageTilt
-      owns: true
-    - name: Rotation
-      type: entity
-      required: false
-      tier: required
-      items: Quantity
-      owns: true
-    - name: Bias
-      type: entity
-      required: false
-      tier: required
-      items: StageBias
-      owns: true
-    - name: RawPosition
-      type: entity
-      required: false
-      tier: required
-      items: StagePosition
-      owns: true
-    - name: MultiStage
-      type: entity
-      required: false
-      tier: required
-      items: MultiStage
-      owns: true
     - name: Annotation
       type: string
       required: false
@@ -8842,42 +8806,6 @@ entities:
       description: This field describes the XY-axis positioning error (typically expressed in % error) associated with this
         Stage as specified by the Manufacturer.
       tier: recommended
-    - name: Position
-      type: entity
-      required: false
-      tier: required
-      items: StagePosition
-      owns: true
-    - name: Tilt
-      type: entity
-      required: false
-      tier: required
-      items: StageTilt
-      owns: true
-    - name: Rotation
-      type: entity
-      required: false
-      tier: required
-      items: Quantity
-      owns: true
-    - name: Bias
-      type: entity
-      required: false
-      tier: required
-      items: StageBias
-      owns: true
-    - name: RawPosition
-      type: entity
-      required: false
-      tier: required
-      items: StagePosition
-      owns: true
-    - name: MultiStage
-      type: entity
-      required: false
-      tier: required
-      items: MultiStage
-      owns: true
     - name: Annotation
       type: string
       required: false
@@ -18866,22 +18794,6 @@ entities:
       required: false
       description: The type of detector as the source names it; CCD, CMOS and WaveFrontSensor have their own.
       tier: required
-    - name: Gain
-      type: float
-      required: false
-      tier: required
-    - name: Offset
-      type: float
-      required: false
-      tier: required
-    - name: Brightness
-      type: float
-      required: false
-      tier: required
-    - name: Contrast
-      type: float
-      required: false
-      tier: required
     - name: Channel
       type: integer
       required: false
@@ -18895,30 +18807,6 @@ entities:
       type: string
       required: false
       tier: required
-    - name: Inserted
-      type: boolean
-      required: false
-      description: Whether the detector is inserted into the beam path.
-      tier: required
-    - name: Enabled
-      type: boolean
-      required: false
-      description: Whether the detector is enabled for this acquisition.
-      tier: required
-    - name: ExposureTime
-      type: entity
-      required: false
-      description: The exposure time of a camera, for this acquisition.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: Binning
-      type: entity
-      required: false
-      description: The number of sensor pixels binned into one along X and Y.
-      tier: required
-      items: Vector2D
-      owns: true
     - name: CollectionAngle
       type: entity
       required: false
@@ -19403,22 +19291,6 @@ entities:
       required: false
       description: The type of detector as the source names it; CCD, CMOS and WaveFrontSensor have their own.
       tier: required
-    - name: Gain
-      type: float
-      required: false
-      tier: required
-    - name: Offset
-      type: float
-      required: false
-      tier: required
-    - name: Brightness
-      type: float
-      required: false
-      tier: required
-    - name: Contrast
-      type: float
-      required: false
-      tier: required
     - name: Channel
       type: integer
       required: false
@@ -19432,30 +19304,6 @@ entities:
       type: string
       required: false
       tier: required
-    - name: Inserted
-      type: boolean
-      required: false
-      description: Whether the detector is inserted into the beam path.
-      tier: required
-    - name: Enabled
-      type: boolean
-      required: false
-      description: Whether the detector is enabled for this acquisition.
-      tier: required
-    - name: ExposureTime
-      type: entity
-      required: false
-      description: The exposure time of a camera, for this acquisition.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: Binning
-      type: entity
-      required: false
-      description: The number of sensor pixels binned into one along X and Y.
-      tier: required
-      items: Vector2D
-      owns: true
     - name: CollectionAngle
       type: entity
       required: false
@@ -19907,22 +19755,6 @@ entities:
       required: false
       description: The type of detector as the source names it; CCD, CMOS and WaveFrontSensor have their own.
       tier: required
-    - name: Gain
-      type: float
-      required: false
-      tier: required
-    - name: Offset
-      type: float
-      required: false
-      tier: required
-    - name: Brightness
-      type: float
-      required: false
-      tier: required
-    - name: Contrast
-      type: float
-      required: false
-      tier: required
     - name: Channel
       type: integer
       required: false
@@ -19936,30 +19768,6 @@ entities:
       type: string
       required: false
       tier: required
-    - name: Inserted
-      type: boolean
-      required: false
-      description: Whether the detector is inserted into the beam path.
-      tier: required
-    - name: Enabled
-      type: boolean
-      required: false
-      description: Whether the detector is enabled for this acquisition.
-      tier: required
-    - name: ExposureTime
-      type: entity
-      required: false
-      description: The exposure time of a camera, for this acquisition.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: Binning
-      type: entity
-      required: false
-      description: The number of sensor pixels binned into one along X and Y.
-      tier: required
-      items: Vector2D
-      owns: true
     - name: CollectionAngle
       type: entity
       required: false
@@ -20399,22 +20207,6 @@ entities:
       required: false
       description: The type of detector as the source names it; CCD, CMOS and WaveFrontSensor have their own.
       tier: required
-    - name: Gain
-      type: float
-      required: false
-      tier: required
-    - name: Offset
-      type: float
-      required: false
-      tier: required
-    - name: Brightness
-      type: float
-      required: false
-      tier: required
-    - name: Contrast
-      type: float
-      required: false
-      tier: required
     - name: Channel
       type: integer
       required: false
@@ -20428,30 +20220,6 @@ entities:
       type: string
       required: false
       tier: required
-    - name: Inserted
-      type: boolean
-      required: false
-      description: Whether the detector is inserted into the beam path.
-      tier: required
-    - name: Enabled
-      type: boolean
-      required: false
-      description: Whether the detector is enabled for this acquisition.
-      tier: required
-    - name: ExposureTime
-      type: entity
-      required: false
-      description: The exposure time of a camera, for this acquisition.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: Binning
-      type: entity
-      required: false
-      description: The number of sensor pixels binned into one along X and Y.
-      tier: required
-      items: Vector2D
-      owns: true
     - name: CollectionAngle
       type: entity
       required: false
@@ -21048,22 +20816,6 @@ entities:
       description: This field records the Ambient Humidity at which this detector is designed to operate, according to the
         Manufacturer.
       tier: optional
-    - name: Gain
-      type: float
-      required: false
-      tier: required
-    - name: Offset
-      type: float
-      required: false
-      tier: required
-    - name: Brightness
-      type: float
-      required: false
-      tier: required
-    - name: Contrast
-      type: float
-      required: false
-      tier: required
     - name: Channel
       type: integer
       required: false
@@ -21077,30 +20829,6 @@ entities:
       type: string
       required: false
       tier: required
-    - name: Inserted
-      type: boolean
-      required: false
-      description: Whether the detector is inserted into the beam path.
-      tier: required
-    - name: Enabled
-      type: boolean
-      required: false
-      description: Whether the detector is enabled for this acquisition.
-      tier: required
-    - name: ExposureTime
-      type: entity
-      required: false
-      description: The exposure time of a camera, for this acquisition.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: Binning
-      type: entity
-      required: false
-      description: The number of sensor pixels binned into one along X and Y.
-      tier: required
-      items: Vector2D
-      owns: true
     - name: CollectionAngle
       type: entity
       required: false
@@ -21664,22 +21392,6 @@ entities:
       required: false
       description: The type of detector as the source names it; CCD, CMOS and WaveFrontSensor have their own.
       tier: required
-    - name: Gain
-      type: float
-      required: false
-      tier: required
-    - name: Offset
-      type: float
-      required: false
-      tier: required
-    - name: Brightness
-      type: float
-      required: false
-      tier: required
-    - name: Contrast
-      type: float
-      required: false
-      tier: required
     - name: Channel
       type: integer
       required: false
@@ -21693,30 +21405,6 @@ entities:
       type: string
       required: false
       tier: required
-    - name: Inserted
-      type: boolean
-      required: false
-      description: Whether the detector is inserted into the beam path.
-      tier: required
-    - name: Enabled
-      type: boolean
-      required: false
-      description: Whether the detector is enabled for this acquisition.
-      tier: required
-    - name: ExposureTime
-      type: entity
-      required: false
-      description: The exposure time of a camera, for this acquisition.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: Binning
-      type: entity
-      required: false
-      description: The number of sensor pixels binned into one along X and Y.
-      tier: required
-      items: Vector2D
-      owns: true
     - name: CollectionAngle
       type: entity
       required: false
@@ -22285,22 +21973,6 @@ entities:
       description: This field records the Ambient Humidity at which this detector is designed to operate, according to the
         Manufacturer.
       tier: optional
-    - name: Gain
-      type: float
-      required: false
-      tier: required
-    - name: Offset
-      type: float
-      required: false
-      tier: required
-    - name: Brightness
-      type: float
-      required: false
-      tier: required
-    - name: Contrast
-      type: float
-      required: false
-      tier: required
     - name: Channel
       type: integer
       required: false
@@ -22314,30 +21986,6 @@ entities:
       type: string
       required: false
       tier: required
-    - name: Inserted
-      type: boolean
-      required: false
-      description: Whether the detector is inserted into the beam path.
-      tier: required
-    - name: Enabled
-      type: boolean
-      required: false
-      description: Whether the detector is enabled for this acquisition.
-      tier: required
-    - name: ExposureTime
-      type: entity
-      required: false
-      description: The exposure time of a camera, for this acquisition.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: Binning
-      type: entity
-      required: false
-      description: The number of sensor pixels binned into one along X and Y.
-      tier: required
-      items: Vector2D
-      owns: true
     - name: CollectionAngle
       type: entity
       required: false
@@ -22939,22 +22587,6 @@ entities:
       required: false
       description: The type of detector as the source names it; CCD, CMOS and WaveFrontSensor have their own.
       tier: required
-    - name: Gain
-      type: float
-      required: false
-      tier: required
-    - name: Offset
-      type: float
-      required: false
-      tier: required
-    - name: Brightness
-      type: float
-      required: false
-      tier: required
-    - name: Contrast
-      type: float
-      required: false
-      tier: required
     - name: Channel
       type: integer
       required: false
@@ -22968,30 +22600,6 @@ entities:
       type: string
       required: false
       tier: required
-    - name: Inserted
-      type: boolean
-      required: false
-      description: Whether the detector is inserted into the beam path.
-      tier: required
-    - name: Enabled
-      type: boolean
-      required: false
-      description: Whether the detector is enabled for this acquisition.
-      tier: required
-    - name: ExposureTime
-      type: entity
-      required: false
-      description: The exposure time of a camera, for this acquisition.
-      tier: required
-      items: Quantity
-      owns: true
-    - name: Binning
-      type: entity
-      required: false
-      description: The number of sensor pixels binned into one along X and Y.
-      tier: required
-      items: Vector2D
-      owns: true
     - name: CollectionAngle
       type: entity
       required: false
@@ -23578,22 +23186,6 @@ entities:
       description: This field records the Ambient Humidity at which this detector is designed to operate, according to the
         Manufacturer.
       tier: optional
-    - name: Gain
-      type: float
-      required: false
-      tier: recommended
-    - name: Offset
-      type: float
-      required: false
-      tier: recommended
-    - name: Brightness
-      type: float
-      required: false
-      tier: recommended
-    - name: Contrast
-      type: float
-      required: false
-      tier: recommended
     - name: Channel
       type: integer
       required: false
@@ -23607,30 +23199,6 @@ entities:
       type: string
       required: false
       tier: recommended
-    - name: Inserted
-      type: boolean
-      required: false
-      description: Whether the detector is inserted into the beam path.
-      tier: recommended
-    - name: Enabled
-      type: boolean
-      required: false
-      description: Whether the detector is enabled for this acquisition.
-      tier: recommended
-    - name: ExposureTime
-      type: entity
-      required: false
-      description: The exposure time of a camera, for this acquisition.
-      tier: recommended
-      items: Quantity
-      owns: true
-    - name: Binning
-      type: entity
-      required: false
-      description: The number of sensor pixels binned into one along X and Y.
-      tier: recommended
-      items: Vector2D
-      owns: true
     - name: CollectionAngle
       type: entity
       required: false
@@ -28121,6 +27689,141 @@ entities:
         - pt
         - Pixel
         - reference frame
+    - name: Bias
+      type: float
+      required: false
+      description: The bias voltage applied to the stage.
+      tier: required
+    - name: BiasUnit
+      type: string
+      required: false
+      description: The unit of Bias.
+      tier: required
+      constraints:
+        enum:
+        - YV
+        - ZV
+        - EV
+        - PV
+        - TV
+        - GV
+        - MV
+        - kV
+        - hV
+        - daV
+        - V
+        - dV
+        - cV
+        - mV
+        - µV
+        - nV
+        - pV
+        - fV
+        - aV
+        - zV
+        - yV
+    - name: BiasType
+      type: string
+      required: false
+      description: The kind of bias applied to the stage, as the source names it.
+      tier: required
+    - name: BiasMode
+      type: string
+      required: false
+      description: The mode of the stage bias, as the source names it.
+      tier: required
+    - name: SampleHeight
+      type: float
+      required: false
+      description: The height of the sample on a multi-sample stage.
+      tier: required
+    - name: SampleHeightUnit
+      type: string
+      required: false
+      description: The unit of SampleHeight.
+      tier: required
+      constraints:
+        enum:
+        - Ym
+        - Zm
+        - Em
+        - Pm
+        - Tm
+        - Gm
+        - Mm
+        - km
+        - hm
+        - dam
+        - m
+        - dm
+        - cm
+        - mm
+        - µm
+        - nm
+        - pm
+        - fm
+        - am
+        - zm
+        - ym
+        - Å
+        - thou
+        - li
+        - in
+        - ft
+        - yd
+        - mi
+        - ua
+        - ly
+        - pc
+        - pt
+        - Pixel
+        - reference frame
+    - name: SampleRadius
+      type: float
+      required: false
+      description: The radius of the sample on a multi-sample stage.
+      tier: required
+    - name: SampleRadiusUnit
+      type: string
+      required: false
+      description: The unit of SampleRadius.
+      tier: required
+      constraints:
+        enum:
+        - Ym
+        - Zm
+        - Em
+        - Pm
+        - Tm
+        - Gm
+        - Mm
+        - km
+        - hm
+        - dam
+        - m
+        - dm
+        - cm
+        - mm
+        - µm
+        - nm
+        - pm
+        - fm
+        - am
+        - zm
+        - ym
+        - Å
+        - thou
+        - li
+        - in
+        - ft
+        - yd
+        - mi
+        - ua
+        - ly
+        - pc
+        - pt
+        - Pixel
+        - reference frame
     - name: MapAnnotation
       type: list
       required: false
@@ -29279,10 +28982,6 @@ entities:
     - name: LineIntegrationCount
       type: integer
       required: false
-    - name: Detector
-      type: string
-      required: false
-      description: The name of the detector used for the scan.
     - name: LineInterlacing
       type: integer
       required: false
@@ -30399,89 +30098,6 @@ entities:
         - Pixel
         - reference frame
       example: nm
-  StagePosition:
-    description: The stage position along each axis; RawPosition also has Tilt and Rot.
-    fields:
-    - name: X
-      type: entity
-      required: false
-      items: Quantity
-      owns: true
-    - name: Y
-      type: entity
-      required: false
-      items: Quantity
-      owns: true
-    - name: Z
-      type: entity
-      required: false
-      items: Quantity
-      owns: true
-    - name: M
-      type: entity
-      required: false
-      items: Quantity
-      owns: true
-    - name: Tilt
-      type: entity
-      required: false
-      items: Quantity
-      owns: true
-    - name: Rot
-      type: entity
-      required: false
-      items: Quantity
-      owns: true
-  StageTilt:
-    description: The stage tilt, and its alpha and beta angles.
-    fields:
-    - name: Alpha
-      type: entity
-      required: false
-      items: Quantity
-      owns: true
-    - name: Beta
-      type: entity
-      required: false
-      items: Quantity
-      owns: true
-    - name: Value
-      type: float
-      required: false
-    - name: Unit
-      type: string
-      required: false
-      description: The unit as the source writes it, e.g. "um" or "mm".
-  StageBias:
-    description: The bias applied to the stage.
-    fields:
-    - name: ID
-      type: string
-      required: false
-      is_identifier: true
-      description: An identifier for this record; the model defines none.
-    - name: BiasType
-      type: string
-      required: false
-    - name: Mode
-      type: string
-      required: false
-    - name: Volts
-      type: float
-      required: false
-  MultiStage:
-    description: The sample on a multi-sample stage.
-    fields:
-    - name: SampleHeight
-      type: entity
-      required: false
-      items: Quantity
-      owns: true
-    - name: SampleRadius
-      type: entity
-      required: false
-      items: Quantity
-      owns: true
   TransmittanceRange:
     description: This element records the Range (also known as Band) of Wavelengths that are transmitted by this optical component.
       It also records the maximum amount of light transmitted. Multiple of these elements can be used.
@@ -32271,6 +31887,109 @@ entities:
       required: false
       description: This field describes the Z-offset imposed by the Focal Positioning device.
       tier: optional
+    - name: PositionM
+      type: float
+      required: false
+      description: The position along the stage's M axis, an axis besides X, Y and Z (Zeiss's stages).
+      tier: required
+    - name: PositionMUnit
+      type: string
+      required: false
+      description: The unit of PositionM.
+      tier: required
+      constraints:
+        enum:
+        - Ym
+        - Zm
+        - Em
+        - Pm
+        - Tm
+        - Gm
+        - Mm
+        - km
+        - hm
+        - dam
+        - m
+        - dm
+        - cm
+        - mm
+        - µm
+        - nm
+        - pm
+        - fm
+        - am
+        - zm
+        - ym
+        - Å
+        - thou
+        - li
+        - in
+        - ft
+        - yd
+        - mi
+        - ua
+        - ly
+        - pc
+        - pt
+        - Pixel
+        - reference frame
+    - name: Tilt
+      type: float
+      required: false
+      description: The stage's tilt, about its primary (alpha) tilt axis.
+      tier: required
+    - name: TiltUnit
+      type: string
+      required: false
+      description: The unit of Tilt.
+      tier: required
+      constraints:
+        enum:
+        - deg
+        - µrad
+        - mrad
+        - rad
+        - gon
+    - name: TiltBeta
+      type: float
+      required: false
+      description: The stage's tilt about its second (beta) tilt axis, as of a double-tilt holder.
+      tier: required
+    - name: TiltBetaUnit
+      type: string
+      required: false
+      description: The unit of TiltBeta.
+      tier: required
+      constraints:
+        enum:
+        - deg
+        - µrad
+        - mrad
+        - rad
+        - gon
+    - name: Rotation
+      type: float
+      required: false
+      description: The stage's rotation.
+      tier: required
+    - name: RotationUnit
+      type: string
+      required: false
+      description: The unit of Rotation.
+      tier: required
+      constraints:
+        enum:
+        - deg
+        - µrad
+        - mrad
+        - rad
+        - gon
+    - name: RawStage
+      type: entity
+      required: false
+      tier: required
+      items: RawStage
+      owns: true
   Channel:
     description: Each Image has to have at least one Plane and one Channel. The Channel element stores information about how
       the each Image Channel was acquired. The total number of Channel elements for a given Image must equal to SizeC.
@@ -35228,6 +34947,217 @@ entities:
       tier: recommended
       constraints:
         minimum: 1
+  RawStage:
+    description: The stage's axes as its own controller reports them, beside the Plane's position, which the acquisition software
+      may have offset or aligned (ZEISS Atlas's RawStage beside its Stage).
+    fields:
+    - name: PositionX
+      type: float
+      required: false
+    - name: PositionXUnit
+      type: string
+      required: false
+      constraints:
+        enum:
+        - Ym
+        - Zm
+        - Em
+        - Pm
+        - Tm
+        - Gm
+        - Mm
+        - km
+        - hm
+        - dam
+        - m
+        - dm
+        - cm
+        - mm
+        - µm
+        - nm
+        - pm
+        - fm
+        - am
+        - zm
+        - ym
+        - Å
+        - thou
+        - li
+        - in
+        - ft
+        - yd
+        - mi
+        - ua
+        - ly
+        - pc
+        - pt
+        - Pixel
+        - reference frame
+    - name: PositionY
+      type: float
+      required: false
+    - name: PositionYUnit
+      type: string
+      required: false
+      constraints:
+        enum:
+        - Ym
+        - Zm
+        - Em
+        - Pm
+        - Tm
+        - Gm
+        - Mm
+        - km
+        - hm
+        - dam
+        - m
+        - dm
+        - cm
+        - mm
+        - µm
+        - nm
+        - pm
+        - fm
+        - am
+        - zm
+        - ym
+        - Å
+        - thou
+        - li
+        - in
+        - ft
+        - yd
+        - mi
+        - ua
+        - ly
+        - pc
+        - pt
+        - Pixel
+        - reference frame
+    - name: PositionZ
+      type: float
+      required: false
+    - name: PositionZUnit
+      type: string
+      required: false
+      constraints:
+        enum:
+        - Ym
+        - Zm
+        - Em
+        - Pm
+        - Tm
+        - Gm
+        - Mm
+        - km
+        - hm
+        - dam
+        - m
+        - dm
+        - cm
+        - mm
+        - µm
+        - nm
+        - pm
+        - fm
+        - am
+        - zm
+        - ym
+        - Å
+        - thou
+        - li
+        - in
+        - ft
+        - yd
+        - mi
+        - ua
+        - ly
+        - pc
+        - pt
+        - Pixel
+        - reference frame
+    - name: PositionM
+      type: float
+      required: false
+    - name: PositionMUnit
+      type: string
+      required: false
+      constraints:
+        enum:
+        - Ym
+        - Zm
+        - Em
+        - Pm
+        - Tm
+        - Gm
+        - Mm
+        - km
+        - hm
+        - dam
+        - m
+        - dm
+        - cm
+        - mm
+        - µm
+        - nm
+        - pm
+        - fm
+        - am
+        - zm
+        - ym
+        - Å
+        - thou
+        - li
+        - in
+        - ft
+        - yd
+        - mi
+        - ua
+        - ly
+        - pc
+        - pt
+        - Pixel
+        - reference frame
+    - name: Tilt
+      type: float
+      required: false
+    - name: TiltUnit
+      type: string
+      required: false
+      constraints:
+        enum:
+        - deg
+        - µrad
+        - mrad
+        - rad
+        - gon
+    - name: TiltBeta
+      type: float
+      required: false
+    - name: TiltBetaUnit
+      type: string
+      required: false
+      constraints:
+        enum:
+        - deg
+        - µrad
+        - mrad
+        - rad
+        - gon
+    - name: Rotation
+      type: float
+      required: false
+    - name: RotationUnit
+      type: string
+      required: false
+      constraints:
+        enum:
+        - deg
+        - µrad
+        - mrad
+        - rad
+        - gon
   Fluorophore:
     description: This element describes the Fluorophore whose Emission is used to produce this Channel. [plain text string].
     fields:
@@ -37227,6 +37157,16 @@ entities:
         - Scaled percentage
         - Voltage
         - Other
+    - name: Brightness
+      type: float
+      required: false
+      description: The detector's brightness setting, on the source's own scale.
+      tier: required
+    - name: Contrast
+      type: float
+      required: false
+      description: The detector's contrast setting, on the source's own scale.
+      tier: required
     - name: MapAnnotation
       type: list
       required: false
@@ -37358,6 +37298,16 @@ entities:
         - Scaled percentage
         - Voltage
         - Other
+    - name: Brightness
+      type: float
+      required: false
+      description: The detector's brightness setting, on the source's own scale.
+      tier: required
+    - name: Contrast
+      type: float
+      required: false
+      description: The detector's contrast setting, on the source's own scale.
+      tier: required
     - name: MapAnnotation
       type: list
       required: false
@@ -37578,6 +37528,16 @@ entities:
         - Scaled percentage
         - Voltage
         - Other
+    - name: Brightness
+      type: float
+      required: false
+      description: The detector's brightness setting, on the source's own scale.
+      tier: required
+    - name: Contrast
+      type: float
+      required: false
+      description: The detector's contrast setting, on the source's own scale.
+      tier: required
     - name: MapAnnotation
       type: list
       required: false

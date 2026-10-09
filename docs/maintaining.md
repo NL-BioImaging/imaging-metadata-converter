@@ -12,7 +12,7 @@ need nothing beyond the package's own dependencies (some of their tests need
 |---|---|
 | `src/imaging_metadata_converter/models/imaging.yaml` | The master model, edited by hand, and its three imports (see [The model](model.md)) |
 | `src/imaging_metadata_converter/mappings/mappings.json`, `combinations.json` | The mapping rules |
-| `profile/imaging.metaseed.yaml` | The metaseed profile `imaging` 1.2, generated (`scripts/metaseed_generator.py`); 1.1 is published on the metaseed Hub |
+| `profile/imaging.metaseed.yaml` | The metaseed profile `imaging` 2.0, generated (`scripts/metaseed_generator.py`); 1.1 is published on the metaseed Hub |
 | `export/` | One metaseed dataset per example, generated (`scripts/dataset_exporter.py`) |
 | `reference/LiMi_XMLSchema.xsd` | The LiMi XSD the model was converted from (unchanged) |
 | `reference/ome-2016-06.xsd` | The OME 2016-06 schema, source of descriptions LiMi leaves out |
@@ -91,6 +91,15 @@ published version using metaseed's own compatibility check
   `RefractiveIndex` removed (they are `ImmersionLiquid`'s), the UUID fields
   strings with a pattern, and `ElectronSource.ID` required, as every LiMi
   hardware ID is.
+- 1.1 to 2.0: breaking, intended: the stage's position, tilt and rotation
+  moved off the hardware (`MechanicalStage`'s `Position`, `Tilt`,
+  `Rotation`, `RawPosition`) onto LiMi's `Plane` (`PositionX`... and the
+  extension's `PositionM`, `Tilt`, `TiltBeta`, `Rotation`, `RawStage`), its
+  bias and multi-stage sample onto `SamplePositioningSettings`; a
+  detector's `Gain`, `Offset`, `Brightness`, `Contrast`, `ExposureTime`,
+  `Binning`, `Enabled` and `Inserted`, and `ScanSettings.Detector`, removed
+  for LiMi's `DetectorSettings` of the image's channel; 1.2's
+  `Pixels.TimePoints`, never published, comes with it.
 
 ## From examples to metaseed datasets
 
@@ -171,4 +180,4 @@ The tests of the XSD conversion need `linkml`, and the dataset validation
 
 With the metaseed CLI: `metaseed spec import <draft> profile/imaging.metaseed.yaml`,
 `metaseed spec validate <draft>`, `metaseed spec save <draft>`, then
-`metaseed validate export/<name>.yaml -p imaging -v 1.2 -e OME`.
+`metaseed validate export/<name>.yaml -p imaging -v 2.0 -e OME`.

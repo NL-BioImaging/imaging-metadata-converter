@@ -51,11 +51,34 @@ class ModelPaths:
     def _subtree(self, class_name, seen):
         subtree = {}
         for name, slot in self.slots(class_name).items():
-            if not slot.designates_type:
+            subtypes = self._component_subtypes(slot, seen)
+            if subtypes:
+                subtree.update({subtype: self._subtree(subtype, seen + (subtype,)) for subtype in subtypes})
+            elif not slot.designates_type:
                 is_component = self._is_nested(slot) and self.is_component(slot.range) and slot.range not in seen
                 subtree[name] = self._subtree(slot.range, seen + (slot.range,)) if is_component \
                     else slot.range or 'string'
         return subtree
+
+    def slot_at(self, class_name, name):
+        """(slot, class it leads to) for the path segment `name` of `class_name`: the slot of that name, or, for a
+        concrete subtype named for itself (LightPath.GenericDetectorSettings), the slot over its abstract class."""
+        slots = self.slots(class_name)
+        if name in slots:
+            slot = slots[name]
+            return slot, slot.range if slot.range in self.classes else None
+        holding = next((slot for slot in slots.values() if name in self._component_subtypes(slot, ())), None)
+        return holding, name if holding is not None else None
+
+    def _component_subtypes(self, slot, seen):
+        """The concrete components a nested slot over an abstract class holds (LightPath.DetectorSettings:
+        GenericDetectorSettings, PointDetectorSettings, ...), each written under its own name, as in the
+        profile."""
+        cls = self.classes.get(slot.range)
+        if cls is None or not cls.abstract or not self._is_nested(slot):
+            return []
+        return [name for name in self.view.class_descendants(slot.range, reflexive=False)
+                if self.is_component(name) and name not in seen]
 
     def aliases(self):
         """{Detector.Name: GenericDetector.Name, ...}: an abstract class's paths, for its default subtype."""

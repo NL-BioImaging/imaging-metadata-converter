@@ -556,11 +556,10 @@ HardwareSetting:
         LutName: Gray
     DetectorList:
       Detector:
-      - Name: PMT 1
-        Type: PMT
-        ScanType: Internal
+      - ScanType: Internal
         Channel: 1
         ChannelName: Channel 1
+        IsActive: 0
         Gain: 588.483253223468
         Offset: 0
         IsSTEDDetector: 1
@@ -571,11 +570,10 @@ HardwareSetting:
         IsFlimDetector: 0
         IsHPDDetector: 0
         CanDoTimeGate: 0
-      - Name: PMT 2
-        Type: PMT
-        ScanType: Internal
+      - ScanType: Internal
         Channel: 2
         ChannelName: Channel 2
+        IsActive: 0
         Gain: 753.536278324559
         Offset: 0
         IsSTEDDetector: 0
@@ -589,11 +587,10 @@ HardwareSetting:
         IsFlimActive: 0
         IsHPDDetector: 0
         CanDoTimeGate: 0
-      - Name: PMT 3
-        Type: PMT
-        ScanType: Internal
+      - ScanType: Internal
         Channel: 3
         ChannelName: Channel 3
+        IsActive: 0
         Gain: 739.852750438697
         Offset: -0.0400000000000063
         IsSTEDDetector: 0
@@ -604,11 +601,10 @@ HardwareSetting:
         IsFlimDetector: 0
         IsHPDDetector: 0
         CanDoTimeGate: 0
-      - Name: HyD-SMD 4
-        Type: HyD
-        ScanType: Internal
+      - ScanType: Internal
         Channel: 4
         ChannelName: Channel 4
+        IsActive: 0
         Gain: 100.722938465371
         Offset: -0.0066666666666606
         IsSTEDDetector: 1
@@ -628,11 +624,10 @@ HardwareSetting:
         TimeGatePulseStart: 0
         TimeGateWavelength: 561
         TimeGatePulseEnd: 3500
-      - Name: Hyd-SMD 5
-        Type: HyD
-        ScanType: Internal
+      - ScanType: Internal
         Channel: 5
         ChannelName: Channel 5
+        IsActive: 1
         Gain: 80.3749377179871
         Offset: -0.0066666666666606
         IsSTEDDetector: 1
@@ -652,11 +647,10 @@ HardwareSetting:
         TimeGatePulseStart: 0
         TimeGateWavelength: 561
         TimeGatePulseEnd: 3500
-      - Name: PMT Trans
-        Type: PMT
-        ScanType: TLD
+      - ScanType: TLD
         Channel: 100
         ChannelName: Transmission Channel
+        IsActive: 0
         Gain: 285.992217898833
         Offset: 0
         IsSTEDDetector: 0
@@ -2691,13 +2685,6 @@ HardwareSetting:
   SystemType: 12
   DataSourceType: 0
   DataSourceTypeName: Confocal
-GenericDetector:
-- Enabled: 0
-- Enabled: 0
-- Enabled: 0
-- Enabled: 0
-- Enabled: 1
-- Enabled: 0
 Laser:
 - Name: 405 Diode
   IlluminationWavelengthRange:
@@ -2726,35 +2713,41 @@ Pixels:
   SizeX: 512
   SizeY: 512
   Channel:
-  - Name: Leica/ALEXA 488
-    Fluorophore:
-      Name: Leica/ALEXA 488
-      ExcitationWavelength: 488
-      ExcitationWavelengthUnit: nm
-    LightPath:
+  - LightPath:
+      PointDetectorSettings:
+      - ID: Detector:3
       EmissionFilter:
       - Filter:0
       LightSourceSettings:
       - ID: Laser:3
-  - Name: Leica/mCherry
+    Name: Leica/ALEXA 488
     Fluorophore:
-      Name: Leica/mCherry
-      ExcitationWavelength: 561
+      Name: Leica/ALEXA 488
+      ExcitationWavelength: 488
       ExcitationWavelengthUnit: nm
-    LightPath:
+  - LightPath:
+      PointDetectorSettings:
+      - ID: Detector:4
       EmissionFilter:
       - Filter:1
       LightSourceSettings:
       - ID: Laser:3
-  - Name: Leica/Cerulean
+    Name: Leica/mCherry
     Fluorophore:
-      Name: Leica/Cerulean
-    LightPath:
+      Name: Leica/mCherry
+      ExcitationWavelength: 561
+      ExcitationWavelengthUnit: nm
+  - LightPath:
+      PointDetectorSettings:
+      - ID: Detector:0
       EmissionFilter:
       - Filter:2
       LightSourceSettings:
       - ID: Laser:0
       - ID: Laser:3
+    Name: Leica/Cerulean
+    Fluorophore:
+      Name: Leica/Cerulean
 Plane:
   PositionZ: 7.80344753594138e-07
   PositionX: 0.05289914772031
@@ -19996,6 +19989,26 @@ timestamps:
 - '2018-12-21T11:26:34.542'
 - '2018-12-21T11:26:34.542'
 - '2018-12-21T11:26:34.542'
+PhotoMultiplierTube:
+- ID: Detector:0
+  Name: PMT 1
+  Type: PMT
+- ID: Detector:1
+  Name: PMT 2
+  Type: PMT
+- ID: Detector:2
+  Name: PMT 3
+  Type: PMT
+- ID: Detector:5
+  Name: PMT Trans
+  Type: PMT
+HybridPhotoDetector:
+- ID: Detector:3
+  Name: HyD-SMD 4
+  Type: HyD
+- ID: Detector:4
+  Name: Hyd-SMD 5
+  Type: HyD
 Filter:
 - ID: Filter:0
   Type: BandPass
@@ -20509,17 +20522,10 @@ SourceMap:
   HardwareSetting.ConfocalSettingDefinition.LUT_List.LUT[4].LutName: HardwareSetting.ConfocalSettingDefinition.LUT_List.LUT[4].LutName
   HardwareSetting.ConfocalSettingDefinition.LUT_List.LUT[5].Channel: HardwareSetting.ConfocalSettingDefinition.LUT_List.LUT[5].Channel
   HardwareSetting.ConfocalSettingDefinition.LUT_List.LUT[5].LutName: HardwareSetting.ConfocalSettingDefinition.LUT_List.LUT[5].LutName
-  GenericDetector[0].Enabled: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsActive
-  GenericDetector[1].Enabled: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsActive
-  GenericDetector[2].Enabled: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsActive
-  GenericDetector[3].Enabled: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsActive
-  GenericDetector[4].Enabled: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsActive
-  GenericDetector[5].Enabled: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsActive
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Name
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Type: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Type
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].ScanType: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].ScanType
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Channel: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Channel
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].ChannelName: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].ChannelName
+  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsActive: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsActive
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Gain: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Gain
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Offset: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Offset
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsSTEDDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsSTEDDetector
@@ -20530,11 +20536,10 @@ SourceMap:
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsFlimDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsFlimDetector
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsHPDDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].IsHPDDetector
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].CanDoTimeGate: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].CanDoTimeGate
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Name
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Type: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Type
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].ScanType: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].ScanType
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Channel: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Channel
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].ChannelName: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].ChannelName
+  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsActive: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsActive
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Gain: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Gain
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Offset: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Offset
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsSTEDDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsSTEDDetector
@@ -20548,11 +20553,10 @@ SourceMap:
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsFlimActive: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsFlimActive
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsHPDDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].IsHPDDetector
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].CanDoTimeGate: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].CanDoTimeGate
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Name
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Type: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Type
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].ScanType: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].ScanType
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Channel: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Channel
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].ChannelName: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].ChannelName
+  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsActive: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsActive
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Gain: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Gain
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Offset: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Offset
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsSTEDDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsSTEDDetector
@@ -20563,11 +20567,10 @@ SourceMap:
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsFlimDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsFlimDetector
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsHPDDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].IsHPDDetector
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].CanDoTimeGate: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].CanDoTimeGate
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Name
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Type: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Type
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].ScanType: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].ScanType
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Channel: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Channel
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].ChannelName: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].ChannelName
+  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsActive: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsActive
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Gain: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Gain
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Offset: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Offset
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsSTEDDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].IsSTEDDetector
@@ -20587,11 +20590,10 @@ SourceMap:
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].TimeGatePulseStart: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].TimeGatePulseStart
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].TimeGateWavelength: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].TimeGateWavelength
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].TimeGatePulseEnd: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].TimeGatePulseEnd
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Name
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Type: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Type
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].ScanType: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].ScanType
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Channel: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Channel
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].ChannelName: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].ChannelName
+  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsActive: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsActive
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Gain: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Gain
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Offset: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Offset
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsSTEDDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].IsSTEDDetector
@@ -20611,11 +20613,10 @@ SourceMap:
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].TimeGatePulseStart: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].TimeGatePulseStart
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].TimeGateWavelength: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].TimeGateWavelength
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].TimeGatePulseEnd: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].TimeGatePulseEnd
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Name
-  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Type: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Type
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].ScanType: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].ScanType
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Channel: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Channel
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].ChannelName: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].ChannelName
+  HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsActive: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsActive
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Gain: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Gain
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Offset: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Offset
   HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsSTEDDetector: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].IsSTEDDetector
@@ -41138,6 +41139,32 @@ SourceMap:
   - HardwareSetting.ConfocalSettingDefinition.Pinhole
   Plane.PixelDwellTimeUnit:
   - HardwareSetting.ConfocalSettingDefinition.PixelDwellTime
+  PhotoMultiplierTube[0].ID:
+  - HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Type
+  PhotoMultiplierTube[0].Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Name
+  PhotoMultiplierTube[0].Type: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Type
+  PhotoMultiplierTube[1].ID:
+  - HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Type
+  PhotoMultiplierTube[1].Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Name
+  PhotoMultiplierTube[1].Type: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Type
+  PhotoMultiplierTube[2].ID:
+  - HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Type
+  PhotoMultiplierTube[2].Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Name
+  PhotoMultiplierTube[2].Type: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Type
+  HybridPhotoDetector[0].ID:
+  - HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Type
+  HybridPhotoDetector[0].Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Name
+  HybridPhotoDetector[0].Type: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Type
+  HybridPhotoDetector[1].ID:
+  - HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Type
+  HybridPhotoDetector[1].Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Name
+  HybridPhotoDetector[1].Type: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Type
+  PhotoMultiplierTube[3].ID:
+  - HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Type
+  PhotoMultiplierTube[3].Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Name
+  PhotoMultiplierTube[3].Type: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Type
+  Pixels.Channel[0].LightPath.PointDetectorSettings[0].ID:
+  - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].DetectorList.Detector[3].IsActive
   Pixels.Channel[0].Name:
   - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].DyeName
   Pixels.Channel[0].Fluorophore.Name:
@@ -41172,6 +41199,8 @@ SourceMap:
   - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].AotfList.Aotf[3].LaserLineSetting[0].LaserLine
   Pixels.Channel[0].Fluorophore.ExcitationWavelengthUnit:
   - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].AotfList.Aotf[3].LaserLineSetting[0].LaserLine
+  Pixels.Channel[1].LightPath.PointDetectorSettings[0].ID:
+  - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[1].DetectorList.Detector[4].IsActive
   Pixels.Channel[1].Name:
   - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].DyeName
   Pixels.Channel[1].Fluorophore.Name:
@@ -41201,6 +41230,8 @@ SourceMap:
   - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[1].AotfList.Aotf[3].LaserLineSetting[1].LaserLine
   Pixels.Channel[1].Fluorophore.ExcitationWavelengthUnit:
   - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[1].AotfList.Aotf[3].LaserLineSetting[1].LaserLine
+  Pixels.Channel[2].LightPath.PointDetectorSettings[0].ID:
+  - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[2].DetectorList.Detector[0].IsActive
   Pixels.Channel[2].Name:
   - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].DyeName
   Pixels.Channel[2].Fluorophore.Name:

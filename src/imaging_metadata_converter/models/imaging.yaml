@@ -3,7 +3,7 @@ name: imaging
 title: Imaging metadata model
 description: 'Microscopy imaging metadata, based on the LiMi (4DN-BINA-OME) model: converted from models/LiMi_XMLSchema.xsd
   (version 02.00, namespace http://www.NamespaceTest.org/Schemas/NBO/2020-11).'
-version: 1.2.0
+version: 2.0.0
 comments:
 - 'Descriptions annotated with description_source "OME 2016-06 ome.xsd" are from the OME Data Model (Copyright (C) 2002 -
   2016 Open Microscopy Environment), licensed under CC BY 3.0: http://www.openmicroscopy.org/info/attribution'
@@ -1267,6 +1267,8 @@ classes:
     exact_mappings:
     - ome:DetectorSettings
     is_a: Settings
+    mixins:
+    - DetectorSettingsExtension
     abstract: true
     attributes:
       ID:
@@ -1909,8 +1911,6 @@ classes:
       holds the Sample Holder. In many cases, this device is capable of mechanical movements (as in a Mechanical Stage) to
       allow easy positioning and rotation of the Sample in the X-, Y-, and Z-axes.
     is_a: SamplePositioning
-    mixins:
-    - StageExtension
     abstract: true
     attributes:
       XYMaxVelocity:
@@ -4790,6 +4790,8 @@ classes:
     description: Each Image has to have at least one Plane and one Channel. The Plane element holds the Microscope stage and
       Image timing data for a given Channel/z-section/timepoint. The total number of Plane elements for a given Image must
       equal to SizeZ x SizeC x SizeT.
+    mixins:
+    - PlaneExtension
     attributes:
       HashSHA1:
         range: Hex40
@@ -9265,6 +9267,8 @@ classes:
     description: This element holds the Setting applied to a Sample Positioning Device used  during the Acquisiton of this
       experimental Image as well as a reference (the ID attribute) to the Sample Positioning Device in question.
     is_a: Settings
+    mixins:
+    - SamplePositioningSettingsExtension
     attributes:
       ID:
         description: This is the Unique Identifier of the Sample Positioning Device used in this case.

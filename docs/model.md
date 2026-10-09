@@ -132,12 +132,14 @@ the tree next to LiMi's fields; new groups are classes of their own.
 
 | Where | What |
 | --- | --- |
-| `Image` | `ElectronBeamSettings` (type, mode, focus, spot size, working distance, acceleration voltage, currents, convergence angle, defocus, shift, source tilt, stigmator, high-voltage readings, and the electron source it applies to), `ElectronOpticsSettings` (camera length, operating and projector modes, gun lens, the two condenser lenses' settings, apertures, and each `Aperture` with its name, number, shape, mechanism, diameter, whether it is in the beam and its position offset), `ScanSettings` (field of view, rotation, frame and line time, line integration and interlacing, detector) |
+| `Image` | `ElectronBeamSettings` (type, mode, focus, spot size, working distance, acceleration voltage, currents, convergence angle, defocus, shift, source tilt, stigmator, high-voltage readings, and the electron source it applies to), `ElectronOpticsSettings` (camera length, operating and projector modes, gun lens, the two condenser lenses' settings, apertures, and each `Aperture` with its name, number, shape, mechanism, diameter, whether it is in the beam and its position offset), `ScanSettings` (field of view, rotation, frame and line time, line integration and interlacing) |
 | `Image` | `Type`, `CropHint`, `Corrections` (contrast, brightness, gamma, black and white level) |
 | `Instrument` | `Manufacturer`, `Model`, `CatalogNumber`, `Type`, `ComputerName`, `Vacuum` (buffer, gun, sample and system vacuum, mode), `ElectronSource` |
-| `Detector` | `Type`, `Gain`, `Offset`, `Brightness`, `Contrast`, `Channel`, configuration; `Inserted`, `Enabled`, `ExposureTime`, `Binning`, and for electron-microscopy detectors the collection, elevation and azimuth angles, `CollectionAngleRange`, live, real and pulse-processing times, input and output count rates, and the spectrum's `Dispersion`, `OffsetEnergy`, `BeginEnergy` and `ElectronicsNoise` |
+| `Detector` | `Type`, `Channel`, configuration, and for electron-microscopy detectors the collection, elevation and azimuth angles, `CollectionAngleRange`, live, real and pulse-processing times, input and output count rates, and the spectrum's `Dispersion`, `OffsetEnergy`, `BeginEnergy` and `ElectronicsNoise` |
 | `Pixels` | `TimePoints`: the source's own indices of the first and last time point (BigDataViewer's `Timepoints` range), whose count is `SizeT` and by which its registrations name them |
-| `Stage` | `Position`, `RawPosition`, `Tilt`, `Rotation`, `Bias`, `MultiStage` (sample height and radius) |
+| `Plane` | the stage's `PositionM`, `Tilt` (its primary, alpha, axis), `TiltBeta` and `Rotation`, each with its unit, beside LiMi's `PositionX`, `PositionY` and `PositionZ`; `RawStage`, the same axes as the stage's own controller reports them |
+| `DetectorSettings` | `Brightness`, `Contrast`, beside LiMi's gains and offset |
+| `SamplePositioningSettings` | the stage's `Bias` voltage, `BiasType` and `BiasMode`; `SampleHeight` and `SampleRadius` on a multi-sample stage |
 | `Software` | `ApplicationID` |
 | `OME` | `Operations`, `Features`, `Annotation`, kept as source text |
 
@@ -147,7 +149,13 @@ part of the `Instrument`, with its own `ID`, and how the beam, optics and scan
 were set for one image are that `Image`'s `ElectronBeamSettings` (which refers
 to its electron source), `ElectronOpticsSettings` and `ScanSettings`. The
 operator is LiMi's `Experimenter.UserName`, the start of acquisition
-`Image.AcquisitionDate`.
+`Image.AcquisitionDate`. Where the stage was for an image is LiMi's (and OME's)
+`Plane.PositionX`, `PositionY` and `PositionZ`, for every source, so the
+stage's other axes are `Plane`'s too, in its style: a number with a unit
+field beside it. The stage hardware (`MechanicalStage`) holds what the stage
+is, never where it was. The same holds for detectors: how one was set for an
+image (gain, offset, brightness, contrast) is the `DetectorSettings` of the
+channel's `LightPath`, naming the detector by its ID, as LiMi has it.
 
 A value with a unit (`WorkingDistance`, `FieldOfView.X`, ...) is one shared
 class, `Quantity` with `Value` and `Unit`, the unit as the source writes it; a

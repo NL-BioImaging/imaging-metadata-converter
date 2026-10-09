@@ -33,6 +33,14 @@ LEICA_SEQUENCES = 'LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettin
 LEICA_BANDS = 'ConfocalSettingDefinition.Spectro.MultiBand'
 LEICA_LASERS = 'ConfocalSettingDefinition.LaserArray.Laser'
 LEICA_WIDEFIELD_CHANNELS = 'CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo'
+LEICA_DETECTORS = 'ConfocalSettingDefinition.DetectorList.Detector'
+LEICA_SEQUENTIAL_MASTER = 'LDM_Block_Sequential_Master'
+# the detector types LAS X names that LiMi has a class for; any other is a GenericDetector
+LEICA_DETECTOR_CLASSES = {'PMT': 'PhotoMultiplierTube', 'HyD': 'HybridPhotoDetector'}
+# the detector a Velox (TALOS) image was taken with, by its name
+VELOX_IMAGE_DETECTOR = 'DetectorMetadata.DetectorName'
+# a detector's own values that are its settings for the image, by the source's name for them in any case
+DETECTOR_SETTING_FIELDS = {'gain': 'AnalogGain', 'offset': 'Offset'}
 # Windows FILETIME, as Leica's LMD software writes its acquisition time: 100 ns steps since 1601
 FILETIME_EPOCH = datetime(1601, 1, 1)
 FORMATS_KEEPING_PARTS = ('count',)
@@ -59,6 +67,10 @@ class AcquisitionMetadataMapper:
         model = ModelPaths(schema_file) if schema_file.endswith(('.yaml', '.yml')) else None
         self.schema = model.tree() if model else self._load_json(schema_file)
         self._root = model.root if model else None
+        # each concrete detector class, with the class of its settings for an image (LiMi's Model_Settings)
+        self._detector_settings = {name: model.classes[name].annotations['Model_Settings'].value
+                                   for name in model.view.class_descendants('Detector')
+                                   if not model.classes[name].abstract} if model else {}
         rules = self._load_json(mappings_file)
         # a rule may state the unit its source implies but never writes: {"target": ..., "unit": "mm"}
         self.mappings = {source: rule['target'] if isinstance(rule, dict) else rule for source, rule in rules.items()}
@@ -611,15 +623,42 @@ class AcquisitionMetadataMapper:
             if is_free_path(result, unit_path):
                 set_nested_value(result, unit_path, unit)
                 provenance[unit_path] = [origin]
+        self._map_leica_detectors(metadata, result, provenance)
         self._map_leica_sequential_channels(metadata, result, provenance)
         self._map_leica_microdissection_laser(metadata, result, provenance)
         self._map_leica_widefield_light_sources(metadata, result, provenance)
+        self._map_detector_settings(metadata, result, provenance)
         self._apply_combinations(metadata, result, provenance)
         self._respell(result, provenance)
         if SOURCE_MAP_KEY in result:
             raise ValueError(f'Source metadata already has a top-level {SOURCE_MAP_KEY}')
         result[SOURCE_MAP_KEY] = provenance
         return result
+
+    def _map_leica_detectors(self, metadata, result, provenance):
+        """Describe each detector of a Leica confocal system as the class of the type LAS X states (PMT, HyD), or
+        a GenericDetector for a type LiMi has no class for.
+
+        The detectors are those of `leica_detectors`. Each gets an ID by its place (Detector:0), as the source
+        has none, and its Name and Type move to it; the rest of its entry, its gain and whether it is on, are
+        settings (see `_map_leica_sequential_channels`) and stay.
+        """
+        held = []
+        for index, (detector, detector_path) in enumerate(leica_detectors(metadata)):
+            detector_class = LEICA_DETECTOR_CLASSES.get(str(detector.get('Type')), 'GenericDetector')
+            if isinstance(result.get(detector_class, []), list):
+                record = f'{detector_class}[{len(result.get(detector_class, []))}]'
+                set_nested_value(result, f'{record}.ID', f'Detector:{index}')
+                provenance[f'{record}.ID'] = [f'{detector_path}.Type']
+                for field, key in (('Name', 'Name'), ('Type', 'Type')):
+                    if key in detector:
+                        set_nested_value(result, f'{record}.{field}', detector[key])
+                        provenance[f'{record}.{field}'] = f'{detector_path}.{key}'
+                        held.append(f'{detector_path}.{key}')
+        for path in held:
+            if provenance.get(path) == path:
+                pop_nested_value(result, path)
+                del provenance[path]
 
     def _map_leica_sequential_channels(self, metadata, result, provenance):
         """Describe each channel of a Leica sequential confocal scan, where the source holds one.
@@ -630,7 +669,9 @@ class AcquisitionMetadataMapper:
         band (MultiBand, numbered by detector) gives the dye, as the channel's Name and Fluorophore.Name, and
         its window, as a band-pass emission Filter; the sequence's laser lines on give a LightSourceSettings
         each, referring to the laser of that type (whose Role is Fluorescence where it excites a channel with
-        a dye), and the excitation wavelength where only one is on. The
+        a dye), and the excitation wavelength where only one is on. Its LightPath holds the settings of its
+        detector (in the settings class of the detector's kind), which name that detector only: the gains
+        LAS X states once for all sequences are not this sequence's own. The
         filters and lasers get IDs by their place, as the source has none for them. Every value written is
         derived, its SourceMap entry listing what it came from, and replaces those source values where it
         holds them (a dye, a band's limits, a single line): the detectors, the line intensities (whose
@@ -645,6 +686,8 @@ class AcquisitionMetadataMapper:
                  for band, path in _items(value_at_path(settings, LEICA_BANDS), f'{LEICA_SETTINGS}.{LEICA_BANDS}')}
         laser_ids = {str(laser.get('LightSourceType')): (index, path) for index, (laser, path) in
                      enumerate(_items(value_at_path(settings, LEICA_LASERS), f'{LEICA_SETTINGS}.{LEICA_LASERS}'))}
+        detector_ids = {str(detector.get('Channel')): (index, detector)
+                        for index, (detector, _) in enumerate(leica_detectors(metadata))}
         held = set()
 
         def derive(target, value, *origins):
@@ -659,10 +702,17 @@ class AcquisitionMetadataMapper:
                                                    f'{sequence_path}.AotfList.Aotf')
                      for line, line_path in _items(aotf.get('LaserLineSetting'), f'{aotf_path}.LaserLineSetting')
                      if (_number(str(line.get('IntensityDev'))) or 0) > 0]
-            detectors = [detector for detector, _ in _items(value_at_path(sequence, 'DetectorList.Detector'), '')
+            detectors = [(detector, detector_path) for detector, detector_path in
+                         _items(value_at_path(sequence, 'DetectorList.Detector'), f'{sequence_path}.DetectorList.Detector')
                          if str(detector.get('IsActive')) == '1']
-            for detector in detectors:
+            for detector, detector_path in detectors:
                 target = f'Pixels.Channel[{channel}]'
+                listed = detector_ids.get(str(detector.get('Channel')))
+                if listed is not None:
+                    index, described = listed
+                    detector_class = LEICA_DETECTOR_CLASSES.get(str(described.get('Type')), 'GenericDetector')
+                    settings_class = self._detector_settings.get(detector_class, 'GenericDetectorSettings')
+                    derive(f'{target}.LightPath.{settings_class}[0].ID', f'Detector:{index}', f'{detector_path}.IsActive')
                 band_path = bands.get(str(detector.get('Channel')))
                 band = value_at_path(metadata, band_path) if band_path else {}
                 if band.get('DyeName'):
@@ -746,6 +796,49 @@ class AcquisitionMetadataMapper:
                 if role in lamps and is_free_path(result, target):
                     set_nested_value(result, target, lamps[role])
                     provenance[target] = [origin]
+
+    def _map_detector_settings(self, metadata, result, provenance):
+        """Give each detector's settings for the image the detector's ID, as LiMi has them: the settings, in the
+        class of the detector's kind, in the LightPath of the image's channel, name the detector they are for.
+
+        Of the detectors a source describes, the image is taken with the one it names (Velox's
+        DetectorMetadata.DetectorName) or those mixed into it (Phenom's mixFactor above 0); their gain and offset
+        move into the first channel's settings, while the other detectors' values stay as the source states
+        them. The settings a source's rules write for its one detector (Cikteq's, a Leica camera's) are that
+        detector's. A detector without an ID gets one by its place (Detector:0), as the source has none.
+        """
+        detectors = [(detector_class, record, record_path) for detector_class in self._detector_settings
+                     for record, record_path in _items(result.get(detector_class), detector_class)]
+        named = value_at_path(metadata, VELOX_IMAGE_DETECTOR)
+        used = [detector for detector in detectors if named is not None and detector[1].get('Name') == named] or \
+            [detector for detector in detectors if (_number(str(detector[1].get('mixFactor'))) or 0) > 0]
+        for detector_class, record, record_path in used:
+            settings_class = self._detector_settings[detector_class]
+            written = value_at_path(result, f'Pixels.Channel[0].LightPath.{settings_class}')
+            settings = f'Pixels.Channel[0].LightPath.{settings_class}[{len(written) if isinstance(written, list) else 0}]'
+            reason = VELOX_IMAGE_DETECTOR if named is not None else provenance.get(f'{record_path}.mixFactor')
+            set_nested_value(result, f'{settings}.ID', self._detector_id(result, provenance, detectors, record, record_path))
+            provenance[f'{settings}.ID'] = record_origins(provenance, record_path) + ([reason] if reason else [])
+            for key in [key for key in record if key.lower() in DETECTOR_SETTING_FIELDS]:
+                field = f'{settings}.{DETECTOR_SETTING_FIELDS[key.lower()]}'
+                set_nested_value(result, field, record.pop(key))
+                provenance[field] = provenance.pop(f'{record_path}.{key}')
+        written = value_at_path(result, 'LightPath.GenericDetectorSettings')
+        generic = [detector for detector in detectors if self._detector_settings[detector[0]] == 'GenericDetectorSettings']
+        if isinstance(written, dict) and 'ID' not in written and len(generic) == 1:
+            _, record, record_path = generic[0]
+            written['ID'] = self._detector_id(result, provenance, detectors, record, record_path)
+            provenance['LightPath.GenericDetectorSettings.ID'] = record_origins(provenance, record_path)
+
+    @staticmethod
+    def _detector_id(result, provenance, detectors, record, record_path):
+        """The ID of a detector `record`, given one by its place among `detectors` if the source has none."""
+        if record.get('ID') is None:
+            taken = {str(other.get('ID')) for _, other, _ in detectors}
+            record['ID'] = next(f'Detector:{number}' for number in range(len(detectors) + 1)
+                                if f'Detector:{number}' not in taken)
+            provenance[f'{record_path}.ID'] = record_origins(provenance, record_path)
+        return record['ID']
 
     def _respell(self, result, provenance):
         """Write the model's spelling of each enumeration value a source spells otherwise (Leica's "OIL" as Oil,
@@ -884,6 +977,28 @@ def _value_paths(node, path=''):
             yield from _value_paths(value, current)
         else:
             yield current
+
+
+def leica_detectors(metadata):
+    """(detector, its path) for each detector of a Leica confocal system: those of the image's own detector list,
+    or, in a sequential scan without one, of its master sequence's; a sequence's own list names which of them it
+    used."""
+    settings = metadata.get(LEICA_SETTINGS)
+    if not isinstance(settings, dict):
+        return []
+    masters = [path for path in _value_paths(settings) if path.endswith(f'{LEICA_SEQUENTIAL_MASTER}.{LEICA_DETECTORS}')]
+    list_path = LEICA_DETECTORS if value_at_path(settings, LEICA_DETECTORS) is not None else min(masters, default=None)
+    return _items(value_at_path(settings, list_path), f'{LEICA_SETTINGS}.{list_path}') if list_path else []
+
+
+def record_origins(provenance, record_path):
+    """The source paths of the values of the record at `record_path`, which a value derived from it comes from."""
+    origins = []
+    for path, entry in provenance.items():
+        sources = entry if isinstance(entry, list) else [entry.get('Source') if isinstance(entry, dict) else entry]
+        if path.startswith(f'{record_path}.'):
+            origins += [source for source in sources if source not in origins]
+    return origins
 
 
 def _items(value, path):

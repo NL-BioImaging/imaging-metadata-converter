@@ -16,6 +16,9 @@
     "Beam.ShiftX": "Image.ElectronBeamSettings.Shift.X",
     "Beam.ShiftY": "Image.ElectronBeamSettings.Shift.Y",
     "Detector.DetectorName": "GenericDetector.Name",
+    "Detector.Gain": "LightPath.GenericDetectorSettings.AnalogGain",
+    "Detector.Brightness": "LightPath.GenericDetectorSettings.Brightness",
+    "Detector.Contrast": "LightPath.GenericDetectorSettings.Contrast",
     "Scan.PointTime": {
         "target": "Plane.PixelDwellTime",
         "unit": "us"
@@ -27,23 +30,23 @@
     "Scan.ResolutionX": "Pixels.SizeX",
     "Scan.ResolutionY": "Pixels.SizeY",
     "Stage.StagePosX": {
-        "target": "MechanicalStage.Position.X.Value",
+        "target": "Plane.PositionX",
         "unit": "mm"
     },
     "Stage.StagePosY": {
-        "target": "MechanicalStage.Position.Y.Value",
+        "target": "Plane.PositionY",
         "unit": "mm"
     },
     "Stage.StagePosZ": {
-        "target": "MechanicalStage.Position.Z.Value",
+        "target": "Plane.PositionZ",
         "unit": "mm"
     },
     "Stage.StagePosR": {
-        "target": "MechanicalStage.Rotation.Value",
+        "target": "Plane.Rotation",
         "unit": "deg"
     },
     "Stage.StagePosT": {
-        "target": "MechanicalStage.Tilt.Value",
+        "target": "Plane.Tilt",
         "unit": "deg"
     },
     "Make": "Instrument.Manufacturer",
@@ -70,8 +73,8 @@
     "pixelWidth.unit": "Pixels.PhysicalSizeXUnit",
     "pixelHeight.value": "Pixels.PhysicalSizeY",
     "pixelHeight.unit": "Pixels.PhysicalSizeYUnit",
-    "samplePosition.x": "MechanicalStage.Position.X.Value",
-    "samplePosition.y": "MechanicalStage.Position.Y.Value",
+    "samplePosition.x": "Plane.PositionX",
+    "samplePosition.y": "Plane.PositionY",
     "acquisition.scan.dwellTime.value": "Plane.PixelDwellTime",
     "acquisition.scan.dwellTime.unit": "Plane.PixelDwellTimeUnit",
     "acquisition.scan.rotation": "Image.ScanSettings.Rotation.Value",
@@ -118,23 +121,23 @@
     "Optics.TemOperatingSubMode": "Image.ElectronOpticsSettings.OperatingSubMode",
     "Optics.ProjectorMode": "Image.ElectronOpticsSettings.ProjectorMode",
     "Stage.Position.x": {
-        "target": "MechanicalStage.Position.X.Value",
+        "target": "Plane.PositionX",
         "unit": "m"
     },
     "Stage.Position.y": {
-        "target": "MechanicalStage.Position.Y.Value",
+        "target": "Plane.PositionY",
         "unit": "m"
     },
     "Stage.Position.z": {
-        "target": "MechanicalStage.Position.Z.Value",
+        "target": "Plane.PositionZ",
         "unit": "m"
     },
     "Stage.AlphaTilt": {
-        "target": "MechanicalStage.Tilt.Alpha.Value",
+        "target": "Plane.Tilt",
         "unit": "rad"
     },
     "Stage.BetaTilt": {
-        "target": "MechanicalStage.Tilt.Beta.Value",
+        "target": "Plane.TiltBeta",
         "unit": "rad"
     },
     "Stage.HolderType": "SampleHolder.Type",
@@ -183,7 +186,6 @@
     "Scan.Focus": "Image.ElectronBeamSettings.Focus",
     "Scan.StigX": "Image.ElectronBeamSettings.Stigmator.X",
     "Scan.StigY": "Image.ElectronBeamSettings.Stigmator.Y",
-    "acquisition.scan.detector": "Image.ScanSettings.Detector",
     "acquisition.scan.beamShift.x": "Image.ElectronBeamSettings.Shift.X",
     "acquisition.scan.beamShift.y": "Image.ElectronBeamSettings.Shift.Y",
     "Optics.FullScanFieldOfView.x": {
@@ -194,18 +196,18 @@
         "target": "Image.ScanSettings.FieldOfView.Y.Value",
         "unit": "m"
     },
-    "Stage.X.value": "MechanicalStage.Position.X.Value",
-    "Stage.X.units": "MechanicalStage.Position.X.Unit",
-    "Stage.Y.value": "MechanicalStage.Position.Y.Value",
-    "Stage.Y.units": "MechanicalStage.Position.Y.Unit",
-    "Stage.Z.value": "MechanicalStage.Position.Z.Value",
-    "Stage.Z.units": "MechanicalStage.Position.Z.Unit",
-    "Stage.M.units": "MechanicalStage.Position.M.Unit",
-    "Stage.M.value": "MechanicalStage.Position.M.Value",
-    "Stage.Tilt.value": "MechanicalStage.Tilt.Value",
-    "Stage.Tilt.units": "MechanicalStage.Tilt.Unit",
-    "Stage.Rot.value": "MechanicalStage.Rotation.Value",
-    "Stage.Rot.units": "MechanicalStage.Rotation.Unit",
+    "Stage.X.value": "Plane.PositionX",
+    "Stage.X.units": "Plane.PositionXUnit",
+    "Stage.Y.value": "Plane.PositionY",
+    "Stage.Y.units": "Plane.PositionYUnit",
+    "Stage.Z.value": "Plane.PositionZ",
+    "Stage.Z.units": "Plane.PositionZUnit",
+    "Stage.M.units": "Plane.PositionMUnit",
+    "Stage.M.value": "Plane.PositionM",
+    "Stage.Tilt.value": "Plane.Tilt",
+    "Stage.Tilt.units": "Plane.TiltUnit",
+    "Stage.Rot.value": "Plane.Rotation",
+    "Stage.Rot.units": "Plane.RotationUnit",
     "objective.immersion": "Objective.ImmersionType",
     "objective.lens_na": "Objective.LensNA",
     "objective.nominal_magnification": "Objective.Magnification",
@@ -246,25 +248,28 @@
     "Image.Pixels.Channel.EmissionWavelength": "Pixels.Channel[*].Fluorophore.EmissionWavelength",
     "Image.Pixels.Channel.EmissionWavelengthUnit": "Pixels.Channel[*].Fluorophore.EmissionWavelengthUnit",
     "Creator": "OME.Creator",
-    "RawStage.M.units": "MechanicalStage.RawPosition.M.Unit",
-    "RawStage.M.value": "MechanicalStage.RawPosition.M.Value",
-    "RawStage.Rot.units": "MechanicalStage.RawPosition.Rot.Unit",
-    "RawStage.Rot.value": "MechanicalStage.RawPosition.Rot.Value",
-    "RawStage.Tilt.units": "MechanicalStage.RawPosition.Tilt.Unit",
-    "RawStage.Tilt.value": "MechanicalStage.RawPosition.Tilt.Value",
-    "RawStage.X.units": "MechanicalStage.RawPosition.X.Unit",
-    "RawStage.X.value": "MechanicalStage.RawPosition.X.Value",
-    "RawStage.Y.units": "MechanicalStage.RawPosition.Y.Unit",
-    "RawStage.Y.value": "MechanicalStage.RawPosition.Y.Value",
-    "RawStage.Z.units": "MechanicalStage.RawPosition.Z.Unit",
-    "RawStage.Z.value": "MechanicalStage.RawPosition.Z.Value",
-    "StageBias.BiasType": "MechanicalStage.Bias.BiasType",
-    "StageBias.Mode": "MechanicalStage.Bias.Mode",
-    "StageBias.Volts": "MechanicalStage.Bias.Volts",
-    "multiStage.sampleHeight.unit": "MechanicalStage.MultiStage.SampleHeight.Unit",
-    "multiStage.sampleHeight.value": "MechanicalStage.MultiStage.SampleHeight.Value",
-    "multiStage.sampleRadius.unit": "MechanicalStage.MultiStage.SampleRadius.Unit",
-    "multiStage.sampleRadius.value": "MechanicalStage.MultiStage.SampleRadius.Value",
+    "RawStage.M.units": "Plane.RawStage.PositionMUnit",
+    "RawStage.M.value": "Plane.RawStage.PositionM",
+    "RawStage.Rot.units": "Plane.RawStage.RotationUnit",
+    "RawStage.Rot.value": "Plane.RawStage.Rotation",
+    "RawStage.Tilt.units": "Plane.RawStage.TiltUnit",
+    "RawStage.Tilt.value": "Plane.RawStage.Tilt",
+    "RawStage.X.units": "Plane.RawStage.PositionXUnit",
+    "RawStage.X.value": "Plane.RawStage.PositionX",
+    "RawStage.Y.units": "Plane.RawStage.PositionYUnit",
+    "RawStage.Y.value": "Plane.RawStage.PositionY",
+    "RawStage.Z.units": "Plane.RawStage.PositionZUnit",
+    "RawStage.Z.value": "Plane.RawStage.PositionZ",
+    "StageBias.BiasType": "Image.SamplePositioningSettings.BiasType",
+    "StageBias.Mode": "Image.SamplePositioningSettings.BiasMode",
+    "StageBias.Volts": {
+        "target": "Image.SamplePositioningSettings.Bias",
+        "unit": "V"
+    },
+    "multiStage.sampleHeight.unit": "Image.SamplePositioningSettings.SampleHeightUnit",
+    "multiStage.sampleHeight.value": "Image.SamplePositioningSettings.SampleHeight",
+    "multiStage.sampleRadius.unit": "Image.SamplePositioningSettings.SampleRadiusUnit",
+    "multiStage.sampleRadius.value": "Image.SamplePositioningSettings.SampleRadius",
     "acquisition.scan.detectors.*": "GenericDetector[]",
     "Detectors.*": "GenericDetector[]",
     "Optics.Apertures.*": "Image.ElectronOpticsSettings.Aperture[]",
@@ -428,7 +433,7 @@
     "FilterSetting.*Turret.OrderNumber.Variant": "Objective.CatalogNumber",
     "Mic.Magnification": "Objective.Magnification",
     "Camera.TypName": "GenericDetector.Model",
-    "Camera.Gain": "GenericDetector.Gain",
+    "Camera.Gain": "LightPath.GenericDetectorSettings.AnalogGain",
     "Camera.Expsoure": {
         "target": "Plane.ExposureTime",
         "unit": "s"
@@ -454,12 +459,6 @@
     "SpimData.SequenceDescription.Timepoints.last": "Pixels.TimePoints.End",
     "Detectors.*.DetectorName": "GenericDetector[].Name",
     "Detectors.*.DetectorType": "GenericDetector[].Type",
-    "Detectors.*.ExposureTime": {
-        "target": "GenericDetector[].ExposureTime.Value",
-        "unit": "s"
-    },
-    "Detectors.*.Binning.width": "GenericDetector[].Binning.X",
-    "Detectors.*.Binning.height": "GenericDetector[].Binning.Y",
     "Detectors.*.CollectionAngle": {
         "target": "GenericDetector[].CollectionAngle.Value",
         "unit": "rad"
@@ -509,15 +508,11 @@
         "unit": "eV"
     },
     "acquisition.scan.detectors.*.id": "GenericDetector[].Name",
-    "acquisition.scan.detectors.*.gain": "GenericDetector[].Gain",
-    "acquisition.scan.detectors.*.offset": "GenericDetector[].Offset",
     "Optics.Focus": "Image.ElectronBeamSettings.Focus",
     "Optics.LastMeasuredScreenCurrent": {
         "target": "Image.ElectronBeamSettings.Current.Value",
         "unit": "A"
     },
-    "BinaryResult.Detector": "Image.ScanSettings.Detector",
-    "DetectorMetadata.DetectorName": "Image.ScanSettings.Detector",
     "CustomProperties.StemMagnification.value": "Objective.Magnification",
     "Sample.SampleId": "Sample.ID",
     "Detectors.*.id": "GenericDetector[].ID",
@@ -533,10 +528,10 @@
     "Beam.Condenser2": "Image.ElectronOpticsSettings.Condenser2",
     "acquisition.scan.interlace": "Image.ScanSettings.LineInterlacing",
     "Scan.Interlaced": "Image.ScanSettings.LineInterlacing",
-    "CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo.Gain": "GenericDetector.Gain",
-    "CameraSettingDefinition.Brightness": "GenericDetector.Brightness",
-    "Image.Brightness": "GenericDetector.Brightness",
-    "Image.Contrast": "GenericDetector.Contrast",
+    "CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo.Gain": "LightPath.GenericDetectorSettings.AnalogGain",
+    "CameraSettingDefinition.Brightness": "LightPath.GenericDetectorSettings.Brightness",
+    "Image.Brightness": "LightPath.GenericDetectorSettings.Brightness",
+    "Image.Contrast": "LightPath.GenericDetectorSettings.Contrast",
     "Scan.ShiftX": "Image.ElectronBeamSettings.Shift.X",
     "Scan.ShiftY": "Image.ElectronBeamSettings.Shift.Y",
     "ImagePositionPatient[0]": {
@@ -550,6 +545,5 @@
     "ImagePositionPatient[2]": {
         "target": "Plane.PositionZ",
         "unit": "mm"
-    },
-    "ConfocalSettingDefinition.DetectorList.Detector.IsActive": "GenericDetector[*].Enabled"
+    }
 }

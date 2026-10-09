@@ -39,6 +39,11 @@ Image:
     Shift:
       X: 0
       Y: 0
+  SamplePositioningSettings:
+    BiasType: null
+    BiasMode: null
+    Bias: 0
+    BiasUnit: V
   Corrections:
     Invert: false
     Brightness: 0
@@ -46,52 +51,36 @@ Image:
     XBrightSlope: 0
     YBrightSlope: 0
     RBrightSlope: 0
-GenericDetector:
-  Contrast: 0
-  Brightness: 0
-MechanicalStage:
-  Bias:
-    BiasType: null
-    Mode: null
-    Volts: 0
-  Position:
-    X:
-      Unit: um
-      Value: 0
-    Y:
-      Unit: um
-      Value: 0
-    Z:
-      Unit: um
-      Value: 0
-    M:
-      Unit: mm
-      Value: 0
-  Tilt:
-    Unit: deg
-    Value: 0
-  Rotation:
-    Unit: deg
-    Value: 0
-  RawPosition:
-    X:
-      Unit: um
-      Value: 0
-    Y:
-      Unit: um
-      Value: 0
-    Z:
-      Unit: um
-      Value: 0
-    Tilt:
-      Unit: deg
-      Value: 0
-    Rot:
-      Unit: deg
-      Value: 0
-    M:
-      Unit: mm
-      Value: 0
+LightPath:
+  GenericDetectorSettings:
+    Contrast: 0
+    Brightness: 0
+Plane:
+  PositionXUnit: µm
+  PositionX: 0
+  PositionYUnit: µm
+  PositionY: 0
+  PositionZUnit: µm
+  PositionZ: 0
+  TiltUnit: deg
+  Tilt: 0
+  RotationUnit: deg
+  Rotation: 0
+  PositionMUnit: mm
+  PositionM: 0
+  RawStage:
+    PositionXUnit: µm
+    PositionX: 0
+    PositionYUnit: µm
+    PositionY: 0
+    PositionZUnit: µm
+    PositionZ: 0
+    TiltUnit: deg
+    Tilt: 0
+    RotationUnit: deg
+    Rotation: 0
+    PositionMUnit: mm
+    PositionM: 0
 Instrument:
   Vacuum:
     SystemVacuum: 0
@@ -119,8 +108,8 @@ SourceMap:
   Image.CropHint.Right: FibicsXML.Fibics.Image.BoundingBox.Right
   Image.CropHint.Top: FibicsXML.Fibics.Image.BoundingBox.Top
   Image.CropHint.Bottom: FibicsXML.Fibics.Image.BoundingBox.Bottom
-  GenericDetector.Contrast: FibicsXML.Fibics.Image.Contrast
-  GenericDetector.Brightness: FibicsXML.Fibics.Image.Brightness
+  LightPath.GenericDetectorSettings.Contrast: FibicsXML.Fibics.Image.Contrast
+  LightPath.GenericDetectorSettings.Brightness: FibicsXML.Fibics.Image.Brightness
   Image.InvertedSignal: FibicsXML.Fibics.Image.InvertedSignal
   Image.ScanSettings.LineAvg: FibicsXML.Fibics.Scan.LineAvg
   Image.ScanSettings.FieldOfView.X.Unit: FibicsXML.Fibics.Scan.FOV_X.units
@@ -139,33 +128,45 @@ SourceMap:
   Image.ScanSettings.AppliedScaleCorrection: FibicsXML.Fibics.Scan.AppliedScaleCorrection
   Image.ElectronBeamSettings.Shift.X: FibicsXML.Fibics.Scan.ShiftX
   Image.ElectronBeamSettings.Shift.Y: FibicsXML.Fibics.Scan.ShiftY
-  MechanicalStage.Bias.BiasType: FibicsXML.Fibics.StageBias.BiasType
-  MechanicalStage.Bias.Mode: FibicsXML.Fibics.StageBias.Mode
-  MechanicalStage.Bias.Volts: FibicsXML.Fibics.StageBias.Volts
-  MechanicalStage.Position.X.Unit: FibicsXML.Fibics.Stage.X.units
-  MechanicalStage.Position.X.Value: FibicsXML.Fibics.Stage.X.value
-  MechanicalStage.Position.Y.Unit: FibicsXML.Fibics.Stage.Y.units
-  MechanicalStage.Position.Y.Value: FibicsXML.Fibics.Stage.Y.value
-  MechanicalStage.Position.Z.Unit: FibicsXML.Fibics.Stage.Z.units
-  MechanicalStage.Position.Z.Value: FibicsXML.Fibics.Stage.Z.value
-  MechanicalStage.Tilt.Unit: FibicsXML.Fibics.Stage.Tilt.units
-  MechanicalStage.Tilt.Value: FibicsXML.Fibics.Stage.Tilt.value
-  MechanicalStage.Rotation.Unit: FibicsXML.Fibics.Stage.Rot.units
-  MechanicalStage.Rotation.Value: FibicsXML.Fibics.Stage.Rot.value
-  MechanicalStage.Position.M.Unit: FibicsXML.Fibics.Stage.M.units
-  MechanicalStage.Position.M.Value: FibicsXML.Fibics.Stage.M.value
-  MechanicalStage.RawPosition.X.Unit: FibicsXML.Fibics.RawStage.X.units
-  MechanicalStage.RawPosition.X.Value: FibicsXML.Fibics.RawStage.X.value
-  MechanicalStage.RawPosition.Y.Unit: FibicsXML.Fibics.RawStage.Y.units
-  MechanicalStage.RawPosition.Y.Value: FibicsXML.Fibics.RawStage.Y.value
-  MechanicalStage.RawPosition.Z.Unit: FibicsXML.Fibics.RawStage.Z.units
-  MechanicalStage.RawPosition.Z.Value: FibicsXML.Fibics.RawStage.Z.value
-  MechanicalStage.RawPosition.Tilt.Unit: FibicsXML.Fibics.RawStage.Tilt.units
-  MechanicalStage.RawPosition.Tilt.Value: FibicsXML.Fibics.RawStage.Tilt.value
-  MechanicalStage.RawPosition.Rot.Unit: FibicsXML.Fibics.RawStage.Rot.units
-  MechanicalStage.RawPosition.Rot.Value: FibicsXML.Fibics.RawStage.Rot.value
-  MechanicalStage.RawPosition.M.Unit: FibicsXML.Fibics.RawStage.M.units
-  MechanicalStage.RawPosition.M.Value: FibicsXML.Fibics.RawStage.M.value
+  Image.SamplePositioningSettings.BiasType: FibicsXML.Fibics.StageBias.BiasType
+  Image.SamplePositioningSettings.BiasMode: FibicsXML.Fibics.StageBias.Mode
+  Image.SamplePositioningSettings.Bias: FibicsXML.Fibics.StageBias.Volts
+  Plane.PositionXUnit:
+    Source: FibicsXML.Fibics.Stage.X.units
+    SourceValue: um
+  Plane.PositionX: FibicsXML.Fibics.Stage.X.value
+  Plane.PositionYUnit:
+    Source: FibicsXML.Fibics.Stage.Y.units
+    SourceValue: um
+  Plane.PositionY: FibicsXML.Fibics.Stage.Y.value
+  Plane.PositionZUnit:
+    Source: FibicsXML.Fibics.Stage.Z.units
+    SourceValue: um
+  Plane.PositionZ: FibicsXML.Fibics.Stage.Z.value
+  Plane.TiltUnit: FibicsXML.Fibics.Stage.Tilt.units
+  Plane.Tilt: FibicsXML.Fibics.Stage.Tilt.value
+  Plane.RotationUnit: FibicsXML.Fibics.Stage.Rot.units
+  Plane.Rotation: FibicsXML.Fibics.Stage.Rot.value
+  Plane.PositionMUnit: FibicsXML.Fibics.Stage.M.units
+  Plane.PositionM: FibicsXML.Fibics.Stage.M.value
+  Plane.RawStage.PositionXUnit:
+    Source: FibicsXML.Fibics.RawStage.X.units
+    SourceValue: um
+  Plane.RawStage.PositionX: FibicsXML.Fibics.RawStage.X.value
+  Plane.RawStage.PositionYUnit:
+    Source: FibicsXML.Fibics.RawStage.Y.units
+    SourceValue: um
+  Plane.RawStage.PositionY: FibicsXML.Fibics.RawStage.Y.value
+  Plane.RawStage.PositionZUnit:
+    Source: FibicsXML.Fibics.RawStage.Z.units
+    SourceValue: um
+  Plane.RawStage.PositionZ: FibicsXML.Fibics.RawStage.Z.value
+  Plane.RawStage.TiltUnit: FibicsXML.Fibics.RawStage.Tilt.units
+  Plane.RawStage.Tilt: FibicsXML.Fibics.RawStage.Tilt.value
+  Plane.RawStage.RotationUnit: FibicsXML.Fibics.RawStage.Rot.units
+  Plane.RawStage.Rotation: FibicsXML.Fibics.RawStage.Rot.value
+  Plane.RawStage.PositionMUnit: FibicsXML.Fibics.RawStage.M.units
+  Plane.RawStage.PositionM: FibicsXML.Fibics.RawStage.M.value
   Image.Corrections.Invert: FibicsXML.Fibics.ImageCorrections.Invert
   Image.Corrections.Brightness: FibicsXML.Fibics.ImageCorrections.Brightness
   Image.Corrections.Contrast: FibicsXML.Fibics.ImageCorrections.Contrast
@@ -182,3 +183,5 @@ SourceMap:
   Channel.SamplesPerPixel: SamplesPerPixel
   ResolutionUnit: ResolutionUnit
   SampleFormat: SampleFormat
+  Image.SamplePositioningSettings.BiasUnit:
+  - FibicsXML.Fibics.StageBias.Volts

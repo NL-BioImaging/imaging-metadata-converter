@@ -120,10 +120,10 @@ Image:
     Rotation:
       Value: '-3.1415926535897931'
       Unit: rad
-    Detector: DualX
   BinaryResult:
     AcquisitionUnit: ''
     CompositionType: ''
+    Detector: DualX
     Offset:
       x: '-2.5599999999999992e-06'
       y: '-2.5599999999999992e-06'
@@ -135,24 +135,19 @@ Optics:
   StemFocus: '0.00014316878066399324'
 EnergyFilter:
   EntranceApertureType: ''
-MechanicalStage:
-  Position:
-    X:
-      Value: '-7.7850195000000151e-05'
-      Unit: m
-    Y:
-      Value: '-0.00035773861200000002'
-      Unit: m
-    Z:
-      Value: '-0.00016222569000000001'
-      Unit: m
-  Tilt:
-    Alpha:
-      Value: '-0.087257206000000045'
-      Unit: rad
-    Beta:
-      Value: '-5.9311804152093827e-05'
-      Unit: rad
+Plane:
+  PositionX: '-7.7850195000000151e-05'
+  PositionY: '-0.00035773861200000002'
+  PositionZ: '-0.00016222569000000001'
+  Tilt: '-0.087257206000000045'
+  TiltBeta: '-5.9311804152093827e-05'
+  PixelDwellTime: '0.0001'
+  PositionXUnit: m
+  PositionYUnit: m
+  PositionZUnit: m
+  TiltUnit: rad
+  TiltBetaUnit: rad
+  PixelDwellTimeUnit: s
 SampleHolder:
   Type: FEI Double Tilt
 Pixels:
@@ -162,19 +157,17 @@ Pixels:
   PhysicalSizeY: '2.4999999999999992e-09'
   PhysicalSizeXUnit: m
   PhysicalSizeYUnit: m
-Plane:
-  PixelDwellTime: '0.0001'
-  PixelDwellTimeUnit: s
 GenericDetector:
 - ExposureMode: ''
   Binning:
-    X: '1'
-    Y: '1'
+    width: '1'
+    height: '1'
   ReadOutArea:
     left: '0'
     top: '0'
     right: '4096'
     bottom: '4096'
+  ExposureTime: '1'
   Shutters:
     Shutter-0:
       Position: PreSpecimen
@@ -182,9 +175,6 @@ GenericDetector:
   DarkGainCorrectionType: '3'
   Name: BM-Ceta
   Type: ImagingDetector
-  ExposureTime:
-    Value: '1'
-    Unit: s
   ID: Detector-0
 - Inserted: 'true'
   Enabled: 'true'
@@ -265,13 +255,14 @@ GenericDetector:
 - ExposureMode: ''
   Gain: '0.69999999999999996'
   Binning:
-    X: '2'
-    Y: '2'
+    width: '2'
+    height: '2'
   ReadOutArea:
     left: '0'
     top: '0'
     right: '512'
     bottom: '512'
+  ExposureTime: '0.00040000000000000002'
   Shutters:
     Shutter-0:
       Position: None
@@ -279,9 +270,6 @@ GenericDetector:
   DarkGainCorrectionType: '3'
   Name: Flucam
   Type: ImagingDetector
-  ExposureTime:
-    Value: '0.00040000000000000002'
-    Unit: s
   ID: Detector-3
 - Inserted: 'true'
   Enabled: 'true'
@@ -3619,11 +3607,11 @@ SourceMap:
   Image.ElectronOpticsSettings.ProbeMode: Optics.ProbeMode
   Image.ElectronOpticsSettings.CameraLength.Value: Optics.CameraLength
   EnergyFilter.EntranceApertureType: EnergyFilter.EntranceApertureType
-  MechanicalStage.Position.X.Value: Stage.Position.x
-  MechanicalStage.Position.Y.Value: Stage.Position.y
-  MechanicalStage.Position.Z.Value: Stage.Position.z
-  MechanicalStage.Tilt.Alpha.Value: Stage.AlphaTilt
-  MechanicalStage.Tilt.Beta.Value: Stage.BetaTilt
+  Plane.PositionX: Stage.Position.x
+  Plane.PositionY: Stage.Position.y
+  Plane.PositionZ: Stage.Position.z
+  Plane.Tilt: Stage.AlphaTilt
+  Plane.TiltBeta: Stage.BetaTilt
   SampleHolder.Type: Stage.HolderType
   Pixels.SizeX: Scan.ScanSize.width
   Pixels.SizeY: Scan.ScanSize.height
@@ -3640,20 +3628,18 @@ SourceMap:
   Image.ScanSettings.Rotation.Value: Scan.ScanRotation
   Instrument.Vacuum.VacuumMode: Vacuum.VacuumMode
   GenericDetector[0].ExposureMode: Detectors.Detector-0.ExposureMode
+  GenericDetector[0].Binning.width: Detectors.Detector-0.Binning.width
+  GenericDetector[0].Binning.height: Detectors.Detector-0.Binning.height
   GenericDetector[0].ReadOutArea.left: Detectors.Detector-0.ReadOutArea.left
   GenericDetector[0].ReadOutArea.top: Detectors.Detector-0.ReadOutArea.top
   GenericDetector[0].ReadOutArea.right: Detectors.Detector-0.ReadOutArea.right
   GenericDetector[0].ReadOutArea.bottom: Detectors.Detector-0.ReadOutArea.bottom
+  GenericDetector[0].ExposureTime: Detectors.Detector-0.ExposureTime
   GenericDetector[0].Shutters.Shutter-0.Position: Detectors.Detector-0.Shutters.Shutter-0.Position
   GenericDetector[0].Shutters.Shutter-0.Type: Detectors.Detector-0.Shutters.Shutter-0.Type
   GenericDetector[0].DarkGainCorrectionType: Detectors.Detector-0.DarkGainCorrectionType
   GenericDetector[0].Name: Detectors.Detector-0.DetectorName
   GenericDetector[0].Type: Detectors.Detector-0.DetectorType
-  GenericDetector[0].Binning.X: Detectors.Detector-0.Binning.width
-  GenericDetector[0].Binning.Y: Detectors.Detector-0.Binning.height
-  GenericDetector[0].ExposureTime.Value: Detectors.Detector-0.ExposureTime
-  GenericDetector[0].ExposureTime.Unit:
-  - Detectors.Detector-0.ExposureTime
   GenericDetector[0].ID: Detectors.Detector-0
   GenericDetector[1].Inserted: Detectors.Detector-1.Inserted
   GenericDetector[1].Enabled: Detectors.Detector-1.Enabled
@@ -3733,20 +3719,18 @@ SourceMap:
   GenericDetector[2].ID: Detectors.Detector-2
   GenericDetector[3].ExposureMode: Detectors.Detector-3.ExposureMode
   GenericDetector[3].Gain: Detectors.Detector-3.Gain
+  GenericDetector[3].Binning.width: Detectors.Detector-3.Binning.width
+  GenericDetector[3].Binning.height: Detectors.Detector-3.Binning.height
   GenericDetector[3].ReadOutArea.left: Detectors.Detector-3.ReadOutArea.left
   GenericDetector[3].ReadOutArea.top: Detectors.Detector-3.ReadOutArea.top
   GenericDetector[3].ReadOutArea.right: Detectors.Detector-3.ReadOutArea.right
   GenericDetector[3].ReadOutArea.bottom: Detectors.Detector-3.ReadOutArea.bottom
+  GenericDetector[3].ExposureTime: Detectors.Detector-3.ExposureTime
   GenericDetector[3].Shutters.Shutter-0.Position: Detectors.Detector-3.Shutters.Shutter-0.Position
   GenericDetector[3].Shutters.Shutter-0.Type: Detectors.Detector-3.Shutters.Shutter-0.Type
   GenericDetector[3].DarkGainCorrectionType: Detectors.Detector-3.DarkGainCorrectionType
   GenericDetector[3].Name: Detectors.Detector-3.DetectorName
   GenericDetector[3].Type: Detectors.Detector-3.DetectorType
-  GenericDetector[3].Binning.X: Detectors.Detector-3.Binning.width
-  GenericDetector[3].Binning.Y: Detectors.Detector-3.Binning.height
-  GenericDetector[3].ExposureTime.Value: Detectors.Detector-3.ExposureTime
-  GenericDetector[3].ExposureTime.Unit:
-  - Detectors.Detector-3.ExposureTime
   GenericDetector[3].ID: Detectors.Detector-3
   GenericDetector[4].Inserted: Detectors.Detector-4.Inserted
   GenericDetector[4].Enabled: Detectors.Detector-4.Enabled
@@ -3761,7 +3745,7 @@ SourceMap:
   GenericDetector[4].ID: Detectors.Detector-4
   Image.BinaryResult.AcquisitionUnit: BinaryResult.AcquisitionUnit
   Image.BinaryResult.CompositionType: BinaryResult.CompositionType
-  Image.ScanSettings.Detector: BinaryResult.Detector
+  Image.BinaryResult.Detector: BinaryResult.Detector
   Pixels.PhysicalSizeX: BinaryResult.PixelSize.width
   Pixels.PhysicalSizeY: BinaryResult.PixelSize.height
   Pixels.PhysicalSizeXUnit: BinaryResult.PixelUnitX
@@ -7322,15 +7306,15 @@ SourceMap:
   - Optics.Defocus
   Image.ElectronOpticsSettings.CameraLength.Unit:
   - Optics.CameraLength
-  MechanicalStage.Position.X.Unit:
+  Plane.PositionXUnit:
   - Stage.Position.x
-  MechanicalStage.Position.Y.Unit:
+  Plane.PositionYUnit:
   - Stage.Position.y
-  MechanicalStage.Position.Z.Unit:
+  Plane.PositionZUnit:
   - Stage.Position.z
-  MechanicalStage.Tilt.Alpha.Unit:
+  Plane.TiltUnit:
   - Stage.AlphaTilt
-  MechanicalStage.Tilt.Beta.Unit:
+  Plane.TiltBetaUnit:
   - Stage.BetaTilt
   Plane.PixelDwellTimeUnit:
   - Scan.DwellTime

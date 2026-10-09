@@ -58,15 +58,19 @@ Image:
         Value: 71.17
         Unit: µm
   AcquisitionDate: '2026-07-21T14:49:21+00:00'
+LightPath:
+  GenericDetectorSettings:
+    Brightness: 50.0
+    Contrast: 0.0
+    AnalogGain: 100
+    ID: Detector:0
 GenericDetector:
-  Brightness: 50.0
   Channel: 1
   ConsumerBrightness: 50.0
   ConsumerContrast: 50.0
-  Contrast: 0.0
   Name: ETD-SE
-  Gain: 100
   PMT: 0.37
+  ID: Detector:0
 FEI_HELIOS:
   Other:
     BottomInfoVacuum: 1.1e-07Pa
@@ -78,28 +82,22 @@ FEI_HELIOS:
     TiltCompensateMode: 0
 Plane:
   PixelDwellTime: 5.0
+  Rotation: 11.7
+  Tilt: 0.0
+  PositionX: 12.3745
+  PositionY: 9.0143
+  PositionZ: 58.0
   PixelDwellTimeUnit: µs
+  RotationUnit: deg
+  TiltUnit: deg
+  PositionXUnit: mm
+  PositionYUnit: mm
+  PositionZUnit: mm
 Pixels:
   SizeX: 6144
   SizeY: 4096
 MechanicalStage:
   NavCoordinate: 1
-  Rotation:
-    Value: 11.7
-    Unit: deg
-  Tilt:
-    Value: 0.0
-    Unit: deg
-  Position:
-    X:
-      Value: 12.3745
-      Unit: mm
-    Y:
-      Value: 9.0143
-      Unit: mm
-    Z:
-      Value: 58.0
-      Unit: mm
   StageType: TMCM-GYLZ-4000X-FIVE-110x110x69
 Instrument:
   Name: SEM4000X
@@ -147,13 +145,13 @@ SourceMap:
   Image.ElectronBeamSettings.TiltY: FEI_HELIOS.Beam.TiltY
   Image.ElectronBeamSettings.VisibleMultiple: FEI_HELIOS.Beam.VisibleMultiple
   Image.ElectronBeamSettings.WorkingDistance.Value: FEI_HELIOS.Beam.WD
-  GenericDetector.Brightness: FEI_HELIOS.Detector.Brightness
+  LightPath.GenericDetectorSettings.Brightness: FEI_HELIOS.Detector.Brightness
   GenericDetector.Channel: FEI_HELIOS.Detector.Channel
   GenericDetector.ConsumerBrightness: FEI_HELIOS.Detector.ConsumerBrightness
   GenericDetector.ConsumerContrast: FEI_HELIOS.Detector.ConsumerContrast
-  GenericDetector.Contrast: FEI_HELIOS.Detector.Contrast
+  LightPath.GenericDetectorSettings.Contrast: FEI_HELIOS.Detector.Contrast
   GenericDetector.Name: FEI_HELIOS.Detector.DetectorName
-  GenericDetector.Gain: FEI_HELIOS.Detector.Gain
+  LightPath.GenericDetectorSettings.AnalogGain: FEI_HELIOS.Detector.Gain
   GenericDetector.PMT: FEI_HELIOS.Detector.PMT
   Image.ElectronBeamSettings.HighVoltage.BV: FEI_HELIOS.HV.BV
   Image.ElectronBeamSettings.HighVoltage.Bia: FEI_HELIOS.HV.Bia
@@ -180,11 +178,11 @@ SourceMap:
   Pixels.SizeX: FEI_HELIOS.Scan.ResolutionX
   Pixels.SizeY: FEI_HELIOS.Scan.ResolutionY
   MechanicalStage.NavCoordinate: FEI_HELIOS.Stage.NavCoordinate
-  MechanicalStage.Rotation.Value: FEI_HELIOS.Stage.StagePosR
-  MechanicalStage.Tilt.Value: FEI_HELIOS.Stage.StagePosT
-  MechanicalStage.Position.X.Value: FEI_HELIOS.Stage.StagePosX
-  MechanicalStage.Position.Y.Value: FEI_HELIOS.Stage.StagePosY
-  MechanicalStage.Position.Z.Value: FEI_HELIOS.Stage.StagePosZ
+  Plane.Rotation: FEI_HELIOS.Stage.StagePosR
+  Plane.Tilt: FEI_HELIOS.Stage.StagePosT
+  Plane.PositionX: FEI_HELIOS.Stage.StagePosX
+  Plane.PositionY: FEI_HELIOS.Stage.StagePosY
+  Plane.PositionZ: FEI_HELIOS.Stage.StagePosZ
   MechanicalStage.StageType: FEI_HELIOS.Stage.StageType
   Instrument.Name: FEI_HELIOS.System.ProductName
   AcquisitionSoftware.Version: FEI_HELIOS.System.SoftwareVersion
@@ -213,16 +211,28 @@ SourceMap:
   - FEI_HELIOS.Beam.WD
   Plane.PixelDwellTimeUnit:
   - FEI_HELIOS.Scan.PointTime
-  MechanicalStage.Rotation.Unit:
+  Plane.RotationUnit:
   - FEI_HELIOS.Stage.StagePosR
-  MechanicalStage.Tilt.Unit:
+  Plane.TiltUnit:
   - FEI_HELIOS.Stage.StagePosT
-  MechanicalStage.Position.X.Unit:
+  Plane.PositionXUnit:
   - FEI_HELIOS.Stage.StagePosX
-  MechanicalStage.Position.Y.Unit:
+  Plane.PositionYUnit:
   - FEI_HELIOS.Stage.StagePosY
-  MechanicalStage.Position.Z.Unit:
+  Plane.PositionZUnit:
   - FEI_HELIOS.Stage.StagePosZ
+  GenericDetector.ID:
+  - FEI_HELIOS.Detector.Channel
+  - FEI_HELIOS.Detector.ConsumerBrightness
+  - FEI_HELIOS.Detector.ConsumerContrast
+  - FEI_HELIOS.Detector.DetectorName
+  - FEI_HELIOS.Detector.PMT
+  LightPath.GenericDetectorSettings.ID:
+  - FEI_HELIOS.Detector.Channel
+  - FEI_HELIOS.Detector.ConsumerBrightness
+  - FEI_HELIOS.Detector.ConsumerContrast
+  - FEI_HELIOS.Detector.DetectorName
+  - FEI_HELIOS.Detector.PMT
   Image.AcquisitionDate:
   - FEI_HELIOS.User.TimeStamp
   Image.ScanSettings.FrameTime.Value:

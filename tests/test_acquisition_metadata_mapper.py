@@ -84,6 +84,89 @@ class AcquisitionMetadataMapperTest(unittest.TestCase):
         self.assertEqual(converted['SourceMap']['Pixels.Channel[0].Name'],
                          ['HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[1].DyeName'])
 
+    def test_leica_detectors_are_of_the_type_the_source_states(self):
+        detectors = [{'Name': 'PMT 1', 'Type': 'PMT', 'Channel': 1, 'IsActive': 0, 'Gain': 588.5},
+                     {'Name': 'HyD-SMD 4', 'Type': 'HyD', 'Channel': 4, 'IsActive': 1, 'Gain': 100.7},
+                     {'Name': 'APD 6', 'Type': 'APD', 'Channel': 6, 'IsActive': 0}]
+        sequences = [{'DetectorList': {'Detector': [{'Name': 'PMT 1', 'Type': 'PMT', 'IsActive': 1}]}}]
+        settings = {'ConfocalSettingDefinition': {'DetectorList': {'Detector': detectors}},
+                    'LDM_Block_Sequential': {'LDM_Block_Sequential_List': {'ConfocalSettingDefinition': sequences}}}
+
+        converted = self.mapper.convert_metadata({'HardwareSetting': settings})
+
+        self.assertEqual(converted['PhotoMultiplierTube'], [{'ID': 'Detector:0', 'Name': 'PMT 1', 'Type': 'PMT'}])
+        self.assertEqual(converted['HybridPhotoDetector'], [{'ID': 'Detector:1', 'Name': 'HyD-SMD 4', 'Type': 'HyD'}])
+        # a type LiMi has no class for is a detector all the same
+        self.assertEqual(converted['GenericDetector'], [{'ID': 'Detector:2', 'Name': 'APD 6', 'Type': 'APD'}])
+        self.assertEqual(converted['SourceMap']['HybridPhotoDetector[0].Name'],
+                         'HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Name')
+        # whether a detector is on, and its gain, are settings, which a sequence states for itself, not here
+        listed = converted['HardwareSetting']['ConfocalSettingDefinition']['DetectorList']['Detector']
+        self.assertEqual(listed[:2], [{'Channel': 1, 'IsActive': 0, 'Gain': 588.5},
+                                      {'Channel': 4, 'IsActive': 1, 'Gain': 100.7}])
+        self.assertEqual(converted['HardwareSetting']['LDM_Block_Sequential']['LDM_Block_Sequential_List'][
+            'ConfocalSettingDefinition'][0]['DetectorList']['Detector'][0], {'Name': 'PMT 1', 'Type': 'PMT', 'IsActive': 1})
+
+    def test_leica_detectors_of_a_sequential_scan_are_its_masters(self):
+        master = {'ConfocalSettingDefinition': {'DetectorList': {'Detector': [{'Name': 'Blue', 'Type': 'PMT', 'IsActive': 1}]}}}
+        settings = {'Block_Widefocal': {'LDM_Block_Sequential': {'LDM_Block_Sequential_Master': master}}}
+
+        converted = self.mapper.convert_metadata({'HardwareSetting': settings})
+
+        self.assertEqual(converted['PhotoMultiplierTube'], [{'ID': 'Detector:0', 'Name': 'Blue', 'Type': 'PMT'}])
+
+    def test_leica_channels_refer_to_the_detector_their_sequence_uses(self):
+        detectors = [{'Name': 'PMT 1', 'Type': 'PMT', 'Channel': 1, 'Gain': 588.5},
+                     {'Name': 'Odd 4', 'Type': 'APD', 'Channel': 4, 'Gain': 100.7}]
+        sequences = [{'DetectorList': {'Detector': [{'Channel': 1, 'IsActive': 0}, {'Channel': 4, 'IsActive': 1}]}},
+                     {'DetectorList': {'Detector': [{'Channel': 1, 'IsActive': 1}, {'Channel': 4, 'IsActive': 0}]}}]
+        settings = {'ConfocalSettingDefinition': {'DetectorList': {'Detector': detectors}},
+                    'LDM_Block_Sequential': {'LDM_Block_Sequential_List': {'ConfocalSettingDefinition': sequences}}}
+
+        converted = self.mapper.convert_metadata({'HardwareSetting': settings})
+
+        # each in the settings class of its detector's kind; the gain is not the sequence's, so it stays
+        first, second = (channel['LightPath'] for channel in converted['Pixels']['Channel'])
+        self.assertEqual(first, {'GenericDetectorSettings': [{'ID': 'Detector:1'}]})
+        self.assertEqual(second, {'PointDetectorSettings': [{'ID': 'Detector:0'}]})
+        self.assertEqual(converted['SourceMap']['Pixels.Channel[1].LightPath.PointDetectorSettings[0].ID'],
+                         ['HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[1]'
+                          '.DetectorList.Detector[0].IsActive'])
+        self.assertEqual(converted['HardwareSetting']['ConfocalSettingDefinition']['DetectorList']['Detector'][0],
+                         {'Channel': 1, 'Gain': 588.5})
+
+    def test_the_detector_an_image_names_gets_its_settings(self):
+        detectors = {'Detector-0': {'DetectorName': 'BM-Ceta', 'Gain': 0.7, 'ExposureTime': 0.5},
+                     'Detector-4': {'DetectorName': 'HAADF', 'Gain': 18.6, 'Offset': -4.6}}
+
+        converted = self.mapper.convert_metadata({'Detectors': detectors, 'DetectorMetadata': {'DetectorName': 'HAADF'}})
+
+        self.assertEqual(converted['Pixels']['Channel'][0]['LightPath'], {'GenericDetectorSettings': [
+            {'ID': 'Detector-4', 'AnalogGain': 18.6, 'Offset': -4.6}]})
+        self.assertEqual(converted['SourceMap']['Pixels.Channel[0].LightPath.GenericDetectorSettings[0].AnalogGain'],
+                         'Detectors.Detector-4.Gain')
+        # a detector that made no part of the image keeps its values, as the source's
+        self.assertEqual(converted['GenericDetector'][0], {'Name': 'BM-Ceta', 'Gain': 0.7, 'ExposureTime': 0.5,
+                                                           'ID': 'Detector-0'})
+        self.assertEqual(converted['DetectorMetadata'], {'DetectorName': 'HAADF'})
+
+    def test_the_detectors_mixed_into_an_image_get_its_settings(self):
+        detectors = {'QBSD': {'mixFactor': 1, 'gain': 45, 'offset': -1.4}, 'SED': {'mixFactor': 0, 'gain': 0}}
+
+        converted = self.mapper.convert_metadata({'acquisition': {'scan': {'detectors': detectors}}})
+
+        self.assertEqual(converted['Pixels']['Channel'][0]['LightPath'], {'GenericDetectorSettings': [
+            {'ID': 'Detector:0', 'AnalogGain': 45, 'Offset': -1.4}]})
+        self.assertEqual([detector.get('ID') for detector in converted['GenericDetector']], ['Detector:0', None])
+        self.assertEqual(converted['GenericDetector'][1]['gain'], 0)
+
+    def test_the_settings_of_a_sources_one_detector_are_its(self):
+        converted = self.mapper.convert_metadata({'Detector': {'DetectorName': 'ETD-SE', 'Gain': 100, 'Brightness': 50}})
+
+        self.assertEqual(converted['GenericDetector'], {'Name': 'ETD-SE', 'ID': 'Detector:0'})
+        self.assertEqual(converted['LightPath'], {'GenericDetectorSettings': {'ID': 'Detector:0', 'AnalogGain': 100,
+                                                                              'Brightness': 50}})
+
     def test_leica_las_af_records_map_by_their_names(self):
         def record(value, unit=''):
             return {'Variant': value, 'Unit': unit, 'Description': '', 'Data': 0, 'VariantType': 5}

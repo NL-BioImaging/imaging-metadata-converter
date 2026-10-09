@@ -80,9 +80,10 @@ def added_paths(model, tree):
         current = first
         result = first in added
         for name in rest:
-            result = result or declared_only_by_added(model, added, current, name)
-            slot = model.slots(current)[name]
-            current = slot.range if slot.range in model.classes else None
+            slot, next_class = model.slot_at(current, name)
+            result = result or declared_only_by_added(model, added, current, slot.name) \
+                or (name != slot.name and name in added)
+            current = next_class
         return result
 
     return [path for path in all_paths(tree) if is_added(path)]
@@ -143,13 +144,12 @@ def path_details(model, tree):
         return entry
 
     def visit(class_name, node, path):
-        slots = model.slots(class_name)
         for name, value in node.items():
-            slot = slots[name]
+            slot, next_class = model.slot_at(class_name, name)
             current = f'{path}.{name}'
             entry = describe(slot, {})
             tier = _tier(slot, model.classes[class_name])
-            declared = declarers(model, class_name, name)
+            declared = declarers(model, class_name, slot.name)
             flags = (('tier', tier),
                      ('required', bool(slot.required)),
                      ('multivalued', bool(slot.multivalued)),
@@ -158,8 +158,8 @@ def path_details(model, tree):
                      ('declared_by', declared[-1] if declared and declared[-1] != class_name else None))
             entry.update({key: flag for key, flag in flags if flag})
             if isinstance(value, dict):
-                entry['class'] = slot.range
-                visit(slot.range, value, current)
+                entry['class'] = next_class
+                visit(next_class, value, current)
             details[current] = entry
 
     for class_name, node in tree.items():

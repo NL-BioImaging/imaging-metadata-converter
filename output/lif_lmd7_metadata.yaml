@@ -25,10 +25,14 @@ Experimenter:
   UserName: Leica-Admin
 GenericDetector:
   Model: K7
-  Gain: 1
+  ID: Detector:0
 Plane:
   ExposureTime: 0.083
   ExposureTimeUnit: s
+LightPath:
+  GenericDetectorSettings:
+    AnalogGain: 1
+    ID: Detector:0
 HardwareSetting:
   Camera:
     ColourSaturation: 150
@@ -125,7 +129,7 @@ SourceMap:
   CustomData.Application: CustomData.Application
   GenericDetector.Model: HardwareSetting.Camera.TypName
   Plane.ExposureTime: HardwareSetting.Camera.Expsoure
-  GenericDetector.Gain: HardwareSetting.Camera.Gain
+  LightPath.GenericDetectorSettings.AnalogGain: HardwareSetting.Camera.Gain
   HardwareSetting.Camera.ColourSaturation: HardwareSetting.Camera.ColourSaturation
   Image.ShootCircumstance: HardwareSetting.Image.ShootCircumstance
   Objective.Magnification: HardwareSetting.Mic.Magnification
@@ -198,6 +202,10 @@ SourceMap:
   Laser.Role[0]:
   - HardwareSetting.Application
   - HardwareSetting.Laser.Lasertype
+  GenericDetector.ID:
+  - HardwareSetting.Camera.TypName
+  LightPath.GenericDetectorSettings.ID:
+  - HardwareSetting.Camera.TypName
   AcquisitionSoftware.Version:
   - CustomData.Version.MajorVersion
   - CustomData.Version.MinorVersion

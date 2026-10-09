@@ -4,7 +4,7 @@ title: Imaging metadata units
 description: The units enumerations of the imaging metadata model, from models/LiMi_XMLSchema.xsd. Each unit lists the other
   spellings it is known by as aliases (its names, and an ASCII form such as "um" for "µm"), so a vendor spelling can be read
   as the unit.
-version: 1.2.0
+version: 2.0.0
 prefixes:
   linkml: https://w3id.org/linkml/
   imaging: https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging/
