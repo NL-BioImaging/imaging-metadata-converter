@@ -1,8 +1,8 @@
 id: https://github.com/NL-BioImaging/imaging-metadata-converter/models/imaging
 name: imaging
 title: Imaging metadata model
-description: 'Microscopy imaging metadata, based on the LiMi (4DN-BINA-OME) model: converted from models/LiMi_XMLSchema.xsd
-  (version 02.00, namespace http://www.NamespaceTest.org/Schemas/NBO/2020-11).'
+description: 'Microscopy imaging metadata, based on the LiMi (4DN-BINA-OME) model 2.01.1, as its JSON schemas state:
+  converted from reference/LiMi_XMLSchema.xsd (schema version 02.00, namespace http://www.NamespaceTest.org/Schemas/NBO/2020-11).'
 version: 2.0.0
 comments:
 - 'Descriptions annotated with description_source "OME 2016-06 ome.xsd" are from the OME Data Model (Copyright (C) 2002 -

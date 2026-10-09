@@ -657,7 +657,7 @@ class LinkmlConverter:
             'name': SCHEMA_NAME,
             'title': 'Imaging metadata model',
             'description': 'Microscopy imaging metadata, based on the LiMi (4DN-BINA-OME) model: converted from '
-                           f'models/LiMi_XMLSchema.xsd (version {self.root.get("version")}, namespace '
+                           f'reference/LiMi_XMLSchema.xsd (schema version {self.root.get("version")}, namespace '
                            f'{self.root.get("targetNamespace")}).',
             'version': SCHEMA_VERSION,
             'comments': ['Descriptions annotated with description_source "OME 2016-06 ome.xsd" are from '

@@ -12,7 +12,8 @@ The model is the target of every conversion: the **imaging model** (version
 {{ model.version }}), a [LinkML](https://linkml.io) schema shipped as
 `src/imaging_metadata_converter/models/imaging.yaml`. It is LiMi — the
 4DN-BINA-OME light-microscopy model, itself an extension of the OME 2016-06
-data model — converted from LiMi's XSD (version 02.00), and extended with the
+data model — model version 2.01.1, as LiMi's JSON schemas state, converted
+from LiMi's XSD (whose schema version attribute is 02.00), and extended with the
 metadata real source files hold beyond it, mostly electron microscopy, and with
 provenance, so that no source value is lost. How it was made, and the metaseed
 profile made from it, are on [Maintaining the model](maintaining.md).
