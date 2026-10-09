@@ -1,8 +1,7 @@
 Instrument:
   Manufacturer: Leica Microsystems
-  Model: DMI6000B-CS
   CatalogNumber: 8100000189
-  Name: TCS SP8
+  Model: TCS SP8
 Image:
   Name: TileScan
 path: TileScan
@@ -20009,6 +20008,9 @@ HybridPhotoDetector:
 - ID: Detector:4
   Name: Hyd-SMD 5
   Type: HyD
+InvertedMicroscopeStand:
+- ID: MicroscopeStand:0
+  Model: DMI6000B-CS
 Filter:
 - ID: Filter:0
   Type: BandPass
@@ -20746,7 +20748,6 @@ SourceMap:
   HardwareSetting.ConfocalSettingDefinition.ObjectivePos: HardwareSetting.ConfocalSettingDefinition.ObjectivePos
   Objective.Model: HardwareSetting.ConfocalSettingDefinition.ObjectiveName
   Objective.CatalogNumber: HardwareSetting.ConfocalSettingDefinition.ObjectiveNumber
-  Instrument.Model: HardwareSetting.ConfocalSettingDefinition.MicroscopeModel
   HardwareSetting.ConfocalSettingDefinition.IsInverseMicroscopeModel: HardwareSetting.ConfocalSettingDefinition.IsInverseMicroscopeModel
   Objective.ImmersionType:
     Source: HardwareSetting.ConfocalSettingDefinition.Immersion
@@ -23916,7 +23917,7 @@ SourceMap:
   AcquisitionSoftware.Name: HardwareSetting.Software
   HardwareSetting.HardwareServerVersion: HardwareSetting.HardwareServerVersion
   HardwareSetting.SystemType: HardwareSetting.SystemType
-  Instrument.Name: HardwareSetting.SystemTypeName
+  Instrument.Model: HardwareSetting.SystemTypeName
   HardwareSetting.DataSourceType: HardwareSetting.DataSourceType
   HardwareSetting.DataSourceTypeName: HardwareSetting.DataSourceTypeName
   TileScanInfo.Tile[0].FieldX: TileScanInfo.Tile[0].FieldX
@@ -41163,6 +41164,10 @@ SourceMap:
   - HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Type
   PhotoMultiplierTube[3].Name: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Name
   PhotoMultiplierTube[3].Type: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Type
+  InvertedMicroscopeStand[0].ID:
+  - HardwareSetting.ConfocalSettingDefinition.IsInverseMicroscopeModel
+  InvertedMicroscopeStand[0].Model:
+  - HardwareSetting.ConfocalSettingDefinition.MicroscopeModel
   Pixels.Channel[0].LightPath.PointDetectorSettings[0].ID:
   - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].DetectorList.Detector[3].IsActive
   Pixels.Channel[0].Name:

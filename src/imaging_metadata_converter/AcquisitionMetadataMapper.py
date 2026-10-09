@@ -37,6 +37,9 @@ LEICA_DETECTORS = 'ConfocalSettingDefinition.DetectorList.Detector'
 LEICA_SEQUENTIAL_MASTER = 'LDM_Block_Sequential_Master'
 # the detector types LAS X names that LiMi has a class for; any other is a GenericDetector
 LEICA_DETECTOR_CLASSES = {'PMT': 'PhotoMultiplierTube', 'HyD': 'HybridPhotoDetector'}
+# the settings of a Leica image that name its microscope stand, and whether that is inverted
+LEICA_STAND_DEFINITIONS = ('ConfocalSettingDefinition', 'CameraSettingDefinition')
+LEICA_STAND_CLASSES = {'1': 'InvertedMicroscopeStand', '0': 'UprightMicroscopeStand'}
 # the detector a Velox (TALOS) image was taken with, by its name, or the name its numbered detectors share
 # (DualX: DualX1 and DualX2)
 VELOX_IMAGE_DETECTOR = 'BinaryResult.Detector'
@@ -620,6 +623,7 @@ class AcquisitionMetadataMapper:
                 set_nested_value(result, unit_path, unit)
                 provenance[unit_path] = [origin]
         self._map_leica_detectors(metadata, result, provenance)
+        self._map_leica_stand(metadata, result, provenance)
         self._map_leica_sequential_channels(metadata, result, provenance)
         self._map_leica_microdissection_laser(metadata, result, provenance)
         self._map_leica_widefield_light_sources(metadata, result, provenance)
@@ -655,6 +659,32 @@ class AcquisitionMetadataMapper:
             if provenance.get(path) == path:
                 pop_nested_value(result, path)
                 del provenance[path]
+
+    def _map_leica_stand(self, metadata, result, provenance):
+        """Describe the stand a Leica image names (MicroscopeModel: DMI6000B-CS) as LiMi's inverted or upright
+        microscope stand, as IsInverseMicroscopeModel states; the system it is part of (SystemTypeName: TCS SP8)
+        is the Instrument's model. LiMi has no stand of no stated orientation, so without one the model stays
+        the source's. The stand gets an ID (MicroscopeStand:0), as the source has none; its orientation, which
+        its class states, stays too.
+        """
+        settings = metadata.get(LEICA_SETTINGS)
+        definitions = [(name, settings[name]) for name in LEICA_STAND_DEFINITIONS
+                       if isinstance(settings, dict) and isinstance(settings.get(name), dict)]
+        stated = [(name, definition) for name, definition in definitions if definition.get('MicroscopeModel')
+                  and str(definition.get('IsInverseMicroscopeModel')) in LEICA_STAND_CLASSES]
+        if stated:
+            name, definition = stated[0]
+            stand_class = LEICA_STAND_CLASSES[str(definition['IsInverseMicroscopeModel'])]
+            path = f'{LEICA_SETTINGS}.{name}'
+            if isinstance(result.get(stand_class, []), list):
+                record = f'{stand_class}[{len(result.get(stand_class, []))}]'
+                set_nested_value(result, f'{record}.ID', f'MicroscopeStand:{len(result.get(stand_class, []))}')
+                provenance[f'{record}.ID'] = [f'{path}.IsInverseMicroscopeModel']
+                set_nested_value(result, f'{record}.Model', definition['MicroscopeModel'])
+                provenance[f'{record}.Model'] = [f'{path}.MicroscopeModel']
+                if provenance.get(f'{path}.MicroscopeModel') == f'{path}.MicroscopeModel':
+                    pop_nested_value(result, f'{path}.MicroscopeModel')
+                    del provenance[f'{path}.MicroscopeModel']
 
     def _map_leica_sequential_channels(self, metadata, result, provenance):
         """Describe each channel of a Leica sequential confocal scan, where the source holds one.

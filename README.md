@@ -404,6 +404,12 @@ energies. The other detectors keep theirs with them, as the source's. A source w
 stays a `GenericDetector` until a source states its sensor (LiMi's cameras
 are CCD, CMOS, ...).
 
+A Leica image names its system (`SystemTypeName`: TCS SP8), the
+`Instrument`'s `Model`, and the microscope stand in it (`MicroscopeModel`:
+DMI6000B-CS), an `InvertedMicroscopeStand` or `UprightMicroscopeStand` as
+`IsInverseMicroscopeModel` states; LiMi has no stand of no stated
+orientation, so without it the model stays the source's.
+
 Older Leica files (LAS AF, as from an SP5) list their settings as records
 instead (`{Identifier: dblZoom, Variant: 2.5}`); `LeicaSource` keys each
 record by its own name (`ScannerSetting.dblZoom`, `FilterSetting.<object>.

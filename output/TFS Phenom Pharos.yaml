@@ -90,7 +90,7 @@ Plane:
   PixelDwellTime: 499.9999999999999
 Instrument:
   Vacuum: 21.03543261569751
-  Type: Phenom
+  type: Phenom
   CatalogNumber: MVE084613-20046-F
   Model: Phenom Pharos G2
 GenericDetector:
@@ -229,7 +229,7 @@ SourceMap:
   Image.ScanSettings.scanScale: FEI_TITAN.FeiImage.acquisition.scan.scanScale
   Image.ElectronBeamSettings.WorkingDistance.Unit: FEI_TITAN.FeiImage.workingDistance.unit
   Image.ElectronBeamSettings.WorkingDistance.Value: FEI_TITAN.FeiImage.workingDistance.value
-  Instrument.Type: FEI_TITAN.FeiImage.instrument.type
+  Instrument.type: FEI_TITAN.FeiImage.instrument.type
   AcquisitionSoftware.Version: FEI_TITAN.FeiImage.instrument.softwareVersion
   Instrument.CatalogNumber: FEI_TITAN.FeiImage.instrument.uniqueID
   Instrument.Model: FEI_TITAN.FeiImage.instrument.edition

@@ -52,16 +52,21 @@ classes:
         annotations: {schema_extended_path: Annotation, source_type: array}
 
   InstrumentExtension:
+    description: The instrument as a whole (a TCS SP8, a Talos, an iCT 256), beside the components LiMi lists; a
+      light microscope's body is its MicroscopeStand.
     mixin: true
     attributes:
       Manufacturer:
+        description: The company that made the instrument as a whole.
         annotations: {schema_extended_path: Instrument.Manufacturer}
       Model:
+        description: The Manufacturer's model name of the instrument as a whole (TCS SP8, Talos, iCT 256).
         annotations: {schema_extended_path: Instrument.Model}
       CatalogNumber:
         description: The Catalog, Part or Serial Number used by the Manufacturer to identify this instrument, as LiMi's
           ManufacturerSpec records it for each of its components.
       Type:
+        description: The kind of instrument as the source names it, such as DICOM's modality (CT).
         annotations: {schema_extended_path: Instrument.Type}
       ComputerName:
         annotations: {schema_extended_path: Instrument.ComputerName}

@@ -1623,10 +1623,12 @@ entities:
     - name: Manufacturer
       type: string
       required: false
+      description: The company that made the instrument as a whole.
       tier: required
     - name: Model
       type: string
       required: false
+      description: The Manufacturer's model name of the instrument as a whole (TCS SP8, Talos, iCT 256).
       tier: required
     - name: CatalogNumber
       type: string
@@ -1637,6 +1639,7 @@ entities:
     - name: Type
       type: string
       required: false
+      description: The kind of instrument as the source names it, such as DICOM's modality (CT).
       tier: required
     - name: ComputerName
       type: string

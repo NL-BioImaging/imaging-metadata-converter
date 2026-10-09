@@ -100,7 +100,7 @@ MechanicalStage:
   NavCoordinate: 1
   StageType: TMCM-GYLZ-4000X-FIVE-110x110x69
 Instrument:
-  Name: SEM4000X
+  Model: SEM4000X
   Version: 2.6
   Vacuum:
     BufferVacuum: 130.0
@@ -184,7 +184,7 @@ SourceMap:
   Plane.PositionY: FEI_HELIOS.Stage.StagePosY
   Plane.PositionZ: FEI_HELIOS.Stage.StagePosZ
   MechanicalStage.StageType: FEI_HELIOS.Stage.StageType
-  Instrument.Name: FEI_HELIOS.System.ProductName
+  Instrument.Model: FEI_HELIOS.System.ProductName
   AcquisitionSoftware.Version: FEI_HELIOS.System.SoftwareVersion
   Instrument.Version: FEI_HELIOS.System.Version
   FEI_HELIOS.TiltCorrect.CorrectAngle: FEI_HELIOS.TiltCorrect.CorrectAngle

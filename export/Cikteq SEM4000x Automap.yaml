@@ -210,7 +210,7 @@ Image:
       Field: Image[0].Pixels.SizeY
       Source: FEI_HELIOS.Scan.ResolutionY
     - ID: SourceMapping:54
-      Field: Instrument[0].Name
+      Field: Instrument[0].Model
       Source: FEI_HELIOS.System.ProductName
     - ID: SourceMapping:55
       Field: Instrument[0].Vacuum.BufferVacuum
@@ -412,7 +412,7 @@ Instrument:
     Source: SourceFile:0
   MechanicalStage:
   - {}
-  Name: SEM4000X
+  Model: SEM4000X
   Vacuum:
     BufferVacuum: 130.0
     GunVacuum: 1.2e-07

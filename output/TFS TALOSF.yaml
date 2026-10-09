@@ -4,7 +4,7 @@ Instrument:
   guid: '00000000000000000000000000000000'
   Manufacturer: FEI Company
   ID: '9953543'
-  Type: Talos
+  InstrumentClass: Talos
   Model: Talos
   ComputerName: TALOSF-9953543
   Vacuum:
@@ -2342,7 +2342,7 @@ SourceMap:
   AcquisitionSoftware.Version: Instrument.ControlSoftwareVersion
   Instrument.Manufacturer: Instrument.Manufacturer
   Instrument.ID: Instrument.InstrumentId
-  Instrument.Type: Instrument.InstrumentClass
+  Instrument.InstrumentClass: Instrument.InstrumentClass
   Instrument.Model: Instrument.InstrumentModel
   Instrument.ComputerName: Instrument.ComputerName
   Acquisition.AcquisitionDatetime.DateTime: Acquisition.AcquisitionDatetime.DateTime

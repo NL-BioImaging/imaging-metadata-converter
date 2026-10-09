@@ -10,7 +10,7 @@ Image:
       Field: Instrument[0].Manufacturer
       Source: manufacturer
     - ID: SourceMapping:1
-      Field: Instrument[0].Name
+      Field: Instrument[0].Model
       Source: HardwareSettingList.ScannerSetting.SystemType.Variant
     - ID: SourceMapping:2
       Field: Image[0].Name
@@ -114,7 +114,7 @@ Image:
       RefractiveIndex: 1.33
 Instrument:
 - Manufacturer: Leica Microsystems
-  Name: TCS SP5
+  Model: TCS SP5
   GenericFilter:
   - {}
   CustomProperties:

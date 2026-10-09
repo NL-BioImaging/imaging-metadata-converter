@@ -1,6 +1,6 @@
 Instrument:
   Manufacturer: Leica Microsystems
-  Name: TCS SP5
+  Model: TCS SP5
 Image:
   Name: Job 2_008
 path: Experiment/Sequence/Job 2_008
@@ -3082,7 +3082,7 @@ SourceMap:
   HardwareSettingList.ScannerSetting.SystemType.Unit: HardwareSettingList.ScannerSetting.SystemType.Unit
   HardwareSettingList.ScannerSetting.SystemType.Description: HardwareSettingList.ScannerSetting.SystemType.Description
   HardwareSettingList.ScannerSetting.SystemType.Data: HardwareSettingList.ScannerSetting.SystemType.Data
-  Instrument.Name: HardwareSettingList.ScannerSetting.SystemType.Variant
+  Instrument.Model: HardwareSettingList.ScannerSetting.SystemType.Variant
   HardwareSettingList.ScannerSetting.SystemType.VariantType: HardwareSettingList.ScannerSetting.SystemType.VariantType
   HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.Unit: HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.Unit
   HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.Description: HardwareSettingList.ScannerSetting.bAFUseFixSliceNumber.Description

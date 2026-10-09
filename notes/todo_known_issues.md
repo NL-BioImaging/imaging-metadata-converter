@@ -317,6 +317,12 @@ structure, for common fields in the source data"). A value is only a candidate i
      sensor (CCD, CMOS) is not guessed from its product name;
    - on LiMi's classes through the extension's mixins (InstrumentExtension, DetectorExtension, ...), new
      groups as classes of their own (ElectronAperture);
+   - the instrument as a whole (Instrument.Manufacturer, Model, CatalogNumber, Type: the extension's) apart from
+     its components: a light microscope's body is LiMi's MicroscopeStand, inverted or upright as the source
+     states (Leica's MicroscopeModel, IsInverseMicroscopeModel), its system the Instrument's Model (Leica's
+     SystemTypeName, Cikteq's ProductName); Instrument.Name is a name a user gave it (DICOM's StationName), and
+     Type the kind of instrument (DICOM's modality), not a product family (Velox's InstrumentClass, Phenom's
+     type, which stay Properties); user, 2026-10-09;
    - LiMi's names and terms first, then OME's: Instrument.CatalogNumber, LiMi's "Catalog, Part or Serial
      Number", not a SerialNumber LiMi does not have; "Oil" from OME's immersion list, not a new term;
    - the shared classes for values with a unit or several parts: Quantity {Value, Unit} with the unit as

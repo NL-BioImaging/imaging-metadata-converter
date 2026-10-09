@@ -10,500 +10,507 @@ Image:
       Field: Instrument[0].Manufacturer
       Source: manufacturer
     - ID: SourceMapping:1
-      Field: Instrument[0].Model
-      Source: HardwareSetting.ConfocalSettingDefinition.MicroscopeModel
-    - ID: SourceMapping:2
       Field: Instrument[0].CatalogNumber
       Source: HardwareSetting.ConfocalSettingDefinition.SystemSerialNumber
       SourceValue: '8100000189'
-    - ID: SourceMapping:3
-      Field: Instrument[0].Name
+    - ID: SourceMapping:2
+      Field: Instrument[0].Model
       Source: HardwareSetting.SystemTypeName
-    - ID: SourceMapping:4
+    - ID: SourceMapping:3
       Field: Image[0].Name
       Source: name
-    - ID: SourceMapping:5
+    - ID: SourceMapping:4
       Field: Instrument[0].GenericDetector[0].Channel
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Channel
-    - ID: SourceMapping:6
+    - ID: SourceMapping:5
       Field: Instrument[0].GenericDetector[1].Channel
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Channel
-    - ID: SourceMapping:7
+    - ID: SourceMapping:6
       Field: Instrument[0].GenericDetector[2].Channel
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Channel
-    - ID: SourceMapping:8
+    - ID: SourceMapping:7
       Field: Instrument[0].GenericDetector[3].Channel
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Channel
-    - ID: SourceMapping:9
+    - ID: SourceMapping:8
       Field: Instrument[0].GenericDetector[4].Channel
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Channel
-    - ID: SourceMapping:10
+    - ID: SourceMapping:9
       Field: Instrument[0].GenericDetector[5].Channel
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Channel
-    - ID: SourceMapping:11
+    - ID: SourceMapping:10
       Field: Instrument[0].GenericDetector[0].Name
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[0].Name
-    - ID: SourceMapping:12
+    - ID: SourceMapping:11
       Field: Instrument[0].GenericDetector[0].Type
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[0].Type
-    - ID: SourceMapping:13
+    - ID: SourceMapping:12
       Field: Instrument[0].GenericDetector[1].Name
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[1].Name
-    - ID: SourceMapping:14
+    - ID: SourceMapping:13
       Field: Instrument[0].GenericDetector[1].Type
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[1].Type
-    - ID: SourceMapping:15
+    - ID: SourceMapping:14
       Field: Instrument[0].GenericDetector[2].Name
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[2].Name
-    - ID: SourceMapping:16
+    - ID: SourceMapping:15
       Field: Instrument[0].GenericDetector[2].Type
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[2].Type
-    - ID: SourceMapping:17
+    - ID: SourceMapping:16
       Field: Instrument[0].GenericDetector[3].Name
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].Name
-    - ID: SourceMapping:18
+    - ID: SourceMapping:17
       Field: Instrument[0].GenericDetector[3].Type
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].Type
-    - ID: SourceMapping:19
+    - ID: SourceMapping:18
       Field: Instrument[0].GenericDetector[4].Name
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[4].Name
-    - ID: SourceMapping:20
+    - ID: SourceMapping:19
       Field: Instrument[0].GenericDetector[4].Type
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[4].Type
-    - ID: SourceMapping:21
+    - ID: SourceMapping:20
       Field: Instrument[0].GenericDetector[5].Name
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[5].Name
-    - ID: SourceMapping:22
+    - ID: SourceMapping:21
       Field: Instrument[0].GenericDetector[5].Type
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[5].Type
-    - ID: SourceMapping:23
+    - ID: SourceMapping:22
       Field: Instrument[0].Laser[0].Name
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LaserName
-    - ID: SourceMapping:24
+    - ID: SourceMapping:23
       Field: Instrument[0].Laser[0].IlluminationWavelengthRange[0].PeakWavelength
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].Wavelength
-    - ID: SourceMapping:25
+    - ID: SourceMapping:24
       Field: Instrument[0].Laser[0].IlluminationWavelengthRange[0].PeakWavelengthUnit
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].Wavelength
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].Wavelength
-    - ID: SourceMapping:26
+    - ID: SourceMapping:25
       Field: Instrument[0].Laser[0].ID
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LightSourceType
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LightSourceType
-    - ID: SourceMapping:27
+    - ID: SourceMapping:26
       Field: Instrument[0].Laser[0].Role
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].DyeName
         + HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[2].AotfList.Aotf[0].LaserLineSetting.LaserLine
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].DyeName
       - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[2].AotfList.Aotf[0].LaserLineSetting.LaserLine
-    - ID: SourceMapping:28
+    - ID: SourceMapping:27
       Field: Instrument[0].Laser[1].Name
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].LaserName
-    - ID: SourceMapping:29
+    - ID: SourceMapping:28
       Field: Instrument[0].Laser[1].IlluminationWavelengthRange[0].PeakWavelength
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].Wavelength
-    - ID: SourceMapping:30
+    - ID: SourceMapping:29
       Field: Instrument[0].Laser[1].IlluminationWavelengthRange[0].PeakWavelengthUnit
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].Wavelength
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[1].Wavelength
-    - ID: SourceMapping:31
+    - ID: SourceMapping:30
       Field: Instrument[0].Laser[2].Name
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].LaserName
-    - ID: SourceMapping:32
+    - ID: SourceMapping:31
       Field: Instrument[0].Laser[2].IlluminationWavelengthRange[0].PeakWavelength
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].Wavelength
-    - ID: SourceMapping:33
+    - ID: SourceMapping:32
       Field: Instrument[0].Laser[2].IlluminationWavelengthRange[0].PeakWavelengthUnit
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].Wavelength
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[2].Wavelength
-    - ID: SourceMapping:34
+    - ID: SourceMapping:33
       Field: Instrument[0].Laser[3].Name
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LaserName
-    - ID: SourceMapping:35
+    - ID: SourceMapping:34
       Field: Instrument[0].Laser[3].IlluminationWavelengthRange[0].PeakWavelength
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].Wavelength
-    - ID: SourceMapping:36
+    - ID: SourceMapping:35
       Field: Instrument[0].Laser[3].IlluminationWavelengthRange[0].PeakWavelengthUnit
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].Wavelength
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].Wavelength
-    - ID: SourceMapping:37
+    - ID: SourceMapping:36
       Field: Instrument[0].Laser[3].ID
       Source: HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LightSourceType
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LightSourceType
-    - ID: SourceMapping:38
+    - ID: SourceMapping:37
       Field: Instrument[0].Laser[3].Role
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].DyeName
         + HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].AotfList.Aotf[3].LaserLineSetting[0].LaserLine
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].DyeName
       - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].AotfList.Aotf[3].LaserLineSetting[0].LaserLine
-    - ID: SourceMapping:39
+    - ID: SourceMapping:38
       Field: Image[0].Pixels.SignificantBits
       Source: HardwareSetting.ConfocalSettingDefinition.BitSize
-    - ID: SourceMapping:40
+    - ID: SourceMapping:39
       Field: Image[0].Pixels.SizeX
       Source: HardwareSetting.ConfocalSettingDefinition.InDimension
-    - ID: SourceMapping:41
+    - ID: SourceMapping:40
       Field: Image[0].Pixels.SizeY
       Source: HardwareSetting.ConfocalSettingDefinition.OutDimension
-    - ID: SourceMapping:42
+    - ID: SourceMapping:41
       Field: Image[0].Pixels.Channel[0].LightPath.PointDetectorSettings[0].ID
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].DetectorList.Detector[3].IsActive
       DerivedFrom:
       - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].DetectorList.Detector[3].IsActive
-    - ID: SourceMapping:43
+    - ID: SourceMapping:42
       Field: Image[0].Pixels.Channel[0].LightPath.EmissionFilter
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].RightWorld
-    - ID: SourceMapping:44
+    - ID: SourceMapping:43
       Field: Image[0].Pixels.Channel[0].LightPath.LightSourceSettings[0].ID
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].AotfList.Aotf[3].LaserLineSetting[0].LaserLine
         + HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LightSourceType
       DerivedFrom:
       - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].AotfList.Aotf[3].LaserLineSetting[0].LaserLine
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LightSourceType
-    - ID: SourceMapping:45
+    - ID: SourceMapping:44
       Field: Image[0].Pixels.Channel[0].Name
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].DyeName
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].DyeName
-    - ID: SourceMapping:46
+    - ID: SourceMapping:45
       Field: Image[0].Pixels.Channel[0].Fluorophore[0].Name
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].DyeName
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].DyeName
-    - ID: SourceMapping:47
+    - ID: SourceMapping:46
       Field: Image[0].Pixels.Channel[0].Fluorophore[0].ExcitationWavelength
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].AotfList.Aotf[3].LaserLineSetting[0].LaserLine
       DerivedFrom:
       - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].AotfList.Aotf[3].LaserLineSetting[0].LaserLine
-    - ID: SourceMapping:48
+    - ID: SourceMapping:47
       Field: Image[0].Pixels.Channel[0].Fluorophore[0].ExcitationWavelengthUnit
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].AotfList.Aotf[3].LaserLineSetting[0].LaserLine
       DerivedFrom:
       - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].AotfList.Aotf[3].LaserLineSetting[0].LaserLine
-    - ID: SourceMapping:49
+    - ID: SourceMapping:48
       Field: Image[0].Pixels.Channel[1].LightPath.PointDetectorSettings[0].ID
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[1].DetectorList.Detector[4].IsActive
       DerivedFrom:
       - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[1].DetectorList.Detector[4].IsActive
-    - ID: SourceMapping:50
+    - ID: SourceMapping:49
       Field: Image[0].Pixels.Channel[1].LightPath.EmissionFilter
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].RightWorld
-    - ID: SourceMapping:51
+    - ID: SourceMapping:50
       Field: Image[0].Pixels.Channel[1].LightPath.LightSourceSettings[0].ID
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[1].AotfList.Aotf[3].LaserLineSetting[1].LaserLine
         + HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LightSourceType
       DerivedFrom:
       - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[1].AotfList.Aotf[3].LaserLineSetting[1].LaserLine
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LightSourceType
-    - ID: SourceMapping:52
+    - ID: SourceMapping:51
       Field: Image[0].Pixels.Channel[1].Name
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].DyeName
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].DyeName
-    - ID: SourceMapping:53
+    - ID: SourceMapping:52
       Field: Image[0].Pixels.Channel[1].Fluorophore[0].Name
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].DyeName
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].DyeName
-    - ID: SourceMapping:54
+    - ID: SourceMapping:53
       Field: Image[0].Pixels.Channel[1].Fluorophore[0].ExcitationWavelength
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[1].AotfList.Aotf[3].LaserLineSetting[1].LaserLine
       DerivedFrom:
       - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[1].AotfList.Aotf[3].LaserLineSetting[1].LaserLine
-    - ID: SourceMapping:55
+    - ID: SourceMapping:54
       Field: Image[0].Pixels.Channel[1].Fluorophore[0].ExcitationWavelengthUnit
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[1].AotfList.Aotf[3].LaserLineSetting[1].LaserLine
       DerivedFrom:
       - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[1].AotfList.Aotf[3].LaserLineSetting[1].LaserLine
-    - ID: SourceMapping:56
+    - ID: SourceMapping:55
       Field: Image[0].Pixels.Channel[2].LightPath.PointDetectorSettings[0].ID
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[2].DetectorList.Detector[0].IsActive
       DerivedFrom:
       - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[2].DetectorList.Detector[0].IsActive
-    - ID: SourceMapping:57
+    - ID: SourceMapping:56
       Field: Image[0].Pixels.Channel[2].LightPath.EmissionFilter
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].RightWorld
-    - ID: SourceMapping:58
+    - ID: SourceMapping:57
       Field: Image[0].Pixels.Channel[2].LightPath.LightSourceSettings[0].ID
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[2].AotfList.Aotf[0].LaserLineSetting.LaserLine
         + HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LightSourceType
       DerivedFrom:
       - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[2].AotfList.Aotf[0].LaserLineSetting.LaserLine
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[0].LightSourceType
-    - ID: SourceMapping:59
+    - ID: SourceMapping:58
       Field: Image[0].Pixels.Channel[2].LightPath.LightSourceSettings[1].ID
       Source: HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[2].AotfList.Aotf[3].LaserLineSetting[0].LaserLine
         + HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LightSourceType
       DerivedFrom:
       - HardwareSetting.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[2].AotfList.Aotf[3].LaserLineSetting[0].LaserLine
       - HardwareSetting.ConfocalSettingDefinition.LaserArray.Laser[3].LightSourceType
-    - ID: SourceMapping:60
+    - ID: SourceMapping:59
       Field: Image[0].Pixels.Channel[2].Name
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].DyeName
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].DyeName
-    - ID: SourceMapping:61
+    - ID: SourceMapping:60
       Field: Image[0].Pixels.Channel[2].Fluorophore[0].Name
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].DyeName
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].DyeName
-    - ID: SourceMapping:62
+    - ID: SourceMapping:61
       Field: Image[0].Pixels.Plane[0].PositionZ
       Source: HardwareSetting.ConfocalSettingDefinition.ZPosition
-    - ID: SourceMapping:63
+    - ID: SourceMapping:62
       Field: Image[0].Pixels.Plane[0].PositionX
       Source: HardwareSetting.ConfocalSettingDefinition.StagePosX
-    - ID: SourceMapping:64
+    - ID: SourceMapping:63
       Field: Image[0].Pixels.Plane[0].PositionY
       Source: HardwareSetting.ConfocalSettingDefinition.StagePosY
-    - ID: SourceMapping:65
+    - ID: SourceMapping:64
       Field: Image[0].Pixels.Plane[0].PixelDwellTime
       Source: HardwareSetting.ConfocalSettingDefinition.PixelDwellTime
-    - ID: SourceMapping:66
+    - ID: SourceMapping:65
       Field: Image[0].Pixels.Plane[0].PositionZUnit
       Source: HardwareSetting.ConfocalSettingDefinition.ZPosition
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.ZPosition
-    - ID: SourceMapping:67
+    - ID: SourceMapping:66
       Field: Image[0].Pixels.Plane[0].PositionXUnit
       Source: HardwareSetting.ConfocalSettingDefinition.StagePosX
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.StagePosX
-    - ID: SourceMapping:68
+    - ID: SourceMapping:67
       Field: Image[0].Pixels.Plane[0].PositionYUnit
       Source: HardwareSetting.ConfocalSettingDefinition.StagePosY
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.StagePosY
-    - ID: SourceMapping:69
+    - ID: SourceMapping:68
       Field: Image[0].Pixels.Plane[0].PixelDwellTimeUnit
       Source: HardwareSetting.ConfocalSettingDefinition.PixelDwellTime
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.PixelDwellTime
-    - ID: SourceMapping:70
+    - ID: SourceMapping:69
       Field: Instrument[0].Objective[0].Magnification
       Source: HardwareSetting.ConfocalSettingDefinition.Magnification
-    - ID: SourceMapping:71
+    - ID: SourceMapping:70
       Field: Instrument[0].Objective[0].Model
       Source: HardwareSetting.ConfocalSettingDefinition.ObjectiveName
-    - ID: SourceMapping:72
+    - ID: SourceMapping:71
       Field: Instrument[0].Objective[0].CatalogNumber
       Source: HardwareSetting.ConfocalSettingDefinition.ObjectiveNumber
       SourceValue: '11506358'
-    - ID: SourceMapping:73
+    - ID: SourceMapping:72
       Field: Instrument[0].Objective[0].ImmersionType
       Source: HardwareSetting.ConfocalSettingDefinition.Immersion
       SourceValue: '"OIL"'
-    - ID: SourceMapping:74
+    - ID: SourceMapping:73
       Field: Instrument[0].Objective[0].LensNA
       Source: HardwareSetting.ConfocalSettingDefinition.NumericalAperture
-    - ID: SourceMapping:75
+    - ID: SourceMapping:74
       Field: Image[0].ObjectiveSettings.ImmersionLiquid.RefractiveIndex
       Source: HardwareSetting.ConfocalSettingDefinition.RefractionIndex
-    - ID: SourceMapping:76
+    - ID: SourceMapping:75
       Field: Image[0].Pixels.Channel[0].LightPath.ConfocalScannerSettings[0].EffectiveZoom
       Source: HardwareSetting.ConfocalSettingDefinition.Zoom
-    - ID: SourceMapping:77
+    - ID: SourceMapping:76
       Field: Image[0].Pixels.Channel[0].LightPath.ConfocalScannerSettings[0].ScanDirectionality
       Source: HardwareSetting.ConfocalSettingDefinition.ScanDirectionXName
-    - ID: SourceMapping:78
+    - ID: SourceMapping:77
       Field: Image[0].Pixels.Channel[0].LightPath.ConfocalScannerSettings[0].PresetPinholeSize
       Source: HardwareSetting.ConfocalSettingDefinition.Pinhole
-    - ID: SourceMapping:79
+    - ID: SourceMapping:78
       Field: Image[0].Pixels.Channel[0].LightPath.ConfocalScannerSettings[0].IntegrationNumber
       Source: HardwareSetting.ConfocalSettingDefinition.LineAverage
-    - ID: SourceMapping:80
+    - ID: SourceMapping:79
       Field: Image[0].Pixels.Channel[0].LightPath.ConfocalScannerSettings[0].PresetPinholeSizeUnit
       Source: HardwareSetting.ConfocalSettingDefinition.Pinhole
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Pinhole
-    - ID: SourceMapping:81
+    - ID: SourceMapping:80
       Field: Instrument[0].AcquisitionSoftware[0].Name
       Source: HardwareSetting.Software
-    - ID: SourceMapping:82
+    - ID: SourceMapping:81
       Field: Instrument[0].PhotoMultiplierTube[0].ID
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Type
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Type
-    - ID: SourceMapping:83
+    - ID: SourceMapping:82
       Field: Instrument[0].PhotoMultiplierTube[0].Name
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Name
-    - ID: SourceMapping:84
+    - ID: SourceMapping:83
       Field: Instrument[0].PhotoMultiplierTube[0].Type
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[0].Type
-    - ID: SourceMapping:85
+    - ID: SourceMapping:84
       Field: Instrument[0].PhotoMultiplierTube[1].ID
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Type
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Type
-    - ID: SourceMapping:86
+    - ID: SourceMapping:85
       Field: Instrument[0].PhotoMultiplierTube[1].Name
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Name
-    - ID: SourceMapping:87
+    - ID: SourceMapping:86
       Field: Instrument[0].PhotoMultiplierTube[1].Type
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[1].Type
-    - ID: SourceMapping:88
+    - ID: SourceMapping:87
       Field: Instrument[0].PhotoMultiplierTube[2].ID
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Type
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Type
-    - ID: SourceMapping:89
+    - ID: SourceMapping:88
       Field: Instrument[0].PhotoMultiplierTube[2].Name
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Name
-    - ID: SourceMapping:90
+    - ID: SourceMapping:89
       Field: Instrument[0].PhotoMultiplierTube[2].Type
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[2].Type
-    - ID: SourceMapping:91
+    - ID: SourceMapping:90
       Field: Instrument[0].PhotoMultiplierTube[3].ID
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Type
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Type
-    - ID: SourceMapping:92
+    - ID: SourceMapping:91
       Field: Instrument[0].PhotoMultiplierTube[3].Name
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Name
-    - ID: SourceMapping:93
+    - ID: SourceMapping:92
       Field: Instrument[0].PhotoMultiplierTube[3].Type
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[5].Type
-    - ID: SourceMapping:94
+    - ID: SourceMapping:93
       Field: Instrument[0].HybridPhotoDetector[0].ID
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Type
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Type
-    - ID: SourceMapping:95
+    - ID: SourceMapping:94
       Field: Instrument[0].HybridPhotoDetector[0].Name
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Name
-    - ID: SourceMapping:96
+    - ID: SourceMapping:95
       Field: Instrument[0].HybridPhotoDetector[0].Type
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[3].Type
-    - ID: SourceMapping:97
+    - ID: SourceMapping:96
       Field: Instrument[0].HybridPhotoDetector[1].ID
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Type
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Type
-    - ID: SourceMapping:98
+    - ID: SourceMapping:97
       Field: Instrument[0].HybridPhotoDetector[1].Name
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Name
-    - ID: SourceMapping:99
+    - ID: SourceMapping:98
       Field: Instrument[0].HybridPhotoDetector[1].Type
       Source: HardwareSetting.ConfocalSettingDefinition.DetectorList.Detector[4].Type
+    - ID: SourceMapping:99
+      Field: Instrument[0].InvertedMicroscopeStand[0].ID
+      Source: HardwareSetting.ConfocalSettingDefinition.IsInverseMicroscopeModel
+      DerivedFrom:
+      - HardwareSetting.ConfocalSettingDefinition.IsInverseMicroscopeModel
     - ID: SourceMapping:100
+      Field: Instrument[0].InvertedMicroscopeStand[0].Model
+      Source: HardwareSetting.ConfocalSettingDefinition.MicroscopeModel
+      DerivedFrom:
+      - HardwareSetting.ConfocalSettingDefinition.MicroscopeModel
+    - ID: SourceMapping:101
       Field: Instrument[0].GenericFilter[0].ID
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].RightWorld
-    - ID: SourceMapping:101
+    - ID: SourceMapping:102
       Field: Instrument[0].GenericFilter[0].Type
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].RightWorld
-    - ID: SourceMapping:102
+    - ID: SourceMapping:103
       Field: Instrument[0].GenericFilter[0].TransmittanceRange[0].Wavelength
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].RightWorld
-    - ID: SourceMapping:103
+    - ID: SourceMapping:104
       Field: Instrument[0].GenericFilter[0].TransmittanceRange[0].FWHMBandwidth
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].RightWorld
-    - ID: SourceMapping:104
+    - ID: SourceMapping:105
       Field: Instrument[0].GenericFilter[0].TransmittanceRange[0].WavelengthUnit
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[3].RightWorld
-    - ID: SourceMapping:105
+    - ID: SourceMapping:106
       Field: Instrument[0].GenericFilter[1].ID
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].RightWorld
-    - ID: SourceMapping:106
+    - ID: SourceMapping:107
       Field: Instrument[0].GenericFilter[1].Type
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].RightWorld
-    - ID: SourceMapping:107
+    - ID: SourceMapping:108
       Field: Instrument[0].GenericFilter[1].TransmittanceRange[0].Wavelength
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].RightWorld
-    - ID: SourceMapping:108
+    - ID: SourceMapping:109
       Field: Instrument[0].GenericFilter[1].TransmittanceRange[0].FWHMBandwidth
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].RightWorld
-    - ID: SourceMapping:109
+    - ID: SourceMapping:110
       Field: Instrument[0].GenericFilter[1].TransmittanceRange[0].WavelengthUnit
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[4].RightWorld
-    - ID: SourceMapping:110
+    - ID: SourceMapping:111
       Field: Instrument[0].GenericFilter[2].ID
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].RightWorld
-    - ID: SourceMapping:111
+    - ID: SourceMapping:112
       Field: Instrument[0].GenericFilter[2].Type
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].RightWorld
-    - ID: SourceMapping:112
+    - ID: SourceMapping:113
       Field: Instrument[0].GenericFilter[2].TransmittanceRange[0].Wavelength
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].RightWorld
-    - ID: SourceMapping:113
+    - ID: SourceMapping:114
       Field: Instrument[0].GenericFilter[2].TransmittanceRange[0].FWHMBandwidth
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].RightWorld
       DerivedFrom:
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].LeftWorld
       - HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].RightWorld
-    - ID: SourceMapping:114
+    - ID: SourceMapping:115
       Field: Instrument[0].GenericFilter[2].TransmittanceRange[0].WavelengthUnit
       Source: HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].LeftWorld
         + HardwareSetting.ConfocalSettingDefinition.Spectro.MultiBand[0].RightWorld
@@ -571,9 +578,8 @@ Image:
       RefractiveIndex: 1.518
 Instrument:
 - Manufacturer: Leica Microsystems
-  Model: DMI6000B-CS
   CatalogNumber: '8100000189'
-  Name: TCS SP8
+  Model: TCS SP8
   Shutter:
   - {}
   - {}
@@ -2690,6 +2696,9 @@ Instrument:
   - ID: Detector:4
     Name: Hyd-SMD 5
     Type: HyD
+  InvertedMicroscopeStand:
+  - ID: MicroscopeStand:0
+    Model: DMI6000B-CS
   GenericFilter:
   - ID: Filter:0
     Type: BandPass

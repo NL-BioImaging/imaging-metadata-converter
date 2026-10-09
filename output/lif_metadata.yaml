@@ -1,7 +1,7 @@
 Instrument:
   Manufacturer: Leica Microsystems
+  CatalogNumber: Xanten Prototype 1
   Model: MICA
-  Name: MICA
 Image:
   Name: LargeImage
 path: RGB.lif/LargeImage
@@ -2714,7 +2714,6 @@ HardwareSetting:
           StageOrderNumber: 11522100
           IsConstantIntegrationTimeActive: 0
           PixelDwellTime: 5.765e-05
-          SystemSerialNumber: Xanten Prototype 1
       LDM_Block_Sequential_List:
         ConfocalSettingDefinition:
         - SpimCACompensationParameter:
@@ -5432,6 +5431,9 @@ PhotoMultiplierTube:
 - ID: Detector:3
   Name: Red
   Type: PMT
+InvertedMicroscopeStand:
+- ID: MicroscopeStand:0
+  Model: MICA
 GenericExcitationSource:
 - ID: LightSource:0
   Role:
@@ -5883,7 +5885,6 @@ SourceMap:
   Objective.Model: HardwareSetting.CameraSettingDefinition.ObjectiveName
   Objective.CatalogNumber: HardwareSetting.CameraSettingDefinition.ObjectiveNumber
   HardwareSetting.CameraSettingDefinition.ObjectivePos: HardwareSetting.CameraSettingDefinition.ObjectivePos
-  Instrument.Model: HardwareSetting.CameraSettingDefinition.MicroscopeModel
   HardwareSetting.CameraSettingDefinition.IsInverseMicroscopeModel: HardwareSetting.CameraSettingDefinition.IsInverseMicroscopeModel
   HardwareSetting.CameraSettingDefinition.ShutterMode: HardwareSetting.CameraSettingDefinition.ShutterMode
   HardwareSetting.CameraSettingDefinition.ShutterModeSoftware: HardwareSetting.CameraSettingDefinition.ShutterModeSoftware
@@ -10119,8 +10120,7 @@ SourceMap:
   ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.IsConstantIntegrationTimeActive
   : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.IsConstantIntegrationTimeActive
   HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.PixelDwellTime: HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.PixelDwellTime
-  ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.SystemSerialNumber
-  : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.SystemSerialNumber
+  Instrument.CatalogNumber: HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.SystemSerialNumber
   ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].SpimCACompensationParameter.YGalvoOffsetLeft
   : HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].SpimCACompensationParameter.YGalvoOffsetLeft
   ? HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettingDefinition[0].SpimCACompensationParameter.YGalvoOffsetRight
@@ -14081,7 +14081,7 @@ SourceMap:
   AcquisitionSoftware.Name: HardwareSetting.Software
   HardwareSetting.HardwareServerVersion: HardwareSetting.HardwareServerVersion
   HardwareSetting.SystemType: HardwareSetting.SystemType
-  Instrument.Name: HardwareSetting.SystemTypeName
+  Instrument.Model: HardwareSetting.SystemTypeName
   HardwareSetting.DataSourceType: HardwareSetting.DataSourceType
   HardwareSetting.DataSourceTypeName: HardwareSetting.DataSourceTypeName
   Coordinate.Coordinate[0].Name: Coordinate.Coordinate[0].Name
@@ -14363,6 +14363,10 @@ SourceMap:
   - HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].Type
   PhotoMultiplierTube[3].Name: HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].Name
   PhotoMultiplierTube[3].Type: HardwareSetting.Block_Widefocal.LDM_Block_Sequential.LDM_Block_Sequential_Master.ConfocalSettingDefinition.DetectorList.Detector[3].Type
+  InvertedMicroscopeStand[0].ID:
+  - HardwareSetting.CameraSettingDefinition.IsInverseMicroscopeModel
+  InvertedMicroscopeStand[0].Model:
+  - HardwareSetting.CameraSettingDefinition.MicroscopeModel
   GenericExcitationSource[0].ID:
   - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.TL_Shutter
   GenericExcitationSource[0].Role[0]:

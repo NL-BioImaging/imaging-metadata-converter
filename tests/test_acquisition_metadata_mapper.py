@@ -32,15 +32,42 @@ class AcquisitionMetadataMapperTest(unittest.TestCase):
         self.assertEqual(converted['SourceMap']['CameraSettingDefinition.Immersion'], 'CameraSettingDefinition.Immersion')
 
     def test_leica_settings_reach_the_objective_without_summary_keys(self):
-        settings = {'MicroscopeModel': 'MICA', 'Magnification': 10, 'NumericalAperture': 0.32, 'Immersion': 'DRY',
-                    'RefractionIndex': 1}
+        settings = {'Magnification': 10, 'NumericalAperture': 0.32, 'Immersion': 'DRY', 'RefractionIndex': 1}
 
         converted = self.mapper.convert_metadata({'HardwareSetting': {'CameraSettingDefinition': settings}})
 
-        self.assertEqual(converted['Instrument'], {'Model': 'MICA'})
         self.assertEqual(converted['Objective'], {'Magnification': 10, 'LensNA': 0.32, 'ImmersionType': 'Air'})
         self.assertEqual(converted['ImmersionLiquid'], {'RefractiveIndex': 1})
         self.assertNotIn('HardwareSetting', converted)
+
+    def test_leica_microscope_is_its_stand_and_its_system_the_instrument(self):
+        def convert(**stand):
+            settings = {'SystemTypeName': 'TCS SP8',
+                        'ConfocalSettingDefinition': {'MicroscopeModel': 'DMI6000B-CS', **stand}}
+            return self.mapper.convert_metadata({'HardwareSetting': settings})
+
+        inverted = convert(IsInverseMicroscopeModel=1)
+
+        self.assertEqual(inverted['Instrument'], {'Model': 'TCS SP8'})
+        self.assertEqual(inverted['InvertedMicroscopeStand'], [{'ID': 'MicroscopeStand:0', 'Model': 'DMI6000B-CS'}])
+        self.assertEqual(inverted['SourceMap']['InvertedMicroscopeStand[0].ID'],
+                         ['HardwareSetting.ConfocalSettingDefinition.IsInverseMicroscopeModel'])
+        # the stand's orientation stays as the source states it
+        self.assertEqual(inverted['HardwareSetting'], {'ConfocalSettingDefinition': {'IsInverseMicroscopeModel': 1}})
+        self.assertEqual(convert(IsInverseMicroscopeModel=0)['UprightMicroscopeStand'][0]['Model'], 'DMI6000B-CS')
+        # LiMi has no stand of no stated orientation: the model stays the source's
+        unstated = convert()
+        self.assertNotIn('InvertedMicroscopeStand', unstated)
+        self.assertEqual(unstated['HardwareSetting'], {'ConfocalSettingDefinition': {'MicroscopeModel': 'DMI6000B-CS'}})
+
+    def test_a_product_name_is_the_instruments_model_and_a_product_family_no_kind(self):
+        self.assertEqual(self.mapper.convert_metadata({'System': {'ProductName': 'SEM4000X'}})['Instrument'],
+                         {'Model': 'SEM4000X'})
+        velox = self.mapper.convert_metadata({'Instrument': {'InstrumentModel': 'Talos', 'InstrumentClass': 'Talos'}})
+        self.assertEqual(velox['Instrument'], {'Model': 'Talos', 'InstrumentClass': 'Talos'})
+        phenom = self.mapper.convert_metadata({'instrument': {'edition': 'Phenom Pharos G2', 'type': 'Phenom'}})
+        self.assertEqual(phenom['Instrument'], {'Model': 'Phenom Pharos G2', 'type': 'Phenom'})
+        self.assertEqual(self.mapper.convert_metadata({'Modality': 'CT'})['Instrument'], {'Type': 'CT'})
 
     def test_leica_sequential_channels_follow_the_sequences_not_the_bands(self):
         def sequence(detector, *lines):
