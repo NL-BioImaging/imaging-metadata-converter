@@ -14,7 +14,7 @@ A value is counted in one of five categories:
 | **By rule** | yes | is placed in a model field by a rule of `mappings.json` or `combinations.json` |
 | **Automatic** | yes | is placed without a rule: its source path matches the end of one model path, as it is (`Pixels.SizeX` is `Image.Pixels.SizeX`); a source using the model's own names needs no rules |
 | **Does not fit** | no | was taken to a model field, but its type, format or enumeration does not fit the field, or the field was taken |
-| **No such field** | no | was taken into a model group that has no field of its name (`Image.ScanSettings.scanHW`) |
+| **No such field** | no | was taken into a model group that has no field of its name (`Image.BeamScanSettings.scanHW`) |
 | **No location** | no | has no rule, and matches no model path |
 
 Two columns check the output against the input before anything is counted,
