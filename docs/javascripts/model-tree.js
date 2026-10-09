@@ -87,6 +87,28 @@
     list.appendChild(definition);
   }
 
+  /* The permissible values of an enumeration, each with its description and the other spellings it accepts. */
+  function enumValues(enumeration, context) {
+    var block = el('div');
+    if (enumeration.description !== undefined) {
+      block.appendChild(el('p', 'mt-enum-description', context.text(enumeration.description)));
+    }
+    var values = el('ul', 'mt-values');
+    enumeration.values.forEach(function (value) {
+      var item = el('li');
+      item.appendChild(el('code', null, value.value));
+      if (value.description !== undefined) {
+        item.appendChild(el('span', 'mt-value-description', ' — ' + context.text(value.description)));
+      }
+      if (value.aliases) {
+        item.appendChild(el('span', 'mt-aliases', ' (also ' + value.aliases.join(', ') + ')'));
+      }
+      values.appendChild(item);
+    });
+    block.appendChild(values);
+    return block;
+  }
+
   /* The detail panel of one path, built the first time it is opened. */
   function buildDetails(path, context) {
     var info = context.info(path);
@@ -105,6 +127,8 @@
     } else if (info.range) {
       addFact(list, info.reference ? 'Refers to' : 'Range', classLink(info.range, context));
     }
+    var enumeration = context.enums[info.range];
+    if (enumeration) addFact(list, 'Values', enumValues(enumeration, context));
     if (info.tier) addFact(list, 'LiMi tier', el('span', null, info.tier + ", LiMi's " + TIERS[info.tier] + ' tier'));
     addFact(list, 'Constraints', [
       info.required && 'required',
@@ -416,6 +440,7 @@
       added: added,
       targets: mappingTargets(mappings, model),
       subclasses: details.subclasses || {},
+      enums: details.enums || {},
       reached: {},
       text: function (index) { return details.texts[index]; },
       info: function (path) {

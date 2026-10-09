@@ -190,7 +190,7 @@ Every field is shown with its range as a badge:
 | Badge | Meaning |
 | --- | --- |
 | a type (`string`, `float`, `integer`, `boolean`, `datetime`, ...) | a plain value |
-| an enumeration (`UnitsLength`, `UnitsTime`, ...) | one of a fixed set of values, such as a unit |
+| an enumeration (`UnitsLength`, `UnitsTime`, ...) | one of a fixed set of values, such as a unit, listed when the field is opened |
 | a class (`Annotation`, `Channel`, ...) | an object nested in this one, opened in place, or referred to by its `ID` if the field is marked *ref* |
 
 and with what the model constrains it to, from its LinkML slot:
@@ -215,6 +215,7 @@ Clicking a name opens the rest:
 | --- | --- | --- |
 | the text | `description` | the field's or class's description, from LiMi's XSD; the ones LiMi leaves out come from the OME 2016-06 schema, and say so (`description_source`) |
 | *Class*, *Range*, *Refers to* | `range` | the class of a group, or the range of a field, linked to its place in the tree |
+| *Values* | `permissible_values` | for a field whose range is an enumeration, every value it allows, with its description and the other spellings it is known by (`aliases`), such as `µm` also `um` |
 | *Is a* | `is_a` | for a class, the class it extends |
 | *Declared by* | the class owning the slot | for an inherited field, the class it is declared on: `Laser.Manufacturer` is `ManufacturerSpec`'s, shared by every piece of hardware; an extension field names its mixin (`InstrumentExtension`) |
 | *Category*, *Domain* | LiMi's annotations | where LiMi files the field or class, such as `LightSource` in `MicroscopeHardwareSpecifications` |
@@ -233,6 +234,6 @@ Nothing on this page is copied from the model by hand. When the site is
 built, the MkDocs hook `scripts/docs_data.py` reads the packaged model and
 mappings and writes the four files the browser fetches — `data/model.json`,
 `data/added.json`, `data/mappings.json` and `data/details.json`, the last
-holding each path's description, constraints and mappings — into the site, and fills in the
+holding each path's description, constraints and mappings, and each enumeration's values — into the site, and fills in the
 counts above. A new version of the model files, or an edited `mappings.json`,
 shows up on the next build with nothing to regenerate.

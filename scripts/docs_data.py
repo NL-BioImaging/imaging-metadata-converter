@@ -15,7 +15,9 @@ the browser always shows the model the package ships.
   the class declaring it, Category and Domain, and mappings to OME;
   descriptions are listed once, in "texts", and named by index; and the
   model's root class and each abstract class's concrete subclasses, which
-  the browser follows to nest every class under the root
+  the browser follows to nest every class under the root; and the
+  permissible values of every enumeration a field ranges over, each with
+  its description and aliases
 
 It also fills in the pages' {{ model.<name> }} placeholders: the model's
 counts on model.md, so no number there is typed by hand, the model map
@@ -96,6 +98,15 @@ def leaf_paths(tree, path=''):
             yield current
 
 
+def leaf_ranges(tree):
+    """The range of every field of `tree`."""
+    for value in tree.values():
+        if isinstance(value, dict):
+            yield from leaf_ranges(value)
+        else:
+            yield value
+
+
 def _annotation(element, name):
     annotations = element.annotations
     return str(annotations[name].value) if annotations is not None and name in annotations else None
@@ -161,8 +172,25 @@ def path_details(model, tree):
     subclasses = {name: [descendant for descendant in model.view.class_descendants(name, reflexive=False)
                          if descendant in tree]
                   for name, cls in model.classes.items() if cls.abstract}
+    all_enums = model.view.all_enums()
+    ranges = {value_range for value_range in leaf_ranges(tree) if value_range in all_enums}
+    enums = {}
+    for name in sorted(ranges):
+        enum = all_enums[name]
+        values = []
+        for value_name, value in (enum.permissible_values or {}).items():
+            entry = {'value': value_name}
+            if value.description:
+                entry['description'] = text(value.description)
+            if value.aliases:
+                entry['aliases'] = list(value.aliases)
+            values.append(entry)
+        enums[name] = {'values': values}
+        if enum.description:
+            enums[name]['description'] = text(enum.description)
     return {'texts': list(texts), 'paths': details, 'root': model.root,
-            'subclasses': {name: concrete for name, concrete in subclasses.items() if concrete}}
+            'subclasses': {name: concrete for name, concrete in subclasses.items() if concrete},
+            'enums': enums}
 
 
 def _schema(element):

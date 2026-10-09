@@ -298,3 +298,22 @@
 .mt-item.mt-details-open > .mt-row > .mt-name {
   text-decoration: underline;
 }
+
+.md-typeset .mt-details .mt-enum-description {
+  margin: 0 0 .2rem;
+}
+
+.md-typeset ul.mt-values {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset ul.mt-values li {
+  margin: 0;
+}
+
+.md-typeset .mt-values .mt-aliases,
+.md-typeset .mt-values .mt-value-description {
+  color: var(--md-default-fg-color--light);
+}

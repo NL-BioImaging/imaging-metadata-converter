@@ -67,3 +67,17 @@ def test_details_name_the_root_and_what_an_abstract_class_stands_for():
     assert 'CCD' in details['subclasses']['Detector']
     for concrete in details['subclasses'].values():
         assert set(concrete) <= set(data.tree)
+
+
+def test_details_list_the_values_of_every_enumeration_a_field_ranges_over():
+    data = docs_data.ModelData()
+    details = json.loads(data.files()['details.json'])
+    enums = details['enums']
+    ranges = set(docs_data.leaf_ranges(data.tree))
+    assert set(enums) == ranges & set(data.model.view.all_enums())
+    for name, enumeration in enums.items():
+        permissible = data.model.view.get_enum(name).permissible_values
+        assert [value['value'] for value in enumeration['values']] == list(permissible)
+    micrometre = next(value for value in enums['UnitsLength']['values'] if value['value'] == 'µm')
+    assert 'um' in micrometre['aliases']
+    assert details['texts'][enums['UnitsAngle']['description']] == data.model.view.get_enum('UnitsAngle').description
