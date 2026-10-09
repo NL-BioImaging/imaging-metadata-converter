@@ -134,10 +134,10 @@ class ModelFitTest(unittest.TestCase):
     def test_in_scope_coverage_leaves_out_only_what_is_not_covered(self):
         dataset = {'Image': [{
             'SourceFile': [{'Mapping': [mapping('Image[0].Pixels.SizeX', 'Pixels.SizeX')]}],
-            'CustomProperties': [prop('Operations.Display.Level'), prop('Vendor.Other')],
+            'CustomProperties': [prop('Operations.DisplayLevelsOperation.Level'), prop('Vendor.Other')],
         }]}
         stats = model_fit.analyse(dataset, context=self.context)
-        # Operations.* is processing history: out of scope, so one of the two in-scope keys is covered
+        # a Velox operation is processing history: out of scope, so one of the two in-scope keys is covered
         self.assertEqual(stats['in_scope']['out_of_scope'], {'processing': 1})
         self.assertEqual((stats['in_scope']['keys'], stats['in_scope']['coverage']['keys']), (2, 0.5))
         self.assertEqual(stats['coverage']['keys'], 1 / 3)

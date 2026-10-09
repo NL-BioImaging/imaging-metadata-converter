@@ -370,8 +370,11 @@ structure, for common fields in the source data"). A value is only a candidate i
       names a transmitted lamp, a FLUO channel's open IL shutter an incident one (GenericExcitationSource,
       Role Transmitted / Fluorescence; 2026-10-01). The MICA's LEDs (ILLEDWavelength0-3: 365, 470, 555,
       625 nm) are on in no channel of any file at hand, so none is a light source yet.
-- [ ] Review `scripts/out_of_scope.json` (the source groups left out of in-scope coverage: processing,
-      file, display, software state, patient and administrative; user, 2026-09-30).
+- [ ] Map the SP5's AOTF intensities (lif_sp5_metadata `HardwareSettingList.FilterSetting.*AOTF*.Intensity`):
+      a record's `Variant` is the transmission in %, its `Data` the laser line it is for (`Visible
+      AOTF-7.Intensity[4]`: Data 514, Variant 14.997, also in its Description "AOTF (514)"), so a rule needs
+      both. On the HyD and PMT records `Data` is the detector's number. These `Data` keys are in scope
+      again since the out_of_scope.json review (2026-10-09); on the other devices `Data` is always 0.
 - [ ] Unit for Cikteq's beam current, once known (Beam.RealAbsCurrent: -67 to +11, sign unexplained; pA and
       nA cannot be told apart). Its point time is in us (2026-10-01): in all 13 Cikteq files the frame time
       over the pixels (and line/frame adds) is 1.19-1.21 x PointTime in us (3.0 -> 3.58-3.62 us, 5.0 -> 5.92
