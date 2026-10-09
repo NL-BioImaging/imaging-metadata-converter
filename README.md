@@ -403,6 +403,11 @@ energies. The other detectors keep theirs with them, as the source's. A source w
 `LightPath.GenericDetectorSettings`, which then name that detector. A camera
 stays a `GenericDetector` until a source states its sensor (LiMi's cameras
 are CCD, CMOS, ...).
+A camera name is the camera's `Model`; each of a Leica widefield system's
+cameras (`IndividualCameraInfo`, four on a MICA) is a detector of the model and
+serial number its `FullCameraName` joins (`DFC4400-GI-700010131528`). Which
+of them made the image LAS X does not say, so their exposures and gains stay
+as the source has them.
 
 A Leica image names its system (`SystemTypeName`: TCS SP8), the
 `Instrument`'s `Model`, and the microscope stand in it (`MicroscopeModel`:

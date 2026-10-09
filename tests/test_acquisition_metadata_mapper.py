@@ -209,6 +209,31 @@ class AcquisitionMetadataMapperTest(unittest.TestCase):
         self.assertEqual(converted['LightPath'], {'GenericDetectorSettings': {'ID': 'Detector:0', 'AnalogGain': 100,
                                                                               'Brightness': 50}})
 
+    def test_leica_cameras_are_each_a_detector_of_their_model_and_serial(self):
+        cameras = [{'FullCameraName': 'DFC4400-GI-700010131528', 'ExposureTime': 0.04, 'Gain': 1},
+                   {'FullCameraName': 'DFC4400-GI-700010131530', 'ExposureTime': 0.05, 'Gain': 2}]
+        configurator = {'CameraName': 'DFC4400-GI_700010131528_700010131530',
+                        'WideFieldChannelInfo': {'IndividualCameraInfoArray': {'IndividualCameraInfo': cameras}}}
+        settings = {'CameraSettingDefinition': {'WideFieldChannelConfigurator': configurator}}
+
+        converted = self.mapper.convert_metadata({'HardwareSetting': settings})
+
+        self.assertEqual(converted['GenericDetector'], [
+            {'ID': 'Detector:0', 'Model': 'DFC4400-GI', 'CatalogNumber': '700010131528'},
+            {'ID': 'Detector:1', 'Model': 'DFC4400-GI', 'CatalogNumber': '700010131530'}])
+        self.assertEqual(converted['SourceMap']['GenericDetector[1].CatalogNumber'],
+                         ['HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo'
+                          '.IndividualCameraInfoArray.IndividualCameraInfo[1].FullCameraName'])
+        # which camera made the image the file does not say: their settings stay as the source has them
+        self.assertNotIn('Plane', converted)
+        self.assertNotIn('LightPath', converted)
+        kept = converted['HardwareSetting']['CameraSettingDefinition']['WideFieldChannelConfigurator']
+        self.assertEqual(kept, configurator)
+
+    def test_a_camera_name_is_the_cameras_model(self):
+        converted = self.mapper.convert_metadata({'OlympusSIS': {'cameraname': 'Morada'}})
+        self.assertEqual(converted['GenericDetector'], {'Model': 'Morada'})
+
     def test_leica_las_af_records_map_by_their_names(self):
         def record(value, unit=''):
             return {'Variant': value, 'Unit': unit, 'Description': '', 'Data': 0, 'VariantType': 5}

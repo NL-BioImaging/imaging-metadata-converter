@@ -84,7 +84,9 @@ HardwareSetting:
         IndividualCameraInfoArray:
           IndividualCameraInfo:
           - LUT: Gray
+            ExposureTime: 0.04
             Active: 1
+            Gain: 1
             EMGain: 1
             GainString: 0
             StringGainName: ''
@@ -234,6 +236,7 @@ HardwareSetting:
         Advanced_Camera_Features_Activated: 1
       ThisIsHSAutofocusInstance: 0
       MicroscopeFamilyType: 2
+      CameraName: DFC4400-GI_700010131528_700010131530_700010131533_700010131558
       CameraType: 380
       CameraNamePure: DFC4400-GI_700010131528_700010131530_700010131533_700010131558
       MaxChannelCount: 8
@@ -5094,23 +5097,6 @@ HardwareSetting:
   SystemType: 15
   DataSourceType: 1
   DataSourceTypeName: Camera
-Plane:
-  ExposureTime: 0.04
-  PositionZ: 0.0010216985
-  PositionX: 0.0452584875
-  PositionY: 0.0267208985
-  ExposureTimeUnit: s
-  PositionZUnit: m
-  PositionXUnit: m
-  PositionYUnit: m
-LightPath:
-  GenericDetectorSettings:
-    AnalogGain: 1
-    Brightness: 125
-    ID: Detector:4
-GenericDetector:
-  Model: DFC4400-GI_700010131528_700010131530_700010131533_700010131558
-  ID: Detector:4
 Pixels:
   SizeX: 2448
   SizeY: 2048
@@ -5119,6 +5105,16 @@ Pixels:
   - LightPath:
       LightSourceSettings:
       - ID: LightSource:0
+LightPath:
+  GenericDetectorSettings:
+    Brightness: 125
+Plane:
+  PositionZ: 0.0010216985
+  PositionX: 0.0452584875
+  PositionY: 0.0267208985
+  PositionZUnit: m
+  PositionXUnit: m
+  PositionYUnit: m
 Objective:
   Magnification: 10
   Model: 'HC PL FLUOTAR    10x/0.32 DRY '
@@ -5434,6 +5430,19 @@ PhotoMultiplierTube:
 InvertedMicroscopeStand:
 - ID: MicroscopeStand:0
   Model: MICA
+GenericDetector:
+- ID: Detector:4
+  Model: DFC4400-GI
+  CatalogNumber: '700010131528'
+- ID: Detector:5
+  Model: DFC4400-GI
+  CatalogNumber: '700010131530'
+- ID: Detector:6
+  Model: DFC4400-GI
+  CatalogNumber: '700010131533'
+- ID: Detector:7
+  Model: DFC4400-GI
+  CatalogNumber: '700010131558'
 GenericExcitationSource:
 - ID: LightSource:0
   Role:
@@ -5503,12 +5512,14 @@ SourceMap:
   HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.BeginValue: HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.BeginValue
   HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.EndValue: HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.EndValue
   HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.NbSections: HardwareSetting.CameraSettingDefinition.ZStackUseModeInfo.NbSections
-  Plane.ExposureTime: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].ExposureTime
-  LightPath.GenericDetectorSettings.AnalogGain: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Gain
   ? HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].LUT
   : HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].LUT
+  ? HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].ExposureTime
+  : HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].ExposureTime
   ? HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Active
   : HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Active
+  ? HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Gain
+  : HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].Gain
   ? HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].EMGain
   : HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].EMGain
   ? HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].GainString
@@ -5716,7 +5727,7 @@ SourceMap:
   : HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.AdvancedCameraFeatures.Advanced_Camera_Features_Activated
   HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.ThisIsHSAutofocusInstance: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.ThisIsHSAutofocusInstance
   HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.MicroscopeFamilyType: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.MicroscopeFamilyType
-  GenericDetector.Model: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraName
+  HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraName: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraName
   HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraType: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraType
   HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraNamePure: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraNamePure
   HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.MaxChannelCount: HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.MaxChannelCount
@@ -14339,8 +14350,6 @@ SourceMap:
   ImageDescription.Dimensions.DimensionDescription[1].Origin: ImageDescription.Dimensions.DimensionDescription[1].Origin
   ImageDescription.Dimensions.DimensionDescription[1].Length: ImageDescription.Dimensions.DimensionDescription[1].Length
   ImageDescription.Dimensions.DimensionDescription[1].Unit: ImageDescription.Dimensions.DimensionDescription[1].Unit
-  Plane.ExposureTimeUnit:
-  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].ExposureTime
   Plane.PositionZUnit:
   - HardwareSetting.CameraSettingDefinition.ZPosition
   Plane.PositionXUnit:
@@ -14367,13 +14376,33 @@ SourceMap:
   - HardwareSetting.CameraSettingDefinition.IsInverseMicroscopeModel
   InvertedMicroscopeStand[0].Model:
   - HardwareSetting.CameraSettingDefinition.MicroscopeModel
+  GenericDetector[0].ID:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].FullCameraName
+  GenericDetector[0].Model:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].FullCameraName
+  GenericDetector[0].CatalogNumber:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[0].FullCameraName
+  GenericDetector[1].ID:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[1].FullCameraName
+  GenericDetector[1].Model:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[1].FullCameraName
+  GenericDetector[1].CatalogNumber:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[1].FullCameraName
+  GenericDetector[2].ID:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[2].FullCameraName
+  GenericDetector[2].Model:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[2].FullCameraName
+  GenericDetector[2].CatalogNumber:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[2].FullCameraName
+  GenericDetector[3].ID:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[3].FullCameraName
+  GenericDetector[3].Model:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[3].FullCameraName
+  GenericDetector[3].CatalogNumber:
+  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo[3].FullCameraName
   GenericExcitationSource[0].ID:
   - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.TL_Shutter
   GenericExcitationSource[0].Role[0]:
   - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.TL_Shutter
   Pixels.Channel[0].LightPath.LightSourceSettings[0].ID:
   - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.TL_Shutter
-  GenericDetector.ID:
-  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraName
-  LightPath.GenericDetectorSettings.ID:
-  - HardwareSetting.CameraSettingDefinition.WideFieldChannelConfigurator.CameraName

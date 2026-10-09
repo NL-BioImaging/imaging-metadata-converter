@@ -65,7 +65,7 @@
         "unit": "m"
     },
     "magnification": "Objective.Magnification",
-    "cameraname": "GenericDetector.Name",
+    "cameraname": "GenericDetector.Model",
     "picturetype": "Image.Type",
     "time": "Image.AcquisitionDate",
     "currentUser": "Experimenter.UserName",
@@ -388,11 +388,6 @@
     "CameraSettingDefinition.CameraFormat.xDim": "Pixels.SizeX",
     "CameraSettingDefinition.CameraFormat.yDim": "Pixels.SizeY",
     "CameraSettingDefinition.CameraFormat.Resolution": "Pixels.SignificantBits",
-    "CameraSettingDefinition.WideFieldChannelConfigurator.CameraName": "GenericDetector.Model",
-    "CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo.ExposureTime": {
-        "target": "Plane.ExposureTime",
-        "unit": "s"
-    },
     "ConfocalSettingDefinition.InDimension": "Pixels.SizeX",
     "ConfocalSettingDefinition.OutDimension": "Pixels.SizeY",
     "ConfocalSettingDefinition.BitSize": "Pixels.SignificantBits",
@@ -531,7 +526,6 @@
     "Beam.Condenser2": "Image.ElectronOpticsSettings.Condenser2",
     "acquisition.scan.interlace": "Image.ScanSettings.LineInterlacing",
     "Scan.Interlaced": "Image.ScanSettings.LineInterlacing",
-    "CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo.IndividualCameraInfoArray.IndividualCameraInfo.Gain": "LightPath.GenericDetectorSettings.AnalogGain",
     "CameraSettingDefinition.Brightness": "LightPath.GenericDetectorSettings.Brightness",
     "Image.Brightness": "LightPath.GenericDetectorSettings.Brightness",
     "Image.Contrast": "LightPath.GenericDetectorSettings.Contrast",

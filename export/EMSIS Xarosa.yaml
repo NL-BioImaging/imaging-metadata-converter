@@ -47,7 +47,7 @@ Image:
       Field: Instrument[0].Objective[0].Magnification
       Source: OlympusSIS.magnification
     - ID: SourceMapping:12
-      Field: Instrument[0].GenericDetector[0].Name
+      Field: Instrument[0].GenericDetector[0].Model
       Source: OlympusSIS.cameraname
     - ID: SourceMapping:13
       Field: Image[0].Pixels.Channel[0].SamplesPerPixel
@@ -85,7 +85,7 @@ Instrument:
   Objective:
   - Magnification: 6000.0
   GenericDetector:
-  - Name: ''
+  - Model: ''
 CustomProperties:
 - ID: Property:0
   Name: ExifVersion

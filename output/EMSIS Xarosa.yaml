@@ -21,7 +21,7 @@ Image:
 Objective:
   Magnification: 6000.0
 GenericDetector:
-  Name: ''
+  Model: ''
 ImageWidth: 5120
 ImageLength: 3840
 BitsPerSample:
@@ -56,7 +56,7 @@ SourceMap:
   Pixels.PhysicalSizeX: OlympusSIS.pixelsizex
   Pixels.PhysicalSizeY: OlympusSIS.pixelsizey
   Objective.Magnification: OlympusSIS.magnification
-  GenericDetector.Name: OlympusSIS.cameraname
+  GenericDetector.Model: OlympusSIS.cameraname
   Image.Type: OlympusSIS.picturetype
   ImageWidth: ImageWidth
   ImageLength: ImageLength

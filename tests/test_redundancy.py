@@ -26,11 +26,9 @@ STRUCTURAL_NAMES = {'ID', 'Name', 'Type', 'Value', 'Unit', 'Begin', 'End', 'X', 
 # source names too generic to mean the same wherever a source writes them
 GENERIC_SOURCE_NAMES = {'id', 'name', 'type', 'width', 'height', 'left', 'top'}
 
-# source names that do go to different fields, each reviewed (2026-10-09) and left for a decision of its own
-KNOWN_DIFFERING_SOURCE_NAMES = {
-    # Leica's CameraName is a camera model ("DFC4400-GI_..."), EMSIS's cameraname the camera's name
-    'cameraname',
-}
+# source names that do go to different fields, each reviewed and left for a decision of its own; none since
+# 2026-10-09
+KNOWN_DIFFERING_SOURCE_NAMES = set()
 
 
 def same_name(name, other):

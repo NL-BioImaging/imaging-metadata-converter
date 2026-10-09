@@ -351,6 +351,11 @@ structure, for common fields in the source data"). A value is only a candidate i
 
 ## TODO
 
+- [ ] Docs (user, 2026-10-09): remove the model map page (docs/model-map.md, with scripts/model_map.py, its
+      stylesheet, the mkdocs.yml nav entry, tests/test_model_map.py and the links from docs/model.md and the
+      README), and add a mapping page (docs/mapping.md) describing in detail how the mapping works - rules,
+      subtrees and collapsed items, name matching, implied units, combinations, the vendor-specific steps
+      (Leica channels, detectors, stand, cameras; a detector's settings), the SourceMap - with examples.
 - [ ] Light-source role (user, 2026-09-28), done but for LEDs: a Leica laser exciting a channel with a dye
       has Role Fluorescence, an LMD laser Microdissection, and a Leica widefield channel's open TL shutter
       names a transmitted lamp, a FLUO channel's open IL shutter an incident one (GenericExcitationSource,

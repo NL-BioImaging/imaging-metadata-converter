@@ -33,6 +33,9 @@ LEICA_SEQUENCES = 'LDM_Block_Sequential.LDM_Block_Sequential_List.ConfocalSettin
 LEICA_BANDS = 'ConfocalSettingDefinition.Spectro.MultiBand'
 LEICA_LASERS = 'ConfocalSettingDefinition.LaserArray.Laser'
 LEICA_WIDEFIELD_CHANNELS = 'CameraSettingDefinition.WideFieldChannelConfigurator.WideFieldChannelInfo'
+LEICA_CAMERAS = 'IndividualCameraInfoArray.IndividualCameraInfo'
+# a Leica camera's full name: its model and its serial number (DFC4400-GI-700010131528)
+LEICA_CAMERA_NAME = re.compile(r'(?P<model>.+)-(?P<serial>\d+)')
 LEICA_DETECTORS = 'ConfocalSettingDefinition.DetectorList.Detector'
 LEICA_SEQUENTIAL_MASTER = 'LDM_Block_Sequential_Master'
 # the detector types LAS X names that LiMi has a class for; any other is a GenericDetector
@@ -624,6 +627,7 @@ class AcquisitionMetadataMapper:
                 provenance[unit_path] = [origin]
         self._map_leica_detectors(metadata, result, provenance)
         self._map_leica_stand(metadata, result, provenance)
+        self._map_leica_cameras(metadata, result, provenance)
         self._map_leica_sequential_channels(metadata, result, provenance)
         self._map_leica_microdissection_laser(metadata, result, provenance)
         self._map_leica_widefield_light_sources(metadata, result, provenance)
@@ -659,6 +663,34 @@ class AcquisitionMetadataMapper:
             if provenance.get(path) == path:
                 pop_nested_value(result, path)
                 del provenance[path]
+
+    def _map_leica_cameras(self, metadata, result, provenance):
+        """Describe each camera of a Leica widefield system (IndividualCameraInfo: a MICA has four) as a
+        GenericDetector, as LAS X does not state a camera's sensor, with the model and serial number its
+        FullCameraName joins (DFC4400-GI-700010131528; the CameraName of all of them joins the model and every
+        serial). Each gets an ID by its place among the detectors, as the source has none. Which camera made the
+        image the file does not say, so each one's exposure and gain stay, as its name does.
+        """
+        settings = metadata.get(LEICA_SETTINGS)
+        infos = _items(value_at_path(settings, LEICA_WIDEFIELD_CHANNELS), f'{LEICA_SETTINGS}.{LEICA_WIDEFIELD_CHANNELS}') \
+            if isinstance(settings, dict) else []
+        cameras = {}
+        for info, info_path in infos:
+            for camera, camera_path in _items(value_at_path(info, LEICA_CAMERAS), f'{info_path}.{LEICA_CAMERAS}'):
+                cameras.setdefault(camera.get('FullCameraName'), camera_path)
+        taken = {str(record.get('ID')) for detector_class in self._detector_settings
+                 for record, _ in _items(result.get(detector_class), detector_class)}
+        for name, camera_path in cameras.items():
+            parts = LEICA_CAMERA_NAME.fullmatch(name) if isinstance(name, str) else None
+            if parts is not None and isinstance(result.get('GenericDetector', []), list):
+                record = f"GenericDetector[{len(result.get('GenericDetector', []))}]"
+                detector_id = next(f'Detector:{number}' for number in range(len(taken) + 1)
+                                   if f'Detector:{number}' not in taken)
+                taken.add(detector_id)
+                origin = [f'{camera_path}.FullCameraName']
+                for field, value in (('ID', detector_id), ('Model', parts['model']), ('CatalogNumber', parts['serial'])):
+                    set_nested_value(result, f'{record}.{field}', value)
+                    provenance[f'{record}.{field}'] = list(origin)
 
     def _map_leica_stand(self, metadata, result, provenance):
         """Describe the stand a Leica image names (MicroscopeModel: DMI6000B-CS) as LiMi's inverted or upright
