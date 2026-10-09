@@ -14,7 +14,7 @@ Image:
     Top: 0
     Bottom: 49533
   InvertedSignal: false
-  ScanSettings:
+  BeamScanSettings:
     LineAvg: 1
     FieldOfView:
       X:
@@ -23,9 +23,8 @@ Image:
       Y:
         Unit: um
         Value: 126.336205356625
-    Rotation:
-      Unit: deg
-      Value: 0
+    RotationUnit: deg
+    Rotation: 0
     Ux: 0.00255054620872196
     Uy: 0
     Vx: 0
@@ -111,21 +110,21 @@ SourceMap:
   LightPath.GenericDetectorSettings.Contrast: FibicsXML.Fibics.Image.Contrast
   LightPath.GenericDetectorSettings.Brightness: FibicsXML.Fibics.Image.Brightness
   Image.InvertedSignal: FibicsXML.Fibics.Image.InvertedSignal
-  Image.ScanSettings.LineAvg: FibicsXML.Fibics.Scan.LineAvg
-  Image.ScanSettings.FieldOfView.X.Unit: FibicsXML.Fibics.Scan.FOV_X.units
-  Image.ScanSettings.FieldOfView.X.Value: FibicsXML.Fibics.Scan.FOV_X.value
-  Image.ScanSettings.FieldOfView.Y.Unit: FibicsXML.Fibics.Scan.FOV_Y.units
-  Image.ScanSettings.FieldOfView.Y.Value: FibicsXML.Fibics.Scan.FOV_Y.value
-  Image.ScanSettings.Rotation.Unit: FibicsXML.Fibics.Scan.ScanRot.units
-  Image.ScanSettings.Rotation.Value: FibicsXML.Fibics.Scan.ScanRot.value
-  Image.ScanSettings.Ux: FibicsXML.Fibics.Scan.Ux
-  Image.ScanSettings.Uy: FibicsXML.Fibics.Scan.Uy
-  Image.ScanSettings.Vx: FibicsXML.Fibics.Scan.Vx
-  Image.ScanSettings.Vy: FibicsXML.Fibics.Scan.Vy
+  Image.BeamScanSettings.LineAvg: FibicsXML.Fibics.Scan.LineAvg
+  Image.BeamScanSettings.FieldOfView.X.Unit: FibicsXML.Fibics.Scan.FOV_X.units
+  Image.BeamScanSettings.FieldOfView.X.Value: FibicsXML.Fibics.Scan.FOV_X.value
+  Image.BeamScanSettings.FieldOfView.Y.Unit: FibicsXML.Fibics.Scan.FOV_Y.units
+  Image.BeamScanSettings.FieldOfView.Y.Value: FibicsXML.Fibics.Scan.FOV_Y.value
+  Image.BeamScanSettings.RotationUnit: FibicsXML.Fibics.Scan.ScanRot.units
+  Image.BeamScanSettings.Rotation: FibicsXML.Fibics.Scan.ScanRot.value
+  Image.BeamScanSettings.Ux: FibicsXML.Fibics.Scan.Ux
+  Image.BeamScanSettings.Uy: FibicsXML.Fibics.Scan.Uy
+  Image.BeamScanSettings.Vx: FibicsXML.Fibics.Scan.Vx
+  Image.BeamScanSettings.Vy: FibicsXML.Fibics.Scan.Vy
   Image.ElectronBeamSettings.Focus: FibicsXML.Fibics.Scan.Focus
   Image.ElectronBeamSettings.Stigmator.X: FibicsXML.Fibics.Scan.StigX
   Image.ElectronBeamSettings.Stigmator.Y: FibicsXML.Fibics.Scan.StigY
-  Image.ScanSettings.AppliedScaleCorrection: FibicsXML.Fibics.Scan.AppliedScaleCorrection
+  Image.BeamScanSettings.AppliedScaleCorrection: FibicsXML.Fibics.Scan.AppliedScaleCorrection
   Image.ElectronBeamSettings.Shift.X: FibicsXML.Fibics.Scan.ShiftX
   Image.ElectronBeamSettings.Shift.Y: FibicsXML.Fibics.Scan.ShiftY
   Image.SamplePositioningSettings.BiasType: FibicsXML.Fibics.StageBias.BiasType

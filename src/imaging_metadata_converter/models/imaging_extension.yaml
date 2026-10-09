@@ -113,8 +113,11 @@ classes:
       ElectronOpticsSettings:
         range: ElectronOpticsSettings
         inlined: true
-      ScanSettings:
-        range: ScanSettings
+      BeamScanSettings:
+        range: BeamScanSettings
+        inlined: true
+      SlideScanSettings:
+        range: SlideScanSettings
         inlined: true
       BinaryResult:
         annotations: {schema_extended_path: Image.BinaryResult, source_type: object}
@@ -483,26 +486,115 @@ classes:
         range: Vector2D
         inlined: true
   ScanSettings:
-    description: The scan of a scanning microscope, as set for the acquisition of this image.
+    description: The scan of a scanned acquisition, as set for it - what a confocal, an electron beam and a slide
+      scan share; LiMi's ConfocalScannerSettings are one kind. Its rotation and scan direction are LiMi's, moved up
+      from ConfocalScannerSettings, as are its integrations, one per scanned element integrated (LiMi has a single
+      IntegrationNumber, Unit and Method, where a scan may average its lines and accumulate its frames).
+    is_a: Settings
+    abstract: true
+    attributes:
+      ScanDirectionality:
+        range: ConfocalScanDirectionality
+        description: This field records the ScanDirectionality that was set for this device during Acquisition. In Unidirectional
+          scan mode, data are only acquired while the laser beam moves in one direction. In Bidirectional scan mode, one line
+          is scanned in one direction, and the next line in the opposite direction. In other words, the return run, or flyback,
+          of the laser beam is used for recording data as well, thus increasing the scanning frequency when using bidirectional
+          scan mode. Refer to https://www.iso.org/standard/69820.html for further details and measurement methods.
+        annotations:
+          moved_from: ConfocalScannerSettings.ScanDirectionality
+          Tier: '1'
+      Rotation:
+        range: float
+        description: This field records the Rotation angle of the scan region.
+        annotations:
+          moved_from: ConfocalScannerSettings.Rotation
+          Tier: '3'
+      RotationUnit:
+        range: UnitsAngle
+        annotations:
+          moved_from: ConfocalScannerSettings.RotationUnit
+          Tier: '3'
+          description_source: derived from ConfocalScannerSettings.Rotation
+        description: The unit of Rotation.
+      Integration:
+        description: The signal integrations of the scan, one per kind of scanned element integrated and method (16
+          lines averaged, 2 frames accumulated).
+        range: Integration
+        multivalued: true
+        inlined_as_list: true
+      FrameTime:
+        description: The time to scan one frame.
+        range: float
+      FrameTimeUnit:
+        description: The unit of FrameTime.
+        range: UnitsTime
+      LineTime:
+        description: The time to scan one line.
+        range: float
+      LineTimeUnit:
+        description: The unit of LineTime.
+        range: UnitsTime
+  Integration:
+    description: One signal integration of a scan, LiMi's IntegrationNumber, IntegrationUnit and IntegrationMethod.
+    attributes:
+      Number:
+        range: PositiveInt
+        required: true
+        description: Signal integration is generally utilized to improve the overall signal-to-noise ratio of the resulting
+          Image. This field records the number of sequential Scanning Units (Line, Frame or Stack) that have been integrated
+          for the Acquisition of this Channel.
+        annotations:
+          moved_from: ConfocalScannerSettings.IntegrationNumber
+          Tier: '1'
+      Unit:
+        range: ScanIntegrationMode
+        description: Signal integration is generally utilized to improve the overall signal-to-noise ratio of the resulting
+          Image. This field refers to the nature of the Scanning Units used as the basis of signal integration. Refer to https://www.iso.org/standard/69820.html
+          for further details and measurement methods.
+        annotations:
+          moved_from: ConfocalScannerSettings.IntegrationUnit
+          Tier: '1'
+      Method:
+        range: ScanIntegrationMethod
+        description: Signal integration is generally utilized to improve the overall signal-to-noise ratio of the resulting
+          Image. This field defines the signal Integration Method utilized for the Acquisition of this Channel.
+        annotations:
+          moved_from: ConfocalScannerSettings.IntegrationMethod
+          Tier: '1'
+  BeamScanSettings:
+    description: The scan of an electron beam (SEM, STEM), as set for the acquisition of this image, for all the
+      detectors recording it.
+    is_a: ScanSettings
     attributes:
       FieldOfView:
         range: FieldOfView
         inlined: true
-      Rotation:
-        range: Quantity
-        inlined: true
-      FrameTime:
-        range: Quantity
-        inlined: true
-      LineTime:
-        range: Quantity
-        inlined: true
-      LineIntegrationCount:
-        range: integer
-        annotations: {schema_extended_path: Scan.LineIntegrationCount}
       LineInterlacing:
         description: The number of interlaced fields the lines are scanned in; 1 is not interlaced.
         range: integer
+  SlideScanSettings:
+    description: The scan of a slide scanner, which moves the slide under a line camera in stripes (Aperio's
+      ScanScope), as set for the acquisition of this image. Its values are as the scanner states them, with no unit
+      where it states none.
+    is_a: ScanSettings
+    attributes:
+      StripeWidth:
+        description: The width of each scanned stripe, in pixels.
+        range: integer
+      LineCameraSkew:
+        description: The skew of the line camera, as the scanner states it (Aperio's LineCameraSkew).
+        range: float
+      LineAreaXOffset:
+        description: The offset along X between the line camera and the area the scanner images, as it states it
+          (Aperio's LineAreaXOffset).
+        range: float
+      LineAreaYOffset:
+        description: The offset along Y between the line camera and the area the scanner images, as it states it
+          (Aperio's LineAreaYOffset).
+        range: float
+      FocusOffset:
+        description: The focus offset the scan was taken with, as the scanner states it (Aperio's Focus Offset).
+        range: float
   FieldOfView:
     description: The size of the field of view along X and Y.
     attributes:

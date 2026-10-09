@@ -12,7 +12,7 @@ import tempfile
 import unittest
 from collections import defaultdict
 
-from imaging_metadata_converter.AcquisitionMetadataMapper import DEFAULT_MAPPINGS_FILE, rule_targets
+from imaging_metadata_converter.AcquisitionMetadataMapper import DEFAULT_MAPPINGS_FILE, rule_targets, without_selectors
 from imaging_metadata_converter.ModelPaths import ModelPaths
 
 EXTENSION_SCHEMA = 'imaging_extension'
@@ -75,7 +75,7 @@ def target_field(target, mirrors=frozenset(), paths=None):
     """The field a rule's target is a part of: Plane.PositionXUnit and Plane.PositionX are one field, a
     Quantity's Value and Unit one, a list item's field the list's, a mirror's field its owner's, and a detector's
     settings written with it the settings'."""
-    field = re.sub(r'\[\*?\]', '', target)
+    field = re.sub(r'\[\*?\]', '', without_selectors(target))
     field = paths.settings_path(field) if paths is not None else field
     for mirror in mirrors:
         field = field.replace(f'{mirror}.', f'{mirror.rsplit(".", 1)[0]}.')

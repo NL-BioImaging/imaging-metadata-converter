@@ -95,7 +95,7 @@ Image:
     CameraLength:
       Value: '0.20499999999999999'
       Unit: m
-  ScanSettings:
+  BeamScanSettings:
     FieldOfView:
       X:
         Value: '5.1199999999999984e-06'
@@ -109,17 +109,18 @@ Image:
       right: '1'
       bottom: '1'
     MainsLockOn: 'false'
-    LineTime:
-      Value: '0.20730000000000001'
-      Unit: s
-    LineIntegrationCount: '1'
+    LineTime: '0.20730000000000001'
+    Integration:
+    - Unit: Line
+      Number: '1'
+    - Unit: Frame
+      Number: '100'
     LineInterlacing: '1'
-    FrameTime:
-      Value: '424.55040000000002'
-      Unit: s
-    Rotation:
-      Value: '-3.1415926535897931'
-      Unit: rad
+    FrameTime: '424.55040000000002'
+    Rotation: '-3.1415926535897931'
+    LineTimeUnit: s
+    FrameTimeUnit: s
+    RotationUnit: rad
   BinaryResult:
     AcquisitionUnit: ''
     CompositionType: ''
@@ -335,7 +336,6 @@ OME:
         value: '1'
     IntegratedFrameCount:
       type: long
-      value: '100'
     Scan:
       ScanTransformation:
         A11:
@@ -3563,8 +3563,8 @@ SourceMap:
   Image.ElectronBeamSettings.ConvergenceAngle.Value: Optics.BeamConvergence
   Image.ElectronOpticsSettings.ScreenCurrent: Optics.ScreenCurrent
   Image.ElectronBeamSettings.Current.Value: Optics.LastMeasuredScreenCurrent
-  Image.ScanSettings.FieldOfView.X.Value: Optics.FullScanFieldOfView.x
-  Image.ScanSettings.FieldOfView.Y.Value: Optics.FullScanFieldOfView.y
+  Image.BeamScanSettings.FieldOfView.X.Value: Optics.FullScanFieldOfView.x
+  Image.BeamScanSettings.FieldOfView.Y.Value: Optics.FullScanFieldOfView.y
   Image.ElectronBeamSettings.Focus: Optics.Focus
   Optics.StemFocus: Optics.StemFocus
   Image.ElectronBeamSettings.Defocus.Value: Optics.Defocus
@@ -3623,16 +3623,18 @@ SourceMap:
   Pixels.SizeX: Scan.ScanSize.width
   Pixels.SizeY: Scan.ScanSize.height
   Plane.PixelDwellTime: Scan.DwellTime
-  Image.ScanSettings.ScanArea.left: Scan.ScanArea.left
-  Image.ScanSettings.ScanArea.top: Scan.ScanArea.top
-  Image.ScanSettings.ScanArea.right: Scan.ScanArea.right
-  Image.ScanSettings.ScanArea.bottom: Scan.ScanArea.bottom
-  Image.ScanSettings.MainsLockOn: Scan.MainsLockOn
-  Image.ScanSettings.LineTime.Value: Scan.LineTime
-  Image.ScanSettings.LineIntegrationCount: Scan.LineIntegrationCount
-  Image.ScanSettings.LineInterlacing: Scan.LineInterlacing
-  Image.ScanSettings.FrameTime.Value: Scan.FrameTime
-  Image.ScanSettings.Rotation.Value: Scan.ScanRotation
+  Image.BeamScanSettings.ScanArea.left: Scan.ScanArea.left
+  Image.BeamScanSettings.ScanArea.top: Scan.ScanArea.top
+  Image.BeamScanSettings.ScanArea.right: Scan.ScanArea.right
+  Image.BeamScanSettings.ScanArea.bottom: Scan.ScanArea.bottom
+  Image.BeamScanSettings.MainsLockOn: Scan.MainsLockOn
+  Image.BeamScanSettings.LineTime: Scan.LineTime
+  Image.BeamScanSettings.Integration[0].Unit:
+  - Scan.LineIntegrationCount
+  Image.BeamScanSettings.Integration[0].Number: Scan.LineIntegrationCount
+  Image.BeamScanSettings.LineInterlacing: Scan.LineInterlacing
+  Image.BeamScanSettings.FrameTime: Scan.FrameTime
+  Image.BeamScanSettings.Rotation: Scan.ScanRotation
   Instrument.Vacuum.VacuumMode: Vacuum.VacuumMode
   GenericDetector[0].ExposureMode: Detectors.Detector-0.ExposureMode
   GenericDetector[0].Binning.width: Detectors.Detector-0.Binning.width
@@ -3739,7 +3741,9 @@ SourceMap:
   OME.CustomProperties.Detectors[DualX].Selected.type: CustomProperties.Detectors[DualX].Selected.type
   OME.CustomProperties.Detectors[DualX].Selected.value: CustomProperties.Detectors[DualX].Selected.value
   OME.CustomProperties.IntegratedFrameCount.type: CustomProperties.IntegratedFrameCount.type
-  OME.CustomProperties.IntegratedFrameCount.value: CustomProperties.IntegratedFrameCount.value
+  Image.BeamScanSettings.Integration[1].Unit:
+  - CustomProperties.IntegratedFrameCount.value
+  Image.BeamScanSettings.Integration[1].Number: CustomProperties.IntegratedFrameCount.value
   OME.CustomProperties.Scan.ScanTransformation.A11.type: CustomProperties.Scan.ScanTransformation.A11.type
   OME.CustomProperties.Scan.ScanTransformation.A11.value: CustomProperties.Scan.ScanTransformation.A11.value
   OME.CustomProperties.Scan.ScanTransformation.A12.type: CustomProperties.Scan.ScanTransformation.A12.type
@@ -7259,9 +7263,9 @@ SourceMap:
   - Optics.BeamConvergence
   Image.ElectronBeamSettings.Current.Unit:
   - Optics.LastMeasuredScreenCurrent
-  Image.ScanSettings.FieldOfView.X.Unit:
+  Image.BeamScanSettings.FieldOfView.X.Unit:
   - Optics.FullScanFieldOfView.x
-  Image.ScanSettings.FieldOfView.Y.Unit:
+  Image.BeamScanSettings.FieldOfView.Y.Unit:
   - Optics.FullScanFieldOfView.y
   Image.ElectronBeamSettings.Defocus.Unit:
   - Optics.Defocus
@@ -7279,11 +7283,11 @@ SourceMap:
   - Stage.BetaTilt
   Plane.PixelDwellTimeUnit:
   - Scan.DwellTime
-  Image.ScanSettings.LineTime.Unit:
+  Image.BeamScanSettings.LineTimeUnit:
   - Scan.LineTime
-  Image.ScanSettings.FrameTime.Unit:
+  Image.BeamScanSettings.FrameTimeUnit:
   - Scan.FrameTime
-  Image.ScanSettings.Rotation.Unit:
+  Image.BeamScanSettings.RotationUnit:
   - Scan.ScanRotation
   Pixels.Channel[0].LightPath.GenericDetectorSettings[0].ID:
   - Detectors.Detector-1.Inserted

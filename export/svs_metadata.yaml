@@ -10,59 +10,82 @@ Image:
       Field: Instrument[0].Objective[0].Magnification
       Source: AppMag
     - ID: SourceMapping:1
-      Field: Instrument[0].ID
-      Source: ScanScope ID
+      Field: Image[0].SlideScanSettings.StripeWidth
+      Source: StripeWidth
     - ID: SourceMapping:2
-      Field: Image[0].Pixels.PhysicalSizeX
-      Source: MPP
+      Field: Image[0].SlideScanSettings.LineCameraSkew
+      Source: LineCameraSkew
     - ID: SourceMapping:3
-      Field: Image[0].Pixels.PhysicalSizeY
-      Source: MPP
+      Field: Image[0].SlideScanSettings.LineAreaXOffset
+      Source: LineAreaXOffset
     - ID: SourceMapping:4
-      Field: Image[0].Pixels.SizeX
-      Source: OriginalWidth
+      Field: Image[0].SlideScanSettings.LineAreaYOffset
+      Source: LineAreaYOffset
     - ID: SourceMapping:5
-      Field: Image[0].Pixels.SizeY
-      Source: OriginalHeight
+      Field: Image[0].SlideScanSettings.FocusOffset
+      Source: Focus Offset
     - ID: SourceMapping:6
-      Field: Image[0].Pixels.Plane[0].PositionX
-      Source: Left
-    - ID: SourceMapping:7
-      Field: Image[0].Pixels.Plane[0].PositionY
-      Source: Top
-    - ID: SourceMapping:8
-      Field: Image[0].Pixels.Plane[0].PositionXUnit
-      Source: Left
-      DerivedFrom:
-      - Left
-    - ID: SourceMapping:9
-      Field: Image[0].Pixels.Plane[0].PositionYUnit
-      Source: Top
-      DerivedFrom:
-      - Top
-    - ID: SourceMapping:10
-      Field: Image[0].Pixels.Plane[0].ExposureTime
-      Source: Exposure Time + Exposure Scale
-      DerivedFrom:
-      - Exposure Time
-      - Exposure Scale
-    - ID: SourceMapping:11
-      Field: Image[0].Pixels.Plane[0].ExposureTimeUnit
-      Source: Exposure Time + Exposure Scale
-      DerivedFrom:
-      - Exposure Time
-      - Exposure Scale
-    - ID: SourceMapping:12
       Field: Image[0].ID
       Source: ImageID
       SourceValue: '18489'
-    - ID: SourceMapping:13
+    - ID: SourceMapping:7
       Field: Image[0].AcquisitionDate
       Source: Date + Time + Time Zone
       DerivedFrom:
       - Date
       - Time
       - Time Zone
+    - ID: SourceMapping:8
+      Field: Instrument[0].ID
+      Source: ScanScope ID
+    - ID: SourceMapping:9
+      Field: Image[0].Pixels.PhysicalSizeX
+      Source: MPP
+    - ID: SourceMapping:10
+      Field: Image[0].Pixels.PhysicalSizeY
+      Source: MPP
+    - ID: SourceMapping:11
+      Field: Image[0].Pixels.SizeX
+      Source: OriginalWidth
+    - ID: SourceMapping:12
+      Field: Image[0].Pixels.SizeY
+      Source: OriginalHeight
+    - ID: SourceMapping:13
+      Field: Image[0].Pixels.Plane[0].PositionX
+      Source: Left
+    - ID: SourceMapping:14
+      Field: Image[0].Pixels.Plane[0].PositionY
+      Source: Top
+    - ID: SourceMapping:15
+      Field: Image[0].Pixels.Plane[0].PositionXUnit
+      Source: Left
+      DerivedFrom:
+      - Left
+    - ID: SourceMapping:16
+      Field: Image[0].Pixels.Plane[0].PositionYUnit
+      Source: Top
+      DerivedFrom:
+      - Top
+    - ID: SourceMapping:17
+      Field: Image[0].Pixels.Plane[0].ExposureTime
+      Source: Exposure Time + Exposure Scale
+      DerivedFrom:
+      - Exposure Time
+      - Exposure Scale
+    - ID: SourceMapping:18
+      Field: Image[0].Pixels.Plane[0].ExposureTimeUnit
+      Source: Exposure Time + Exposure Scale
+      DerivedFrom:
+      - Exposure Time
+      - Exposure Scale
+  SlideScanSettings:
+    StripeWidth: 2032
+    LineCameraSkew: 0.001055
+    LineAreaXOffset: 0.01646
+    LineAreaYOffset: -0.009263
+    FocusOffset: -0.0005
+  ID: '18489'
+  AcquisitionDate: '2015-10-19T17:18:12-05:00'
   Pixels:
     PhysicalSizeX: 0.4936
     PhysicalSizeY: 0.4936
@@ -75,8 +98,6 @@ Image:
       PositionYUnit: mm
       ExposureTime: 0.00010899999999999999
       ExposureTimeUnit: s
-  ID: '18489'
-  AcquisitionDate: '2015-10-19T17:18:12-05:00'
 CustomProperties:
 - ID: Property:0
   Name: Aperio Image Library v12.0.11
@@ -91,42 +112,22 @@ CustomProperties:
   Value: '70'
   Source: SourceFile:0
 - ID: Property:3
-  Name: StripeWidth
-  Value: '2032'
-  Source: SourceFile:0
-- ID: Property:4
   Name: Filename
   Value: '18489'
   Source: SourceFile:0
-- ID: Property:5
+- ID: Property:4
   Name: User
   Value: '"08e1f1aa-01fa-41e5-aa13-9af07029387e"'
   Source: SourceFile:0
-- ID: Property:6
-  Name: LineCameraSkew
-  Value: '0.001055'
-  Source: SourceFile:0
-- ID: Property:7
-  Name: LineAreaXOffset
-  Value: '0.01646'
-  Source: SourceFile:0
-- ID: Property:8
-  Name: LineAreaYOffset
-  Value: '-0.009263'
-  Source: SourceFile:0
-- ID: Property:9
-  Name: Focus Offset
-  Value: '-0.0005'
-  Source: SourceFile:0
-- ID: Property:10
+- ID: Property:5
   Name: DSR ID
   Value: '"129.112.7.45"'
   Source: SourceFile:0
-- ID: Property:11
+- ID: Property:6
   Name: DisplayColor
   Value: '0'
   Source: SourceFile:0
-- ID: Property:12
+- ID: Property:7
   Name: ICC Profile
   Value: '"ScanScope v1"'
   Source: SourceFile:0

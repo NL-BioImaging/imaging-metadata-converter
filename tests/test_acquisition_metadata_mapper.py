@@ -10,7 +10,8 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 from imaging_metadata_converter import convert_metadata
 from imaging_metadata_converter.AcquisitionMetadataMapper import (
-    DEFAULT_COMBINATIONS_FILE, DEFAULT_MAPPINGS_FILE, AcquisitionMetadataMapper, rule_targets, unit_field)
+    DEFAULT_COMBINATIONS_FILE, DEFAULT_MAPPINGS_FILE, AcquisitionMetadataMapper, rule_targets, unit_field,
+    without_selectors)
 from imaging_metadata_converter.ModelPaths import ModelPaths, _leaf_paths
 
 
@@ -435,7 +436,7 @@ class RuleTargetsTest(unittest.TestCase):
             mappings = json.load(file)
         with open(os.path.join(REPO_ROOT, DEFAULT_COMBINATIONS_FILE), encoding='utf-8') as file:
             combinations = json.load(file)
-        targets = [target for rule in mappings.values() for target in rule_targets(rule)]
+        targets = [without_selectors(target) for rule in mappings.values() for target in rule_targets(rule)]
         # a combination turning its parts into their number in place (an Exif rational) targets its own key
         targets += [combination['target'] for combination in combinations
                     if not all(source.startswith(f"{combination['target']}[") for source in combination['sources'])]
@@ -474,6 +475,29 @@ class LosslessMappingTest(unittest.TestCase):
             with open(files[name], 'w', encoding='utf-8') as file:
                 json.dump(content, file)
         return AcquisitionMetadataMapper(files['schema'], files['mappings'], files['combinations'])
+
+    def test_a_target_names_a_list_item_by_its_fields(self):
+        mapper = self.mapper_for({'LineAverage': 'Scan.Integration[Unit=Line,Method=Average].Number',
+                                  'LineAverage2': 'Scan.Integration[Unit=Line,Method=Average].Number',
+                                  'FrameAccumulation': 'Scan.Integration[Unit=Frame,Method=Sum].Number'})
+
+        converted = mapper.convert_metadata({'LineAverage': 16, 'FrameAccumulation': 2, 'LineAverage2': 8})
+
+        # found where it is, made with those fields where it is not, so neither order nor place is assumed
+        self.assertEqual(converted['Scan']['Integration'], [{'Unit': 'Line', 'Method': 'Average', 'Number': 16},
+                                                            {'Unit': 'Frame', 'Method': 'Sum', 'Number': 2}])
+        self.assertEqual(converted['SourceMap']['Scan.Integration[1].Method'], ['FrameAccumulation'])
+        self.assertEqual(converted['SourceMap']['Scan.Integration[1].Number'], 'FrameAccumulation')
+        # a second value for the same item overwrites nothing
+        self.assertEqual(converted['LineAverage2'], 8)
+
+    def test_a_list_item_target_leaves_what_is_no_list_alone(self):
+        mapper = self.mapper_for({'LineAverage': 'Scan.Integration[Unit=Line].Number'})
+
+        converted = mapper.convert_metadata({'Scan': {'Integration': 'none'}, 'LineAverage': 16})
+
+        self.assertEqual(converted['Scan'], {'Integration': 'none'})
+        self.assertEqual(converted['LineAverage'], 16)
 
     def test_rule_naming_several_targets_copies_the_value_to_each(self):
         mapper = self.mapper_for({'MPP': ['Pixels.PhysicalSizeX', 'Pixels.PhysicalSizeY']})

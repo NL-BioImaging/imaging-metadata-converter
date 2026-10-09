@@ -43,6 +43,9 @@ LEICA_DETECTOR_CLASSES = {'PMT': 'PhotoMultiplierTube', 'HyD': 'HybridPhotoDetec
 # the settings of a Leica image that name its microscope stand, and whether that is inverted
 LEICA_STAND_DEFINITIONS = ('ConfocalSettingDefinition', 'CameraSettingDefinition')
 LEICA_STAND_CLASSES = {'1': 'InvertedMicroscopeStand', '0': 'UprightMicroscopeStand'}
+# a rule target's list item named by its fields: Integration[Unit=Line,Method=Average]
+ITEM_SELECTOR = re.compile(r'(?P<name>[^.\[\]]+)\[(?P<fields>\w+=[^\]]*)\]')
+ITEM_SELECTOR_PART = re.compile(r'\[\w+=[^\]]*\]')
 # the detector a Velox (TALOS) image was taken with, by its name, or the name its numbered detectors share
 # (DualX: DualX1 and DualX2)
 VELOX_IMAGE_DETECTOR = 'BinaryResult.Detector'
@@ -567,9 +570,12 @@ class AcquisitionMetadataMapper:
             indices = re.findall(r'\[(\d+)\]', origin)
             if any('[*]' in target for target in rule_targets(rule_target)) and not indices:
                 raise ValueError(f'{rule_source_path} targets a list item ([*]) but is in no list')
-            first, *copies = [target.replace('[*]', f'[{indices[-1]}]') if indices else target
+            first, *copies = [select_items(root[0], root[1], target.replace('[*]', f'[{indices[-1]}]')
+                                           if indices else target, origin or source_path)
                               for target in rule_targets(rule_target)]
-            return ((root[0], first, root[1]), (result, source_path, provenance)), copies
+            if first is None:
+                return ((result, source_path, provenance),), []
+            return ((root[0], first, root[1]), (result, source_path, provenance)), [copy for copy in copies if copy]
         schema_target = self._resolve_schema_path(rule_source_path)
         return ((result, schema_target or source_path, provenance), (result, source_path, provenance)), []
 
@@ -1039,6 +1045,36 @@ def _value_paths(node, path=''):
             yield from _value_paths(value, current)
         else:
             yield current
+
+
+def select_items(result, provenance, target, origin):
+    """`target` with each list item it names by its fields (Integration[Unit=Line,Method=Average]) as that item's
+    index in `result`, making the item, with those fields, where there is none, so neither its order nor its place
+    is assumed; the fields' SourceMap entry is `origin`, the value they describe. None where something other than a
+    list is in the way."""
+    parts = target.split('.')
+    for position, part in enumerate(parts):
+        selected = ITEM_SELECTOR.fullmatch(part)
+        if selected is not None:
+            list_path = '.'.join(parts[:position] + [selected['name']])
+            items = value_at_path(result, list_path)
+            if items is not None and not isinstance(items, list):
+                return None
+            fields = dict(pair.split('=', 1) for pair in selected['fields'].split(','))
+            items = items or []
+            index = next((index for index, item in enumerate(items) if isinstance(item, dict)
+                          and all(str(item.get(name)) == value for name, value in fields.items())), len(items))
+            parts[position] = f"{selected['name']}[{index}]"
+            for name, value in fields.items() if index == len(items) else ():
+                field_path = '.'.join(parts[:position + 1] + [name])
+                set_nested_value(result, field_path, value)
+                provenance[field_path] = [origin]
+    return '.'.join(parts)
+
+
+def without_selectors(target):
+    """`target` as the model path it writes to: Integration[Unit=Line].Number as Integration.Number."""
+    return ITEM_SELECTOR_PART.sub('', target)
 
 
 def leica_detectors(metadata):

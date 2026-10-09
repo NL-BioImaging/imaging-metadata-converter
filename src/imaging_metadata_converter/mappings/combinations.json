@@ -86,14 +86,14 @@
         "format": "unix"
     },
     {
-        "target": "Image.ScanSettings.FrameTime.Value",
+        "target": "Image.BeamScanSettings.FrameTime",
         "sources": [
             "FEI_HELIOS.Scan.FrameTime"
         ],
         "format": "duration"
     },
     {
-        "target": "Image.ScanSettings.FieldOfView.X.Value",
+        "target": "Image.BeamScanSettings.FieldOfView.X.Value",
         "sources": [
             "FEI_HELIOS.Beam.HFW"
         ],

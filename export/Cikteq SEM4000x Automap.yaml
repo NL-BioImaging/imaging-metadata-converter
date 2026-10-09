@@ -94,22 +94,22 @@ Image:
       Field: Image[0].ElectronOpticsSettings.Condenser2
       Source: FEI_HELIOS.Beam.Condenser2
     - ID: SourceMapping:28
-      Field: Image[0].ScanSettings.FrameTime.Value
+      Field: Image[0].BeamScanSettings.FrameTime
       Source: FEI_HELIOS.Scan.FrameTime
       DerivedFrom:
       - FEI_HELIOS.Scan.FrameTime
     - ID: SourceMapping:29
-      Field: Image[0].ScanSettings.FrameTime.Unit
+      Field: Image[0].BeamScanSettings.FrameTimeUnit
       Source: FEI_HELIOS.Scan.FrameTime
       DerivedFrom:
       - FEI_HELIOS.Scan.FrameTime
     - ID: SourceMapping:30
-      Field: Image[0].ScanSettings.FieldOfView.X.Value
+      Field: Image[0].BeamScanSettings.FieldOfView.X.Value
       Source: FEI_HELIOS.Beam.HFW
       DerivedFrom:
       - FEI_HELIOS.Beam.HFW
     - ID: SourceMapping:31
-      Field: Image[0].ScanSettings.FieldOfView.X.Unit
+      Field: Image[0].BeamScanSettings.FieldOfView.X.Unit
       Source: FEI_HELIOS.Beam.HFW
       DerivedFrom:
       - FEI_HELIOS.Beam.HFW
@@ -321,30 +321,29 @@ Image:
   - ID: Property:11
     Name: FEI_HELIOS.Scan.Drift
     Value: 'false'
-    SchemaPath: Image.ScanSettings.Drift
+    SchemaPath: Image.BeamScanSettings.Drift
     Source: SourceFile:0
   - ID: Property:12
     Name: FEI_HELIOS.Scan.FramAdd
     Value: '1'
-    SchemaPath: Image.ScanSettings.FramAdd
+    SchemaPath: Image.BeamScanSettings.FramAdd
     Source: SourceFile:0
   - ID: Property:13
     Name: FEI_HELIOS.Scan.Interlaced
     Value: '"0/1"'
-    SchemaPath: Image.ScanSettings.LineInterlacing
+    SchemaPath: Image.BeamScanSettings.LineInterlacing
     Source: SourceFile:0
   - ID: Property:14
     Name: FEI_HELIOS.Scan.LineAdd
     Value: '1'
-    SchemaPath: Image.ScanSettings.LineAdd
+    SchemaPath: Image.BeamScanSettings.LineAdd
     Source: SourceFile:0
   ElectronOpticsSettings:
     Condenser1: 1456
     Condenser2: 839
-  ScanSettings:
-    FrameTime:
-      Value: 172
-      Unit: s
+  BeamScanSettings:
+    FrameTime: 172
+    FrameTimeUnit: s
     FieldOfView:
       X:
         Value: 21.12

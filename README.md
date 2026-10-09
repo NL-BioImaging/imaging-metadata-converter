@@ -215,6 +215,18 @@ it at the root; the label counts as the item's field `id`:
 "acquisition.scan.detectors.*.id": "GenericDetector[].Name"
 ```
 
+**A list item named by its fields** - `Target[Field=Value,...]` writes into
+the item of that list whose fields have those values, made with them where
+there is none, so neither the items' order nor their place is assumed:
+
+```json
+"ConfocalSettingDefinition.LineAverage": "LightPath.ConfocalScannerSettings.Integration[Unit=Line,Method=Average].Number",
+"ConfocalSettingDefinition.FrameAccumulation": "LightPath.ConfocalScannerSettings.Integration[Unit=Frame,Method=Sum].Number"
+```
+
+A second value for the same item stays at its own path, as any value that
+would overwrite one does.
+
 **A `*` that is not a trailing `.*`** - match the whole path and discard the
 part the `*` covered:
 

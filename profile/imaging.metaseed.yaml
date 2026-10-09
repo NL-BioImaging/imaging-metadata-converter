@@ -1876,11 +1876,17 @@ entities:
       tier: required
       items: ElectronOpticsSettings
       owns: true
-    - name: ScanSettings
+    - name: BeamScanSettings
       type: entity
       required: false
       tier: required
-      items: ScanSettings
+      items: BeamScanSettings
+      owns: true
+    - name: SlideScanSettings
+      type: entity
+      required: false
+      tier: required
+      items: SlideScanSettings
       owns: true
     - name: BinaryResult
       type: string
@@ -28365,36 +28371,287 @@ entities:
       description: The apertures of the electron optics (condenser, objective, selected-area, ...) as set for this acquisition.
       items: ElectronAperture
       owns: true
-  ScanSettings:
-    description: The scan of a scanning microscope, as set for the acquisition of this image.
+  BeamScanSettings:
+    description: The scan of an electron beam (SEM, STEM), as set for the acquisition of this image, for all the detectors
+      recording it.
     fields:
     - name: FieldOfView
       type: entity
       required: false
       items: FieldOfView
       owns: true
-    - name: Rotation
-      type: entity
-      required: false
-      items: Quantity
-      owns: true
-    - name: FrameTime
-      type: entity
-      required: false
-      items: Quantity
-      owns: true
-    - name: LineTime
-      type: entity
-      required: false
-      items: Quantity
-      owns: true
-    - name: LineIntegrationCount
-      type: integer
-      required: false
     - name: LineInterlacing
       type: integer
       required: false
       description: The number of interlaced fields the lines are scanned in; 1 is not interlaced.
+    - name: ScanDirectionality
+      type: string
+      required: false
+      description: This field records the ScanDirectionality that was set for this device during Acquisition. In Unidirectional
+        scan mode, data are only acquired while the laser beam moves in one direction. In Bidirectional scan mode, one line
+        is scanned in one direction, and the next line in the opposite direction. In other words, the return run, or flyback,
+        of the laser beam is used for recording data as well, thus increasing the scanning frequency when using bidirectional
+        scan mode. Refer to https://www.iso.org/standard/69820.html for further details and measurement methods.
+      tier: required
+      constraints:
+        enum:
+        - Bidirectional
+        - Unidirectional
+    - name: Rotation
+      type: float
+      required: false
+      description: This field records the Rotation angle of the scan region.
+      tier: optional
+    - name: RotationUnit
+      type: string
+      required: false
+      description: The unit of Rotation.
+      tier: optional
+      constraints:
+        enum:
+        - deg
+        - µrad
+        - mrad
+        - rad
+        - gon
+    - name: Integration
+      type: list
+      required: false
+      description: The signal integrations of the scan, one per kind of scanned element integrated and method (16 lines averaged,
+        2 frames accumulated).
+      items: Integration
+      owns: true
+    - name: FrameTime
+      type: float
+      required: false
+      description: The time to scan one frame.
+    - name: FrameTimeUnit
+      type: string
+      required: false
+      description: The unit of FrameTime.
+      constraints:
+        enum:
+        - Ys
+        - Zs
+        - Es
+        - Ps
+        - Ts
+        - Gs
+        - Ms
+        - ks
+        - hs
+        - das
+        - s
+        - ds
+        - cs
+        - ms
+        - µs
+        - ns
+        - ps
+        - fs
+        - as
+        - zs
+        - ys
+        - min
+        - h
+        - d
+    - name: LineTime
+      type: float
+      required: false
+      description: The time to scan one line.
+    - name: LineTimeUnit
+      type: string
+      required: false
+      description: The unit of LineTime.
+      constraints:
+        enum:
+        - Ys
+        - Zs
+        - Es
+        - Ps
+        - Ts
+        - Gs
+        - Ms
+        - ks
+        - hs
+        - das
+        - s
+        - ds
+        - cs
+        - ms
+        - µs
+        - ns
+        - ps
+        - fs
+        - as
+        - zs
+        - ys
+        - min
+        - h
+        - d
+    - name: MapAnnotation
+      type: list
+      required: false
+      description: A Map Annotation. The contents of this is a list of Key/Value pairs.
+      items: MapAnnotation
+      owns: true
+    - name: AdditionalVendorInformation
+      type: list
+      required: false
+      description: This element is intendended to be used as a last-resort solution to capture vendor-specific Additional
+        Information about this hardware component, which cannot be described using either available model elements (Classes
+        or Attributes) or the Map Annotation feature of the schema. The use of this feature should not be intended as a way
+        to hide information that the Imaging Community has designated as essential to ensure rigor and reproducibility. In
+        case this feature is used, the Vendor is fully responsible for this information, including but not limited to, making
+        sure this information is appropriately recorded and kept up to date.
+      items: AdditionalVendorInformation
+      owns: true
+  SlideScanSettings:
+    description: The scan of a slide scanner, which moves the slide under a line camera in stripes (Aperio's ScanScope), as
+      set for the acquisition of this image. Its values are as the scanner states them, with no unit where it states none.
+    fields:
+    - name: StripeWidth
+      type: integer
+      required: false
+      description: The width of each scanned stripe, in pixels.
+    - name: LineCameraSkew
+      type: float
+      required: false
+      description: The skew of the line camera, as the scanner states it (Aperio's LineCameraSkew).
+    - name: LineAreaXOffset
+      type: float
+      required: false
+      description: The offset along X between the line camera and the area the scanner images, as it states it (Aperio's LineAreaXOffset).
+    - name: LineAreaYOffset
+      type: float
+      required: false
+      description: The offset along Y between the line camera and the area the scanner images, as it states it (Aperio's LineAreaYOffset).
+    - name: FocusOffset
+      type: float
+      required: false
+      description: The focus offset the scan was taken with, as the scanner states it (Aperio's Focus Offset).
+    - name: ScanDirectionality
+      type: string
+      required: false
+      description: This field records the ScanDirectionality that was set for this device during Acquisition. In Unidirectional
+        scan mode, data are only acquired while the laser beam moves in one direction. In Bidirectional scan mode, one line
+        is scanned in one direction, and the next line in the opposite direction. In other words, the return run, or flyback,
+        of the laser beam is used for recording data as well, thus increasing the scanning frequency when using bidirectional
+        scan mode. Refer to https://www.iso.org/standard/69820.html for further details and measurement methods.
+      tier: required
+      constraints:
+        enum:
+        - Bidirectional
+        - Unidirectional
+    - name: Rotation
+      type: float
+      required: false
+      description: This field records the Rotation angle of the scan region.
+      tier: optional
+    - name: RotationUnit
+      type: string
+      required: false
+      description: The unit of Rotation.
+      tier: optional
+      constraints:
+        enum:
+        - deg
+        - µrad
+        - mrad
+        - rad
+        - gon
+    - name: Integration
+      type: list
+      required: false
+      description: The signal integrations of the scan, one per kind of scanned element integrated and method (16 lines averaged,
+        2 frames accumulated).
+      items: Integration
+      owns: true
+    - name: FrameTime
+      type: float
+      required: false
+      description: The time to scan one frame.
+    - name: FrameTimeUnit
+      type: string
+      required: false
+      description: The unit of FrameTime.
+      constraints:
+        enum:
+        - Ys
+        - Zs
+        - Es
+        - Ps
+        - Ts
+        - Gs
+        - Ms
+        - ks
+        - hs
+        - das
+        - s
+        - ds
+        - cs
+        - ms
+        - µs
+        - ns
+        - ps
+        - fs
+        - as
+        - zs
+        - ys
+        - min
+        - h
+        - d
+    - name: LineTime
+      type: float
+      required: false
+      description: The time to scan one line.
+    - name: LineTimeUnit
+      type: string
+      required: false
+      description: The unit of LineTime.
+      constraints:
+        enum:
+        - Ys
+        - Zs
+        - Es
+        - Ps
+        - Ts
+        - Gs
+        - Ms
+        - ks
+        - hs
+        - das
+        - s
+        - ds
+        - cs
+        - ms
+        - µs
+        - ns
+        - ps
+        - fs
+        - as
+        - zs
+        - ys
+        - min
+        - h
+        - d
+    - name: MapAnnotation
+      type: list
+      required: false
+      description: A Map Annotation. The contents of this is a list of Key/Value pairs.
+      items: MapAnnotation
+      owns: true
+    - name: AdditionalVendorInformation
+      type: list
+      required: false
+      description: This element is intendended to be used as a last-resort solution to capture vendor-specific Additional
+        Information about this hardware component, which cannot be described using either available model elements (Classes
+        or Attributes) or the Map Annotation feature of the schema. The use of this feature should not be intended as a way
+        to hide information that the Imaging Community has designated as essential to ensure rigor and reproducibility. In
+        case this feature is used, the Vendor is fully responsible for this information, including but not limited to, making
+        sure this information is appropriately recorded and kept up to date.
+      items: AdditionalVendorInformation
+      owns: true
   XMLAnnotation:
     description: An general xml annotation. The contents of this is not processed as OME XML but should still be well-formed
       XML.
@@ -35852,6 +36109,42 @@ entities:
       type: string
       required: false
       description: The unit as the source writes it, e.g. "rad".
+  Integration:
+    description: One signal integration of a scan, LiMi's IntegrationNumber, IntegrationUnit and IntegrationMethod.
+    fields:
+    - name: Number
+      type: integer
+      required: true
+      description: Signal integration is generally utilized to improve the overall signal-to-noise ratio of the resulting
+        Image. This field records the number of sequential Scanning Units (Line, Frame or Stack) that have been integrated
+        for the Acquisition of this Channel.
+      tier: required
+      constraints:
+        minimum: 1
+    - name: Unit
+      type: string
+      required: false
+      description: Signal integration is generally utilized to improve the overall signal-to-noise ratio of the resulting
+        Image. This field refers to the nature of the Scanning Units used as the basis of signal integration. Refer to https://www.iso.org/standard/69820.html
+        for further details and measurement methods.
+      tier: required
+      constraints:
+        enum:
+        - Frame
+        - Line
+        - Stack
+        - Other
+    - name: Method
+      type: string
+      required: false
+      description: Signal integration is generally utilized to improve the overall signal-to-noise ratio of the resulting
+        Image. This field defines the signal Integration Method utilized for the Acquisition of this Channel.
+      tier: required
+      constraints:
+        enum:
+        - Average
+        - Sum
+        - Other
   BinaryFile:
     description: Describes a binary file.
     fields:
@@ -37269,52 +37562,6 @@ entities:
         - pt
         - Pixel
         - reference frame
-    - name: ScanDirectionality
-      type: string
-      required: true
-      description: This field records the ScanDirectionality that was set for this device during Acquisition. In Unidirectional
-        scan mode, data are only acquired while the laser beam moves in one direction. In Bidirectional scan mode, one line
-        is scanned in one direction, and the next line in the opposite direction. In other words, the return run, or flyback,
-        of the laser beam is used for recording data as well, thus increasing the scanning frequency when using bidirectional
-        scan mode. Refer to https://www.iso.org/standard/69820.html for further details and measurement methods.
-      tier: required
-      constraints:
-        enum:
-        - Bidirectional
-        - Unidirectional
-    - name: IntegrationNumber
-      type: integer
-      required: true
-      description: Signal integration is generally utilized to improve the overall signal-to-noise ratio of the resulting
-        Image. This field records the number of sequential Scanning Units (Line, Frame or Stack) that have been integrated
-        for the Acquisition of this Channel.
-      tier: required
-      constraints:
-        minimum: 1
-    - name: IntegrationUnit
-      type: string
-      required: true
-      description: Signal integration is generally utilized to improve the overall signal-to-noise ratio of the resulting
-        Image. This field refers to the nature of the Scanning Units used as the basis of signal integration. Refer to https://www.iso.org/standard/69820.html
-        for further details and measurement methods.
-      tier: required
-      constraints:
-        enum:
-        - Frame
-        - Line
-        - Stack
-        - Other
-    - name: IntegrationMethod
-      type: string
-      required: true
-      description: Signal integration is generally utilized to improve the overall signal-to-noise ratio of the resulting
-        Image. This field defines the signal Integration Method utilized for the Acquisition of this Channel.
-      tier: required
-      constraints:
-        enum:
-        - Average
-        - Sum
-        - Other
     - name: EffectiveZoom
       type: float
       required: true
@@ -37422,6 +37669,29 @@ entities:
         of the scanned field is equals to the square root of 2 times the length of X dimension of the scanned field. Refer
         to https://www.iso.org/standard/69820.html for further details and measurement methods.
       tier: optional
+    - name: ScanningFrequency
+      type: float
+      required: false
+      description: This field records the Scanning Frequency is defined at the ratio between the Number of scanning element
+        (Lines, Frames or Stacks) acquired and ScanTime. Refer to https://www.iso.org/standard/69820.html for further details
+        and measurement methods.
+      tier: optional
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    - name: ScanDirectionality
+      type: string
+      required: true
+      description: This field records the ScanDirectionality that was set for this device during Acquisition. In Unidirectional
+        scan mode, data are only acquired while the laser beam moves in one direction. In Bidirectional scan mode, one line
+        is scanned in one direction, and the next line in the opposite direction. In other words, the return run, or flyback,
+        of the laser beam is used for recording data as well, thus increasing the scanning frequency when using bidirectional
+        scan mode. Refer to https://www.iso.org/standard/69820.html for further details and measurement methods.
+      tier: required
+      constraints:
+        enum:
+        - Bidirectional
+        - Unidirectional
     - name: Rotation
       type: float
       required: false
@@ -37439,16 +37709,86 @@ entities:
         - mrad
         - rad
         - gon
-    - name: ScanningFrequency
+    - name: Integration
+      type: list
+      required: true
+      description: The signal integrations of the scan, one per kind of scanned element integrated and method (16 lines averaged,
+        2 frames accumulated).
+      tier: required
+      items: Integration
+      owns: true
+    - name: FrameTime
       type: float
       required: false
-      description: This field records the Scanning Frequency is defined at the ratio between the Number of scanning element
-        (Lines, Frames or Stacks) acquired and ScanTime. Refer to https://www.iso.org/standard/69820.html for further details
-        and measurement methods.
-      tier: optional
+      description: The time to scan one frame.
+      tier: required
+    - name: FrameTimeUnit
+      type: string
+      required: false
+      description: The unit of FrameTime.
+      tier: required
       constraints:
-        minimum: 0.0
-        maximum: 1.0
+        enum:
+        - Ys
+        - Zs
+        - Es
+        - Ps
+        - Ts
+        - Gs
+        - Ms
+        - ks
+        - hs
+        - das
+        - s
+        - ds
+        - cs
+        - ms
+        - µs
+        - ns
+        - ps
+        - fs
+        - as
+        - zs
+        - ys
+        - min
+        - h
+        - d
+    - name: LineTime
+      type: float
+      required: false
+      description: The time to scan one line.
+      tier: required
+    - name: LineTimeUnit
+      type: string
+      required: false
+      description: The unit of LineTime.
+      tier: required
+      constraints:
+        enum:
+        - Ys
+        - Zs
+        - Es
+        - Ps
+        - Ts
+        - Gs
+        - Ms
+        - ks
+        - hs
+        - das
+        - s
+        - ds
+        - cs
+        - ms
+        - µs
+        - ns
+        - ps
+        - fs
+        - as
+        - zs
+        - ys
+        - min
+        - h
+        - d
     - name: MapAnnotation
       type: list
       required: false

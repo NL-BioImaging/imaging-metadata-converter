@@ -236,6 +236,10 @@ class MasterModelTest(unittest.TestCase):
     def test_keeps_everything_converted_from_the_xsd(self):
         # The model is edited by hand; an edit may add to it but must not lose what the XSD defines.
         schema, units = LinkmlConverter(XSD_FILE, OME_XSD_FILE).convert()
+        # a field moved to another class by hand names where it came from (ConfocalScannerSettings.IntegrationNumber,
+        # now Integration.Number of the ScanSettings every scan shares)
+        moved = {str(slot.annotations['moved_from'].value): slot.range for cls in self.view.all_classes().values()
+                 for slot in (cls.attributes or {}).values() if 'moved_from' in (slot.annotations or {})}
         missing = []
         for class_name, cls in schema['classes'].items():
             kept = self.model['classes'].get(class_name)
@@ -245,7 +249,8 @@ class MasterModelTest(unittest.TestCase):
                 kept_slot = (kept or {}).get('attributes', {}).get(slot_name)
                 # a range changed by hand keeps the XSD's as xsd_range (Image.AcquisitionDate: date -> datetime)
                 kept_range = kept_slot and kept_slot.get('annotations', {}).get('xsd_range', kept_slot.get('range'))
-                if kept_slot is None or kept_range != slot.get('range'):
+                moved_range = moved.get(f'{class_name}.{slot_name}')
+                if (kept_slot is None or kept_range != slot.get('range')) and moved_range != slot.get('range'):
                     missing.append(f'{class_name}.{slot_name}')
         for enum_name, enum in {**schema['enums'], **units['enums']}.items():
             kept = self.view.get_enum(enum_name)

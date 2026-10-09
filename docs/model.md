@@ -133,12 +133,13 @@ the tree next to LiMi's fields; new groups are classes of their own.
 
 | Where | What |
 | --- | --- |
-| `Image` | `ElectronBeamSettings` (type, mode, focus, spot size, working distance, acceleration voltage, currents, convergence angle, defocus, shift, source tilt, stigmator, high-voltage readings, and the electron source it applies to), `ElectronOpticsSettings` (camera length, operating and projector modes, gun lens, the two condenser lenses' settings, apertures, and each `Aperture` with its name, number, shape, mechanism, diameter, whether it is in the beam and its position offset), `ScanSettings` (field of view, rotation, frame and line time, line integration and interlacing) |
+| `Image` | `ElectronBeamSettings` (type, mode, focus, spot size, working distance, acceleration voltage, currents, convergence angle, defocus, shift, source tilt, stigmator, high-voltage readings, and the electron source it applies to), `ElectronOpticsSettings` (camera length, operating and projector modes, gun lens, the two condenser lenses' settings, apertures, and each `Aperture` with its name, number, shape, mechanism, diameter, whether it is in the beam and its position offset), `BeamScanSettings` (an electron beam's scan: field of view, line interlacing) and `SlideScanSettings` (a slide scanner's: stripe width, line-camera skew and offsets, focus offset) |
 | `Image` | `Type`, `CropHint`, `Corrections` (contrast, brightness, gamma, black and white level) |
 | `Instrument` | the instrument as a whole: `Manufacturer`, `Model`, `CatalogNumber`, `Type` (its kind, such as DICOM's modality), `ComputerName`, `Vacuum` (buffer, gun, sample and system vacuum, mode), `ElectronSource` |
 | `Detector` | `Type`, `Channel`, configuration, and for an analytical (X-ray) detector where it sits: its collection (solid) angle, elevation and azimuth |
 | `Pixels` | `TimePoints`: the source's own indices of the first and last time point (BigDataViewer's `Timepoints` range), whose count is `SizeT` and by which its registrations name them |
 | `Plane` | the stage's `PositionM`, `Tilt` (its primary, alpha, axis), `TiltBeta` and `Rotation`, each with its unit, beside LiMi's `PositionX`, `PositionY` and `PositionZ`; `RawStage`, the same axes as the stage's own controller reports them |
+| `ScanSettings` | what every scan shares, the parent of LiMi's `ConfocalScannerSettings` and of `BeamScanSettings` and `SlideScanSettings`: `Rotation`, `ScanDirectionality` (moved up from `ConfocalScannerSettings`), `Integration` (one per kind of scanned element integrated and method: LiMi's `IntegrationNumber`, `IntegrationUnit` and `IntegrationMethod`, as a list), `FrameTime`, `LineTime` |
 | `DetectorSettings` | `Brightness`, `Contrast`, beside LiMi's gains and offset; a scanning (STEM) detector's `CollectionAngleRange`; an analytical detector's live, real and pulse-processing times, input and output count rates, and its spectrum's `Dispersion`, `OffsetEnergy`, `BeginEnergy` and `ElectronicsNoise` |
 | `SamplePositioningSettings` | the stage's `Bias` voltage, `BiasType` and `BiasMode`; `SampleHeight` and `SampleRadius` on a multi-sample stage |
 | `Software` | `ApplicationID` |
@@ -161,6 +162,17 @@ extension's `Instrument.Model` is the instrument as a whole (a TCS SP8, a
 Talos, an iCT 256); a light microscope's body is LiMi's `MicroscopeStand`
 (OME's `Microscope`), inverted or upright as the source states (Leica's
 DMI6000B-CS in a TCS SP8).
+
+A scan is one of three kinds of `ScanSettings`: LiMi's
+`ConfocalScannerSettings`, per channel in its `LightPath`; an electron beam's
+`BeamScanSettings` and a slide scanner's `SlideScanSettings`, per `Image`. What
+they share is defined once, on `ScanSettings`: the rotation and scan direction
+LiMi gives the confocal scanner, moved up, frame and line times, and the
+integrations. LiMi has one `IntegrationNumber`, `IntegrationUnit` and
+`IntegrationMethod` per scan, while a scan may average its lines and
+accumulate its frames at once (Leica writes four), so they are a list
+there, `Integration`, of one `Number`, `Unit` and `Method` each - the one
+place the model reshapes fields of LiMi's.
 
 A value with a unit (`WorkingDistance`, `FieldOfView.X`, ...) is one shared
 class, `Quantity` with `Value` and `Unit`, the unit as the source writes it; a

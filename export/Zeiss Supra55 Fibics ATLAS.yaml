@@ -31,22 +31,22 @@ Image:
       Field: Image[0].CropHint.Bottom
       Source: FibicsXML.Fibics.Image.BoundingBox.Bottom
     - ID: SourceMapping:8
-      Field: Image[0].ScanSettings.FieldOfView.X.Unit
+      Field: Image[0].BeamScanSettings.FieldOfView.X.Unit
       Source: FibicsXML.Fibics.Scan.FOV_X.units
     - ID: SourceMapping:9
-      Field: Image[0].ScanSettings.FieldOfView.X.Value
+      Field: Image[0].BeamScanSettings.FieldOfView.X.Value
       Source: FibicsXML.Fibics.Scan.FOV_X.value
     - ID: SourceMapping:10
-      Field: Image[0].ScanSettings.FieldOfView.Y.Unit
+      Field: Image[0].BeamScanSettings.FieldOfView.Y.Unit
       Source: FibicsXML.Fibics.Scan.FOV_Y.units
     - ID: SourceMapping:11
-      Field: Image[0].ScanSettings.FieldOfView.Y.Value
+      Field: Image[0].BeamScanSettings.FieldOfView.Y.Value
       Source: FibicsXML.Fibics.Scan.FOV_Y.value
     - ID: SourceMapping:12
-      Field: Image[0].ScanSettings.Rotation.Unit
+      Field: Image[0].BeamScanSettings.RotationUnit
       Source: FibicsXML.Fibics.Scan.ScanRot.units
     - ID: SourceMapping:13
-      Field: Image[0].ScanSettings.Rotation.Value
+      Field: Image[0].BeamScanSettings.Rotation
       Source: FibicsXML.Fibics.Scan.ScanRot.value
     - ID: SourceMapping:14
       Field: Image[0].ElectronBeamSettings.Focus
@@ -216,32 +216,32 @@ Image:
   - ID: Property:4
     Name: FibicsXML.Fibics.Scan.LineAvg
     Value: '1'
-    SchemaPath: Image.ScanSettings.LineAvg
+    SchemaPath: Image.BeamScanSettings.LineAvg
     Source: SourceFile:0
   - ID: Property:5
     Name: FibicsXML.Fibics.Scan.Ux
     Value: '0.00255054620872196'
-    SchemaPath: Image.ScanSettings.Ux
+    SchemaPath: Image.BeamScanSettings.Ux
     Source: SourceFile:0
   - ID: Property:6
     Name: FibicsXML.Fibics.Scan.Uy
     Value: '0'
-    SchemaPath: Image.ScanSettings.Uy
+    SchemaPath: Image.BeamScanSettings.Uy
     Source: SourceFile:0
   - ID: Property:7
     Name: FibicsXML.Fibics.Scan.Vx
     Value: '0'
-    SchemaPath: Image.ScanSettings.Vx
+    SchemaPath: Image.BeamScanSettings.Vx
     Source: SourceFile:0
   - ID: Property:8
     Name: FibicsXML.Fibics.Scan.Vy
     Value: '-0.00255054620872196'
-    SchemaPath: Image.ScanSettings.Vy
+    SchemaPath: Image.BeamScanSettings.Vy
     Source: SourceFile:0
   - ID: Property:9
     Name: FibicsXML.Fibics.Scan.AppliedScaleCorrection
     Value: '1'
-    SchemaPath: Image.ScanSettings.AppliedScaleCorrection
+    SchemaPath: Image.BeamScanSettings.AppliedScaleCorrection
     Source: SourceFile:0
   - ID: Property:10
     Name: FibicsXML.Fibics.StageBias.BiasType
@@ -273,7 +273,7 @@ Image:
     Value: '0'
     SchemaPath: Image.Corrections.RBrightSlope
     Source: SourceFile:0
-  ScanSettings:
+  BeamScanSettings:
     FieldOfView:
       X:
         Unit: um
@@ -281,9 +281,8 @@ Image:
       Y:
         Unit: um
         Value: 126.336205356625
-    Rotation:
-      Unit: deg
-      Value: 0
+    RotationUnit: deg
+    Rotation: 0
   ElectronBeamSettings:
     Focus: 0
     Stigmator:

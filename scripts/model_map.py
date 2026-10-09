@@ -28,7 +28,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'src'))
 sys.path.insert(0, str(ROOT / 'scripts'))
 
-from imaging_metadata_converter.AcquisitionMetadataMapper import rule_targets  # noqa: E402
+from imaging_metadata_converter.AcquisitionMetadataMapper import rule_targets, without_selectors  # noqa: E402
 from docs_data import all_paths, leaf_paths  # noqa: E402
 
 ORANGE = '#e8710a'
@@ -67,7 +67,7 @@ def targets(mappings, tree):
     model_paths = set(all_paths(tree))
     found = []
     for rule in mappings.values():
-        for target in rule_targets(rule):
+        for target in map(without_selectors, rule_targets(rule)):
             # "GenericDetector[].Name" names a field of each item a "Target[]" rule collapses
             parts = target.removesuffix('[]').replace('[].', '.').replace('[*]', '').split('.')
             starts = [index for index, part in enumerate(parts) if index > 0 and part in tree]

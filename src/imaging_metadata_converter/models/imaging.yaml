@@ -10361,7 +10361,12 @@ classes:
   ConfocalScannerSettings:
     description: This element holds the Setting applied to a Confocal Scanner used during the Acquisiton of this Channel as
       well as a reference (the ID attribute) to the Confocal Scanner in question.
-    is_a: Settings
+    is_a: ScanSettings
+    slot_usage:
+      ScanDirectionality:
+        required: true
+      Integration:
+        required: true
     attributes:
       'ID ':
         range: ConfocalScannerID
@@ -10393,39 +10398,6 @@ classes:
         range: UnitsLength
         description: If applicable, this field records the Spacing between individual Pinholes that was set during the Acquisition
           of this Channel.
-        annotations:
-          Tier: '1'
-      ScanDirectionality:
-        range: ConfocalScanDirectionality
-        description: This field records the ScanDirectionality that was set for this device during Acquisition. In Unidirectional
-          scan mode, data are only acquired while the laser beam moves in one direction. In Bidirectional scan mode, one line
-          is scanned in one direction, and the next line in the opposite direction. In other words, the return run, or flyback,
-          of the laser beam is used for recording data as well, thus increasing the scanning frequency when using bidirectional
-          scan mode. Refer to https://www.iso.org/standard/69820.html for further details and measurement methods.
-        required: true
-        annotations:
-          Tier: '1'
-      IntegrationNumber:
-        range: PositiveInt
-        description: Signal integration is generally utilized to improve the overall signal-to-noise ratio of the resulting
-          Image. This field records the number of sequential Scanning Units (Line, Frame or Stack) that have been integrated
-          for the Acquisition of this Channel.
-        required: true
-        annotations:
-          Tier: '1'
-      IntegrationUnit:
-        range: ScanIntegrationMode
-        description: Signal integration is generally utilized to improve the overall signal-to-noise ratio of the resulting
-          Image. This field refers to the nature of the Scanning Units used as the basis of signal integration. Refer to https://www.iso.org/standard/69820.html
-          for further details and measurement methods.
-        required: true
-        annotations:
-          Tier: '1'
-      IntegrationMethod:
-        range: ScanIntegrationMethod
-        description: Signal integration is generally utilized to improve the overall signal-to-noise ratio of the resulting
-          Image. This field defines the signal Integration Method utilized for the Acquisition of this Channel.
-        required: true
         annotations:
           Tier: '1'
       EffectiveZoom:
@@ -10502,17 +10474,6 @@ classes:
           to https://www.iso.org/standard/69820.html for further details and measurement methods.
         annotations:
           Tier: '3'
-      Rotation:
-        range: float
-        description: This field records the Rotation angle of the scan region.
-        annotations:
-          Tier: '3'
-      RotationUnit:
-        range: UnitsAngle
-        annotations:
-          Tier: '3'
-          description_source: derived from ConfocalScannerSettings.Rotation
-        description: The unit of Rotation.
       ScanningFrequency:
         range: PercentFraction
         description: This field records the Scanning Frequency is defined at the ratio between the Number of scanning element

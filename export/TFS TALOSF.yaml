@@ -211,146 +211,151 @@ Image:
       DerivedFrom:
       - Optics.CameraLength
     - ID: SourceMapping:55
-      Field: Image[0].ScanSettings.FieldOfView.X.Value
+      Field: Image[0].BeamScanSettings.FieldOfView.X.Value
       Source: Optics.FullScanFieldOfView.x
       SourceValue: '"8.1920000000000022e-06"'
     - ID: SourceMapping:56
-      Field: Image[0].ScanSettings.FieldOfView.X.Unit
+      Field: Image[0].BeamScanSettings.FieldOfView.X.Unit
       Source: Optics.FullScanFieldOfView.x
       DerivedFrom:
       - Optics.FullScanFieldOfView.x
     - ID: SourceMapping:57
-      Field: Image[0].ScanSettings.FieldOfView.Y.Value
+      Field: Image[0].BeamScanSettings.FieldOfView.Y.Value
       Source: Optics.FullScanFieldOfView.y
       SourceValue: '"8.1920000000000022e-06"'
     - ID: SourceMapping:58
-      Field: Image[0].ScanSettings.FieldOfView.Y.Unit
+      Field: Image[0].BeamScanSettings.FieldOfView.Y.Unit
       Source: Optics.FullScanFieldOfView.y
       DerivedFrom:
       - Optics.FullScanFieldOfView.y
     - ID: SourceMapping:59
-      Field: Image[0].ScanSettings.LineTime.Value
+      Field: Image[0].BeamScanSettings.LineTime
       Source: Scan.LineTime
       SourceValue: '"0.20730000000000001"'
     - ID: SourceMapping:60
-      Field: Image[0].ScanSettings.LineTime.Unit
-      Source: Scan.LineTime
+      Field: Image[0].BeamScanSettings.Integration[0].Unit
+      Source: Scan.LineIntegrationCount
       DerivedFrom:
-      - Scan.LineTime
+      - Scan.LineIntegrationCount
     - ID: SourceMapping:61
-      Field: Image[0].ScanSettings.LineIntegrationCount
+      Field: Image[0].BeamScanSettings.Integration[0].Number
       Source: Scan.LineIntegrationCount
       SourceValue: '"1"'
     - ID: SourceMapping:62
-      Field: Image[0].ScanSettings.LineInterlacing
+      Field: Image[0].BeamScanSettings.LineInterlacing
       Source: Scan.LineInterlacing
       SourceValue: '"1"'
     - ID: SourceMapping:63
-      Field: Image[0].ScanSettings.FrameTime.Value
+      Field: Image[0].BeamScanSettings.FrameTime
       Source: Scan.FrameTime
       SourceValue: '"424.55040000000002"'
     - ID: SourceMapping:64
-      Field: Image[0].ScanSettings.FrameTime.Unit
+      Field: Image[0].BeamScanSettings.Rotation
+      Source: Scan.ScanRotation
+      SourceValue: '"0"'
+    - ID: SourceMapping:65
+      Field: Image[0].BeamScanSettings.LineTimeUnit
+      Source: Scan.LineTime
+      DerivedFrom:
+      - Scan.LineTime
+    - ID: SourceMapping:66
+      Field: Image[0].BeamScanSettings.FrameTimeUnit
       Source: Scan.FrameTime
       DerivedFrom:
       - Scan.FrameTime
-    - ID: SourceMapping:65
-      Field: Image[0].ScanSettings.Rotation.Value
-      Source: Scan.ScanRotation
-      SourceValue: '"0"'
-    - ID: SourceMapping:66
-      Field: Image[0].ScanSettings.Rotation.Unit
+    - ID: SourceMapping:67
+      Field: Image[0].BeamScanSettings.RotationUnit
       Source: Scan.ScanRotation
       DerivedFrom:
       - Scan.ScanRotation
-    - ID: SourceMapping:67
+    - ID: SourceMapping:68
       Field: Image[0].AcquisitionDate
       Source: Acquisition.AcquisitionStartDatetime.DateTime
       DerivedFrom:
       - Acquisition.AcquisitionStartDatetime.DateTime
-    - ID: SourceMapping:68
+    - ID: SourceMapping:69
       Field: Instrument[0].ElectronSource[0].Type
       Source: Acquisition.SourceType
-    - ID: SourceMapping:69
+    - ID: SourceMapping:70
       Field: Image[0].Pixels.Plane[0].PositionX
       Source: Stage.Position.x
       SourceValue: '"-3.565290000000008e-05"'
-    - ID: SourceMapping:70
+    - ID: SourceMapping:71
       Field: Image[0].Pixels.Plane[0].PositionY
       Source: Stage.Position.y
       SourceValue: '"2.7880518000000015e-05"'
-    - ID: SourceMapping:71
+    - ID: SourceMapping:72
       Field: Image[0].Pixels.Plane[0].PositionZ
       Source: Stage.Position.z
       SourceValue: '"-0.00016588146"'
-    - ID: SourceMapping:72
+    - ID: SourceMapping:73
       Field: Image[0].Pixels.Plane[0].Tilt
       Source: Stage.AlphaTilt
       SourceValue: '"-0.00010274500000013157"'
-    - ID: SourceMapping:73
+    - ID: SourceMapping:74
       Field: Image[0].Pixels.Plane[0].TiltBeta
       Source: Stage.BetaTilt
       SourceValue: '"8.4731148788705459e-06"'
-    - ID: SourceMapping:74
+    - ID: SourceMapping:75
       Field: Image[0].Pixels.Plane[0].PixelDwellTime
       Source: Scan.DwellTime
       SourceValue: '"0.0001"'
-    - ID: SourceMapping:75
+    - ID: SourceMapping:76
       Field: Image[0].Pixels.Plane[0].PositionXUnit
       Source: Stage.Position.x
       DerivedFrom:
       - Stage.Position.x
-    - ID: SourceMapping:76
+    - ID: SourceMapping:77
       Field: Image[0].Pixels.Plane[0].PositionYUnit
       Source: Stage.Position.y
       DerivedFrom:
       - Stage.Position.y
-    - ID: SourceMapping:77
+    - ID: SourceMapping:78
       Field: Image[0].Pixels.Plane[0].PositionZUnit
       Source: Stage.Position.z
       DerivedFrom:
       - Stage.Position.z
-    - ID: SourceMapping:78
+    - ID: SourceMapping:79
       Field: Image[0].Pixels.Plane[0].TiltUnit
       Source: Stage.AlphaTilt
       DerivedFrom:
       - Stage.AlphaTilt
-    - ID: SourceMapping:79
+    - ID: SourceMapping:80
       Field: Image[0].Pixels.Plane[0].TiltBetaUnit
       Source: Stage.BetaTilt
       DerivedFrom:
       - Stage.BetaTilt
-    - ID: SourceMapping:80
+    - ID: SourceMapping:81
       Field: Image[0].Pixels.Plane[0].PixelDwellTimeUnit
       Source: Scan.DwellTime
       DerivedFrom:
       - Scan.DwellTime
-    - ID: SourceMapping:81
+    - ID: SourceMapping:82
       Field: Experiment[0].Sample[0].SampleHolder[0].Type
       Source: Stage.HolderType
-    - ID: SourceMapping:82
+    - ID: SourceMapping:83
       Field: Image[0].Pixels.SizeX
       Source: Scan.ScanSize.width
       SourceValue: '"2048"'
-    - ID: SourceMapping:83
+    - ID: SourceMapping:84
       Field: Image[0].Pixels.SizeY
       Source: Scan.ScanSize.height
       SourceValue: '"2048"'
-    - ID: SourceMapping:84
+    - ID: SourceMapping:85
       Field: Image[0].Pixels.PhysicalSizeX
       Source: BinaryResult.PixelSize.width
       SourceValue: '"4.0000000000000011e-09"'
-    - ID: SourceMapping:85
+    - ID: SourceMapping:86
       Field: Image[0].Pixels.PhysicalSizeY
       Source: BinaryResult.PixelSize.height
       SourceValue: '"4.0000000000000011e-09"'
-    - ID: SourceMapping:86
+    - ID: SourceMapping:87
       Field: Image[0].Pixels.PhysicalSizeXUnit
       Source: BinaryResult.PixelUnitX
-    - ID: SourceMapping:87
+    - ID: SourceMapping:88
       Field: Image[0].Pixels.PhysicalSizeYUnit
       Source: BinaryResult.PixelUnitY
-    - ID: SourceMapping:88
+    - ID: SourceMapping:89
       Field: Image[0].Pixels.Channel[0].LightPath.GenericDetectorSettings[0].ID
       Source: Detectors.Detector-4.Inserted + Detectors.Detector-4.Enabled + Detectors.Detector-4.DetectorName
         + Detectors.Detector-4.DetectorType + Detectors.Detector-4.Gain + Detectors.Detector-4.Offset
@@ -367,130 +372,130 @@ Image:
       - Detectors.Detector-4.CollectionAngleRange.end
       - Detectors.Detector-4
       - BinaryResult.Detector
-    - ID: SourceMapping:89
+    - ID: SourceMapping:90
       Field: Image[0].Pixels.Channel[0].LightPath.GenericDetectorSettings[0].AnalogGain
       Source: Detectors.Detector-4.Gain
       SourceValue: '"18.579199760535872"'
-    - ID: SourceMapping:90
+    - ID: SourceMapping:91
       Field: Image[0].Pixels.Channel[0].LightPath.GenericDetectorSettings[0].Offset
       Source: Detectors.Detector-4.Offset
       SourceValue: '"-4.5638399999999999"'
-    - ID: SourceMapping:91
+    - ID: SourceMapping:92
       Field: Image[0].Pixels.Channel[0].LightPath.GenericDetectorSettings[0].CollectionAngleRange.Begin
       Source: Detectors.Detector-4.CollectionAngleRange.begin
       SourceValue: '"0.046715186654504498"'
-    - ID: SourceMapping:92
+    - ID: SourceMapping:93
       Field: Image[0].Pixels.Channel[0].LightPath.GenericDetectorSettings[0].CollectionAngleRange.Unit
       Source: Detectors.Detector-4.CollectionAngleRange.begin
       DerivedFrom:
       - Detectors.Detector-4.CollectionAngleRange.begin
-    - ID: SourceMapping:93
+    - ID: SourceMapping:94
       Field: Image[0].Pixels.Channel[0].LightPath.GenericDetectorSettings[0].CollectionAngleRange.End
       Source: Detectors.Detector-4.CollectionAngleRange.end
       SourceValue: '"0.20000000000000001"'
-    - ID: SourceMapping:94
+    - ID: SourceMapping:95
       Field: Instrument[0].GenericDetector[0].Name
       Source: Detectors.Detector-0.DetectorName
-    - ID: SourceMapping:95
+    - ID: SourceMapping:96
       Field: Instrument[0].GenericDetector[0].Type
       Source: Detectors.Detector-0.DetectorType
-    - ID: SourceMapping:96
+    - ID: SourceMapping:97
       Field: Instrument[0].GenericDetector[0].ID
       Source: Detectors.Detector-0
-    - ID: SourceMapping:97
+    - ID: SourceMapping:98
       Field: Instrument[0].GenericDetector[1].Name
       Source: Detectors.Detector-1.DetectorName
-    - ID: SourceMapping:98
+    - ID: SourceMapping:99
       Field: Instrument[0].GenericDetector[1].Type
       Source: Detectors.Detector-1.DetectorType
-    - ID: SourceMapping:99
+    - ID: SourceMapping:100
       Field: Instrument[0].GenericDetector[1].ElevationAngle.Value
       Source: Detectors.Detector-1.ElevationAngle
       SourceValue: '"0.34906585000000001"'
-    - ID: SourceMapping:100
+    - ID: SourceMapping:101
       Field: Instrument[0].GenericDetector[1].ElevationAngle.Unit
       Source: Detectors.Detector-1.ElevationAngle
       DerivedFrom:
       - Detectors.Detector-1.ElevationAngle
-    - ID: SourceMapping:101
+    - ID: SourceMapping:102
       Field: Instrument[0].GenericDetector[1].AzimuthAngle.Value
       Source: Detectors.Detector-1.AzimuthAngle
       SourceValue: '"1.5707963267948966"'
-    - ID: SourceMapping:102
+    - ID: SourceMapping:103
       Field: Instrument[0].GenericDetector[1].AzimuthAngle.Unit
       Source: Detectors.Detector-1.AzimuthAngle
       DerivedFrom:
       - Detectors.Detector-1.AzimuthAngle
-    - ID: SourceMapping:103
+    - ID: SourceMapping:104
       Field: Instrument[0].GenericDetector[1].CollectionAngle.Value
       Source: Detectors.Detector-1.CollectionAngle
       SourceValue: '"0.90101100000000001"'
-    - ID: SourceMapping:104
+    - ID: SourceMapping:105
       Field: Instrument[0].GenericDetector[1].CollectionAngle.Unit
       Source: Detectors.Detector-1.CollectionAngle
       DerivedFrom:
       - Detectors.Detector-1.CollectionAngle
-    - ID: SourceMapping:105
+    - ID: SourceMapping:106
       Field: Instrument[0].GenericDetector[1].ID
       Source: Detectors.Detector-1
-    - ID: SourceMapping:106
+    - ID: SourceMapping:107
       Field: Instrument[0].GenericDetector[2].Name
       Source: Detectors.Detector-2.DetectorName
-    - ID: SourceMapping:107
+    - ID: SourceMapping:108
       Field: Instrument[0].GenericDetector[2].Type
       Source: Detectors.Detector-2.DetectorType
-    - ID: SourceMapping:108
+    - ID: SourceMapping:109
       Field: Instrument[0].GenericDetector[2].ElevationAngle.Value
       Source: Detectors.Detector-2.ElevationAngle
       SourceValue: '"0.34906585000000001"'
-    - ID: SourceMapping:109
+    - ID: SourceMapping:110
       Field: Instrument[0].GenericDetector[2].ElevationAngle.Unit
       Source: Detectors.Detector-2.ElevationAngle
       DerivedFrom:
       - Detectors.Detector-2.ElevationAngle
-    - ID: SourceMapping:110
+    - ID: SourceMapping:111
       Field: Instrument[0].GenericDetector[2].AzimuthAngle.Value
       Source: Detectors.Detector-2.AzimuthAngle
       SourceValue: '"-1.5707963267948966"'
-    - ID: SourceMapping:111
+    - ID: SourceMapping:112
       Field: Instrument[0].GenericDetector[2].AzimuthAngle.Unit
       Source: Detectors.Detector-2.AzimuthAngle
       DerivedFrom:
       - Detectors.Detector-2.AzimuthAngle
-    - ID: SourceMapping:112
+    - ID: SourceMapping:113
       Field: Instrument[0].GenericDetector[2].CollectionAngle.Value
       Source: Detectors.Detector-2.CollectionAngle
       SourceValue: '"0.90101100000000001"'
-    - ID: SourceMapping:113
+    - ID: SourceMapping:114
       Field: Instrument[0].GenericDetector[2].CollectionAngle.Unit
       Source: Detectors.Detector-2.CollectionAngle
       DerivedFrom:
       - Detectors.Detector-2.CollectionAngle
-    - ID: SourceMapping:114
+    - ID: SourceMapping:115
       Field: Instrument[0].GenericDetector[2].ID
       Source: Detectors.Detector-2
-    - ID: SourceMapping:115
+    - ID: SourceMapping:116
       Field: Instrument[0].GenericDetector[3].Name
       Source: Detectors.Detector-3.DetectorName
-    - ID: SourceMapping:116
+    - ID: SourceMapping:117
       Field: Instrument[0].GenericDetector[3].Type
       Source: Detectors.Detector-3.DetectorType
-    - ID: SourceMapping:117
+    - ID: SourceMapping:118
       Field: Instrument[0].GenericDetector[3].ID
       Source: Detectors.Detector-3
-    - ID: SourceMapping:118
+    - ID: SourceMapping:119
       Field: Instrument[0].GenericDetector[4].Name
       Source: Detectors.Detector-4.DetectorName
-    - ID: SourceMapping:119
+    - ID: SourceMapping:120
       Field: Instrument[0].GenericDetector[4].Type
       Source: Detectors.Detector-4.DetectorType
-    - ID: SourceMapping:120
+    - ID: SourceMapping:121
       Field: Instrument[0].GenericDetector[4].ID
       Source: Detectors.Detector-4
-    - ID: SourceMapping:121
+    - ID: SourceMapping:122
       Field: Experiment[0].Sample[0].ID
       Source: Sample.SampleId
-    - ID: SourceMapping:122
+    - ID: SourceMapping:123
       Field: Instrument[0].Objective[0].Magnification
       Source: CustomProperties.StemMagnification.value
       SourceValue: '"14500"'
@@ -646,27 +651,27 @@ Image:
   - ID: Property:22
     Name: Scan.ScanArea.left
     Value: '"0"'
-    SchemaPath: Image.ScanSettings.ScanArea.left
+    SchemaPath: Image.BeamScanSettings.ScanArea.left
     Source: SourceFile:0
   - ID: Property:23
     Name: Scan.ScanArea.top
     Value: '"0"'
-    SchemaPath: Image.ScanSettings.ScanArea.top
+    SchemaPath: Image.BeamScanSettings.ScanArea.top
     Source: SourceFile:0
   - ID: Property:24
     Name: Scan.ScanArea.right
     Value: '"1"'
-    SchemaPath: Image.ScanSettings.ScanArea.right
+    SchemaPath: Image.BeamScanSettings.ScanArea.right
     Source: SourceFile:0
   - ID: Property:25
     Name: Scan.ScanArea.bottom
     Value: '"1"'
-    SchemaPath: Image.ScanSettings.ScanArea.bottom
+    SchemaPath: Image.BeamScanSettings.ScanArea.bottom
     Source: SourceFile:0
   - ID: Property:26
     Name: Scan.MainsLockOn
     Value: '"false"'
-    SchemaPath: Image.ScanSettings.MainsLockOn
+    SchemaPath: Image.BeamScanSettings.MainsLockOn
     Source: SourceFile:0
   - ID: Property:27
     Name: BinaryResult.AcquisitionUnit
@@ -703,7 +708,7 @@ Image:
     Value: '""'
     SchemaPath: Image.BinaryResult.Encoding
     Source: SourceFile:0
-  ScanSettings:
+  BeamScanSettings:
     FieldOfView:
       X:
         Value: 8.192000000000002e-06
@@ -711,17 +716,16 @@ Image:
       Y:
         Value: 8.192000000000002e-06
         Unit: m
-    LineTime:
-      Value: 0.2073
-      Unit: s
-    LineIntegrationCount: 1
+    LineTime: 0.2073
+    Integration:
+    - Unit: Line
+      Number: 1
     LineInterlacing: 1
-    FrameTime:
-      Value: 424.5504
-      Unit: s
-    Rotation:
-      Value: 0
-      Unit: rad
+    FrameTime: 424.5504
+    Rotation: 0
+    LineTimeUnit: s
+    FrameTimeUnit: s
+    RotationUnit: rad
   AcquisitionDate: '2023-05-12T20:10:16+00:00'
   Pixels:
     Plane:

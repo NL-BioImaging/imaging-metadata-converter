@@ -40,13 +40,13 @@ class ModelFitTest(unittest.TestCase):
                     mapping('Image[0].Pixels.PhysicalSizeX', 'VENDOR.Image.pixelWidth.value'),
                     mapping('Image[0].Pixels.SizeX', 'Pixels.SizeX'),
                     mapping('Image[0].AcquisitionDate', None, ['Date', 'Time']),
-                    mapping('Image[0].ScanSettings.LineIntegrationCount', 'integrations'),
+                    mapping('Image[0].BeamScanSettings.LineInterlacing', 'Scan.Interlaced'),
                 ]}],
                 'CustomProperties': [
                     prop('Vendor.Other'),
                     prop('Channel[0].Wavelength', 'Pixels.PhysicalSizeY'),
                     prop('Channel[1].Wavelength'),
-                    prop('Scan.scanHW', 'Image.ScanSettings.scanHW'),
+                    prop('Scan.scanHW', 'Image.BeamScanSettings.scanHW'),
                 ],
             }],
         }
@@ -56,7 +56,7 @@ class ModelFitTest(unittest.TestCase):
             'Pixels.SizeX': 'automatic',
             'Date': 'rule',
             'Time': 'rule',
-            'integrations': 'rule',
+            'Scan.Interlaced': 'rule',
             'Vendor.Other': 'no_location',
             'Channel[0].Wavelength': 'no_fit',
             'Channel[1].Wavelength': 'no_location',
@@ -66,7 +66,7 @@ class ModelFitTest(unittest.TestCase):
         self.assertEqual(fit.key_categories['Channel[].Wavelength'], 'no_fit')
         self.assertEqual(sum(fit.keys.values()), 8)
         self.assertEqual(fit.automatic, {'Pixels.SizeX': 'Image.Pixels.SizeX'})
-        self.assertEqual(fit.missing_fields, {'Image.ScanSettings': 1})
+        self.assertEqual(fit.missing_fields, {'Image.BeamScanSettings': 1})
         self.assertEqual(fit.unlocated, {'Vendor.Other': 1})
         self.assertEqual((fit.limi_fields, fit.extension_fields), (3, 1))
         self.assertEqual(fit.key_coverage, 5 / 8)

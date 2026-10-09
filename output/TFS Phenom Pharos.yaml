@@ -4,6 +4,7 @@ FEI_TITAN:
     databarFields: 699
     databarLabel: null
     displayWidth: 0
+    integrations: 1
 Pixels:
   PhysicalSizeXUnit: µm
   PhysicalSizeX: 1.143158459049694
@@ -17,13 +18,27 @@ Pixels:
         Offset: -1.444569852509731
 Image:
   AcquisitionDate: '2024-02-06T13:21:05'
-  ScanSettings:
-    LineIntegrationCount: 1
+  CropHint:
+    Left: 0
+    Top: 0
+    Right: 1920
+    Bottom: 1200
+  SamplePositioningSettings:
+    SampleRadiusUnit: m
+    SampleRadius: 0
+    SampleHeightUnit: m
+    SampleHeight: 0
+  Corrections:
+    Contrast: 5.337209302325581
+    Brightness: 0.4808117799649042
+    Gamma: 1
+    BlackLevel: 0
+    WhiteLevel: 1
+  BeamScanSettings:
     scanHW: ZYNQ
     acqHW: ZYNQ
     spotPresetName: Image
-    Rotation:
-      Value: 0
+    Rotation: 0
     LineInterlacing: 1
     detector: bsd-all
     detectorMixFactors:
@@ -45,22 +60,6 @@ Image:
       x: 0
       y: 0
     scanScale: 1
-  CropHint:
-    Left: 0
-    Top: 0
-    Right: 1920
-    Bottom: 1200
-  SamplePositioningSettings:
-    SampleRadiusUnit: m
-    SampleRadius: 0
-    SampleHeightUnit: m
-    SampleHeight: 0
-  Corrections:
-    Contrast: 5.337209302325581
-    Brightness: 0.4808117799649042
-    Gamma: 1
-    BlackLevel: 0
-    WhiteLevel: 1
   ElectronBeamSettings:
     SpotSize: 1.3
     Shift:
@@ -152,7 +151,7 @@ SourceMap:
   Pixels.PhysicalSizeY: FEI_TITAN.FeiImage.pixelHeight.value
   Image.AcquisitionDate: FEI_TITAN.FeiImage.time
   Experimenter.UserName: FEI_TITAN.FeiImage.currentUser
-  Image.ScanSettings.LineIntegrationCount: FEI_TITAN.FeiImage.integrations
+  FEI_TITAN.FeiImage.integrations: FEI_TITAN.FeiImage.integrations
   Image.CropHint.Left: FEI_TITAN.FeiImage.cropHint.left
   Image.CropHint.Top: FEI_TITAN.FeiImage.cropHint.top
   Image.CropHint.Right: FEI_TITAN.FeiImage.cropHint.right
@@ -169,21 +168,21 @@ SourceMap:
   Image.Corrections.BlackLevel: FEI_TITAN.FeiImage.displayBlackLevel
   Image.Corrections.WhiteLevel: FEI_TITAN.FeiImage.displayWhiteLevel
   Instrument.Vacuum: FEI_TITAN.FeiImage.samplePressureEstimate
-  Image.ScanSettings.scanHW: FEI_TITAN.FeiImage.acquisition.scan.scanHW
-  Image.ScanSettings.acqHW: FEI_TITAN.FeiImage.acquisition.scan.acqHW
+  Image.BeamScanSettings.scanHW: FEI_TITAN.FeiImage.acquisition.scan.scanHW
+  Image.BeamScanSettings.acqHW: FEI_TITAN.FeiImage.acquisition.scan.acqHW
   Plane.PixelDwellTimeUnit: FEI_TITAN.FeiImage.acquisition.scan.dwellTime.unit
   Plane.PixelDwellTime: FEI_TITAN.FeiImage.acquisition.scan.dwellTime.value
   Image.ElectronBeamSettings.SpotSize: FEI_TITAN.FeiImage.acquisition.scan.spotSize
-  Image.ScanSettings.spotPresetName: FEI_TITAN.FeiImage.acquisition.scan.spotPresetName
-  Image.ScanSettings.Rotation.Value: FEI_TITAN.FeiImage.acquisition.scan.rotation
-  Image.ScanSettings.LineInterlacing: FEI_TITAN.FeiImage.acquisition.scan.interlace
-  Image.ScanSettings.detector: FEI_TITAN.FeiImage.acquisition.scan.detector
-  Image.ScanSettings.detectorMixFactors.bsdA: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.bsdA
-  Image.ScanSettings.detectorMixFactors.bsdB: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.bsdB
-  Image.ScanSettings.detectorMixFactors.bsdC: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.bsdC
-  Image.ScanSettings.detectorMixFactors.bsdD: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.bsdD
-  Image.ScanSettings.detectorMixFactors.sed: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.sed
-  Image.ScanSettings.detectorMixFactors.stem: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.stem
+  Image.BeamScanSettings.spotPresetName: FEI_TITAN.FeiImage.acquisition.scan.spotPresetName
+  Image.BeamScanSettings.Rotation: FEI_TITAN.FeiImage.acquisition.scan.rotation
+  Image.BeamScanSettings.LineInterlacing: FEI_TITAN.FeiImage.acquisition.scan.interlace
+  Image.BeamScanSettings.detector: FEI_TITAN.FeiImage.acquisition.scan.detector
+  Image.BeamScanSettings.detectorMixFactors.bsdA: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.bsdA
+  Image.BeamScanSettings.detectorMixFactors.bsdB: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.bsdB
+  Image.BeamScanSettings.detectorMixFactors.bsdC: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.bsdC
+  Image.BeamScanSettings.detectorMixFactors.bsdD: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.bsdD
+  Image.BeamScanSettings.detectorMixFactors.sed: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.sed
+  Image.BeamScanSettings.detectorMixFactors.stem: FEI_TITAN.FeiImage.acquisition.scan.detectorMixFactors.stem
   GenericDetector[0].mixFactor: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.mixFactor
   GenericDetector[0].A: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.A
   GenericDetector[0].B: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.B
@@ -214,19 +213,19 @@ SourceMap:
   Image.ElectronBeamSettings.SourceTilt.Y: FEI_TITAN.FeiImage.acquisition.scan.sourceTilt.y
   Image.ElectronBeamSettings.Stigmator.X: FEI_TITAN.FeiImage.acquisition.scan.stigmator.x
   Image.ElectronBeamSettings.Stigmator.Y: FEI_TITAN.FeiImage.acquisition.scan.stigmator.y
-  Image.ScanSettings.sourceTime.unit: FEI_TITAN.FeiImage.acquisition.scan.sourceTime.unit
-  Image.ScanSettings.sourceTime.value: FEI_TITAN.FeiImage.acquisition.scan.sourceTime.value
-  Image.ScanSettings.sourceId: FEI_TITAN.FeiImage.acquisition.scan.sourceId
+  Image.BeamScanSettings.sourceTime.unit: FEI_TITAN.FeiImage.acquisition.scan.sourceTime.unit
+  Image.BeamScanSettings.sourceTime.value: FEI_TITAN.FeiImage.acquisition.scan.sourceTime.value
+  Image.BeamScanSettings.sourceId: FEI_TITAN.FeiImage.acquisition.scan.sourceId
   Image.ElectronBeamSettings.AccelerationVoltage.Unit: FEI_TITAN.FeiImage.acquisition.scan.highVoltage.unit
   Image.ElectronBeamSettings.AccelerationVoltage.Value: FEI_TITAN.FeiImage.acquisition.scan.highVoltage.value
   Image.ElectronBeamSettings.EmissionCurrent.Unit: FEI_TITAN.FeiImage.acquisition.scan.emissionCurrent.unit
   Image.ElectronBeamSettings.EmissionCurrent.Value: FEI_TITAN.FeiImage.acquisition.scan.emissionCurrent.value
-  Image.ScanSettings.emissionCurrentPresetName: FEI_TITAN.FeiImage.acquisition.scan.emissionCurrentPresetName
-  Image.ScanSettings.filamentPower.unit: FEI_TITAN.FeiImage.acquisition.scan.filamentPower.unit
-  Image.ScanSettings.filamentPower.value: FEI_TITAN.FeiImage.acquisition.scan.filamentPower.value
-  Image.ScanSettings.scanCenter.x: FEI_TITAN.FeiImage.acquisition.scan.scanCenter.x
-  Image.ScanSettings.scanCenter.y: FEI_TITAN.FeiImage.acquisition.scan.scanCenter.y
-  Image.ScanSettings.scanScale: FEI_TITAN.FeiImage.acquisition.scan.scanScale
+  Image.BeamScanSettings.emissionCurrentPresetName: FEI_TITAN.FeiImage.acquisition.scan.emissionCurrentPresetName
+  Image.BeamScanSettings.filamentPower.unit: FEI_TITAN.FeiImage.acquisition.scan.filamentPower.unit
+  Image.BeamScanSettings.filamentPower.value: FEI_TITAN.FeiImage.acquisition.scan.filamentPower.value
+  Image.BeamScanSettings.scanCenter.x: FEI_TITAN.FeiImage.acquisition.scan.scanCenter.x
+  Image.BeamScanSettings.scanCenter.y: FEI_TITAN.FeiImage.acquisition.scan.scanCenter.y
+  Image.BeamScanSettings.scanScale: FEI_TITAN.FeiImage.acquisition.scan.scanScale
   Image.ElectronBeamSettings.WorkingDistance.Unit: FEI_TITAN.FeiImage.workingDistance.unit
   Image.ElectronBeamSettings.WorkingDistance.Value: FEI_TITAN.FeiImage.workingDistance.value
   Instrument.type: FEI_TITAN.FeiImage.instrument.type

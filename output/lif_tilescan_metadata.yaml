@@ -798,9 +798,6 @@ HardwareSetting:
     RotatorAngle: 1.2994761884307
     PinholeAiry: 1.00009739182015
     EmissionWavelengthForPinholeAiryCalculation: 580
-    FrameAverage: 1
-    FrameAccumulation: 1
-    Line_Accumulation: 1
     AreBleachPointsEnabled: 0
     InTrigger: -1
     OutTrigger: -1
@@ -2769,7 +2766,19 @@ LightPath:
     EffectiveZoom: 1.24999920527191
     ScanDirectionality: Bidirectional
     PresetPinholeSize: 6.5323284410948e-05
-    IntegrationNumber: 16
+    Integration:
+    - Unit: Frame
+      Method: Average
+      Number: 1
+    - Unit: Line
+      Method: Average
+      Number: 16
+    - Unit: Frame
+      Method: Sum
+      Number: 1
+    - Unit: Line
+      Method: Sum
+      Number: 1
     PresetPinholeSizeUnit: m
 AcquisitionSoftware:
   Name: LAS X 3.5.2.18963
@@ -20780,10 +20789,26 @@ SourceMap:
   LightPath.ConfocalScannerSettings.PresetPinholeSize: HardwareSetting.ConfocalSettingDefinition.Pinhole
   HardwareSetting.ConfocalSettingDefinition.PinholeAiry: HardwareSetting.ConfocalSettingDefinition.PinholeAiry
   HardwareSetting.ConfocalSettingDefinition.EmissionWavelengthForPinholeAiryCalculation: HardwareSetting.ConfocalSettingDefinition.EmissionWavelengthForPinholeAiryCalculation
-  HardwareSetting.ConfocalSettingDefinition.FrameAverage: HardwareSetting.ConfocalSettingDefinition.FrameAverage
-  LightPath.ConfocalScannerSettings.IntegrationNumber: HardwareSetting.ConfocalSettingDefinition.LineAverage
-  HardwareSetting.ConfocalSettingDefinition.FrameAccumulation: HardwareSetting.ConfocalSettingDefinition.FrameAccumulation
-  HardwareSetting.ConfocalSettingDefinition.Line_Accumulation: HardwareSetting.ConfocalSettingDefinition.Line_Accumulation
+  LightPath.ConfocalScannerSettings.Integration[0].Unit:
+  - HardwareSetting.ConfocalSettingDefinition.FrameAverage
+  LightPath.ConfocalScannerSettings.Integration[0].Method:
+  - HardwareSetting.ConfocalSettingDefinition.FrameAverage
+  LightPath.ConfocalScannerSettings.Integration[0].Number: HardwareSetting.ConfocalSettingDefinition.FrameAverage
+  LightPath.ConfocalScannerSettings.Integration[1].Unit:
+  - HardwareSetting.ConfocalSettingDefinition.LineAverage
+  LightPath.ConfocalScannerSettings.Integration[1].Method:
+  - HardwareSetting.ConfocalSettingDefinition.LineAverage
+  LightPath.ConfocalScannerSettings.Integration[1].Number: HardwareSetting.ConfocalSettingDefinition.LineAverage
+  LightPath.ConfocalScannerSettings.Integration[2].Unit:
+  - HardwareSetting.ConfocalSettingDefinition.FrameAccumulation
+  LightPath.ConfocalScannerSettings.Integration[2].Method:
+  - HardwareSetting.ConfocalSettingDefinition.FrameAccumulation
+  LightPath.ConfocalScannerSettings.Integration[2].Number: HardwareSetting.ConfocalSettingDefinition.FrameAccumulation
+  LightPath.ConfocalScannerSettings.Integration[3].Unit:
+  - HardwareSetting.ConfocalSettingDefinition.Line_Accumulation
+  LightPath.ConfocalScannerSettings.Integration[3].Method:
+  - HardwareSetting.ConfocalSettingDefinition.Line_Accumulation
+  LightPath.ConfocalScannerSettings.Integration[3].Number: HardwareSetting.ConfocalSettingDefinition.Line_Accumulation
   HardwareSetting.ConfocalSettingDefinition.AreBleachPointsEnabled: HardwareSetting.ConfocalSettingDefinition.AreBleachPointsEnabled
   HardwareSetting.ConfocalSettingDefinition.InTrigger: HardwareSetting.ConfocalSettingDefinition.InTrigger
   HardwareSetting.ConfocalSettingDefinition.OutTrigger: HardwareSetting.ConfocalSettingDefinition.OutTrigger

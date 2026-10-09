@@ -378,13 +378,11 @@ HardwareSettingList:
       Unit: ''
       Description: Frame-Accumulation
       Data: 0
-      Variant: 1
       VariantType: 3
     nAverageFrame:
       Unit: ''
       Description: Frame-Average
       Data: 0
-      Variant: 1
       VariantType: 3
     nAverageLine:
       Unit: ''
@@ -433,7 +431,6 @@ HardwareSettingList:
       Unit: ''
       Description: Line-Accumulation
       Data: 0
-      Variant: 3
       VariantType: 3
     nLines:
       Unit: ''
@@ -1023,7 +1020,19 @@ LightPath:
   ConfocalScannerSettings:
     PresetPinholeSize: 0.000156039037739575
     EffectiveZoom: 2.50000238418806
-    IntegrationNumber: 1
+    Integration:
+    - Unit: Frame
+      Method: Sum
+      Number: 1
+    - Unit: Frame
+      Method: Average
+      Number: 1
+    - Unit: Line
+      Method: Average
+      Number: 1
+    - Unit: Line
+      Method: Sum
+      Number: 3
     PresetPinholeSizeUnit: m
 Pixels:
   PhysicalSizeZUnit: m
@@ -3392,17 +3401,29 @@ SourceMap:
   HardwareSettingList.ScannerSetting.nAccumulation.Unit: HardwareSettingList.ScannerSetting.nAccumulation.Unit
   HardwareSettingList.ScannerSetting.nAccumulation.Description: HardwareSettingList.ScannerSetting.nAccumulation.Description
   HardwareSettingList.ScannerSetting.nAccumulation.Data: HardwareSettingList.ScannerSetting.nAccumulation.Data
-  HardwareSettingList.ScannerSetting.nAccumulation.Variant: HardwareSettingList.ScannerSetting.nAccumulation.Variant
+  LightPath.ConfocalScannerSettings.Integration[0].Unit:
+  - HardwareSettingList.ScannerSetting.nAccumulation.Variant
+  LightPath.ConfocalScannerSettings.Integration[0].Method:
+  - HardwareSettingList.ScannerSetting.nAccumulation.Variant
+  LightPath.ConfocalScannerSettings.Integration[0].Number: HardwareSettingList.ScannerSetting.nAccumulation.Variant
   HardwareSettingList.ScannerSetting.nAccumulation.VariantType: HardwareSettingList.ScannerSetting.nAccumulation.VariantType
   HardwareSettingList.ScannerSetting.nAverageFrame.Unit: HardwareSettingList.ScannerSetting.nAverageFrame.Unit
   HardwareSettingList.ScannerSetting.nAverageFrame.Description: HardwareSettingList.ScannerSetting.nAverageFrame.Description
   HardwareSettingList.ScannerSetting.nAverageFrame.Data: HardwareSettingList.ScannerSetting.nAverageFrame.Data
-  HardwareSettingList.ScannerSetting.nAverageFrame.Variant: HardwareSettingList.ScannerSetting.nAverageFrame.Variant
+  LightPath.ConfocalScannerSettings.Integration[1].Unit:
+  - HardwareSettingList.ScannerSetting.nAverageFrame.Variant
+  LightPath.ConfocalScannerSettings.Integration[1].Method:
+  - HardwareSettingList.ScannerSetting.nAverageFrame.Variant
+  LightPath.ConfocalScannerSettings.Integration[1].Number: HardwareSettingList.ScannerSetting.nAverageFrame.Variant
   HardwareSettingList.ScannerSetting.nAverageFrame.VariantType: HardwareSettingList.ScannerSetting.nAverageFrame.VariantType
   HardwareSettingList.ScannerSetting.nAverageLine.Unit: HardwareSettingList.ScannerSetting.nAverageLine.Unit
   HardwareSettingList.ScannerSetting.nAverageLine.Description: HardwareSettingList.ScannerSetting.nAverageLine.Description
   HardwareSettingList.ScannerSetting.nAverageLine.Data: HardwareSettingList.ScannerSetting.nAverageLine.Data
-  LightPath.ConfocalScannerSettings.IntegrationNumber: HardwareSettingList.ScannerSetting.nAverageLine.Variant
+  LightPath.ConfocalScannerSettings.Integration[2].Unit:
+  - HardwareSettingList.ScannerSetting.nAverageLine.Variant
+  LightPath.ConfocalScannerSettings.Integration[2].Method:
+  - HardwareSettingList.ScannerSetting.nAverageLine.Variant
+  LightPath.ConfocalScannerSettings.Integration[2].Number: HardwareSettingList.ScannerSetting.nAverageLine.Variant
   HardwareSettingList.ScannerSetting.nAverageLine.VariantType: HardwareSettingList.ScannerSetting.nAverageLine.VariantType
   HardwareSettingList.ScannerSetting.nBegin.Unit: HardwareSettingList.ScannerSetting.nBegin.Unit
   HardwareSettingList.ScannerSetting.nBegin.Description: HardwareSettingList.ScannerSetting.nBegin.Description
@@ -3442,7 +3463,11 @@ SourceMap:
   HardwareSettingList.ScannerSetting.nLineAccumulation.Unit: HardwareSettingList.ScannerSetting.nLineAccumulation.Unit
   HardwareSettingList.ScannerSetting.nLineAccumulation.Description: HardwareSettingList.ScannerSetting.nLineAccumulation.Description
   HardwareSettingList.ScannerSetting.nLineAccumulation.Data: HardwareSettingList.ScannerSetting.nLineAccumulation.Data
-  HardwareSettingList.ScannerSetting.nLineAccumulation.Variant: HardwareSettingList.ScannerSetting.nLineAccumulation.Variant
+  LightPath.ConfocalScannerSettings.Integration[3].Unit:
+  - HardwareSettingList.ScannerSetting.nLineAccumulation.Variant
+  LightPath.ConfocalScannerSettings.Integration[3].Method:
+  - HardwareSettingList.ScannerSetting.nLineAccumulation.Variant
+  LightPath.ConfocalScannerSettings.Integration[3].Number: HardwareSettingList.ScannerSetting.nLineAccumulation.Variant
   HardwareSettingList.ScannerSetting.nLineAccumulation.VariantType: HardwareSettingList.ScannerSetting.nLineAccumulation.VariantType
   HardwareSettingList.ScannerSetting.nLines.Unit: HardwareSettingList.ScannerSetting.nLines.Unit
   HardwareSettingList.ScannerSetting.nLines.Description: HardwareSettingList.ScannerSetting.nLines.Description

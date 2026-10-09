@@ -10,7 +10,7 @@ record. That places each value in one of five categories, best first:
 - no_fit: kept as a Property although the mapper found its model field: the
   value's type, format or enumeration does not fit the field, or it is taken
 - no_field: kept as a Property, the mapper having found a model path whose
-  group the model has, but no field of that name (Image.ScanSettings.scanHW)
+  group the model has, but no field of that name (Image.BeamScanSettings.scanHW)
 - no_location: kept as a Property, no rule and no model path taking it
 
 The first two are covered. A value the dataset holds twice (a combined date
@@ -144,7 +144,7 @@ class FitContext:
             for pattern, parts in ((pattern, pattern.split('.')) for pattern in self.mapper.item_fields))
 
     def is_extension(self, field_path):
-        """Whether the dataset field `field_path` (Image[0].ScanSettings.Rotation.Value) runs through a class or
+        """Whether the dataset field `field_path` (Image[0].BeamScanSettings.Rotation) runs through a class or
         slot LiMi does not have."""
         current, result = self.model.root, False
         for name in unindexed(field_path).split('.'):

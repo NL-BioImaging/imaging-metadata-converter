@@ -99,7 +99,10 @@ published version using metaseed's own compatibility check
   detector's `Gain`, `Offset`, `Brightness`, `Contrast`, `ExposureTime`,
   `Binning`, `Enabled` and `Inserted`, and `ScanSettings.Detector`, removed,
   and its acquisition values (live and real time, count rates, spectrum
-  energies, collection angle range) moved,
+  energies, collection angle range) moved, and `Image.ScanSettings` made
+  `BeamScanSettings` under a `ScanSettings` every scan shares, LiMi's
+  `ConfocalScannerSettings` among them (its rotation and scan direction moved
+  up, its integration fields reshaped into the `Integration` list),
   for LiMi's `DetectorSettings` of the image's channel; 1.2's
   `Pixels.TimePoints`, never published, comes with it.
 

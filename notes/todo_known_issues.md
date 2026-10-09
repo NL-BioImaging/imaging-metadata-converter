@@ -61,6 +61,14 @@ Hub's "Breaking changes"; run it before publishing a new version.
   analytical values of an acquisition (LiveTime, RealTime, PulseProcessTime, Input/OutputCountRate, Dispersion,
   OffsetEnergy, BeginEnergy, ElectronicsNoise, which differs between acquisitions, and CollectionAngleRange); a
   detector keeps where it sits (CollectionAngle, ElevationAngle, AzimuthAngle, the same in both TALOS files).
+  Scans (user, 2026-10-09): ScanSettings, an abstract class every scan shares, is the parent of LiMi's
+  ConfocalScannerSettings (re-parented), BeamScanSettings (EM, was Image.ScanSettings) and SlideScanSettings
+  (Aperio's stripes); ConfocalScannerSettings' Rotation(+Unit) and ScanDirectionality moved up, and its
+  IntegrationNumber/Unit/Method reshaped into ScanSettings.Integration[] {Number, Unit, Method} (Leica writes line
+  and frame averages and accumulations at once), each marked moved_from (tests/test_linkml_converter.py follows
+  them); FrameTime, LineTime added. Rules name an Integration item by its fields (Integration[Unit=Line,
+  Method=Average].Number). Not mapped: the MICA's confocal-block times (its image is a widefield camera image),
+  Phenom's `integrations` (line or frame unstated).
 
 ### Validation of the exports
 
@@ -323,6 +331,10 @@ structure, for common fields in the source data"). A value is only a candidate i
      SystemTypeName, Cikteq's ProductName); Instrument.Name is a name a user gave it (DICOM's StationName), and
      Type the kind of instrument (DICOM's modality), not a product family (Velox's InstrumentClass, Phenom's
      type, which stay Properties); user, 2026-10-09;
+   - what several kinds of a thing share defined once, on a parent they have in common (ScanSettings for confocal,
+     beam and slide scans), LiMi's own fields moved up to it where they are not confocal's alone; a field of
+     LiMi's is reshaped only where its shape cannot hold what sources state (Integration, a list), and marked
+     moved_from;
    - LiMi's names and terms first, then OME's: Instrument.CatalogNumber, LiMi's "Catalog, Part or Serial
      Number", not a SerialNumber LiMi does not have; "Oil" from OME's immersion list, not a new term;
    - the shared classes for values with a unit or several parts: Quantity {Value, Unit} with the unit as
