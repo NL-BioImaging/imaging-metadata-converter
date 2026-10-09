@@ -57,3 +57,13 @@ def test_a_field_takes_the_larger_tier_of_its_own_and_its_class():
     assert docs_data._tier(tiered('3'), tiered('1')) == 3
     assert docs_data._tier(tiered(None), tiered('2')) == 2
     assert docs_data._tier(tiered(None), tiered(None)) is None
+
+
+def test_details_name_the_root_and_what_an_abstract_class_stands_for():
+    data = docs_data.ModelData()
+    details = json.loads(data.files()['details.json'])
+    assert details['root'] == 'OME'
+    assert 'Laser' in details['subclasses']['LightSource']
+    assert 'CCD' in details['subclasses']['Detector']
+    for concrete in details['subclasses'].values():
+        assert set(concrete) <= set(data.tree)

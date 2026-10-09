@@ -1,5 +1,13 @@
 # The metadata model
 
+<div class="github-only" markdown>
+
+**Reading this on GitHub?** The interactive model browser below, and the
+numbers on this page, only show on the documentation site:
+[nl-bioimaging.github.io/imaging-metadata-converter/model](https://nl-bioimaging.github.io/imaging-metadata-converter/model/).
+
+</div>
+
 The model is the target of every conversion: the **imaging model** (version
 {{ model.version }}), a [LinkML](https://linkml.io) schema shipped as
 `src/imaging_metadata_converter/models/imaging.yaml`. It is LiMi — the
@@ -15,6 +23,16 @@ a class with its own identifier (`OME`, `Image`, `Pixels`, `Laser`, ...) and
 continues through the components nested in it, so every value has exactly one
 path. The browser below reads the packaged model directly, so it always shows
 what the installed version actually maps to.
+
+The browser starts at the model's root, `OME`. Opening a group shows what it
+holds, and a field holding a class opens that class in place: `OME` holds
+`Image`, which holds `Pixels`, which holds `Channel`. A field holding an
+abstract class, such as `Instrument.LightSource`, opens onto the classes that
+can stand for it (`Laser`, `Arc`, ...). Paths still start at the nearest class
+with its own identifier, so `Pixels.PhysicalSizeX` sits under `OME > Image >
+Pixels`. A class held in several places, such as `MapAnnotation`, shows the
+same fields in each. The only class `OME` cannot reach, `LightSensor`, is
+listed beside it.
 
 ## Browse the model
 
@@ -42,10 +60,12 @@ How to use it:
 - Clicking a field or group name opens what the model says of it (see
   [Reading a field](#reading-a-field)); its *copy* button copies its dotted
   path, ready to paste as the right-hand side of a mapping rule.
-- A class badge links to that class's own place in the tree.
+- The badge of a reference, or of a class already open above it, links to
+  where that class is opened.
 - A path in the URL fragment opens, highlights and describes that field, so
   [`#Pixels.PhysicalSizeX`](#Pixels.PhysicalSizeX) is a shareable link to one
-  field.
+  field, and [`#Laser`](#Laser) to one class. A class held in several places
+  opens where it is nested least deep.
 
 An unbadged field is one no mapping rule targets yet. That is not a gap in the
 model — it is a field awaiting a source that provides it.
@@ -171,7 +191,7 @@ Every field is shown with its range as a badge:
 | --- | --- |
 | a type (`string`, `float`, `integer`, `boolean`, `datetime`, ...) | a plain value |
 | an enumeration (`UnitsLength`, `UnitsTime`, ...) | one of a fixed set of values, such as a unit |
-| a class (`Annotation`, `Channel`, ...) | an object with its own place at the top of the tree: nested in this one, or referred to by its `ID` if the field is marked *ref* |
+| a class (`Annotation`, `Channel`, ...) | an object nested in this one, opened in place, or referred to by its `ID` if the field is marked *ref* |
 
 and with what the model constrains it to, from its LinkML slot:
 

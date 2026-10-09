@@ -4,6 +4,14 @@
  * from the packaged model, so the page never lists fields by hand: plain
  * nested JSON where every leaf is "FieldName": "range", and, per path, what
  * the model says of it beyond its range (data/details.json).
+ *
+ * The tree starts at the model's root, OME: a field holding a class opens
+ * that class's fields in place, and one holding an abstract class opens the
+ * classes that can stand for it, so every class is reached by drilling down.
+ * A path keeps the form the converter targets, starting at the nearest class
+ * with its own place in model.json (Pixels.PhysicalSizeX, not
+ * OME.Image.Pixels.PhysicalSizeX), so a class nested in several places shows
+ * the same paths in each.
  */
 (function () {
   'use strict';
@@ -133,8 +141,24 @@
     item.classList.toggle('mt-details-open', open);
   }
 
-  /* One <li> per model entry; groups nest another <ul> below their header. */
-  function buildNode(key, value, path, context) {
+  /* The classes a field holding `range` opens into: the class itself, or
+   * the concrete classes standing for an abstract one. A reference holds an
+   * ID, not the object, and a class already open above would nest forever. */
+  function nestedClasses(range, info, ancestors, context) {
+    if (info.reference) return [];
+    var classes = context.model.hasOwnProperty(range) ? [range] : context.subclasses[range] || [];
+    return classes.filter(function (name) { return !ancestors[name]; });
+  }
+
+  function withAncestor(ancestors, name) {
+    var extended = Object.create(ancestors);
+    extended[name] = true;
+    return extended;
+  }
+
+  /* One <li> per model entry; groups nest another <ul> below their header.
+   * `ancestors` names the classes open above it. */
+  function buildNode(key, value, path, context, ancestors) {
     var item = el('li', 'mt-item');
     item.dataset.path = path;
     var info = context.info(path);
@@ -142,8 +166,17 @@
 
     var row = el('div', 'mt-row');
     var leaf = isLeaf(value);
+    var nested = leaf ? nestedClasses(value, info, ancestors, context) : [];
+    if (leaf) item.dataset.field = 'true';
+    /* A field holding a class opens straight onto that class's fields; one
+     * holding an abstract class lists the classes standing for it first. */
+    var single = nested.length === 1 && nested[0] === value;
+    if (single) {
+      item.dataset.nestedClass = value;
+      context.reached[value] = true;
+    }
 
-    if (leaf) {
+    if (leaf && !nested.length) {
       row.appendChild(el('span', 'mt-bullet', '·'));
     } else {
       var toggle = el('button', 'mt-toggle');
@@ -163,7 +196,12 @@
     });
     row.appendChild(name);
 
-    if (leaf && context.model.hasOwnProperty(value)) {
+    if (nested.length) {
+      row.appendChild(el('span', 'mt-type mt-type-class', value));
+      row.appendChild(el('span', 'mt-count', single
+        ? countFields(context.model[value]) + ' fields'
+        : nested.length + ' classes'));
+    } else if (leaf && (context.model.hasOwnProperty(value) || context.subclasses[value])) {
       var range = el('a', 'mt-type mt-type-class', value);
       range.href = '#' + value;
       range.title = 'Go to ' + value;
@@ -197,15 +235,36 @@
 
     item.appendChild(row);
 
-    if (!leaf) {
+    if (!leaf || nested.length) {
       var children = el('ul', 'mt-children');
       children.style.display = 'none';   /* every group starts collapsed */
-      Object.keys(value).forEach(function (childKey) {
-        children.appendChild(buildNode(
-          childKey, value[childKey], path + '.' + childKey, context));
-      });
+      if (single) {
+        appendFields(children, context.model[value], value, context, withAncestor(ancestors, value));
+      } else if (nested.length) {
+        nested.forEach(function (name) {
+          children.appendChild(classNode(name, context, ancestors));
+        });
+      } else {
+        appendFields(children, value, path, context, ancestors);
+      }
       item.appendChild(children);
     }
+    return item;
+  }
+
+  /* The fields of `node`, a class or an inline group, at `path`. */
+  function appendFields(list, node, path, context, ancestors) {
+    Object.keys(node).forEach(function (childKey) {
+      list.appendChild(buildNode(
+        childKey, node[childKey], path + '.' + childKey, context, ancestors));
+    });
+  }
+
+  /* A class as an entry of its own: at the top, or standing for an abstract class. */
+  function classNode(name, context, ancestors) {
+    context.reached[name] = true;
+    var item = buildNode(name, context.model[name], name, context, withAncestor(ancestors, name));
+    item.dataset.nestedClass = name;
     return item;
   }
 
@@ -244,8 +303,8 @@
   /* Map each model target path to the source paths mappings.json sends to it,
    * so the tree shows which fields a conversion can actually populate. A rule
    * can name several targets. A per-item target (Pixels.Channel[*].Fluorophore
-   * .EmissionWavelength) runs through classes with their own place in the
-   * tree, the top-level keys, so it is shown from the last one it passes. */
+   * .EmissionWavelength) runs through classes with their own place in
+   * model.json, its top-level keys, so it is shown from the last one it passes. */
   function mappingTargets(mappings, model) {
     var targets = {};
     Object.keys(mappings || {}).forEach(function (source) {
@@ -273,7 +332,7 @@
   function applyFilter(tree, options) {
     var needle = options.query.trim().toLowerCase();
     var filtering = !!needle || options.onlyExtended || options.onlyMapped || !!options.maxTier;
-    var shown = 0;
+    var shown = {};
 
     function matches(path) {
       return path.toLowerCase().indexOf(needle) >= 0
@@ -303,12 +362,13 @@
       item.style.display = visible ? '' : 'none';
       item.classList.toggle('mt-match', self && filtering);
       if (filtering && kidMatched) setOpen(item, true);
-      if (self && !children) shown += 1;
+      if (self && item.dataset.field) shown[item.dataset.path] = true;
       return visible;
     }
 
     Array.prototype.forEach.call(tree.children, visit);
-    return shown;
+    /* a class nested in several places shows its fields in each, counted once */
+    return Object.keys(shown).length;
   }
 
   function init(container) {
@@ -355,6 +415,8 @@
       model: model,
       added: added,
       targets: mappingTargets(mappings, model),
+      subclasses: details.subclasses || {},
+      reached: {},
       text: function (index) { return details.texts[index]; },
       info: function (path) {
         var info = details.paths[path] || {};
@@ -419,15 +481,21 @@
         : shown + ' of ' + total + ' fields';
     }
 
-    /* #Image.Pixels.SizeX in the URL opens, scrolls to and describes that field. */
+    /* #Pixels.SizeX in the URL opens, scrolls to and describes that field,
+     * and #Pixels that class, where it is nested least deep. */
     function openFromHash() {
       var path = decodeURIComponent(window.location.hash.replace(/^#/, ''));
       if (!path) return;
       var match = null;
+      var matchDepth = Infinity;
       Array.prototype.forEach.call(
         tree.querySelectorAll('.mt-item'), function (item) {
-          if (item.dataset.path === path) match = item;
           item.classList.remove('mt-target');
+          var depth = depthOf(item);
+          if ((item.dataset.path === path || item.dataset.nestedClass === path) && depth < matchDepth) {
+            match = item;
+            matchDepth = depth;
+          }
         });
       if (!match) return;
       for (var node = match; node && node !== tree; node = node.parentElement) {
@@ -440,10 +508,19 @@
       match.scrollIntoView({ block: 'center' });
     }
 
+    function depthOf(item) {
+      var depth = 0;
+      for (var node = item; node && node !== tree; node = node.parentElement) depth += 1;
+      return depth;
+    }
+
+    /* The root first, then beside it every class it does not reach. */
     function draw() {
       tree.textContent = '';
+      context.reached = {};
+      if (model.hasOwnProperty(details.root)) tree.appendChild(classNode(details.root, context, {}));
       Object.keys(model).forEach(function (key) {
-        tree.appendChild(buildNode(key, model[key], key, context));
+        if (!context.reached[key]) tree.appendChild(classNode(key, context, {}));
       });
       refresh();
       openFromHash();

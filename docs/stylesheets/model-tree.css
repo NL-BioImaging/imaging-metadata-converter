@@ -1,6 +1,11 @@
 /* Styling for the interactive model browser (docs/javascripts/model-tree.js).
    Colours come from the Material theme variables so light and dark both work. */
 
+/* model.md's pointer to this site, for readers of the page on GitHub */
+.github-only {
+  display: none;
+}
+
 .mt-controls {
   display: flex;
   flex-wrap: wrap;

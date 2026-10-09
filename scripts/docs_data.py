@@ -1,6 +1,6 @@
 """MkDocs hook: the model data the docs read, built from the packaged model.
 
-The interactive model browser (docs/model.md) fetches three JSON files at
+The interactive model browser (docs/model.md) fetches four JSON files at
 runtime. They are not kept in the repository: this hook writes them into
 the site as it is built, straight from the packaged model and mappings, so
 the browser always shows the model the package ships.
@@ -13,7 +13,9 @@ the browser always shows the model the package ships.
 - data/details.json - what the model says of each path beyond its range:
   description, LiMi tier, required, multivalued, identifier, reference,
   the class declaring it, Category and Domain, and mappings to OME;
-  descriptions are listed once, in "texts", and named by index
+  descriptions are listed once, in "texts", and named by index; and the
+  model's root class and each abstract class's concrete subclasses, which
+  the browser follows to nest every class under the root
 
 It also fills in the pages' {{ model.<name> }} placeholders: the model's
 counts on model.md, so no number there is typed by hand, the model map
@@ -155,7 +157,12 @@ def path_details(model, tree):
         entry.update({key: value for key, value in (('tier', _tier(cls)), ('is_a', cls.is_a)) if value})
         details[class_name] = entry
         visit(class_name, node, class_name)
-    return {'texts': list(texts), 'paths': details}
+    # an abstract range has no place in the tree, so the browser opens it as the classes that can stand for it
+    subclasses = {name: [descendant for descendant in model.view.class_descendants(name, reflexive=False)
+                         if descendant in tree]
+                  for name, cls in model.classes.items() if cls.abstract}
+    return {'texts': list(texts), 'paths': details, 'root': model.root,
+            'subclasses': {name: concrete for name, concrete in subclasses.items() if concrete}}
 
 
 def _schema(element):
