@@ -215,7 +215,7 @@ Clicking a name opens the rest:
 | --- | --- | --- |
 | the text | `description` | the field's or class's description, from LiMi's XSD; the ones LiMi leaves out come from the OME 2016-06 schema, and say so (`description_source`) |
 | *Class*, *Range*, *Refers to* | `range` | the class of a group, or the range of a field, linked to its place in the tree |
-| *Values* | `permissible_values` | for a field whose range is an enumeration, every value it allows, with its description and the other spellings it is known by (`aliases`), such as `µm` also `um` |
+| *Values* | `permissible_values` | for a field whose range is an enumeration, every value it allows (collapsed until clicked), with its description and the other spellings it is known by (`aliases`), such as `µm` also `um` |
 | *Is a* | `is_a` | for a class, the class it extends |
 | *Declared by* | the class owning the slot | for an inherited field, the class it is declared on: `Laser.Manufacturer` is `ManufacturerSpec`'s, shared by every piece of hardware; an extension field names its mixin (`InstrumentExtension`) |
 | *Category*, *Domain* | LiMi's annotations | where LiMi files the field or class, such as `LightSource` in `MicroscopeHardwareSpecifications` |

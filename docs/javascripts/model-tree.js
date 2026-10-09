@@ -105,7 +105,10 @@
       }
       values.appendChild(item);
     });
-    block.appendChild(values);
+    var collapsed = el('details', 'mt-values-toggle');
+    collapsed.appendChild(el('summary', null, enumeration.values.length + ' values'));
+    collapsed.appendChild(values);
+    block.appendChild(collapsed);
     return block;
   }
 

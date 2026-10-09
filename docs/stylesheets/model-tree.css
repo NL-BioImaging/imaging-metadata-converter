@@ -317,3 +317,29 @@
 .md-typeset .mt-values .mt-value-description {
   color: var(--md-default-fg-color--light);
 }
+
+.md-typeset details.mt-values-toggle {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background: none;
+  font-size: inherit;
+}
+
+.md-typeset details.mt-values-toggle > summary {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font-weight: normal;
+  color: var(--md-typeset-a-color);
+  cursor: pointer;
+  display: list-item;
+  list-style: revert;
+}
+
+.md-typeset details.mt-values-toggle > summary::before,
+.md-typeset details.mt-values-toggle > summary::after {
+  content: none;
+}
