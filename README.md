@@ -2,13 +2,12 @@
 
 Convert custom (vendor-specific) imaging acquisition metadata to common metadata.
 
-Dict in, dict out - no file I/O, no CLI. The target is the imaging model, a
-LinkML model built from LiMi and extended with electron-microscopy and other
-imaging metadata; the one dependency is `linkml-runtime`, for reading it.
+The target is the imaging model, 
+a LinkML model built from LiMi and extended with electron-microscopy and other imaging metadata;
+depending on `linkml-runtime`.
 
-The model, and the metaseed profile made from it, are maintained here (see
-Maintaining the model); they were developed in
-[imaging-metadata-consolidator](https://github.com/NL-BioImaging/imaging-metadata-consolidator),
+The model, and the metaseed profile made from it, are maintained here
+(see Maintaining the model); they were developed in [imaging-metadata-consolidator](https://github.com/NL-BioImaging/imaging-metadata-consolidator),
 which this repository replaces.
 
 Documentation, with a browser for the whole model and a map of what the
