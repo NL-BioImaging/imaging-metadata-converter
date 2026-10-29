@@ -86,8 +86,10 @@ value to its source.
 | `models/imaging_provenance.yaml` | `Property`, `SourceFile` and `SourceMapping`: where values came from, and the ones the model does not model |
 | `models/imaging_units.yaml` | the {{ model.unit_enums }} unit enumerations, each unit with the other spellings it is known by |
 
-Together they give {{ model.paths }} paths, {{ model.fields }} of them fields; {{ model.added_fields }} of those
-fields are added by the extension and provenance schemas.
+Together they define {{ model.fields }} fields, {{ model.added_fields }} of them added by the extension
+and provenance schemas. A field reaches a path through every subclass of its
+class and every place that class is nested, so they give {{ model.paths }}
+paths, {{ model.field_paths }} of them fields: the targets a mapping rule can name.
 
 `AcquisitionMetadataMapper` reads `imaging.yaml` unless you pass
 `schema_file`, and uses its paths twice: as the set of valid mapping targets,

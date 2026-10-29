@@ -107,6 +107,35 @@ def leaf_ranges(tree):
             yield value
 
 
+def field_id(model, class_name, slot_name):
+    """'DeclaringClass.slot': the one field behind every path `class_name` has `slot_name` at.
+
+    A class's field reaches many paths, through each subclass and each place
+    the class is nested; it is one field however many paths it gives.
+    """
+    declared = declarers(model, class_name, slot_name)
+    return f'{declared[-1] if declared else class_name}.{slot_name}'
+
+
+def field_definitions(model, tree):
+    """{field id: whether only added classes declare it} for every field of `tree`."""
+    added = added_classes(model)
+    definitions = {}
+
+    def visit(class_name, node):
+        for name, value in node.items():
+            slot, next_class = model.slot_at(class_name, name)
+            if isinstance(value, dict):
+                visit(next_class, value)
+            else:
+                definitions[field_id(model, class_name, slot.name)] = \
+                    declared_only_by_added(model, added, class_name, slot.name)
+
+    for class_name, node in tree.items():
+        visit(class_name, node)
+    return definitions
+
+
 def _annotation(element, name):
     annotations = element.annotations
     return str(annotations[name].value) if annotations is not None and name in annotations else None
@@ -159,6 +188,8 @@ def path_details(model, tree):
             if isinstance(value, dict):
                 entry['class'] = next_class
                 visit(next_class, value, current)
+            else:
+                entry['field'] = field_id(model, class_name, slot.name)
             details[current] = entry
 
     for class_name, node in tree.items():
@@ -222,8 +253,7 @@ class ModelData:
         abstract = sum(1 for cls in self.model.classes.values()
                        if cls.abstract and _schema(cls) == 'imaging')
         enums = Counter(_schema(enum) for enum in view.all_enums().values())
-        added = set(self.added)
-        fields = list(leaf_paths(self.tree))
+        definitions = field_definitions(self.model, self.tree)
         return {
             'version': view.schema.version,
             'classes': classes['imaging'],
@@ -234,8 +264,9 @@ class ModelData:
             'provenance_classes': classes['provenance'],
             'unit_enums': enums['units'],
             'paths': len(list(all_paths(self.tree))),
-            'fields': len(fields),
-            'added_fields': sum(1 for path in fields if path in added),
+            'field_paths': len(list(leaf_paths(self.tree))),
+            'fields': len(definitions),
+            'added_fields': sum(definitions.values()),
             'rules': len(self.mappings),
         }
 

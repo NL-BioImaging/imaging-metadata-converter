@@ -36,10 +36,6 @@
     return out;
   }
 
-  function countFields(node) {
-    return Object.keys(leaves(node, '')).length;
-  }
-
   function el(tag, className, text) {
     var node = document.createElement(tag);
     if (className) node.className = className;
@@ -194,7 +190,7 @@
     var row = el('div', 'mt-row');
     var leaf = isLeaf(value);
     var nested = leaf ? nestedClasses(value, info, ancestors, context) : [];
-    if (leaf) item.dataset.field = 'true';
+    if (leaf) item.dataset.field = info.field || path;
     /* A field holding a class opens straight onto that class's fields; one
      * holding an abstract class lists the classes standing for it first. */
     var single = nested.length === 1 && nested[0] === value;
@@ -223,11 +219,10 @@
     });
     row.appendChild(name);
 
+    var count = el('span', 'mt-count');
     if (nested.length) {
       row.appendChild(el('span', 'mt-type mt-type-class', value));
-      row.appendChild(el('span', 'mt-count', single
-        ? countFields(context.model[value]) + ' fields'
-        : nested.length + ' classes'));
+      row.appendChild(count);
     } else if (leaf && (context.model.hasOwnProperty(value) || context.subclasses[value])) {
       var range = el('a', 'mt-type mt-type-class', value);
       range.href = '#' + value;
@@ -236,7 +231,7 @@
     } else if (leaf) {
       row.appendChild(el('span', 'mt-type mt-type-' + value, value));
     } else {
-      row.appendChild(el('span', 'mt-count', countFields(value) + ' fields'));
+      row.appendChild(count);
     }
 
     constraintFlags(info).forEach(function (node) { row.appendChild(node); });
@@ -275,8 +270,26 @@
         appendFields(children, value, path, context, ancestors);
       }
       item.appendChild(children);
+      item.fieldsBelow = fieldsBelow(children);
+      count.textContent = counted(children.children.length, leaf && !single ? 'class' : 'item')
+        + ' · ' + counted(Object.keys(item.fieldsBelow).length, 'field');
     }
     return item;
+  }
+
+  /* The fields of every row below, at any depth: a field shown at several
+   * paths, through subclasses and nesting, counts once, as in the total. */
+  function fieldsBelow(children) {
+    var fields = {};
+    Array.prototype.forEach.call(children.children, function (child) {
+      if (child.dataset.field) fields[child.dataset.field] = true;
+      Object.keys(child.fieldsBelow || {}).forEach(function (field) { fields[field] = true; });
+    });
+    return fields;
+  }
+
+  function counted(number, noun) {
+    return number + ' ' + noun + (number === 1 ? '' : noun === 'class' ? 'es' : 's');
   }
 
   /* The fields of `node`, a class or an inline group, at `path`. */
@@ -389,12 +402,12 @@
       item.style.display = visible ? '' : 'none';
       item.classList.toggle('mt-match', self && filtering);
       if (filtering && kidMatched) setOpen(item, true);
-      if (self && item.dataset.field) shown[item.dataset.path] = true;
+      if (self && item.dataset.field) shown[item.dataset.field] = true;
       return visible;
     }
 
     Array.prototype.forEach.call(tree.children, visit);
-    /* a class nested in several places shows its fields in each, counted once */
+    /* a field shown at many paths, through subclasses and nesting, counts once */
     return Object.keys(shown).length;
   }
 
@@ -453,6 +466,12 @@
       }
     };
 
+    var fieldIds = {};
+    Object.keys(ranges).forEach(function (path) {
+      fieldIds[context.info(path).field || path] = true;
+    });
+    var total = Object.keys(fieldIds).length;
+
     var described = {};
     function describe(path) {
       if (!described.hasOwnProperty(path)) {
@@ -503,7 +522,6 @@
         searchDescriptions: descriptions.box.checked,
         describe: describe
       });
-      var total = countFields(model);
       status.textContent = shown === total
         ? total + ' fields'
         : shown + ' of ' + total + ' fields';

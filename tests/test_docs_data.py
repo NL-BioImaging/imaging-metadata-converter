@@ -49,6 +49,15 @@ def test_details_state_what_the_model_says():
     assert paths['Laser']['domain'] == 'MicroscopeHardwareSpecifications'
 
 
+def test_the_browser_counts_the_fields_the_page_does():
+    data = docs_data.ModelData()
+    paths = json.loads(data.files()['details.json'])['paths']
+    leaves = list(docs_data.leaf_paths(data.tree))
+    field_ids = {paths[path]['field'] for path in leaves}
+    assert len(field_ids) == data.counts()['fields'] < len(leaves)
+    assert paths['Laser.Manufacturer']['field'] == paths['Arc.Manufacturer']['field'] == 'ManufacturerSpec.Manufacturer'
+
+
 def test_a_field_takes_the_larger_tier_of_its_own_and_its_class():
     def tiered(tier):
         return SimpleNamespace(annotations={'Tier': SimpleNamespace(value=tier)} if tier else None)
