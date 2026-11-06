@@ -217,3 +217,15 @@ built: it writes the JSON the model browser fetches (`data/model.json`,
 `added.json`, `mappings.json`, `details.json`) into the site, fills in the model's counts on
 `model.md`, and the examples' fit on `model-fit.md`. A new version of the model files or an edited
 `mappings.json` shows up on the next build, with nothing to regenerate.
+
+## Use of AI
+
+Generative AI coding assistants were used in developing this software, including tests and documentation.
+All changes are directed and approved by a maintainer, and checked by automated tests where applicable.
+
+## License
+
+[MIT]
+
+
+[MIT]: http://opensource.org/licenses/MIT
