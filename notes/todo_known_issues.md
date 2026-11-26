@@ -198,33 +198,19 @@ with `core.autocrlf` Windows checked six of them out with CRLF, so the committed
 
 ## In progress
 
-Spatial metadata, shared by every reader (branch `spatial-metadata`, 2026-11-26). Readers each turn their file
-into a metadata dict; this package maps it and returns the pixel size, position and rotation, normalised, so
-readers share one solution instead of each keeping their own name search. The package stays dict in, dict out,
-and knows nothing of the packages using it.
+Nothing.
 
-1. No linkml at runtime: the parts of the model the mapper uses (tree, root, detector settings, aliases,
-   spellings) are saved as `models/model_index.json`, generated from the model by a script, and loaded by
-   default. linkml-runtime moves to a `[model]` extra (ModelPaths, exporters, scripts). Path constants move out
-   of `ModelPaths.py`, so importing one needs no linkml. A test regenerates the index and compares it.
-2. Units: a conversion factor per unit in `imaging_units.yaml` (to the unit system's base), carried into the
-   index, and `normalise(value, unit, target)`. Rotations always in degrees, lengths in µm. Units implied by a
-   rule (FEI ScanRotation: rad) normalise the same way.
-3. Spatial values: from mapped metadata, the pixel size (µm), position (µm), rotation (deg) and stage rotation
-   (deg), read from the model's fields. A rotation is returned as written (only normalised); the convention is
-   documented.
-4. Generic rules: wildcard rules in `mappings.json` for the common vendor names of these fields, code only
-   where a rule cannot say it. Vendor cases (Ciqtek, FEI, Phenom, Fibics, ...) as metadata dicts in the tests.
+## Spatial metadata
 
-Status: steps 1-4 done on the branch (last commit "Spatial rules for Ciqtek and FEI"); next: PR, release (minor:
-new API, linkml-runtime now optional), then the readers switch to it. Step 4 added rules for Ciqtek
-Beam.ElectricRotate (deg) and FEI Beam.ScanRotation, Stage.StageX/Y/Z/R/T, Scan.PixelWidth/Height (m, rad), and
-the pixel size from the field of view over the pixels (Ciqtek HFW, Fibics FOV_X/Y; one axis: square pixels). Step 3 reads: rotation Image.BeamScanSettings / SlideScanSettings.Rotation; stage rotation
-Plane.Rotation / Plane.RawStage.Rotation; position Plane.Position* / Image.StageLabel; pixel size
-Pixels.PhysicalSize*. No unit: µm or degrees. Found while testing: Ciqtek (Beam.ElectricRotate, Stage.X/R) and
-FEI under FEI_HELIOS/FEI_SFEG (Beam.ScanRotation, Stage.StageX/StageR, Scan.PixelWidth) are not mapped onto
-these fields yet (they land in Image.ElectronBeamSettings / MechanicalStage as they are).
-Factors are exact numbers in text (Fraction), so 1.5 mm is 1500 µm exactly; the angle reference is the degree.
+Shared by every reader (2.1.0, 2026-11-26): readers turn their file into a metadata dict; `spatial_metadata`
+returns the pixel size and position (µm) and the image's and stage's rotation (degrees) from the mapped
+metadata, read from: rotation Image.BeamScanSettings / SlideScanSettings.Rotation; stage rotation Plane.Rotation /
+Plane.RawStage.Rotation; position Plane.Position* (or Image.Pixels.Plane) / Image.StageLabel; pixel size
+(Image.)Pixels.PhysicalSize*, else the field of view over the pixels (one axis: square pixels). A value without
+a unit is in µm or degrees; a vendor whose unit differs states it in its rule (FEI: m, rad). Unit factors are
+exact numbers in text (fractions); the angle reference is the degree. A vendor whose values are missing needs a
+rule, not code in a reader. Checked against biomero-converter on its TIFF set (C:/Project/slides/tiff): the same
+pixel sizes and positions, plus rotations.
 
 ## The model and the pipeline
 
