@@ -109,8 +109,14 @@
     "pixelWidth.unit": "Pixels.PhysicalSizeXUnit",
     "pixelHeight.value": "Pixels.PhysicalSizeY",
     "pixelHeight.unit": "Pixels.PhysicalSizeYUnit",
-    "samplePosition.x": "Plane.PositionX",
-    "samplePosition.y": "Plane.PositionY",
+    "samplePosition.x": {
+        "target": "Plane.PositionX",
+        "unit": "m"
+    },
+    "samplePosition.y": {
+        "target": "Plane.PositionY",
+        "unit": "m"
+    },
     "acquisition.scan.dwellTime.value": "Plane.PixelDwellTime",
     "acquisition.scan.dwellTime.unit": "Plane.PixelDwellTimeUnit",
     "acquisition.scan.rotation": "Image.BeamScanSettings.Rotation",
@@ -193,6 +199,14 @@
     },
     "BinaryResult.PixelSize.width": "Pixels.PhysicalSizeX",
     "BinaryResult.PixelSize.height": "Pixels.PhysicalSizeY",
+    "BinaryResult.PixelSize.X": {
+        "target": "Pixels.PhysicalSizeX",
+        "unit": "m"
+    },
+    "BinaryResult.PixelSize.Y": {
+        "target": "Pixels.PhysicalSizeY",
+        "unit": "m"
+    },
     "BinaryResult.PixelUnitX": "Pixels.PhysicalSizeXUnit",
     "BinaryResult.PixelUnitY": "Pixels.PhysicalSizeYUnit",
     "Application.Version": "AcquisitionSoftware.Version",
@@ -241,6 +255,8 @@
     "Stage.Tilt.units": "Plane.TiltUnit",
     "Stage.Rot.value": "Plane.Rotation",
     "Stage.Rot.units": "Plane.RotationUnit",
+    "Stage.R.value": "Plane.Rotation",
+    "Stage.R.units": "Plane.RotationUnit",
     "objective.immersion": "Objective.ImmersionType",
     "objective.lens_na": "Objective.LensNA",
     "objective.nominal_magnification": "Objective.Magnification",

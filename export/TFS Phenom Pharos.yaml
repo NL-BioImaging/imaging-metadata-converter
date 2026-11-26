@@ -143,15 +143,25 @@ Image:
       Field: Image[0].Pixels.Plane[0].PixelDwellTime
       Source: FEI_TITAN.FeiImage.acquisition.scan.dwellTime.value
     - ID: SourceMapping:40
+      Field: Image[0].Pixels.Plane[0].PositionXUnit
+      Source: FEI_TITAN.FeiImage.samplePosition.x
+      DerivedFrom:
+      - FEI_TITAN.FeiImage.samplePosition.x
+    - ID: SourceMapping:41
+      Field: Image[0].Pixels.Plane[0].PositionYUnit
+      Source: FEI_TITAN.FeiImage.samplePosition.y
+      DerivedFrom:
+      - FEI_TITAN.FeiImage.samplePosition.y
+    - ID: SourceMapping:42
       Field: Instrument[0].CatalogNumber
       Source: FEI_TITAN.FeiImage.instrument.uniqueID
-    - ID: SourceMapping:41
+    - ID: SourceMapping:43
       Field: Instrument[0].Model
       Source: FEI_TITAN.FeiImage.instrument.edition
-    - ID: SourceMapping:42
+    - ID: SourceMapping:44
       Field: Instrument[0].GenericDetector[0].Name
       Source: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD
-    - ID: SourceMapping:43
+    - ID: SourceMapping:45
       Field: Instrument[0].GenericDetector[0].ID
       Source: FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.mixFactor + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.A
         + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.B + FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.C
@@ -166,23 +176,23 @@ Image:
       - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.gain
       - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.offset
       - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD
-    - ID: SourceMapping:44
+    - ID: SourceMapping:46
       Field: Instrument[0].GenericDetector[1].Name
       Source: FEI_TITAN.FeiImage.acquisition.scan.detectors.SED
-    - ID: SourceMapping:45
+    - ID: SourceMapping:47
       Field: Instrument[0].GenericDetector[2].Name
       Source: FEI_TITAN.FeiImage.acquisition.scan.detectors.STEM
-    - ID: SourceMapping:46
+    - ID: SourceMapping:48
       Field: Instrument[0].AcquisitionSoftware[0].Version
       Source: FEI_TITAN.FeiImage.instrument.softwareVersion
-    - ID: SourceMapping:47
+    - ID: SourceMapping:49
       Field: Experiment[0].Sample[0].SampleHolder[0].Type
       Source: FEI_TITAN.FeiImage.instrument.sampleHolder.type
       SourceValue: '1'
-    - ID: SourceMapping:48
+    - ID: SourceMapping:50
       Field: Experiment[0].Sample[0].SampleHolder[0].ID
       Source: FEI_TITAN.FeiImage.instrument.sampleHolder.id
-    - ID: SourceMapping:49
+    - ID: SourceMapping:51
       Field: Image[0].Pixels.Channel[0].SamplesPerPixel
       Source: SamplesPerPixel
   Pixels:
@@ -202,6 +212,8 @@ Image:
       PositionY: 0
       PixelDwellTimeUnit: ns
       PixelDwellTime: 499.9999999999999
+      PositionXUnit: m
+      PositionYUnit: m
   AcquisitionDate: '2024-02-06T13:21:05'
   CropHint:
     Left: 0

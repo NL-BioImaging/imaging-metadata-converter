@@ -37,6 +37,22 @@ class SpatialVendorTest(unittest.TestCase):
         metadata = {'FEI_HELIOS': {'Scan': {'PixelWidth': 1e-08, 'PixelHeight': 1e-08}}}
         self.assertEqual(self.spatial(metadata)['pixel_size'], {'x': 0.01, 'y': 0.01})
 
+    def test_fei_titan_pixel_size_in_metres(self):
+        metadata = {'Metadata': {'BinaryResult': {'PixelSize': {'X': 1.6528e-9, 'Y': 1.6528e-9}}}}
+        self.assertEqual(self.spatial(metadata)['pixel_size'], {'x': 0.0016528, 'y': 0.0016528})
+
+    def test_fei_stage_section_over_beam_copy(self):
+        metadata = {'FEI_HELIOS': {'IRBeam': {'StageX': -0.00126661}, 'Stage': {'StageX': 0.0699197}}}
+        self.assertEqual(self.spatial(metadata)['position'], {'x': 69919.7})
+
+    def test_phenom_sample_position_in_metres(self):
+        self.assertEqual(self.spatial({'samplePosition': {'x': 0.002, 'y': -0.001}})['position'],
+                         {'x': 2000.0, 'y': -1000.0})
+
+    def test_stage_rotation_with_units(self):
+        self.assertEqual(self.spatial({'Stage': {'R': {'value': 0.5, 'units': 'rad'}}})['stage_rotation'],
+                         28.64788975654116)
+
     def test_phenom_scan_rotation(self):
         self.assertEqual(self.spatial({'acquisition': {'scan': {'rotation': 90}}})['rotation'], 90.0)
 
