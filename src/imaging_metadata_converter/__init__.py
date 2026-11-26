@@ -30,12 +30,11 @@ __all__ = [
     'DEFAULT_MODEL_FILE',
     'DEFAULT_MODEL_INDEX_FILE',
     'DEFAULT_SCHEMA_FILE',
-    'ModelPaths',
     'SOURCE_MAP_KEY',
     'convert_metadata',
-]
+] + (['ModelPaths'] if 'ModelPaths' in globals() else [])
 
-__version__ = '2.0.1'
+__version__ = '2.1.0'
 
 _default_mapper = None
 

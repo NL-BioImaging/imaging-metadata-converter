@@ -48,6 +48,10 @@ class ModelIndexTest(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(result.stdout.strip(), '0.5')
 
+    def test_star_import_without_linkml(self):
+        result = run_without_linkml('from imaging_metadata_converter import *')
+        self.assertEqual(result.returncode, 0, result.stderr)
+
     def test_model_paths_names_the_extra_without_linkml(self):
         result = run_without_linkml(MODEL_PATHS)
         self.assertIn('imaging-metadata-converter[model]', result.stdout)
