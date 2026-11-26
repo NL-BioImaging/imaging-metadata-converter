@@ -3,7 +3,8 @@
 Uses the field mappings in mappings/mappings.json to translate vendor-
 specific metadata trees into the imaging model (models/imaging.yaml, see
 ModelPaths for the paths it uses). This module works purely with in-memory
-dicts.
+dicts, and reads the model from its index (models/model_index.json), so
+mapping needs no LinkML.
 
 Fields with no entry in mappings.json are matched against the schema itself
 as a fallback, since some sources (e.g. OME-derived metadata) already use
@@ -17,10 +18,10 @@ import re
 from datetime import date, datetime, time, timedelta, timezone
 from fnmatch import fnmatchcase
 
-from .ModelPaths import DEFAULT_MODEL_FILE, ModelPaths
+from .model_files import DEFAULT_MODEL_INDEX_FILE
 
 
-DEFAULT_SCHEMA_FILE = DEFAULT_MODEL_FILE
+DEFAULT_SCHEMA_FILE = DEFAULT_MODEL_INDEX_FILE
 DEFAULT_MAPPINGS_FILE = os.path.join(os.path.dirname(__file__), 'mappings', 'mappings.json')
 DEFAULT_COMBINATIONS_FILE = os.path.join(os.path.dirname(__file__), 'mappings', 'combinations.json')
 SOURCE_MAP_KEY = 'SourceMap'
@@ -75,11 +76,10 @@ class AcquisitionMetadataMapper:
 
     def __init__(self, schema_file=DEFAULT_SCHEMA_FILE, mappings_file=DEFAULT_MAPPINGS_FILE,
                  combinations_file=DEFAULT_COMBINATIONS_FILE):
-        # a LinkML model, or (for tests) a JSON tree of the same {name: subtree or type} shape
-        model = ModelPaths(schema_file) if schema_file.endswith(('.yaml', '.yml')) else None
-        self.schema = model.tree() if model else self._load_json(schema_file)
-        self._root = model.root if model else None
-        self._detector_settings = model.detector_settings() if model else {}
+        model = self._load_model(schema_file)
+        self.schema = model['tree']
+        self._root = model['root']
+        self._detector_settings = model['detector_settings']
         rules = self._load_json(mappings_file)
         # a rule may state the unit its source implies but never writes: {"target": ..., "unit": "mm"}
         self.mappings = {source: rule['target'] if isinstance(rule, dict) else rule for source, rule in rules.items()}
@@ -97,14 +97,26 @@ class AcquisitionMetadataMapper:
         self.combinations = self._load_json(combinations_file) if os.path.exists(combinations_file) else []
         self._schema_index = self._build_schema_index(self.schema)
         # "Detector.Name" in a source still names a field, of the model's default detector (GenericDetector)
-        for alias, path in (model.aliases() if model else {}).items():
+        for alias, path in model['aliases'].items():
             self._schema_index.setdefault(tuple(part.lower() for part in alias.split('.')), path)
         self._known_keys, self._known_key_patterns = self._build_known_key_index(self.mappings, self.schema)
         self._model_fields = set(self._schema_leaf_paths(self.schema))
         # the model's spelling of each enumeration value a source may spell otherwise, by the field it is for
-        spellings = model.spellings() if model else {}
+        spellings = model['spellings']
         self._spellings = {path: spellings[value_range] for path, value_range in self._schema_leaf_ranges(self.schema)
                            if value_range in spellings}
+
+    @classmethod
+    def _load_model(cls, schema_file):
+        """What the mapper uses of the model: from its index (the default), from a LinkML model (needs the [model]
+        extra), or, for tests, from a JSON tree of the index's tree shape ({name: subtree or type})."""
+        if schema_file.endswith(('.yaml', '.yml')):
+            from .ModelPaths import ModelPaths
+            return ModelPaths(schema_file).index()
+        loaded = cls._load_json(schema_file)
+        if 'tree' in loaded and 'root' in loaded:
+            return loaded
+        return {'root': None, 'tree': loaded, 'detector_settings': {}, 'aliases': {}, 'spellings': {}}
 
     @staticmethod
     def _load_json(file_path):

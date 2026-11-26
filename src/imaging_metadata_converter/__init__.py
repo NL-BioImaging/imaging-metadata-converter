@@ -14,13 +14,21 @@ from .AcquisitionMetadataMapper import (
     SOURCE_MAP_KEY,
     AcquisitionMetadataMapper,
 )
-from .ModelPaths import DEFAULT_MODEL_FILE, ModelPaths
+from .model_files import DEFAULT_MODEL_FILE, DEFAULT_MODEL_INDEX_FILE
+
+try:
+    from .ModelPaths import ModelPaths
+except ImportError as error:
+    # ModelPaths reads the LinkML model itself (the [model] extra); mapping works without it
+    if not (error.name or '').startswith('linkml'):
+        raise
 
 __all__ = [
     'AcquisitionMetadataMapper',
     'DEFAULT_COMBINATIONS_FILE',
     'DEFAULT_MAPPINGS_FILE',
     'DEFAULT_MODEL_FILE',
+    'DEFAULT_MODEL_INDEX_FILE',
     'DEFAULT_SCHEMA_FILE',
     'ModelPaths',
     'SOURCE_MAP_KEY',
@@ -30,6 +38,12 @@ __all__ = [
 __version__ = '2.0.1'
 
 _default_mapper = None
+
+
+def __getattr__(name):
+    if name == 'ModelPaths':
+        raise ImportError('ModelPaths reads the LinkML model: install imaging-metadata-converter[model]')
+    raise AttributeError(f'module {__name__!r} has no attribute {name!r}')
 
 
 def _get_default_mapper():

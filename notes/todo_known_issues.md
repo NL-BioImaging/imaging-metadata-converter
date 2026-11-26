@@ -8,7 +8,7 @@ Carried over from imaging-metadata-consolidator (2026-09-29), which this reposit
 
 Published on the Hub (account j.j.m.defolter@amsterdamumc.nl): profile `imaging` 0.1, 0.2, 1.0 (model
 1.0.0, 2026-09-28) and 1.1 (= `profile/imaging.metaseed.yaml`, model 1.1.0, published by the user
-2026-09-30); the account holds no datasets. After a change to the model: regenerate (`python scripts/metaseed_generator.py`), run
+2026-09-30); the account holds no datasets. After a change to the model: regenerate (`python scripts/model_index.py`, `python scripts/metaseed_generator.py`), run
 metaseed's compatibility check against the last published version (see "Profile versions"), bump the
 version, and push and publish again.
 
@@ -198,7 +198,25 @@ with `core.autocrlf` Windows checked six of them out with CRLF, so the committed
 
 ## In progress
 
-Nothing.
+Spatial metadata, shared by every reader (branch `spatial-metadata`, 2026-11-26). Readers each turn their file
+into a metadata dict; this package maps it and returns the pixel size, position and rotation, normalised, so
+readers share one solution instead of each keeping their own name search. The package stays dict in, dict out,
+and knows nothing of the packages using it.
+
+1. No linkml at runtime: the parts of the model the mapper uses (tree, root, detector settings, aliases,
+   spellings) are saved as `models/model_index.json`, generated from the model by a script, and loaded by
+   default. linkml-runtime moves to a `[model]` extra (ModelPaths, exporters, scripts). Path constants move out
+   of `ModelPaths.py`, so importing one needs no linkml. A test regenerates the index and compares it.
+2. Units: a conversion factor per unit in `imaging_units.yaml` (to the unit system's base), carried into the
+   index, and `normalise(value, unit, target)`. Rotations always in degrees, lengths in µm. Units implied by a
+   rule (FEI ScanRotation: rad) normalise the same way.
+3. Spatial values: from mapped metadata, the pixel size (µm), position (µm), rotation (deg) and stage rotation
+   (deg), read from the model's fields. A rotation is returned as written (only normalised); the convention is
+   documented.
+4. Generic rules: wildcard rules in `mappings.json` for the common vendor names of these fields, code only
+   where a rule cannot say it. Vendor cases (Ciqtek, FEI, Phenom, Fibics, ...) as metadata dicts in the tests.
+
+Status: step 1 done (commit "Map metadata without LinkML"); step 2 next.
 
 ## The model and the pipeline
 
