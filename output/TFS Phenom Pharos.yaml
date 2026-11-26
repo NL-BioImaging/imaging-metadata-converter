@@ -87,6 +87,8 @@ Plane:
   PositionY: 0
   PixelDwellTimeUnit: ns
   PixelDwellTime: 499.9999999999999
+  PositionXUnit: m
+  PositionYUnit: m
 Instrument:
   Vacuum: 21.03543261569751
   type: Phenom
@@ -242,6 +244,10 @@ SourceMap:
   PhotometricInterpretation: PhotometricInterpretation
   Channel.SamplesPerPixel: SamplesPerPixel
   ResolutionUnit: ResolutionUnit
+  Plane.PositionXUnit:
+  - FEI_TITAN.FeiImage.samplePosition.x
+  Plane.PositionYUnit:
+  - FEI_TITAN.FeiImage.samplePosition.y
   GenericDetector[0].ID:
   - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.mixFactor
   - FEI_TITAN.FeiImage.acquisition.scan.detectors.QBSD.A

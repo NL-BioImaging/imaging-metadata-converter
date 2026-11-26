@@ -11,7 +11,7 @@ import os.path
 
 from linkml_runtime.utils.schemaview import SchemaView
 
-DEFAULT_MODEL_FILE = os.path.join(os.path.dirname(__file__), 'models', 'imaging.yaml')
+from .model_files import DEFAULT_MODEL_FILE
 
 
 class ModelPaths:
@@ -112,6 +112,21 @@ class ModelPaths:
         return {name: {alias: value for value, spec in enum.permissible_values.items() for alias in spec.aliases}
                 for name, enum in self.view.all_enums().items()
                 if any(spec.aliases for spec in enum.permissible_values.values())}
+
+    def index(self):
+        """What the mapper uses of the model, as plain JSON (see model_files.DEFAULT_MODEL_INDEX_FILE)."""
+        return {'root': self.root, 'tree': self.tree(), 'detector_settings': self.detector_settings(),
+                'aliases': self.aliases(), 'spellings': self.spellings(), 'unit_factors': self.unit_factors()}
+
+    def unit_factors(self):
+        """{enumeration: {unit: its conversion_factor}} for the units that convert into each other: each unit's size
+        in a reference unit of its kind (lengths: metre, angles: degree), as an exact number in text ("1e-6",
+        "9/10")."""
+        return {name: {value: str(spec.annotations['conversion_factor'].value)
+                       for value, spec in enum.permissible_values.items()
+                       if 'conversion_factor' in (spec.annotations or {})}
+                for name, enum in self.view.all_enums().items()
+                if any('conversion_factor' in (spec.annotations or {}) for spec in enum.permissible_values.values())}
 
     def parents(self, class_name):
         """(class, slot) pairs nesting `class_name` directly."""

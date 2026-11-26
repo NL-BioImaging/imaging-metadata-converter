@@ -11,7 +11,6 @@ Image:
     BeamUpY: 0
     ElectricMoveX: 0.01
     ElectricMoveY: -0.2
-    ElectricRotate: 0.0
     Focus: 51662.0
     ImagingMode: 0
     Current:
@@ -46,6 +45,7 @@ Image:
     Condenser1: 1374
     Condenser2: 1103
   BeamScanSettings:
+    Rotation: 0.0
     Drift: true
     Integration:
     - Unit: Frame
@@ -55,6 +55,7 @@ Image:
       Method: Sum
       Number: 1
     LineInterlacing: Disable
+    RotationUnit: deg
     FrameTime: 149
     FrameTimeUnit: s
     FieldOfView:
@@ -139,7 +140,7 @@ SourceMap:
   Image.ElectronOpticsSettings.Condenser2: FEI_HELIOS.Beam.Condenser2
   Image.ElectronBeamSettings.ElectricMoveX: FEI_HELIOS.Beam.ElectricMoveX
   Image.ElectronBeamSettings.ElectricMoveY: FEI_HELIOS.Beam.ElectricMoveY
-  Image.ElectronBeamSettings.ElectricRotate: FEI_HELIOS.Beam.ElectricRotate
+  Image.BeamScanSettings.Rotation: FEI_HELIOS.Beam.ElectricRotate
   Image.ElectronBeamSettings.Focus: FEI_HELIOS.Beam.Focus
   Image.ElectronBeamSettings.ImagingMode: FEI_HELIOS.Beam.ImagingMode
   Image.ElectronBeamSettings.Current.Value: FEI_HELIOS.Beam.RealAbsCurrent
@@ -219,6 +220,8 @@ SourceMap:
   PhotometricInterpretation: PhotometricInterpretation
   Channel.SamplesPerPixel: SamplesPerPixel
   ResolutionUnit: ResolutionUnit
+  Image.BeamScanSettings.RotationUnit:
+  - FEI_HELIOS.Beam.ElectricRotate
   Image.ElectronBeamSettings.WorkingDistance.Unit:
   - FEI_HELIOS.Beam.WD
   Plane.PixelDwellTimeUnit:

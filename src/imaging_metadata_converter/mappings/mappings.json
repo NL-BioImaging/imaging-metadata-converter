@@ -15,6 +15,14 @@
     "Beam.AstigY": "Image.ElectronBeamSettings.Stigmator.Y",
     "Beam.ShiftX": "Image.ElectronBeamSettings.Shift.X",
     "Beam.ShiftY": "Image.ElectronBeamSettings.Shift.Y",
+    "Beam.ElectricRotate": {
+        "target": "Image.BeamScanSettings.Rotation",
+        "unit": "deg"
+    },
+    "Beam.ScanRotation": {
+        "target": "Image.BeamScanSettings.Rotation",
+        "unit": "rad"
+    },
     "Detector.DetectorName": "GenericDetector.Name",
     "Detector.Gain": "LightPath.GenericDetectorSettings.AnalogGain",
     "Detector.Brightness": "LightPath.GenericDetectorSettings.Brightness",
@@ -49,6 +57,34 @@
         "target": "Plane.Tilt",
         "unit": "deg"
     },
+    "Stage.StageX": {
+        "target": "Plane.PositionX",
+        "unit": "m"
+    },
+    "Stage.StageY": {
+        "target": "Plane.PositionY",
+        "unit": "m"
+    },
+    "Stage.StageZ": {
+        "target": "Plane.PositionZ",
+        "unit": "m"
+    },
+    "Stage.StageR": {
+        "target": "Plane.Rotation",
+        "unit": "rad"
+    },
+    "Stage.StageT": {
+        "target": "Plane.Tilt",
+        "unit": "rad"
+    },
+    "Scan.PixelWidth": {
+        "target": "Pixels.PhysicalSizeX",
+        "unit": "m"
+    },
+    "Scan.PixelHeight": {
+        "target": "Pixels.PhysicalSizeY",
+        "unit": "m"
+    },
     "Make": "Instrument.Manufacturer",
     "Model": "Instrument.Model",
     "Software": "AcquisitionSoftware.Name",
@@ -73,8 +109,14 @@
     "pixelWidth.unit": "Pixels.PhysicalSizeXUnit",
     "pixelHeight.value": "Pixels.PhysicalSizeY",
     "pixelHeight.unit": "Pixels.PhysicalSizeYUnit",
-    "samplePosition.x": "Plane.PositionX",
-    "samplePosition.y": "Plane.PositionY",
+    "samplePosition.x": {
+        "target": "Plane.PositionX",
+        "unit": "m"
+    },
+    "samplePosition.y": {
+        "target": "Plane.PositionY",
+        "unit": "m"
+    },
     "acquisition.scan.dwellTime.value": "Plane.PixelDwellTime",
     "acquisition.scan.dwellTime.unit": "Plane.PixelDwellTimeUnit",
     "acquisition.scan.rotation": "Image.BeamScanSettings.Rotation",
@@ -157,6 +199,14 @@
     },
     "BinaryResult.PixelSize.width": "Pixels.PhysicalSizeX",
     "BinaryResult.PixelSize.height": "Pixels.PhysicalSizeY",
+    "BinaryResult.PixelSize.X": {
+        "target": "Pixels.PhysicalSizeX",
+        "unit": "m"
+    },
+    "BinaryResult.PixelSize.Y": {
+        "target": "Pixels.PhysicalSizeY",
+        "unit": "m"
+    },
     "BinaryResult.PixelUnitX": "Pixels.PhysicalSizeXUnit",
     "BinaryResult.PixelUnitY": "Pixels.PhysicalSizeYUnit",
     "Application.Version": "AcquisitionSoftware.Version",
@@ -205,6 +255,8 @@
     "Stage.Tilt.units": "Plane.TiltUnit",
     "Stage.Rot.value": "Plane.Rotation",
     "Stage.Rot.units": "Plane.RotationUnit",
+    "Stage.R.value": "Plane.Rotation",
+    "Stage.R.units": "Plane.RotationUnit",
     "objective.immersion": "Objective.ImmersionType",
     "objective.lens_na": "Objective.LensNA",
     "objective.nominal_magnification": "Objective.Magnification",

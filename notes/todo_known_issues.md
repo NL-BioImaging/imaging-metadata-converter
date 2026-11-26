@@ -8,7 +8,7 @@ Carried over from imaging-metadata-consolidator (2026-09-29), which this reposit
 
 Published on the Hub (account j.j.m.defolter@amsterdamumc.nl): profile `imaging` 0.1, 0.2, 1.0 (model
 1.0.0, 2026-09-28) and 1.1 (= `profile/imaging.metaseed.yaml`, model 1.1.0, published by the user
-2026-09-30); the account holds no datasets. After a change to the model: regenerate (`python scripts/metaseed_generator.py`), run
+2026-09-30); the account holds no datasets. After a change to the model: regenerate (`python scripts/model_index.py`, `python scripts/metaseed_generator.py`), run
 metaseed's compatibility check against the last published version (see "Profile versions"), bump the
 version, and push and publish again.
 
@@ -199,6 +199,18 @@ with `core.autocrlf` Windows checked six of them out with CRLF, so the committed
 ## In progress
 
 Nothing.
+
+## Spatial metadata
+
+Shared by every reader (2.1.0, 2026-11-26): readers turn their file into a metadata dict; `spatial_metadata`
+returns the pixel size and position (µm) and the image's and stage's rotation (degrees) from the mapped
+metadata, read from: rotation Image.BeamScanSettings / SlideScanSettings.Rotation; stage rotation Plane.Rotation /
+Plane.RawStage.Rotation; position Plane.Position* (or Image.Pixels.Plane) / Image.StageLabel; pixel size
+(Image.)Pixels.PhysicalSize*, else the field of view over the pixels (one axis: square pixels). A value without
+a unit is in µm or degrees; a vendor whose unit differs states it in its rule (FEI: m, rad). Unit factors are
+exact numbers in text (fractions); the angle reference is the degree. A vendor whose values are missing needs a
+rule, not code in a reader. Checked against biomero-converter on its TIFF set (C:/Project/slides/tiff): the same
+pixel sizes and positions, plus rotations.
 
 ## The model and the pipeline
 

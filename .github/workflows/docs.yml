@@ -28,7 +28,7 @@ jobs:
           cache: pip
 
       - name: Install
-        run: pip install -e ".[docs]" pytest
+        run: pip install -e ".[docs,model]" pytest
 
       - name: Test
         run: python -m pytest tests -q

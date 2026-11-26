@@ -11,6 +11,7 @@ need nothing beyond the package's own dependencies (some of their tests need
 | File | What it is |
 |---|---|
 | `src/imaging_metadata_converter/models/imaging.yaml` | The master model, edited by hand, and its three imports (see [The model](model.md)) |
+| `src/imaging_metadata_converter/models/model_index.json` | What the mapper uses of the model, generated (`scripts/model_index.py`), so mapping needs no LinkML |
 | `src/imaging_metadata_converter/mappings/mappings.json`, `combinations.json` | The mapping rules |
 | `profile/imaging.metaseed.yaml` | The metaseed profile `imaging` 2.0, generated (`scripts/metaseed_generator.py`); 1.1 is published on the metaseed Hub |
 | `export/` | One metaseed dataset per example, generated (`scripts/dataset_exporter.py`) |
@@ -48,6 +49,12 @@ annotations:
 - `LightSensor` is referenced but no element contains it: the one class the
   profile cannot reach, so its references stay plain strings.
 - `LightPath` has no tier in the XSD; tier 1 is taken from `fullSchema.json`.
+
+Units that convert into each other carry a `conversion_factor` annotation: the
+unit's size in a reference unit of its kind (lengths: metre, angles: degree),
+as an exact number in text (`'1e-6'`, `'9/10'`), so a conversion rounds once.
+`imaging_metadata_converter.units.normalise` converts with them, by a unit's
+symbol or any of its aliases. Units without a size (`Pixel`) have none.
 
 ## From the model to a metaseed profile
 
@@ -172,7 +179,8 @@ nested form: `MetaseedClient(...)._facade.load_nested(document)`, then
 ## Reproducing
 
 ```bash
-pip install -e . pytest
+pip install -e ".[model]" pytest
+python scripts/model_index.py           # model -> models/model_index.json, what the mapper uses of it
 python scripts/metaseed_generator.py    # model -> profile/imaging.metaseed.yaml
 python scripts/convert_examples.py      # examples -> output/, as YAML
 python scripts/dataset_exporter.py      # examples -> export/, metaseed datasets

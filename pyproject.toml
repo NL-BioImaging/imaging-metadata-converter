@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "imaging-metadata-converter"
-version = "2.0.1"
+version = "2.1.0"
 description = "Convert custom imaging acquisition metadata to common metadata"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -14,11 +14,13 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Topic :: Scientific/Engineering :: Bio-Informatics",
 ]
-dependencies = [
-    "linkml-runtime>=1.9",
-]
+dependencies = []
 
 [project.optional-dependencies]
+# reading the LinkML model itself (ModelPaths, the scripts, regenerating models/model_index.json); mapping needs none
+model = [
+    "linkml-runtime>=1.9",
+]
 docs = [
     "mkdocs>=1.6",
     "mkdocs-material>=9.5",
@@ -32,7 +34,7 @@ Homepage = "https://github.com/NL-BioImaging/imaging-metadata-converter"
 where = ["src"]
 
 [tool.setuptools.package-data]
-imaging_metadata_converter = ["models/*.yaml", "mappings/*.json"]
+imaging_metadata_converter = ["models/*.yaml", "models/*.json", "mappings/*.json"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

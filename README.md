@@ -19,10 +19,18 @@ converter produces: <https://nl-bioimaging.github.io/imaging-metadata-converter/
 pip install .
 ```
 
+Converting metadata has no dependencies: the mapper reads the model from its
+index (`models/model_index.json`). Working with the LinkML model itself
+(`ModelPaths`, the scripts) needs the `model` extra, with `linkml-runtime`:
+
+```bash
+pip install ".[model]"
+```
+
 Or, for development (editable install plus the tests):
 
 ```bash
-pip install -e .
+pip install -e ".[model]"
 python -m pytest tests
 ```
 
@@ -88,7 +96,23 @@ mapper = AcquisitionMetadataMapper(
 ```
 
 Each argument accepts a file path; omitting one uses the packaged file. The
-model is a LinkML model like `models/imaging.yaml`.
+model is a LinkML model like `models/imaging.yaml` (reading one needs the
+`model` extra), or its index (`models/model_index.json`, the default).
+
+### 4. Where an image is in space
+
+```python
+from imaging_metadata_converter.spatial import spatial_metadata
+from imaging_metadata_converter.units import normalise
+
+spatial = spatial_metadata(convert_metadata(custom))
+# {'pixel_size': {'x': ..., 'y': ...}, 'position': {...}, 'rotation': ..., 'stage_rotation': ...}
+normalise(1.5, 'mm', 'µm')    # 1500.0
+```
+
+`spatial_metadata` reads the pixel size and position (µm), and the image's and
+the stage's rotation (degrees), from the mapped metadata; `normalise` converts
+any length or angle by the model's units, by symbol or alias.
 
 ## Examples
 
@@ -184,6 +208,9 @@ in the documentation describes them in full.
 - `scripts/linkml_converter.py` - converted the LiMi XSD (`reference/`) into
   the model, once; the model is edited by hand since, so it refuses to
   overwrite it without `--force`. Kept for comparing a future LiMi XSD.
+- `scripts/model_index.py` - writes the model index
+  (`src/imaging_metadata_converter/models/model_index.json`), what the mapper
+  uses of the model; rerun it after a change to the model.
 - `scripts/metaseed_generator.py` - generates the metaseed profile
   `profile/imaging.metaseed.yaml` (`imaging` 2.0; 1.1 is published on the
   metaseed Hub) from the model; rerun it after a change to the model.
