@@ -22,17 +22,40 @@ PIXEL_SIZE_FIELDS = (('Pixels', 'PhysicalSize{axis}'),)
 POSITION_FIELDS = (('Plane', 'Position{axis}'), ('Image.StageLabel', '{axis}'))
 ROTATION_FIELDS = (('Image.BeamScanSettings', 'Rotation'), ('Image.SlideScanSettings', 'Rotation'))
 STAGE_ROTATION_FIELDS = (('Plane', 'Rotation'), ('Plane.RawStage', 'Rotation'))
+FIELD_OF_VIEW = 'Image.BeamScanSettings.FieldOfView'
 
 
-def spatial_metadata(mapped):
+def spatial_metadata(mapped, shape=None):
     """{'pixel_size': {axis: µm}, 'position': {axis: µm}, 'rotation': degrees or None,
-    'stage_rotation': degrees or None} from metadata mapped onto the model (convert_metadata's result)."""
+    'stage_rotation': degrees or None} from metadata mapped onto the model (convert_metadata's result).
+
+    `shape` ({axis: pixels}, optional) is the image's size, where the reader knows it better than the metadata.
+    """
     return {
-        'pixel_size': _axes(mapped, PIXEL_SIZE_FIELDS, 'µm'),
+        'pixel_size': _axes(mapped, PIXEL_SIZE_FIELDS, 'µm') or _field_of_view_pixel_size(mapped, shape or {}),
         'position': _axes(mapped, POSITION_FIELDS, 'µm'),
         'rotation': _first_quantity(mapped, ROTATION_FIELDS, None, 'deg'),
         'stage_rotation': _first_quantity(mapped, STAGE_ROTATION_FIELDS, None, 'deg'),
     }
+
+
+def _field_of_view_pixel_size(mapped, shape):
+    """A scanned image (SEM) states its field of view rather than its pixel: the field divided by the pixels across.
+    A field of view for one axis describes square pixels."""
+    field_of_view = _at(mapped, FIELD_OF_VIEW)
+    pixels = _at(mapped, 'Pixels')
+    sizes = {}
+    for axis in ('x', 'y'):
+        extent = field_of_view.get(axis.upper())
+        count = shape.get(axis) or pixels.get(f'Size{axis.upper()}')
+        width = normalise(extent['Value'], extent.get('Unit', 'µm'), 'µm') \
+            if isinstance(extent, dict) and 'Value' in extent else None
+        if width is not None and count:
+            sizes[axis] = width / count
+    if len(sizes) == 1:
+        size = next(iter(sizes.values()))
+        sizes = {'x': size, 'y': size}
+    return sizes
 
 
 def _axes(mapped, fields, unit):

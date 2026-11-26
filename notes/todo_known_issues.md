@@ -216,8 +216,10 @@ and knows nothing of the packages using it.
 4. Generic rules: wildcard rules in `mappings.json` for the common vendor names of these fields, code only
    where a rule cannot say it. Vendor cases (Ciqtek, FEI, Phenom, Fibics, ...) as metadata dicts in the tests.
 
-Status: steps 1-3 done (commits "Map metadata without LinkML", "Unit conversion factors", "Spatial metadata");
-step 4 next. Step 3 reads: rotation Image.BeamScanSettings / SlideScanSettings.Rotation; stage rotation
+Status: steps 1-4 done on the branch (last commit "Spatial rules for Ciqtek and FEI"); next: PR, release (minor:
+new API, linkml-runtime now optional), then the readers switch to it. Step 4 added rules for Ciqtek
+Beam.ElectricRotate (deg) and FEI Beam.ScanRotation, Stage.StageX/Y/Z/R/T, Scan.PixelWidth/Height (m, rad), and
+the pixel size from the field of view over the pixels (Ciqtek HFW, Fibics FOV_X/Y; one axis: square pixels). Step 3 reads: rotation Image.BeamScanSettings / SlideScanSettings.Rotation; stage rotation
 Plane.Rotation / Plane.RawStage.Rotation; position Plane.Position* / Image.StageLabel; pixel size
 Pixels.PhysicalSize*. No unit: µm or degrees. Found while testing: Ciqtek (Beam.ElectricRotate, Stage.X/R) and
 FEI under FEI_HELIOS/FEI_SFEG (Beam.ScanRotation, Stage.StageX/StageR, Scan.PixelWidth) are not mapped onto

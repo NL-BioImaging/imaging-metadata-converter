@@ -59,5 +59,30 @@ class SpatialMetadataTest(unittest.TestCase):
                          ['position'], {})
 
 
+def scanned(field_of_view, **pixels):
+    return {'Image': {'BeamScanSettings': {'FieldOfView': field_of_view}}, 'Pixels': pixels}
+
+
+class FieldOfViewPixelSizeTest(unittest.TestCase):
+    def test_field_of_view_over_pixels(self):
+        mapped = scanned({'X': {'Value': 100, 'Unit': 'µm'}, 'Y': {'Value': 50, 'Unit': 'µm'}}, SizeX=1000, SizeY=250)
+        self.assertEqual(spatial_metadata(mapped)['pixel_size'], {'x': 0.1, 'y': 0.2})
+
+    def test_one_axis_means_square_pixels(self):
+        mapped = scanned({'X': {'Value': 0.1, 'Unit': 'mm'}}, SizeX=1000)
+        self.assertEqual(spatial_metadata(mapped)['pixel_size'], {'x': 0.1, 'y': 0.1})
+
+    def test_shape_given_by_the_reader(self):
+        mapped = scanned({'X': {'Value': 100}}, SizeX=1000)
+        self.assertEqual(spatial_metadata(mapped, shape={'x': 500})['pixel_size'], {'x': 0.2, 'y': 0.2})
+
+    def test_stated_pixel_size_first(self):
+        mapped = scanned({'X': {'Value': 100}}, SizeX=1000, PhysicalSizeX=0.5)
+        self.assertEqual(spatial_metadata(mapped)['pixel_size'], {'x': 0.5})
+
+    def test_no_pixel_count(self):
+        self.assertEqual(spatial_metadata(scanned({'X': {'Value': 100}}))['pixel_size'], {})
+
+
 if __name__ == '__main__':
     unittest.main()
