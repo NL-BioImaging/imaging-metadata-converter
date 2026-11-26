@@ -9,6 +9,14 @@ class SpatialMetadataTest(unittest.TestCase):
                              'PhysicalSizeYUnit': 'nm'}}
         self.assertEqual(spatial_metadata(mapped)['pixel_size'], {'x': 0.01, 'y': 0.01})
 
+    def test_pixel_size_in_ome_image(self):
+        mapped = {'Image': {'Pixels': {'PhysicalSizeX': 2.27, 'PhysicalSizeXUnit': 'µm'}}}
+        self.assertEqual(spatial_metadata(mapped)['pixel_size'], {'x': 2.27})
+
+    def test_position_of_ome_plane(self):
+        mapped = {'Image': {'Pixels': {'Plane': [{'PositionX': 5, 'PositionXUnit': 'µm'}]}}}
+        self.assertEqual(spatial_metadata(mapped)['position'], {'x': 5.0})
+
     def test_value_without_unit_in_micrometres(self):
         self.assertEqual(spatial_metadata({'Pixels': {'PhysicalSizeX': 0.5}})['pixel_size'], {'x': 0.5})
 

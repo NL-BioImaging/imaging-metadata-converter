@@ -18,8 +18,10 @@ from .units import normalise
 
 AXES = ('x', 'y', 'z')
 # where each value is in the model, in order of preference: (class path, field name pattern)
-PIXEL_SIZE_FIELDS = (('Pixels', 'PhysicalSize{axis}'),)
-POSITION_FIELDS = (('Plane', 'Position{axis}'), ('Image.StageLabel', '{axis}'))
+# an OME document nests Pixels in its Image, and the Planes in those Pixels
+PIXEL_SIZE_FIELDS = (('Pixels', 'PhysicalSize{axis}'), ('Image.Pixels', 'PhysicalSize{axis}'))
+POSITION_FIELDS = (('Plane', 'Position{axis}'), ('Image.Pixels.Plane', 'Position{axis}'),
+                   ('Image.StageLabel', '{axis}'))
 ROTATION_FIELDS = (('Image.BeamScanSettings', 'Rotation'), ('Image.SlideScanSettings', 'Rotation'))
 STAGE_ROTATION_FIELDS = (('Plane', 'Rotation'), ('Plane.RawStage', 'Rotation'))
 FIELD_OF_VIEW = 'Image.BeamScanSettings.FieldOfView'
