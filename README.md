@@ -96,7 +96,23 @@ mapper = AcquisitionMetadataMapper(
 ```
 
 Each argument accepts a file path; omitting one uses the packaged file. The
-model is a LinkML model like `models/imaging.yaml`.
+model is a LinkML model like `models/imaging.yaml` (reading one needs the
+`model` extra), or its index (`models/model_index.json`, the default).
+
+### 4. Where an image is in space
+
+```python
+from imaging_metadata_converter.spatial import spatial_metadata
+from imaging_metadata_converter.units import normalise
+
+spatial = spatial_metadata(convert_metadata(custom))
+# {'pixel_size': {'x': ..., 'y': ...}, 'position': {...}, 'rotation': ..., 'stage_rotation': ...}
+normalise(1.5, 'mm', 'µm')    # 1500.0
+```
+
+`spatial_metadata` reads the pixel size and position (µm), and the image's and
+the stage's rotation (degrees), from the mapped metadata; `normalise` converts
+any length or angle by the model's units, by symbol or alias.
 
 ## Examples
 
