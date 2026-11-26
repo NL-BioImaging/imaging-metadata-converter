@@ -216,7 +216,8 @@ and knows nothing of the packages using it.
 4. Generic rules: wildcard rules in `mappings.json` for the common vendor names of these fields, code only
    where a rule cannot say it. Vendor cases (Ciqtek, FEI, Phenom, Fibics, ...) as metadata dicts in the tests.
 
-Status: step 1 done (commit "Map metadata without LinkML"); step 2 next.
+Status: steps 1 and 2 done (commits "Map metadata without LinkML", "Unit conversion factors"); step 3 next.
+Factors are exact numbers in text (Fraction), so 1.5 mm is 1500 µm exactly; the angle reference is the degree.
 
 ## The model and the pipeline
 

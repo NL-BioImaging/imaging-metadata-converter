@@ -19,6 +19,7 @@ enums:
         - degree
         - degrees
         annotations:
+          conversion_factor: '1'
           xsdfu_name: degree
           xsdfu_plural: degrees
           xsdfu_unitsystem: SI.RADIAN
@@ -26,13 +27,18 @@ enums:
       µrad:
         aliases:
         - urad
-      mrad: {}
+        annotations:
+          conversion_factor: '0.000057295779513082320876798154814105170332405472466564'
+      mrad:
+        annotations:
+          conversion_factor: '0.057295779513082320876798154814105170332405472466564'
       rad:
         description: radian unit.
         aliases:
         - radian
         - radians
         annotations:
+          conversion_factor: '57.295779513082320876798154814105170332405472466564'
           xsdfu_name: radian
           xsdfu_plural: radians
           xsdfu_unitsystem: SI.RADIAN
@@ -43,6 +49,7 @@ enums:
         - gradian
         - gradians
         annotations:
+          conversion_factor: '9/10'
           xsdfu_name: gradian
           xsdfu_plural: gradians
           xsdfu_unitsystem: SI.RADIAN
@@ -445,6 +452,7 @@ enums:
         - yottametre
         - yottametres
         annotations:
+          conversion_factor: '1e24'
           xsdfu_name: yottameter
           xsdfu_plural: yottameter
           xsdfu_altname: yottametre
@@ -458,6 +466,7 @@ enums:
         - zettametre
         - zettametres
         annotations:
+          conversion_factor: '1e21'
           xsdfu_name: zettameter
           xsdfu_plural: zettameter
           xsdfu_altname: zettametre
@@ -471,6 +480,7 @@ enums:
         - exametre
         - exametres
         annotations:
+          conversion_factor: '1e18'
           xsdfu_name: exameter
           xsdfu_plural: exameter
           xsdfu_altname: exametre
@@ -484,6 +494,7 @@ enums:
         - petametre
         - petametres
         annotations:
+          conversion_factor: '1e15'
           xsdfu_name: petameter
           xsdfu_plural: petameter
           xsdfu_altname: petametre
@@ -497,6 +508,7 @@ enums:
         - terametre
         - terametres
         annotations:
+          conversion_factor: '1e12'
           xsdfu_name: terameter
           xsdfu_plural: terameter
           xsdfu_altname: terametre
@@ -510,6 +522,7 @@ enums:
         - gigametre
         - gigametres
         annotations:
+          conversion_factor: '1e9'
           xsdfu_name: gigameter
           xsdfu_plural: gigameter
           xsdfu_altname: gigametre
@@ -523,6 +536,7 @@ enums:
         - megametre
         - megametres
         annotations:
+          conversion_factor: '1e6'
           xsdfu_name: megameter
           xsdfu_plural: megameter
           xsdfu_altname: megametre
@@ -536,6 +550,7 @@ enums:
         - kilometre
         - kilometres
         annotations:
+          conversion_factor: '1e3'
           xsdfu_name: kilometer
           xsdfu_plural: kilometer
           xsdfu_altname: kilometre
@@ -549,6 +564,7 @@ enums:
         - hectometre
         - hectometres
         annotations:
+          conversion_factor: '1e2'
           xsdfu_name: hectometer
           xsdfu_plural: hectometer
           xsdfu_altname: hectometre
@@ -562,6 +578,7 @@ enums:
         - decametre
         - decametres
         annotations:
+          conversion_factor: '1e1'
           xsdfu_name: decameter
           xsdfu_plural: decameter
           xsdfu_altname: decametre
@@ -575,6 +592,7 @@ enums:
         - metre
         - metres
         annotations:
+          conversion_factor: '1'
           xsdfu_name: meter
           xsdfu_plural: meter
           xsdfu_altname: metre
@@ -588,6 +606,7 @@ enums:
         - decimetre
         - decimetres
         annotations:
+          conversion_factor: '1e-1'
           xsdfu_name: decimeter
           xsdfu_plural: decimeter
           xsdfu_altname: decimetre
@@ -601,6 +620,7 @@ enums:
         - centimetre
         - centimetres
         annotations:
+          conversion_factor: '1e-2'
           xsdfu_name: centimeter
           xsdfu_plural: centimeter
           xsdfu_altname: centimetre
@@ -614,6 +634,7 @@ enums:
         - millimetre
         - millimetres
         annotations:
+          conversion_factor: '1e-3'
           xsdfu_name: millimeter
           xsdfu_plural: millimeter
           xsdfu_altname: millimetre
@@ -630,6 +651,7 @@ enums:
         - microns
         - um
         annotations:
+          conversion_factor: '1e-6'
           xsdfu_name: micrometer
           xsdfu_plural: micrometer
           xsdfu_altname: micrometre
@@ -643,6 +665,7 @@ enums:
         - nanometre
         - nanometres
         annotations:
+          conversion_factor: '1e-9'
           xsdfu_name: nanometer
           xsdfu_plural: nanometer
           xsdfu_altname: nanometre
@@ -656,6 +679,7 @@ enums:
         - picometre
         - picometres
         annotations:
+          conversion_factor: '1e-12'
           xsdfu_name: picometer
           xsdfu_plural: picometer
           xsdfu_altname: picometre
@@ -669,6 +693,7 @@ enums:
         - femtometre
         - femtometres
         annotations:
+          conversion_factor: '1e-15'
           xsdfu_name: femtometer
           xsdfu_plural: femtometer
           xsdfu_altname: femtometre
@@ -682,6 +707,7 @@ enums:
         - attometre
         - attometres
         annotations:
+          conversion_factor: '1e-18'
           xsdfu_name: attometer
           xsdfu_plural: attometer
           xsdfu_altname: attometre
@@ -695,6 +721,7 @@ enums:
         - zeptometre
         - zeptometres
         annotations:
+          conversion_factor: '1e-21'
           xsdfu_name: zeptometer
           xsdfu_plural: zeptometer
           xsdfu_altname: zeptometre
@@ -708,6 +735,7 @@ enums:
         - yoctometre
         - yoctometres
         annotations:
+          conversion_factor: '1e-24'
           xsdfu_name: yoctometer
           xsdfu_plural: yoctometer
           xsdfu_altname: yoctometre
@@ -720,6 +748,7 @@ enums:
         - ångström
         - ångströms
         annotations:
+          conversion_factor: '1e-10'
           xsdfu_name: ångström
           xsdfu_plural: ångströms
           xsdfu_unitsystem: SI.METER
@@ -729,6 +758,7 @@ enums:
         aliases:
         - thous
         annotations:
+          conversion_factor: '0.0000254'
           xsdfu_name: thou
           xsdfu_plural: thous
           xsdfu_unitsystem: Imperial
@@ -739,6 +769,7 @@ enums:
         - line
         - lines
         annotations:
+          conversion_factor: '127/60000'
           xsdfu_name: line
           xsdfu_plural: lines
           xsdfu_unitsystem: Imperial
@@ -749,6 +780,7 @@ enums:
         - inch
         - inches
         annotations:
+          conversion_factor: '0.0254'
           xsdfu_name: inch
           xsdfu_plural: inches
           xsdfu_unitsystem: Imperial
@@ -759,6 +791,7 @@ enums:
         - feet
         - foot
         annotations:
+          conversion_factor: '0.3048'
           xsdfu_name: foot
           xsdfu_plural: feet
           xsdfu_unitsystem: Imperial
@@ -769,6 +802,7 @@ enums:
         - yard
         - yards
         annotations:
+          conversion_factor: '0.9144'
           xsdfu_name: yard
           xsdfu_plural: yards
           xsdfu_unitsystem: Imperial
@@ -779,6 +813,7 @@ enums:
         - mile
         - miles
         annotations:
+          conversion_factor: '1609.344'
           xsdfu_name: mile
           xsdfu_plural: miles
           xsdfu_unitsystem: Imperial
@@ -790,6 +825,7 @@ enums:
         - astronomical unit
         - astronomical units
         annotations:
+          conversion_factor: '149597870700'
           xsdfu_name: astronomical unit
           xsdfu_plural: astronomical units
           xsdfu_unitsystem: SI.METER
@@ -800,6 +836,7 @@ enums:
         - light year
         - light years
         annotations:
+          conversion_factor: '9460730472580800'
           xsdfu_name: light year
           xsdfu_plural: light years
           xsdfu_unitsystem: SI.METER
@@ -810,6 +847,7 @@ enums:
         - parsec
         - parsecs
         annotations:
+          conversion_factor: '3.0856775814913673e16'
           xsdfu_name: parsec
           xsdfu_plural: parsecs
           xsdfu_unitsystem: SI.METER
@@ -820,6 +858,7 @@ enums:
         - point
         - points
         annotations:
+          conversion_factor: '127/360000'
           xsdfu_name: point
           xsdfu_plural: points
           xsdfu_unitsystem: Imperial

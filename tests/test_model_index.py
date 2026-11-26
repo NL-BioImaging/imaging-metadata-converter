@@ -12,17 +12,28 @@ if SCRIPTS_DIR not in sys.path:
 from model_index import model_index
 from imaging_metadata_converter.model_files import DEFAULT_MODEL_INDEX_FILE
 
-# mapping in a Python without LinkML: importing linkml_runtime fails there
+# run in a Python without LinkML: importing linkml_runtime fails there
 WITHOUT_LINKML = """
 import sys
 sys.modules['linkml_runtime'] = None
+"""
+MAPPING = """
 from imaging_metadata_converter import convert_metadata
-print(convert_metadata({'Make': 'Acme', 'Pixels': {'PhysicalSizeX': 0.5}})['Pixels']['PhysicalSizeX'])
+print(convert_metadata({'Pixels': {'PhysicalSizeX': 0.5}})['Pixels']['PhysicalSizeX'])
+"""
+MODEL_PATHS = """
 try:
     from imaging_metadata_converter import ModelPaths
 except ImportError as error:
     print(error)
 """
+
+
+def run_without_linkml(code):
+    source = os.path.join(REPO_ROOT, 'src')
+    environment = dict(os.environ, PYTHONPATH=source + os.pathsep + os.environ.get('PYTHONPATH', ''))
+    return subprocess.run([sys.executable, '-c', WITHOUT_LINKML + code], capture_output=True, text=True,
+                          env=environment)
 
 
 class ModelIndexTest(unittest.TestCase):
@@ -33,14 +44,13 @@ class ModelIndexTest(unittest.TestCase):
         self.assertEqual(packaged, model_index(), 'the model changed: run python scripts/model_index.py')
 
     def test_mapping_needs_no_linkml(self):
-        source = os.path.join(REPO_ROOT, 'src')
-        environment = dict(os.environ, PYTHONPATH=source + os.pathsep + os.environ.get('PYTHONPATH', ''))
-        result = subprocess.run([sys.executable, '-c', WITHOUT_LINKML], capture_output=True, text=True,
-                                env=environment)
+        result = run_without_linkml(MAPPING)
         self.assertEqual(result.returncode, 0, result.stderr)
-        mapped, model_paths_error = result.stdout.strip().splitlines()
-        self.assertEqual(mapped, '0.5')
-        self.assertIn('imaging-metadata-converter[model]', model_paths_error)
+        self.assertEqual(result.stdout.strip(), '0.5')
+
+    def test_model_paths_names_the_extra_without_linkml(self):
+        result = run_without_linkml(MODEL_PATHS)
+        self.assertIn('imaging-metadata-converter[model]', result.stdout)
 
 
 if __name__ == '__main__':
