@@ -110,6 +110,7 @@ Image:
     - ID: SourceMapping:31
       Field: Image[0].Pixels.Plane[0].PositionY
       Source: FibicsXML.Fibics.Stage.Y.value
+      SourceValue: '0'
     - ID: SourceMapping:32
       Field: Image[0].Pixels.Plane[0].PositionZUnit
       Source: FibicsXML.Fibics.Stage.Z.units
@@ -149,6 +150,7 @@ Image:
     - ID: SourceMapping:43
       Field: Image[0].Pixels.Plane[0].RawStage.PositionY
       Source: FibicsXML.Fibics.RawStage.Y.value
+      SourceValue: '0'
     - ID: SourceMapping:44
       Field: Image[0].Pixels.Plane[0].RawStage.PositionZUnit
       Source: FibicsXML.Fibics.RawStage.Z.units

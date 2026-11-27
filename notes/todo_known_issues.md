@@ -219,6 +219,10 @@ Talos; UMCG_mito): a Fibics row step matches its ScanRot once y is inverted; Tal
 StageSettings.StagePosition, metres) gave no position before its rule. Talos tiles' content is turned 90 degrees
 against their stage steps, which its header does not state: -Y and a `constant` combination of 90 degrees
 (written only where no rotation is stated), a rotation rather than exchanging x and y (user, 2026-11-27).
+Ciqtek (Stage.StagePosY): -Y (2026-11-27), checked on a row of SEM4000X Automap tiles (C:/Project/slides/Ciqtek/
+Automap): with -Y each tile joins its neighbour on the right (overlap correlation ~0.70, under 1 um off), without it
+they did not overlap. The row steps diagonally, so a rotation of +135 instead of -Y fits it equally; -Y was chosen as
+for the other FEI-format stages. Helios and Phenom have no tile grid to check against yet.
 Overview: docs/positioning.md.
 
 ## The model and the pipeline

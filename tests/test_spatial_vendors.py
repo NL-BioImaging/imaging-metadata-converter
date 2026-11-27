@@ -21,6 +21,17 @@ class SpatialVendorTest(unittest.TestCase):
         spatial = self.spatial({'FEI_HELIOS': {'Stage': {'StagePosX': 12.5, 'StagePosR': 11.7}}})
         self.assertEqual((spatial['position'], spatial['stage_rotation']), ({'x': 12500.0}, 11.7))
 
+    def test_ciqtek_stage_y_points_up(self):
+        """Ciqtek's stage y axis points against the image's, so its y position is inverted."""
+        spatial = self.spatial({'FEI_HELIOS': {'Stage': {'StagePosX': 1.5, 'StagePosY': 2.5}}})
+        self.assertEqual(spatial['position'], {'x': 1500.0, 'y': -2500.0})
+
+    def test_inverted_value_keeps_source_value(self):
+        """The SourceMap of a value scaled by its rule's factor keeps the value as the source wrote it."""
+        converted = self.mapper.convert_metadata({'FEI_HELIOS': {'Stage': {'StagePosY': 2.5}}})
+        self.assertEqual(converted['SourceMap']['Plane.PositionY'],
+                         {'Source': 'FEI_HELIOS.Stage.StagePosY', 'SourceValue': 2.5})
+
     def test_ciqtek_pixel_size_from_field_width(self):
         metadata = {'FEI_HELIOS': {'Beam': {'HFW': '71.68µm'}, 'Scan': {'ResolutionX': 1024, 'ResolutionY': 768}}}
         self.assertEqual(self.spatial(metadata)['pixel_size'], {'x': 0.07, 'y': 0.07})

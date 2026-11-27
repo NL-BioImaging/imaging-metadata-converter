@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "imaging-metadata-converter"
-version = "2.1.2"
+version = "2.1.3"
 description = "Convert custom imaging acquisition metadata to common metadata"
 readme = "README.md"
 license = { file = "LICENSE" }

@@ -204,6 +204,7 @@ Image:
     - ID: SourceMapping:52
       Field: Image[0].Pixels.Plane[0].PositionY
       Source: FEI_HELIOS.Stage.StagePosY
+      SourceValue: '11.1248'
     - ID: SourceMapping:53
       Field: Image[0].Pixels.Plane[0].PositionZ
       Source: FEI_HELIOS.Stage.StagePosZ
@@ -391,7 +392,7 @@ Image:
       Rotation: -30.0
       Tilt: 0.0
       PositionX: 18.9417
-      PositionY: 11.1248
+      PositionY: -11.1248
       PositionZ: 55.0
       PixelDwellTimeUnit: µs
       RotationUnit: deg
