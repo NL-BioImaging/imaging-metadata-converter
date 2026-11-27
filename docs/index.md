@@ -1,8 +1,10 @@
 # imaging-metadata-converter
 
 Convert custom (vendor-specific) imaging acquisition metadata to common
-metadata. Dict in, dict out — no file I/O, no CLI; the one dependency is
-`linkml-runtime`, for reading the model.
+metadata. Dict in, dict out — no file I/O, no CLI. Pure Python with no
+dependencies: the mapper reads the model from its packaged index. Working
+with the LinkML model itself (`ModelPaths`, the scripts) needs the `model`
+extra (`linkml-runtime`).
 
 ```python
 from imaging_metadata_converter import convert_metadata
