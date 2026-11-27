@@ -525,9 +525,14 @@ class AcquisitionMetadataMapper:
                 placed_at, placed_provenance = self._place(mapped, origin_path, *candidates)
                 if (placed_at, placed_provenance) == (candidates[0][1], root[1]):
                     self._imply_unit(rule_source_path, value, placed_at, origin_path, root)
+                    if scales:
+                        # the SourceMap keeps the value as the source wrote it, as for a respelled one
+                        placed_provenance[placed_at] = {'Source': origin_path, 'SourceValue': value}
                 for copy_target in copies:
                     if is_free_path(root_result, copy_target):
                         self._place(mapped, origin_path, (root_result, copy_target, root_provenance))
+                        if scales:
+                            root_provenance[copy_target] = {'Source': origin_path, 'SourceValue': value}
         return result
 
     def _name_item_fields(self, item, item_provenance, rule_source_path, target_path):
@@ -629,7 +634,8 @@ class AcquisitionMetadataMapper:
         mapping every output leaf path to the source path it came from, so
         renamed and collapsed keys stay recoverable from the output alone:
         a list of paths for a value derived from them, and {"Source": path,
-        "SourceValue": spelling} for a value written in the model's spelling.
+        "SourceValue": value} for a value written in the model's spelling or
+        scaled by its rule's factor, with the value as the source wrote it.
         A top-level vendor tag wrapper (see `_vendor_wrapper`) is left out
         of the paths rules are matched against, but nothing else about it
         is: its unmapped fields stay under it, and every source path keeps it.

@@ -34,7 +34,7 @@ __all__ = [
     'convert_metadata',
 ] + (['ModelPaths'] if 'ModelPaths' in globals() else [])
 
-__version__ = '2.1.2'
+__version__ = '2.1.3'
 
 _default_mapper = None
 

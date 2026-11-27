@@ -104,7 +104,8 @@ qualifies, as a derived value's is of its parts.
 **A factor** the value is multiplied by at the rule's target, for a stage axis
 pointing against the image's: Fibics' stage y points up, the image's down, so
 its y position is inverted to place tiles next to each other (a value kept at
-its own path stays as written):
+its own path stays as written). Its SourceMap entry keeps the value as the
+source wrote it, `{Source, SourceValue}`:
 
 ```json
 "Stage.Y.value": {"target": "Plane.PositionY", "factor": -1}
@@ -358,6 +359,7 @@ Every leaf of the output has a SourceMap entry, in one of three forms:
 | a path | the value as the source wrote it, moved | `Pixels.SizeX: Scan.ResolutionX` |
 | a list of paths | a value derived from them | `Image.AcquisitionDate: [Date, Time, Time Zone]` |
 | `{Source, SourceValue}` | the source's value in the model's spelling | `Objective.ImmersionType: {Source: ...Immersion, SourceValue: DRY}` (written `Air`) |
+| `{Source, SourceValue}` | the source's value before its rule's factor | `Plane.PositionY: {Source: FEI_HELIOS.Stage.StagePosY, SourceValue: 11.1248}` (written `-11.1248`) |
 
 So any output value can be traced to the source, and an output with its
 SourceMap holds everything the source did.

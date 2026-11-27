@@ -144,7 +144,9 @@ SourceMap:
   Plane.PositionYUnit:
     Source: FibicsXML.Fibics.Stage.Y.units
     SourceValue: um
-  Plane.PositionY: FibicsXML.Fibics.Stage.Y.value
+  Plane.PositionY:
+    Source: FibicsXML.Fibics.Stage.Y.value
+    SourceValue: 0
   Plane.PositionZUnit:
     Source: FibicsXML.Fibics.Stage.Z.units
     SourceValue: um
@@ -162,7 +164,9 @@ SourceMap:
   Plane.RawStage.PositionYUnit:
     Source: FibicsXML.Fibics.RawStage.Y.units
     SourceValue: um
-  Plane.RawStage.PositionY: FibicsXML.Fibics.RawStage.Y.value
+  Plane.RawStage.PositionY:
+    Source: FibicsXML.Fibics.RawStage.Y.value
+    SourceValue: 0
   Plane.RawStage.PositionZUnit:
     Source: FibicsXML.Fibics.RawStage.Z.units
     SourceValue: um

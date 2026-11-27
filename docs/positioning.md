@@ -34,7 +34,7 @@ readers convert nothing themselves.
 
 | Source (header) | Pixel size | Position | Image rotation | Stage rotation | Conversion |
 |---|---|---|---|---|---|
-| Ciqtek (`FEI_HELIOS` tag) | `Beam.HFW` / pixels | `Stage.StagePosX/Y/Z` | `Beam.ElectricRotate` | `Stage.StagePosR` | mm; deg |
+| Ciqtek (`FEI_HELIOS` tag) | `Beam.HFW` / pixels | `Stage.StagePosX/Y/Z` | `Beam.ElectricRotate` | `Stage.StagePosR` | mm; −Y; deg |
 | FEI / TFS Helios | `Scan.PixelWidth/Height` | `Stage.StageX/Y/Z` | `Beam.ScanRotation`, `Scan.ScanRotation` | `Stage.StageR` | m; rad |
 | FEI Titan / Talos (`FEI_TITAN`) | `BinaryResult.PixelSize.X/Y` | `StageSettings.StagePosition.X/Y/Z` | 90° (`constant`) | | m; −Y; 90° |
 | Fibics / Zeiss Atlas | `Scan.FOV_X/Y` / pixels | `Stage.X/Y/Z` (value, units) | `Scan.ScanRot` | `Stage.Rot`, `Stage.R` | −Y |
@@ -46,7 +46,7 @@ means square pixels. Readers add what only their file holds: for a TIFF without 
 the baseline resolution.
 
 Checked against tile grids, whose tiles must line up with their neighbours' content: Fibics (Zeiss Supra,
-UMCG mito) and FEI Titan (Talos). The others are checked on single files only, so their y direction is not
+UMCG mito), FEI Titan (Talos) and Ciqtek (a row of SEM4000X Automap tiles). The others are checked on single files only, so their y direction is not
 confirmed by a grid yet. FEI Titan's 90° is not in its header: its tiles' content is turned that way against
 their stage steps, which a rotation with −Y explains without exchanging x and y.
 
