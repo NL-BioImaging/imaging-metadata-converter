@@ -244,6 +244,11 @@ The derived value takes its parts' place, as it holds what they did.
 | `ratio` | the first part divided by the second | EXIF's `[41, 5000]`: 0.0082 |
 | `join` (with `separator`) | the parts joined | LMD7's 8, 5, 9136: `8.5.9136` |
 | `pattern` | the first group of a regular expression | `63.0` from `HCX APO L U-V-I  63.0x0.90 WATER  UV` |
+| `constant` (with `value`) | the value, where its source is there | FEI Titan tiles' rotation: 90°, where the stage is |
+
+`constant` writes what a format implies but never writes, its source only saying it applies (and staying where it
+is): FEI Titan tiles are turned 90° against their stage (see [Positioning](positioning.md)). As every combination,
+it writes only where the field is free, so a value the source states comes first.
 
 A Unix time of 0 counts as unset (TALOS writes `"0"` for a time it lacks).
 `duration` and `quantity` write their unit beside the value, as does an

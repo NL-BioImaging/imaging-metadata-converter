@@ -42,9 +42,20 @@ class SpatialVendorTest(unittest.TestCase):
         self.assertEqual(self.spatial(metadata)['pixel_size'], {'x': 0.0016528, 'y': 0.0016528})
 
     def test_fei_titan_stage_position_in_metres(self):
+        """In metres, its y pointing up (inverted), as Fibics'."""
         metadata = {'FEI_TITAN': {'Metadata': {'StageSettings': {'StagePosition': {
             'X': -0.000285, 'Y': -4.7e-05, 'Tilt': {'Alpha': 3.4e-05}}}}}}
-        self.assertEqual(self.spatial(metadata)['position'], {'x': -285.0, 'y': -47.0})
+        self.assertEqual(self.spatial(metadata)['position'], {'x': -285.0, 'y': 47.0})
+
+    def test_fei_titan_tiles_turned_90_degrees(self):
+        """Its tiles are turned 90 degrees against the stage, which the header does not state."""
+        metadata = {'FEI_TITAN': {'Metadata': {'StageSettings': {'StagePosition': {'X': 0.0, 'Y': 0.0}}}}}
+        self.assertEqual(self.spatial(metadata)['rotation'], 90.0)
+
+    def test_stated_rotation_before_implied_one(self):
+        metadata = {'FEI_TITAN': {'Metadata': {'StageSettings': {'StagePosition': {'X': 0.0}}}},
+                    'acquisition': {'scan': {'rotation': 30}}}
+        self.assertEqual(self.spatial(metadata)['rotation'], 30.0)
 
     def test_fei_stage_section_over_beam_copy(self):
         metadata = {'FEI_HELIOS': {'IRBeam': {'StageX': -0.00126661}, 'Stage': {'StageX': 0.0699197}}}

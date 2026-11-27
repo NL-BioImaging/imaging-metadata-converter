@@ -216,7 +216,10 @@ Positions are in the image's frame (y down), so tiles place next to each other: 
 way is inverted by its rule's `factor` (-1), Fibics' stage y (user's choice, 2026-11-27, over a model field for
 the axis direction or a flip in each reader). Checked on tile grids (C:/Project/slides/Benchmark Data: Supra,
 Talos; UMCG_mito): a Fibics row step matches its ScanRot once y is inverted; Talos (FEI Titan
-StageSettings.StagePosition, metres) gave no position before its rule.
+StageSettings.StagePosition, metres) gave no position before its rule. Talos tiles' content is turned 90 degrees
+against their stage steps, which its header does not state: -Y and a `constant` combination of 90 degrees
+(written only where no rotation is stated), a rotation rather than exchanging x and y (user, 2026-11-27).
+Overview: docs/positioning.md.
 
 ## The model and the pipeline
 
