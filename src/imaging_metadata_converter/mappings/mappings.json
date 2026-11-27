@@ -251,7 +251,8 @@
     },
     "StageSettings.StagePosition.Y": {
         "target": "Plane.PositionY",
-        "unit": "m"
+        "unit": "m",
+        "factor": -1
     },
     "StageSettings.StagePosition.Z": {
         "target": "Plane.PositionZ",

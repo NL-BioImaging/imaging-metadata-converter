@@ -374,5 +374,14 @@
             "YPosition[1]"
         ],
         "format": "ratio"
+    },
+    {
+        "target": "Image.BeamScanSettings.Rotation",
+        "sources": [
+            "*StageSettings.StagePosition.X"
+        ],
+        "format": "constant",
+        "value": 90,
+        "unit": "deg"
     }
 ]

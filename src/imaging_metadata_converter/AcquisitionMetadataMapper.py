@@ -56,7 +56,8 @@ EXIF_EQUIPMENT = (('Manufacturer', 'Make'), ('Model', 'Model'))
 VELOX_IMAGE_DETECTOR = 'BinaryResult.Detector'
 # Windows FILETIME, as Leica's LMD software writes its acquisition time: 100 ns steps since 1601
 FILETIME_EPOCH = datetime(1601, 1, 1)
-FORMATS_KEEPING_PARTS = ('count',)
+# a constant's source only says the value applies, it is not a part of it
+FORMATS_KEEPING_PARTS = ('count', 'constant')
 # a time written as text, in hours, minutes and seconds ("2min52s"), and a number written with its unit ("21.12µm")
 DURATION = re.compile(r'(?:(\d+(?:\.\d+)?)\s*h)?\s*(?:(\d+(?:\.\d+)?)\s*min)?\s*(?:(\d+(?:\.\d+)?)\s*s)?')
 QUANTITY = re.compile(r'([-+]?(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?)\s*([^\d\s].*)')
@@ -976,7 +977,9 @@ class AcquisitionMetadataMapper:
         those two write the unit beside the value too, where free, as does any entry stating a "unit".
         "join" joins the parts with the entry's "separator" (LMD7's version 8, 5 and 9136 as "8.5.9136"),
         "filetime" reads a Windows FILETIME (100 ns steps since 1601, as Leica's LMD software writes its
-        acquisition time) as ISO 8601 without a zone, as none is stated.
+        acquisition time) as ISO 8601 without a zone, as none is stated. "constant" writes the entry's "value"
+        where its source is there: what a format implies but never writes (FEI Titan tiles are turned 90 degrees
+        against their stage), so a value the source states comes first.
         "pattern" takes the first group of the entry's regular expression "pattern", as a number where it is
         one (the magnification 63.0 out of Leica's objective name "HCX APO L U-V-I  63.0x0.90 WATER  UV"). A
         source path may hold "*", for the first source path it matches (a turret named after its stand).
@@ -996,6 +999,8 @@ class AcquisitionMetadataMapper:
             text = ' '.join(map(str, parts))
             if combination['format'] == 'join':
                 combined = combination.get('separator', ' ').join(map(str, parts)) if has_all_parts else None
+            elif combination['format'] == 'constant':
+                combined = combination['value'] if has_all_parts else None
             else:
                 combined = parse_combination(text, combination['format'], combination.get('item'),
                                              combination.get('pattern')) if has_all_parts else None
