@@ -198,7 +198,11 @@ with `core.autocrlf` Windows checked six of them out with CRLF, so the committed
 
 ## In progress
 
-Nothing.
+Branch `stage-positions` (2026-11-26), from tile grids that place wrongly (C:/Project/slides/Benchmark Data,
+UMCG_mito):
+- Talos (FEI Titan TIFF tag): `StageSettings.StagePosition.X/Y/Z` (metres) had no rule, so no position. Rule added.
+- Fibics (Supra, UMCG_mito): the stage's y axis points up, the image's down, so tiles are placed mirrored in y.
+  How to invert it (rule option, or elsewhere) to be decided with the user.
 
 ## Spatial metadata
 

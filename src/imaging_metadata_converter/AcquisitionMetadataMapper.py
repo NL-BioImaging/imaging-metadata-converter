@@ -83,7 +83,11 @@ class AcquisitionMetadataMapper:
         rules = self._load_json(mappings_file)
         # a rule may state the unit its source implies but never writes: {"target": ..., "unit": "mm"}
         self.mappings = {source: rule['target'] if isinstance(rule, dict) else rule for source, rule in rules.items()}
-        self.implied_units = {source: rule['unit'] for source, rule in rules.items() if isinstance(rule, dict)}
+        self.implied_units = {source: rule['unit'] for source, rule in rules.items()
+                              if isinstance(rule, dict) and 'unit' in rule}
+        # and a factor its numbers are multiplied by: -1 for a stage axis pointing against the image's (Fibics' y)
+        self.factors = {source: rule['factor'] for source, rule in rules.items()
+                        if isinstance(rule, dict) and 'factor' in rule}
         # a rule naming a field of each item a "Prefix.*": "Target[]" rule collapses ("Detectors.*.DetectorName":
         # "GenericDetector[].Name") renames inside those items only, so it takes no part in resolving other paths
         self.item_fields = {source: target for source, target in self.mappings.items()
@@ -512,12 +516,17 @@ class AcquisitionMetadataMapper:
             else:
                 candidates, copies = self._candidates(rule_source_path, source_path, min_rule_segments, result,
                                                       provenance, root, origin_path)
-                placed_at, placed_provenance = self._place(value, origin_path, *candidates)
+                # a rule's factor applies at its target only: a value kept at its own path stays as written
+                factor = self.factors.get(rule_source_path)
+                to_target = len(candidates) == 2 and is_free_path(candidates[0][0], candidates[0][1])
+                scales = factor is not None and to_target and is_number(value)
+                mapped = (float(value) if isinstance(value, str) else value) * factor if scales else value
+                placed_at, placed_provenance = self._place(mapped, origin_path, *candidates)
                 if (placed_at, placed_provenance) == (candidates[0][1], root[1]):
                     self._imply_unit(rule_source_path, value, placed_at, origin_path, root)
                 for copy_target in copies:
                     if is_free_path(root_result, copy_target):
-                        self._place(value, origin_path, (root_result, copy_target, root_provenance))
+                        self._place(mapped, origin_path, (root_result, copy_target, root_provenance))
         return result
 
     def _name_item_fields(self, item, item_provenance, rule_source_path, target_path):

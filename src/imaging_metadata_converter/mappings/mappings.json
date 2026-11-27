@@ -245,7 +245,22 @@
     },
     "Stage.X.value": "Plane.PositionX",
     "Stage.X.units": "Plane.PositionXUnit",
-    "Stage.Y.value": "Plane.PositionY",
+    "StageSettings.StagePosition.X": {
+        "target": "Plane.PositionX",
+        "unit": "m"
+    },
+    "StageSettings.StagePosition.Y": {
+        "target": "Plane.PositionY",
+        "unit": "m"
+    },
+    "StageSettings.StagePosition.Z": {
+        "target": "Plane.PositionZ",
+        "unit": "m"
+    },
+    "Stage.Y.value": {
+        "target": "Plane.PositionY",
+        "factor": -1
+    },
     "Stage.Y.units": "Plane.PositionYUnit",
     "Stage.Z.value": "Plane.PositionZ",
     "Stage.Z.units": "Plane.PositionZUnit",
@@ -306,7 +321,10 @@
     "RawStage.X.units": "Plane.RawStage.PositionXUnit",
     "RawStage.X.value": "Plane.RawStage.PositionX",
     "RawStage.Y.units": "Plane.RawStage.PositionYUnit",
-    "RawStage.Y.value": "Plane.RawStage.PositionY",
+    "RawStage.Y.value": {
+        "target": "Plane.RawStage.PositionY",
+        "factor": -1
+    },
     "RawStage.Z.units": "Plane.RawStage.PositionZUnit",
     "RawStage.Z.value": "Plane.RawStage.PositionZ",
     "StageBias.BiasType": "Image.SamplePositioningSettings.BiasType",
