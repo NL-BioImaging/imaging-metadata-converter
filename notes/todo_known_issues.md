@@ -212,6 +212,12 @@ exact numbers in text (fractions); the angle reference is the degree. A vendor w
 rule, not code in a reader. Checked against biomero-converter on its TIFF set (C:/Project/slides/tiff): the same
 pixel sizes and positions, plus rotations.
 
+Positions are in the image's frame (y down), so tiles place next to each other: a stage axis pointing the other
+way is inverted by its rule's `factor` (-1), Fibics' stage y (user's choice, 2026-11-27, over a model field for
+the axis direction or a flip in each reader). Checked on tile grids (C:/Project/slides/Benchmark Data: Supra,
+Talos; UMCG_mito): a Fibics row step matches its ScanRot once y is inverted; Talos (FEI Titan
+StageSettings.StagePosition, metres) gave no position before its rule.
+
 ## The model and the pipeline
 
 See docs/model.md and docs/maintaining.md for the full account.

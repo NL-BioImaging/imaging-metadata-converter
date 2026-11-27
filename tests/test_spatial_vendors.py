@@ -41,6 +41,11 @@ class SpatialVendorTest(unittest.TestCase):
         metadata = {'Metadata': {'BinaryResult': {'PixelSize': {'X': 1.6528e-9, 'Y': 1.6528e-9}}}}
         self.assertEqual(self.spatial(metadata)['pixel_size'], {'x': 0.0016528, 'y': 0.0016528})
 
+    def test_fei_titan_stage_position_in_metres(self):
+        metadata = {'FEI_TITAN': {'Metadata': {'StageSettings': {'StagePosition': {
+            'X': -0.000285, 'Y': -4.7e-05, 'Tilt': {'Alpha': 3.4e-05}}}}}}
+        self.assertEqual(self.spatial(metadata)['position'], {'x': -285.0, 'y': -47.0})
+
     def test_fei_stage_section_over_beam_copy(self):
         metadata = {'FEI_HELIOS': {'IRBeam': {'StageX': -0.00126661}, 'Stage': {'StageX': 0.0699197}}}
         self.assertEqual(self.spatial(metadata)['position'], {'x': 69919.7})
@@ -59,6 +64,16 @@ class SpatialVendorTest(unittest.TestCase):
     def test_fibics_scan_rotation(self):
         metadata = {'FibicsXML': {'Fibics': {'Scan': {'ScanRot': {'units': 'deg', 'value': 12.0}}}}}
         self.assertEqual(self.spatial(metadata)['rotation'], 12.0)
+
+    def test_fibics_stage_y_points_up(self):
+        """Fibics' stage y axis points against the image's, so its y position is inverted."""
+        metadata = {'FibicsXML': {'Fibics': {'Stage': {'X': {'units': 'um', 'value': 5},
+                                                       'Y': {'units': 'um', 'value': 10}}}}}
+        self.assertEqual(self.spatial(metadata)['position'], {'x': 5.0, 'y': -10.0})
+
+    def test_inverted_number_written_as_text(self):
+        metadata = {'FibicsXML': {'Fibics': {'Stage': {'Y': {'units': 'um', 'value': '10'}}}}}
+        self.assertEqual(self.spatial(metadata)['position'], {'y': -10.0})
 
     def test_fibics_pixel_size_from_field_of_view(self):
         metadata = {'FibicsXML': {'Fibics': {'Image': {'Width': 1000, 'Height': 500},

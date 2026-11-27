@@ -101,6 +101,15 @@ is stated only with confidence (the vendor's convention is known and the
 values agree with it). Its SourceMap entry is the list of the value it
 qualifies, as a derived value's is of its parts.
 
+**A factor** the value is multiplied by at the rule's target, for a stage axis
+pointing against the image's: Fibics' stage y points up, the image's down, so
+its y position is inverted to place tiles next to each other (a value kept at
+its own path stays as written):
+
+```json
+"Stage.Y.value": {"target": "Plane.PositionY", "factor": -1}
+```
+
 **An item of a value list** - `[n]` in a source path:
 
 ```json
